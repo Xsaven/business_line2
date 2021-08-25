@@ -1,0 +1,535 @@
+@media print, (max-width: 1599px)
+{
+    /*-------------------
+        Global styles
+    -------------------*/
+    .wrap > .bg img.bg_1600
+    {
+        display: none;
+    }
+
+    .wrap > .bg img.bg_1440
+    {
+        display: block;
+    }
+
+
+    .cont
+    {
+        max-width: 1212px;
+    }
+
+
+
+    /*------------
+        Header
+    ------------*/
+    header .links > * + *,
+    header .links > *.margin
+    {
+        margin-left: 25px;
+    }
+
+
+
+    /*-------------
+        Sidebar
+    -------------*/
+
+
+
+    /*---------------
+        Page head
+    ---------------*/
+
+
+
+    /*----------------
+        Block head
+    ----------------*/
+
+
+
+    /*------------------
+        Form elements
+    ------------------*/
+
+
+
+    /*----------------
+        Typography
+    ----------------*/
+    .text_block .columns
+    {
+        column-gap: 102px;
+    }
+
+
+
+    /*----------
+        Auth
+    ----------*/
+    .auth .info
+    {
+        width: 568px;
+        max-width: calc(50% - 26px);
+        margin-right: 52px;
+    }
+
+    .auth .info .twenty_years
+    {
+        top: -94px;
+        left: 8px;
+
+        height: 126px;
+    }
+
+
+
+    /*-------------------------
+        Participation rules
+    -------------------------*/
+    .participation_rules
+    {
+        margin-bottom: 58px;
+    }
+
+
+
+    /*---------
+        FAQ
+    ---------*/
+    .faq
+    {
+        margin-bottom: 82px;
+    }
+
+
+
+    /*-------------------
+        Search result
+    -------------------*/
+    .search_result
+    {
+        margin-bottom: 81px;
+    }
+
+
+
+    /*-------------
+        Support
+    -------------*/
+    .support
+    {
+        margin-bottom: 32px;
+    }
+
+
+
+    /*----------
+        Shop
+    ----------*/
+    .shop
+    {
+        width: 100%;
+        margin-bottom: 88px;
+    }
+
+
+
+    /*--------------
+        Products
+    --------------*/
+    .products .product
+    {
+        padding: 40px 60px 60px;
+    }
+
+
+
+    /*-------------
+        LK info
+    -------------*/
+    .lk_info
+    {
+        margin-bottom: 111px;
+    }
+
+
+    .lk_info .lk_data
+    {
+        width: calc(100% - 335px);
+    }
+
+
+
+    /*------------------------
+        LK info - LK aside
+    ------------------------*/
+    .lk_info .lk_aside
+    {
+        width: 273px;
+    }
+
+
+
+    .lk_info .links a
+    {
+        padding-right: 10px;
+    }
+
+
+
+    .lk_info .user_informer
+    {
+        padding: 42px 32px;
+    }
+
+
+
+    /*-------------------------
+        LK info - User info
+    -------------------------*/
+    .lk_info .user_info
+    {
+        width: 309px;
+        padding: 43px 48px 52px;
+    }
+
+
+    .lk_info .user_info .avatar .bg
+    {
+        bottom: -16px;
+
+        height: 53px;
+    }
+
+
+    .lk_info .user_info .stats
+    {
+        padding: 0;
+    }
+
+
+    .lk_info .user_info .subscribe_btn
+    {
+        margin-top: 43px;
+    }
+
+
+
+    /*-------------------------
+        LK info - User data
+    -------------------------*/
+    .lk_info .user_data
+    {
+        width: 714px;
+        margin-left: 68px;
+    }
+
+
+
+    /*----------------
+        Tasks list
+    ----------------*/
+    .lk_info .tasks_list
+    {
+        width: 714px;
+        margin-left: 68px;
+    }
+
+
+    .tasks_list .task .video
+    {
+        margin-top: 20px;
+    }
+
+
+    .tasks_list .task_wrap .task
+    {
+        width: calc(100% - 217px);
+    }
+
+
+    .tasks_list .dialog
+    {
+        width: 215px;
+    }
+
+
+
+    /*------------
+        Orders
+    ------------*/
+    .orders .row
+    {
+        margin-bottom: -40px;
+        margin-left: -20px;
+    }
+
+    .orders .row > *
+    {
+        width: calc(50% - 20px);
+        margin-bottom: 40px;
+        margin-left: 20px;
+    }
+
+
+    .orders .order
+    {
+        padding: 0 20px 48px;
+    }
+
+    .orders .order .head
+    {
+        margin-right: -20px;
+        margin-left: -20px;
+    }
+
+    .orders .order .product .thumb + *
+    {
+        width: calc(100% - 158px);
+    }
+
+
+
+    /*---------------
+        Standings
+    ---------------*/
+    .standings
+    {
+        margin-bottom: 84px;
+    }
+
+
+    .standings .data
+    {
+        max-width: calc(100% - 60px);
+        margin-left: 60px;
+    }
+
+
+
+    /*---------------
+        Task info
+    ---------------*/
+    .task_info
+    {
+        margin-bottom: 225px;
+    }
+
+
+    .task_info .data .video
+    {
+        margin-left: auto;
+    }
+
+
+
+    .task_info .terms
+    {
+        width: calc(100% - 723px);
+    }
+
+
+    .task_info .terms.min_w
+    {
+        width: calc(100% - 800px);
+    }
+
+
+
+    .task_info .performance,
+    .task_info .upload_report
+    {
+        width: 637px;
+    }
+
+
+
+    .task_info .reports
+    {
+        margin-left: auto;
+    }
+
+
+
+    /*--------------------
+        Direction info
+    --------------------*/
+    .direction_info
+    {
+        margin-bottom: 137px;
+    }
+
+
+
+    .direction_info .data .video
+    {
+        width: calc(100% - 533px);
+        margin-right: 14px;
+    }
+
+
+
+    .direction_info .terms
+    {
+        margin-top: 60px;
+    }
+
+
+
+
+    .direction_info .prizes
+    {
+        margin-top: 60px;
+    }
+
+    .direction_info .prizes .item br
+    {
+        display: none;
+    }
+
+
+
+    .direction_info .schedule .events .item
+    {
+        min-height: 90px;
+        padding: 12px 16px;
+    }
+
+    .direction_info .schedule .events .item .time
+    {
+        padding-right: 24px;
+    }
+
+    .direction_info .schedule .events .item .name
+    {
+        -webkit-line-clamp: 3;
+    }
+
+
+
+    /*----------------
+        About info
+    ----------------*/
+    .about_info
+    {
+        margin-bottom: 61px;
+    }
+
+
+
+    .about_info .data
+    {
+        width: 100%;
+        margin-bottom: 32px;
+    }
+
+    .about_info .data .desc
+    {
+        width: 764px;
+        max-width: 100%;
+    }
+
+
+
+    .about_info .video
+    {
+        width: calc(100% - 370px);
+        margin-right: auto;
+        margin-left: 0;
+    }
+
+    .about_info .video .link .icon
+    {
+        width: 74px;
+        height: 74px;
+    }
+
+
+
+    .about_info .chat
+    {
+        width: 350px;
+    }
+
+
+
+    /*----------------
+        Directions
+    ----------------*/
+    .directions
+    {
+        margin-bottom: 54px;
+    }
+
+
+    .directions .title
+    {
+        margin-bottom: 32px;
+    }
+
+
+    .directions .row
+    {
+        margin-bottom: -38px;
+        margin-left: -38px;
+    }
+
+    .directions .row > *
+    {
+        width: calc(33.333% - 38px);
+        margin-bottom: 38px;
+        margin-left: 38px;
+    }
+
+
+    .directions .item .bg
+    {
+        top: -9px;
+        right: -24px;
+
+        height: 48px;
+    }
+
+    .directions .item .bg2
+    {
+        top: -4px;
+        left: 19px;
+
+        height: 12px;
+    }
+
+    .directions .item .bg3
+    {
+        right: -4px;
+        bottom: -4px;
+
+        height: 44px;
+    }
+
+    .directions .item .bg4
+    {
+        top: 12px;
+        right: -30px;
+
+        height: 40px;
+    }
+
+
+
+    /*------------
+        Footer
+    ------------*/
+    footer.big_margin
+    {
+        padding: 114px 0;
+    }
+
+
+
+    /*-----------
+        PopUp
+    -----------*/
+}

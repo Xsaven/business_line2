@@ -1,0 +1,759 @@
+@media (max-width: 479px)
+{
+    /*-------------------
+        Global styles
+    -------------------*/
+    .wrap > .bg img.bg_480
+    {
+        display: none;
+    }
+
+    .wrap > .bg img.bg_360
+    {
+        display: block;
+    }
+
+
+    .cont
+    {
+        padding: 0 24px;
+    }
+
+
+
+    /*------------
+        Header
+    ------------*/
+    header
+    {
+        margin-bottom: 32px;
+    }
+
+
+    header .notifications .mini_modal
+    {
+        right: -72px;
+
+        width: 312px;
+    }
+
+    header .notifications .mini_modal:before
+    {
+        right: 74px;
+    }
+
+
+    header .mob_menu_btn
+    {
+        margin-left: 48px;
+    }
+
+
+
+    /*---------------
+        Mob. menu
+    ---------------*/
+    #mob_menu
+    {
+        width: 100%;
+        padding: 28px 45px;
+    }
+
+
+    #mob_menu .twenty_years
+    {
+        display: block;
+    }
+
+
+    #mob_menu .account
+    {
+        margin-right: 50px;
+    }
+
+    #mob_menu .account .user .avatar
+    {
+        line-height: 85px;
+
+        width: 85px;
+        height: 85px;
+    }
+
+
+
+    /*----------
+        Auth
+    ----------*/
+    .auth
+    {
+        padding-top: 40px;
+    }
+
+
+    .auth .info
+    {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .auth .info .twenty_years
+    {
+        top: -31px;
+        left: -9px;
+
+        height: 56px;
+    }
+
+
+    .auth .data
+    {
+        width: calc(100% + 48px);
+        max-width: calc(100% + 48px);
+        margin-right: -24px;
+        margin-left: -24px;
+        padding: 40px;
+    }
+
+
+
+    /*-------------------------
+        Participation rules
+    -------------------------*/
+    .participation_rules
+    {
+        margin-bottom: 14px;
+    }
+
+
+
+    /*---------
+        FAQ
+    ---------*/
+    .faq
+    {
+        margin-bottom: 9px;
+    }
+
+
+
+    /*-------------------
+        Search result
+    -------------------*/
+    .search_result
+    {
+        margin-bottom: 9px;
+    }
+
+
+
+    /*-------------
+        Support
+    -------------*/
+    .support
+    {
+        margin-bottom: -17px;
+    }
+
+
+    .support .block_head
+    {
+        text-align: left;
+    }
+
+
+    .support .data
+    {
+        padding: 38px 32px 52px;
+    }
+
+
+    .support .data .time .val
+    {
+        width: 100px;
+    }
+
+    .support .data .time .desc
+    {
+        width: calc(100% - 106px);
+        margin-right: -4px;
+    }
+
+
+    .support .data .bg
+    {
+        right: -17px;
+        bottom: 18px;
+    }
+
+
+    .support .text
+    {
+        padding: 0 16px;
+    }
+
+
+
+    /*----------
+        Shop
+    ----------*/
+    .shop
+    {
+        margin-bottom: 6px;
+    }
+
+
+
+    /*--------------
+        Products
+    --------------*/
+    .products .row
+    {
+        padding: 0;
+    }
+
+
+    .products .product
+    {
+        padding: 42px 32px 58px;
+    }
+
+
+
+    /*-------------
+        LK info
+    -------------*/
+    .lk_info
+    {
+        margin-bottom: 11px;
+    }
+
+
+
+    /*-------------------------
+        LK info - User info
+    -------------------------*/
+    .lk_info .user_info
+    {
+        padding-left: 111px;
+    }
+
+
+
+    /*------------
+        Dialog
+    ------------*/
+    .dialog .messages .message .user .avatar + *
+    {
+        display: flex;
+
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+
+
+    .dialog .messages .message .user .date
+    {
+        margin-top: 0;
+    }
+
+
+
+    /*------------------------
+        LK info - LK aside
+    ------------------------*/
+    .lk_info .lk_aside
+    {
+        margin-bottom: 35px;
+    }
+
+
+
+    .lk_info .user_informer
+    {
+        padding: 20px;
+    }
+
+
+
+    /*------------
+        Orders
+    ------------*/
+    .orders .order
+    {
+        padding: 0 24px 40px;
+    }
+
+    .orders .order .head
+    {
+        font-size: 12px;
+
+        margin-right: -24px;
+        margin-left: -24px;
+        padding: 8px 24px;
+    }
+
+
+    .orders .order .product
+    {
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    .orders .order .product .thumb
+    {
+        width: 104px;
+        height: 132px;
+    }
+
+    .orders .order .product .thumb + *
+    {
+        width: calc(100% - 128px);
+    }
+
+
+    .orders .order .contacts
+    {
+        font-size: 12px;
+
+        display: flex;
+
+        margin-top: 8px;
+
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+
+    .orders .order .contacts .email
+    {
+        margin-left: 32px;
+    }
+
+    .orders .order .contacts .address
+    {
+        width: 100%;
+        margin-top: 1px;
+    }
+
+
+
+    /*-----------------------
+        LK info - History
+    -----------------------*/
+    .lk_info .history .item
+    {
+        padding-right: 8px;
+    }
+
+
+    .lk_info .history .item .date
+    {
+        width: 69px;
+        min-width: 69px;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .lk_info .history .item .name
+    {
+        margin-left: 12px;
+    }
+
+    .lk_info .history .item .name a
+    {
+        display: -webkit-box;
+        overflow: hidden;
+
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .lk_info .history .item .scores
+    {
+        margin-left: 12px;
+    }
+
+
+
+    /*------------------------
+        LK info - Personal
+    ------------------------*/
+    .lk_info .personal .user_data > .name
+    {
+        display: inline-block;
+
+        margin-top: 8px;
+
+        vertical-align: top;
+    }
+
+    .lk_info .personal .user_data > .name br
+    {
+        display: block;
+    }
+
+
+    .lk_info .personal .user_data .info
+    {
+        max-width: 100%;
+    }
+
+
+
+    .lk_info .personal .edit_form
+    {
+        width: calc(100% - 116px);
+    }
+
+    .lk_info .personal .edit_form .input,
+    .lk_info .personal .edit_form textarea
+    {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .lk_info .personal .edit_form .nice-select .current
+    {
+        padding-left: 12px;
+    }
+
+    .lk_info .personal .edit_form .submit_btn
+    {
+        min-width: 104px;
+    }
+
+    .lk_info .personal .edit_form .cancel_btn
+    {
+        min-width: 80px;
+    }
+
+
+
+    /*---------------
+        Standings
+    ---------------*/
+    .standings
+    {
+        margin-bottom: 0;
+    }
+
+
+    .standings .aside
+    {
+        margin-bottom: 38px;
+    }
+
+
+    .standings .data .table_wrap
+    {
+        padding: 20px;
+    }
+
+
+    .standings .data table td.number
+    {
+        padding-left: 0;
+    }
+
+
+
+    /*---------------
+        Task info
+    ---------------*/
+    .task_info
+    {
+        margin-bottom: 2px;
+    }
+
+
+    .task_info .data .info
+    {
+        margin-bottom: 30px;
+    }
+
+
+
+    .task_info .terms,
+    .task_info .terms.min_w,
+    .task_info .performance,
+    .task_info .upload_report,
+    .task_info .reports
+    {
+        margin-top: 40px;
+    }
+
+
+    .task_info .performance .info
+    {
+        padding: 22px 20px;
+    }
+
+
+    .task_info .upload_report .info
+    {
+        padding: 22px 20px;
+    }
+
+    .task_info .upload_report .form
+    {
+        padding-bottom: 66px;
+    }
+
+
+    .task_info .performance .quiz .steps
+    {
+        width: 100%;
+
+        justify-content: space-between;
+    }
+
+    .task_info .performance .quiz .time
+    {
+        font-size: 16px;
+        line-height: 20px;
+
+        margin-top: 12px;
+        margin-left: auto;
+    }
+
+    .task_info .performance .quiz .question
+    {
+        font-size: 17px;
+        line-height: 25px;
+
+        margin-bottom: 28px;
+    }
+
+    .task_info .performance .quiz_result
+    {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+
+    .task_info .performance .you_look_like
+    {
+        padding-top: 20px;
+    }
+
+    .task_info .performance .you_look_like .photo
+    {
+        width: 132px;
+        height: 132px;
+        margin: 0 auto 20px;
+    }
+
+    .task_info .performance .you_look_like .text
+    {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .task_info .performance .you_look_like .share
+    {
+        margin-top: 32px;
+    }
+
+
+    .task_info .performance .bg,
+    .task_info .upload_report .bg
+    {
+        right: -16px;
+    }
+
+
+    .task_info .report
+    {
+        padding-bottom: 52px;
+    }
+
+    .task_info .report .task .author .avatar + *
+    {
+        width: calc(100% - 57px);
+    }
+
+    .task_info .report .task .date
+    {
+        font-size: 12px;
+        line-height: 14px;
+
+        width: 100%;
+        margin-top: 8px;
+        padding-left: 57px;
+    }
+
+
+
+    /*--------------------
+        Direction info
+    --------------------*/
+    .direction_info
+    {
+        margin-bottom: 3px;
+    }
+
+
+
+    .direction_info .data .info > *
+    {
+        width: 100%;
+    }
+
+    .direction_info .data .info > * + *
+    {
+        width: auto;
+        margin-top: 16px;
+        margin-left: 0;
+    }
+
+
+    .direction_info .data .members
+    {
+        line-height: 20px;
+
+        text-align: left;
+    }
+
+
+    .direction_info .data .author
+    {
+        padding: 18px 18px 22px;
+    }
+
+    .direction_info .data .author .avatar
+    {
+        width: 80px;
+        height: 80px;
+    }
+
+    .direction_info .data .author .avatar .bg
+    {
+        right: -7px;
+        bottom: -7px;
+
+        height: 26px;
+    }
+
+
+    .direction_info .data .author .avatar + div
+    {
+        width: calc(100% - 99px);
+    }
+
+
+
+    .direction_info .prizes .row_wrap
+    {
+        overflow: auto;
+
+        width: calc(100% + 48px);
+        margin: 0 -24px;
+
+        scrollbar-color: transparent transparent;
+        scrollbar-width: thin;
+    }
+
+    .direction_info .prizes .row_wrap::-webkit-scrollbar
+    {
+        width: 0;
+        height: 0;
+
+        background-color: transparent;
+    }
+
+    .direction_info .prizes .row_wrap::-webkit-scrollbar-thumb
+    {
+        background-color: transparent;
+    }
+
+    .direction_info .prizes .row
+    {
+        width: 452px;
+        margin-bottom: 0;
+        padding: 0 24px;
+    }
+
+    .direction_info .prizes .row > *
+    {
+        margin-bottom: 0;
+    }
+
+
+
+    .direction_info .schedule .head .exp
+    {
+        width: calc(100% + 28px);
+        margin-top: 28px;
+        margin-left: -28px;
+    }
+
+    .direction_info .schedule .head .exp > *
+    {
+        max-width: calc(100% - 28px);
+        margin-left: 28px;
+    }
+
+    .direction_info .schedule .head .exp .color
+    {
+        width: 12px;
+        height: 12px;
+        margin-right: 4px;
+    }
+
+
+
+    /*----------
+        Chat
+    ----------*/
+    .chat .messages
+    {
+        padding: 24px 0;
+    }
+
+
+
+    /*------------
+        Footer
+    ------------*/
+    footer
+    {
+        padding: 39px 0 128px;
+    }
+
+    footer.big_margin
+    {
+        padding: 81px 0;
+    }
+
+
+
+    /*-----------
+        PopUp
+    -----------*/
+    .modal
+    {
+        padding: 55px 24px 72px;
+    }
+
+
+
+    #buy_modal
+    {
+        padding: 56px 28px;
+    }
+
+    #buy_modal .product .name
+    {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    #buy_modal .form .input,
+    #buy_modal .form .nice-select .current
+    {
+        font-size: 12px;
+    }
+}

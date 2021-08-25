@@ -1,0 +1,413 @@
+@media print, (max-width: 1899px)
+{
+    /*-------------------
+        Global styles
+    -------------------*/
+    .wrap > .bg img.bg_1920
+    {
+        display: none;
+    }
+
+    .wrap > .bg img.bg_1600
+    {
+        display: block;
+    }
+
+
+    .cont
+    {
+        max-width: 1368px;
+    }
+
+
+
+    /*------------
+        Header
+    ------------*/
+    header
+    {
+        margin-bottom: 80px;
+    }
+
+
+    header .links > * + *
+    {
+        margin-left: 36px;
+    }
+
+    header .links > *.margin
+    {
+        margin-left: 81px;
+    }
+
+
+    header .icons > * + *
+    {
+        margin-left: 20px;
+    }
+
+
+
+    /*-------------
+        Sidebar
+    -------------*/
+
+
+
+    /*---------------
+        Page head
+    ---------------*/
+
+
+
+    /*----------------
+        Block head
+    ----------------*/
+    .block_head
+    {
+        margin-bottom: 40px;
+    }
+
+
+
+    /*------------------
+        Form elements
+    ------------------*/
+
+
+
+    /*----------------
+        Typography
+    ----------------*/
+    .text_block .columns
+    {
+        column-gap: 116px;
+    }
+
+
+
+    /*----------
+        Auth
+    ----------*/
+    .auth
+    {
+        padding-top: 40px;
+    }
+
+
+    .auth .cont
+    {
+        justify-content: flex-start;
+    }
+
+
+    .auth .info
+    {
+        margin-left: 4px;
+    }
+
+
+
+    /*-------------------------
+        Participation rules
+    -------------------------*/
+    .participation_rules
+    {
+        margin-bottom: 100px;
+    }
+
+
+
+    /*---------
+        FAQ
+    ---------*/
+    .faq
+    {
+        margin-bottom: 82px;
+    }
+
+
+
+    /*-------------------
+        Search result
+    -------------------*/
+    .search_result
+    {
+        margin-bottom: 91px;
+    }
+
+
+
+    /*----------
+        Shop
+    ----------*/
+    .shop
+    {
+        width: 1152px;
+        margin-bottom: 98px;
+    }
+
+
+
+    /*--------------
+        Products
+    --------------*/
+    .products .row
+    {
+        margin-bottom: -40px;
+        margin-left: -40px;
+    }
+
+    .products .row > *
+    {
+        width: calc(33.333% - 40px);
+        margin-bottom: 40px;
+        margin-left: 40px;
+    }
+
+
+    .products .product
+    {
+        padding: 40px 56px 60px;
+    }
+
+    .products .product .scores
+    {
+        right: 23px;
+    }
+
+
+
+    /*-------------
+        LK info
+    -------------*/
+    .lk_info .lk_data
+    {
+        width: calc(100% - 440px);
+    }
+
+
+
+    /*------------
+        Orders
+    ------------*/
+    .lk_info .orders
+    {
+        width: 100%;
+    }
+
+
+
+    /*---------------
+        Standings
+    ---------------*/
+    .standings
+    {
+        margin-bottom: 96px;
+    }
+
+
+    .standings .data
+    {
+        max-width: calc(100% - 72px);
+        margin-left: 72px;
+    }
+
+
+
+    /*---------------
+        Task info
+    ---------------*/
+    .task_info
+    {
+        margin-bottom: 169px;
+    }
+
+
+
+    .task_info .terms
+    {
+        width: 538px;
+    }
+
+    .task_info .terms.min_w
+    {
+        width: 340px;
+    }
+
+
+
+    .task_info .performance,
+    .task_info .upload_report
+    {
+        width: 660px;
+        margin-left: auto;
+    }
+
+
+
+    .task_info .reports
+    {
+        margin-left: 105px;
+    }
+
+
+
+    /*--------------------
+        Direction info
+    --------------------*/
+    .direction_info
+    {
+        margin-bottom: 200px;
+    }
+
+
+
+    .direction_info .data .info
+    {
+        width: 241px;
+    }
+
+    .direction_info .data .video
+    {
+        width: calc(100% - 526px);
+        margin-right: 20px;
+        margin-left: auto;
+    }
+
+    .direction_info .data .banner
+    {
+        width: calc(100% - 320px);
+    }
+
+    .direction_info .data .author
+    {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+
+
+    .direction_info .terms
+    {
+        width: calc(50% - 64px);
+    }
+
+
+
+    .direction_info .prizes .item .thumb
+    {
+        height: 190px;
+    }
+
+
+
+    .direction_info .schedule
+    {
+        margin-top: 98px;
+    }
+
+
+
+    /*----------------
+        About info
+    ----------------*/
+    .about_info .data
+    {
+        width: 255px;
+    }
+
+
+
+    .about_info .video
+    {
+        width: calc(100% - 625px);
+        margin-right: 14px;
+    }
+
+    .about_info .video .link .icon
+    {
+        width: 64px;
+        height: 64px;
+    }
+
+
+
+    .about_info .chat
+    {
+        width: 303px;
+    }
+
+
+
+    /*----------
+        Chat
+    ----------*/
+    .chat .messages
+    {
+        padding: 16px 0;
+    }
+
+
+    .chat .messages .message
+    {
+        padding: 0 16px;
+    }
+
+    .chat .messages .message .user_name,
+    .chat .messages .message .text
+    {
+        font-size: 14px;
+    }
+
+
+    .chat .messages .reaply .parent_message
+    {
+        padding-right: 16px;
+    }
+
+
+
+    /*----------------
+        Directions
+    ----------------*/
+    .directions .title
+    {
+        margin-bottom: 38px;
+    }
+
+
+    .directions .row
+    {
+        margin-bottom: -50px;
+        margin-left: -50px;
+    }
+
+    .directions .row > *
+    {
+        width: calc(33.333% - 50px);
+        margin-bottom: 50px;
+        margin-left: 50px;
+    }
+
+
+
+    /*------------
+        Footer
+    ------------*/
+    footer
+    {
+        padding: 40px 0;
+    }
+
+    footer.big_margin
+    {
+        padding: 106px 0;
+    }
+
+
+
+    /*-----------
+        PopUp
+    -----------*/
+}

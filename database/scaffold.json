@@ -1,0 +1,322 @@
+{
+  "direction": {
+    "const:title" : "Направления",
+    "fields": [
+      "name",
+      ["description", {"nullable": []}]
+    ],
+    "resource": [],
+    "seed": [
+      {"name": "Fun", "description": "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме."},
+      {"name": "Sport", "description": "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме."},
+      {"name": "Болельщики", "description": "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме."}
+    ]
+  },
+  "position": {
+    "const:title" : "Должности",
+    "fields": [
+      "name"
+    ],
+    "resource": [],
+    "factory": {
+      "name": "\\faker.jobTitle()"
+    },
+    "seed": "factory:50,100"
+  },
+  "division": {
+    "const:title" : "Подразделения",
+    "fields": [
+      "name"
+    ],
+    "resource": [],
+    "factory": {
+      "name": "\\faker.company()"
+    },
+    "seed": "factory:100,300"
+  },
+  "user" : {
+    "const:title" : "Пользователи",
+    "auth" : true,
+    "traits" : [
+      "Notifiable", "HasSubscribers", "HasLogs", "Online"
+    ],
+    "fields" : [
+      "name",
+      ["login", {"nullable": []}],
+      ["balance", "integer", {"default": 0}],
+      ["about", "text", {"nullable":  []}],
+      ["email", {"unique" : []}],
+      ["number", {"unique" : []}],
+      ["photo", {"nullable" : []}],
+      ["email_verified_at", {"nullable" : []}],
+      "password",
+      ["remember_token", {"nullable" : []}],
+      ["session", {"nullable": []}],
+      ["logins", "bigInteger", {"default": 0}],
+      ["seconds", "bigInteger", {"default": 0}],
+      "birthday_at",
+      ["active_commentaries", "boolean", {"default": false}],
+      "active"
+    ],
+    "resource": [],
+    "hidden" : [
+      "password",
+      "remember_token"
+    ],
+    "relations" : {
+      "?direction": {},
+      "?position": {},
+      "?division": {},
+      "logs": {},
+      "user": {
+        "type": "belongsToMany",
+        "method": "subscriptions"
+      },
+      "tracks:belongsToMany": {}
+    },
+    "factory": {
+      "name": "\\faker.unique().name()",
+      "login": "\\strtolower(\\Str::slug(faker.unique().name(), '_'))",
+      "email": "\\faker.unique().email()",
+      "number": "\\faker.unique().ean8",
+      "password": "\\bcrypt('secret')",
+      "birthday_at": "\\now()"
+    },
+    "seed": "factory:10"
+  },
+  "commentary": {
+    "const:title": "Комментарии",
+    "type": "morphMany:commentable",
+    "fields": [
+      ["text", {"cast": "Stickers"}],
+      ["likes", "integer", {"default": 0}],
+      ["active", {"default": 0}]
+    ],
+    "resource": [],
+    "relations": {
+      "user": {},
+      "commentaries": {}
+    }
+  },
+  "faq" : {
+    "const:title" : "Faq",
+    "fields" : [
+      "question",
+      ["answer", "text"],
+      "active"
+    ],
+    "resource": [],
+    "seed": [
+      {"question": "Когда начнется трансляция?", "answer": "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме."},
+      {"question": "Кто может смотреть трансляцию?", "answer": "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме. Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме."},
+      {"question": "С семьей или друзьями смотреть можно?", "answer": "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме."}
+    ]
+  },
+  "logs": {
+    "type": "morphMany:logable",
+    "const:title": "Логи пользователей",
+    "traits": ["Helpers"],
+    "fields": [
+      ["field", {"nullable": []}],
+      ["type", {"default": "system"}],
+      ["message", "text"]
+    ],
+    "resource": []
+  },
+  "settings": {
+    "const:title": "Настройки",
+    "fields": [
+      "name",
+      ["value", "text", {"cast":  "Property", "nullable": {}}],
+      ["field", {"nullable": {}}],
+      ["info", {"nullable": {}}]
+    ],
+    "resource": [],
+    "seed": [
+      {"name": "osm", "value": false, "info": "Only shop mode", "field": "switcher"},
+      {"name": "support_email", "value": "email@mail.ru", "info": "Support email"},
+      {"name": "support_telegram_phone", "value": "+79999999999", "info": "Support telegram phone"},
+      {"name": "support_telegram_link", "value": "https://t.me", "info": "Support telegram link"},
+      {"name": "support_whatsapp_phone", "value": "+79999999999", "info": "Support whatsapp phone"},
+      {"name": "support_whatsapp_link", "value": "https://whatsapp.com", "info": "Support whatsapp link"}
+    ]
+  },
+  "prizes": {
+    "const:title": "Призы",
+    "fields": [
+      "name", "src"
+    ],
+    "resource": [],
+    "seed": [
+      {"name": "Смартфон Apple iPhone 12 128GB Black", "src": "images/tmp/prizes_thumb.png"},
+      {"name": "Планшет Apple iPad 10.2 Wi-Fi 32GB Space Grey", "src": "images/tmp/prizes_thumb2.png"},
+      {"name": "Робот-пылесос Xiaomi Viomi Cleaning V3 Global Black", "src": "images/tmp/prizes_thumb3.png"}
+    ]
+  },
+  "track": {
+    "const:title": "Треки",
+    "traits": ["HasLogs"],
+    "fields": [
+      "name",
+      ["video", {"nullable": []}],
+      "arbitrator_name",
+      "arbitrator_photo",
+      "arbitrator_position",
+      ["short_description", "text"],
+      ["terms_of_participation", "text"]
+    ],
+    "relations": {
+      "logs": {},
+      "direction": {},
+      "prizes:belongsToMany": {}
+    },
+    "resource": [],
+    "factory": {
+      "name": "\\faker.name()",
+      "arbitrator_name": "\\faker.name()",
+      "arbitrator_photo": "images/tmp/user_avatar4.jpg",
+      "arbitrator_position": "\\faker.jobTitle()",
+      "short_description": "\\faker.text(100)",
+      "terms_of_participation": "\\faker.text(400)",
+      "direction_id": "\\faker.randomElement([1,2,3])"
+    },
+    "seed": "factory:10"
+  },
+  "task": {
+    "traits": ["HasLogs"],
+    "const:title": "Задания",
+    "const:action_type_manually": "manually",
+    "const:action_type_subscribe": "subscribe",
+    "const:action_type_reaction": "reaction",
+    "const:action_type_profile": "profile",
+    "const:action_type_task_complete": "task-complete",
+
+    "const:report_type_text": "text",
+    "const:report_type_video": "video",
+    "const:report_type_image": "image",
+
+    "const:event_type_multi_day": "multi-day",
+    "const:event_type_one_day": "one-day",
+    "const:event_type_instant": "instant",
+
+    "const:event_types": {
+      "multi-day": "Многодневное",
+      "one-day": "Однодневное",
+      "instant": "Мгновенное"
+    },
+    "const:report_types": {
+      "text": "Текстовый отчёт",
+      "video": "Видео отчёт",
+      "image": "Фото отчёт"
+    },
+    "const:action_types": {
+      "manually": "Начисление баллов вручную (Модерирование)",
+      "subscribe": "Подписка(N подписок) на других пользователей",
+      "reaction": "Реакции (N стикеров / N лайков) к любым отчетам на странице направления/профиле пользователя",
+      "profile": "Заполнение всей дополнительной информации в профиле, включая фото",
+      "task-complete": "Выполнение N заданий подряд"
+    },
+    "fields": [
+      "name",
+      ["event_type", {"default": "instant"}],
+      ["report_type", {"default": "text"}],
+      ["action_types", "json"],
+      ["cost", "integer", {"default": 1}],
+      ["prize_src", {"nullable": []}],
+      "start_at",
+      "finish_at"
+    ],
+    "relations": {
+      "logs": {},
+      "track": {}
+    },
+    "resource": [],
+    "factory": {
+      "name": "\\faker.name()",
+      "prize_src": "images/tmp/prizes_thumb.png",
+      "event_type": "\\faker.randomElement(['multi-day', 'one-day', 'instant'])",
+      "report_type": "\\faker.randomElement(['text', 'video', 'image'])",
+      "action_types": ["manually"],
+      "cost": "\\faker.randomNumber(rand(1,3))",
+      "start_at": "\\now()",
+      "finish_at": "\\now()->addDays(10)",
+      "track_id": "\\faker.randomElement([1,2,3,4,5,6,7,8,9,10])"
+    },
+    "seed": "factory:50"
+  },
+  "task_reports": {
+    "traits": ["HasLogs"],
+    "const:title": "Отчёты заданий",
+    "fields": [
+      ["likes", "integer", {"default": 0}],
+      "start_at",
+      "finish_at"
+    ],
+    "relations": {
+      "user": {},
+      "logs": {},
+      "commentary": {}
+    },
+    "resource": []
+  },
+  "product_settings": {
+    "const:title": "Настройки продуктов",
+    "fields": [
+      "name",
+      "slug",
+      ["data", "json"]
+    ],
+    "resource": [],
+    "seed": [
+      {"name": "Размер", "slug": "size", "data": ["S", "M", "L", "XL", "XXL"]},
+      {"name": "Цвет", "slug": "color", "data": ["#c4c4c4", "#2e2e2e", "#f9b400", "#df3333"]}
+    ]
+  },
+  "products": {
+    "traits": ["HasLogs"],
+    "const:title": "Продукты",
+    "fields": [
+      "name",
+      "src",
+      ["cost", "integer", {"default": 1}],
+      ["settings", "json"]
+    ],
+    "relations": {
+      "logs": {},
+      "product_settings": {
+        "field": "setting_id",
+        "method": "setting"
+      }
+    },
+    "resource": [],
+    "seed": [
+      {"name": "Кружка «Ты в команде!»", "src": "images/tmp/product_thumb.png", "cost": 100, "setting_id": 2, "settings": ["#c4c4c4", "#2e2e2e", "#f9b400", "#df3333"]},
+      {"name": "Футболка-поло мужская «20 лет в отрыв!»", "src": "images/tmp/product_thumb2.png", "cost": 100, "setting_id": 1, "settings": ["M", "L", "XL", "XXL"]},
+      {"name": "Футболка-поло женская «20 лет в отрыв!»", "src": "images/tmp/product_thumb2.png", "cost": 100, "setting_id": 1, "settings": ["XL", "XXL"]}
+    ]
+  },
+  "order": {
+    "traits": ["HasLogs"],
+    "const:title": "Заказы",
+    "const:status_created": "created",
+    "const:status_approved": "approved",
+    "const:status_transit": "transit",
+    "const:status_success": "success",
+
+    "const:statuses": {
+      "created": "Создан",
+      "approved": "Оформлен",
+      "transit": "В пути",
+      "success": "Доставлен"
+    },
+    "fields": [
+      ["status", {"default": "created"}]
+    ],
+    "relations": {
+      "products:belongsToMany": {},
+      "user": {},
+      "logs": {}
+    },
+    "resource": []
+  }
+}

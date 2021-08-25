@@ -1,0 +1,478 @@
+@media print, (max-width: 1439px)
+{
+    /*-------------------
+        Global styles
+    -------------------*/
+    .wrap > .bg img.bg_1440
+    {
+        display: none;
+    }
+
+    .wrap > .bg img.bg_1280
+    {
+        display: block;
+    }
+
+    .cont
+    {
+        max-width: 1128px;
+    }
+
+
+
+    /*------------
+        Header
+    ------------*/
+    header .twenty_years
+    {
+        margin-right: auto;
+        margin-left: 62px;
+    }
+
+
+    header .links,
+    header .icons
+    {
+        display: none;
+    }
+
+
+    header .mob_menu_btn
+    {
+        display: flex;
+    }
+
+
+
+    /*-------------
+        Sidebar
+    -------------*/
+
+
+
+    /*---------------
+        Page head
+    ---------------*/
+
+
+
+    /*----------------
+        Block head
+    ----------------*/
+
+
+
+    /*------------------
+        Form elements
+    ------------------*/
+
+
+
+    /*----------------
+        Typography
+    ----------------*/
+
+
+
+    /*----------
+        Auth
+    ----------*/
+    .auth .info
+    {
+        width: 528px;
+        max-width: calc(50% - 36px);
+        margin-right: 72px;
+    }
+
+    .auth .info .twenty_years
+    {
+        top: -84px;
+        left: 22px;
+
+        height: 118px;
+    }
+
+    .auth .info .slogan
+    {
+        margin-top: 0;
+    }
+
+
+
+    /*-------------------------
+        Participation rules
+    -------------------------*/
+    .participation_rules
+    {
+        margin-bottom: 60px;
+    }
+
+
+
+    /*---------
+        FAQ
+    ---------*/
+    .faq
+    {
+        margin-bottom: 47px;
+    }
+
+
+
+    /*-------------------
+        Search result
+    -------------------*/
+    .search_result
+    {
+        margin-bottom: 95px;
+    }
+
+
+
+    /*-------------
+        Support
+    -------------*/
+    .support
+    {
+        margin-bottom: 18px;
+    }
+
+
+
+    /*----------
+        Shop
+    ----------*/
+    .shop
+    {
+        margin-bottom: 60px;
+    }
+
+
+
+    /*--------------
+        Products
+    --------------*/
+    .products .row
+    {
+        margin-bottom: -20px;
+        margin-left: -20px;
+    }
+
+    .products .row > *
+    {
+        width: calc(33.333% - 20px);
+        margin-bottom: 20px;
+        margin-left: 20px;
+    }
+
+
+    .products .product
+    {
+        padding: 34px 40px 56px;
+    }
+
+
+
+    /*-------------
+        LK info
+    -------------*/
+    .lk_info
+    {
+        margin-bottom: 100px;
+    }
+
+
+    .lk_info .lk_data
+    {
+        width: calc(100% - 315px);
+    }
+
+
+
+    /*-------------------------
+        LK info - User data
+    -------------------------*/
+    .lk_info .user_data
+    {
+        width: 636px;
+        margin-left: 54px;
+    }
+
+
+
+    /*----------------
+        Tasks list
+    ----------------*/
+    .lk_info .tasks_list
+    {
+        width: 636px;
+        margin-left: 54px;
+    }
+
+
+    .tasks_list .task_wrap .task
+    {
+        width: calc(100% - 192px);
+    }
+
+
+    .tasks_list .dialog
+    {
+        width: 190px;
+    }
+
+
+
+    /*------------
+        Orders
+    ------------*/
+    .orders .order .product .thumb + *
+    {
+        width: calc(100% - 142px);
+    }
+
+
+
+    /*---------------
+        Standings
+    ---------------*/
+    .standings
+    {
+        margin-bottom: 84px;
+    }
+
+
+    .standings .data
+    {
+        width: 705px;
+    }
+
+
+    .standings .data .table_wrap
+    {
+        padding: 24px 52px 40px;
+    }
+
+
+
+    /*---------------
+        Task info
+    ---------------*/
+    .task_info
+    {
+        margin-bottom: 119px;
+    }
+
+
+    .task_info .data .video
+    {
+        width: calc(100% - 368px);
+        height: 389px;
+        margin-left: auto;
+    }
+
+
+
+    .task_info .terms
+    {
+        width: calc(100% - 679px);
+    }
+
+    .task_info .terms.min_w
+    {
+        width: calc(100% - 736px);
+    }
+
+
+
+    .task_info .reports
+    {
+        width: 695px;
+    }
+
+
+
+    /*--------------------
+        Direction info
+    --------------------*/
+    .direction_info
+    {
+        margin-bottom: 97px;
+    }
+
+
+
+    .direction_info .data .info
+    {
+        display: flex;
+
+        width: 100%;
+        margin-bottom: 40px;
+
+        justify-content: space-between;
+        align-items: flex-start;
+        align-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .direction_info .data .info > *
+    {
+        width: calc(100% - 315px);
+    }
+
+    .direction_info .data .info > * + *
+    {
+        width: 176px;
+        margin-left: auto;
+    }
+
+
+    .direction_info .data .members
+    {
+        line-height: 40px;
+
+        margin-top: 0;
+
+        text-align: right;
+    }
+
+    .direction_info .data .join_btn
+    {
+        margin-top: 20px;
+    }
+
+
+    .direction_info .data .video
+    {
+        width: calc(100% - 234px);
+        margin-right: auto;
+        margin-left: 0;
+    }
+
+
+    .direction_info .data .banner
+    {
+        width: 100%;
+    }
+
+
+
+    .direction_info .terms
+    {
+        width: calc(50% - 85px);
+    }
+
+
+    .direction_info .prizes
+    {
+        width: calc(50% - 13px);
+    }
+
+    .direction_info .prizes .item .thumb
+    {
+        margin-bottom: 12px;
+    }
+
+
+
+    .direction_info .schedule .events .item.break_left:after,
+    .direction_info .schedule .events .item.break_right:after
+    {
+        background-size: 8px 11px;
+    }
+
+
+
+    /*----------------
+        About info
+    ----------------*/
+    .about_info
+    {
+        margin-bottom: 52px;
+    }
+
+
+
+    .about_info .video
+    {
+        width: calc(100% - 354px);
+    }
+
+    .about_info .video .link .icon
+    {
+        color: #000;
+
+        width: 62px;
+        height: 62px;
+
+        opacity: .3;
+    }
+
+
+
+    /*----------------
+        Directions
+    ----------------*/
+    .directions
+    {
+        margin-bottom: 52px;
+    }
+
+
+    .directions .item
+    {
+        padding: 56px 46px 64px;
+    }
+
+
+    .directions .item .bg
+    {
+        top: -8px;
+        right: -20px;
+
+        height: 40px;
+    }
+
+    .directions .item .bg2
+    {
+        top: -4px;
+        left: 16px;
+
+        height: 10px;
+    }
+
+    .directions .item .bg3
+    {
+        height: 37px;
+    }
+
+    .directions .item .bg4
+    {
+        top: 10px;
+        right: -25px;
+
+        height: 34px;
+    }
+
+
+
+    /*------------
+        Footer
+    ------------*/
+    footer.big_margin
+    {
+        padding: 101px 0;
+    }
+
+
+    footer .bg2
+    {
+        height: 244px;
+    }
+
+
+
+    /*-----------3
+        PopUp
+    -----------*/
+}
