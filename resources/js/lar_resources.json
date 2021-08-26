@@ -4,6 +4,7 @@
     "vue_components": {
         "pages_auth": "Pages/Auth.vue",
         "pages_home": "Pages/Home.vue",
-        "pages_f_a_q": "Pages/FAQ.vue"
+        "pages_f_a_q": "Pages/FAQ.vue",
+        "pages_rule": "Pages/Rule.vue"
     }
 }
