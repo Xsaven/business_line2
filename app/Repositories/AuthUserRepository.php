@@ -11,6 +11,7 @@ use Lar\Developer\CoreRepository;
  * @method User model()
  * @property-read User|\Illuminate\Contracts\Auth\Authenticatable|null $user
  * @property-read int $new_notifications_count
+ * @property-read int $notifications_count
  */
 class AuthUserRepository extends CoreRepository
 {
@@ -39,5 +40,14 @@ class AuthUserRepository extends CoreRepository
     {
         return $this->user ?
             $this->user->notifications()->whereNull('read_at')->count() : 0;
+    }
+
+    /**
+     * @return int
+     */
+    public function notifications_count(): int
+    {
+        return $this->user ?
+            $this->user->notifications()->count() : 0;
     }
 }

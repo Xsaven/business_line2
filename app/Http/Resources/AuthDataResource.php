@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Models\User;
+use App\Repositories\AuthUserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -20,9 +21,12 @@ class AuthDataResource extends JsonResource
      */
     public function toArray($request)
     {
+        $repo = app(AuthUserRepository::class);
+
         return [
             'balance' => $this->balance,
-            'notification_count' => $this->notifications()->whereNull('read_at')->count(),
+            'notification_count' => $repo->notifications_count,
+            'new_notifications_count' => $repo->new_notifications_count,
         ];
     }
 }

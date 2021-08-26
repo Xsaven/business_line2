@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="col_right">
-                        <div class="scores">0 б</div>
+                        <div class="scores">{{user.balance}} б</div>
 
                         <div class="notifications modal_cont">
                             <button class="btn new mini_modal_btn" data-modal-id="#notifications_modal">
@@ -74,8 +74,8 @@
 
                         <div class="account">
                             <a href="/" class="user">
-                                <div class="avatar">ЕИ</div>
-                                <div class="name">Евгений</div>
+                                <div class="avatar">{{user.short_name}}</div>
+                                <div class="name">{{user.full_name}}</div>
                             </a>
                         </div>
                     </div>
@@ -94,13 +94,13 @@
             <div class="account">
                 <a href="/" class="user">
                     <div class="avatar">
-                        <span>ЕН</span>
-                        <img data-src="/images/tmp/user_avatar3.jpg" alt="" class="lozad">
+                        <span>{{user.short_name}}</span>
+<!--                        <img data-src="/images/tmp/user_avatar3.jpg" alt="" class="lozad">-->
                     </div>
-                    <div class="name">Евгений</div>
+                    <div class="name">{{user.full_name}}</div>
                 </a>
 
-                <div class="scores">0 б</div>
+                <div class="scores">{{user.balance}} б</div>
             </div>
 
             <div class="links">
@@ -116,11 +116,12 @@
 
 <script>
     export default {
+        $sync: ["user"],
         name: "v-header",
         props: {},
         data () {
             return {
-
+                user: {}
             };
         },
         mounted () {},
