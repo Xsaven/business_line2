@@ -20,6 +20,7 @@ use Illuminate\Notifications\Notifiable;
  * @package App\Models
  * @property int $id
  * @property string $name
+ * @property string|null $lastname
  * @property string|null $login
  * @property int $balance
  * @property string|null $about
@@ -74,6 +75,7 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLastname($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereLogin($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereLogins($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)

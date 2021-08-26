@@ -495,26 +495,26 @@
                 <div class="row_wrap">
                     <div class="row">
                         <a href="/" class="item">
-                            <div class="name">Fun</div>
+                            <div class="name">{{directions[0].name}}</div>
 
-                            <div class="desc">Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме.</div>
+                            <div class="desc">{{directions[0].description}}</div>
 
                             <img data-src="/images/bg_directions_item1.svg" alt="" class="bg lozad">
                         </a>
 
                         <a href="/" class="item">
-                            <div class="name">Sport</div>
+                            <div class="name">{{directions[1].name}}</div>
 
-                            <div class="desc">Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме.</div>
+                            <div class="desc">{{directions[1].description}}</div>
 
                             <img data-src="/images/bg_directions_item2.svg" alt="" class="bg2 lozad">
                             <img data-src="/images/bg_directions_item3.svg" alt="" class="bg3 lozad">
                         </a>
 
                         <a href="/" class="item">
-                            <div class="name">Болельщики</div>
+                            <div class="name">{{directions[2].name}}</div>
 
-                            <div class="desc">Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме.</div>
+                            <div class="desc">{{directions[2].description}}</div>
 
                             <img data-src="/images/bg_directions_item4.svg" alt="" class="bg4 lozad">
                         </a>
@@ -529,7 +529,9 @@
     export default {
         $sync: ['user'],
         name: "pages_home",
-        props: {},
+        props: {
+            directions: {required:true}
+        },
         data () {
             return {
                 user: {}

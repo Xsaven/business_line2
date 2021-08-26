@@ -3087,7 +3087,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   $sync: ['user'],
   name: "pages_home",
-  props: {},
+  props: {
+    directions: {
+      required: true
+    }
+  },
   data: function data() {
     return {
       user: {}
@@ -28186,12 +28190,12 @@ var render = function() {
         _c("div", { staticClass: "row_wrap" }, [
           _c("div", { staticClass: "row" }, [
             _c("a", { staticClass: "item", attrs: { href: "/" } }, [
-              _c("div", { staticClass: "name" }, [_vm._v("Fun")]),
+              _c("div", { staticClass: "name" }, [
+                _vm._v(_vm._s(_vm.directions[0].name))
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "desc" }, [
-                _vm._v(
-                  "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме."
-                )
+                _vm._v(_vm._s(_vm.directions[0].description))
               ]),
               _vm._v(" "),
               _c("img", {
@@ -28204,12 +28208,12 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("a", { staticClass: "item", attrs: { href: "/" } }, [
-              _c("div", { staticClass: "name" }, [_vm._v("Sport")]),
+              _c("div", { staticClass: "name" }, [
+                _vm._v(_vm._s(_vm.directions[1].name))
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "desc" }, [
-                _vm._v(
-                  "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме."
-                )
+                _vm._v(_vm._s(_vm.directions[1].description))
               ]),
               _vm._v(" "),
               _c("img", {
@@ -28230,12 +28234,12 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("a", { staticClass: "item", attrs: { href: "/" } }, [
-              _c("div", { staticClass: "name" }, [_vm._v("Болельщики")]),
+              _c("div", { staticClass: "name" }, [
+                _vm._v(_vm._s(_vm.directions[2].name))
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "desc" }, [
-                _vm._v(
-                  "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме."
-                )
+                _vm._v(_vm._s(_vm.directions[2].description))
               ]),
               _vm._v(" "),
               _c("img", {

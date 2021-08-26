@@ -21,7 +21,7 @@ class Rule extends Vue
     public function __construct($id = null, array $attrs = [], ...$params)
     {
         $attrs['rules'] = app(SettingRepository::class)
-            ->all->where('name','play_rules')->first()?->value;
+            ->all->where('name', 'play_rules')->first()?->value;
 
         parent::__construct($id, $attrs, $params);
     }

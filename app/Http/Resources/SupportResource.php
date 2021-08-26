@@ -21,7 +21,7 @@ class SupportResource extends JsonResource
     public function toArray($request)
     {
         return $this->all->pluck('value', 'name')
-            ->only('support_email','support_telegram_phone','support_telegram_link','support_whatsapp_phone','support_whatsapp_link')
+            ->only('support_email', 'support_telegram_phone', 'support_telegram_link', 'support_whatsapp_phone', 'support_whatsapp_link')
             ->toArray();
     }
 }

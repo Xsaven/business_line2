@@ -933,6 +933,13 @@
                 "HEAD"
             ]
         },
+        "support": {
+            "uri": "support",
+            "methods": [
+                "GET",
+                "HEAD"
+            ]
+        },
         "users_export": {
             "uri": "lte/download/users/export",
             "methods": [
