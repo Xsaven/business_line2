@@ -1,9 +1,9 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./resources/js/admin/components/Components.js":
+/***/ "./resources/admin-js/components/Components.js":
 /*!*****************************************************!*\
-  !*** ./resources/js/admin/components/Components.js ***!
+  !*** ./resources/admin-js/components/Components.js ***!
   \*****************************************************/
 /***/ ((module) => {
 
@@ -15,9 +15,9 @@ module.exports = function (Vue) {};
 
 /***/ }),
 
-/***/ "./resources/js/admin/executors/Addbalance.js":
+/***/ "./resources/admin-js/executors/Addbalance.js":
 /*!****************************************************!*\
-  !*** ./resources/js/admin/executors/Addbalance.js ***!
+  !*** ./resources/admin-js/executors/Addbalance.js ***!
   \****************************************************/
 /***/ ((module) => {
 
@@ -78,9 +78,9 @@ module.exports = Addbalance;
 
 /***/ }),
 
-/***/ "./resources/js/admin/lar_instance.js":
+/***/ "./resources/admin-js/lar_instance.js":
 /*!********************************************!*\
-  !*** ./resources/js/admin/lar_instance.js ***!
+  !*** ./resources/admin-js/lar_instance.js ***!
   \********************************************/
 /***/ ((module) => {
 
@@ -92,9 +92,9 @@ module.exports = function ($methods) {};
 
 /***/ }),
 
-/***/ "./resources/js/admin/lar_methods.js":
+/***/ "./resources/admin-js/lar_methods.js":
 /*!*******************************************!*\
-  !*** ./resources/js/admin/lar_methods.js ***!
+  !*** ./resources/admin-js/lar_methods.js ***!
   \*******************************************/
 /***/ ((module) => {
 
@@ -102,13 +102,13 @@ module.exports = {};
 
 /***/ }),
 
-/***/ "./resources/js/admin/lar_resource.js":
+/***/ "./resources/admin-js/lar_resource.js":
 /*!********************************************!*\
-  !*** ./resources/js/admin/lar_resource.js ***!
+  !*** ./resources/admin-js/lar_resource.js ***!
   \********************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-var resources = __webpack_require__(/*! ./lar_resources.json */ "./resources/js/admin/lar_resources.json");
+var resources = __webpack_require__(/*! ./lar_resources.json */ "./resources/admin-js/lar_resources.json");
 
 var map = __webpack_require__(/*! lodash/map */ "./node_modules/lodash/map.js");
 
@@ -118,34 +118,57 @@ var load = function load() {
   var executors = 'executors' in resources ? resources.executors : [];
   var vue_components = 'vue_components' in resources ? resources.vue_components : {};
   map(state_watchers, function (watcher) {
-    ljs.stateWatcher(__webpack_require__("./resources/js/admin/watchers sync recursive ^\\.\\/.*$")("./".concat(watcher)));
+    ljs.stateWatcher(__webpack_require__("./resources/admin-js/watchers sync recursive ^\\.\\/.*$")("./".concat(watcher)));
   });
   map(executors, function (executor) {
-    ljs.regExec(__webpack_require__("./resources/js/admin/executors sync recursive ^\\.\\/.*$")("./".concat(executor)));
+    ljs.regExec(__webpack_require__("./resources/admin-js/executors sync recursive ^\\.\\/.*$")("./".concat(executor)));
   });
 
   if (ljs.vue !== undefined) {
     map(vue_components, function (vue, name) {
-      ljs.vue.component(name, __webpack_require__("./resources/js/admin/components sync recursive ^\\.\\/.*$")("./".concat(vue))["default"]);
+      ljs.vue.component(name, __webpack_require__("./resources/admin-js/components sync recursive ^\\.\\/.*$")("./".concat(vue))["default"]);
     });
   }
 
-  __webpack_require__(/*! ./components/Components */ "./resources/js/admin/components/Components.js")(ljs.vue);
+  __webpack_require__(/*! ./components/Components */ "./resources/admin-js/components/Components.js")(ljs.vue);
+
+  setTimeout(function () {
+    var channel = new window.EchoWrapper({
+      namespace: 'app.events.ws'
+    }); // let connection = ljs.echo.private(`App.Models.Admin.${window.state.admin.id}`)
+    //     .notification((notify) => {
+    //
+    //         let status = 'status' in notify ? notify.status : 'info';
+    //         let text = 'text' in notify ? notify.text : '';
+    //         let title = 'title' in notify ? notify.title : '';
+    //
+    //         return `toast:${status}`.exec(text, title);
+    //     });
+
+    channel["private"]("exec").listen('all_admin_exec', function (_ref) {
+      var exec = _ref.exec;
+      ljs.exec(exec);
+    });
+    channel["private"]("App.Models.Admin.".concat(window.state.admin.id)).listen('admin_exec', function (_ref2) {
+      var exec = _ref2.exec;
+      ljs.exec(exec);
+    });
+  }, 500);
 };
 
-var methods = __webpack_require__(/*! ./lar_methods.js */ "./resources/js/admin/lar_methods.js");
+var methods = __webpack_require__(/*! ./lar_methods.js */ "./resources/admin-js/lar_methods.js");
 
 var applyScripts = function applyScripts() {
   var $root = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : $(document);
 
-  __webpack_require__(/*! ./lar_scripts.js */ "./resources/js/admin/lar_scripts.js")($root, methods);
+  __webpack_require__(/*! ./lar_scripts.js */ "./resources/admin-js/lar_scripts.js")($root, methods);
 };
 
 document.addEventListener('ljs:nav:complete', function (details) {
   applyScripts($(ljs.config('pjax-container')));
 });
 
-var ins = __webpack_require__(/*! ./lar_instance.js */ "./resources/js/admin/lar_instance.js");
+var ins = __webpack_require__(/*! ./lar_instance.js */ "./resources/admin-js/lar_instance.js");
 
 if (window.ljs === undefined) {
   document.addEventListener("ljs:load", function () {
@@ -163,9 +186,9 @@ if (window.ljs === undefined) {
 
 /***/ }),
 
-/***/ "./resources/js/admin/lar_scripts.js":
+/***/ "./resources/admin-js/lar_scripts.js":
 /*!*******************************************!*\
-  !*** ./resources/js/admin/lar_scripts.js ***!
+  !*** ./resources/admin-js/lar_scripts.js ***!
   \*******************************************/
 /***/ ((module) => {
 
@@ -4577,15 +4600,15 @@ module.exports = toString;
 
 /***/ }),
 
-/***/ "./resources/js/admin/components sync recursive ^\\.\\/.*$":
+/***/ "./resources/admin-js/components sync recursive ^\\.\\/.*$":
 /*!******************************************************!*\
-  !*** ./resources/js/admin/components/ sync ^\.\/.*$ ***!
+  !*** ./resources/admin-js/components/ sync ^\.\/.*$ ***!
   \******************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
-	"./Components": "./resources/js/admin/components/Components.js",
-	"./Components.js": "./resources/js/admin/components/Components.js"
+	"./Components": "./resources/admin-js/components/Components.js",
+	"./Components.js": "./resources/admin-js/components/Components.js"
 };
 
 
@@ -4606,19 +4629,19 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = "./resources/js/admin/components sync recursive ^\\.\\/.*$";
+webpackContext.id = "./resources/admin-js/components sync recursive ^\\.\\/.*$";
 
 /***/ }),
 
-/***/ "./resources/js/admin/executors sync recursive ^\\.\\/.*$":
+/***/ "./resources/admin-js/executors sync recursive ^\\.\\/.*$":
 /*!*****************************************************!*\
-  !*** ./resources/js/admin/executors/ sync ^\.\/.*$ ***!
+  !*** ./resources/admin-js/executors/ sync ^\.\/.*$ ***!
   \*****************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
-	"./Addbalance": "./resources/js/admin/executors/Addbalance.js",
-	"./Addbalance.js": "./resources/js/admin/executors/Addbalance.js"
+	"./Addbalance": "./resources/admin-js/executors/Addbalance.js",
+	"./Addbalance.js": "./resources/admin-js/executors/Addbalance.js"
 };
 
 
@@ -4639,13 +4662,13 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = "./resources/js/admin/executors sync recursive ^\\.\\/.*$";
+webpackContext.id = "./resources/admin-js/executors sync recursive ^\\.\\/.*$";
 
 /***/ }),
 
-/***/ "./resources/js/admin/watchers sync recursive ^\\.\\/.*$":
+/***/ "./resources/admin-js/watchers sync recursive ^\\.\\/.*$":
 /*!****************************************************!*\
-  !*** ./resources/js/admin/watchers/ sync ^\.\/.*$ ***!
+  !*** ./resources/admin-js/watchers/ sync ^\.\/.*$ ***!
   \****************************************************/
 /***/ ((module) => {
 
@@ -4656,14 +4679,14 @@ function webpackEmptyContext(req) {
 }
 webpackEmptyContext.keys = () => ([]);
 webpackEmptyContext.resolve = webpackEmptyContext;
-webpackEmptyContext.id = "./resources/js/admin/watchers sync recursive ^\\.\\/.*$";
+webpackEmptyContext.id = "./resources/admin-js/watchers sync recursive ^\\.\\/.*$";
 module.exports = webpackEmptyContext;
 
 /***/ }),
 
-/***/ "./resources/js/admin/lar_resources.json":
+/***/ "./resources/admin-js/lar_resources.json":
 /*!***********************************************!*\
-  !*** ./resources/js/admin/lar_resources.json ***!
+  !*** ./resources/admin-js/lar_resources.json ***!
   \***********************************************/
 /***/ ((module) => {
 
@@ -4733,9 +4756,9 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 /*!***********************************!*\
-  !*** ./resources/js/admin/app.js ***!
+  !*** ./resources/admin-js/app.js ***!
   \***********************************/
-__webpack_require__(/*! ./lar_resource.js */ "./resources/js/admin/lar_resource.js");
+__webpack_require__(/*! ./lar_resource.js */ "./resources/admin-js/lar_resource.js");
 })();
 
 /******/ })()

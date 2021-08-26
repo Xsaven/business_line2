@@ -2,8 +2,7 @@
 
 namespace App\LteAdmin\Jax;
 
-use App\Events\AddUserBalance;
-use App\Models\User;
+use App\Events\AdminAddUserBalance;
 use Lar\LteAdmin\Jax\LteAdminExecutor;
 
 /**
@@ -19,7 +18,7 @@ class AddBalance extends LteAdminExecutor
      */
     public function balance($user_id, $modal, int $balance)
     {
-        event(new AddUserBalance($user_id, $balance));
+        event(new AdminAddUserBalance($user_id, $balance));
 
         $this->put('modal:hide', $modal)
             ->toast_success('Баланс успешно пополнен!')

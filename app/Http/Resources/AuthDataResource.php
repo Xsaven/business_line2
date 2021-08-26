@@ -24,6 +24,7 @@ class AuthDataResource extends JsonResource
         $repo = app(AuthUserRepository::class);
 
         return [
+            'id' => $this->id,
             'balance' => $this->balance,
             'notification_count' => $repo->notifications_count,
             'new_notifications_count' => $repo->new_notifications_count,

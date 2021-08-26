@@ -55,6 +55,10 @@
       ["session", {"nullable": []}],
       ["logins", "bigInteger", {"default": 0}],
       ["seconds", "bigInteger", {"default": 0}],
+      ["likes", "bigInteger", {"default": 0}],
+      ["stickers", "bigInteger", {"default": 0}],
+      ["subscriptions", "bigInteger", {"default": 0}],
+      ["complete_tasks", "bigInteger", {"default": 0}],
       "birthday_at",
       ["active_commentaries", "boolean", {"default": false}],
       "active"
@@ -195,6 +199,7 @@
     "const:report_type_text": "text",
     "const:report_type_video": "video",
     "const:report_type_image": "image",
+    "const:report_type_quiz": "quiz",
 
     "const:event_type_multi_day": "multi-day",
     "const:event_type_one_day": "one-day",
@@ -208,7 +213,8 @@
     "const:report_types": {
       "text": "Текстовый отчёт",
       "video": "Видео отчёт",
-      "image": "Фото отчёт"
+      "image": "Фото отчёт",
+      "quiz": "Викторина"
     },
     "const:action_types": {
       "manually": "Начисление баллов вручную (Модерирование)",
@@ -229,7 +235,8 @@
     ],
     "relations": {
       "logs": {},
-      "track": {}
+      "track": {},
+      "quiz_questions:belongsToMany": {}
     },
     "resource": [],
     "factory": {
@@ -240,7 +247,7 @@
       "action_types": ["manually"],
       "cost": "\\faker.randomNumber(rand(1,3))",
       "start_at": "\\now()",
-      "finish_at": "\\now()->addDays(10)",
+      "finish_at": "\\now().addDays(10)",
       "track_id": "\\faker.randomElement([1,2,3,4,5,6,7,8,9,10])"
     },
     "seed": "factory:50"
@@ -319,5 +326,30 @@
       "logs": {}
     },
     "resource": []
+  },
+  "quiz_questions": {
+    "const:title": "Вопросы викторин",
+    "fields": [
+      "question",
+      ["variant_answers", "json"],
+      "success_answer"
+    ],
+    "factory": {
+      "question": "\\faker.text(rand(90, 191)) . '?'",
+      "variant_answers": ["A", "B", "C"],
+      "success_answer": "\\faker.randomElement(['A', 'B', 'C'])"
+    },
+    "seed": "factory:50"
+  },
+  "quiz_answers": {
+    "const:title": "Ответы викторин",
+    "fields": [
+      "is_success",
+      ["time", {"default": "00:00"}]
+    ],
+    "relations": {
+      "user": {},
+      "task": {}
+    }
   }
 }

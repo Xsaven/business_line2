@@ -16,3 +16,4 @@ yarn-error.log
 public/lte-asset
 public/lte-admin
 public/ljs
+resources/js/route.json

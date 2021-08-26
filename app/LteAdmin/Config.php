@@ -14,6 +14,7 @@ class Config extends ConfigExtensionProvider
      */
     protected $scripts = [
         'js/admin.js',
+        'ljs' => ['echo'],
     ];
 
     /**

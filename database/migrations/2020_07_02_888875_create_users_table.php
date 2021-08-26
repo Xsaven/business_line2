@@ -29,6 +29,10 @@ class CreateUsersTable extends Migration
             $table->string('session', 191)->nullable();
             $table->bigInteger('logins')->default(0);
             $table->bigInteger('seconds')->default(0);
+            $table->bigInteger('likes')->default(0);
+            $table->bigInteger('stickers')->default(0);
+            $table->bigInteger('subscriptions')->default(0);
+            $table->bigInteger('complete_tasks')->default(0);
             $table->timestamp('birthday_at')->nullable();
             $table->boolean('active_commentaries')->default(false);
             $table->boolean('active')->default(true);

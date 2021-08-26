@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Models\Traits\Task\TaskHasLogs;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
@@ -26,6 +28,10 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Log[] $logs
  * @property-read int|null $logs_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\QuizAnswer[] $quizAnswers
+ * @property-read int|null $quiz_answers_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\QuizQuestion[] $quizQuestions
+ * @property-read int|null $quiz_questions_count
  * @property-read \App\Models\Track|null $track
  * @method static \Database\Factories\TaskFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Task newModelQuery()
@@ -67,6 +73,8 @@ class Task extends Model
 
     const REPORT_TYPE_IMAGE = 'image';
 
+    const REPORT_TYPE_QUIZ = 'quiz';
+
     const EVENT_TYPE_MULTI_DAY = 'multi-day';
 
     const EVENT_TYPE_ONE_DAY = 'one-day';
@@ -83,6 +91,7 @@ class Task extends Model
         'text' => 'Текстовый отчёт',
         'video' => 'Видео отчёт',
         'image' => 'Фото отчёт',
+        'quiz' => 'Викторина',
     ];
 
     const ACTION_TYPES = [
@@ -142,6 +151,15 @@ class Task extends Model
     ];
 
     /**
+     * The "hasMany" relation for "Otvety' viktorin".
+     * @return HasMany
+     */
+    public function quizAnswers() : HasMany
+    {
+        return $this->hasMany(QuizAnswer::class, 'task_id', 'id');
+    }
+
+    /**
      * The "morphMany" relation for "Logi polzovatelei".
      * @return MorphMany
      */
@@ -157,5 +175,14 @@ class Task extends Model
     public function track() : HasOne
     {
         return $this->hasOne(Track::class, 'id', 'track_id');
+    }
+
+    /**
+     * The "belongsToMany" relation for "Voprosy' viktorin".
+     * @return BelongsToMany
+     */
+    public function quizQuestions() : BelongsToMany
+    {
+        return $this->belongsToMany(QuizQuestion::class, 'task_quiz_questions', 'task_id', 'quiz_question_id');
     }
 }

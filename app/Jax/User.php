@@ -61,11 +61,9 @@ class User extends JaxExecutor
     {
         $user = \Auth::user();
 
-        \Cache::set('n:user:session:'.$user->id, 2, now()->addMinutes(config('session.lifetime')));
+        \Cache::set('n:user:session:'.$user->id, 2, now()->addMinutes(3));
 
-        $user->update([
-            'seconds' => \Auth::user()->seconds + (60 * 7),
-        ]);
+        \Auth::user()->increment(60);
 
         return ['result' => 'pong'];
     }

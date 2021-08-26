@@ -6,5 +6,16 @@
  */
 module.exports = ($root, $methods) => {
 
+    window.onfocus = () => {
+        if (ljs.cfg('name') !== 'login') {
 
+            jax.user.ping().then(({result}) => {
+                if (!result) {
+                    "doc::reload".exec();
+                }
+            }).catch(() => {
+                "doc::reload".exec();
+            });
+        }
+    };
 };

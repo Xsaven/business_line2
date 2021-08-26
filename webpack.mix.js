@@ -11,8 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').vue();
-mix.js('resources/js/admin/app.js', 'public/js/admin.js').vue();
+mix.js('resources/js/app.js', 'public/js/app.js').vue();
+mix.js('resources/admin-js/app.js', 'public/js/admin.js').vue();
 mix.postCss('resources/css/app.css', 'public/css', [
         //
     ]);

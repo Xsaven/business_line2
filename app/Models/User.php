@@ -33,6 +33,10 @@ use Illuminate\Notifications\Notifiable;
  * @property string|null $session
  * @property int $logins
  * @property int $seconds
+ * @property int $likes
+ * @property int $stickers
+ * @property \Illuminate\Database\Eloquent\Collection|User[] $subscriptions
+ * @property int $complete_tasks
  * @property \Illuminate\Support\Carbon|null $birthday_at
  * @property bool $active_commentaries
  * @property bool $active
@@ -52,9 +56,10 @@ use Illuminate\Notifications\Notifiable;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Order[] $orders
  * @property-read int|null $orders_count
  * @property-read \App\Models\Position|null $position
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\QuizAnswer[] $quizAnswers
+ * @property-read int|null $quiz_answers_count
  * @property-read \Illuminate\Database\Eloquent\Collection|User[] $subscribers
  * @property-read int|null $subscribers_count
- * @property-read \Illuminate\Database\Eloquent\Collection|User[] $subscriptions
  * @property-read int|null $subscriptions_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\TaskReport[] $taskReports
  * @property-read int|null $task_reports_count
@@ -69,6 +74,7 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereActiveCommentaries($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereBalance($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereBirthdayAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereCompleteTasks($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereDirectionId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereDivisionId($value)
@@ -76,6 +82,7 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereLastname($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLikes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereLogin($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereLogins($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
@@ -86,6 +93,8 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereSeconds($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereSession($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereStickers($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereSubscriptions($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
@@ -120,6 +129,10 @@ class User extends Authenticatable
         'session',
         'logins',
         'seconds',
+        'likes',
+        'stickers',
+        'subscriptions',
+        'complete_tasks',
         'birthday_at',
         'active_commentaries',
         'active',
@@ -147,6 +160,10 @@ class User extends Authenticatable
         'session' => 'string',
         'logins' => 'integer',
         'seconds' => 'integer',
+        'likes' => 'integer',
+        'stickers' => 'integer',
+        'subscriptions' => 'integer',
+        'complete_tasks' => 'integer',
         'birthday_at' => 'datetime',
         'active_commentaries' => 'boolean',
         'active' => 'boolean',
@@ -163,6 +180,10 @@ class User extends Authenticatable
         'balance' => 0,
         'logins' => 0,
         'seconds' => 0,
+        'likes' => 0,
+        'stickers' => 0,
+        'subscriptions' => 0,
+        'complete_tasks' => 0,
         'active_commentaries' => false,
         'active' => true,
     ];
@@ -175,6 +196,15 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    /**
+     * The "hasMany" relation for "Otvety' viktorin".
+     * @return HasMany
+     */
+    public function quizAnswers() : HasMany
+    {
+        return $this->hasMany(QuizAnswer::class, 'user_id', 'id');
+    }
 
     /**
      * The "hasMany" relation for "Zakazy'".

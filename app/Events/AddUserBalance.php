@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -20,6 +21,11 @@ class AddUserBalance
     public int $user_id;
 
     /**
+     * @var User|null
+     */
+    public ?User $user = null;
+
+    /**
      * @var int
      */
     public int $balance;
@@ -33,5 +39,6 @@ class AddUserBalance
     {
         $this->user_id = $user_id;
         $this->balance = $balance;
+        $this->user = User::find($this->user_id);
     }
 }
