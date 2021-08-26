@@ -43,7 +43,7 @@
                         <div class="scores">{{user.balance}} б</div>
 
                         <div class="notifications modal_cont">
-                            <button class="btn new mini_modal_btn" data-modal-id="#notifications_modal">
+                            <button :class="{btn: true, mini_modal_btn: true, new: !!Number(user.new_notifications_count)}" data-modal-id="#notifications_modal">
                                 <v-icon icon="ic_notifications" />
                             </button>
 
