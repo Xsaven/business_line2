@@ -21,9 +21,10 @@ class AddBalanceModal extends ModalController
     {
         $modal->temporary();
 
-        $modal->title('Пополнения баланса');
+        $modal->title('Пополнения баланса для пользователя #' . $user_id );
 
-        $body->numeric('balance','Сума пополнения')->vertical();
+        $body->input('balance','Сума пополнения')
+            ->mask("-{0,1}9{0,}")->vertical()->icon_hashtag();
 
         $modal->btn('Отмена')->destroy()->danger();
 

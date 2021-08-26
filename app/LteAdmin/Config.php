@@ -10,6 +10,13 @@ use Lar\LteAdmin\Core\ConfigExtensionProvider;
 class Config extends ConfigExtensionProvider
 {
     /**
+     * @var string[]
+     */
+    protected $scripts = [
+        'js/admin.js'
+    ];
+
+    /**
      * @return void
      */
     public function boot()

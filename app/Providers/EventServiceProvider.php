@@ -28,6 +28,10 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\Register\Attempt::class,
             \App\Listeners\Register\Respond::class,
         ],
+        \App\Events\AddUserBalance::class => [
+            \App\Listeners\AddUserBalance\UpdateBalance::class,
+            \App\Listeners\AddUserBalance\MakeLog::class,
+        ],
     ];
 
     /**

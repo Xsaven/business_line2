@@ -62,7 +62,7 @@ class UsersController extends Controller
             $table->at();
             $table->col(function (User $user) {
                 return ButtonGroup::create(function (ButtonGroup $group) use ($user) {
-                    $group->primary(['fas fa-money'])
+                    $group->primary(['fas fa-money'])->setTitle('Пополнить баланс')
                         ->on_click(new AddBalanceModal(['user_id' => $user->id]));
                     $group->success(['fas fa-user-lock'])
                         ->setTitle('Авторизоваться этим пользователем')
@@ -81,7 +81,9 @@ class UsersController extends Controller
      */
     public function matrix()
     {
-        return new Matrix(function (Form $form) {
+        return new Matrix(function (Form $form,Card $card) {
+            $card->group()->primary(['fas fa-money','Пополнить баланс'])
+                ->on_click(new AddBalanceModal(['user_id' => $this->model()->id]));
             $form->info_id();
             if ($this->isType('edit')) {
                 $form->info('balance', 'Баланс');

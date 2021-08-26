@@ -935,6 +935,8 @@ namespace Lar\Layout {
      * @method \App\Components\Vue\Pages\Auth _pages_auth($id = null, array $attrs = [], ...$params) Add Component pages_auth to parent
      * @method \App\Components\Vue\Pages\Home pages_home($id = null, array $attrs = [], ...$params) Add Component pages_home
      * @method \App\Components\Vue\Pages\Home _pages_home($id = null, array $attrs = [], ...$params) Add Component pages_home to parent
+     * @method \App\Components\Vue\Pages\FAQ pages_f_a_q($id = null, array $attrs = [], ...$params) Add Component pages_f_a_q
+     * @method \App\Components\Vue\Pages\FAQ _pages_f_a_q($id = null, array $attrs = [], ...$params) Add Component pages_f_a_q to parent
      * @method \Lar\LteAdmin\Segments\Tagable\Row row(...$params) Add Component row
      * @method \Lar\LteAdmin\Segments\Tagable\Row _row(...$params) Add Component row to parent
      * @method \Lar\LteAdmin\Segments\Tagable\Col col($num = null, ...$params) Add Component col
