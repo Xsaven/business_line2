@@ -132,7 +132,7 @@
       ["field", {"nullable": {}}],
       ["info", {"nullable": {}}]
     ],
-    "resource": [],
+    "resource": ["Support"],
     "seed": [
       {"name": "osm", "value": false, "info": "Only shop mode", "field": "switcher"},
       {"name": "support_email", "value": "email@mail.ru", "info": "Support email"},

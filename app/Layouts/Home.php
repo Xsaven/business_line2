@@ -23,7 +23,7 @@ class Home extends LayoutComponent
     /**
      * @var string
      */
-    protected $default_title = "Деловые линии";
+    protected $default_title = 'Деловые линии';
 
     /**
      * Protected variable HeadStyles.

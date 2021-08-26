@@ -10,5 +10,4 @@ use Illuminate\Database\Eloquent\Builder;
  */
 trait UserScopes
 {
-
 }

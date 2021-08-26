@@ -6,7 +6,7 @@
                     <div class="title">FAQ</div>
                 </div>
                 <div class="list">
-                    <div class="item" v-for="faq in faq_local">
+                    <div class="item" v-for="faq in faqs">
                         <div class="question">{{ faq.question }}</div>
 
                         <div class="answer">{{faq.answer}}</div>
@@ -24,7 +24,6 @@
         },
         data () {
             return {
-                faq_local: this.faqs
             };
         },
         mounted () {},

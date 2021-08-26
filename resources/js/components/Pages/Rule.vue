@@ -7,7 +7,7 @@
                 </div>
 
                 <div class="text_block">
-                    <div class="columns" v-html="rules_local.value"></div>
+                    <div class="columns" v-html="rules"></div>
                 </div>
             </div>
         </section>
@@ -22,7 +22,6 @@
         },
         data () {
             return {
-                rules_local: this.rules
             };
         },
         mounted () {},

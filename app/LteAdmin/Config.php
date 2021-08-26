@@ -13,7 +13,7 @@ class Config extends ConfigExtensionProvider
      * @var string[]
      */
     protected $scripts = [
-        'js/admin.js'
+        'js/admin.js',
     ];
 
     /**

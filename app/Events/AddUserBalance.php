@@ -29,7 +29,7 @@ class AddUserBalance
      *
      * @return void
      */
-    public function __construct(int $user_id,int $balance)
+    public function __construct(int $user_id, int $balance)
     {
         $this->user_id = $user_id;
         $this->balance = $balance;

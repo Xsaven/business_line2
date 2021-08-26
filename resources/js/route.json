@@ -926,6 +926,13 @@
                 "HEAD"
             ]
         },
+        "rules": {
+            "uri": "rules",
+            "methods": [
+                "GET",
+                "HEAD"
+            ]
+        },
         "users_export": {
             "uri": "lte/download/users/export",
             "methods": [

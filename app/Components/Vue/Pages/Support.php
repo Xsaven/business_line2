@@ -2,26 +2,29 @@
 
 namespace App\Components\Vue\Pages;
 
+use App\Http\Resources\SettingResource;
+use App\Http\Resources\SupportResource;
 use App\Models\Setting;
 use App\Repositories\SettingRepository;
 use Lar\Tagable\Vue;
 
 /**
- * Rule Class.
+ * Support Class.
  * @package App\Components\Vue\Pages
  */
-class Rule extends Vue
+class Support extends Vue
 {
     /**
      * Protected variable Element.
      * @var string
      */
-    protected $element = 'pages_rule';
+    protected $element = 'pages_support';
 
     public function __construct($id = null, array $attrs = [], ...$params)
     {
-        $attrs['rules'] = app(SettingRepository::class)
-            ->all->where('name','play_rules')->first()?->value;
+        $attrs['settings'] = SupportResource::make(
+            app(SettingRepository::class)
+        )->toArray(request());
 
         parent::__construct($id, $attrs, $params);
     }

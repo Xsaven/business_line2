@@ -81,8 +81,8 @@ class UsersController extends Controller
      */
     public function matrix()
     {
-        return new Matrix(function (Form $form,Card $card) {
-            $card->group()->primary(['fas fa-money','Пополнить баланс'])
+        return new Matrix(function (Form $form, Card $card) {
+            $card->group()->primary(['fas fa-money', 'Пополнить баланс'])
                 ->on_click(new AddBalanceModal(['user_id' => $this->model()->id]));
             $form->info_id();
             if ($this->isType('edit')) {

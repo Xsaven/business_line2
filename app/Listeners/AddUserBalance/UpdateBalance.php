@@ -26,7 +26,7 @@ class UpdateBalance
         }
 
         $user->update([
-            'balance' => $new_balance
+            'balance' => $new_balance,
         ]);
     }
 }

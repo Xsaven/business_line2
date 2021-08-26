@@ -6,17 +6,16 @@ use App\Http\Resources\FaqResource;
 use Lar\Tagable\Vue;
 
 /**
- * FAQ Class
+ * FAQ Class.
  * @package App\Components\Vue\Pages
  */
 class FAQ extends Vue
 {
     /**
-     * Protected variable Element
+     * Protected variable Element.
      * @var string
      */
-    protected $element = "pages_f_a_q";
-
+    protected $element = 'pages_f_a_q';
 
     public function __construct($id = null, array $attrs = [], ...$params)
     {

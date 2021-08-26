@@ -36,6 +36,11 @@ use Lar\Roads\Roads;
     ->component('/rules', \App\Components\Vue\Pages\Rule::class)
     ->name('rules');
 
+\Road::layout('home')
+    ->web()
+    ->component('/support', \App\Components\Vue\Pages\Support::class)
+    ->name('support');
+
 Road::web()->middleware(['lte-auth'])->prefix(config('lte.route.prefix'))->prefix('download')->group(function (Roads $road) {
 
 //    $road->get('/commentaries/export',['\App\LteAdmin\Controllers\CommentariesController','export'])
