@@ -47,7 +47,7 @@ class Register
     /**
      * @var bool
      */
-    public bool $validated = false;
+    public $validated = false;
 
     /**
      * @var bool

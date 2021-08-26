@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 /**
  * TaskReport Class.
  *
+ * @package App\Models
  * @property int $id
  * @property int $likes
  * @property \Illuminate\Support\Carbon|null $start_at
@@ -78,6 +79,7 @@ class TaskReport extends Model
 
     /**
      * The "hasOne" relation for "Polzovateli".
+     * @return HasOne
      */
     public function user() : HasOne
     {
@@ -86,6 +88,7 @@ class TaskReport extends Model
 
     /**
      * The "morphMany" relation for "Logi polzovatelei".
+     * @return MorphMany
      */
     public function logs() : MorphMany
     {
@@ -94,6 +97,7 @@ class TaskReport extends Model
 
     /**
      * The "morphMany" relation for "Kommentarii".
+     * @return MorphMany
      */
     public function commentary() : MorphMany
     {

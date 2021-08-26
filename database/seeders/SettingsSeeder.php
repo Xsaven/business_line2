@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 
 /**
  * SettingsSeeder Class.
+ * @package Database\Seeders
  */
 class SettingsSeeder extends Seeder
 {
@@ -21,6 +22,9 @@ class SettingsSeeder extends Seeder
         }
     }
 
+    /**
+     * @return array
+     */
     protected function data() : array
     {
         return [

@@ -184,12 +184,12 @@
                         </form>
 
 
-                        <form class="form add_password_form" @submit.stop.prevent="">
+                        <form class="form add_password_form" @submit.stop.prevent="registration_submit">
                             <div class="title">Придумайте пароль</div>
 
                             <div class="line">
                                 <div class="field">
-                                    <input type="password" :class="{input: true, error: errors.password}"
+                                    <input v-model="registration.password" type="password" :class="{input: true, error: errors.password}"
                                            placeholder="Введите пароль" @click="clear_errors" @blur="clear_errors">
                                     <div class="exp">{{errors.password}}</div>
                                 </div>
@@ -197,7 +197,7 @@
 
                             <div class="line">
                                 <div class="field">
-                                    <input type="password" class="input"
+                                    <input v-model="registration.password_confirmation" type="password" class="input"
                                            placeholder="Повторите пароль" @click="clear_errors" @blur="clear_errors">
                                 </div>
                             </div>
@@ -252,9 +252,9 @@ export default {
                 lastname: '',
                 number: '',
                 email: '',
-                agree: true,
                 password: '',
-                password_confirmation: ''
+                password_confirmation: '',
+                agree: true,
             },
             errors: {
                 name: null,
@@ -273,10 +273,10 @@ export default {
     methods: {
         login_submit() {
             this.clear_errors();
-            if (!isRequired(this.auth.login) || !isBetween(this.auth.login, 6, 191)) {
+            if (!isRequired(this.auth.login) || !isLengthBetween(this.auth.login, 6, 191)) {
                 this.errors.login = "Имя обязательно для ввода и должно содержать от 6 до 191 символов"; return;
             }
-            if (!isRequired(this.auth.password) || !isBetween(this.auth.password, 6, 191)) {
+            if (!isRequired(this.auth.password) || !isLengthBetween(this.auth.password, 6, 191)) {
                 this.errors.password = "Пароль должен содержать 6 и более символов, прописные латинские буквы, строчные латинские буквы, цифры"; return;
             }
 
@@ -284,13 +284,12 @@ export default {
                 .then(({result}) => {
                     this.clear_errors();
                     if (!result) "toast:error".exec("Пользователь с такими данными не найден!");
-                    this.auth.email = '';
                     this.auth.password = '';
                 });
         },
         registration_submit () {
             this.clear_errors();
-            if (!isRequired(this.registration.password) || !isBetween(this.registration.password, 6, 191)) {
+            if (!isRequired(this.registration.password) || !isLengthBetween(this.registration.password, 6, 191)) {
                 this.errors.password = "Пароль должен содержать 6 и более символов, прописные латинские буквы, строчные латинские буквы, цифры";
                 return;
             }
@@ -299,7 +298,11 @@ export default {
                 return;
             }
 
-
+            jax.guest.registration(...Object.values(this.registration))
+                .then(({result}) => {
+                    this.clear_errors();
+                    if (!result) "toast:error".exec("Введены некорректные данные");
+                });
         },
         register_form() {
             this.clear_errors();

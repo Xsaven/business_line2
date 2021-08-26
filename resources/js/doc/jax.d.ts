@@ -58,6 +58,7 @@ declare interface JaxModelQuestionsInterface {
 }
 declare interface JaxModelGuestInterface {
     login(...params: any[]): Promise<JaxModelGuestInterface>;
+        registration(...params: any[]): Promise<JaxModelGuestInterface>;
 }
 declare interface JaxModelCommentaryInterface {
     list(...params: any[]): Promise<JaxModelCommentaryInterface>;

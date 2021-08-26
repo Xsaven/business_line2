@@ -38,10 +38,11 @@
     "const:title" : "Пользователи",
     "auth" : true,
     "traits" : [
-      "Notifiable", "HasSubscribers", "HasLogs", "Online"
+      "Notifiable", "HasSubscribers", "HasLogs", "Online", "Scopes"
     ],
     "fields" : [
       "name",
+      ["lastname", {"nullable": []}],
       ["login", {"nullable": []}],
       ["balance", "integer", {"default": 0}],
       ["about", "text", {"nullable":  []}],
@@ -58,7 +59,7 @@
       ["active_commentaries", "boolean", {"default": false}],
       "active"
     ],
-    "resource": [],
+    "resource": ["AuthUser", "AuthData", "Notification"],
     "hidden" : [
       "password",
       "remember_token"

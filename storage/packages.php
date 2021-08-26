@@ -43,7 +43,8 @@ return [
             "Bfg\Entity\ServiceProvider" => "Bfg\\Entity\\ServiceProvider",
             "Bfg\Object\ServiceProvider" => "Bfg\\Object\\ServiceProvider",
             "Bfg\Scaffold\ServiceProvider" => "Bfg\\Scaffold\\ServiceProvider",
-            "Bfg\Text\ServiceProvider" => "Bfg\\Text\\ServiceProvider"
+            "Bfg\Text\ServiceProvider" => "Bfg\\Text\\ServiceProvider",
+            "Bfg\IdeHelper\ServiceProvider" => "Bfg\\IdeHelper\\ServiceProvider"
         ]
     ],
     "Bfg\Object\ServiceProvider" => [
@@ -105,6 +106,27 @@ return [
         "composer_name" => "bfg/text",
         "composer_version" => "0.0.3",
         "description" => "All sorts of chips to work with the text",
+        "extensions" => [
+
+        ]
+    ],
+    "Bfg\IdeHelper\ServiceProvider" => [
+        "index" => 5,
+        "installed" => true,
+        "install_complete" => true,
+        "name" => "bfg/ide-helper",
+        "logo" => "",
+        "provider" => "Bfg\\IdeHelper\\ServiceProvider",
+        "version" => "",
+        "child" => "",
+        "type" => "bfg-app",
+        "parent" => "Bfg\\Installer\\ServiceProvider",
+        "path" => "vendor/bfg/ide-helper/src/ServiceProvider.php",
+        "dir" => "vendor/bfg/ide-helper/src",
+        "composer_file" => "vendor/bfg/ide-helper/composer.json",
+        "composer_name" => "bfg/ide-helper",
+        "composer_version" => "0.0.1",
+        "description" => "IDE Helper with 'barryvdh'",
         "extensions" => [
 
         ]

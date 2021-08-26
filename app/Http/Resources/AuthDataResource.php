@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
- * UserResource Class.
+ * AuthDataResource Class.
+ * @package App\Http\Resources
  * @mixin User
  */
-class UserResource extends JsonResource
+class AuthDataResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -20,10 +21,8 @@ class UserResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'fool_name' => $this->name.' '.$this->lastname,
-            'name' => $this->name,
-            'lastname' => $this->lastname,
-            'login' => $this->login,
+            'balance' => $this->balance,
+            'notification_count' => $this->notifications()->whereNull('read_at')->count(),
         ];
     }
 }

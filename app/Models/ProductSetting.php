@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * ProductSetting Class.
  *
+ * @package App\Models
  * @property int $id
  * @property string $name
  * @property string $slug
@@ -59,6 +60,7 @@ class ProductSetting extends Model
 
     /**
      * The "hasMany" relation for "Produkty'".
+     * @return HasMany
      */
     public function products() : HasMany
     {

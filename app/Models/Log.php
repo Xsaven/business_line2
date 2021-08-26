@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 /**
  * Log Class.
  *
+ * @package App\Models
  * @property int $id
  * @property string|null $field
  * @property string $type
@@ -82,6 +83,7 @@ class Log extends Model
 
     /**
      * The "morphTo" relation for "Zakazy'".
+     * @return MorphTo
      */
     public function order() : MorphTo
     {
@@ -90,6 +92,7 @@ class Log extends Model
 
     /**
      * The "morphTo" relation for "Produkty'".
+     * @return MorphTo
      */
     public function product() : MorphTo
     {
@@ -98,6 +101,7 @@ class Log extends Model
 
     /**
      * The "morphTo" relation for "Otcyoty' zadanii".
+     * @return MorphTo
      */
     public function taskReport() : MorphTo
     {
@@ -106,6 +110,7 @@ class Log extends Model
 
     /**
      * The "morphTo" relation for "Zadaniya".
+     * @return MorphTo
      */
     public function task() : MorphTo
     {
@@ -114,6 +119,7 @@ class Log extends Model
 
     /**
      * The "morphTo" relation for "Treki".
+     * @return MorphTo
      */
     public function track() : MorphTo
     {
@@ -122,6 +128,7 @@ class Log extends Model
 
     /**
      * The "morphTo" relation for "Polzovateli".
+     * @return MorphTo
      */
     public function user() : MorphTo
     {

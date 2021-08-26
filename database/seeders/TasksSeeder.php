@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 
 /**
  * TasksSeeder Class.
+ * @package Database\Seeders
  */
 class TasksSeeder extends Seeder
 {

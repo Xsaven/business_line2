@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * DivisionFactory Class.
+ * @package Database\Factories
  */
 class DivisionFactory extends Factory
 {
@@ -18,6 +19,7 @@ class DivisionFactory extends Factory
 
     /**
      * Define the model's default state.
+     * @return array
      */
     public function definition() : array
     {

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 /**
  * Prize Class.
  *
+ * @package App\Models
  * @property int $id
  * @property string $name
  * @property string $src
@@ -55,6 +56,7 @@ class Prize extends Model
 
     /**
      * The "belongsToMany" relation for "Treki".
+     * @return BelongsToMany
      */
     public function tracks() : BelongsToMany
     {

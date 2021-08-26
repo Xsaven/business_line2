@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Traits\User\UserHasLogs;
 use App\Models\Traits\User\UserHasSubscribers;
 use App\Models\Traits\User\UserOnline;
+use App\Models\Traits\User\UserScopes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -16,8 +17,10 @@ use Illuminate\Notifications\Notifiable;
 /**
  * User Class.
  *
+ * @package App\Models
  * @property int $id
  * @property string $name
+ * @property string|null $lastname
  * @property string|null $login
  * @property int $balance
  * @property string|null $about
@@ -72,6 +75,7 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLastname($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereLogin($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereLogins($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
@@ -84,10 +88,11 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereSession($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|User unreadNotifications()
  */
 class User extends Authenticatable
 {
-    use Notifiable, UserHasSubscribers, UserHasLogs, UserOnline, HasFactory;
+    use Notifiable, UserHasSubscribers, UserHasLogs, UserOnline, UserScopes, HasFactory;
 
     const TITLE = 'Пользователи';
 
@@ -103,6 +108,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'lastname',
         'login',
         'balance',
         'about',
@@ -129,6 +135,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'name' => 'string',
+        'lastname' => 'string',
         'login' => 'string',
         'balance' => 'integer',
         'about' => 'string',
@@ -172,6 +179,7 @@ class User extends Authenticatable
 
     /**
      * The "hasMany" relation for "Zakazy'".
+     * @return HasMany
      */
     public function orders() : HasMany
     {
@@ -180,6 +188,7 @@ class User extends Authenticatable
 
     /**
      * The "hasMany" relation for "Otcyoty' zadanii".
+     * @return HasMany
      */
     public function taskReports() : HasMany
     {
@@ -188,6 +197,7 @@ class User extends Authenticatable
 
     /**
      * The "hasMany" relation for "Kommentarii".
+     * @return HasMany
      */
     public function commentaries() : HasMany
     {
@@ -196,6 +206,7 @@ class User extends Authenticatable
 
     /**
      * The "hasOne" relation for "Napravleniya".
+     * @return HasOne
      */
     public function direction() : HasOne
     {
@@ -204,6 +215,7 @@ class User extends Authenticatable
 
     /**
      * The "hasOne" relation for "Dolznosti".
+     * @return HasOne
      */
     public function position() : HasOne
     {
@@ -212,6 +224,7 @@ class User extends Authenticatable
 
     /**
      * The "hasOne" relation for "Podrazdeleniya".
+     * @return HasOne
      */
     public function division() : HasOne
     {
@@ -220,6 +233,7 @@ class User extends Authenticatable
 
     /**
      * The "morphMany" relation for "Logi polzovatelei".
+     * @return MorphMany
      */
     public function logs() : MorphMany
     {
@@ -228,6 +242,7 @@ class User extends Authenticatable
 
     /**
      * The "belongsToMany" relation for "Polzovateli".
+     * @return BelongsToMany
      */
     public function subscriptions() : BelongsToMany
     {
@@ -236,6 +251,7 @@ class User extends Authenticatable
 
     /**
      * The "belongsToMany" relation for "Treki".
+     * @return BelongsToMany
      */
     public function tracks() : BelongsToMany
     {

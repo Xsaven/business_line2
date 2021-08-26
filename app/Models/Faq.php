@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Faq Class.
  *
+ * @package App\Models
  * @property int $id
  * @property string $question
  * @property string $answer

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * TrackFactory Class.
+ * @package Database\Factories
  */
 class TrackFactory extends Factory
 {
@@ -18,6 +19,7 @@ class TrackFactory extends Factory
 
     /**
      * Define the model's default state.
+     * @return array
      */
     public function definition() : array
     {

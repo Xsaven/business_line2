@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Setting Class.
  *
+ * @package App\Models
  * @property int $id
  * @property string $name
  * @property |null $value

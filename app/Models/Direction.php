@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * Direction Class.
  *
+ * @package App\Models
  * @property int $id
  * @property string $name
  * @property string|null $description
@@ -57,6 +58,7 @@ class Direction extends Model
 
     /**
      * The "hasMany" relation for "Treki".
+     * @return HasMany
      */
     public function tracks() : HasMany
     {
@@ -65,6 +67,7 @@ class Direction extends Model
 
     /**
      * The "hasMany" relation for "Polzovateli".
+     * @return HasMany
      */
     public function users() : HasMany
     {
