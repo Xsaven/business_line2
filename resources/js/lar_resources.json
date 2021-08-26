@@ -1,6 +1,8 @@
 {
     "state_watchers": [],
-    "executors": [],
+    "executors": [
+        "Addbalance.js"
+    ],
     "vue_components": {
         "pages_auth": "Pages/Auth.vue",
         "pages_home": "Pages/Home.vue"

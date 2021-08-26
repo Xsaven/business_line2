@@ -6,6 +6,7 @@ declare interface JaxModelInterface {
     lte_admin: JaxModelLteAdminInterface;
     lte_root_preferences: JaxModelLteRootPreferencesInterface;
     lte_scaffolding: JaxModelLteScaffoldingInterface|Promise<JaxModelLteScaffoldingInterface>|Function;
+    add_balance: JaxModelAddBalanceInterface;
     commentaries_control: JaxModelCommentariesControlInterface;
     questions_control: JaxModelQuestionsControlInterface;
     user_control: JaxModelUserControlInterface;
@@ -33,6 +34,9 @@ declare interface JaxModelCommentariesControlInterface {
         switch_moderation(...params: any[]): Promise<JaxModelCommentariesControlInterface>;
         switch_commentary(...params: any[]): Promise<JaxModelCommentariesControlInterface>;
 }
+declare interface JaxModelAddBalanceInterface {
+    balance(...params: any[]): Promise<JaxModelAddBalanceInterface>;
+}
 declare interface JaxModelLteScaffoldingInterface {
 }
 declare interface JaxModelLteRootPreferencesInterface {
@@ -58,6 +62,7 @@ declare interface JaxModelQuestionsInterface {
 }
 declare interface JaxModelGuestInterface {
     login(...params: any[]): Promise<JaxModelGuestInterface>;
+        registration(...params: any[]): Promise<JaxModelGuestInterface>;
 }
 declare interface JaxModelCommentaryInterface {
     list(...params: any[]): Promise<JaxModelCommentaryInterface>;

@@ -2415,6 +2415,69 @@ function isFalse(bool) {
 
 /***/ }),
 
+/***/ "./resources/js/executors/Addbalance.js":
+/*!**********************************************!*\
+  !*** ./resources/js/executors/Addbalance.js ***!
+  \**********************************************/
+/***/ ((module) => {
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var Addbalance = /*#__PURE__*/function (_Executor) {
+  _inherits(Addbalance, _Executor);
+
+  var _super = _createSuper(Addbalance);
+
+  function Addbalance() {
+    _classCallCheck(this, Addbalance);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(Addbalance, [{
+    key: "__invoke",
+    value: function __invoke(modal, user_id) {
+      var _this = this;
+
+      this.target.setAttribute('disables', 'disabled');
+      jax['add_balance'].balance(user_id, modal, $('#input_balance').val())["finally"](function () {
+        return _this.target.removeAttribute('disabled');
+      });
+    }
+  }], [{
+    key: "__name",
+    value: function __name() {
+      return "addbalance";
+    }
+  }]);
+
+  return Addbalance;
+}(Executor);
+
+module.exports = Addbalance;
+
+/***/ }),
+
 /***/ "./resources/js/lar_instance.js":
 /*!**************************************!*\
   !*** ./resources/js/lar_instance.js ***!
@@ -25357,17 +25420,32 @@ webpackContext.id = "./resources/js/components sync recursive ^\\.\\/.*$";
 /*!***********************************************!*\
   !*** ./resources/js/executors/ sync ^\.\/.*$ ***!
   \***********************************************/
-/***/ ((module) => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-function webpackEmptyContext(req) {
-	var e = new Error("Cannot find module '" + req + "'");
-	e.code = 'MODULE_NOT_FOUND';
-	throw e;
+var map = {
+	"./Addbalance": "./resources/js/executors/Addbalance.js",
+	"./Addbalance.js": "./resources/js/executors/Addbalance.js"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
 }
-webpackEmptyContext.keys = () => ([]);
-webpackEmptyContext.resolve = webpackEmptyContext;
-webpackEmptyContext.id = "./resources/js/executors sync recursive ^\\.\\/.*$";
-module.exports = webpackEmptyContext;
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./resources/js/executors sync recursive ^\\.\\/.*$";
 
 /***/ }),
 
@@ -25396,7 +25474,7 @@ module.exports = webpackEmptyContext;
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"state_watchers":[],"executors":[],"vue_components":{"pages_auth":"Pages/Auth.vue","pages_home":"Pages/Home.vue"}}');
+module.exports = JSON.parse('{"state_watchers":[],"executors":["Addbalance.js"],"vue_components":{"pages_auth":"Pages/Auth.vue","pages_home":"Pages/Home.vue"}}');
 
 /***/ })
 

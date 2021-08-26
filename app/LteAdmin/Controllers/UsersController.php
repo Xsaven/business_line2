@@ -4,6 +4,7 @@ namespace App\LteAdmin\Controllers;
 
 use App\Exports\CommentariesExport;
 use App\Exports\UserStatisticExport;
+use App\LteAdmin\Modals\AddBalanceModal;
 use App\Models\Direction;
 use App\Models\Division;
 use App\Models\Position;
@@ -61,6 +62,8 @@ class UsersController extends Controller
             $table->at();
             $table->col(function (User $user) {
                 return ButtonGroup::create(function (ButtonGroup $group) use ($user) {
+                    $group->primary(['fas fa-money'])
+                        ->on_click(new AddBalanceModal(['user_id' => $user->id]));
                     $group->success(['fas fa-user-lock'])
                         ->setTitle('Авторизоваться этим пользователем')
                         ->on_click('jax.user_control.auth', $user->id);
