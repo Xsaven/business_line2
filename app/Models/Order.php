@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 /**
  * Order Class.
  *
+ * @package App\Models
  * @property int $id
  * @property string $status
  * @property int $user_id
@@ -86,6 +87,7 @@ class Order extends Model
 
     /**
      * The "belongsToMany" relation for "Produkty'".
+     * @return BelongsToMany
      */
     public function products() : BelongsToMany
     {
@@ -94,6 +96,7 @@ class Order extends Model
 
     /**
      * The "hasOne" relation for "Polzovateli".
+     * @return HasOne
      */
     public function user() : HasOne
     {
@@ -102,6 +105,7 @@ class Order extends Model
 
     /**
      * The "morphMany" relation for "Logi polzovatelei".
+     * @return MorphMany
      */
     public function logs() : MorphMany
     {

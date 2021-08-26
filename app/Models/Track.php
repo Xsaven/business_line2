@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 /**
  * Track Class.
  *
+ * @package App\Models
  * @property int $id
  * @property string $name
  * @property string|null $video
@@ -94,6 +95,7 @@ class Track extends Model
 
     /**
      * The "hasMany" relation for "Zadaniya".
+     * @return HasMany
      */
     public function tasks() : HasMany
     {
@@ -102,6 +104,7 @@ class Track extends Model
 
     /**
      * The "morphMany" relation for "Logi polzovatelei".
+     * @return MorphMany
      */
     public function logs() : MorphMany
     {
@@ -110,6 +113,7 @@ class Track extends Model
 
     /**
      * The "hasOne" relation for "Napravleniya".
+     * @return HasOne
      */
     public function direction() : HasOne
     {
@@ -118,6 +122,7 @@ class Track extends Model
 
     /**
      * The "belongsToMany" relation for "Prizy'".
+     * @return BelongsToMany
      */
     public function prizes() : BelongsToMany
     {
@@ -126,6 +131,7 @@ class Track extends Model
 
     /**
      * The "belongsToMany" relation for "Polzovateli".
+     * @return BelongsToMany
      */
     public function users() : BelongsToMany
     {

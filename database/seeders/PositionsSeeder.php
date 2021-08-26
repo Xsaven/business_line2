@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 
 /**
  * PositionsSeeder Class.
+ * @package Database\Seeders
  */
 class PositionsSeeder extends Seeder
 {

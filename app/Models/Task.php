@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 /**
  * Task Class.
  *
+ * @package App\Models
  * @property int $id
  * @property string $name
  * @property string $event_type
@@ -142,6 +143,7 @@ class Task extends Model
 
     /**
      * The "morphMany" relation for "Logi polzovatelei".
+     * @return MorphMany
      */
     public function logs() : MorphMany
     {
@@ -150,6 +152,7 @@ class Task extends Model
 
     /**
      * The "hasOne" relation for "Treki".
+     * @return HasOne
      */
     public function track() : HasOne
     {

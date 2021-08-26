@@ -2,15 +2,16 @@
 
 namespace App\Http\Resources;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Notifications\DatabaseNotification;
 
 /**
- * UserResource Class.
- * @mixin User
+ * NotificationResource Class.
+ * @package App\Http\Resources
+ * @mixin DatabaseNotification
  */
-class UserResource extends JsonResource
+class NotificationResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -20,10 +21,7 @@ class UserResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'fool_name' => $this->name.' '.$this->lastname,
-            'name' => $this->name,
-            'lastname' => $this->lastname,
-            'login' => $this->login,
+
         ];
     }
 }

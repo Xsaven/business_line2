@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * UserFactory Class.
+ * @package Database\Factories
  */
 class UserFactory extends Factory
 {
@@ -18,6 +19,7 @@ class UserFactory extends Factory
 
     /**
      * Define the model's default state.
+     * @return array
      */
     public function definition() : array
     {

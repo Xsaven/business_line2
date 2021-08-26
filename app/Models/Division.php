@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * Division Class.
  *
+ * @package App\Models
  * @property int $id
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -55,6 +56,7 @@ class Division extends Model
 
     /**
      * The "hasMany" relation for "Polzovateli".
+     * @return HasMany
      */
     public function users() : HasMany
     {

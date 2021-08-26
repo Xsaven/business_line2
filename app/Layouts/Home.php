@@ -2,6 +2,11 @@
 
 namespace App\Layouts;
 
+use App\Http\Resources\AuthUserResource;
+use App\Http\Resources\NotificationResource;
+use App\Http\Resources\UserResource;
+use App\Repositories\AuthUserRepository;
+use Illuminate\Http\Request;
 use Lar\Layout\Abstracts\LayoutComponent;
 
 /**
@@ -40,6 +45,7 @@ class Home extends LayoutComponent
         'js/app.js',
         'ljs' => [
             'jq',
+            'echo',
             'alert',
             'nav',
             'vue',
@@ -83,6 +89,20 @@ class Home extends LayoutComponent
         $this->head->link(['rel' => 'stylesheet', 'href' => 'css/response_479.css', 'media' => '(max-width: 479px)']);
         $this->head->text($this->g_script_1());
         $this->body->text($this->g_script_2());
+        $this->applyStates(request());
+    }
+
+    /**
+     * Create all possible states.
+     * @param  Request  $request
+     */
+    protected function applyStates(Request $request)
+    {
+        if (\Auth::check()) {
+            $this->js()->state('user', AuthUserResource::make(\Auth::user())->toArray($request));
+            $this->js()->state('new_notifications_count', (new AuthUserRepository())->new_notifications_count);
+            //$this->js()->state('new_notifications', NotificationResource::collection(\Auth::user()->notifications())->toArray($request));
+        }
     }
 
     /**

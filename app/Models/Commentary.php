@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 /**
  * Commentary Class.
  *
+ * @package App\Models
  * @property int $id
  * @property $text
  * @property int $likes
@@ -86,6 +87,7 @@ class Commentary extends Model
 
     /**
      * The "morphTo" relation for "Otcyoty' zadanii".
+     * @return MorphTo
      */
     public function taskReport() : MorphTo
     {
@@ -94,6 +96,7 @@ class Commentary extends Model
 
     /**
      * The "hasOne" relation for "Polzovateli".
+     * @return HasOne
      */
     public function user() : HasOne
     {
@@ -102,6 +105,7 @@ class Commentary extends Model
 
     /**
      * The "morphTo" relation for "Kommentarii".
+     * @return MorphTo
      */
     public function commentary() : MorphTo
     {
@@ -110,6 +114,7 @@ class Commentary extends Model
 
     /**
      * The "morphMany" relation for "Kommentarii".
+     * @return MorphMany
      */
     public function commentaries() : MorphMany
     {

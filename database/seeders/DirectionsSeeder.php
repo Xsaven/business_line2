@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 
 /**
  * DirectionsSeeder Class.
+ * @package Database\Seeders
  */
 class DirectionsSeeder extends Seeder
 {
@@ -21,6 +22,9 @@ class DirectionsSeeder extends Seeder
         }
     }
 
+    /**
+     * @return array
+     */
     protected function data() : array
     {
         return [

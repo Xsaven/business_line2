@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 /**
  * Product Class.
  *
+ * @package App\Models
  * @property int $id
  * @property string $name
  * @property string $src
@@ -83,6 +84,7 @@ class Product extends Model
 
     /**
      * The "belongsToMany" relation for "Zakazy'".
+     * @return BelongsToMany
      */
     public function orders() : BelongsToMany
     {
@@ -91,6 +93,7 @@ class Product extends Model
 
     /**
      * The "morphMany" relation for "Logi polzovatelei".
+     * @return MorphMany
      */
     public function logs() : MorphMany
     {
@@ -99,6 +102,7 @@ class Product extends Model
 
     /**
      * The "hasOne" relation for "Nastroiki produktov".
+     * @return HasOne
      */
     public function setting() : HasOne
     {
