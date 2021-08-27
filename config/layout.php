@@ -5,7 +5,7 @@ return [
     'js_doc' => 'js/doc', // Resource path for js doc generate
     'lang_mode' => false,
     'languages' => [
-        'en', 'uk', 'ru',
+        'ru',
     ],
     'resource_js_path' => 'js',
 ];

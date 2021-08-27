@@ -104,9 +104,12 @@ class Home extends LayoutComponent
     protected function applyStates(Request $request)
     {
         if (\Auth::check()) {
+            $auth_repo = app(AuthUserRepository::class);
             $this->js()->state('user', AuthUserResource::make(\Auth::user())->toArray($request));
-            $this->js()->state('new_notifications_count', (new AuthUserRepository())->new_notifications_count);
-            //$this->js()->state('new_notifications', NotificationResource::collection(\Auth::user()->notifications())->toArray($request));
+            $this->js()->state('new_notifications_count', $auth_repo->new_notifications_count);
+            $this->js()->state('new_notifications', NotificationResource::collection(
+                $auth_repo->new_notifications
+            )->toArray($request));
         }
     }
 

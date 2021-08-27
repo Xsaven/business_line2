@@ -33,11 +33,13 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\AddUserBalance\UpdateBalance::class,
             \App\Listeners\AddUserBalance\MakeLog::class,
             \App\Listeners\AddUserBalance\NotifyUser::class,
+            \App\Listeners\Ws\UpdateAuthUser::class,
         ],
         \App\Events\AdminAddUserBalance::class => [
             \App\Listeners\AddUserBalance\UpdateBalance::class,
             \App\Listeners\AdminAddUserBalance\MakeLog::class,
             \App\Listeners\AdminAddUserBalance\NotifyUser::class,
+            \App\Listeners\Ws\UpdateAuthUser::class,
         ],
     ];
 

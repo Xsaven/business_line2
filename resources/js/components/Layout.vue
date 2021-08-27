@@ -21,8 +21,10 @@
             };
         },
         mounted () {
-            this.echo_mount();
-            this.ping();
+            setTimeout(() => {
+                this.echo_mount();
+                this.ping();
+            }, 200);
         },
         computed: {
             channel_personal () { return this.echo.private(`App.Models.User.${this.user.id}`); },
@@ -72,6 +74,8 @@
                 let status = 'status' in notify ? notify.status : 'info';
                 let text = 'text' in notify ? notify.text : '';
                 let title = 'title' in notify ? notify.title : '';
+
+                "update::new_notifications".exec();
 
                 return `toast:${status}`.exec(text, title);
             }

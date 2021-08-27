@@ -27,6 +27,7 @@ class NotificationResource extends JsonResource
             'message' => $data['message'] ?? '',
             'link_title' => $data['link_title'] ?? '',
             'link' => $data['link'] ?? '',
+            'avatar' => $data['avatar'] ?? '',
         ];
     }
 }
