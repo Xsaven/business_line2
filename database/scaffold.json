@@ -81,7 +81,7 @@
     "const:title" : "Пользователи",
     "auth" : true,
     "traits" : [
-      "Notifiable", "HasSubscribers", "HasLogs", "Online", "Scopes"
+      "Notifiable", "HasSubscribers", "HasLogs", "Online", "Scopes", "Attributes"
     ],
     "fields" : [
       "name",

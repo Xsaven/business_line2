@@ -5,15 +5,14 @@ namespace App\Components\Vue\Common;
 use Lar\Tagable\Vue;
 
 /**
- * Header Class
+ * Header Class.
  * @package App\Components\Vue\Common
  */
 class Header extends Vue
 {
     /**
-     * Protected variable Element
+     * Protected variable Element.
      * @var string
      */
-    protected $element = "common_header";
-
+    protected $element = 'common_header';
 }

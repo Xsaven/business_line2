@@ -9,4 +9,5 @@ module.exports = (Vue) => {
     Vue.component('v-loading-plugin', require('vue-element-loading'));
     Vue.component('v-nodes', {functional: true, render: (h, ctx) => ctx.props.nodes});
     Vue.component('v-loading', require('./Common/Loading.vue').default);
+    Vue.component('v-new-commentaries', require('./Common/NewCommentares.vue').default);
 }

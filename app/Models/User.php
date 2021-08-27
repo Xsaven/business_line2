@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\User\UserAttributes;
 use App\Models\Traits\User\UserHasLogs;
 use App\Models\Traits\User\UserHasSubscribers;
 use App\Models\Traits\User\UserOnline;
@@ -49,6 +50,7 @@ use Illuminate\Notifications\Notifiable;
  * @property-read int|null $commentaries_count
  * @property-read \App\Models\Direction|null $direction
  * @property-read \App\Models\Division|null $division
+ * @property-read mixed $short_name
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Log[] $logs
  * @property-read int|null $logs_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
@@ -98,7 +100,7 @@ use Illuminate\Notifications\Notifiable;
  */
 class User extends Authenticatable
 {
-    use Notifiable, UserHasSubscribers, UserHasLogs, UserOnline, UserScopes, HasFactory;
+    use Notifiable, UserHasSubscribers, UserHasLogs, UserOnline, UserScopes, UserAttributes, HasFactory;
 
     const TITLE = 'Пользователи';
 

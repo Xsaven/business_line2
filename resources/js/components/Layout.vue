@@ -51,6 +51,10 @@
                     this.ws_channel_personal =
                         this.channel_personal.listen('exec', 'execCallback');
                 }
+                if (!this.ws_channel_notification) {
+                    this.ws_channel_notification =
+                        this.channel_personal.notification(this.toast);
+                }
                 // this.channel_live
                 //     .listen('ws_events.message');
 
@@ -63,6 +67,14 @@
                 this.ljs.exec(exec);
                 state.ws = false;
             },
+            toast (notify) {
+
+                let status = 'status' in notify ? notify.status : 'info';
+                let text = 'text' in notify ? notify.text : '';
+                let title = 'title' in notify ? notify.title : '';
+
+                return `toast:${status}`.exec(text, title);
+            }
         }
     }
 </script>

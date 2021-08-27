@@ -5,15 +5,14 @@ namespace App\Components\Vue\Common;
 use Lar\Tagable\Vue;
 
 /**
- * Footer Class
+ * Footer Class.
  * @package App\Components\Vue\Common
  */
 class Footer extends Vue
 {
     /**
-     * Protected variable Element
+     * Protected variable Element.
      * @var string
      */
-    protected $element = "common_footer";
-
+    protected $element = 'common_footer';
 }

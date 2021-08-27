@@ -20,8 +20,13 @@ class NotificationResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
+        $data = $this->data;
 
+        return [
+            'created_at' => butty_date_time($this->created_at),
+            'message' => $data['message'] ?? '',
+            'link_title' => $data['link_title'] ?? '',
+            'link' => $data['link'] ?? '',
         ];
     }
 }
