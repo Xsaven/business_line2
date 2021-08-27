@@ -945,6 +945,8 @@ namespace Lar\Layout {
      * @method \App\Components\Vue\Common\Footer _common_footer($id = null, array $attrs = [], ...$params) Add Component common_footer to parent
      * @method \App\Components\Vue\Common\Header common_header($id = null, array $attrs = [], ...$params) Add Component common_header
      * @method \App\Components\Vue\Common\Header _common_header($id = null, array $attrs = [], ...$params) Add Component common_header to parent
+     * @method \App\Components\Vue\Pages\Direction pages_direction($id = null, array $attrs = [], ...$params) Add Component pages_direction
+     * @method \App\Components\Vue\Pages\Direction _pages_direction($id = null, array $attrs = [], ...$params) Add Component pages_direction to parent
      * @method \Lar\LteAdmin\Segments\Tagable\Row row(...$params) Add Component row
      * @method \Lar\LteAdmin\Segments\Tagable\Row _row(...$params) Add Component row to parent
      * @method \Lar\LteAdmin\Segments\Tagable\Col col($num = null, ...$params) Add Component col

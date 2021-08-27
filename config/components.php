@@ -7,5 +7,6 @@ return [
     "pages_rule" => "App\\Components\\Vue\\Pages\\Rule",
     "pages_support" => "App\\Components\\Vue\\Pages\\Support",
     "common_footer" => "App\\Components\\Vue\\Common\\Footer",
-    "common_header" => "App\\Components\\Vue\\Common\\Header"
+    "common_header" => "App\\Components\\Vue\\Common\\Header",
+    "pages_direction" => "App\\Components\\Vue\\Pages\\Direction"
 ];

@@ -494,7 +494,7 @@
 
                 <div class="row_wrap">
                     <div class="row">
-                        <a href="/" class="item">
+                        <a :href="`/direction/${directions[0].slug}`" class="item">
                             <div class="name">{{directions[0].name}}</div>
 
                             <div class="desc">{{directions[0].description}}</div>
@@ -502,7 +502,7 @@
                             <img data-src="/images/bg_directions_item1.svg" alt="" class="bg lozad">
                         </a>
 
-                        <a href="/" class="item">
+                        <a :href="`/direction/${directions[1].slug}`" class="item">
                             <div class="name">{{directions[1].name}}</div>
 
                             <div class="desc">{{directions[1].description}}</div>
@@ -511,7 +511,7 @@
                             <img data-src="/images/bg_directions_item3.svg" alt="" class="bg3 lozad">
                         </a>
 
-                        <a href="/" class="item">
+                        <a :href="`/direction/${directions[2].slug}`" class="item">
                             <div class="name">{{directions[2].name}}</div>
 
                             <div class="desc">{{directions[2].description}}</div>

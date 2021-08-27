@@ -2,11 +2,13 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Prize;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
  * PrizeResource Class.
+ * @mixin Prize
  */
 class PrizeResource extends JsonResource
 {
@@ -17,6 +19,9 @@ class PrizeResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+          'name' => $this->name,
+          'src' => $this->src
+        ];
     }
 }

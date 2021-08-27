@@ -2,6 +2,7 @@
 
 namespace App\Jax;
 
+use App\Events\SubscribeDirectionEvent;
 use App\Events\User\ChangeName;
 use App\Http\Resources\UserResource;
 use App\Jobs\AdminStatisticJob;
@@ -69,5 +70,25 @@ class User extends JaxExecutor
         }
 
         return ['result' => 'pong'];
+    }
+
+
+    /**
+     * @param int $direction_id
+     */
+    public function follow_direction(int $direction_id)
+    {
+        $user_id = \Auth::user()->id;
+
+        if(!\Auth::user()->direction_id) {
+            /**
+             * @var SubscribeDirectionEvent $event
+             */
+            $event = new SubscribeDirectionEvent($user_id, $direction_id);
+
+            event($event);
+        }
+
+        $this->reload();
     }
 }
