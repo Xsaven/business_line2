@@ -15,16 +15,6 @@ class Login
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * @var string
-     */
-    public string $login;
-
-    /**
-     * @var string
-     */
-    public string $password;
-
-    /**
      * @var bool
      */
     public bool $validated = false;
@@ -37,13 +27,13 @@ class Login
     /**
      * Create a new event instance.
      *
-     * @return void
+     * @param  string  $login
+     * @param  string  $password
      */
-    public function __construct(string $login, string $password)
-    {
-        $this->login = $login;
-
-        $this->password = $password;
+    public function __construct(
+        public string $login,
+        public string $password
+    ) {
     }
 
     /**

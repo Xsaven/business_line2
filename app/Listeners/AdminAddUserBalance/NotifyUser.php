@@ -3,7 +3,7 @@
 namespace App\Listeners\AdminAddUserBalance;
 
 use App\Events\AdminAddUserBalance;
-use App\Notifications\AddUserBalanceNotification;
+use App\Notifications\AddAdminUserBalanceNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -19,7 +19,7 @@ class NotifyUser
     {
         if ($event->user) {
             $event->user->notify(
-                new AddUserBalanceNotification($event->balance, 'администратором')
+                new AddAdminUserBalanceNotification($event->balance)
             );
         }
     }

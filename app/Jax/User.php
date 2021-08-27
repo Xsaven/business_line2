@@ -4,6 +4,7 @@ namespace App\Jax;
 
 use App\Events\SubscribeDirectionEvent;
 use App\Events\User\ChangeName;
+use App\Http\Resources\NotificationResource;
 use App\Http\Resources\UserResource;
 use App\Jobs\AdminStatisticJob;
 use App\Jobs\OffLineJob;
@@ -54,18 +55,25 @@ class User extends JaxExecutor
         return $repository->question_likes();
     }
 
+    public function new_notifications()
+    {
+        return NotificationResource::collection(
+
+        );
+    }
+
     /**
      * @return string[]
      * @throws \Psr\SimpleCache\InvalidArgumentException
      */
-    public function ping(bool $come_back = false)
+    public function ping(bool $come_back = false, string $page = null)
     {
         $user = \Auth::user();
 
-        \Cache::set('n:user:session:'.$user->id, 2, now()->addMinutes(3));
+        \Cache::set("n:user:session:{$user->id}", 2, now()->addMinutes(3));
+        \Cache::set("n:user:{$page}:{$user->id}", 2, now()->addMinutes(3));
 
-        if (!$come_back) {
-
+        if (! $come_back) {
             \Auth::user()->increment('seconds', 60);
         }
 

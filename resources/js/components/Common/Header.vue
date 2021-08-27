@@ -43,38 +43,14 @@
                     <div class="scores">{{user.balance}} б</div>
 
                     <div class="notifications modal_cont">
-                        <button :class="{btn: true, mini_modal_btn: true, new: !!Number(user.new_notifications_count)}" data-modal-id="#notifications_modal">
+                        <button :class="{'btn mini_modal_btn': true, new: !!Number(user.new_notifications_count)}" data-modal-id="#notifications_modal">
                             <v-icon icon="ic_notifications" />
                         </button>
-
-                        <div class="mini_modal" id="notifications_modal">
-                            <div class="head">
-                                <div class="title">Новые уведомления</div>
-
-                                <button class="read_btn">Отметить как прочитанное</button>
-                            </div>
-
-                            <div class="item">
-                                <div class="avatar">
-                                    <span v-if="!user.photo">{{user.short_name}}</span>
-                                    <img v-else :data-src="user.photo" alt="" class="lozad" />
-                                </div>
-
-                                <div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
-                            </div>
-
-                            <div class="item">
-                                <div class="avatar">
-                                    <img data-src="/images/tmp/user_avatar.jpg" alt="" class="lozad">
-                                </div>
-
-                                <div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
-                            </div>
-                        </div>
+                        <v-new-commentaries />
                     </div>
 
                     <div class="account">
-                        <a href="/" class="user">
+                        <a href="javascript:;" class="user">
                             <div class="avatar">{{user.short_name}}</div>
                             <div class="name">{{user.full_name}}</div>
                         </a>

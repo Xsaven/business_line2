@@ -6,25 +6,25 @@ use Lar\Layout\Abstracts\Component;
 use Lar\Layout\Tags\DIV;
 
 /**
- * Wrapper Class
+ * Wrapper Class.
  * @package App\Components
  */
 class Wrapper extends DIV
 {
     /**
-     * Protected variable Name
+     * Protected variable Name.
      * @var string
      */
-    protected $name = "wrapper";
+    protected $name = 'wrapper';
 
     /**
-     * Protected variable HandlerName
+     * Protected variable HandlerName.
      * @var string
      */
-    protected $handler_name = "wrapper";
+    protected $handler_name = 'wrapper';
 
     /**
-     * Protected variable Props
+     * Protected variable Props.
      * @var array
      */
     protected $props = [];
@@ -33,10 +33,10 @@ class Wrapper extends DIV
      * @param array $params
      * @return void
      */
-    public function __construct(...$params) {
-        
+    public function __construct(...$params)
+    {
         parent::__construct();
-        
+
         $this->when($params);
     }
 

@@ -3,6 +3,8 @@
 namespace App\Repositories;
 
 use App\Models\User;
+use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Support\Collection;
 use Lar\Developer\CoreRepository;
 
 /**
@@ -12,6 +14,7 @@ use Lar\Developer\CoreRepository;
  * @property-read User|\Illuminate\Contracts\Auth\Authenticatable|null $user
  * @property-read int $new_notifications_count
  * @property-read int $notifications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|Collection|DatabaseNotification[] $new_notifications
  */
 class AuthUserRepository extends CoreRepository
 {
@@ -49,5 +52,14 @@ class AuthUserRepository extends CoreRepository
     {
         return $this->user ?
             $this->user->notifications()->count() : 0;
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|Collection
+     */
+    public function new_notifications(): \Illuminate\Database\Eloquent\Collection|Collection
+    {
+        return $this->user ?
+            $this->user->notifications()->whereNull('read_at')->get() : collect();
     }
 }
