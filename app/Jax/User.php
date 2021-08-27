@@ -4,10 +4,12 @@ namespace App\Jax;
 
 use App\Events\SubscribeDirectionEvent;
 use App\Events\User\ChangeName;
+use App\Http\Resources\AuthUserResource;
 use App\Http\Resources\NotificationResource;
 use App\Http\Resources\UserResource;
 use App\Jobs\AdminStatisticJob;
 use App\Jobs\OffLineJob;
+use App\Repositories\AuthUserRepository;
 use App\Repositories\UserRepository;
 use Lar\LJS\JaxExecutor;
 
@@ -25,12 +27,13 @@ class User extends JaxExecutor
     }
 
     /**
-     * @return UserResource
+     * @param  AuthUserRepository  $repository
+     * @return AuthUserResource
      */
-    public function update(UserRepository $repository)
+    public function update(AuthUserRepository $repository)
     {
-        return UserResource::make(
-            $repository->home_user()
+        return AuthUserResource::make(
+            $repository->user
         );
     }
 
@@ -55,10 +58,13 @@ class User extends JaxExecutor
         return $repository->question_likes();
     }
 
-    public function new_notifications()
+    /**
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function new_notifications(): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
         return NotificationResource::collection(
-
+            app(AuthUserRepository::class)->new_notifications
         );
     }
 

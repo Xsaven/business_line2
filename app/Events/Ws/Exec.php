@@ -28,9 +28,10 @@ class Exec implements ShouldBroadcast
     /**
      * Create a new event instance.
      *
-     * @param  array|Respond  $data
+     * @param  int  $user_id
+     * @param  array|string|Respond  $data
      */
-    public function __construct(int $user_id, $data)
+    public function __construct(int $user_id, Respond|array|string $data)
     {
         if (is_string($data)) {
             $this->exec = [$data];

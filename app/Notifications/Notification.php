@@ -32,10 +32,10 @@ class Notification extends LaravelNotification
     protected ?string $message = null;
 
     /**
-     * Notify avatar.
+     * User id about.
      * @var string|null
      */
-    protected ?string $avatar = null;
+    protected ?string $user_id = null;
 
     /**
      * Notify link title.
@@ -83,7 +83,7 @@ class Notification extends LaravelNotification
     public function toArray($notifiable)
     {
         return [
-            'avatar' => $this->avatar,
+            'avatar' => user_avatar($this->user_id),
             'message' => $this->message,
             'link_title' => $this->link_title,
             'link' => $this->link,

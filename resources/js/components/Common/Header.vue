@@ -51,7 +51,7 @@
 
                     <div class="account">
                         <a href="javascript:;" class="user">
-                            <div class="avatar">{{user.short_name}}</div>
+                            <div class="avatar" v-html="user.avatar"></div>
                             <div class="name">{{user.full_name}}</div>
                         </a>
                     </div>
@@ -70,10 +70,7 @@
 
             <div class="account">
                 <a href="/" class="user">
-                    <div class="avatar">
-                        <span v-if="!user.photo">{{user.short_name}}</span>
-                        <img v-else :data-src="user.photo" alt="" class="lozad" />
-                    </div>
+                    <div class="avatar" v-html="user.avatar"></div>
                     <div class="name">{{user.full_name}}</div>
                 </a>
 

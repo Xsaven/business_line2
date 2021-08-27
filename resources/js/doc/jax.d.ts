@@ -53,6 +53,7 @@ declare interface JaxModelUserInterface {
     update(...params: any[]): Promise<JaxModelUserInterface>;
         change_name(...params: any[]): Promise<JaxModelUserInterface>;
         question_likes(...params: any[]): Promise<JaxModelUserInterface>;
+        new_notifications(...params: any[]): Promise<JaxModelUserInterface>;
         ping(...params: any[]): Promise<JaxModelUserInterface>;
         follow_direction(...params: any[]): Promise<JaxModelUserInterface>;
 }
