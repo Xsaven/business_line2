@@ -9,7 +9,7 @@ module.exports = ($root, $methods) => {
     window.onfocus = () => {
         if (ljs.cfg('name') !== 'login') {
 
-            jax.user.ping().then(({result}) => {
+            jax.user.ping(1).then(({result}) => {
                 if (!result) {
                     "doc::reload".exec();
                 }
@@ -18,4 +18,11 @@ module.exports = ($root, $methods) => {
             });
         }
     };
+
+    const observer = lozad('#dirty_content .lozad', {
+        rootMargin: '200px 0px',
+        threshold: 0,
+        loaded: (el) => el.classList.add('loaded')
+    });
+    observer.observe();
 };

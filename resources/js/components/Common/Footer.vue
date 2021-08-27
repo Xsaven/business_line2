@@ -4,8 +4,8 @@
                 <div class="copyright">&copy; ГК «Деловые Линии», 2001–2021</div>
 
                 <div class="links">
-                    <div><a href="/">FAQ</a></div>
-                    <div><a href="/">Техническая поддержка</a></div>
+                    <div v-if="no_faq_page"><a href="/faq">FAQ</a></div>
+                    <div><a href="/support">Техническая поддержка</a></div>
                 </div>
             </div>
 
@@ -23,7 +23,11 @@
             };
         },
         mounted () {},
-        computed: {},
+        computed: {
+            no_faq_page () {
+                return this.ljs.cfg('name') !== 'faq';
+            }
+        },
         watch: {},
         methods: {}
     }

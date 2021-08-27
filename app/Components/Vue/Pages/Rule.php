@@ -2,15 +2,14 @@
 
 namespace App\Components\Vue\Pages;
 
-use App\Models\Setting;
+use App\Components\Vue\Page;
 use App\Repositories\SettingRepository;
-use Lar\Tagable\Vue;
 
 /**
  * Rule Class.
  * @package App\Components\Vue\Pages
  */
-class Rule extends Vue
+class Rule extends Page
 {
     /**
      * Protected variable Element.
@@ -18,6 +17,11 @@ class Rule extends Vue
      */
     protected $element = 'pages_rule';
 
+    /**
+     * @param  null  $id
+     * @param  array  $attrs
+     * @param ...$params
+     */
     public function __construct($id = null, array $attrs = [], ...$params)
     {
         $attrs['rules'] = app(SettingRepository::class)

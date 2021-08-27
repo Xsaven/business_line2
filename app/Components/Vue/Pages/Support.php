@@ -2,17 +2,15 @@
 
 namespace App\Components\Vue\Pages;
 
-use App\Http\Resources\SettingResource;
+use App\Components\Vue\Page;
 use App\Http\Resources\SupportResource;
-use App\Models\Setting;
 use App\Repositories\SettingRepository;
-use Lar\Tagable\Vue;
 
 /**
  * Support Class.
  * @package App\Components\Vue\Pages
  */
-class Support extends Vue
+class Support extends Page
 {
     /**
      * Protected variable Element.
@@ -20,6 +18,11 @@ class Support extends Vue
      */
     protected $element = 'pages_support';
 
+    /**
+     * @param  null  $id
+     * @param  array  $attrs
+     * @param ...$params
+     */
     public function __construct($id = null, array $attrs = [], ...$params)
     {
         $attrs['settings'] = SupportResource::make(

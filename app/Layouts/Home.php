@@ -67,7 +67,7 @@ class Home extends LayoutComponent
      * To enable the module, specify the container identifier in the parameter.
      * @var bool|string
      */
-    protected $pjax = false;
+    protected $pjax = "dirty_content";
 
     /**
      * Home constructor.

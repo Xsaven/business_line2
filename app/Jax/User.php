@@ -57,13 +57,16 @@ class User extends JaxExecutor
      * @return string[]
      * @throws \Psr\SimpleCache\InvalidArgumentException
      */
-    public function ping()
+    public function ping(bool $come_back = false)
     {
         $user = \Auth::user();
 
         \Cache::set('n:user:session:'.$user->id, 2, now()->addMinutes(3));
 
-        \Auth::user()->increment(60);
+        if (!$come_back) {
+
+            \Auth::user()->increment('seconds', 60);
+        }
 
         return ['result' => 'pong'];
     }

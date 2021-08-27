@@ -6,6 +6,8 @@
         "pages_home": "Pages/Home.vue",
         "pages_f_a_q": "Pages/FAQ.vue",
         "pages_rule": "Pages/Rule.vue",
-        "pages_support": "Pages/Support.vue"
+        "pages_support": "Pages/Support.vue",
+        "common_footer": "Common/Footer.vue",
+        "common_header": "Common/Header.vue"
     }
 }

@@ -82,7 +82,7 @@ $(() => {
 	}
 
 	Fancybox.defaults.template = {
-		closeButton: '<svg><use xlink:href="images/sprite.svg#ic_close"></use></svg>',
+		closeButton: '<svg><use xlink:href="/images/sprite.svg#ic_close"></use></svg>',
 	}
 
 	// Всплывающие окна
