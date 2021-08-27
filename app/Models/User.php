@@ -56,15 +56,13 @@ use Illuminate\Notifications\Notifiable;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Order[] $orders
  * @property-read int|null $orders_count
  * @property-read \App\Models\Position|null $position
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\QuizAnswer[] $quizAnswers
- * @property-read int|null $quiz_answers_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\QuizResult[] $quizResults
+ * @property-read int|null $quiz_results_count
  * @property-read \Illuminate\Database\Eloquent\Collection|User[] $subscribers
  * @property-read int|null $subscribers_count
  * @property-read int|null $subscriptions_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\TaskReport[] $taskReports
  * @property-read int|null $task_reports_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Track[] $tracks
- * @property-read int|null $tracks_count
  * @method static \Database\Factories\UserFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
@@ -198,12 +196,12 @@ class User extends Authenticatable
     ];
 
     /**
-     * The "hasMany" relation for "Otvety' viktorin".
+     * The "hasMany" relation for "Rezultaty' viktorin".
      * @return HasMany
      */
-    public function quizAnswers() : HasMany
+    public function quizResults() : HasMany
     {
-        return $this->hasMany(QuizAnswer::class, 'user_id', 'id');
+        return $this->hasMany(QuizResult::class, 'user_id', 'id');
     }
 
     /**
@@ -276,14 +274,5 @@ class User extends Authenticatable
     public function subscriptions() : BelongsToMany
     {
         return $this->belongsToMany(self::class, 'user_subscriptions', 'user_id', 'subscription_id');
-    }
-
-    /**
-     * The "belongsToMany" relation for "Treki".
-     * @return BelongsToMany
-     */
-    public function tracks() : BelongsToMany
-    {
-        return $this->belongsToMany(Track::class, 'user_tracks', 'user_id', 'track_id');
     }
 }

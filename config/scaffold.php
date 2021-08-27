@@ -83,6 +83,7 @@ return [
                 'phone' => ['string', 64, ['nullable']],
                 'description' => ['text', ['nullable']],
                 'order' => ['integer', ['default' => 0]],
+                'cost' => ['integer', ['default' => 1]],
                 'active' => ['boolean', ['default' => true, 'order' => 9999]],
             ],
             /*

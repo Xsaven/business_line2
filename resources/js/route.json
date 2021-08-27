@@ -59,53 +59,6 @@
                 "HEAD"
             ]
         },
-        "lte.direction.index": {
-            "uri": "lte/direction",
-            "methods": [
-                "GET",
-                "HEAD"
-            ]
-        },
-        "lte.direction.create": {
-            "uri": "lte/direction/create",
-            "methods": [
-                "GET",
-                "HEAD"
-            ]
-        },
-        "lte.direction.store": {
-            "uri": "lte/direction",
-            "methods": [
-                "POST"
-            ]
-        },
-        "lte.direction.show": {
-            "uri": "lte/direction/{direction}",
-            "methods": [
-                "GET",
-                "HEAD"
-            ]
-        },
-        "lte.direction.edit": {
-            "uri": "lte/direction/{direction}/edit",
-            "methods": [
-                "GET",
-                "HEAD"
-            ]
-        },
-        "lte.direction.update": {
-            "uri": "lte/direction/{direction}",
-            "methods": [
-                "PUT",
-                "PATCH"
-            ]
-        },
-        "lte.direction.destroy": {
-            "uri": "lte/direction/{direction}",
-            "methods": [
-                "DELETE"
-            ]
-        },
         "lte.position.index": {
             "uri": "lte/position",
             "methods": [
@@ -243,53 +196,6 @@
         },
         "lte.users.destroy": {
             "uri": "lte/users/{user}",
-            "methods": [
-                "DELETE"
-            ]
-        },
-        "lte.track.index": {
-            "uri": "lte/track",
-            "methods": [
-                "GET",
-                "HEAD"
-            ]
-        },
-        "lte.track.create": {
-            "uri": "lte/track/create",
-            "methods": [
-                "GET",
-                "HEAD"
-            ]
-        },
-        "lte.track.store": {
-            "uri": "lte/track",
-            "methods": [
-                "POST"
-            ]
-        },
-        "lte.track.show": {
-            "uri": "lte/track/{track}",
-            "methods": [
-                "GET",
-                "HEAD"
-            ]
-        },
-        "lte.track.edit": {
-            "uri": "lte/track/{track}/edit",
-            "methods": [
-                "GET",
-                "HEAD"
-            ]
-        },
-        "lte.track.update": {
-            "uri": "lte/track/{track}",
-            "methods": [
-                "PUT",
-                "PATCH"
-            ]
-        },
-        "lte.track.destroy": {
-            "uri": "lte/track/{track}",
             "methods": [
                 "DELETE"
             ]

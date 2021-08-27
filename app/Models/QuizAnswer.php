@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
@@ -10,24 +11,21 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  *
  * @package App\Models
  * @property int $id
- * @property bool $is_success
- * @property string $time
- * @property int $user_id
- * @property int $task_id
+ * @property string $answer
+ * @property int $quiz_question_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Task|null $task
- * @property-read \App\Models\User|null $user
+ * @property-read \App\Models\QuizQuestion|null $quizQuestion
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Star[] $stars
+ * @property-read int|null $stars_count
  * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer query()
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereAnswer($value)
  * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereIsSuccess($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereTaskId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereQuizQuestionId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereUserId($value)
  * @mixin \Eloquent
  */
 class QuizAnswer extends Model
@@ -45,10 +43,8 @@ class QuizAnswer extends Model
      * @return array
      */
     protected $fillable = [
-        'is_success',
-        'time',
-        'user_id',
-        'task_id',
+        'answer',
+        'quiz_question_id',
     ];
 
     /**
@@ -56,36 +52,25 @@ class QuizAnswer extends Model
      * @return array
      */
     protected $casts = [
-        'is_success' => 'boolean',
-        'time' => 'string',
-        'user_id' => 'integer',
-        'task_id' => 'integer',
+        'answer' => 'string',
+        'quiz_question_id' => 'integer',
     ];
 
     /**
-     * The model's attributes.
-     * @return array
+     * The "belongsToMany" relation for "Zvyozdy' viktorin".
+     * @return BelongsToMany
      */
-    protected $attributes = [
-        'is_success' => 1,
-        'time' => '00:00',
-    ];
-
-    /**
-     * The "hasOne" relation for "Polzovateli".
-     * @return HasOne
-     */
-    public function user() : HasOne
+    public function stars() : BelongsToMany
     {
-        return $this->hasOne(User::class, 'id', 'user_id');
+        return $this->belongsToMany(Star::class, 'quiz_answer_stars', 'quiz_answer_id', 'star_id');
     }
 
     /**
-     * The "hasOne" relation for "Zadaniya".
+     * The "hasOne" relation for "Voprosy' viktorin".
      * @return HasOne
      */
-    public function task() : HasOne
+    public function quizQuestion() : HasOne
     {
-        return $this->hasOne(Task::class, 'id', 'task_id');
+        return $this->hasOne(QuizQuestion::class, 'quiz_question_id', 'id');
     }
 }

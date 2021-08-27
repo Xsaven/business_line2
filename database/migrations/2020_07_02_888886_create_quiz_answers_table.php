@@ -4,18 +4,20 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreateTaskQuizQuestionsTable Class.
+ * CreateQuizAnswersTable Class.
  */
-class CreateTaskQuizQuestionsTable extends Migration
+class CreateQuizAnswersTable extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up()
     {
-        Schema::create('task_quiz_questions', function (Blueprint $table) {
-            $table->foreignId('task_id')->constrained('tasks')->cascadeOnUpdate()->cascadeOnDelete();
+        Schema::create('quiz_answers', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('answer', 191);
             $table->foreignId('quiz_question_id')->constrained('quiz_questions')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->timestamps();
         });
     }
 
@@ -24,6 +26,6 @@ class CreateTaskQuizQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('task_quiz_questions');
+        Schema::dropIfExists('quiz_answers');
     }
 }

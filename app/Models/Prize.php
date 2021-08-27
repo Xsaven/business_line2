@@ -14,8 +14,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property string $src
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Track[] $tracks
- * @property-read int|null $tracks_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Direction[] $directions
+ * @property-read int|null $directions_count
  * @method static \Illuminate\Database\Eloquent\Builder|Prize newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Prize newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Prize query()
@@ -55,11 +55,11 @@ class Prize extends Model
     ];
 
     /**
-     * The "belongsToMany" relation for "Treki".
+     * The "belongsToMany" relation for "Napravleniya".
      * @return BelongsToMany
      */
-    public function tracks() : BelongsToMany
+    public function directions() : BelongsToMany
     {
-        return $this->belongsToMany(Track::class, 'track_prizes', 'track_id', 'prize_id');
+        return $this->belongsToMany(Direction::class, 'direction_prizes', 'direction_id', 'prize_id');
     }
 }

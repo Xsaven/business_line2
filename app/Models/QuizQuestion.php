@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * QuizQuestion Class.
@@ -12,28 +12,26 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @package App\Models
  * @property int $id
  * @property string $question
- * @property array $variant_answers
- * @property string $success_answer
+ * @property int $cost
+ * @property int $task_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Task[] $tasks
- * @property-read int|null $tasks_count
- * @method static \Database\Factories\QuizQuestionFactory factory(...$parameters)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\QuizAnswer[] $quizAnswers
+ * @property-read int|null $quiz_answers_count
+ * @property-read \App\Models\Task|null $task
  * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion query()
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereCost($value)
  * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereQuestion($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereSuccessAnswer($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereTaskId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereVariantAnswers($value)
  * @mixin \Eloquent
  */
 class QuizQuestion extends Model
 {
-    use HasFactory;
-
     const TITLE = 'Вопросы викторин';
 
     /**
@@ -48,8 +46,8 @@ class QuizQuestion extends Model
      */
     protected $fillable = [
         'question',
-        'variant_answers',
-        'success_answer',
+        'cost',
+        'task_id',
     ];
 
     /**
@@ -58,16 +56,33 @@ class QuizQuestion extends Model
      */
     protected $casts = [
         'question' => 'string',
-        'variant_answers' => 'json',
-        'success_answer' => 'string',
+        'cost' => 'integer',
+        'task_id' => 'integer',
     ];
 
     /**
-     * The "belongsToMany" relation for "Zadaniya".
-     * @return BelongsToMany
+     * The model's attributes.
+     * @return array
      */
-    public function tasks() : BelongsToMany
+    protected $attributes = [
+        'cost' => 1,
+    ];
+
+    /**
+     * The "hasMany" relation for "Otvety' viktorin".
+     * @return HasMany
+     */
+    public function quizAnswers() : HasMany
     {
-        return $this->belongsToMany(Task::class, 'task_quiz_questions', 'task_id', 'quiz_question_id');
+        return $this->hasMany(QuizAnswer::class, 'quiz_question_id', 'id');
+    }
+
+    /**
+     * The "hasOne" relation for "Zadaniya".
+     * @return HasOne
+     */
+    public function task() : HasOne
+    {
+        return $this->hasOne(Task::class, 'task_id', 'id');
     }
 }

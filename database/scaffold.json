@@ -1,15 +1,58 @@
 {
+  "prizes": {
+    "const:title": "Призы",
+    "fields": [
+      "name", "src"
+    ],
+    "resource": [],
+    "seed": [
+      {"name": "Смартфон Apple iPhone 12 128GB Black", "src": "images/tmp/prizes_thumb.png"},
+      {"name": "Планшет Apple iPad 10.2 Wi-Fi 32GB Space Grey", "src": "images/tmp/prizes_thumb2.png"},
+      {"name": "Робот-пылесос Xiaomi Viomi Cleaning V3 Global Black", "src": "images/tmp/prizes_thumb3.png"}
+    ]
+  },
   "direction": {
     "const:title" : "Направления",
     "fields": [
       "name",
-      ["description", {"nullable": []}]
+      "slug",
+      ["video", {"nullable": []}],
+      ["arbitrator_name", {"nullable": []}],
+      ["arbitrator_photo", {"nullable": []}],
+      ["arbitrator_position", {"nullable": []}],
+      ["description", {"nullable": []}],
+      ["terms_of_participation", "text"]
     ],
     "resource": [],
+    "relations": {
+      "logs": {},
+      "prizes:belongsToMany": {}
+    },
     "seed": [
-      {"name": "Fun", "description": "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме."},
-      {"name": "Sport", "description": "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме."},
-      {"name": "Болельщики", "description": "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме."}
+      {
+        "name": "Fun",
+        "slug": "fun",
+        "description": "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме.",
+        "arbitrator_name": "Василий Ибрагимов",
+        "arbitrator_photo": "images/tmp/user_avatar4.jpg",
+        "arbitrator_position": "Руководитель направления",
+        "terms_of_participation": "<p>С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт рамки и место обучения кадров способствует подготовке и реализации направлений прогрессивного развития.</p><p>Повседневная практика показывает, что постоянное информационно-пропагандистское обеспечение нашей деятельности играет важную роль в формировании системы обучения кадров, соответствует насущным потребностям.</p>"
+      },
+      {
+        "name": "Sport",
+        "slug": "sport",
+        "description": "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме.",
+        "arbitrator_name": "Василий Ибрагимов",
+        "arbitrator_photo": "images/tmp/user_avatar4.jpg",
+        "arbitrator_position": "Руководитель направления",
+        "terms_of_participation": "<p>С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт рамки и место обучения кадров способствует подготовке и реализации направлений прогрессивного развития.</p><p>Повседневная практика показывает, что постоянное информационно-пропагандистское обеспечение нашей деятельности играет важную роль в формировании системы обучения кадров, соответствует насущным потребностям.</p>"
+      },
+      {
+        "name": "Болельщики",
+        "slug": "fans",
+        "description": "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме.",
+        "terms_of_participation": "<p>С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт рамки и место обучения кадров способствует подготовке и реализации направлений прогрессивного развития.</p><p>Повседневная практика показывает, что постоянное информационно-пропагандистское обеспечение нашей деятельности играет важную роль в формировании системы обучения кадров, соответствует насущным потребностям.</p>"
+      }
     ]
   },
   "position": {
@@ -76,8 +119,7 @@
       "user": {
         "type": "belongsToMany",
         "method": "subscriptions"
-      },
-      "tracks:belongsToMany": {}
+      }
     },
     "factory": {
       "name": "\\faker.unique().name()",
@@ -143,53 +185,14 @@
       {"name": "support_telegram_phone", "value": "+79999999999", "info": "Support telegram phone"},
       {"name": "support_telegram_link", "value": "https://t.me", "info": "Support telegram link"},
       {"name": "support_whatsapp_phone", "value": "+79999999999", "info": "Support whatsapp phone"},
-      {"name": "support_whatsapp_link", "value": "https://whatsapp.com", "info": "Support whatsapp link"}
+      {"name": "support_whatsapp_link", "value": "https://whatsapp.com", "info": "Support whatsapp link"},
+      {"name": "main_video", "value": "", "info": "The code for the player on the main page"}
     ]
-  },
-  "prizes": {
-    "const:title": "Призы",
-    "fields": [
-      "name", "src"
-    ],
-    "resource": [],
-    "seed": [
-      {"name": "Смартфон Apple iPhone 12 128GB Black", "src": "images/tmp/prizes_thumb.png"},
-      {"name": "Планшет Apple iPad 10.2 Wi-Fi 32GB Space Grey", "src": "images/tmp/prizes_thumb2.png"},
-      {"name": "Робот-пылесос Xiaomi Viomi Cleaning V3 Global Black", "src": "images/tmp/prizes_thumb3.png"}
-    ]
-  },
-  "track": {
-    "const:title": "Треки",
-    "traits": ["HasLogs"],
-    "fields": [
-      "name",
-      ["video", {"nullable": []}],
-      "arbitrator_name",
-      "arbitrator_photo",
-      "arbitrator_position",
-      ["short_description", "text"],
-      ["terms_of_participation", "text"]
-    ],
-    "relations": {
-      "logs": {},
-      "direction": {},
-      "prizes:belongsToMany": {}
-    },
-    "resource": [],
-    "factory": {
-      "name": "\\faker.name()",
-      "arbitrator_name": "\\faker.name()",
-      "arbitrator_photo": "images/tmp/user_avatar4.jpg",
-      "arbitrator_position": "\\faker.jobTitle()",
-      "short_description": "\\faker.text(100)",
-      "terms_of_participation": "\\faker.text(400)",
-      "direction_id": "\\faker.randomElement([1,2,3])"
-    },
-    "seed": "factory:10"
   },
   "task": {
     "traits": ["HasLogs"],
     "const:title": "Задания",
+    "const:action_type_auto": "auto",
     "const:action_type_manually": "manually",
     "const:action_type_subscribe": "subscribe",
     "const:action_type_reaction": "reaction",
@@ -200,6 +203,7 @@
     "const:report_type_video": "video",
     "const:report_type_image": "image",
     "const:report_type_quiz": "quiz",
+    "const:report_type_star_quiz": "star_quiz",
 
     "const:event_type_multi_day": "multi-day",
     "const:event_type_one_day": "one-day",
@@ -214,9 +218,11 @@
       "text": "Текстовый отчёт",
       "video": "Видео отчёт",
       "image": "Фото отчёт",
-      "quiz": "Викторина"
+      "quiz": "Викторина",
+      "star_quiz": "Звёздная викторина"
     },
     "const:action_types": {
+      "auto": "Автоматическое",
       "manually": "Начисление баллов вручную (Модерирование)",
       "subscribe": "Подписка(N подписок) на других пользователей",
       "reaction": "Реакции (N стикеров / N лайков) к любым отчетам на странице направления/профиле пользователя",
@@ -225,32 +231,36 @@
     },
     "fields": [
       "name",
+      ["short_description", {"nullable": []}],
       ["event_type", {"default": "instant"}],
       ["report_type", {"default": "text"}],
-      ["action_types", "json"],
-      ["cost", "integer", {"default": 1}],
+      ["action_type", {"default": "manually"}],
+      ["action_configs", "text", {"cast": "array", "nullable": []}],
+      ["cost", {"default": 0}],
       ["prize_src", {"nullable": []}],
+      ["terms_of_participation", "text"],
       "start_at",
       "finish_at"
     ],
     "relations": {
       "logs": {},
-      "track": {},
-      "quiz_questions:belongsToMany": {}
+      "direction": {},
+      "quiz_questions:hasMany": {}
     },
     "resource": [],
     "factory": {
       "name": "\\faker.name()",
+      "short_description": "\\faker.text(30)",
       "prize_src": "images/tmp/prizes_thumb.png",
       "event_type": "\\faker.randomElement(['multi-day', 'one-day', 'instant'])",
       "report_type": "\\faker.randomElement(['text', 'video', 'image'])",
-      "action_types": ["manually"],
       "cost": "\\faker.randomNumber(rand(1,3))",
       "start_at": "\\now()",
+      "terms_of_participation": "\\faker.text(500)",
       "finish_at": "\\now().addDays(10)",
-      "track_id": "\\faker.randomElement([1,2,3,4,5,6,7,8,9,10])"
+      "direction_id": "\\faker.randomElement([1,2,3])"
     },
-    "seed": "factory:50"
+    "seed": "factory:5"
   },
   "task_reports": {
     "traits": ["HasLogs"],
@@ -286,7 +296,7 @@
     "fields": [
       "name",
       "src",
-      ["cost", "integer", {"default": 1}],
+      "cost",
       ["settings", "json"]
     ],
     "relations": {
@@ -331,18 +341,23 @@
     "const:title": "Вопросы викторин",
     "fields": [
       "question",
-      ["variant_answers", "json"],
-      "success_answer"
+      "cost"
     ],
-    "factory": {
-      "question": "\\faker.text(rand(90, 191)) . '?'",
-      "variant_answers": ["A", "B", "C"],
-      "success_answer": "\\faker.randomElement(['A', 'B', 'C'])"
-    },
-    "seed": "factory:50"
+    "relations": {
+      "quiz_answers:hasMany": {}
+    }
   },
   "quiz_answers": {
     "const:title": "Ответы викторин",
+    "fields": [
+      "answer"
+    ],
+    "relations": {
+      "stars:belongsToMany": {}
+    }
+  },
+  "quiz_results": {
+    "const:title": "Результаты викторин",
     "fields": [
       "is_success",
       ["time", {"default": "00:00"}]
@@ -351,5 +366,55 @@
       "user": {},
       "task": {}
     }
+  },
+  "stars": {
+    "const:title": "Звёзды викторин",
+    "fields": [
+      "name",
+      "text",
+      "photo"
+    ],
+    "seed": [
+      {
+        "name": "Криштиану Роналду",
+        "text": "Вот это да! Перед нами обладатель золотого мяча и золотого контракта со всеми рекламодателями.",
+        "photo": "stars/2112386-44204930-2560-1440.jpg"
+      },
+      {
+        "name": "Новак Джокович",
+        "text": "Первая ракетка мира - это сильно. Да что там сильно - это вы. Правда ваша фамилия похожа на отчество, но это даже круто.",
+        "photo": "stars/1736698058_0:0:3070:1728_1920x0_80_0_0_686e6b061d5ab65bf416f83ce93e8a2d.jpg"
+      },
+      {
+        "name": "Майк Тайсон",
+        "text": "Легендарный Майк собственной персоной. Бьёте в цель, не обращая внимания на средства.",
+        "photo": "stars/2020-11-23T000000Z_1150727218_MT1ABCPR748667013_RTRMADP_3_ABACA-PRESS_1.jpg"
+      },
+      {
+        "name": "Гарри Каспаров",
+        "text": "Пусть бегают те, у кого горы мышц. Ваш удел - заниматься спортом сидя. Всегда на стиле, всегда играете головой.",
+        "photo": "stars/24588850756223856936f54f3bb4bf9f.jpg"
+      },
+      {
+        "name": "Майкл Фелпс",
+        "text": "Легендарный чемпион Олимпиад, человек и пароход! У вас нет проблем с водой даже в самый жаркий день соревнований.",
+        "photo": "stars/scale_1200.jpg"
+      },
+      {
+        "name": "Елена Исинбаева",
+        "text": "Вы смотрите на всех свысока... примерно с 5 метров. Возможно, вам стоит попробовать бег в эстафете. Да, палочка тяжёлая, зато передавать можно заранее.",
+        "photo": "stars/1518714054120371379.jpg"
+      },
+      {
+        "name": "Усейн Болт",
+        "text": "Великий и могучий Усейн Болт, самый быстрый человек на планете. Вам бы в руки коробку “Деловых Линий” - показатель исполнения сроков доставки подрос бы ещё.",
+        "photo": "stars/usejn-bolt-stal-otcom-bliznecov-foto_1624273322722830709.jpg"
+      },
+      {
+        "name": "Александр Овечкин",
+        "text": "Здравия желаем, товарищ капитан! Капитан клуба НХЛ «Вашингтон Кэпиталз». У “Деловых Линий скоро юбилей”, поднимем за него кубок Стэнли?",
+        "photo": "stars/__medium___medium_%D0%BE%D0%B2%D0%B5%D1%87%D0%BA%D0%B8%D0%BD_%D0%B2%D0%B0%D1%88%D0%B8%D0%BD%D0%B3%D1%82%D0%BE%D0%BD.jpg.jpg.jpg"
+      }
+    ]
   }
 }

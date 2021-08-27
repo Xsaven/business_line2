@@ -4,20 +4,20 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreateQuizQuestionsTable Class.
+ * CreateStarsTable Class.
  */
-class CreateQuizQuestionsTable extends Migration
+class CreateStarsTable extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up()
     {
-        Schema::create('quiz_questions', function (Blueprint $table) {
+        Schema::create('stars', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('question', 191);
-            $table->json('variant_answers');
-            $table->string('success_answer', 191);
+            $table->string('name', 191);
+            $table->text('text');
+            $table->string('photo', 191);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateQuizQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quiz_questions');
+        Schema::dropIfExists('stars');
     }
 }

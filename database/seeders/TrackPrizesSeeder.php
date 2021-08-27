@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Track;
+use App\Models\Direction;
 use Illuminate\Database\Seeder;
 
 class TrackPrizesSeeder extends Seeder
@@ -14,7 +14,7 @@ class TrackPrizesSeeder extends Seeder
      */
     public function run()
     {
-        foreach (Track::all() as $task) {
+        foreach (Direction::all() as $task) {
             if (! $task->prizes()->count()) {
                 $task->prizes()->sync([1, 2, 3]);
             }

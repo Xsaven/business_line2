@@ -18,11 +18,11 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @property int $logable_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read Model|\Eloquent $direction
  * @property-read Model|\Eloquent $order
  * @property-read Model|\Eloquent $product
  * @property-read Model|\Eloquent $task
  * @property-read Model|\Eloquent $taskReport
- * @property-read Model|\Eloquent $track
  * @property-read Model|\Eloquent $user
  * @method static \Illuminate\Database\Eloquent\Builder|Log newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Log newQuery()
@@ -118,19 +118,19 @@ class Log extends Model
     }
 
     /**
-     * The "morphTo" relation for "Treki".
+     * The "morphTo" relation for "Polzovateli".
      * @return MorphTo
      */
-    public function track() : MorphTo
+    public function user() : MorphTo
     {
         return $this->morphTo('logable', 'logable_type', 'logable_id');
     }
 
     /**
-     * The "morphTo" relation for "Polzovateli".
+     * The "morphTo" relation for "Napravleniya".
      * @return MorphTo
      */
-    public function user() : MorphTo
+    public function direction() : MorphTo
     {
         return $this->morphTo('logable', 'logable_type', 'logable_id');
     }

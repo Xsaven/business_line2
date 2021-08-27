@@ -59,6 +59,11 @@ class SettingsSeeder extends Seeder
                 'value' => 'https://whatsapp.com',
                 'info' => 'Support whatsapp link',
             ],
+            [
+                'name' => 'main_video',
+                'value' => '',
+                'info' => 'The code for the player on the main page',
+            ],
         ];
     }
 }

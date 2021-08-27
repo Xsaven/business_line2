@@ -4,16 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreateQuizAnswersTable Class.
+ * CreateQuizResultsTable Class.
  */
-class CreateQuizAnswersTable extends Migration
+class CreateQuizResultsTable extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up()
     {
-        Schema::create('quiz_answers', function (Blueprint $table) {
+        Schema::create('quiz_results', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('is_success')->default(1);
             $table->string('time', 191)->default('00:00');
@@ -28,6 +28,6 @@ class CreateQuizAnswersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quiz_answers');
+        Schema::dropIfExists('quiz_results');
     }
 }

@@ -4,17 +4,17 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreateTrackPrizesTable Class.
+ * CreateDirectionPrizesTable Class.
  */
-class CreateTrackPrizesTable extends Migration
+class CreateDirectionPrizesTable extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up()
     {
-        Schema::create('track_prizes', function (Blueprint $table) {
-            $table->foreignId('track_id')->constrained('tracks')->cascadeOnUpdate()->cascadeOnDelete();
+        Schema::create('direction_prizes', function (Blueprint $table) {
+            $table->foreignId('direction_id')->constrained('directions')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('prize_id')->constrained('prizes')->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
@@ -24,6 +24,6 @@ class CreateTrackPrizesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('track_prizes');
+        Schema::dropIfExists('direction_prizes');
     }
 }
