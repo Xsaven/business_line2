@@ -23,6 +23,8 @@ class CreateDirectionsTable extends Migration
             $table->string('arbitrator_position', 191)->nullable();
             $table->text('description')->nullable();
             $table->text('terms_of_participation');
+            $table->timestamp('start_at')->nullable();
+            $table->timestamp('end_at')->nullable();
             $table->timestamps();
         });
     }

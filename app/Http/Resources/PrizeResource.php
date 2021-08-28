@@ -21,7 +21,7 @@ class PrizeResource extends JsonResource
     {
         return [
           'name' => $this->name,
-          'src' => $this->src
+          'src' => $this->src,
         ];
     }
 }

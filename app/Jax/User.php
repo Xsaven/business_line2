@@ -74,7 +74,7 @@ class User extends JaxExecutor
     public function mark_as_read_notifications(): array
     {
         return [
-            'result' => app(AuthUserRepository::class)->mark_as_read_notifications()
+            'result' => app(AuthUserRepository::class)->mark_as_read_notifications(),
         ];
     }
 
@@ -96,7 +96,6 @@ class User extends JaxExecutor
         return ['result' => 'pong'];
     }
 
-
     /**
      * @param int $direction_id
      */
@@ -104,7 +103,7 @@ class User extends JaxExecutor
     {
         $user_id = \Auth::user()->id;
 
-        if(!\Auth::user()->direction_id) {
+        if (! \Auth::user()->direction_id) {
             /**
              * @var SubscribeDirectionEvent $event
              */

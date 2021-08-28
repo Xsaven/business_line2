@@ -28,7 +28,7 @@ class AuthDataResource extends JsonResource
             'balance' => $this->balance,
             'notification_count' => $repo->notifications_count,
             'new_notifications_count' => $repo->new_notifications_count,
-            'subscribe_direction' => (int)!!$this->direction_id
+            'subscribe_direction' => (int) (bool) $this->direction_id,
         ];
     }
 }

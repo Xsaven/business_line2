@@ -17,9 +17,9 @@ class NotifyUser
      */
     public function handle(SubscribeDirectionEvent $event)
     {
-        if($event->user && $event->direction) {
+        if ($event->user && $event->direction) {
             $event->user->notify(
-                new UserSubscribeOnDirectionNotification($event->user,$event->direction)
+                new UserSubscribeOnDirectionNotification($event->user, $event->direction)
             );
         }
     }

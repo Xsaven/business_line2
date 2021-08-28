@@ -20,6 +20,8 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property string|null $arbitrator_position
  * @property string|null $description
  * @property string $terms_of_participation
+ * @property \Illuminate\Support\Carbon|null $start_at
+ * @property \Illuminate\Support\Carbon|null $end_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Log[] $logs
@@ -38,9 +40,11 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereArbitratorPosition($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Direction whereEndAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Direction whereStartAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereTermsOfParticipation($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereVideo($value)
@@ -69,6 +73,8 @@ class Direction extends Model
         'arbitrator_position',
         'description',
         'terms_of_participation',
+        'start_at',
+        'end_at',
     ];
 
     /**
@@ -84,6 +90,8 @@ class Direction extends Model
         'arbitrator_position' => 'string',
         'description' => 'string',
         'terms_of_participation' => 'string',
+        'start_at' => 'datetime',
+        'end_at' => 'datetime',
     ];
 
     /**

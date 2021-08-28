@@ -68,8 +68,8 @@ class AuthUserRepository extends CoreRepository
      */
     public function mark_as_read_notifications(): bool
     {
-        return $this->user && !!$this->user->notifications()->whereNull('read_at')->update([
-            'read_at' => now()
+        return $this->user && (bool) $this->user->notifications()->whereNull('read_at')->update([
+            'read_at' => now(),
         ]);
     }
 }

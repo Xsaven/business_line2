@@ -12,6 +12,7 @@ use Lar\Developer\CoreRepository;
  * @package App\Repositories
  * @method Direction model()
  * @property-read Direction[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection $all
+ * @property-read Direction|\Illuminate\Database\Eloquent\Builder|Model|object|null $findBySlug
  */
 class DirectionRepository extends CoreRepository
 {

@@ -14,6 +14,7 @@
                             <div class="members">Участники: 152</div>
 
                             <button  v-if="!user.subscribe_direction" class="join_btn modal_btn" data-content="#join_modal">Присоединиться</button>
+                            <button disabled  v-else class="join_btn modal_btn" data-content="#join_modal">Вы уже подписаны на трек</button>
                         </div>
                     </div>
 
@@ -106,520 +107,522 @@
                     </div>
 
 
-                    <div class="week_wrap">
+                    <div class="week_wrap" v-for="(date, date_index) in dates">
                         <div class="week">
                             <div class="days">
-                                <div class="day">
-                                    <div class="number">13</div>
-                                    <div class="month">Сентября</div>
+                              <template v-for="(day, day_index) in date">
+                                <div :class="{day: true, weekend: day_index >= 5}" >
+                                  <div class="number">{{String(day).split('-')[2]}}</div>
+                                  <div class="month">{{month[String(day).split('-')[1]]}}</div>
                                 </div>
-
-                                <div class="day">
-                                    <div class="number">14</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day">
-                                    <div class="number">15</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day">
-                                    <div class="number">16</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day">
-                                    <div class="number">17</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day weekend">
-                                    <div class="number">18</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day weekend">
-                                    <div class="number">19</div>
-                                    <div class="month">Сентября</div>
-                                </div>
+                              </template>
                             </div>
 
                             <div class="events">
-                                <a href="/" class="item color1">
-                                    <div class="time"><span>9:00-18:00</span></div>
-                                    <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
+<!--                              <template v-for="id_day in tasks_calendar[date_index]">-->
+<!--                                <template v-for="id in id_day">-->
+<!--                                  <a v-if="id" href="/" class="item color1" :data-group="id" :key="id_day+id">-->
+<!--                                    <div class="time"><span>9:00-18:00</span></div>-->
+<!--                                    <div class="name">{{id}}</div>-->
 
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
+<!--                                    <button class="favorite_btn">-->
+<!--                                      <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                  </a>-->
+<!--                                  <div v-else :class="{item: true, weekend: day_index >= 5}"></div>-->
+<!--                                </template>-->
+<!--                              </template>-->
+                                                              <a href="/" class="item color3 break_left" data-group="1">
+                                                                  <div class="time"><span></span><span>Финал: 18:00</span></div>
+                                                                  <div class="name"></div>
 
-                                <a href="/" class="item color2">
-                                    <div class="time"><span>С 7:30 до 12:00</span></div>
-                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
+                                                                  <button class="favorite_btn">
+                                                                      <v-icon icon="ic_flag" />
+                                                                  </button>
+                                                              </a>
 
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag"/>
-                                    </button>
-                                </a>
+                                                              <a href="/" class="item color2">
+                                                                  <div class="time"><span>С 7:30 до 12:00</span></div>
+                                                                  <div class="name">123м Попади в мусорную корзину / урну мячиком, сделанным ...</div>
 
-                                <a href="/" class="item color2">
-                                    <div class="time"><span>С 7:30 до 12:00</span></div>
-                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
+                                                                  <button class="favorite_btn">
+                                                                      <v-icon icon="ic_flag" />
+                                                                  </button>
+                                                              </a>
 
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag"/>
-                                    </button>
-                                </a>
+                                                              <a href="/" class="item color1">
+                                                                  <div class="time"><span>9:00-18:00</span></div>
+                                                                  <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
 
-                                <a href="/" class="item width2 color3 break_right" data-group="1">
-                                    <div class="time"><span>Начало: 9:00</span></div>
-                                    <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>
-                                </a>
+                                                                  <button class="favorite_btn">
+                                                                      <v-icon icon="ic_flag" />
+                                                                  </button>
+                                                              </a>
 
-                                <div class="item weekend"></div>
-                                <div class="item weekend"></div>
-                                <div class="item"></div>
+                                                              <a href="/" class="item color2">
+                                                                  <div class="time"><span>С 7:30 до 12:00</span></div>
+                                                                  <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
 
-                                <a href="/" class="item width3 color3">
-                                    <div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>
-                                    <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>
+                                                                  <button class="favorite_btn">
+                                                                     <v-icon icon="ic_flag" />
+                                                                  </button>
+                                                              </a>
 
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag"/>
-                                    </button>
-                                </a>
+                                                              <a href="/" class="item color3 break_right" data-group="2">
+                                                                  <div class="time"><span>Начало: 9:00</span></div>
+                                                                  <div class="name">Сложи пять олимпийских колец из подручных...</div>
+                                                              </a>
 
-                                <a href="/" class="item color2">
-                                    <div class="time"><span>С 7:30 до 12:00</span></div>
-                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
+                                                              <div class="item weekend"></div>
+                                                              <div class="item weekend"></div>
 
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
+                                                              <a href="/" class="item color2">
+                                                                  <div class="time"><span>С 7:30 до 12:00</span></div>
+                                                                  <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
 
-                                <div class="item weekend"></div>
-                                <div class="item weekend"></div>
-                                <div class="item"></div>
-                                <div class="item"></div>
-                                <div class="item"></div>
+                                                                  <button class="favorite_btn">
+                                                                      <v-icon icon="ic_flag" />
+                                                                  </button>
+                                                              </a>
 
-                                <a href="/" class="item color1">
-                                    <div class="time"><span>9:00-18:00</span></div>
-                                    <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
+                                                              <div class="item"></div>
 
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
+                                                              <a href="/" class="item width3 color3">
+                                                                  <div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>
+                                                                  <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>
 
-                                <div class="item"></div>
-                                <div class="item weekend"></div>
-                                <div class="item weekend"></div>
+                                                                  <button class="favorite_btn">
+                                                                      <v-icon icon="ic_flag" />
+                                                                  </button>
+                                                              </a>
+
+                                                              <div class="item weekend"></div>
+                                                              <div class="item weekend"></div>
+
+                                                              <a href="/" class="item width3 color3">
+                                                                  <div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>
+                                                                  <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>
+
+                                                                  <button class="favorite_btn">
+                                                                      <v-icon icon="ic_flag" />
+                                                                  </button>
+                                                              </a>
+
+                                                              <div class="item"></div>
+
+                                                              <a href="/" class="item color1">
+                                                                  <div class="time"><span>9:00-18:00</span></div>
+                                                                  <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
+
+                                                                  <button class="favorite_btn">
+                                                                      <v-icon icon="ic_flag" />
+                                                                  </button>
+                                                              </a>
+
+                                                              <div class="item weekend"></div>
+                                                              <div class="item weekend"></div>
                             </div>
                         </div>
                     </div>
 
 
-                    <div class="week_wrap">
-                        <div class="week">
-                            <div class="days">
-                                <div class="day">
-                                    <div class="number">13</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day">
-                                    <div class="number">14</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day">
-                                    <div class="number">15</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day">
-                                    <div class="number">16</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day">
-                                    <div class="number">17</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day weekend">
-                                    <div class="number">18</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day weekend">
-                                    <div class="number">19</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-                            </div>
-
-                            <div class="events">
-                                <a href="/" class="item color3 break_left" data-group="1">
-                                    <div class="time"><span></span><span>Финал: 18:00</span></div>
-                                    <div class="name"></div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <a href="/" class="item color2">
-                                    <div class="time"><span>С 7:30 до 12:00</span></div>
-                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <a href="/" class="item color1">
-                                    <div class="time"><span>9:00-18:00</span></div>
-                                    <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <a href="/" class="item color2">
-                                    <div class="time"><span>С 7:30 до 12:00</span></div>
-                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-                                    <button class="favorite_btn">
-                                       <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <a href="/" class="item color3 break_right" data-group="2">
-                                    <div class="time"><span>Начало: 9:00</span></div>
-                                    <div class="name">Сложи пять олимпийских колец из подручных...</div>
-                                </a>
-
-                                <div class="item weekend"></div>
-                                <div class="item weekend"></div>
-
-                                <a href="/" class="item color2">
-                                    <div class="time"><span>С 7:30 до 12:00</span></div>
-                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <div class="item"></div>
-
-                                <a href="/" class="item width3 color3">
-                                    <div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>
-                                    <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <div class="item weekend"></div>
-                                <div class="item weekend"></div>
-
-                                <a href="/" class="item width3 color3">
-                                    <div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>
-                                    <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <div class="item"></div>
-
-                                <a href="/" class="item color1">
-                                    <div class="time"><span>9:00-18:00</span></div>
-                                    <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <div class="item weekend"></div>
-                                <div class="item weekend"></div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="week_wrap">
-                        <div class="week">
-                            <div class="days">
-                                <div class="day">
-                                    <div class="number">13</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day">
-                                    <div class="number">14</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day">
-                                    <div class="number">15</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day">
-                                    <div class="number">16</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day">
-                                    <div class="number">17</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day weekend">
-                                    <div class="number">18</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day weekend">
-                                    <div class="number">19</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-                            </div>
-
-                            <div class="events">
-                                <a href="/" class="item width2 color3 break_left" data-group="2">
-                                    <div class="time"><span></span><span>Финал: 18:00</span></div>
-                                    <div class="name"></div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <a href="/" class="item color2">
-                                    <div class="time"><span>С 7:30 до 12:00</span></div>
-                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <a href="/" class="item width2 color3 break_right" data-group="3">
-                                    <div class="time"><span>Начало: 9:00</span></div>
-                                    <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>
-                                </a>
-
-                                <div class="item weekend"></div>
-                                <div class="item weekend"></div>
-
-                                <a href="/" class="item color2">
-                                    <div class="time"><span>С 7:30 до 12:00</span></div>
-                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <a href="/" class="item width3 color3">
-                                    <div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>
-                                    <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <a href="/" class="item color2">
-                                    <div class="time"><span>С 7:30 до 12:00</span></div>
-                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <div class="item weekend"></div>
-                                <div class="item weekend"></div>
-
-                                <div class="item"></div>
-
-                                <a href="/" class="item color1">
-                                    <div class="time"><span>9:00-18:00</span></div>
-                                    <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <div class="item"></div>
-
-                                <a href="/" class="item color1">
-                                    <div class="time"><span>9:00-18:00</span></div>
-                                    <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <div class="item"></div>
-                                <div class="item weekend"></div>
-                                <div class="item weekend"></div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="week_wrap">
-                        <div class="week">
-                            <div class="days">
-                                <div class="day">
-                                    <div class="number">13</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day">
-                                    <div class="number">14</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day">
-                                    <div class="number">15</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day">
-                                    <div class="number">16</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day">
-                                    <div class="number">17</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day weekend">
-                                    <div class="number">18</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-
-                                <div class="day weekend">
-                                    <div class="number">19</div>
-                                    <div class="month">Сентября</div>
-                                </div>
-                            </div>
-
-                            <div class="events">
-                                <a href="/" class="item width2 color3 break_left" data-group="3">
-                                    <div class="time"><span></span><span>Финал: 18:00</span></div>
-                                    <div class="name"></div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <a href="/" class="item color2">
-                                    <div class="time"><span>С 7:30 до 12:00</span></div>
-                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <a href="/" class="item color1">
-                                    <div class="time"><span>9:00-18:00</span></div>
-                                    <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <a href="/" class="item color2">
-                                    <div class="time"><span>С 7:30 до 12:00</span></div>
-                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <div class="item weekend"></div>
-                                <div class="item weekend"></div>
-
-                                <a href="/" class="item color2">
-                                    <div class="time"><span>С 7:30 до 12:00</span></div>
-                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <a href="/" class="item width3 color3">
-                                    <div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>
-                                    <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <a href="/" class="item color2">
-                                    <div class="time"><span>С 7:30 до 12:00</span></div>
-                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <div class="item weekend"></div>
-                                <div class="item weekend"></div>
-
-                                <div class="item"></div>
-
-                                <a href="/" class="item color1">
-                                    <div class="time"><span>9:00-18:00</span></div>
-                                    <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <div class="item"></div>
-
-                                <a href="/" class="item color1">
-                                    <div class="time"><span>9:00-18:00</span></div>
-                                    <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
-
-                                    <button class="favorite_btn">
-                                        <v-icon icon="ic_flag" />
-                                    </button>
-                                </a>
-
-                                <div class="item"></div>
-                                <div class="item weekend"></div>
-                                <div class="item weekend"></div>
-                            </div>
-                        </div>
-                    </div>
+<!--                    <div class="week_wrap">-->
+<!--                        <div class="week">-->
+<!--                            <div class="days">-->
+<!--                                <div class="day">-->
+<!--                                    <div class="number">13</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day">-->
+<!--                                    <div class="number">14</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day">-->
+<!--                                    <div class="number">15</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day">-->
+<!--                                    <div class="number">16</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day">-->
+<!--                                    <div class="number">17</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day weekend">-->
+<!--                                    <div class="number">18</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day weekend">-->
+<!--                                    <div class="number">19</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                            <div class="events">-->
+<!--                                <a href="/" class="item color3 break_left" data-group="1">-->
+<!--                                    <div class="time"><span></span><span>Финал: 18:00</span></div>-->
+<!--                                    <div class="name"></div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <a href="/" class="item color2">-->
+<!--                                    <div class="time"><span>С 7:30 до 12:00</span></div>-->
+<!--                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <a href="/" class="item color1">-->
+<!--                                    <div class="time"><span>9:00-18:00</span></div>-->
+<!--                                    <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <a href="/" class="item color2">-->
+<!--                                    <div class="time"><span>С 7:30 до 12:00</span></div>-->
+<!--                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                       <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <a href="/" class="item color3 break_right" data-group="2">-->
+<!--                                    <div class="time"><span>Начало: 9:00</span></div>-->
+<!--                                    <div class="name">Сложи пять олимпийских колец из подручных...</div>-->
+<!--                                </a>-->
+
+<!--                                <div class="item weekend"></div>-->
+<!--                                <div class="item weekend"></div>-->
+
+<!--                                <a href="/" class="item color2">-->
+<!--                                    <div class="time"><span>С 7:30 до 12:00</span></div>-->
+<!--                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <div class="item"></div>-->
+
+<!--                                <a href="/" class="item width3 color3">-->
+<!--                                    <div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>-->
+<!--                                    <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <div class="item weekend"></div>-->
+<!--                                <div class="item weekend"></div>-->
+
+<!--                                <a href="/" class="item width3 color3">-->
+<!--                                    <div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>-->
+<!--                                    <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <div class="item"></div>-->
+
+<!--                                <a href="/" class="item color1">-->
+<!--                                    <div class="time"><span>9:00-18:00</span></div>-->
+<!--                                    <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <div class="item weekend"></div>-->
+<!--                                <div class="item weekend"></div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+
+<!--                    <div class="week_wrap">-->
+<!--                        <div class="week">-->
+<!--                            <div class="days">-->
+<!--                                <div class="day">-->
+<!--                                    <div class="number">13</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day">-->
+<!--                                    <div class="number">14</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day">-->
+<!--                                    <div class="number">15</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day">-->
+<!--                                    <div class="number">16</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day">-->
+<!--                                    <div class="number">17</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day weekend">-->
+<!--                                    <div class="number">18</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day weekend">-->
+<!--                                    <div class="number">19</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                            <div class="events">-->
+<!--                                <a href="/" class="item width2 color3 break_left" data-group="2">-->
+<!--                                    <div class="time"><span></span><span>Финал: 18:00</span></div>-->
+<!--                                    <div class="name"></div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <a href="/" class="item color2">-->
+<!--                                    <div class="time"><span>С 7:30 до 12:00</span></div>-->
+<!--                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <a href="/" class="item width2 color3 break_right" data-group="3">-->
+<!--                                    <div class="time"><span>Начало: 9:00</span></div>-->
+<!--                                    <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>-->
+<!--                                </a>-->
+
+<!--                                <div class="item weekend"></div>-->
+<!--                                <div class="item weekend"></div>-->
+
+<!--                                <a href="/" class="item color2">-->
+<!--                                    <div class="time"><span>С 7:30 до 12:00</span></div>-->
+<!--                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <a href="/" class="item width3 color3">-->
+<!--                                    <div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>-->
+<!--                                    <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <a href="/" class="item color2">-->
+<!--                                    <div class="time"><span>С 7:30 до 12:00</span></div>-->
+<!--                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <div class="item weekend"></div>-->
+<!--                                <div class="item weekend"></div>-->
+
+<!--                                <div class="item"></div>-->
+
+<!--                                <a href="/" class="item color1">-->
+<!--                                    <div class="time"><span>9:00-18:00</span></div>-->
+<!--                                    <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <div class="item"></div>-->
+
+<!--                                <a href="/" class="item color1">-->
+<!--                                    <div class="time"><span>9:00-18:00</span></div>-->
+<!--                                    <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <div class="item"></div>-->
+<!--                                <div class="item weekend"></div>-->
+<!--                                <div class="item weekend"></div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+
+<!--                    <div class="week_wrap">-->
+<!--                        <div class="week">-->
+<!--                            <div class="days">-->
+<!--                                <div class="day">-->
+<!--                                    <div class="number">13</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day">-->
+<!--                                    <div class="number">14</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day">-->
+<!--                                    <div class="number">15</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day">-->
+<!--                                    <div class="number">16</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day">-->
+<!--                                    <div class="number">17</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day weekend">-->
+<!--                                    <div class="number">18</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+
+<!--                                <div class="day weekend">-->
+<!--                                    <div class="number">19</div>-->
+<!--                                    <div class="month">Сентября</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                            <div class="events">-->
+<!--                                <a href="/" class="item width2 color3 break_left" data-group="3">-->
+<!--                                    <div class="time"><span></span><span>Финал: 18:00</span></div>-->
+<!--                                    <div class="name"></div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <a href="/" class="item color2">-->
+<!--                                    <div class="time"><span>С 7:30 до 12:00</span></div>-->
+<!--                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <a href="/" class="item color1">-->
+<!--                                    <div class="time"><span>9:00-18:00</span></div>-->
+<!--                                    <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <a href="/" class="item color2">-->
+<!--                                    <div class="time"><span>С 7:30 до 12:00</span></div>-->
+<!--                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <div class="item weekend"></div>-->
+<!--                                <div class="item weekend"></div>-->
+
+<!--                                <a href="/" class="item color2">-->
+<!--                                    <div class="time"><span>С 7:30 до 12:00</span></div>-->
+<!--                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <a href="/" class="item width3 color3">-->
+<!--                                    <div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>-->
+<!--                                    <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <a href="/" class="item color2">-->
+<!--                                    <div class="time"><span>С 7:30 до 12:00</span></div>-->
+<!--                                    <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <div class="item weekend"></div>-->
+<!--                                <div class="item weekend"></div>-->
+
+<!--                                <div class="item"></div>-->
+
+<!--                                <a href="/" class="item color1">-->
+<!--                                    <div class="time"><span>9:00-18:00</span></div>-->
+<!--                                    <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <div class="item"></div>-->
+
+<!--                                <a href="/" class="item color1">-->
+<!--                                    <div class="time"><span>9:00-18:00</span></div>-->
+<!--                                    <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>-->
+
+<!--                                    <button class="favorite_btn">-->
+<!--                                        <v-icon icon="ic_flag" />-->
+<!--                                    </button>-->
+<!--                                </a>-->
+
+<!--                                <div class="item"></div>-->
+<!--                                <div class="item weekend"></div>-->
+<!--                                <div class="item weekend"></div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
             </div>
         </section>
@@ -653,13 +656,29 @@
         $sync: ['user'],
         props: {
             direction: {required:true},
-            prizes: {required:true}
+            prizes: {required:true},
+            dates: {required:true},
+            tasks_calendar: {required:true},
         },
         data () {
             return {
                 first_checkbox: true,
                 second_checkbox: false,
-                user: {}
+                user: {},
+                month: {
+                  '01': 'Января',
+                  '02': 'Февраля',
+                  '03': 'Марта',
+                  '04': 'Апреля',
+                  '05': 'Мая',
+                  '06': 'Июня',
+                  '07': 'Июля',
+                  '08': 'Августа',
+                  '09': 'Сентября',
+                  '10': 'Октября',
+                  '11': 'Ноября',
+                  '12': 'Декабря',
+                }
             };
         },
         mounted () {},
@@ -671,8 +690,7 @@
                     .then(() => {
                         Fancybox.close();
                     })
-
-            }
+            },
         }
     }
 </script>

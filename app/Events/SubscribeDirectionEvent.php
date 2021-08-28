@@ -26,10 +26,9 @@ class SubscribeDirectionEvent
         public int $user_id,
         public int $direction_id,
         public ?User $user = null
-    ){
+    ) {
         $this->user = User::find($this->user_id);
 
         $this->direction = Direction::whereId($this->direction_id)->first();
     }
-
 }
