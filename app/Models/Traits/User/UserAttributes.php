@@ -9,13 +9,21 @@ namespace App\Models\Traits\User;
 trait UserAttributes
 {
     /**
-     * @return array|false|string|string[]|null
+     * @return string
      */
-    public function getShortNameAttribute()
+    public function getShortNameAttribute(): string
     {
         return mb_strtoupper(
             $this->lastname ? (mb_substr($this->name, 0, 1).mb_substr($this->lastname, 0,
                     1)) : mb_substr($this->name, 0, 2)
         );
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullNameAttribute(): string
+    {
+        return $this->name.' '.$this->lastname;
     }
 }

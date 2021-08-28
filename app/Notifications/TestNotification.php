@@ -2,7 +2,6 @@
 
 namespace App\Notifications;
 
-
 class TestNotification extends Notification
 {
     /**

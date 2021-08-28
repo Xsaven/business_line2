@@ -62,4 +62,14 @@ class AuthUserRepository extends CoreRepository
         return $this->user ?
             $this->user->notifications()->whereNull('read_at')->get() : collect();
     }
+
+    /**
+     * @return bool
+     */
+    public function mark_as_read_notifications(): bool
+    {
+        return $this->user && !!$this->user->notifications()->whereNull('read_at')->update([
+            'read_at' => now()
+        ]);
+    }
 }

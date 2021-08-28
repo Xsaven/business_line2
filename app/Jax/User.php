@@ -68,6 +68,16 @@ class User extends JaxExecutor
     }
 
     /**
+     * @return array
+     */
+    public function mark_as_read_notifications(): array
+    {
+        return [
+            'result' => app(AuthUserRepository::class)->mark_as_read_notifications()
+        ];
+    }
+
+    /**
      * @return string[]
      * @throws \Psr\SimpleCache\InvalidArgumentException
      */

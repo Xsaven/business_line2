@@ -54,6 +54,7 @@ declare interface JaxModelUserInterface {
         change_name(...params: any[]): Promise<JaxModelUserInterface>;
         question_likes(...params: any[]): Promise<JaxModelUserInterface>;
         new_notifications(...params: any[]): Promise<JaxModelUserInterface>;
+        mark_as_read_notifications(...params: any[]): Promise<JaxModelUserInterface>;
         ping(...params: any[]): Promise<JaxModelUserInterface>;
 }
 declare interface JaxModelQuestionsInterface {

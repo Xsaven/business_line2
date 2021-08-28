@@ -3,7 +3,7 @@
         <div class="head">
             <div class="title">Новые уведомления</div>
 
-            <button class="read_btn">Отметить как прочитанное</button>
+            <button type="button" class="read_btn" @click="mark_all_as_read">Отметить как прочитанное</button>
         </div>
 
         <div v-for="(i,k) in new_notifications" class="item">
@@ -11,14 +11,6 @@
             <div>{{i.message}}<a v-if="i.link" :href="i.link"> {{i.link_title ? i.link_title : i.link}}</a><span v-else-if="i.link_title"> {{i.link_title}}</span>.
                 <span class="time">{{i.created_at}}</span></div>
         </div>
-
-<!--        <div class="item">-->
-<!--            <div class="avatar">-->
-<!--                <img data-src="/images/tmp/user_avatar.jpg" alt="" class="lozad">-->
-<!--            </div>-->
-
-<!--            <div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>-->
-<!--        </div>-->
     </div>
 </template>
 
@@ -46,6 +38,15 @@
                 }
             }
         },
-        methods: {}
+        methods: {
+            mark_all_as_read () {
+                this.user.new_notifications_count = 0;
+                jax.user.mark_as_read_notifications().then(() => {
+                    jax.user.new_notifications().then(({data}) => {
+                        this.new_notifications = data;
+                    });
+                })
+            }
+        }
     }
 </script>

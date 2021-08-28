@@ -21,11 +21,8 @@ class UserResource extends JsonResource
     {
         return [
             'avatar' => user_avatar($this->resource),
-            'short_name' => mb_strtoupper(
-                $this->lastname ? (mb_substr($this->name, 0, 1).mb_substr($this->lastname, 0,
-                        1)) : mb_substr($this->name, 0, 2)
-            ),
-            'full_name' => $this->name.' '.$this->lastname,
+            'short_name' => $this->short_name,
+            'full_name' => $this->full_name,
             'name' => $this->name,
             'lastname' => $this->lastname,
             'login' => $this->login,

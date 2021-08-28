@@ -52,4 +52,13 @@ class Exec implements ShouldBroadcast
     {
         return new PrivateChannel('App.Models.User.'.$this->user_id);
     }
+
+    /**
+     * Update auth user data on page.
+     * @param  int  $user_id
+     */
+    public static function updateUser(int $user_id)
+    {
+        static::dispatch($user_id, 'update');
+    }
 }
