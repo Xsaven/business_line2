@@ -56,6 +56,7 @@ declare interface JaxModelUserInterface {
         new_notifications(...params: any[]): Promise<JaxModelUserInterface>;
         mark_as_read_notifications(...params: any[]): Promise<JaxModelUserInterface>;
         ping(...params: any[]): Promise<JaxModelUserInterface>;
+        follow_direction(...params: any[]): Promise<JaxModelUserInterface>;
 }
 declare interface JaxModelQuestionsInterface {
     list(...params: any[]): Promise<JaxModelQuestionsInterface>;

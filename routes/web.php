@@ -28,6 +28,12 @@ use Lar\Roads\Roads;
 
 \Road::layout('home')
     ->web()
+    ->auth()
+    ->component('/direction/{direction:slug}', \App\Components\Vue\Pages\Direction::class)
+    ->name('direction');
+
+\Road::layout('home')
+    ->web()
     ->component('/faq', \App\Components\Vue\Pages\FAQ::class)
     ->name('faq');
 

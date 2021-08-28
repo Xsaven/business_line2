@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Direction;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Lar\Developer\CoreRepository;
 
 /**
@@ -29,6 +30,17 @@ class DirectionRepository extends CoreRepository
      */
     public function all()
     {
-        return $this->model()->get();
+        return $this->model()->take(3)->get();
+    }
+
+    /**
+     * @param Request $request
+     * @return Direction|\Illuminate\Database\Eloquent\Builder|Model|object|null
+     */
+    public function findBySlug(Request $request)
+    {
+        $slug = $request->direction;
+
+        return Direction::whereSlug($slug)->first();
     }
 }

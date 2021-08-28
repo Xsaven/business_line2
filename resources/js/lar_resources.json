@@ -10,6 +10,7 @@
         "pages_rule": "Pages/Rule.vue",
         "pages_support": "Pages/Support.vue",
         "common_footer": "Common/Footer.vue",
-        "common_header": "Common/Header.vue"
+        "common_header": "Common/Header.vue",
+        "pages_direction": "Pages/Direction.vue"
     }
 }
