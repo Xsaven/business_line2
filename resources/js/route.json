@@ -1,7 +1,7 @@
 {
     "global": {
         "jax.executor": {
-            "uri": "86a9106ae65537651a8e456835b316ab",
+            "uri": "68d4fe86c3bbc8f077157af1a8e4ad12",
             "methods": [
                 "POST"
             ]

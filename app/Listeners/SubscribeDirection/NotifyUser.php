@@ -3,6 +3,7 @@
 namespace App\Listeners\SubscribeDirection;
 
 use App\Events\SubscribeDirectionEvent;
+use App\Notifications\UserSubscribeOnDirectionNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -16,9 +17,9 @@ class NotifyUser
      */
     public function handle(SubscribeDirectionEvent $event)
     {
-        if($event->user && $event->exist_direction) {
+        if($event->user && $event->direction) {
             $event->user->notify(
-
+                new UserSubscribeOnDirectionNotification($event->user,$event->direction)
             );
         }
     }

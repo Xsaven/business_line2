@@ -931,22 +931,6 @@ namespace Lar\Layout {
      * @method self|static|\Lar\Layout\Abstracts\Component _setWrapIf($eq, string $wrap_data = "") Set parent wrap Attribute if $eq == true
      * @method string getWrap() Get wrap Attribute
      * @method string _getWrap() Get parent wrap Attribute
-     * @method \App\Components\Vue\Pages\Auth pages_auth($id = null, array $attrs = [], ...$params) Add Component pages_auth
-     * @method \App\Components\Vue\Pages\Auth _pages_auth($id = null, array $attrs = [], ...$params) Add Component pages_auth to parent
-     * @method \App\Components\Vue\Pages\Home pages_home($id = null, array $attrs = [], ...$params) Add Component pages_home
-     * @method \App\Components\Vue\Pages\Home _pages_home($id = null, array $attrs = [], ...$params) Add Component pages_home to parent
-     * @method \App\Components\Vue\Pages\FAQ pages_f_a_q($id = null, array $attrs = [], ...$params) Add Component pages_f_a_q
-     * @method \App\Components\Vue\Pages\FAQ _pages_f_a_q($id = null, array $attrs = [], ...$params) Add Component pages_f_a_q to parent
-     * @method \App\Components\Vue\Pages\Rule pages_rule($id = null, array $attrs = [], ...$params) Add Component pages_rule
-     * @method \App\Components\Vue\Pages\Rule _pages_rule($id = null, array $attrs = [], ...$params) Add Component pages_rule to parent
-     * @method \App\Components\Vue\Pages\Support pages_support($id = null, array $attrs = [], ...$params) Add Component pages_support
-     * @method \App\Components\Vue\Pages\Support _pages_support($id = null, array $attrs = [], ...$params) Add Component pages_support to parent
-     * @method \App\Components\Vue\Common\Footer common_footer($id = null, array $attrs = [], ...$params) Add Component common_footer
-     * @method \App\Components\Vue\Common\Footer _common_footer($id = null, array $attrs = [], ...$params) Add Component common_footer to parent
-     * @method \App\Components\Vue\Common\Header common_header($id = null, array $attrs = [], ...$params) Add Component common_header
-     * @method \App\Components\Vue\Common\Header _common_header($id = null, array $attrs = [], ...$params) Add Component common_header to parent
-     * @method \App\Components\Vue\Pages\Direction pages_direction($id = null, array $attrs = [], ...$params) Add Component pages_direction
-     * @method \App\Components\Vue\Pages\Direction _pages_direction($id = null, array $attrs = [], ...$params) Add Component pages_direction to parent
      * @method \Lar\LteAdmin\Segments\Tagable\Row row(...$params) Add Component row
      * @method \Lar\LteAdmin\Segments\Tagable\Row _row(...$params) Add Component row to parent
      * @method \Lar\LteAdmin\Segments\Tagable\Col col($num = null, ...$params) Add Component col

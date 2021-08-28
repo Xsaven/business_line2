@@ -16,7 +16,7 @@ class Attempt
      */
     public function handle(SubscribeDirectionEvent $event)
     {
-        if($event->user && $event->exist_direction) {
+        if($event->user && $event->direction) {
             $event->user->update([
                 'direction_id' => $event->direction_id
             ]);

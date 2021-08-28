@@ -2,6 +2,9 @@
 
 namespace App\Notifications;
 
+use App\Models\Direction;
+use App\Models\User;
+
 class UserSubscribeOnDirectionNotification extends Notification
 {
     /**
@@ -9,9 +12,10 @@ class UserSubscribeOnDirectionNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(User $user,Direction $direction)
     {
-        //
+        $this->message = "Вы успешно подписались на {$direction->name} трек!";
+        $this->user_id = $user->id;
     }
 
 }

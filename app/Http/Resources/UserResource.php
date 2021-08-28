@@ -20,7 +20,7 @@ class UserResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'avatar' => user_avatar($this->resource),
+            'avatar' => \user_avatar($this->resource),
             'short_name' => mb_strtoupper(
                 $this->lastname ? (mb_substr($this->name, 0, 1).mb_substr($this->lastname, 0,
                         1)) : mb_substr($this->name, 0, 2)

@@ -13,9 +13,9 @@ class SubscribeDirectionEvent
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * @var bool
+     * @var Direction|bool|null
      */
-    public bool $exist_direction = false;
+    public ?Direction $direction = null;
 
     /**
      * @param int $user_id
@@ -29,7 +29,7 @@ class SubscribeDirectionEvent
     ){
         $this->user = User::find($this->user_id);
 
-        $this->exist_direction = Direction::whereId($this->direction_id)->exists();
+        $this->direction = Direction::whereId($this->direction_id)->first();
     }
 
 }
