@@ -28,8 +28,15 @@
             </div>
           </div>
 
+            <div class="terms">
+              <div class="title">Условия участия</div>
 
-          <v-bottom-action :task="task" />
+              <div class="desc" v-html="task.terms_of_participation"></div>
+            </div>
+
+<!--            <v-bottom-action :task="task" />-->
+<!--          <v-upload-task-status />-->
+          <v-upload-task-report />
         </div>
       </section>
     </v-layout>
