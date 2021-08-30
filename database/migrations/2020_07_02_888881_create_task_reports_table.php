@@ -15,6 +15,7 @@ class CreateTaskReportsTable extends Migration
     {
         Schema::create('task_reports', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('status', 191)->default('created');
             $table->integer('likes')->default(0);
             $table->string('src', 191)->nullable();
             $table->text('comment')->nullable();

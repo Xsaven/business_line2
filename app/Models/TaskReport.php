@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  *
  * @package App\Models
  * @property int $id
+ * @property string $status
  * @property int $likes
  * @property string|null $src
  * @property string|null $comment
@@ -37,6 +38,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereLikes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereSrc($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereStartAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereTaskId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereUserId($value)
@@ -47,6 +49,24 @@ class TaskReport extends Model
     use TaskReportHasLogs;
 
     const TITLE = 'Отчёты заданий';
+
+    const STATUS_CREATED = 'created';
+
+    const STATUS_UPLOADING = 'uploading';
+
+    const STATUS_UPLOADED = 'uploaded';
+
+    const STATUS_CHECKED = 'checked';
+
+    const STATUS_CANCELED = 'canceled';
+
+    const STATUSES = [
+        'created' => 'Созданный',
+        'uploading' => 'Загрузка',
+        'uploaded' => 'Загруженный',
+        'checked' => 'Мгновенное',
+        'canceled' => 'Мгновенное',
+    ];
 
     /**
      * The table associated with the model.
@@ -59,6 +79,7 @@ class TaskReport extends Model
      * @return array
      */
     protected $fillable = [
+        'status',
         'likes',
         'src',
         'comment',
@@ -73,6 +94,7 @@ class TaskReport extends Model
      * @return array
      */
     protected $casts = [
+        'status' => 'string',
         'likes' => 'integer',
         'src' => 'string',
         'comment' => 'string',
@@ -87,6 +109,7 @@ class TaskReport extends Model
      * @return array
      */
     protected $attributes = [
+        'status' => 'created',
         'likes' => 0,
     ];
 
