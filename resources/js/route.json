@@ -1,7 +1,7 @@
 {
     "global": {
         "jax.executor": {
-            "uri": "68d4fe86c3bbc8f077157af1a8e4ad12",
+            "uri": "c1c934784841cb4c2e006386ad7e204c",
             "methods": [
                 "POST"
             ]
@@ -827,6 +827,13 @@
         },
         "direction": {
             "uri": "direction/{direction}",
+            "methods": [
+                "GET",
+                "HEAD"
+            ]
+        },
+        "task": {
+            "uri": "task/{task}",
             "methods": [
                 "GET",
                 "HEAD"

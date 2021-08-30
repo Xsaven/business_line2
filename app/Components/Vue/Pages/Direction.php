@@ -25,7 +25,7 @@ class Direction extends Page
     {
         $repo = app(DirectionRepository::class);
 
-        if (!$repo->findBySlug) {
+        if (! $repo->findBySlug) {
             abort(404);
         }
 
@@ -36,14 +36,11 @@ class Direction extends Page
 
         $attrs['tasks_calendar'] = [];
 
-
         foreach ($repo->findBySlug->tasks as $task) {
-
             if ($task->start_at && $task->finish_at) {
-
                 $diff_days = $task->start_at->diffInDays($task->finish_at);
                 $attrs['tasks_calendar'][$task->start_at->toDateString()][] = $task;
-                for ($i=1; $i<=$diff_days;$i++) {
+                for ($i = 1; $i <= $diff_days; $i++) {
                     $attrs['tasks_calendar'][$task->start_at->addDays($i)->toDateString()][] = $task;
                 }
             }

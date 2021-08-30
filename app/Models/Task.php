@@ -35,6 +35,8 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property-read int|null $quiz_questions_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\QuizResult[] $quizResults
  * @property-read int|null $quiz_results_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\TaskReport[] $taskReports
+ * @property-read int|null $task_reports_count
  * @method static \Database\Factories\TaskFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Task newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Task newQuery()
@@ -175,6 +177,15 @@ class Task extends Model
     public function quizResults() : HasMany
     {
         return $this->hasMany(QuizResult::class, 'task_id', 'id');
+    }
+
+    /**
+     * The "hasMany" relation for "Otcyoty' zadanii".
+     * @return HasMany
+     */
+    public function taskReports() : HasMany
+    {
+        return $this->hasMany(TaskReport::class, 'task_id', 'id');
     }
 
     /**
