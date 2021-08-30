@@ -14,10 +14,8 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property int $id
  * @property string $status
  * @property int $likes
- * @property string|null $src
+ * @property string|null $files
  * @property string|null $comment
- * @property \Illuminate\Support\Carbon|null $start_at
- * @property \Illuminate\Support\Carbon|null $finish_at
  * @property int $user_id
  * @property int $task_id
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -33,11 +31,9 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport query()
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereComment($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereFinishAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereFiles($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereLikes($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereSrc($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereStartAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereTaskId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereUpdatedAt($value)
@@ -64,8 +60,8 @@ class TaskReport extends Model
         'created' => 'Созданный',
         'uploading' => 'Загрузка',
         'uploaded' => 'Загруженный',
-        'checked' => 'Мгновенное',
-        'canceled' => 'Мгновенное',
+        'checked' => 'Одобренный',
+        'canceled' => 'Отменённый',
     ];
 
     /**
@@ -81,10 +77,8 @@ class TaskReport extends Model
     protected $fillable = [
         'status',
         'likes',
-        'src',
+        'files',
         'comment',
-        'start_at',
-        'finish_at',
         'user_id',
         'task_id',
     ];
@@ -96,10 +90,8 @@ class TaskReport extends Model
     protected $casts = [
         'status' => 'string',
         'likes' => 'integer',
-        'src' => 'string',
+        'files' => 'string',
         'comment' => 'string',
-        'start_at' => 'datetime',
-        'finish_at' => 'datetime',
         'user_id' => 'integer',
         'task_id' => 'integer',
     ];

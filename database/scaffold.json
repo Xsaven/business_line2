@@ -288,10 +288,8 @@
     "fields": [
       ["status", {"default": "created"}],
       ["likes", "integer", {"default": 0}],
-      ["src", {"nullable": []}],
-      ["comment", "text", {"nullable": []}],
-      "start_at",
-      "finish_at"
+      ["files", "text", {"nullable": []}],
+      ["comment", "text", {"nullable": []}]
     ],
     "relations": {
       "user": {},

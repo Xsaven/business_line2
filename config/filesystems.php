@@ -60,7 +60,7 @@ return [
             'endpoint' => 'http://storage.yandexcloud.net/',
             'region' => 'us-west-2',
             'bucket' => 'static.example.com',
-            'url' => env("APP_URL"),
+            'url' => env('APP_URL'),
         ],
     ],
 
