@@ -11,6 +11,7 @@
         "pages_support": "Pages/Support.vue",
         "common_footer": "Common/Footer.vue",
         "common_header": "Common/Header.vue",
-        "pages_direction": "Pages/Direction.vue"
+        "pages_direction": "Pages/Direction.vue",
+        "pages_task": "Pages/Task.vue"
     }
 }

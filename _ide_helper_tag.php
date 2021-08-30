@@ -931,6 +931,8 @@ namespace Lar\Layout {
      * @method self|static|\Lar\Layout\Abstracts\Component _setWrapIf($eq, string $wrap_data = "") Set parent wrap Attribute if $eq == true
      * @method string getWrap() Get wrap Attribute
      * @method string _getWrap() Get parent wrap Attribute
+     * @method \App\Components\Vue\Pages\Task pages_task($id = null, array $attrs = [], ...$params) Add Component pages_task
+     * @method \App\Components\Vue\Pages\Task _pages_task($id = null, array $attrs = [], ...$params) Add Component pages_task to parent
      * @method \Lar\LteAdmin\Segments\Tagable\Row row(...$params) Add Component row
      * @method \Lar\LteAdmin\Segments\Tagable\Row _row(...$params) Add Component row to parent
      * @method \Lar\LteAdmin\Segments\Tagable\Col col($num = null, ...$params) Add Component col

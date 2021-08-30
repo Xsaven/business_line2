@@ -34,6 +34,12 @@ use Lar\Roads\Roads;
 
 \Road::layout('home')
     ->web()
+    ->auth()
+    ->component('/task/{task:id}', \App\Components\Vue\Pages\Task::class)
+    ->name('task');
+
+\Road::layout('home')
+    ->web()
     ->component('/faq', \App\Components\Vue\Pages\FAQ::class)
     ->name('faq');
 
