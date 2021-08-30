@@ -11,4 +11,6 @@ module.exports = (Vue) => {
     Vue.component('v-loading', require('./Common/Loading.vue').default);
     Vue.component('v-new-commentaries', require('./Common/NewCommentares.vue').default);
     Vue.component('v-bottom-action', require('./Common/BottomActions.vue').default);
+    Vue.component('v-home-commentaries', require('./Common/HomeCommentares.vue').default);
+    Vue.component('v-home-commentary', require('./Common/HomeCommentary.vue').default);
 }

@@ -53,6 +53,15 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
+        'yandexcloud' => [
+            'driver' => 's3',
+            'key' => 'your_key',
+            'secret' => 'your_secret_key',
+            'endpoint' => 'http://storage.yandexcloud.net/',
+            'region' => 'us-west-2',
+            'bucket' => 'static.example.com',
+            'url' => env("APP_URL"),
+        ],
     ],
 
     /*

@@ -282,8 +282,8 @@
       "created": "Созданный",
       "uploading": "Загрузка",
       "uploaded": "Загруженный",
-      "checked": "Мгновенное",
-      "canceled": "Мгновенное"
+      "checked": "Одобренный",
+      "canceled": "Отменённый"
     },
     "fields": [
       ["status", {"default": "created"}],
