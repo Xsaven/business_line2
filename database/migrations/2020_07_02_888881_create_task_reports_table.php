@@ -17,10 +17,8 @@ class CreateTaskReportsTable extends Migration
             $table->bigIncrements('id');
             $table->string('status', 191)->default('created');
             $table->integer('likes')->default(0);
-            $table->string('src', 191)->nullable();
+            $table->text('files')->nullable();
             $table->text('comment')->nullable();
-            $table->timestamp('start_at')->nullable();
-            $table->timestamp('finish_at')->nullable();
             $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('task_id')->constrained('tasks')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
