@@ -7,22 +7,22 @@ use App\Http\Resources\TaskResource;
 use App\Repositories\TaskRepository;
 
 /**
- * Task Class
+ * Task Class.
  * @package App\Components\Vue\Pages
  */
 class Task extends Page
 {
     /**
-     * Protected variable Element
+     * Protected variable Element.
      * @var string
      */
-    protected $element = "pages_task";
+    protected $element = 'pages_task';
 
     public function __construct($id = null, array $attrs = [], ...$params)
     {
         $repo = app(TaskRepository::class);
 
-        if(!$repo->findById) {
+        if (! $repo->findById) {
             abort(404);
         }
 
@@ -30,5 +30,4 @@ class Task extends Page
 
         parent::__construct($id, $attrs, $params);
     }
-
 }

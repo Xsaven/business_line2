@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 use Lar\Developer\CoreRepository;
 
 /**
- * Class TaskRepository
+ * Class TaskRepository.
  * @package App\Repositories
  * @property-read Task|Task[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|mixed|null $findById
  */
 class TaskRepository extends CoreRepository
 {
     /**
-     * Model class namespace getter
+     * Model class namespace getter.
      *
      * @return string
      */

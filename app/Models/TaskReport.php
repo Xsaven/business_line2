@@ -12,25 +12,34 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  *
  * @package App\Models
  * @property int $id
+ * @property string $status
  * @property int $likes
+ * @property string|null $src
+ * @property string|null $comment
  * @property \Illuminate\Support\Carbon|null $start_at
  * @property \Illuminate\Support\Carbon|null $finish_at
  * @property int $user_id
+ * @property int $task_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Commentary[] $commentary
  * @property-read int|null $commentary_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Log[] $logs
  * @property-read int|null $logs_count
+ * @property-read \App\Models\Task|null $task
  * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport query()
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereComment($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereFinishAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereLikes($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereSrc($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereStartAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereTaskId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereUserId($value)
  * @mixin \Eloquent
@@ -40,6 +49,24 @@ class TaskReport extends Model
     use TaskReportHasLogs;
 
     const TITLE = 'Отчёты заданий';
+
+    const STATUS_CREATED = 'created';
+
+    const STATUS_UPLOADING = 'uploading';
+
+    const STATUS_UPLOADED = 'uploaded';
+
+    const STATUS_CHECKED = 'checked';
+
+    const STATUS_CANCELED = 'canceled';
+
+    const STATUSES = [
+        'created' => 'Созданный',
+        'uploading' => 'Загрузка',
+        'uploaded' => 'Загруженный',
+        'checked' => 'Мгновенное',
+        'canceled' => 'Мгновенное',
+    ];
 
     /**
      * The table associated with the model.
@@ -52,10 +79,14 @@ class TaskReport extends Model
      * @return array
      */
     protected $fillable = [
+        'status',
         'likes',
+        'src',
+        'comment',
         'start_at',
         'finish_at',
         'user_id',
+        'task_id',
     ];
 
     /**
@@ -63,10 +94,14 @@ class TaskReport extends Model
      * @return array
      */
     protected $casts = [
+        'status' => 'string',
         'likes' => 'integer',
+        'src' => 'string',
+        'comment' => 'string',
         'start_at' => 'datetime',
         'finish_at' => 'datetime',
         'user_id' => 'integer',
+        'task_id' => 'integer',
     ];
 
     /**
@@ -74,6 +109,7 @@ class TaskReport extends Model
      * @return array
      */
     protected $attributes = [
+        'status' => 'created',
         'likes' => 0,
     ];
 
@@ -93,6 +129,15 @@ class TaskReport extends Model
     public function logs() : MorphMany
     {
         return $this->morphMany(Log::class, 'logable', 'logable_type', 'logable_id', 'id');
+    }
+
+    /**
+     * The "hasOne" relation for "Zadaniya".
+     * @return HasOne
+     */
+    public function task() : HasOne
+    {
+        return $this->hasOne(Task::class, 'id', 'task_id');
     }
 
     /**

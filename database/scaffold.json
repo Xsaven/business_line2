@@ -273,14 +273,30 @@
   "task_reports": {
     "traits": ["HasLogs"],
     "const:title": "Отчёты заданий",
+    "const:status_created": "created",
+    "const:status_uploading": "uploading",
+    "const:status_uploaded": "uploaded",
+    "const:status_checked": "checked",
+    "const:status_canceled": "canceled",
+    "const:statuses": {
+      "created": "Созданный",
+      "uploading": "Загрузка",
+      "uploaded": "Загруженный",
+      "checked": "Мгновенное",
+      "canceled": "Мгновенное"
+    },
     "fields": [
+      ["status", {"default": "created"}],
       ["likes", "integer", {"default": 0}],
+      ["src", {"nullable": []}],
+      ["comment", "text", {"nullable": []}],
       "start_at",
       "finish_at"
     ],
     "relations": {
       "user": {},
       "logs": {},
+      "task": {},
       "commentary": {}
     },
     "resource": []
