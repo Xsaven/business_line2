@@ -116,19 +116,19 @@
           <div class="col">
             <div class="line files">
               <div class="selected">
-                <div class="file">
+                <div v-for="(file, f_key) in files" class="file">
                   <v-icon icon="ic_file" />
 
-                  <div class="name">{{files}}</div>
+                  <div class="name">{{file.name}}</div>
 
-                  <button class="del_btn">
+                  <button type="button" @click="fileRemove(f_key)" class="del_btn">
                     <svg><use xlink:href="/images/sprite.svg#ic_delete"></use></svg>
                   </button>
                 </div>
               </div>
 
               <div class="field">
-                <input type="file" name="file" id="file" onchange="handleUpload()">
+                <input type="file" name="file" id="file" ref="file" @change="handleUpload" multiple>
                 <label for="file">
                   <v-icon icon="ic_attachment" />
                   <span>Прикрепить фото/ видео</span>
@@ -156,16 +156,21 @@
         props: {},
         data () {
             return {
-                file: ''
+                files: []
             };
         },
         mounted () {},
         computed: {},
         watch: {},
         methods: {
+          fileRemove (index) {
+            // console.log(123);
+            this.files = this.files.filter((i,k) => index!==k);
+          },
           handleUpload() {
-            this.file = this.$refs.file
-            console.log(this.file);
+            //this.$set(this, 'files', this.$refs.file.files);
+            // console.log(this.$refs.file.files);
+            Object.values(this.$refs.file.files).map((file) => this.files.push(file));
           }
         }
     }
