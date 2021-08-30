@@ -275,12 +275,15 @@
     "const:title": "Отчёты заданий",
     "fields": [
       ["likes", "integer", {"default": 0}],
+      ["src", {"nullable": []}],
+      ["comment", "text", {"nullable": []}],
       "start_at",
       "finish_at"
     ],
     "relations": {
       "user": {},
       "logs": {},
+      "task": {},
       "commentary": {}
     },
     "resource": []

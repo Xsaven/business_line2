@@ -58,7 +58,7 @@ class Direction extends Page
 
         $attrs['tasks_calendar'] = array_chunk($attrs['tasks_calendar'], 7, 1);
 
-        dd($attrs['tasks_calendar']);
+        //dd($attrs['tasks_calendar']);
 
         parent::__construct($id, $attrs, $params);
     }
