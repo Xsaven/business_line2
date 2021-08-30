@@ -35,7 +35,6 @@
             </div>
 
 <!--            <v-bottom-action :task="task" />-->
-<!--          <v-upload-task-status />-->
           <v-upload-task-report />
         </div>
       </section>

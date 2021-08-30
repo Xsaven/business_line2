@@ -2847,58 +2847,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-upload-task-report",
   props: {},
   data: function data() {
     return {
-      files: []
+      files: [],
+      comment: ''
     };
   },
   mounted: function mounted() {},
@@ -2906,7 +2861,6 @@ __webpack_require__.r(__webpack_exports__);
   watch: {},
   methods: {
     fileRemove: function fileRemove(index) {
-      // console.log(123);
       this.files = this.files.filter(function (i, k) {
         return index !== k;
       });
@@ -2914,8 +2868,6 @@ __webpack_require__.r(__webpack_exports__);
     handleUpload: function handleUpload() {
       var _this = this;
 
-      //this.$set(this, 'files', this.$refs.file.files);
-      // console.log(this.$refs.file.files);
       Object.values(this.$refs.file.files).map(function (file) {
         return _this.files.push(file);
       });
@@ -2936,6 +2888,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -4487,7 +4440,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var moment_moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment/moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment_moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment_moment__WEBPACK_IMPORTED_MODULE_0__);
-//
 //
 //
 //
@@ -51022,136 +50974,134 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c("form", { staticClass: "form", attrs: { action: "" } }, [
-        _c("div", { staticClass: "cols row" }, [
-          _c("div", { staticClass: "col" }, [
-            _c("div", { staticClass: "line" }, [
-              _c("div", { staticClass: "field" }, [
-                _c("textarea", {
-                  attrs: { name: "", placeholder: "Комментарий" }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "smiles modal_cont" }, [
+        _c("div", { staticClass: "line" }, [
+          _c("div", { staticClass: "field" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.comment,
+                  expression: "comment"
+                }
+              ],
+              attrs: { name: "", placeholder: "Комментарий" },
+              domProps: { value: _vm.comment },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.comment = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "smiles modal_cont" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn mini_modal_btn",
+                  attrs: { type: "button", "data-modal-id": "#smiles_modal" }
+                },
+                [_c("v-icon", { attrs: { icon: "ic_smile" } })],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "mini_modal", attrs: { id: "smiles_modal" } },
+                [
                   _c(
                     "button",
-                    {
-                      staticClass: "btn mini_modal_btn",
-                      attrs: {
-                        type: "button",
-                        "data-modal-id": "#smiles_modal"
-                      }
-                    },
-                    [_c("v-icon", { attrs: { icon: "ic_smile" } })],
+                    { staticClass: "close_btn", attrs: { type: "button" } },
+                    [_c("v-icon", { attrs: { icon: "ic_close" } })],
                     1
                   ),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "mini_modal",
-                      attrs: { id: "smiles_modal" }
-                    },
-                    [
-                      _c(
-                        "button",
-                        { staticClass: "close_btn", attrs: { type: "button" } },
-                        [_c("v-icon", { attrs: { icon: "ic_close" } })],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _vm._m(0),
-                      _vm._v(" "),
-                      _vm._m(1)
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _vm._m(2)
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
-            _c("div", { staticClass: "line files" }, [
-              _c(
-                "div",
-                { staticClass: "selected" },
-                _vm._l(_vm.files, function(file, f_key) {
-                  return _c(
-                    "div",
-                    { staticClass: "file" },
-                    [
-                      _c("v-icon", { attrs: { icon: "ic_file" } }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "name" }, [
-                        _vm._v(_vm._s(file.name))
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "del_btn",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              return _vm.fileRemove(f_key)
-                            }
-                          }
-                        },
-                        [
-                          _c("svg", [
-                            _c("use", {
-                              attrs: {
-                                "xlink:href": "/images/sprite.svg#ic_delete"
-                              }
-                            })
-                          ])
-                        ]
-                      )
-                    ],
-                    1
-                  )
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "field" }, [
-                _c("input", {
-                  ref: "file",
-                  attrs: {
-                    type: "file",
-                    name: "file",
-                    id: "file",
-                    multiple: ""
-                  },
-                  on: { change: _vm.handleUpload }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  { attrs: { for: "file" } },
-                  [
-                    _c("v-icon", { attrs: { icon: "ic_attachment" } }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Прикрепить фото/ видео")]),
-                    _vm._v(" "),
-                    _vm._m(3)
-                  ],
-                  1
-                )
-              ])
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _vm._m(1)
+                ]
+              )
             ])
           ])
         ]),
         _vm._v(" "),
-        _vm._m(4)
+        _c("div", { staticClass: "line files" }, [
+          _c(
+            "div",
+            { staticClass: "selected" },
+            _vm._l(_vm.files, function(file, f_key) {
+              return _c(
+                "div",
+                { staticClass: "file" },
+                [
+                  _c("v-icon", { attrs: { icon: "ic_file" } }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "name" }, [
+                    _vm._v(_vm._s(file.name))
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "del_btn",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.fileRemove(f_key)
+                        }
+                      }
+                    },
+                    [
+                      _c("svg", [
+                        _c("use", {
+                          attrs: {
+                            "xlink:href": "/images/sprite.svg#ic_delete"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ],
+                1
+              )
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "field" }, [
+            _c("input", {
+              ref: "file",
+              attrs: { type: "file", name: "file", id: "file", multiple: "" },
+              on: { change: _vm.handleUpload }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              { attrs: { for: "file" } },
+              [
+                _c("v-icon", { attrs: { icon: "ic_attachment" } }),
+                _vm._v(" "),
+                _c("span", [_vm._v("Прикрепить фото/ видео")]),
+                _vm._v(" "),
+                _vm._m(2)
+              ],
+              1
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(3)
       ]),
       _vm._v(" "),
       _c("img", {
         staticClass: "bg lozad loaded",
         attrs: {
-          "data-src": "/images/bg_performance.svg",
+          "data-src": "images/bg_performance.svg",
           alt: "",
-          src: "/images/bg_performance.svg",
+          src: "images/bg_performance.svg",
           "data-loaded": "true"
         }
       })
@@ -51327,62 +51277,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "line" }, [
-      _c("div", { staticClass: "field" }, [
-        _c("input", {
-          staticClass: "input",
-          attrs: {
-            type: "text",
-            name: "",
-            value: "",
-            placeholder: "За кого болеешь"
-          }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "fieldset" }, [
-          _c("div", [
-            _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "rules" }, [
       _vm._v("jpg, jpeg, png до 10 МБ"),
       _c("br"),
@@ -51426,26 +51320,28 @@ var render = function() {
     _c("div", { staticClass: "title" }, [_vm._v("Загрузи свой отчет")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
-      _c(
-        "div",
-        { staticClass: "status" },
-        [
-          _c("v-icon", { staticClass: "yellow", attrs: { icon: "ic_time" } }),
-          _vm._v(" "),
-          _c("div", [_vm._v("Скоро ты сможешь загрузить свой отчет")])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("img", {
-        staticClass: "bg lozad loaded",
-        attrs: {
-          "data-src": "/images/bg_performance.svg",
-          alt: "",
-          src: "/images/bg_performance.svg",
-          "data-loaded": "true"
-        }
-      })
+      _c("div", { staticClass: "status" }, [
+        _c(
+          "div",
+          { staticClass: "status" },
+          [
+            _c("v-icon", { staticClass: "red", attrs: { icon: "ic_bad" } }),
+            _vm._v(" "),
+            _c("div", [_vm._v("Ты не справился")])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "bg lozad loaded",
+          attrs: {
+            "data-src": "/images/bg_performance.svg",
+            alt: "",
+            src: "/images/bg_performance.svg",
+            "data-loaded": "true"
+          }
+        })
+      ])
     ])
   ])
 }

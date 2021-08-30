@@ -114,4 +114,14 @@ class User extends JaxExecutor
 
         $this->reload();
     }
+
+
+    /**
+     * @param string $comment
+     * @param array $files
+     */
+    public function task_report(string $comment,array $files)
+    {
+
+    }
 }
