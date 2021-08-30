@@ -55,8 +55,8 @@ return [
 
         'yandexcloud' => [
             'driver' => 's3',
-            'key' => 'your_key',
-            'secret' => 'your_secret_key',
+            'key' => 'jCMriGGy2gtQlSD1_5Pk',
+            'secret' => 'jAlOMyn_hOTC60CRftEk6ZQLFaWlr-QkjXrC62fy',
             'endpoint' => 'http://storage.yandexcloud.net/',
             'region' => 'us-west-2',
             'bucket' => 'static.example.com',
