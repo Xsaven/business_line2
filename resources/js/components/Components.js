@@ -14,4 +14,6 @@ module.exports = (Vue) => {
     Vue.component('v-upload-task-report', require('./Common/UploadTaskRepoprt.vue').default);
     Vue.component('v-upload-task-status', require('./Common/UploadTaskStatus.vue').default);
     Vue.component('v-upload-task-quiz', require('./Common/UploadTaskQuiz.vue').default);
+    Vue.component('v-home-commentaries', require('./Common/HomeCommentares.vue').default);
+    Vue.component('v-home-commentary', require('./Common/HomeCommentary.vue').default);
 }

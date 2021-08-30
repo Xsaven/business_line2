@@ -2051,6 +2051,521 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Common/HomeCommentares.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Common/HomeCommentares.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "v-home-commentaries",
+  props: {},
+  data: function data() {
+    return {};
+  },
+  mounted: function mounted() {},
+  computed: {},
+  watch: {},
+  methods: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Common/HomeCommentary.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Common/HomeCommentary.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "v-home-commentary",
+  props: {},
+  data: function data() {
+    return {};
+  },
+  mounted: function mounted() {},
+  computed: {},
+  watch: {},
+  methods: {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Common/Loading.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Common/Loading.vue?vue&type=script&lang=js& ***!
@@ -3805,467 +4320,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   $sync: ['user'],
   name: "pages_home",
@@ -4618,6 +4672,8 @@ module.exports = function (Vue) {
   Vue.component('v-upload-task-report', __webpack_require__(/*! ./Common/UploadTaskRepoprt.vue */ "./resources/js/components/Common/UploadTaskRepoprt.vue").default);
   Vue.component('v-upload-task-status', __webpack_require__(/*! ./Common/UploadTaskStatus.vue */ "./resources/js/components/Common/UploadTaskStatus.vue").default);
   Vue.component('v-upload-task-quiz', __webpack_require__(/*! ./Common/UploadTaskQuiz.vue */ "./resources/js/components/Common/UploadTaskQuiz.vue").default);
+  Vue.component('v-home-commentaries', __webpack_require__(/*! ./Common/HomeCommentares.vue */ "./resources/js/components/Common/HomeCommentares.vue").default);
+  Vue.component('v-home-commentary', __webpack_require__(/*! ./Common/HomeCommentary.vue */ "./resources/js/components/Common/HomeCommentary.vue").default);
 };
 
 /***/ }),
@@ -48315,6 +48371,84 @@ component.options.__file = "resources/js/components/Common/Header.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/Common/HomeCommentares.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/Common/HomeCommentares.vue ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _HomeCommentares_vue_vue_type_template_id_c52138f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HomeCommentares.vue?vue&type=template&id=c52138f4& */ "./resources/js/components/Common/HomeCommentares.vue?vue&type=template&id=c52138f4&");
+/* harmony import */ var _HomeCommentares_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HomeCommentares.vue?vue&type=script&lang=js& */ "./resources/js/components/Common/HomeCommentares.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _HomeCommentares_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _HomeCommentares_vue_vue_type_template_id_c52138f4___WEBPACK_IMPORTED_MODULE_0__.render,
+  _HomeCommentares_vue_vue_type_template_id_c52138f4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Common/HomeCommentares.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Common/HomeCommentary.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/Common/HomeCommentary.vue ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _HomeCommentary_vue_vue_type_template_id_db1a895e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HomeCommentary.vue?vue&type=template&id=db1a895e& */ "./resources/js/components/Common/HomeCommentary.vue?vue&type=template&id=db1a895e&");
+/* harmony import */ var _HomeCommentary_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HomeCommentary.vue?vue&type=script&lang=js& */ "./resources/js/components/Common/HomeCommentary.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _HomeCommentary_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _HomeCommentary_vue_vue_type_template_id_db1a895e___WEBPACK_IMPORTED_MODULE_0__.render,
+  _HomeCommentary_vue_vue_type_template_id_db1a895e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Common/HomeCommentary.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Common/Loading.vue":
 /*!****************************************************!*\
   !*** ./resources/js/components/Common/Loading.vue ***!
@@ -48909,6 +49043,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Common/HomeCommentares.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/Common/HomeCommentares.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeCommentares_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HomeCommentares.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Common/HomeCommentares.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeCommentares_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Common/HomeCommentary.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/Common/HomeCommentary.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeCommentary_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HomeCommentary.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Common/HomeCommentary.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeCommentary_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Common/Loading.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************!*\
   !*** ./resources/js/components/Common/Loading.vue?vue&type=script&lang=js& ***!
@@ -49180,6 +49346,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_template_id_5a47a276___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_template_id_5a47a276___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Header.vue?vue&type=template&id=5a47a276& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Common/Header.vue?vue&type=template&id=5a47a276&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Common/HomeCommentares.vue?vue&type=template&id=c52138f4&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/Common/HomeCommentares.vue?vue&type=template&id=c52138f4& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeCommentares_vue_vue_type_template_id_c52138f4___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeCommentares_vue_vue_type_template_id_c52138f4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeCommentares_vue_vue_type_template_id_c52138f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HomeCommentares.vue?vue&type=template&id=c52138f4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Common/HomeCommentares.vue?vue&type=template&id=c52138f4&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Common/HomeCommentary.vue?vue&type=template&id=db1a895e&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/Common/HomeCommentary.vue?vue&type=template&id=db1a895e& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeCommentary_vue_vue_type_template_id_db1a895e___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeCommentary_vue_vue_type_template_id_db1a895e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeCommentary_vue_vue_type_template_id_db1a895e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HomeCommentary.vue?vue&type=template&id=db1a895e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Common/HomeCommentary.vue?vue&type=template&id=db1a895e&");
 
 
 /***/ }),
@@ -49747,6 +49947,885 @@ var staticRenderFns = [
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Common/HomeCommentares.vue?vue&type=template&id=c52138f4&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Common/HomeCommentares.vue?vue&type=template&id=c52138f4& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "chat" }, [
+    _c("div", { staticClass: "messages" }, [
+      _c("div", { staticClass: "message_wrap" }, [
+        _c("div", { staticClass: "message" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _c("div", { staticClass: "date" }, [_vm._v("20.07  18:50")]),
+          _vm._v(" "),
+          _c("button", { staticClass: "reaply_btn" }, [_vm._v("Ответить")]),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "like_btn active" },
+            [
+              _c("span", [_vm._v("18")]),
+              _vm._v(" "),
+              _c("v-icon", { attrs: { icon: "ic_like" } }),
+              _vm._v(" "),
+              _c("v-icon", { attrs: { icon: "ic_like_a" } })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "reaply" }, [
+          _c(
+            "button",
+            { staticClass: "cancel_btn" },
+            [_c("v-icon", { attrs: { icon: "ic_close" } })],
+            1
+          ),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _c("div", { staticClass: "add_message" }, [
+            _c("form", { attrs: { action: "" } }, [
+              _c("textarea", {
+                attrs: { name: "", placeholder: "Написать комментарий" }
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "submit_btn", attrs: { type: "submit" } },
+                [_c("v-icon", { attrs: { icon: "ic_send" } })],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "smiles" }, [
+                _c(
+                  "button",
+                  { staticClass: "btn", attrs: { type: "button" } },
+                  [_c("v-icon", { attrs: { icon: "ic_smile" } })],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(3)
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "message_wrap" }, [
+        _c("div", { staticClass: "message" }, [
+          _vm._m(4),
+          _vm._v(" "),
+          _vm._m(5),
+          _vm._v(" "),
+          _c("div", { staticClass: "date" }, [_vm._v("20.07  18:50")]),
+          _vm._v(" "),
+          _c("button", { staticClass: "reaply_btn" }, [_vm._v("Ответить")]),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "like_btn" },
+            [
+              _c("span", [_vm._v("18")]),
+              _vm._v(" "),
+              _c("v-icon", { attrs: { icon: "ic_like" } }),
+              _vm._v(" "),
+              _c("v-icon", { attrs: { icon: "ic_like_a" } })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "reaply" }, [
+          _c(
+            "button",
+            { staticClass: "cancel_btn" },
+            [_c("v-icon", { attrs: { icon: "ic_close" } })],
+            1
+          ),
+          _vm._v(" "),
+          _vm._m(6),
+          _vm._v(" "),
+          _c("div", { staticClass: "add_message" }, [
+            _c("form", { attrs: { action: "" } }, [
+              _c("textarea", {
+                attrs: { name: "", placeholder: "Написать комментарий" }
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "submit_btn", attrs: { type: "submit" } },
+                [_c("v-icon", { attrs: { icon: "ic_send" } })],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "smiles" }, [
+                _c(
+                  "button",
+                  { staticClass: "btn", attrs: { type: "button" } },
+                  [_c("v-icon", { attrs: { icon: "ic_smile" } })],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(7)
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "children" }, [
+          _c("div", { staticClass: "message_wrap" }, [
+            _c("div", { staticClass: "message" }, [
+              _vm._m(8),
+              _vm._v(" "),
+              _vm._m(9),
+              _vm._v(" "),
+              _c("div", { staticClass: "date" }, [_vm._v("20.07  18:50")]),
+              _vm._v(" "),
+              _c("button", { staticClass: "reaply_btn" }, [_vm._v("Ответить")]),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "like_btn" },
+                [
+                  _c("span", [_vm._v("18")]),
+                  _vm._v(" "),
+                  _c("v-icon", { attrs: { icon: "ic_like" } }),
+                  _vm._v(" "),
+                  _c("v-icon", { attrs: { icon: "ic_like_a" } })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "reaply" }, [
+              _c(
+                "button",
+                { staticClass: "cancel_btn" },
+                [_c("v-icon", { attrs: { icon: "ic_close" } })],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(10),
+              _vm._v(" "),
+              _c("div", { staticClass: "add_message" }, [
+                _c("form", { attrs: { action: "" } }, [
+                  _c("textarea", {
+                    attrs: { name: "", placeholder: "Написать комментарий" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    { staticClass: "submit_btn", attrs: { type: "submit" } },
+                    [_c("v-icon", { attrs: { icon: "ic_send" } })],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "smiles" }, [
+                    _c(
+                      "button",
+                      { staticClass: "btn", attrs: { type: "button" } },
+                      [_c("v-icon", { attrs: { icon: "ic_smile" } })],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(11)
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "message_wrap" }, [
+        _c("div", { staticClass: "message" }, [
+          _vm._m(12),
+          _vm._v(" "),
+          _vm._m(13),
+          _vm._v(" "),
+          _c("div", { staticClass: "date" }, [_vm._v("20.07  18:50")]),
+          _vm._v(" "),
+          _c("button", { staticClass: "reaply_btn" }, [_vm._v("Ответить")]),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "like_btn" },
+            [
+              _c("span", [_vm._v("18")]),
+              _vm._v(" "),
+              _c("v-icon", { attrs: { icon: "ic_like" } }),
+              _vm._v(" "),
+              _c("v-icon", { attrs: { icon: "ic_like_a" } })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "reaply" }, [
+          _c(
+            "button",
+            { staticClass: "cancel_btn" },
+            [_c("v-icon", { attrs: { icon: "ic_close" } })],
+            1
+          ),
+          _vm._v(" "),
+          _vm._m(14),
+          _vm._v(" "),
+          _c("div", { staticClass: "add_message" }, [
+            _c("form", { attrs: { action: "" } }, [
+              _c("textarea", {
+                attrs: { name: "", placeholder: "Написать комментарий" }
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "submit_btn", attrs: { type: "submit" } },
+                [_c("v-icon", { attrs: { icon: "ic_send" } })],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "smiles" }, [
+                _c(
+                  "button",
+                  { staticClass: "btn", attrs: { type: "button" } },
+                  [_c("v-icon", { attrs: { icon: "ic_smile" } })],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(15)
+            ])
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "add_message" }, [
+      _c("form", { attrs: { action: "" } }, [
+        _c("textarea", {
+          attrs: { name: "", placeholder: "Написать комментарий" }
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "submit_btn", attrs: { type: "submit" } },
+          [_c("v-icon", { attrs: { icon: "ic_send" } })],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "smiles modal_cont" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn mini_modal_btn",
+              attrs: { type: "button", "data-modal-id": "#smiles_modal" }
+            },
+            [_c("v-icon", { attrs: { icon: "ic_smile" } })],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "mini_modal", attrs: { id: "smiles_modal" } },
+            [
+              _c(
+                "button",
+                { staticClass: "close_btn", attrs: { type: "button" } },
+                [_c("v-icon", { attrs: { icon: "ic_close" } })],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(16),
+              _vm._v(" "),
+              _vm._m(17)
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(18)
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "avatar" }, [
+      _c("span", [_vm._v("ЕИ")]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "lozad",
+        attrs: { "data-src": "/images/tmp/user_avatar3.jpg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "user_name" }, [
+        _c("a", { attrs: { href: "/" } }, [_vm._v("Евгений Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text" }, [
+        _vm._v("Круто! Спасибо за участие 😀")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "parent_message" }, [
+      _c("div", { staticClass: "user_name" }, [_vm._v("Евгений Иванов")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text" }, [
+        _vm._v("Круто! Спасибо за участие 😀")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "fieldset" }, [
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "avatar" }, [
+      _c("span", [_vm._v("ЕИ")]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "lozad",
+        attrs: { "data-src": "/images/tmp/user_avatar3.jpg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "user_name" }, [
+        _c("a", { attrs: { href: "/" } }, [_vm._v("Евгений Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text" }, [
+        _vm._v("Круто! Спасибо за участие 😀")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "parent_message" }, [
+      _c("div", { staticClass: "user_name" }, [_vm._v("Евгений Иванов")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text" }, [
+        _vm._v("Круто! Спасибо за участие 😀")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "fieldset" }, [
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "avatar" }, [
+      _c("span", [_vm._v("ЕИ")]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "lozad",
+        attrs: { "data-src": "/images/tmp/user_avatar3.jpg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "user_name" }, [
+        _c("a", { attrs: { href: "/" } }, [_vm._v("Евгений Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text" }, [
+        _vm._v("Круто! Спасибо за участие 😀")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "parent_message" }, [
+      _c("div", { staticClass: "user_name" }, [_vm._v("Евгений Иванов")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text" }, [
+        _vm._v("Круто! Спасибо за участие 😀")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "fieldset" }, [
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "avatar" }, [
+      _c("span", [_vm._v("ЕИ")]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "lozad",
+        attrs: { "data-src": "/images/tmp/user_avatar3.jpg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "user_name" }, [
+        _c("a", { attrs: { href: "/" } }, [_vm._v("Евгений Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text" }, [
+        _vm._v("Круто! Спасибо за участие 😀")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "parent_message" }, [
+      _c("div", { staticClass: "user_name" }, [_vm._v("Евгений Иванов")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text" }, [
+        _vm._v("Круто! Спасибо за участие 😀")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "fieldset" }, [
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "section" }, [
+      _c("div", { staticClass: "title" }, [_vm._v("Эмоджи")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "section stickers" }, [
+      _c("div", { staticClass: "title" }, [_vm._v("Стикеры")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/sticker_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/sticker_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/sticker_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/sticker_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/sticker_img.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { src: "/images/tmp/sticker_img.png", alt: "" } })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "fieldset" }, [
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "name" }, [_vm._v("Наталья Иванова")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Common/HomeCommentary.vue?vue&type=template&id=db1a895e&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Common/HomeCommentary.vue?vue&type=template&id=db1a895e& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._v("Common/HomeCommentary.vue Component")])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -51848,967 +52927,58 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("v-layout", [
     _c("section", { staticClass: "about_info" }, [
-      _c("div", { staticClass: "cont row" }, [
-        _c("div", { staticClass: "data" }, [
-          _c("div", { staticClass: "title" }, [
-            _vm._v("Краткое название проекта ")
+      _c(
+        "div",
+        { staticClass: "cont row" },
+        [
+          _c("div", { staticClass: "data" }, [
+            _c("div", { staticClass: "title" }, [
+              _vm._v("Краткое название проекта ")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "desc" }, [
+              _vm._v(
+                "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме."
+              )
+            ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "desc" }, [
-            _vm._v(
-              "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме."
+          _c("div", { staticClass: "video" }, [
+            _c(
+              "div",
+              { staticClass: "views" },
+              [
+                _c("v-icon", { attrs: { icon: "ic_view" } }),
+                _vm._v(" "),
+                _c("span", [_vm._v("285")])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              { staticClass: "link", attrs: { href: "/" } },
+              [
+                _c("v-icon", { attrs: { icon: "ic_video_play" } }),
+                _vm._v(" "),
+                _c("div", { staticClass: "info" }, [
+                  _c("div", { staticClass: "name" }, [
+                    _c("span", [_vm._v("Церемония открытия")])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "type" }, [
+                    _c("span", [_vm._v("Онлайн трансляция")])
+                  ])
+                ])
+              ],
+              1
             )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "video" }, [
-          _c(
-            "div",
-            { staticClass: "views" },
-            [
-              _c("v-icon", { attrs: { icon: "ic_view" } }),
-              _vm._v(" "),
-              _c("span", [_vm._v("285")])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "link", attrs: { href: "/" } },
-            [
-              _c("v-icon", { attrs: { icon: "ic_video_play" } }),
-              _vm._v(" "),
-              _c("div", { staticClass: "info" }, [
-                _c("div", { staticClass: "name" }, [
-                  _c("span", [_vm._v("Церемония открытия")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "type" }, [
-                  _c("span", [_vm._v("Онлайн трансляция")])
-                ])
-              ])
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "chat" }, [
-          _c("div", { staticClass: "messages" }, [
-            _c("div", { staticClass: "message_wrap" }, [
-              _c("div", { staticClass: "message" }, [
-                _c("div", { staticClass: "avatar" }, [
-                  _c("span", [_vm._v("ЕИ")]),
-                  _vm._v(" "),
-                  _c("img", {
-                    staticClass: "lozad",
-                    attrs: {
-                      "data-src": "/images/tmp/user_avatar3.jpg",
-                      alt: ""
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("div", { staticClass: "user_name" }, [
-                    _c("a", { attrs: { href: "/" } }, [
-                      _vm._v("Евгений Иванов")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text" }, [
-                    _vm._v("Круто! Спасибо за участие 😀")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "date" }, [_vm._v("20.07  18:50")]),
-                _vm._v(" "),
-                _c("button", { staticClass: "reaply_btn" }, [
-                  _vm._v("Ответить")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  { staticClass: "like_btn active" },
-                  [
-                    _c("span", [_vm._v("18")]),
-                    _vm._v(" "),
-                    _c("v-icon", { attrs: { icon: "ic_like" } }),
-                    _vm._v(" "),
-                    _c("v-icon", { attrs: { icon: "ic_like_a" } })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "reaply" }, [
-                _c(
-                  "button",
-                  { staticClass: "cancel_btn" },
-                  [_c("v-icon", { attrs: { icon: "ic_close" } })],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "parent_message" }, [
-                  _c("div", { staticClass: "user_name" }, [
-                    _vm._v("Евгений Иванов")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text" }, [
-                    _vm._v("Круто! Спасибо за участие 😀")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "add_message" }, [
-                  _c("form", { attrs: { action: "" } }, [
-                    _c("textarea", {
-                      attrs: { name: "", placeholder: "Написать комментарий" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      { staticClass: "submit_btn", attrs: { type: "submit" } },
-                      [_c("v-icon", { attrs: { icon: "ic_send" } })],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "smiles" }, [
-                      _c(
-                        "button",
-                        { staticClass: "btn", attrs: { type: "button" } },
-                        [_c("v-icon", { attrs: { icon: "ic_smile" } })],
-                        1
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "fieldset" }, [
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Иван Иванов")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Наталья Иванова")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Иван Иванов")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Наталья Иванова")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Иван Иванов")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Наталья Иванова")
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "message_wrap" }, [
-              _c("div", { staticClass: "message" }, [
-                _c("div", { staticClass: "avatar" }, [
-                  _c("span", [_vm._v("ЕИ")]),
-                  _vm._v(" "),
-                  _c("img", {
-                    staticClass: "lozad",
-                    attrs: {
-                      "data-src": "/images/tmp/user_avatar3.jpg",
-                      alt: ""
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("div", { staticClass: "user_name" }, [
-                    _c("a", { attrs: { href: "/" } }, [
-                      _vm._v("Евгений Иванов")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text" }, [
-                    _vm._v("Круто! Спасибо за участие 😀")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "date" }, [_vm._v("20.07  18:50")]),
-                _vm._v(" "),
-                _c("button", { staticClass: "reaply_btn" }, [
-                  _vm._v("Ответить")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  { staticClass: "like_btn" },
-                  [
-                    _c("span", [_vm._v("18")]),
-                    _vm._v(" "),
-                    _c("v-icon", { attrs: { icon: "ic_like" } }),
-                    _vm._v(" "),
-                    _c("v-icon", { attrs: { icon: "ic_like_a" } })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "reaply" }, [
-                _c(
-                  "button",
-                  { staticClass: "cancel_btn" },
-                  [_c("v-icon", { attrs: { icon: "ic_close" } })],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "parent_message" }, [
-                  _c("div", { staticClass: "user_name" }, [
-                    _vm._v("Евгений Иванов")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text" }, [
-                    _vm._v("Круто! Спасибо за участие 😀")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "add_message" }, [
-                  _c("form", { attrs: { action: "" } }, [
-                    _c("textarea", {
-                      attrs: { name: "", placeholder: "Написать комментарий" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      { staticClass: "submit_btn", attrs: { type: "submit" } },
-                      [_c("v-icon", { attrs: { icon: "ic_send" } })],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "smiles" }, [
-                      _c(
-                        "button",
-                        { staticClass: "btn", attrs: { type: "button" } },
-                        [_c("v-icon", { attrs: { icon: "ic_smile" } })],
-                        1
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "fieldset" }, [
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Иван Иванов")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Наталья Иванова")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Иван Иванов")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Наталья Иванова")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Иван Иванов")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Наталья Иванова")
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "children" }, [
-                _c("div", { staticClass: "message_wrap" }, [
-                  _c("div", { staticClass: "message" }, [
-                    _c("div", { staticClass: "avatar" }, [
-                      _c("span", [_vm._v("ЕИ")]),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "lozad",
-                        attrs: {
-                          "data-src": "/images/tmp/user_avatar3.jpg",
-                          alt: ""
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _c("div", { staticClass: "user_name" }, [
-                        _c("a", { attrs: { href: "/" } }, [
-                          _vm._v("Евгений Иванов")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "text" }, [
-                        _vm._v("Круто! Спасибо за участие 😀")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "date" }, [
-                      _vm._v("20.07  18:50")
-                    ]),
-                    _vm._v(" "),
-                    _c("button", { staticClass: "reaply_btn" }, [
-                      _vm._v("Ответить")
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      { staticClass: "like_btn" },
-                      [
-                        _c("span", [_vm._v("18")]),
-                        _vm._v(" "),
-                        _c("v-icon", { attrs: { icon: "ic_like" } }),
-                        _vm._v(" "),
-                        _c("v-icon", { attrs: { icon: "ic_like_a" } })
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "reaply" }, [
-                    _c(
-                      "button",
-                      { staticClass: "cancel_btn" },
-                      [_c("v-icon", { attrs: { icon: "ic_close" } })],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "parent_message" }, [
-                      _c("div", { staticClass: "user_name" }, [
-                        _vm._v("Евгений Иванов")
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "text" }, [
-                        _vm._v("Круто! Спасибо за участие 😀")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "add_message" }, [
-                      _c("form", { attrs: { action: "" } }, [
-                        _c("textarea", {
-                          attrs: {
-                            name: "",
-                            placeholder: "Написать комментарий"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "submit_btn",
-                            attrs: { type: "submit" }
-                          },
-                          [_c("v-icon", { attrs: { icon: "ic_send" } })],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "smiles" }, [
-                          _c(
-                            "button",
-                            { staticClass: "btn", attrs: { type: "button" } },
-                            [_c("v-icon", { attrs: { icon: "ic_smile" } })],
-                            1
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "fieldset" }, [
-                          _c("div", [
-                            _c("div", { staticClass: "avatar" }, [
-                              _vm._v("ИИ")
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "name" }, [
-                              _vm._v("Иван Иванов")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", [
-                            _c("div", { staticClass: "avatar" }, [
-                              _vm._v("НИ")
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "name" }, [
-                              _vm._v("Наталья Иванова")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", [
-                            _c("div", { staticClass: "avatar" }, [
-                              _vm._v("ИИ")
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "name" }, [
-                              _vm._v("Иван Иванов")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", [
-                            _c("div", { staticClass: "avatar" }, [
-                              _vm._v("НИ")
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "name" }, [
-                              _vm._v("Наталья Иванова")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", [
-                            _c("div", { staticClass: "avatar" }, [
-                              _vm._v("ИИ")
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "name" }, [
-                              _vm._v("Иван Иванов")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", [
-                            _c("div", { staticClass: "avatar" }, [
-                              _vm._v("НИ")
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "name" }, [
-                              _vm._v("Наталья Иванова")
-                            ])
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "message_wrap" }, [
-              _c("div", { staticClass: "message" }, [
-                _c("div", { staticClass: "avatar" }, [
-                  _c("span", [_vm._v("ЕИ")]),
-                  _vm._v(" "),
-                  _c("img", {
-                    staticClass: "lozad",
-                    attrs: {
-                      "data-src": "/images/tmp/user_avatar3.jpg",
-                      alt: ""
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("div", { staticClass: "user_name" }, [
-                    _c("a", { attrs: { href: "/" } }, [
-                      _vm._v("Евгений Иванов")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text" }, [
-                    _vm._v("Круто! Спасибо за участие 😀")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "date" }, [_vm._v("20.07  18:50")]),
-                _vm._v(" "),
-                _c("button", { staticClass: "reaply_btn" }, [
-                  _vm._v("Ответить")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  { staticClass: "like_btn" },
-                  [
-                    _c("span", [_vm._v("18")]),
-                    _vm._v(" "),
-                    _c("v-icon", { attrs: { icon: "ic_like" } }),
-                    _vm._v(" "),
-                    _c("v-icon", { attrs: { icon: "ic_like_a" } })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "reaply" }, [
-                _c(
-                  "button",
-                  { staticClass: "cancel_btn" },
-                  [_c("v-icon", { attrs: { icon: "ic_close" } })],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "parent_message" }, [
-                  _c("div", { staticClass: "user_name" }, [
-                    _vm._v("Евгений Иванов")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text" }, [
-                    _vm._v("Круто! Спасибо за участие 😀")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "add_message" }, [
-                  _c("form", { attrs: { action: "" } }, [
-                    _c("textarea", {
-                      attrs: { name: "", placeholder: "Написать комментарий" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      { staticClass: "submit_btn", attrs: { type: "submit" } },
-                      [_c("v-icon", { attrs: { icon: "ic_send" } })],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "smiles" }, [
-                      _c(
-                        "button",
-                        { staticClass: "btn", attrs: { type: "button" } },
-                        [_c("v-icon", { attrs: { icon: "ic_smile" } })],
-                        1
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "fieldset" }, [
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Иван Иванов")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Наталья Иванова")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Иван Иванов")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Наталья Иванова")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Иван Иванов")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name" }, [
-                          _vm._v("Наталья Иванова")
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "add_message" }, [
-            _c("form", { attrs: { action: "" } }, [
-              _c("textarea", {
-                attrs: { name: "", placeholder: "Написать комментарий" }
-              }),
-              _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "submit_btn", attrs: { type: "submit" } },
-                [_c("v-icon", { attrs: { icon: "ic_send" } })],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "smiles modal_cont" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn mini_modal_btn",
-                    attrs: { type: "button", "data-modal-id": "#smiles_modal" }
-                  },
-                  [_c("v-icon", { attrs: { icon: "ic_smile" } })],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "mini_modal", attrs: { id: "smiles_modal" } },
-                  [
-                    _c(
-                      "button",
-                      { staticClass: "close_btn", attrs: { type: "button" } },
-                      [_c("v-icon", { attrs: { icon: "ic_close" } })],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "section" }, [
-                      _c("div", { staticClass: "title" }, [_vm._v("Эмоджи")]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "row" }, [
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: { src: "/images/tmp/smile_img.png", alt: "" }
-                          })
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "section stickers" }, [
-                      _c("div", { staticClass: "title" }, [_vm._v("Стикеры")]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "row" }, [
-                        _c("div", [
-                          _c("img", {
-                            attrs: {
-                              src: "/images/tmp/sticker_img.png",
-                              alt: ""
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: {
-                              src: "/images/tmp/sticker_img.png",
-                              alt: ""
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: {
-                              src: "/images/tmp/sticker_img.png",
-                              alt: ""
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: {
-                              src: "/images/tmp/sticker_img.png",
-                              alt: ""
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: {
-                              src: "/images/tmp/sticker_img.png",
-                              alt: ""
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("img", {
-                            attrs: {
-                              src: "/images/tmp/sticker_img.png",
-                              alt: ""
-                            }
-                          })
-                        ])
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "fieldset" }, [
-                _c("div", [
-                  _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "name" }, [
-                    _vm._v("Наталья Иванова")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "name" }, [
-                    _vm._v("Наталья Иванова")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("div", { staticClass: "avatar" }, [_vm._v("ИИ")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "name" }, [_vm._v("Иван Иванов")])
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("div", { staticClass: "avatar" }, [_vm._v("НИ")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "name" }, [
-                    _vm._v("Наталья Иванова")
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
+          _c("v-home-commentaries")
+        ],
+        1
+      )
     ]),
     _vm._v(" "),
     _c("section", { staticClass: "directions" }, [
@@ -53306,6 +53476,10 @@ var map = {
 	"./Common/Footer.vue": "./resources/js/components/Common/Footer.vue",
 	"./Common/Header": "./resources/js/components/Common/Header.vue",
 	"./Common/Header.vue": "./resources/js/components/Common/Header.vue",
+	"./Common/HomeCommentares": "./resources/js/components/Common/HomeCommentares.vue",
+	"./Common/HomeCommentares.vue": "./resources/js/components/Common/HomeCommentares.vue",
+	"./Common/HomeCommentary": "./resources/js/components/Common/HomeCommentary.vue",
+	"./Common/HomeCommentary.vue": "./resources/js/components/Common/HomeCommentary.vue",
 	"./Common/Loading": "./resources/js/components/Common/Loading.vue",
 	"./Common/Loading.vue": "./resources/js/components/Common/Loading.vue",
 	"./Common/NewCommentares": "./resources/js/components/Common/NewCommentares.vue",
