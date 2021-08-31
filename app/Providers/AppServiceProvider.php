@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Models\Setting;
 use Illuminate\Support\ServiceProvider;
+use Lar\Layout\Core\LConfigs;
 use Laravel\Fortify\Fortify;
 
 class AppServiceProvider extends ServiceProvider
@@ -17,6 +18,11 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //$this->app->register(FortifyServiceProvider::class);
+
+        if (!\App::isLocal()) {
+
+            LConfigs::add('ws_host', 'ws.frudev.ru');
+        }
     }
 
     /**
