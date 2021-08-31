@@ -87,7 +87,7 @@
               <input type="file" name="file" id="file" ref="file" @change="handleUpload" multiple>
               <label for="file">
                 <v-icon icon="ic_attachment" />
-                <span>Прикрепить фото/ видео</span>
+                <span>Прикрепить видео</span>
 
               <div class="rules">jpg, jpeg, png до 10 МБ<br> mov, mp4, mpeg, mpg до 20 МБ</div>
             </label>
@@ -106,7 +106,7 @@
 
 <script>
     export default {
-        name: "v-upload-task-report",
+        name: "v-upload-video-task-report",
         props: ['task'],
         data () {
             return {
@@ -127,7 +127,7 @@
           send() {
             jax.params({files: this.files}).user.task_report(this.task.id,this.comment)
               .then(() => {
-
+                console.log(this.task);
               })
           }
         }

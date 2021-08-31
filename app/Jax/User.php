@@ -122,15 +122,16 @@ class User extends JaxExecutor
      * @param string $comment
      * @param Request $request
      */
-    public function task_report(int $task_id,string $comment,Request $request)
+    public function task_report(int $task_id, string $comment, Request $request)
     {
         $files = $request->file('files');
 
         $user_id = \Auth::user()->id;
 
-
         $repo = app(TaskReportRepository::class);
 
-        $repo->taskReport($task_id,$user_id,$comment,$files);
+        $repo->taskReport($task_id, $user_id, $comment, $files);
+
+        $this->reload();
     }
 }

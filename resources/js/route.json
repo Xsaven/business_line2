@@ -1,11 +1,7 @@
 {
     "global": {
         "jax.executor": {
-<<<<<<< HEAD
             "uri": "68d4fe86c3bbc8f077157af1a8e4ad12",
-=======
-            "uri": "a5112110a9d4ae9486365d2cc1a85f1a",
->>>>>>> 8616da9ad49a0b7842c619bf36fdbfe654d123f6
             "methods": [
                 "POST"
             ]
@@ -840,15 +836,15 @@
                 "HEAD"
             ]
         },
-        "password.reset": {
-            "uri": "password_reset",
+        "login": {
+            "uri": "/",
             "methods": [
                 "GET",
                 "HEAD"
             ]
         },
-        "login": {
-            "uri": "/",
+        "password.reset": {
+            "uri": "new_password",
             "methods": [
                 "GET",
                 "HEAD"

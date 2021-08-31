@@ -3,6 +3,7 @@
 namespace App\Components\Vue\Pages;
 
 use App\Components\Vue\Page;
+use App\Http\Resources\TaskReportResource;
 use App\Http\Resources\TaskResource;
 use App\Repositories\TaskRepository;
 
@@ -20,6 +21,9 @@ class Task extends Page
 
     public function __construct($id = null, array $attrs = [], ...$params)
     {
+        $user = \Auth::user();
+
+
         $repo = app(TaskRepository::class);
 
         if (! $repo->findById) {
@@ -27,6 +31,12 @@ class Task extends Page
         }
 
         $attrs['task'] = TaskResource::make($repo->findById)->toArray(request());
+
+        $report = $user->taskReports->where('task_id',$attrs['task']['id'])->first();
+
+        if($report) {
+            $attrs['task_report'] = TaskReportResource::make($report)->toArray(request());
+        }
 
         parent::__construct($id, $attrs, $params);
     }

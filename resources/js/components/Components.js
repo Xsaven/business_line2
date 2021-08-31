@@ -11,11 +11,13 @@ module.exports = (Vue) => {
     Vue.component('v-loading', require('./Common/Loading.vue').default);
     Vue.component('v-new-commentaries', require('./Common/NewCommentares.vue').default);
     Vue.component('v-bottom-action', require('./Common/BottomActions.vue').default);
-    Vue.component('v-upload-task-report', require('./Common/UploadTaskRepoprt.vue').default);
+    Vue.component('v-upload-image-task-report', require('./Common/UploadImageTaskReport.vue').default);
     Vue.component('v-upload-task-status', require('./Common/UploadTaskStatus.vue').default);
     Vue.component('v-upload-task-quiz', require('./Common/UploadTaskQuiz.vue').default);
     Vue.component('v-home-commentaries', require('./Common/HomeCommentares.vue').default);
     Vue.component('v-home-commentary', require('./Common/HomeCommentary.vue').default);
+    Vue.component('v-get-task-report', require('./Common/GetTaskReport.vue').default);
+    Vue.component('v-upload-video-task-report', require('./Common/UploadVideoTaskReport.vue').default);
     Vue.component('v-home-field-set-commentary', require('./Common/HomeFieldSetCommentary.vue').default);
     Vue.component('v-home-smiles-commentary', require('./Common/HomeSmilesCommentary.vue').default);
 }

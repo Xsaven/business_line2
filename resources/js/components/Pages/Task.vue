@@ -28,14 +28,15 @@
             </div>
           </div>
 
-            <div class="terms">
+            <div :class="{'terms': true, 'min_w': task_report}">
               <div class="title">Условия участия</div>
 
               <div class="desc" v-html="task.terms_of_participation"></div>
             </div>
 
 <!--            <v-bottom-action :task="task" />-->
-          <v-upload-task-report :task="task" />
+          <v-upload-task-report v-if="!task_report" :task="task"/>
+          <v-get-task-report v-else-if="task_report.status === 'created'"/>
         </div>
       </section>
     </v-layout>
@@ -48,7 +49,8 @@
     export default {
         name: "pages_task",
         props: {
-          task: {required:true}
+          task: {required:true},
+          task_report: {required:true}
         },
         data () {
             return {
