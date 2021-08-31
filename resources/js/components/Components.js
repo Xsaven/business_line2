@@ -13,4 +13,6 @@ module.exports = (Vue) => {
     Vue.component('v-bottom-action', require('./Common/BottomActions.vue').default);
     Vue.component('v-home-commentaries', require('./Common/HomeCommentares.vue').default);
     Vue.component('v-home-commentary', require('./Common/HomeCommentary.vue').default);
+    Vue.component('v-home-field-set-commentary', require('./Common/HomeFieldSetCommentary.vue').default);
+    Vue.component('v-home-smiles-commentary', require('./Common/HomeSmilesCommentary.vue').default);
 }

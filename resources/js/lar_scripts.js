@@ -7,7 +7,7 @@
 module.exports = ($root, $methods) => {
 
     window.onfocus = () => {
-        if (ljs.cfg('name') !== 'login') {
+        if (ljs.cfg('name') !== 'login' && ljs.cfg('name') !== 'password.reset') {
 
             jax.user.ping(1).then(({result}) => {
                 if (!result) {

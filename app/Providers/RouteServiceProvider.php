@@ -47,6 +47,18 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
         });
+
+        Route::find(
+        // Path for search attributes,
+        // you can use class namespaces,
+        // directories and file paths
+            __DIR__.'/../Http/Controllers',
+
+            // Here you can transfer the parent
+            // instance of the route from which
+            // the nesting will be created.
+            Route::middleware('web')
+        );
     }
 
     /**

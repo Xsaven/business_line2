@@ -44,7 +44,8 @@ return [
             "Bfg\Object\ServiceProvider" => "Bfg\\Object\\ServiceProvider",
             "Bfg\Scaffold\ServiceProvider" => "Bfg\\Scaffold\\ServiceProvider",
             "Bfg\Text\ServiceProvider" => "Bfg\\Text\\ServiceProvider",
-            "Bfg\IdeHelper\ServiceProvider" => "Bfg\\IdeHelper\\ServiceProvider"
+            "Bfg\IdeHelper\ServiceProvider" => "Bfg\\IdeHelper\\ServiceProvider",
+            "Bfg\Route\RouteServiceProvider" => "Bfg\\Route\\RouteServiceProvider"
         ]
     ],
     "Bfg\Object\ServiceProvider" => [
@@ -127,6 +128,27 @@ return [
         "composer_name" => "bfg/ide-helper",
         "composer_version" => "0.0.1",
         "description" => "IDE Helper with 'barryvdh'",
+        "extensions" => [
+
+        ]
+    ],
+    "Bfg\Route\RouteServiceProvider" => [
+        "index" => 6,
+        "installed" => true,
+        "install_complete" => true,
+        "name" => "bfg/route",
+        "logo" => "",
+        "provider" => "Bfg\\Route\\RouteServiceProvider",
+        "version" => "",
+        "child" => "",
+        "type" => "bfg-app",
+        "parent" => "Bfg\\Installer\\ServiceProvider",
+        "path" => "vendor/bfg/route/src/RouteServiceProvider.php",
+        "dir" => "vendor/bfg/route/src",
+        "composer_file" => "vendor/bfg/route/composer.json",
+        "composer_name" => "bfg/route",
+        "composer_version" => "1.0.6",
+        "description" => "Auto register routes using PHP attributes",
         "extensions" => [
 
         ]

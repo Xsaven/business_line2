@@ -20,6 +20,12 @@ use Lar\Roads\Roads;
     ->component('/', \App\Components\Vue\Pages\Auth::class)
     ->name('login');
 
+\Road::layout('auth')
+    ->web()
+    ->guest()
+    ->component('/new_password', \App\Components\Vue\Pages\NewPassword::class)
+    ->name('password.reset');
+
 \Road::layout('home')
     ->web()
     ->auth()

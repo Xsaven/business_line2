@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property int $id
  * @property string $status
  * @property int $likes
- * @property string|null $files
+ * @property array|null $files
  * @property string|null $comment
  * @property int $user_id
  * @property int $task_id
@@ -90,7 +90,7 @@ class TaskReport extends Model
     protected $casts = [
         'status' => 'string',
         'likes' => 'integer',
-        'files' => 'string',
+        'files' => 'array',
         'comment' => 'string',
         'user_id' => 'integer',
         'task_id' => 'integer',

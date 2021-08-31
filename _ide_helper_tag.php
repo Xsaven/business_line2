@@ -933,6 +933,8 @@ namespace Lar\Layout {
      * @method string _getWrap() Get parent wrap Attribute
      * @method \App\Components\Vue\Pages\Task pages_task($id = null, array $attrs = [], ...$params) Add Component pages_task
      * @method \App\Components\Vue\Pages\Task _pages_task($id = null, array $attrs = [], ...$params) Add Component pages_task to parent
+     * @method \App\Components\Vue\Pages\NewPassword pages_new_password($id = null, array $attrs = [], ...$params) Add Component pages_new_password
+     * @method \App\Components\Vue\Pages\NewPassword _pages_new_password($id = null, array $attrs = [], ...$params) Add Component pages_new_password to parent
      * @method \Lar\LteAdmin\Segments\Tagable\Row row(...$params) Add Component row
      * @method \Lar\LteAdmin\Segments\Tagable\Row _row(...$params) Add Component row to parent
      * @method \Lar\LteAdmin\Segments\Tagable\Col col($num = null, ...$params) Add Component col
