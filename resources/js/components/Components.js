@@ -20,4 +20,5 @@ module.exports = (Vue) => {
     Vue.component('v-upload-video-task-report', require('./Common/UploadVideoTaskReport.vue').default);
     Vue.component('v-home-field-set-commentary', require('./Common/HomeFieldSetCommentary.vue').default);
     Vue.component('v-home-smiles-commentary', require('./Common/HomeSmilesCommentary.vue').default);
+    Vue.component('v-home-make-commentary', require('./Common/HomeMakeCommentary.vue').default);
 }

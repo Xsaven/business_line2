@@ -2,9 +2,9 @@
 
 namespace App\Jax;
 
-use App\Events\Commentary\Message;
+use App\Events\HomeCommentary;
+use App\Events\Message;
 use App\Http\Resources\CommentaryResource;
-use App\Repositories\CommentaryRepository;
 use Lar\LJS\JaxExecutor;
 
 /**
@@ -54,9 +54,9 @@ class Commentary extends JaxExecutor
     /**
      * @return array
      */
-    public function message(string $message, int $parent_id = null)
+    public function home_commentary(string $message, int $parent_id = null)
     {
-        $event = new Message($message, $parent_id ?? null);
+        $event = new HomeCommentary($message, $parent_id ?? null);
 
         event($event);
 

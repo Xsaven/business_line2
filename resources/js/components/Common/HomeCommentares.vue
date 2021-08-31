@@ -36,19 +36,7 @@
                         <div class="text">Круто! Спасибо за участие 😀</div>
                     </div>
 
-                    <div class="add_message">
-                        <form action="">
-                            <textarea name="" placeholder="Написать комментарий"></textarea>
-
-                            <button type="submit" class="submit_btn">
-                                <v-icon icon="ic_send" />
-                            </button>
-
-                            <v-home-smiles-commentary />
-
-                            <v-home-field-set-commentary />
-                        </form>
-                    </div>
+                    <v-home-make-commentary />
                 </div>
             </div>
 
@@ -78,7 +66,6 @@
                         <v-icon icon="ic_like_a" />
                     </button>
                 </div>
-
                 <div class="reaply">
                     <button class="cancel_btn">
                         <v-icon icon="ic_close" />
@@ -89,21 +76,8 @@
                         <div class="text">Круто! Спасибо за участие 😀</div>
                     </div>
 
-                    <div class="add_message">
-                        <form action="">
-                            <textarea name="" placeholder="Написать комментарий"></textarea>
-
-                            <button type="submit" class="submit_btn">
-                                <v-icon icon="ic_send" />
-                            </button>
-
-                            <v-home-smiles-commentary />
-
-                            <v-home-field-set-commentary />
-                        </form>
-                    </div>
+                    <v-home-make-commentary />
                 </div>
-
                 <div class="children">
                     <div class="message_wrap">
                         <div class="message">
@@ -142,19 +116,7 @@
                                 <div class="text">Круто! Спасибо за участие 😀</div>
                             </div>
 
-                            <div class="add_message">
-                                <form action="">
-                                    <textarea name="" placeholder="Написать комментарий"></textarea>
-
-                                    <button type="submit" class="submit_btn">
-                                        <v-icon icon="ic_send" />
-                                    </button>
-
-                                    <v-home-smiles-commentary />
-
-                                    <v-home-field-set-commentary />
-                                </form>
-                            </div>
+                            <v-home-make-commentary />
                         </div>
                     </div>
                 </div>
@@ -198,19 +160,7 @@
                         <div class="text">Круто! Спасибо за участие 😀</div>
                     </div>
 
-                    <div class="add_message">
-                        <form action="">
-                            <textarea name="" placeholder="Написать комментарий"></textarea>
-
-                            <button type="submit" class="submit_btn">
-                                <v-icon icon="ic_send" />
-                            </button>
-
-                            <v-home-smiles-commentary />
-
-                            <v-home-field-set-commentary />
-                        </form>
-                    </div>
+                    <v-home-make-commentary />
                 </div>
             </div>
         </div>

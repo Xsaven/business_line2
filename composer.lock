@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3252778145756db38f8b03a922e38999",
+    "content-hash": "d739c7a09c7ded218e2c5e37d1fac7a2",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -533,6 +533,63 @@
                 "source": "https://github.com/bfg-s/entity/tree/1.1.15"
             },
             "time": "2021-08-16T13:29:00+00:00"
+        },
+        {
+            "name": "bfg/files",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bfg-s/files.git",
+                "reference": "fcffd2712401cab9402bfe6c151f3b0fcf7cf960"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bfg-s/files/zipball/fcffd2712401cab9402bfe6c151f3b0fcf7cf960",
+                "reference": "fcffd2712401cab9402bfe6c151f3b0fcf7cf960",
+                "shasum": ""
+            },
+            "require": {
+                "bfg/installer": "*",
+                "ext-exif": "*",
+                "ext-fileinfo": "*",
+                "php": ">=8.0.0"
+            },
+            "type": "bfg-app",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Bfg\\Files\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bfg\\Files\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "bfg"
+                }
+            ],
+            "description": "The package is aimed at controlling files",
+            "keywords": [
+                "extension",
+                "files",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/bfg-s/files/issues",
+                "source": "https://github.com/bfg-s/files/tree/0.0.2"
+            },
+            "time": "2021-08-31T12:59:11+00:00"
         },
         {
             "name": "bfg/ide-helper",
@@ -12985,5 +13042,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.0.0"
 }
