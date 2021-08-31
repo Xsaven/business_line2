@@ -41,7 +41,6 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\AdminAddUserBalance\NotifyUser::class,
             \App\Listeners\Ws\UpdateAuthUser::class,
         ],
-
         \App\Events\SubscribeDirectionEvent::class => [
             \App\Listeners\SubscribeDirection\Attempt::class,
             \App\Listeners\SubscribeDirection\MakeLog::class,

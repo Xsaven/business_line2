@@ -12541,6 +12541,19 @@
                     /**
          * 
          *
+         * @param $dir
+         * @param \Route|\RouteRegistrarIlluminate $router
+         * @return \Route|\RouteRegistrarIlluminate 
+         * @see \Bfg\Route\Core\RouteMixin::find()
+         * @static 
+         */ 
+        public static function find($dir, $router = null)
+        {
+                        return \Illuminate\Routing\Router::find($dir, $router);
+        }
+                    /**
+         * 
+         *
          * @param mixed $gets
          * @param mixed $props
          * @static 
@@ -16021,6 +16034,32 @@
         {
                         /** @var \Bfg\Installer\InstallerFacade $instance */
                         return $instance->collect();
+        }
+         
+    }
+     
+}
+
+    namespace Bfg\Route { 
+            /**
+     * Class Facade
+     *
+     * @package Bfg\Layout
+     */ 
+        class Facade {
+                    /**
+         * Find routers in controller classes
+         *
+         * @param string $path Path for search attributes, you can use class namespaces, directories and file paths
+         * @param \Illuminate\Routing\RouteRegistrar $registrar
+         * @return \Illuminate\Routing\Route|\Illuminate\Routing\RouteRegistrar 
+         * @throws \ReflectionException
+         * @static 
+         */ 
+        public static function find($path, $registrar = null)
+        {
+                        /** @var \Bfg\Route\BfgRoute $instance */
+                        return $instance->find($path, $registrar);
         }
          
     }
@@ -26886,6 +26925,19 @@
                     /**
          * 
          *
+         * @param $dir
+         * @param \Route|\RouteRegistrarIlluminate $router
+         * @return \Route|\RouteRegistrarIlluminate 
+         * @see \Bfg\Route\Core\RouteMixin::find()
+         * @static 
+         */ 
+        public static function find($dir, $router = null)
+        {
+                        return \Illuminate\Routing\Router::find($dir, $router);
+        }
+                    /**
+         * 
+         *
          * @param mixed $gets
          * @param mixed $props
          * @static 
@@ -30240,6 +30292,7 @@ namespace  {
             class View extends \Illuminate\Support\Facades\View {}
             class EntityCarrier extends \Lar\EntityCarrier\Facade {}
             class Installer extends \Bfg\Installer\Facade {}
+            class BfgRoute extends \Bfg\Route\Facade {}
             class Scaffold extends \Bfg\Scaffold\Facade {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
             class Image extends \Intervention\Image\Facades\Image {}

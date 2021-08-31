@@ -40,6 +40,11 @@ class SettingsSeeder extends Seeder
                 'info' => 'Support email',
             ],
             [
+                'name' => 'mail_phone',
+                'value' => '+79999999999',
+                'info' => 'Mail phone',
+            ],
+            [
                 'name' => 'support_telegram_phone',
                 'value' => '+79999999999',
                 'info' => 'Support telegram phone',

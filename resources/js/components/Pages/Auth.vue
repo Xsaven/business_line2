@@ -31,15 +31,16 @@
                                 <div class="field">
                                     <input v-model="auth.login" type="text" :class="{input: true, error: errors.login}"
                                            placeholder="Табельный номер" @click="clear_errors" @blur="clear_errors">
-                                    <div class="exp">{{errors.login}}</div>
+                                    <div class="exp">{{ errors.login }}</div>
                                 </div>
                             </div>
 
                             <div class="line">
                                 <div class="field">
-                                    <input v-model="auth.password" type="password" :class="{input: true, error: errors.password}"
+                                    <input v-model="auth.password" type="password"
+                                           :class="{input: true, error: errors.password}"
                                            placeholder="Пароль" @click="clear_errors" @blur="clear_errors">
-                                    <div class="exp">{{errors.password}}</div>
+                                    <div class="exp">{{ errors.password }}</div>
                                 </div>
                             </div>
 
@@ -57,16 +58,18 @@
                         </form>
 
 
-                        <form class="form recovery_form">
+                        <form class="form recovery_form" @submit.prevent.stop="recovery_submit">
                             <div class="title">Восстановление пароля</div>
 
                             <div class="line">
                                 <div class="label">Введите почту, указанную при регистрации</div>
 
                                 <div class="field">
-                                    <input type="email" name="" value="" class="input error" placeholder="">
+                                    <input v-model="recovery.email" type="email" @click="clear_errors"
+                                           @blur="clear_errors"
+                                           :class="{input: true, error: errors.email}" placeholder="">
 
-                                    <div class="error_text">e-mail не зарегистрирован</div>
+                                    <div class="error_text" v-if="errors.email">{{ errors.email }}</div>
                                 </div>
                             </div>
 
@@ -84,11 +87,10 @@
                             <div class="title">Восстановление пароля</div>
 
                             <div class="text">
-                                <svg class="icon">
-                                    <use xlink:href="/images/sprite.svg#ic_success"></use>
-                                </svg>
+                                <v-icon icon="ic_success"/>
 
-                                <div>Мы отправили письмо со ссылкой для восстановления пароля по адресу Info@gmail.com
+                                <div>Мы отправили письмо со ссылкой для восстановления пароля по адресу
+                                    {{ recovery.email }}
                                 </div>
 
                                 <div><small>Убедитесь, что оно не попапло в папку «Спам».<br> Ссылка действительна в
@@ -96,36 +98,9 @@
                             </div>
 
                             <div class="btns">
-                                <button class="btn login_btn">Назад</button>
+                                <button type="button" class="btn login_btn" @click="recovery_form">Назад</button>
                             </div>
                         </div>
-
-
-                        <form class="form change_pass_form">
-                            <div class="title">Изменение пароля</div>
-
-                            <div class="line">
-                                <div class="field">
-                                    <input type="password" name="" value="" class="input error"
-                                           placeholder="Введите пароль">
-
-                                    <div class="exp">Пароль должен содержать 6 и более символов, прописные латинские
-                                        буквы, строчные латинские буквы, цифры
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="line">
-                                <div class="field">
-                                    <input type="password" name="" value="" class="input"
-                                           placeholder="Повторите пароль">
-                                </div>
-                            </div>
-
-                            <div class="submit">
-                                <button type="submit" class="submit_btn">Войти</button>
-                            </div>
-                        </form>
 
 
                         <form class="form register_form" @submit.stop.prevent="enter_register_password">
@@ -134,34 +109,39 @@
                             <div class="columns row">
                                 <div class="line">
                                     <div class="field">
-                                        <input v-model="registration.name" type="text" :class="{input: true, error: errors.name}"
+                                        <input v-model="registration.name" type="text"
+                                               :class="{input: true, error: errors.name}"
                                                placeholder="Имя" @click="clear_errors" @blur="clear_errors">
-                                        <div class="exp">{{errors.name}}</div>
+                                        <div class="exp">{{ errors.name }}</div>
                                     </div>
                                 </div>
 
                                 <div class="line">
                                     <div class="field">
-                                        <input v-model="registration.lastname" type="text" :class="{input: true, error: errors.lastname}"
+                                        <input v-model="registration.lastname" type="text"
+                                               :class="{input: true, error: errors.lastname}"
                                                placeholder="Фамилия" @click="clear_errors" @blur="clear_errors">
-                                        <div class="exp">{{errors.lastname}}</div>
+                                        <div class="exp">{{ errors.lastname }}</div>
                                     </div>
                                 </div>
 
                                 <div class="line">
                                     <div class="field">
-                                        <input v-model="registration.number" type="text" :class="{input: true, error: errors.number}"
+                                        <input v-model="registration.number" type="text"
+                                               :class="{input: true, error: errors.number}"
                                                placeholder="Табельный номер" @click="clear_errors" @blur="clear_errors">
-                                        <div class="exp">{{errors.number}}</div>
+                                        <div class="exp">{{ errors.number }}</div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="line">
                                 <div class="field">
-                                    <input v-model="registration.email" type="email" :class="{input: true, error: errors.email}"
-                                           placeholder="Корпоративный или личный e-mail" @click="clear_errors" @blur="clear_errors">
-                                    <div class="exp">{{errors.email}}</div>
+                                    <input v-model="registration.email" type="email"
+                                           :class="{input: true, error: errors.email}"
+                                           placeholder="Корпоративный или личный e-mail" @click="clear_errors"
+                                           @blur="clear_errors">
+                                    <div class="exp">{{ errors.email }}</div>
                                 </div>
                             </div>
 
@@ -189,9 +169,10 @@
 
                             <div class="line">
                                 <div class="field">
-                                    <input v-model="registration.password" type="password" :class="{input: true, error: errors.password}"
+                                    <input v-model="registration.password" type="password"
+                                           :class="{input: true, error: errors.password}"
                                            placeholder="Введите пароль" @click="clear_errors" @blur="clear_errors">
-                                    <div class="exp">{{errors.password}}</div>
+                                    <div class="exp">{{ errors.password }}</div>
                                 </div>
                             </div>
 
@@ -256,6 +237,9 @@ export default {
                 password_confirmation: '',
                 agree: true,
             },
+            recovery: {
+                email: '',
+            },
             errors: {
                 name: null,
                 lastname: null,
@@ -271,13 +255,31 @@ export default {
     computed: {},
     watch: {},
     methods: {
+        recovery_submit() {
+            this.clear_errors();
+            if (!isRequired(this.recovery.email) || !isEmail(this.recovery.email)) {
+                this.errors.email = "e-mail не зарегистрирован";
+                return;
+            }
+
+            ljs.$jax.post('/forgot-password', {
+                email: this.recovery.email,
+                _token: ljs.token
+            }).then(() => {
+                this.recovery_success();
+            }).catch(() => {
+                this.errors.email = "e-mail не зарегистрирован";
+            });
+        },
         login_submit() {
             this.clear_errors();
             if (!isRequired(this.auth.login) || !isLengthBetween(this.auth.login, 6, 191)) {
-                this.errors.login = "Имя обязательно для ввода и должно содержать от 6 до 191 символов"; return;
+                this.errors.login = "Имя обязательно для ввода и должно содержать от 6 до 191 символов";
+                return;
             }
             if (!isRequired(this.auth.password) || !isLengthBetween(this.auth.password, 6, 191)) {
-                this.errors.password = "Пароль должен содержать 6 и более символов, прописные латинские буквы, строчные латинские буквы, цифры"; return;
+                this.errors.password = "Пароль должен содержать 6 и более символов, прописные латинские буквы, строчные латинские буквы, цифры";
+                return;
             }
 
             jax.guest.login(this.auth.login, this.auth.password)
@@ -287,7 +289,7 @@ export default {
                     this.auth.password = '';
                 });
         },
-        registration_submit () {
+        registration_submit() {
             this.clear_errors();
             if (!isRequired(this.registration.password) || !isLengthBetween(this.registration.password, 6, 191)) {
                 this.errors.password = "Пароль должен содержать 6 и более символов, прописные латинские буквы, строчные латинские буквы, цифры";
@@ -314,6 +316,11 @@ export default {
             $('.auth .data > *').hide();
             $('.auth .data .recovery_form').fadeIn(300);
         },
+        recovery_success() {
+            this.clear_errors();
+            $('.auth .data > *').hide();
+            $('.auth .data .recovery_success').fadeIn(300);
+        },
         login_form() {
             this.clear_errors();
             $('.auth .data > *').hide();
@@ -322,28 +329,33 @@ export default {
         enter_register_password() {
             this.clear_errors();
             if (!isRequired(this.registration.name) || !isBetween(this.registration.name, 3, 191)) {
-                this.errors.name = "Имя обязательно для ввода и должно содержать от 3 до 191 символов"; return;
+                this.errors.name = "Имя обязательно для ввода и должно содержать от 3 до 191 символов";
+                return;
             }
             if (!isRequired(this.registration.lastname) || !isBetween(this.registration.lastname, 3, 191)) {
-                this.errors.lastname = "Фамилия обязательна для ввода и должна содержать от 3 до 191 символов"; return;
+                this.errors.lastname = "Фамилия обязательна для ввода и должна содержать от 3 до 191 символов";
+                return;
             }
             if (!isRequired(this.registration.number) || !isLengthBetween(this.registration.number, 6, 191) || !isNumber(this.registration.number)) {
-                this.errors.number = "Табельный номер обязателен для ввода и должен содержать от 6 до 191 цифр"; return;
+                this.errors.number = "Табельный номер обязателен для ввода и должен содержать от 6 до 191 цифр";
+                return;
             }
             if (!isRequired(this.registration.email) || !isEmail(this.registration.email)) {
-                this.errors.email = "E-mail обязателен для ввода и должен быть корректным"; return;
+                this.errors.email = "E-mail обязателен для ввода и должен быть корректным";
+                return;
             }
             if (!isTrue(this.registration.agree)) {
-                "toast:error".exec("Необходимо дать согласие на обработку персональных данных"); return;
+                "toast:error".exec("Необходимо дать согласие на обработку персональных данных");
+                return;
             }
 
             $('.auth .data > *').hide();
             $('.auth .data .add_password_form').fadeIn(300);
         },
-        clear_errors () {
+        clear_errors() {
             Object.keys(this.errors).map((key) => this.$set(this.errors, key, null));
         },
-        has_errors () {
+        has_errors() {
             return Object.values(this.errors).filter((i) => !!i).length;
         }
     }

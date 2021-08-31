@@ -1,7 +1,11 @@
 {
     "global": {
         "jax.executor": {
+<<<<<<< HEAD
             "uri": "68d4fe86c3bbc8f077157af1a8e4ad12",
+=======
+            "uri": "a5112110a9d4ae9486365d2cc1a85f1a",
+>>>>>>> 8616da9ad49a0b7842c619bf36fdbfe654d123f6
             "methods": [
                 "POST"
             ]
@@ -809,6 +813,38 @@
             "uri": "lte/admin/lte_functions/{lte_function}",
             "methods": [
                 "DELETE"
+            ]
+        },
+        "logout": {
+            "uri": "logout",
+            "methods": [
+                "POST"
+            ]
+        },
+        "password.email": {
+            "uri": "forgot-password",
+            "methods": [
+                "POST"
+            ]
+        },
+        "password.update": {
+            "uri": "reset-password",
+            "methods": [
+                "POST"
+            ]
+        },
+        "password.confirmation": {
+            "uri": "user/confirmed-password-status",
+            "methods": [
+                "GET",
+                "HEAD"
+            ]
+        },
+        "password.reset": {
+            "uri": "password_reset",
+            "methods": [
+                "GET",
+                "HEAD"
             ]
         },
         "login": {

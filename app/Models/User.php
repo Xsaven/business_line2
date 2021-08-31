@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Traits\User\UserAttributes;
 use App\Models\Traits\User\UserHasLogs;
 use App\Models\Traits\User\UserHasSubscribers;
+use App\Models\Traits\User\UserNotifyConfig;
 use App\Models\Traits\User\UserOnline;
 use App\Models\Traits\User\UserScopes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -30,6 +31,8 @@ use Illuminate\Notifications\Notifiable;
  * @property string|null $photo
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property string $password
+ * @property string|null $two_factor_secret
+ * @property string|null $two_factor_recovery_codes
  * @property string|null $remember_token
  * @property string|null $session
  * @property int $logins
@@ -96,12 +99,14 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereSession($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereStickers($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereSubscriptions($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorRecoveryCodes($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorSecret($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class User extends Authenticatable
 {
-    use Notifiable, UserHasSubscribers, UserHasLogs, UserOnline, UserScopes, UserAttributes, HasFactory;
+    use Notifiable, UserHasSubscribers, UserHasLogs, UserOnline, UserScopes, UserAttributes, UserNotifyConfig, HasFactory;
 
     const TITLE = 'Пользователи';
 

@@ -89,7 +89,7 @@
     "const:title" : "Пользователи",
     "auth" : true,
     "traits" : [
-      "Notifiable", "HasSubscribers", "HasLogs", "Online", "Scopes", "Attributes"
+      "Notifiable", "HasSubscribers", "HasLogs", "Online", "Scopes", "Attributes", "NotifyConfig"
     ],
     "fields" : [
       "name",
@@ -190,6 +190,7 @@
     "seed": [
       {"name": "osm", "value": false, "info": "Only shop mode", "field": "switcher"},
       {"name": "support_email", "value": "email@mail.ru", "info": "Support email"},
+      {"name": "mail_phone", "value": "+79999999999", "info": "Mail phone"},
       {"name": "support_telegram_phone", "value": "+79999999999", "info": "Support telegram phone"},
       {"name": "support_telegram_link", "value": "https://t.me", "info": "Support telegram link"},
       {"name": "support_whatsapp_phone", "value": "+79999999999", "info": "Support whatsapp phone"},
@@ -288,7 +289,7 @@
     "fields": [
       ["status", {"default": "created"}],
       ["likes", "integer", {"default": 0}],
-      ["files", "text", {"nullable": []}],
+      ["files", "text", {"nullable": [], "cast": "array"}],
       ["comment", "text", {"nullable": []}]
     ],
     "relations": {
