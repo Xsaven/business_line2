@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @property-read \Illuminate\Database\Eloquent\Collection|Commentary[] $commentaries
  * @property-read int|null $commentaries_count
  * @property-read Model|\Eloquent $commentary
+ * @property-read Model|\Eloquent $commentaryRoom
  * @property-read Model|\Eloquent $taskReport
  * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|Commentary newModelQuery()
@@ -90,6 +91,15 @@ class Commentary extends Model
      * @return MorphTo
      */
     public function taskReport() : MorphTo
+    {
+        return $this->morphTo('commentaryable', 'commentaryable_type', 'commentaryable_id');
+    }
+
+    /**
+     * The "morphTo" relation for "Komnaty' kommentariev".
+     * @return MorphTo
+     */
+    public function commentaryRoom() : MorphTo
     {
         return $this->morphTo('commentaryable', 'commentaryable_type', 'commentaryable_id');
     }

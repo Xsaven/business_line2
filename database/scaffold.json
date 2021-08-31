@@ -153,6 +153,18 @@
       "commentaries": {}
     }
   },
+  "commentary_room": {
+    "const:title": "Комнаты комментариев",
+    "fields": [
+      "name"
+    ],
+    "relations": {
+      "commentaries": {}
+    },
+    "seed": {
+      "name": "Главная страница"
+    }
+  },
   "faq" : {
     "const:title" : "Faq",
     "fields" : [

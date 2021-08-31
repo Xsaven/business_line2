@@ -45,7 +45,8 @@ return [
             "Bfg\Scaffold\ServiceProvider" => "Bfg\\Scaffold\\ServiceProvider",
             "Bfg\Text\ServiceProvider" => "Bfg\\Text\\ServiceProvider",
             "Bfg\IdeHelper\ServiceProvider" => "Bfg\\IdeHelper\\ServiceProvider",
-            "Bfg\Route\RouteServiceProvider" => "Bfg\\Route\\RouteServiceProvider"
+            "Bfg\Route\RouteServiceProvider" => "Bfg\\Route\\RouteServiceProvider",
+            "Bfg\Files\ServiceProvider" => "Bfg\\Files\\ServiceProvider"
         ]
     ],
     "Bfg\Object\ServiceProvider" => [
@@ -149,6 +150,27 @@ return [
         "composer_name" => "bfg/route",
         "composer_version" => "1.0.6",
         "description" => "Auto register routes using PHP attributes",
+        "extensions" => [
+
+        ]
+    ],
+    "Bfg\Files\ServiceProvider" => [
+        "index" => 7,
+        "installed" => true,
+        "install_complete" => true,
+        "name" => "bfg/files",
+        "logo" => "",
+        "provider" => "Bfg\\Files\\ServiceProvider",
+        "version" => "",
+        "child" => "",
+        "type" => "bfg-app",
+        "parent" => "Bfg\\Installer\\ServiceProvider",
+        "path" => "vendor/bfg/files/src/ServiceProvider.php",
+        "dir" => "vendor/bfg/files/src",
+        "composer_file" => "vendor/bfg/files/composer.json",
+        "composer_name" => "bfg/files",
+        "composer_version" => "0.0.2",
+        "description" => "The package is aimed at controlling files",
         "extensions" => [
 
         ]

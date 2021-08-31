@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use Lar\Developer\CoreRepository;
 
 /**
- * Class TaskReportRepository
+ * Class TaskReportRepository.
  * @package App\Repositories
  */
 class TaskReportRepository extends CoreRepository
 {
     /**
-     * Model class namespace getter
+     * Model class namespace getter.
      *
      * @return string
      */
@@ -21,13 +21,11 @@ class TaskReportRepository extends CoreRepository
         return \App\Models\TaskReport::class;
     }
 
-
-    public function taskReport($task_id,$user_id,$comment,$files)
+    public function taskReport($task_id, $user_id, $comment, $files)
     {
         $i = 0;
 
         foreach ($files as $file) {
-
             $img = \Image::make($file->path())
                 ->encode('jpg');
 
@@ -35,11 +33,9 @@ class TaskReportRepository extends CoreRepository
                 $constraint->aspectRatio();
             });
 
-            $img = \Storage::disk('yandexcloud')->put($user_id.$task_id.$i.'.jpg/',(string)$img);
+            $img = \Storage::disk('yandexcloud')->put($user_id.$task_id.$i.'.jpg/', (string) $img);
 
             $i++;
-
         }
-
     }
 }

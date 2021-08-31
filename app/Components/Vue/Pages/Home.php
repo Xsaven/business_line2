@@ -3,7 +3,9 @@
 namespace App\Components\Vue\Pages;
 
 use App\Components\Vue\Page;
+use App\Http\Resources\CommentaryResource;
 use App\Http\Resources\DirectionResource;
+use App\Models\CommentaryRoom;
 use App\Repositories\DirectionRepository;
 
 /**
@@ -27,6 +29,10 @@ class Home extends Page
         $attrs['directions'] = DirectionResource::make(
             app(DirectionRepository::class)
         )->toArray(request());
+
+        $attrs['commentaries'] = CommentaryResource::collection(
+            CommentaryRoom::find(1)->commentaries()->paginate(30)
+        );
 
         parent::__construct($id, $attrs, $params);
     }
