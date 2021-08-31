@@ -35,7 +35,7 @@
             </div>
 
 <!--            <v-bottom-action :task="task" />-->
-          <v-upload-task-report />
+          <v-upload-task-report :task="task" />
         </div>
       </section>
     </v-layout>

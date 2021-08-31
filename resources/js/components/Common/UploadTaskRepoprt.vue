@@ -95,11 +95,11 @@
         </div>
 
         <div class="submit">
-          <button type="submit" class="submit_btn">Отправить</button>
+          <button @click.prevent.stop="send()" type="submit" class="submit_btn">Отправить</button>
         </div>
       </form>
 
-      <img data-src="images/bg_performance.svg" alt="" class="bg lozad loaded" src="images/bg_performance.svg" data-loaded="true">
+      <img data-src="/images/bg_performance.svg" alt="" class="bg lozad loaded" src="/images/bg_performance.svg" data-loaded="true">
     </div>
   </div>
 </template>
@@ -107,7 +107,7 @@
 <script>
     export default {
         name: "v-upload-task-report",
-        props: {},
+        props: ['task'],
         data () {
             return {
                 files: [],
@@ -123,6 +123,12 @@
           },
           handleUpload() {
             Object.values(this.$refs.file.files).map((file) => this.files.push(file));
+          },
+          send() {
+            jax.params({files: this.files}).user.task_report(this.task.id,this.comment)
+              .then(() => {
+
+              })
           }
         }
     }

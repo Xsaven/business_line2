@@ -55,11 +55,11 @@ return [
 
         'yandexcloud' => [
             'driver' => 's3',
-            'key' => 'jCMriGGy2gtQlSD1_5Pk',
             'secret' => 'jAlOMyn_hOTC60CRftEk6ZQLFaWlr-QkjXrC62fy',
+            'key' => 'jCMriGGy2gtQlSD1_5Pk',
             'endpoint' => 'http://storage.yandexcloud.net/',
             'region' => 'us-west-2',
-            'bucket' => 'static.example.com',
+            'bucket' => 'dellin',
             'url' => env('APP_URL'),
         ],
     ],

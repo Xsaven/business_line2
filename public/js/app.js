@@ -2849,7 +2849,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-upload-task-report",
-  props: {},
+  props: ['task'],
   data: function data() {
     return {
       files: [],
@@ -2871,6 +2871,11 @@ __webpack_require__.r(__webpack_exports__);
       Object.values(this.$refs.file.files).map(function (file) {
         return _this.files.push(file);
       });
+    },
+    send: function send() {
+      jax.params({
+        files: this.files
+      }).user.task_report(this.task.id, this.comment).then(function () {});
     }
   }
 });
@@ -51093,15 +51098,31 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(3)
+        _c("div", { staticClass: "submit" }, [
+          _c(
+            "button",
+            {
+              staticClass: "submit_btn",
+              attrs: { type: "submit" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  $event.stopPropagation()
+                  return _vm.send()
+                }
+              }
+            },
+            [_vm._v("Отправить")]
+          )
+        ])
       ]),
       _vm._v(" "),
       _c("img", {
         staticClass: "bg lozad loaded",
         attrs: {
-          "data-src": "images/bg_performance.svg",
+          "data-src": "/images/bg_performance.svg",
           alt: "",
-          src: "images/bg_performance.svg",
+          src: "/images/bg_performance.svg",
           "data-loaded": "true"
         }
       })
@@ -51281,16 +51302,6 @@ var staticRenderFns = [
       _vm._v("jpg, jpeg, png до 10 МБ"),
       _c("br"),
       _vm._v(" mov, mp4, mpeg, mpg до 20 МБ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "submit" }, [
-      _c("button", { staticClass: "submit_btn", attrs: { type: "submit" } }, [
-        _vm._v("Отправить")
-      ])
     ])
   }
 ]
@@ -53232,7 +53243,7 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c("v-upload-task-report")
+          _c("v-upload-task-report", { attrs: { task: _vm.task } })
         ],
         1
       )

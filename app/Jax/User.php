@@ -10,7 +10,9 @@ use App\Http\Resources\UserResource;
 use App\Jobs\AdminStatisticJob;
 use App\Jobs\OffLineJob;
 use App\Repositories\AuthUserRepository;
+use App\Repositories\TaskReportRepository;
 use App\Repositories\UserRepository;
+use Illuminate\Http\Request;
 use Lar\LJS\JaxExecutor;
 
 /**
@@ -115,13 +117,20 @@ class User extends JaxExecutor
         $this->reload();
     }
 
-
     /**
+     * @param int $task_id
      * @param string $comment
-     * @param array $files
+     * @param Request $request
      */
-    public function task_report(string $comment,array $files)
+    public function task_report(int $task_id,string $comment,Request $request)
     {
+        $files = $request->file('files');
 
+        $user_id = \Auth::user()->id;
+
+
+        $repo = app(TaskReportRepository::class);
+
+        $repo->taskReport($task_id,$user_id,$comment,$files);
     }
 }
