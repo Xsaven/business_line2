@@ -16,7 +16,6 @@ class CreateCommentariesTable extends Migration
         Schema::create('commentaries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('text');
-            $table->integer('likes')->default(0);
             $table->boolean('active')->default(0);
             $table->string('commentaryable_type', 191);
             $table->bigInteger('commentaryable_id');

@@ -14,6 +14,7 @@ use Lar\Developer\CoreRepository;
  * @property-read User|\Illuminate\Contracts\Auth\Authenticatable|null $user
  * @property-read int $new_notifications_count
  * @property-read int $notifications_count
+ * @property-read array $liked_comment_ids
  * @property-read \Illuminate\Database\Eloquent\Collection|Collection|DatabaseNotification[] $new_notifications
  */
 class AuthUserRepository extends CoreRepository
@@ -71,5 +72,13 @@ class AuthUserRepository extends CoreRepository
         return $this->user && (bool) $this->user->notifications()->whereNull('read_at')->update([
             'read_at' => now(),
         ]);
+    }
+
+    /**
+     * @return array
+     */
+    public function liked_comment_ids(): array
+    {
+        return $this->user->commentaryLikes()->allRelatedIds()->toArray();
     }
 }

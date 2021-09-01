@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class HomeCommentary
+class CommentaryLike
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -32,10 +32,10 @@ class HomeCommentary
     /**
      * Create a new event instance.
      *
-     * @return void
+     * @param  int  $commentary_id
      */
     public function __construct(
-        public string $message
+        public int $commentary_id
     ) {
     }
 

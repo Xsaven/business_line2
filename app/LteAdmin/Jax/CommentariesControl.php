@@ -6,6 +6,7 @@ use App\Events\Ws\AllAdminExec;
 use App\Events\Ws\AllUserExec;
 use App\Http\Resources\CommentaryResource;
 use App\Models\Commentary;
+use App\Models\CommentaryRoom;
 use App\Models\Setting;
 use App\Providers\AppServiceProvider;
 use App\Repositories\CommentaryRepository;
@@ -23,7 +24,7 @@ class CommentariesControl extends LteAdminExecutor
     public function list_for_approve(CommentaryRepository $repository)
     {
         return CommentaryResource::collection(
-            $repository->model()->where('active', 0)->where('anchored', 0)->orderByDesc('id')->get()
+            $repository->model()->where('active', 0)->orderByDesc('id')->get()
         );
     }
 
@@ -32,10 +33,11 @@ class CommentariesControl extends LteAdminExecutor
         $comment = Commentary::find($id);
 
         if ($comment && $comment->update(['active' => 1])) {
-            if ($comment->parent_id) {
-                AllUserExec::dispatch(["comment-{$comment->parent_id}"]);
+            if ($comment->commentaryRoom instanceof CommentaryRoom && $comment->commentaryRoom->id === 1) {
+                AllUserExec::dispatch(['update::add_comment_to_home' => [$comment->id]]);
             } else {
-                AllUserExec::dispatch(['v-home-commentaries:load_commentaries']);
+                AllUserExec::dispatch(['update::add_commentary_child_id' => [$comment->commentaryable_id, $comment->id]]);
+                //AllUserExec::dispatch(['v-home-commentaries:load_commentaries']);
             }
             AllAdminExec::dispatch(['commentaries:update']);
         }

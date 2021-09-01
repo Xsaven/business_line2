@@ -3,21 +3,12 @@
 namespace App\Listeners\Commentary;
 
 use App\Events\Commentary;
+use App\Repositories\CommentaryRoomRepository;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
 class Create
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
     /**
      * Handle the event.
      *
@@ -26,6 +17,18 @@ class Create
      */
     public function handle(Commentary $event)
     {
-        //
+        if ($event->validated) {
+            $event->commentary = $event->parent->commentaries()->create([
+                'text' => $event->message,
+                'user_id' => \Auth::id(),
+                'active' => \Auth::user()->active_commentaries,
+            ]);
+
+            if ($event->commentary) {
+                $event->commentary->loadCount('likes');
+            }
+
+            $event->attempted = (bool) $event->commentary;
+        }
     }
 }

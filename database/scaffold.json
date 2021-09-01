@@ -127,6 +127,10 @@
       "user": {
         "type": "belongsToMany",
         "method": "subscriptions"
+      },
+      "commentary": {
+        "type": "belongsToMany",
+        "method": "commentary_likes"
       }
     },
     "factory": {
@@ -142,9 +146,11 @@
   "commentary": {
     "const:title": "Комментарии",
     "type": "morphMany:commentable",
+    "traits" : [
+      "LikeConfig"
+    ],
     "fields": [
       ["text", {"cast": "Stickers"}],
-      ["likes", "integer", {"default": 0}],
       ["active", {"default": 0}]
     ],
     "resource": [],

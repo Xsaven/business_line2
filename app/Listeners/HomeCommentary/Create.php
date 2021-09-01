@@ -20,11 +20,17 @@ class Create
         if ($event->validated) {
             $repo = app(CommentaryRoomRepository::class);
 
-            $event->attempted = (bool) $repo->home->commentaries()->create([
+            $event->commentary = $repo->home->commentaries()->create([
                 'text' => $event->message,
                 'user_id' => \Auth::id(),
                 'active' => \Auth::user()->active_commentaries,
             ]);
+
+            if ($event->commentary) {
+                $event->commentary->loadCount('likes');
+            }
+
+            $event->attempted = (bool) $event->commentary;
         }
     }
 }

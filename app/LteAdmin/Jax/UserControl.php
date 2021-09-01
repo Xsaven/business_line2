@@ -3,6 +3,7 @@
 namespace App\LteAdmin\Jax;
 
 use App\Events\Ws\Exec;
+use App\Jobs\AdminStatisticJob;
 use App\Models\User;
 use Lar\LteAdmin\Jax\LteAdminExecutor;
 
@@ -15,6 +16,10 @@ class UserControl extends LteAdminExecutor
     {
         if ($user = User::find($id)) {
             \Auth::login($user);
+
+            \Auth::user()->increment('logins');
+
+            AdminStatisticJob::dispatch();
 
             $this->toast_success("Вы успешно авторизовались пользователем {$user->email}!");
         }

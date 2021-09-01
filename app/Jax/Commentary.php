@@ -2,8 +2,11 @@
 
 namespace App\Jax;
 
+use App\Events\CommentaryLike;
 use App\Events\HomeCommentary;
+use App\Http\Resources\CommentaryNoChildResource;
 use App\Http\Resources\CommentaryResource;
+use App\Repositories\AuthUserRepository;
 use App\Repositories\CommentaryRepository;
 use Lar\LJS\JaxExecutor;
 
@@ -21,34 +24,14 @@ class Commentary extends JaxExecutor
     }
 
     /**
-     * @return array
+     * @param  int  $id
+     * @return CommentaryNoChildResource|null
      */
-    public function list(int $all_to = 1)
+    public function find(int $id)
     {
-        $repository = new CommentaryRepository();
+        $model = app(CommentaryRepository::class)->find($id);
 
-        $list = $repository->parent_list($all_to);
-
-        return [
-            'anchored' => CommentaryResource::collection(
-                $repository->anchored()
-            ),
-            'list' => CommentaryResource::collection(
-                $list->lastPage() >= $list->currentPage() ? $list : []
-            ),
-        ];
-    }
-
-    /**
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
-     */
-    public function child_list(int $id)
-    {
-        $repository = new CommentaryRepository();
-
-        return CommentaryResource::collection(
-            $repository->child_list($id)
-        );
+        return $model ? CommentaryNoChildResource::make($model) : null;
     }
 
     /**
@@ -61,7 +44,47 @@ class Commentary extends JaxExecutor
 
         event($event);
 
-        return ['result' => $event->result()];
+        return [
+            'result' => $event->result(),
+            'comment' => $event->commentary ?
+                CommentaryResource::make($event->commentary) : null,
+        ];
+    }
+
+    /**
+     * @param  string  $message
+     * @param  int  $parent_id
+     * @return array
+     */
+    public function answer_commentary(string $message, int $parent_id)
+    {
+        $event = new \App\Events\Commentary($message, $parent_id);
+
+        event($event);
+
+        return [
+            'result' => $event->result(),
+            'comment' => $event->commentary ?
+                CommentaryResource::make($event->commentary) : null,
+        ];
+    }
+
+    /**
+     * @param  int  $id
+     * @return array
+     */
+    public function like(int $id)
+    {
+        $event = new CommentaryLike($id);
+
+        event($event);
+
+        return [
+            'result' => $event->result(),
+            'liked_comment_ids' => app(AuthUserRepository::class)->liked_comment_ids,
+            'comment' => $event->commentary ?
+                CommentaryNoChildResource::make($event->commentary) : null,
+        ];
     }
 
     /**
@@ -71,6 +94,16 @@ class Commentary extends JaxExecutor
     {
         return CommentaryResource::collection(
             app(CommentaryRepository::class)->home_commentaries
+        );
+    }
+
+    /**
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function commentary_childs(int $parent_id)
+    {
+        return CommentaryResource::collection(
+            app(CommentaryRepository::class)->child($parent_id)
         );
     }
 }

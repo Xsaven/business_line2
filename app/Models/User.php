@@ -51,6 +51,8 @@ use Illuminate\Notifications\Notifiable;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Commentary[] $commentaries
  * @property-read int|null $commentaries_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Commentary[] $commentaryLikes
+ * @property-read int|null $commentary_likes_count
  * @property-read \App\Models\Direction|null $direction
  * @property-read \App\Models\Division|null $division
  * @property-read string $full_name
@@ -282,5 +284,14 @@ class User extends Authenticatable
     public function subscriptions() : BelongsToMany
     {
         return $this->belongsToMany(self::class, 'user_subscriptions', 'user_id', 'subscription_id');
+    }
+
+    /**
+     * The "belongsToMany" relation for "Kommentarii".
+     * @return BelongsToMany
+     */
+    public function commentaryLikes() : BelongsToMany
+    {
+        return $this->belongsToMany(Commentary::class, 'user_commentaries', 'user_id', 'commentary_id');
     }
 }

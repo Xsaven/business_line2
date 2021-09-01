@@ -25,14 +25,25 @@ class Commentary
     public bool $attempted = false;
 
     /**
+     * @var \App\Models\Commentary
+     */
+    public \App\Models\Commentary $parent;
+
+    /**
+     * @var \App\Models\Commentary|null
+     */
+    public ?\App\Models\Commentary $commentary = null;
+
+    /**
      * Create a new event instance.
      *
      * @return void
      */
     public function __construct(
         public string $message,
-        public ?int $parent_id = null
-    ) {}
+        public int $parent_id
+    ) {
+    }
 
     /**
      * @return bool

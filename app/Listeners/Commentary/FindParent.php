@@ -3,10 +3,11 @@
 namespace App\Listeners\Commentary;
 
 use App\Events\Commentary;
+use App\Repositories\CommentaryRepository;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class Validation
+class FindParent
 {
     /**
      * Handle the event.
@@ -16,9 +17,9 @@ class Validation
      */
     public function handle(Commentary $event)
     {
-        $event->validated = ! quick_validate(['m' => $event->message, 'pid' => $event->parent_id], [
-            'm' => 'required|string|min:1|max:1200',
-            'pid' => 'required|int|min:1|exists:commentaries,id',
-        ]) && \Auth::check();
+        if ($event->validated) {
+            $event->parent = app(CommentaryRepository::class)
+                ->find($event->parent_id);
+        }
     }
 }

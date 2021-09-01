@@ -11,10 +11,4 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-//    #[Get('password_reset', 'password.reset')]
-//    public function reset_password()
-//    {
-//        return ['success' => 'ok'];
-//    }
 }

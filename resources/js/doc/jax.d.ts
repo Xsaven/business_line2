@@ -69,10 +69,12 @@ declare interface JaxModelGuestInterface {
         registration(...params: any[]): Promise<JaxModelGuestInterface>;
 }
 declare interface JaxModelCommentaryInterface {
-    list(...params: any[]): Promise<JaxModelCommentaryInterface>;
-        child_list(...params: any[]): Promise<JaxModelCommentaryInterface>;
+    find(...params: any[]): Promise<JaxModelCommentaryInterface>;
         home_commentary(...params: any[]): Promise<JaxModelCommentaryInterface>;
+        answer_commentary(...params: any[]): Promise<JaxModelCommentaryInterface>;
+        like(...params: any[]): Promise<JaxModelCommentaryInterface>;
         home_commentary_list(...params: any[]): Promise<JaxModelCommentaryInterface>;
+        commentary_childs(...params: any[]): Promise<JaxModelCommentaryInterface>;
 }
 declare interface Window {
     JaxModel: JaxModelInterface

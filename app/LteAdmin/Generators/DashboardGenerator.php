@@ -62,7 +62,7 @@ class DashboardGenerator extends \Lar\LteAdmin\Controllers\Generators\DashboardG
     public function vote()
     {
         $this->div->row(function (Row $row) {
-            $card = $row->col(6)->mb4()->card('Вопросы')->h100()->success();
+            $card = $row->col(6)->mb4()->card('Задания')->h100()->success();
 
             $card->foolBody(function (CardBody $body) {
                 $body->appEnd(Questions::create());

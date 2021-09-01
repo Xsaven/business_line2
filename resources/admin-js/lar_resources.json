@@ -1,7 +1,8 @@
 {
     "state_watchers": [],
     "executors": [
-        "Addbalance.js"
+        "Addbalance.js",
+        "Control"
     ],
     "vue_components": {}
 }

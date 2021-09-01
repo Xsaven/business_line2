@@ -26,18 +26,15 @@ class AdminStatisticJob implements ShouldQueue
     {
         $online = User::select('id')->get()->filter(fn ($i) => $i->online())->count();
 
-        $online_peck = (int) \Cache::get('online_peck', 0);
-
         $online_p = Online::orderByDesc('peck')->first();
 
-        $online_p = $online_p ? $online_p->peck : $online_peck;
+        $online_p = $online_p ? $online_p->peck : 0;
 
         if ($online > $online_p) {
-            \Cache::forever('online_peck', $online);
-
             Online::create(['peck' => $online]);
-
             $online_peck = Online::orderByDesc('peck')->first()->peck;
+        } else {
+            $online_peck = $online_p;
         }
 
         AllAdminExec::dispatch(['questions:statistic' => [

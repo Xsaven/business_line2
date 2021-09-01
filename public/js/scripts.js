@@ -31,11 +31,11 @@ $(() => {
 
 
 	// Like
-	$('.like_btn').click(function (e) {
-		e.preventDefault()
-
-		$(this).toggleClass('active')
-	})
+	// $('.like_btn').click(function (e) {
+	// 	e.preventDefault()
+	//
+	// 	$(this).toggleClass('active')
+	// })
 
 
 	// Favorite
@@ -90,26 +90,26 @@ $(() => {
 		this.style.height = this.scrollHeight + 'px'
 	})
 
-	$('.chat .messages .message .reaply_btn').click(function (e) {
-		e.preventDefault()
+	// $('.chat .messages .message .reaply_btn').click(function (e) {
+	// 	e.preventDefault()
+	//
+	// 	let parent = $(this).closest('.message_wrap')
+	//
+	// 	$('.chat .messages .reaply').hide()
+	// 	$('.chat .messages .message').fadeIn(200)
+	//
+	// 	parent.find('> .message').hide()
+	// 	parent.find('> .reaply').fadeIn(200)
+	// })
 
-		let parent = $(this).closest('.message_wrap')
-
-		$('.chat .messages .reaply').hide()
-		$('.chat .messages .message').fadeIn(200)
-
-		parent.find('> .message').hide()
-		parent.find('> .reaply').fadeIn(200)
-	})
-
-	$('.chat .messages .reaply .cancel_btn').click(function (e) {
-		e.preventDefault()
-
-		let parent = $(this).closest('.message_wrap')
-
-		parent.find('> .reaply').hide()
-		parent.find('> .message').fadeIn(200)
-	})
+	// $('.chat .messages .reaply .cancel_btn').click(function (e) {
+	// 	e.preventDefault()
+	//
+	// 	let parent = $(this).closest('.message_wrap')
+	//
+	// 	parent.find('> .reaply').hide()
+	// 	parent.find('> .message').fadeIn(200)
+	// })
 
 
 	// Направления на главной

@@ -15,13 +15,14 @@ use Lar\LteAdmin\Jax\LteAdminExecutor;
 class QuestionsControl extends LteAdminExecutor
 {
     /**
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @return array
      */
-    public function list_for_approve(QuestionRepository $repository)
+    public function list_for_approve()
     {
-        return QuestionResource::collection(
-            $repository->model()->where('active', 0)->orderByDesc('id')->get()
-        );
+//        return QuestionResource::collection(
+//            $repository->model()->where('active', 0)->orderByDesc('id')->get()
+//        );
+        return [];
     }
 
     public function approve(int $id)

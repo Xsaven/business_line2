@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use App\Casts\StickersCast;
+use App\Models\Traits\Commentary\CommentaryLikeConfig;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
@@ -14,7 +16,6 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @package App\Models
  * @property int $id
  * @property $text
- * @property int $likes
  * @property bool $active
  * @property string $commentaryable_type
  * @property int $commentaryable_id
@@ -25,8 +26,12 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @property-read int|null $commentaries_count
  * @property-read Model|\Eloquent $commentary
  * @property-read Model|\Eloquent $commentaryRoom
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $likes
+ * @property-read int|null $likes_count
  * @property-read Model|\Eloquent $taskReport
  * @property-read \App\Models\User|null $user
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $users
+ * @property-read int|null $users_count
  * @method static \Illuminate\Database\Eloquent\Builder|Commentary newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Commentary newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Commentary query()
@@ -35,7 +40,6 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereCommentaryableType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereLikes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereText($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereUserId($value)
@@ -43,6 +47,8 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  */
 class Commentary extends Model
 {
+    use CommentaryLikeConfig;
+
     const TITLE = 'Комментарии';
 
     /**
@@ -57,7 +63,6 @@ class Commentary extends Model
      */
     protected $fillable = [
         'text',
-        'likes',
         'active',
         'commentaryable_type',
         'commentaryable_id',
@@ -70,7 +75,6 @@ class Commentary extends Model
      */
     protected $casts = [
         'text' => StickersCast::class,
-        'likes' => 'integer',
         'active' => 'boolean',
         'commentaryable_type' => 'string',
         'commentaryable_id' => 'integer',
@@ -82,7 +86,6 @@ class Commentary extends Model
      * @return array
      */
     protected $attributes = [
-        'likes' => 0,
         'active' => 0,
     ];
 
@@ -129,5 +132,14 @@ class Commentary extends Model
     public function commentaries() : MorphMany
     {
         return $this->morphMany(self::class, 'commentaryable', 'commentaryable_type', 'commentaryable_id', 'id');
+    }
+
+    /**
+     * The "belongsToMany" relation for "Polzovateli".
+     * @return BelongsToMany
+     */
+    public function users() : BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'user_commentaries', 'user_id', 'commentary_id');
     }
 }

@@ -1,7 +1,13 @@
 <template>
     <div class="add_message">
-        <form action="">
-            <textarea name="" placeholder="Написать комментарий"></textarea>
+        <form @submit.stop.prevent="sendCommentary">
+            <textarea
+                v-model="message"
+                placeholder="Написать комментарий"
+                ref="d"
+                @keyup.ctrl.enter="sendCommentary"
+                @keyup.alt.enter="sendCommentary"
+            ></textarea>
 
             <button type="submit" class="submit_btn">
                 <v-icon icon="ic_send" />
@@ -15,17 +21,47 @@
 </template>
 
 <script>
-    export default {
+import {isLengthBetween, isRequired} from "../rules";
+
+export default {
+        $sync: ['user'],
         name: "v-home-make-commentary",
-        props: {},
+        props: {
+            commentary: {required:true},
+            after: {type: Function},
+        },
         data () {
             return {
-
+                message: '',
+                user: {}
             };
         },
         mounted () {},
         computed: {},
         watch: {},
-        methods: {}
+        methods: {
+            sendCommentary () {
+                if (!isRequired(this.message) || !isLengthBetween(this.message, 1, 1200)) {
+                    return "toast:error".exec("Минимум 1 символ!");
+                }
+
+                const message = this.message;
+                this.message = ''
+
+                jax.commentary.answer_commentary(message, this.commentary.id).then(({result, comment}) => {
+                    if (result && this.user.active_commentaries) {
+                        this.commentary.child.push(comment);
+                    }
+                });
+
+                // let parent = $('.chat .messages .reaply .cancel_btn').closest('.message_wrap')
+                // parent.find('> .reaply').hide()
+                // parent.find('> .message').fadeIn(200)
+
+                if (this.after) {
+                    this.after();
+                }
+            }
+        }
     }
 </script>
