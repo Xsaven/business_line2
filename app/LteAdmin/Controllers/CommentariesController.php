@@ -69,11 +69,6 @@ class CommentariesController extends Controller
                 ->labels('Да', 'Нет');
             $form->info_at();
             ModelSaver::on_save(static::$model, function (array $data, Commentary $model) {
-//                if ($model->parent_id) {
-//                    AllUserExec::dispatch(["comment-{$model->parent_id}"]);
-//                } else {
-//                    AllUserExec::dispatch(['v-home-commentaries:load_commentaries']);
-//                }
                 if ($model->commentaryRoom instanceof CommentaryRoom && $model->commentaryRoom->id === 1) {
                     AllUserExec::dispatch(['update::drop_commentary_home_id' => [$model->id]]);
                 } else {
