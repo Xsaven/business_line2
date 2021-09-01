@@ -25,7 +25,7 @@ class TaskReportResource extends JsonResource
             'files' => collect($this->files)->map(function ($file) {
                 return ['files' => 'https://storage.yandexcloud.net/dellin'.$file];
             })->toArray(),
-            'comment' => $this->comment
+            'comment' => $this->comment,
 
         ];
     }

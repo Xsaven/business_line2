@@ -35,8 +35,13 @@
             </div>
 
 <!--            <v-bottom-action :task="task" />-->
-          <v-upload-task-report v-if="!task_report" :task="task"/>
-          <v-get-task-report v-else-if="task_report.status === 'created'"/>
+          <v-upload-image-task-report v-if="!task_report && task.report_type === 'image' && green_button" :task="task"/>
+          <v-upload-video-task-report v-else-if="!task_report && task.report_type === 'video' && green_button" :task="task"/>
+          <v-upload-text-task-report v-else-if="!task_report && task.report_type === 'text' && green_button" :task="task"/>
+          <v-upload-quiz-task-report v-else-if="!task_report && task.report_type === 'quiz' && green_button" :task="task"/>
+          <v-upload-star-quiz-task-report v-else-if="!task_report && task.report_type === 'star_quiz' && green_button" :task="task"/>
+          <v-get-task-report v-else-if="task_report && task_report.status === 'created'"/>
+          <v-upload-report-soon v-else-if="between_days" />
         </div>
       </section>
     </v-layout>

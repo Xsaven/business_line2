@@ -23,7 +23,6 @@ class Task extends Page
     {
         $user = \Auth::user();
 
-
         $repo = app(TaskRepository::class);
 
         if (! $repo->findById) {
@@ -32,9 +31,9 @@ class Task extends Page
 
         $attrs['task'] = TaskResource::make($repo->findById)->toArray(request());
 
-        $report = $user->taskReports->where('task_id',$attrs['task']['id'])->first();
+        $report = $user->taskReports->where('task_id', $attrs['task']['id'])->first();
 
-        if($report) {
+        if ($report) {
             $attrs['task_report'] = TaskReportResource::make($report)->toArray(request());
         }
 

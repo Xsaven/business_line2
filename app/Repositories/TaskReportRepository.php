@@ -31,26 +31,26 @@ class TaskReportRepository extends CoreRepository
      */
     public function taskReport($task_id, $user_id, $comment, $files)
     {
-            $i = 0;
+        $i = 0;
 
-            $upload_files = [];
+        $upload_files = [];
 
-            foreach ($files as $file) {
-                $img = \Image::make($file->path())
+        foreach ($files as $file) {
+            $img = \Image::make($file->path())
                     ->resize(800, 600, function ($constraint) {
                         $constraint->aspectRatio();
                     })->encode('jpg');
 
-                $file_name = $user_id . $task_id . $i . '.jpg';
+            $file_name = $user_id.$task_id.$i.'.jpg';
 
-                \Storage::disk('yandexcloud')->put($file_name, (string)$img);
+            \Storage::disk('yandexcloud')->put($file_name, (string) $img);
 
-                $upload_files[] = $file_name;
+            $upload_files[] = $file_name;
 
-                $i++;
-            }
+            $i++;
+        }
 
-            TaskReport::create([
+        TaskReport::create([
                 'status' => TaskReport::STATUS_CREATED,
                 'files' => $upload_files,
                 'comment' => $comment,

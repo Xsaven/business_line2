@@ -32,7 +32,7 @@ class Home extends Page
 
         $attrs['commentaries'] = CommentaryResource::collection(
             CommentaryRoom::find(1)->commentaries()->paginate(30)
-        );
+        )->toArray(request());
 
         parent::__construct($id, $attrs, $params);
     }

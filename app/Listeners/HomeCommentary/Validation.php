@@ -16,8 +16,8 @@ class Validation
      */
     public function handle(HomeCommentary $event)
     {
-        $event->validated = !quick_validate(['m' => $event->message], [
-            'm' => 'required|string|min:1|max:1200'
+        $event->validated = ! quick_validate(['m' => $event->message], [
+            'm' => 'required|string|min:1|max:1200',
         ]);
     }
 }

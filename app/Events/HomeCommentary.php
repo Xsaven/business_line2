@@ -33,7 +33,8 @@ class HomeCommentary
     public function __construct(
         public string $message,
         public ?int $parent_id = null
-    ) {}
+    ) {
+    }
 
     /**
      * @return bool

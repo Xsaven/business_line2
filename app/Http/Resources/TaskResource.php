@@ -28,7 +28,7 @@ class TaskResource extends JsonResource
             'terms_of_participation' => $this->terms_of_participation,
             'start_at' => Carbon::parse($this->start_at)->format('Y-m-d'),
             'finish_at' => Carbon::parse($this->finish_at)->format('Y-m-d'),
-            'report_type' => $this->report_type
+            'report_type' => $this->report_type,
         ];
     }
 }

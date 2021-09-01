@@ -662,7 +662,7 @@
         },
         data () {
             return {
-                first_checkbox: true,
+                first_checkbox: false,
                 second_checkbox: false,
                 user: {},
                 month: {
