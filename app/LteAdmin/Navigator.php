@@ -29,9 +29,9 @@ class Navigator extends NavigatorExtensionProvider implements ActionWorkExtensio
         if (! class_exists(User::class)) {
             return;
         }
-//        $this->item(Direction::TITLE)
-//            ->resource('direction', 'DirectionController')
-//            ->icon_directions();
+        $this->item(Direction::TITLE)
+            ->resource('direction', 'DirectionController')
+            ->icon_directions();
 
         $this->item(Position::TITLE)
             ->resource('position', 'PositionController')
@@ -44,10 +44,6 @@ class Navigator extends NavigatorExtensionProvider implements ActionWorkExtensio
         $this->item(User::TITLE)
             ->resource('users', 'UsersController')
             ->icon_users();
-
-//        $this->item(Track::TITLE)
-//            ->resource('track', 'TrackController')
-//            ->icon_thumbtack();
 
         $this->item(Task::TITLE)
             ->resource('task', 'TaskController')
@@ -70,7 +66,7 @@ class Navigator extends NavigatorExtensionProvider implements ActionWorkExtensio
             ->icon_first_order();
 
         $this->item(Commentary::TITLE)
-            ->resource('commentary', 'CommentaryController')
+            ->resource('commentary', 'CommentariesController')
             ->icon_comments();
 
         $this->item(Log::TITLE)

@@ -40,17 +40,22 @@ class CommentariesController extends Controller
                     ->on_click('doc::redirect', route('commentaries_export'));
             });
 
+            $card->defaultTools(fn ($t) => $t !== 'add');
             $table->search->id();
+            $table->search->select('user_id', 'Пользователь')
+                ->load(User::class);
+            $table->search->input('text', 'Текст', '%=%');
+            $table->search->input('commentaryable_type', 'Модель', '%=%');
+            $table->search->input('commentaryable_id', 'Модель ID');
             $table->search->at();
 
             $table->orderBy('id', 'desc');
 
             $table->id();
-            $table->col('Пользователь', 'user.name')
+            $table->col('Пользователь', 'user.name')->admin_resource_route('users')
                 ->sort('user_id');
-            $table->col('Сообщение', 'text')
-                ->str_limit(140)
-                ->sort();
+            $table->col('Текст', 'text')->sort()->str_limit(100);
+            $table->active_switcher();
             $table->at();
         });
     }
@@ -64,16 +69,12 @@ class CommentariesController extends Controller
             $form->info_id();
             $form->select('user_id', 'Пользователь')
                 ->load(User::class);
-            $form->textarea('text', 'Сообщение');
+            $form->textarea('text', 'Текст')->rows(6);
             $form->switcher('active', 'Активный')
                 ->labels('Да', 'Нет');
             $form->info_at();
             ModelSaver::on_save(static::$model, function (array $data, Commentary $model) {
-                if ($model->commentaryRoom instanceof CommentaryRoom && $model->commentaryRoom->id === 1) {
-                    AllUserExec::dispatch(['update::drop_commentary_home_id' => [$model->id]]);
-                } else {
-                    AllUserExec::dispatch(['update::drop_commentary_child_id' => [$model->commentaryable_id, $model->id]]);
-                }
+                AllUserExec::dispatch(['update::commentary_id' => [$model->id]]);
                 AllAdminExec::dispatch(['commentaries:update']);
             });
         });
@@ -86,12 +87,9 @@ class CommentariesController extends Controller
     {
         return Info::create(function (ModelInfoTable $table) {
             $table->id();
-            $table->row('Пользователь', 'user.name');
-            $table->row('Сообщение', 'message');
-            $table->row('Закреплённый', 'anchored')
-                ->input_switcher('Да', 'Нет');
-            $table->row('Активный', 'active')
-                ->input_switcher('Да', 'Нет');
+            $table->row('Пользователь', 'user.name')->admin_resource_route('users');
+            $table->row('Текст', 'text')->str_limit(100);
+            $table->active_switcher();
             $table->at();
         });
     }
@@ -114,10 +112,10 @@ class CommentariesController extends Controller
 
         $return = parent::destroy_default();
 
-        if ($model->parent_id) {
-            AllUserExec::dispatch(["comment-{$model->parent_id}"]);
+        if ($model->commentaryRoom instanceof CommentaryRoom && $model->commentaryRoom->id === 1) {
+            AllUserExec::dispatch(['update::drop_commentary_home_id' => [$model->id]]);
         } else {
-            AllUserExec::dispatch(['v-home-commentaries:load_commentaries']);
+            AllUserExec::dispatch(['update::drop_commentary_child_id' => [$model->commentaryable_id, $model->id]]);
         }
         AllAdminExec::dispatch(['commentaries:update']);
 
