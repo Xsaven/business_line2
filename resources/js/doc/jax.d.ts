@@ -72,6 +72,7 @@ declare interface JaxModelCommentaryInterface {
     list(...params: any[]): Promise<JaxModelCommentaryInterface>;
         child_list(...params: any[]): Promise<JaxModelCommentaryInterface>;
         home_commentary(...params: any[]): Promise<JaxModelCommentaryInterface>;
+        home_commentary_list(...params: any[]): Promise<JaxModelCommentaryInterface>;
 }
 declare interface Window {
     JaxModel: JaxModelInterface

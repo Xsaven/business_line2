@@ -6,6 +6,7 @@ use App\Components\Vue\Page;
 use App\Http\Resources\CommentaryResource;
 use App\Http\Resources\DirectionResource;
 use App\Models\CommentaryRoom;
+use App\Repositories\CommentaryRepository;
 use App\Repositories\DirectionRepository;
 
 /**
@@ -31,8 +32,8 @@ class Home extends Page
         )->toArray(request());
 
         $attrs['commentaries'] = CommentaryResource::collection(
-            CommentaryRoom::find(1)->commentaries()->paginate(30)
-        );
+            app(CommentaryRepository::class)->home_commentaries
+        )->toArray(request());
 
         parent::__construct($id, $attrs, $params);
     }

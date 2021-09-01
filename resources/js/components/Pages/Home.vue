@@ -24,7 +24,7 @@
                         </div>
                     </a>
                 </div>
-                <v-home-commentaries />
+                <v-home-commentaries :commentaries="commentaries" />
             </div>
         </section>
         <section class="directions">
@@ -69,7 +69,8 @@
         $sync: ['user'],
         name: "pages_home",
         props: {
-            directions: {required:true}
+            directions: {required:true},
+            commentaries: {required:true}
         },
         data () {
             return {

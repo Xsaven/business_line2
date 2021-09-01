@@ -10,35 +10,27 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class HomeCommentary
+class Message
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
-    /**
-     * @var bool
-     */
-    public bool $validated = false;
-
-    /**
-     * @var bool
-     */
-    public bool $attempted = false;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(
-        public string $message
-    ) {
+    public function __construct()
+    {
+        //
     }
 
     /**
-     * @return bool
+     * Get the channels the event should broadcast on.
+     *
+     * @return \Illuminate\Broadcasting\Channel|array
      */
-    public function result(): bool
+    public function broadcastOn()
     {
-        return $this->validated && $this->attempted;
+        return new PrivateChannel('channel-name');
     }
 }

@@ -3,8 +3,8 @@
 namespace App\Jax;
 
 use App\Events\HomeCommentary;
-use App\Events\Message;
 use App\Http\Resources\CommentaryResource;
+use App\Repositories\CommentaryRepository;
 use Lar\LJS\JaxExecutor;
 
 /**
@@ -52,14 +52,25 @@ class Commentary extends JaxExecutor
     }
 
     /**
+     * @param  string  $message
      * @return array
      */
-    public function home_commentary(string $message, int $parent_id = null)
+    public function home_commentary(string $message)
     {
-        $event = new HomeCommentary($message, $parent_id ?? null);
+        $event = new HomeCommentary($message);
 
         event($event);
 
         return ['result' => $event->result()];
+    }
+
+    /**
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function home_commentary_list()
+    {
+        return CommentaryResource::collection(
+            app(CommentaryRepository::class)->home_commentaries
+        );
     }
 }
