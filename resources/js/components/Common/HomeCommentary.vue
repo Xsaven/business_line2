@@ -68,6 +68,7 @@
         mounted () {
             state[`comment_update_${this.comment.id}`] = () => this.update();
             state[`comment_add_child_${this.comment.id}`] = (id) => this.add_to_child(id);
+            state[`comment_drop_child_${this.comment.id}`] = (id) => this.drop(id);
         },
         beforeDestroy() {
             delete state.update_home_notifications;
@@ -85,6 +86,9 @@
         },
         watch: {},
         methods: {
+            drop (id) {
+                this.comments = this.comment.child.filter((i) => i.id!==id);
+            },
             like () {
                 ljs.onetime(() => {
                     jax.commentary.like(this.comment.id).then(({liked_comment_ids, comment}) => {

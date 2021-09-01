@@ -6,6 +6,7 @@ use App\Events\Ws\AllAdminExec;
 use App\Events\Ws\AllUserExec;
 use App\Exports\CommentariesExport;
 use App\Models\Commentary;
+use App\Models\CommentaryRoom;
 use App\Models\User;
 use Lar\LteAdmin\Core\ModelSaver;
 use Lar\LteAdmin\Segments\Info;
@@ -47,12 +48,9 @@ class CommentariesController extends Controller
             $table->id();
             $table->col('Пользователь', 'user.name')
                 ->sort('user_id');
-            $table->col('Сообщение', 'message')
+            $table->col('Сообщение', 'text')
                 ->str_limit(140)
-                ->sort('message');
-            $table->col('Закреплённый', 'anchored')
-                ->input_switcher('Да', 'Нет')
-                ->sort()->not_trash();
+                ->sort();
             $table->at();
         });
     }
@@ -66,17 +64,20 @@ class CommentariesController extends Controller
             $form->info_id();
             $form->select('user_id', 'Пользователь')
                 ->load(User::class);
-            $form->textarea('message', 'Сообщение');
-            $form->switcher('anchored', 'Закреплённый')
-                ->labels('Да', 'Нет');
+            $form->textarea('text', 'Сообщение');
             $form->switcher('active', 'Активный')
                 ->labels('Да', 'Нет');
             $form->info_at();
             ModelSaver::on_save(static::$model, function (array $data, Commentary $model) {
-                if ($model->parent_id) {
-                    AllUserExec::dispatch(["comment-{$model->parent_id}"]);
+//                if ($model->parent_id) {
+//                    AllUserExec::dispatch(["comment-{$model->parent_id}"]);
+//                } else {
+//                    AllUserExec::dispatch(['v-home-commentaries:load_commentaries']);
+//                }
+                if ($model->commentaryRoom instanceof CommentaryRoom && $model->commentaryRoom->id === 1) {
+                    AllUserExec::dispatch(['update::drop_commentary_home_id' => [$model->id]]);
                 } else {
-                    AllUserExec::dispatch(['v-home-commentaries:load_commentaries']);
+                    AllUserExec::dispatch(['update::drop_commentary_child_id' => [$model->commentaryable_id, $model->id]]);
                 }
                 AllAdminExec::dispatch(['commentaries:update']);
             });

@@ -53,6 +53,7 @@ export default {
             $('.messages')[0].scrollTo(0,document.querySelector(".messages").scrollHeight);
             state.update_home_notifications = () => this.update_list();
             state.add_to_child = (id) => this.add_to_child(id);
+            state.drop_child = (id) => this.drop(id);
         },
         beforeDestroy() {
             delete state.update_home_notifications;
@@ -70,6 +71,9 @@ export default {
         },
         watch: {},
         methods: {
+            drop (id) {
+                this.comments = this.comments.filter((i) => i.id!==id);
+            },
             add_to_child (id) {
                 jax.commentary.find(id).then(({data}) => {
                     if (data) {
