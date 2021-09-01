@@ -61,8 +61,8 @@ use Lar\Roads\Roads;
 
 Road::web()->middleware(['lte-auth'])->prefix(config('lte.route.prefix'))->prefix('download')->group(function (Roads $road) {
 
-//    $road->get('/commentaries/export',['\App\LteAdmin\Controllers\CommentariesController','export'])
-//        ->name('commentaries_export');
+    $road->get('/commentaries/export',['\App\LteAdmin\Controllers\CommentariesController','export'])
+        ->name('commentaries_export');
 
     $road->get('/users/export', ['\App\LteAdmin\Controllers\UsersController', 'export'])
         ->name('users_export');
