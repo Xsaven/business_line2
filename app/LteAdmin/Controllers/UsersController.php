@@ -2,6 +2,7 @@
 
 namespace App\LteAdmin\Controllers;
 
+use App\Events\Ws\Exec;
 use App\Exports\CommentariesExport;
 use App\Exports\UserStatisticExport;
 use App\LteAdmin\Modals\AddBalanceModal;
@@ -10,6 +11,7 @@ use App\Models\Division;
 use App\Models\Position;
 use App\Models\Task;
 use App\Models\User;
+use Lar\LteAdmin\Core\ModelSaver;
 use Lar\LteAdmin\Segments\Container;
 use Lar\LteAdmin\Segments\Info;
 use Lar\LteAdmin\Segments\Matrix;
@@ -146,6 +148,10 @@ class UsersController extends Controller
                 $form->info('updated_at', 'lte.updated_at');
                 $form->info('created_at', 'lte.created_at');
             }
+
+            ModelSaver::on_save(function (array $array, User $user) {
+                Exec::dispatch($user->id, 'update');
+            });
         });
     }
 
