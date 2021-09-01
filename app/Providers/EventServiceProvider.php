@@ -46,6 +46,11 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\SubscribeDirection\MakeLog::class,
             \App\Listeners\SubscribeDirection\NotifyUser::class,
         ],
+        \App\Events\Commentary::class => [
+            \App\Listeners\Commentary\Validation::class,
+            \App\Listeners\Commentary\Create::class,
+            \App\Listeners\Commentary\NotifyUsers::class,
+        ],
         \App\Events\HomeCommentary::class => [
             \App\Listeners\HomeCommentary\Validation::class,
             \App\Listeners\HomeCommentary\Create::class,

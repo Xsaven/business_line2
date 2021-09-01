@@ -1,174 +1,21 @@
 <template>
     <div class="chat">
         <div class="messages">
-            <div class="message_wrap">
-                <div class="message">
-                    <div class="avatar">
-                        <span>ЕИ</span>
-                        <img data-src="/images/tmp/user_avatar3.jpg" alt="" class="lozad">
-                    </div>
-
-                    <div>
-                        <div class="user_name">
-                            <a href="/">Евгений Иванов</a>
-                        </div>
-
-                        <div class="text">Круто! Спасибо за участие 😀</div>
-                    </div>
-
-                    <div class="date">20.07  18:50</div>
-
-                    <button class="reaply_btn">Ответить</button>
-
-                    <button class="like_btn active">
-                        <span>18</span>
-                        <v-icon icon="ic_like" />
-                        <v-icon icon="ic_like_a" />
-                    </button>
-                </div>
-                <div class="reaply">
-                    <button class="cancel_btn">
-                        <v-icon icon="ic_close" />
-                    </button>
-
-                    <div class="parent_message">
-                        <div class="user_name">Евгений Иванов</div>
-                        <div class="text">Круто! Спасибо за участие 😀</div>
-                    </div>
-
-                    <v-home-make-commentary />
-                </div>
-            </div>
-
-
-            <div class="message_wrap">
-                <div class="message">
-                    <div class="avatar">
-                        <span>ЕИ</span>
-                        <img data-src="/images/tmp/user_avatar3.jpg" alt="" class="lozad">
-                    </div>
-
-                    <div>
-                        <div class="user_name">
-                            <a href="/">Евгений Иванов</a>
-                        </div>
-
-                        <div class="text">Круто! Спасибо за участие 😀</div>
-                    </div>
-
-                    <div class="date">20.07  18:50</div>
-
-                    <button class="reaply_btn">Ответить</button>
-
-                    <button class="like_btn">
-                        <span>18</span>
-                        <v-icon icon="ic_like" />
-                        <v-icon icon="ic_like_a" />
-                    </button>
-                </div>
-                <div class="reaply">
-                    <button class="cancel_btn">
-                        <v-icon icon="ic_close" />
-                    </button>
-
-                    <div class="parent_message">
-                        <div class="user_name">Евгений Иванов</div>
-                        <div class="text">Круто! Спасибо за участие 😀</div>
-                    </div>
-
-                    <v-home-make-commentary />
-                </div>
-                <div class="children">
-                    <div class="message_wrap">
-                        <div class="message">
-                            <div class="avatar">
-                                <span>ЕИ</span>
-                                <img data-src="/images/tmp/user_avatar3.jpg" alt="" class="lozad">
-                            </div>
-
-                            <div>
-                                <div class="user_name">
-                                    <a href="/">Евгений Иванов</a>
-                                </div>
-
-                                <div class="text">Круто! Спасибо за участие 😀</div>
-                            </div>
-
-                            <div class="date">20.07  18:50</div>
-
-                            <button class="reaply_btn">Ответить</button>
-
-                            <button class="like_btn">
-                                <span>18</span>
-                                <v-icon icon="ic_like" />
-                                <v-icon icon="ic_like_a" />
-                            </button>
-                        </div>
-
-
-                        <div class="reaply">
-                            <button class="cancel_btn">
-                                <v-icon icon="ic_close" />
-                            </button>
-
-                            <div class="parent_message">
-                                <div class="user_name">Евгений Иванов</div>
-                                <div class="text">Круто! Спасибо за участие 😀</div>
-                            </div>
-
-                            <v-home-make-commentary />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="message_wrap">
-                <div class="message">
-                    <div class="avatar">
-                        <span>ЕИ</span>
-                        <img data-src="/images/tmp/user_avatar3.jpg" alt="" class="lozad">
-                    </div>
-
-                    <div>
-                        <div class="user_name">
-                            <a href="/">Евгений Иванов</a>
-                        </div>
-
-                        <div class="text">Круто! Спасибо за участие 😀</div>
-                    </div>
-
-                    <div class="date">20.07  18:50</div>
-
-                    <button class="reaply_btn">Ответить</button>
-
-                    <button class="like_btn">
-                        <span>18</span>
-                        <v-icon icon="ic_like" />
-                        <v-icon icon="ic_like_a" />
-                    </button>
-                </div>
-
-
-                <div class="reaply">
-                    <button class="cancel_btn">
-                        <v-icon icon="ic_close" />
-                    </button>
-
-                    <div class="parent_message">
-                        <div class="user_name">Евгений Иванов</div>
-                        <div class="text">Круто! Спасибо за участие 😀</div>
-                    </div>
-
-                    <v-home-make-commentary />
-                </div>
-            </div>
+            <template v-for="(commentary, commentary_index) in comments">
+                <v-home-commentary :commentary="commentary" />
+            </template>
         </div>
 
 
         <div class="add_message">
-            <form action="">
-                <textarea name="" placeholder="Написать комментарий"></textarea>
+            <form @submit.stop.prevent="sendCommentary">
+                <textarea
+                    v-model="message"
+                    placeholder="Написать комментарий"
+                    ref="d"
+                    @keyup.ctrl.enter="sendCommentary"
+                    @keyup.alt.enter="sendCommentary"
+                ></textarea>
 
                 <button type="submit" class="submit_btn">
                     <v-icon icon="ic_send" />
@@ -183,17 +30,38 @@
 </template>
 
 <script>
-    export default {
+import {isEmail, isLengthBetween, isRequired} from "../rules";
+
+export default {
         name: "v-home-commentaries",
-        props: {},
+        props: {
+            commentaries: {required:true}
+        },
         data () {
             return {
-
+                message: '',
+                comments: this.commentaries
             };
         },
         mounted () {},
         computed: {},
         watch: {},
-        methods: {}
+        methods: {
+            update_list () {
+
+            },
+            sendCommentary () {
+                if (!isRequired(this.message) || !isLengthBetween(this.message, 1, 1200)) {
+                    return "toast:error".exec("Минимум 1 символ!");
+                }
+
+                const message = this.message;
+                this.message = ''
+
+                jax.commentary.home_commentary(message).then(() => {
+
+                });
+            }
+        }
     }
 </script>

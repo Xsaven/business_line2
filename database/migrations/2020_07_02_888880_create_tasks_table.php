@@ -19,8 +19,8 @@ class CreateTasksTable extends Migration
             $table->mediumText('short_description')->nullable();
             $table->string('event_type', 191)->default('instant');
             $table->string('report_type', 191)->default('text');
+            $table->text('report_configs')->nullable();
             $table->string('action_type', 191)->default('manually');
-            $table->text('action_configs')->nullable();
             $table->integer('cost')->default(0);
             $table->string('prize_src', 191)->nullable();
             $table->text('terms_of_participation');

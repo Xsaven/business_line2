@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class HomeCommentary
+class Commentary
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -32,8 +32,7 @@ class HomeCommentary
     public function __construct(
         public string $message,
         public ?int $parent_id = null
-    ) {
-    }
+    ) {}
 
     /**
      * @return bool

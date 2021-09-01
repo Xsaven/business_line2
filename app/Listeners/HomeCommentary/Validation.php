@@ -18,6 +18,6 @@ class Validation
     {
         $event->validated = ! quick_validate(['m' => $event->message], [
             'm' => 'required|string|min:1|max:1200',
-        ]);
+        ]) && \Auth::check();
     }
 }

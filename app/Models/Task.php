@@ -18,8 +18,8 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property string|null $short_description
  * @property string $event_type
  * @property string $report_type
+ * @property array|null $report_configs
  * @property string $action_type
- * @property array|null $action_configs
  * @property int $cost
  * @property string|null $prize_src
  * @property string $terms_of_participation
@@ -41,7 +41,6 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Task newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Task newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Task query()
- * @method static \Illuminate\Database\Eloquent\Builder|Task whereActionConfigs($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereActionType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereCost($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereCreatedAt($value)
@@ -51,6 +50,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task wherePrizeSrc($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereReportConfigs($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereReportType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereShortDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereStartAt($value)
@@ -68,23 +68,29 @@ class Task extends Model
 
     const ACTION_TYPE_MANUALLY = 'manually';
 
-    const ACTION_TYPE_SUBSCRIBE = 'subscribe';
-
-    const ACTION_TYPE_REACTION = 'reaction';
-
-    const ACTION_TYPE_PROFILE = 'profile';
-
-    const ACTION_TYPE_TASK_COMPLETE = 'task-complete';
-
     const REPORT_TYPE_TEXT = 'text';
 
     const REPORT_TYPE_VIDEO = 'video';
 
     const REPORT_TYPE_IMAGE = 'image';
 
+    const REPORT_TYPE_TEXT_OR_IMAGE_OR_VIDEO = 'text_or_image_or_video';
+
+    const REPORT_TYPE_IMAGE_OR_VIDEO = 'image_or_video';
+
+    const REPORT_TYPE_TEXT_OR_VIDEO = 'text_or_video';
+
+    const REPORT_TYPE_TEXT_OR_IMAGE = 'text_or_image';
+
     const REPORT_TYPE_QUIZ = 'quiz';
 
     const REPORT_TYPE_STAR_QUIZ = 'star_quiz';
+
+    const REPORT_TYPE_SUBSCRIPTIONS = 'subscriptions';
+
+    const REPORT_TYPE_LIKES = 'likes';
+
+    const REPORT_TYPE_TASKS = 'tasks';
 
     const EVENT_TYPE_MULTI_DAY = 'multi-day';
 
@@ -102,17 +108,20 @@ class Task extends Model
         'text' => 'Текстовый отчёт',
         'video' => 'Видео отчёт',
         'image' => 'Фото отчёт',
+        'text_or_image_or_video' => 'Текст, Фото или Видео отчёт',
+        'image_or_video' => 'Фото или Видео отчёт',
+        'text_or_video' => 'Текст или Видео отчёт',
+        'text_or_image' => 'Текст или Фото отчёт',
         'quiz' => 'Викторина',
         'star_quiz' => 'Звёздная викторина',
+        'subscriptions' => 'Подписаться на (N) кол-во пользователей',
+        'likes' => 'Поставить (N) кол-во лайков',
+        'tasks' => 'Выполнить (N) кол-во заданий',
     ];
 
     const ACTION_TYPES = [
         'auto' => 'Автоматическое',
-        'manually' => 'Начисление баллов вручную (Модерирование)',
-        'subscribe' => 'Подписка(N подписок) на других пользователей',
-        'reaction' => 'Реакции (N стикеров / N лайков) к любым отчетам на странице направления/профиле пользователя',
-        'profile' => 'Заполнение всей дополнительной информации в профиле, включая фото',
-        'task-complete' => 'Выполнение N заданий подряд',
+        'manually' => 'Модерирование',
     ];
 
     /**
@@ -130,8 +139,8 @@ class Task extends Model
         'short_description',
         'event_type',
         'report_type',
+        'report_configs',
         'action_type',
-        'action_configs',
         'cost',
         'prize_src',
         'terms_of_participation',
@@ -149,8 +158,8 @@ class Task extends Model
         'short_description' => 'string',
         'event_type' => 'string',
         'report_type' => 'string',
+        'report_configs' => 'array',
         'action_type' => 'string',
-        'action_configs' => 'array',
         'cost' => 'integer',
         'prize_src' => 'string',
         'terms_of_participation' => 'string',
