@@ -60,7 +60,7 @@ return [
             'endpoint' => 'http://storage.yandexcloud.net/',
             'region' => 'us-west-2',
             'bucket' => 'dellin',
-            'url' => env('APP_URL'),
+            'url' => 'https://storage.yandexcloud.net/dellin',
         ],
     ],
 
