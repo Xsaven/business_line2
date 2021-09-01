@@ -38,6 +38,10 @@
           <v-upload-image-task-report v-if="!task_report && task.report_type === 'image' && green_button" :task="task"/>
           <v-upload-video-task-report v-else-if="!task_report && task.report_type === 'video' && green_button" :task="task"/>
           <v-upload-text-task-report v-else-if="!task_report && task.report_type === 'text' && green_button" :task="task"/>
+          <v-upload-tiv-report v-else-if="!task_report && task.report_type === 'text_or_image_or_video' && green_button" :task="task"/>
+          <v-upload-image-or-video v-else-if="!task_report && task.report_type === 'image_or_video' && green_button" :task="task"/>
+          <v-upload-text-or-video v-else-if="!task_report && task.report_type === 'text_or_video' && green_button" :task="task"/>
+          <v-upload-text-or-image v-else-if="!task_report && task.report_type === 'text_or_image' && green_button" :task="task"/>
           <v-upload-quiz-task-report v-else-if="!task_report && task.report_type === 'quiz' && green_button" :task="task"/>
           <v-upload-star-quiz-task-report v-else-if="!task_report && task.report_type === 'star_quiz' && green_button" :task="task"/>
           <v-get-task-report v-else-if="task_report && task_report.status === 'created'"/>

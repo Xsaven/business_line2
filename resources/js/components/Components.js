@@ -15,6 +15,10 @@ module.exports = (Vue) => {
     Vue.component('v-upload-text-task-report', require('./Common/UploadTextTaskReport.vue').default);
     Vue.component('v-upload-task-status', require('./Common/UploadTaskStatus.vue').default);
     Vue.component('v-upload-report-soon', require('./Common/UploadReportSoon.vue').default);
+    Vue.component('v-upload-text-or-video', require('./Common/UploadTextOrVideoReport.vue').default);
+    Vue.component('v-upload-text-or-image', require('./Common/UploadTextOrImageReport.vue').default);
+    Vue.component('v-upload-tiv-report', require('./Common/UploadTextOrImageOrVideoReport.vue').default);
+    Vue.component('v-upload-image-or-video', require('./Common/UploadImageOrVideoReport.vue').default);
     Vue.component('v-upload-quiz-task-report', require('./Common/UploadQuizTaskReport.vue').default);
     Vue.component('v-upload-star-quiz-task-report', require('./Common/UploadStarQuizTaskReport.vue').default);
     Vue.component('v-home-commentaries', require('./Common/HomeCommentares.vue').default);

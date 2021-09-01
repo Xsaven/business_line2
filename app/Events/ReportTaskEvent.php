@@ -10,19 +10,9 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class Commentary
+class ReportTaskEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
-    /**
-     * @var bool
-     */
-    public bool $validated = false;
-
-    /**
-     * @var bool
-     */
-    public bool $attempted = false;
 
     /**
      * Create a new event instance.
@@ -30,16 +20,10 @@ class Commentary
      * @return void
      */
     public function __construct(
-        public string $message,
-        public ?int $parent_id = null
-    ) {
-    }
+        public int $task_id,
+        public int $user_id,
+        public string $comment,
+        public array $files
+    ){}
 
-    /**
-     * @return bool
-     */
-    public function result(): bool
-    {
-        return $this->validated && $this->attempted;
-    }
 }

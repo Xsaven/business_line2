@@ -2,6 +2,7 @@
 
 namespace App\Jax;
 
+use App\Events\ReportTaskEvent;
 use App\Events\SubscribeDirectionEvent;
 use App\Events\User\ChangeName;
 use App\Http\Resources\AuthUserResource;
@@ -128,9 +129,12 @@ class User extends JaxExecutor
 
         $user_id = \Auth::user()->id;
 
-        $repo = app(TaskReportRepository::class);
+        /**
+         * @var ReportTaskEvent
+         */
+        $event = new ReportTaskEvent($task_id,$user_id,$comment,$files);
 
-        $repo->taskReport($task_id, $user_id, $comment, $files);
+        event($event);
 
         $this->reload();
     }

@@ -4,74 +4,6 @@
 
     <div class="info">
       <form action="" class="form">
-            <div class="line">
-              <div class="field">
-                <textarea v-model="comment" name="" placeholder="Комментарий"></textarea>
-
-                <div class="smiles modal_cont">
-                  <button type="button" class="btn mini_modal_btn" data-modal-id="#smiles_modal">
-                    <v-icon icon="ic_smile" />
-                  </button>
-
-                  <div class="mini_modal" id="smiles_modal">
-                    <button type="button" class="close_btn">
-                      <v-icon icon="ic_close" />
-                    </button>
-
-                    <div class="section">
-                      <div class="title">Эмоджи</div>
-
-                      <div class="row">
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                      </div>
-                    </div>
-
-                    <div class="section stickers">
-                      <div class="title">Стикеры</div>
-
-                      <div class="row">
-                        <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                        <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                        <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                        <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                        <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                        <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </div>
-
           <div class="line files">
             <div class="selected">
               <div v-for="(file, f_key) in files" class="file">
@@ -89,7 +21,7 @@
                 <v-icon icon="ic_attachment" />
                 <span>Прикрепить фото</span>
 
-              <div class="rules">jpg, jpeg, png до 10 МБ<br> mov, mp4, mpeg, mpg до 20 МБ</div>
+              <div class="rules">jpg, jpeg, png до 10 МБ</div>
             </label>
           </div>
         </div>
@@ -127,7 +59,6 @@
           send() {
             jax.params({files: this.files}).user.task_report(this.task.id,this.comment)
               .then(() => {
-                console.log(this.task);
               })
           }
         }
