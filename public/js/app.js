@@ -2497,9 +2497,249 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-direction-funs-callendar",
-  props: {},
+  props: {
+    tasks: {
+      required: true
+    }
+  },
   data: function data() {
     return {};
   },
@@ -2886,9 +3126,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-direction-sport-callendar",
-  props: {},
+  props: {
+    tasks: {
+      required: true
+    }
+  },
   data: function data() {
     return {};
   },
@@ -54823,9 +55073,367 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("Common/DirectionFunsCallendar.vue Component")])
+  return _c("div", { staticClass: "schedule" }, [
+    _c("div", { staticClass: "title" }, [_vm._v("Расписание активностей")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "week_wrap" }, [
+      _c("div", { staticClass: "week" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "events" },
+          [
+            _c("v-direction-callendar-item", {
+              attrs: { item: _vm.tasks[67], date: "09.13" }
+            }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", { attrs: { date: "09.14" } }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", { attrs: { date: "09.15" } }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", {
+              attrs: { item: _vm.tasks[68], date: "09.16" }
+            }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", { attrs: { date: "09.17" } }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", {
+              attrs: { weekend: true, date: "09.18" }
+            }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", {
+              attrs: { weekend: true, date: "09.19" }
+            })
+          ],
+          1
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "week_wrap" }, [
+      _c("div", { staticClass: "week" }, [
+        _vm._m(2),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "events" },
+          [
+            _c("v-direction-callendar-item", { attrs: { date: "09.20" } }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", {
+              attrs: { item: _vm.tasks[69], date: "09.21" }
+            }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", { attrs: { date: "09.22" } }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", { attrs: { date: "09.23" } }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", {
+              attrs: { item: _vm.tasks[70], date: "09.24" }
+            }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", {
+              attrs: { weekend: true, date: "09.25" }
+            }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", {
+              attrs: { weekend: true, date: "09.26" }
+            })
+          ],
+          1
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "week_wrap" }, [
+      _c("div", { staticClass: "week" }, [
+        _vm._m(3),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "events" },
+          [
+            _c("v-direction-callendar-item", {
+              attrs: { item: _vm.tasks[71], date: "09.27" }
+            }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", { attrs: { date: "09.28" } }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", {
+              attrs: { item: _vm.tasks[72], date: "09.29" }
+            }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", { attrs: { date: "09.30" } }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", {
+              attrs: { item: _vm.tasks[73], date: "10.01" }
+            }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", {
+              attrs: { weekend: true, date: "10.02" }
+            }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", {
+              attrs: { weekend: true, date: "10.03" }
+            })
+          ],
+          1
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "week_wrap" }, [
+      _c("div", { staticClass: "week" }, [
+        _vm._m(4),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "events" },
+          [
+            _c("v-direction-callendar-item", {
+              attrs: { item: _vm.tasks[74], width: 3, date: "10.04-10.06" }
+            }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", {
+              attrs: { item: _vm.tasks[75], date: "10.07" }
+            }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", { attrs: { date: "10.08" } }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", {
+              attrs: { weekend: true, date: "10.09" }
+            }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", {
+              attrs: { weekend: true, date: "10.10" }
+            })
+          ],
+          1
+        )
+      ])
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "head" }, [
+      _c("div", { staticClass: "exp" }, [
+        _c("div", [
+          _c("div", { staticClass: "color color1" }),
+          _vm._v("Мгновенные")
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("div", { staticClass: "color color2" }),
+          _vm._v("Быстрые")
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("div", { staticClass: "color color3" }),
+          _vm._v("Многодневные")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "days" }, [
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("13")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("14")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("15")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("16")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("17")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day weekend" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("18")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day weekend" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("19")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "days" }, [
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("20")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("21")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("22")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("23")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("24")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day weekend" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("25")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day weekend" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("26")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "days" }, [
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("27")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("28")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("29")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("30")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Сентября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("01")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Октября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day weekend" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("02")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Октября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day weekend" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("03")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Октября")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "days" }, [
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("04")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Октября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("05")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Октября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("06")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Октября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("07")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Октября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("08")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Октября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day weekend" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("09")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Октября")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "day weekend" }, [
+        _c("div", { staticClass: "number" }, [_vm._v("10")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "month" }, [_vm._v("Октября")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -54962,7 +55570,7 @@ var render = function() {
           { staticClass: "events" },
           [
             _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[42], left: true, date: "09.20" }
+              attrs: { item: _vm.tasks[42], date: "09.20" }
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
@@ -54990,13 +55598,13 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[10], width: 3, date: "09.20-09.22" }
+              attrs: { item: _vm.tasks[43], date: "09.20" }
             }),
             _vm._v(" "),
-            _c("v-direction-callendar-item", { attrs: { date: "09.23" } }),
+            _c("v-direction-callendar-item", { attrs: { date: "09.21" } }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[15], right: true, date: "09.24-09.28" }
+              attrs: { item: _vm.tasks[46], width: 3, date: "09.22-09.24" }
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
@@ -55007,14 +55615,32 @@ var render = function() {
               attrs: { weekend: true, date: "09.26" }
             }),
             _vm._v(" "),
-            _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[9], date: "09.20" }
-            }),
+            _c("v-direction-callendar-item", { attrs: { date: "09.20" } }),
             _vm._v(" "),
             _c("v-direction-callendar-item", { attrs: { date: "09.21" } }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[13], width: 3, date: "09.22-09.24" }
+              attrs: { item: _vm.tasks[46], width: 3, date: "09.22-09.24" }
+            }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", {
+              attrs: { weekend: true, date: "09.25" }
+            }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", {
+              attrs: { weekend: true, date: "09.26" }
+            }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", { attrs: { date: "09.20" } }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", { attrs: { date: "09.21" } }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", { attrs: { date: "09.22" } }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", { attrs: { date: "09.23" } }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", {
+              attrs: { item: _vm.tasks[48], right: true, date: "09.24-09.28" }
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
@@ -55040,7 +55666,7 @@ var render = function() {
           [
             _c("v-direction-callendar-item", {
               attrs: {
-                item: _vm.tasks[15],
+                item: _vm.tasks[48],
                 width: 2,
                 left: true,
                 date: "09.24-09.28"
@@ -55048,15 +55674,15 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[21], date: "09.29" }
+              attrs: { item: _vm.tasks[54], date: "09.29" }
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[23], date: "09.30" }
+              attrs: { item: _vm.tasks[56], date: "09.30" }
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[24], date: "10.01" }
+              attrs: { item: _vm.tasks[57], date: "10.01" }
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
@@ -55068,11 +55694,11 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[18], date: "09.27" }
+              attrs: { item: _vm.tasks[51], date: "09.27" }
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[19], width: 3, date: "09.28-09.30" }
+              attrs: { item: _vm.tasks[52], width: 3, date: "09.28-09.30" }
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", { attrs: { date: "10.01" } }),
@@ -55088,17 +55714,17 @@ var render = function() {
             _c("v-direction-callendar-item", { attrs: { date: "09.27" } }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[20], date: "09.28" }
+              attrs: { item: _vm.tasks[53], date: "09.28" }
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", { attrs: { date: "09.29" } }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
               attrs: {
-                item: _vm.tasks[22],
+                item: _vm.tasks[55],
                 width: 2,
                 right: true,
-                date: "09.28-10.05"
+                date: "09.30-10.05"
               }
             }),
             _vm._v(" "),
@@ -55125,7 +55751,7 @@ var render = function() {
           [
             _c("v-direction-callendar-item", {
               attrs: {
-                item: _vm.tasks[22],
+                item: _vm.tasks[55],
                 width: 2,
                 left: true,
                 date: "09.30-10.05"
@@ -55133,15 +55759,15 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[29], date: "10.06" }
+              attrs: { item: _vm.tasks[62], date: "10.06" }
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[30], date: "10.07" }
+              attrs: { item: _vm.tasks[63], date: "10.07" }
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[32], date: "10.08" }
+              attrs: { item: _vm.tasks[65], date: "10.08" }
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
@@ -55153,11 +55779,11 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[26], date: "10.04" }
+              attrs: { item: _vm.tasks[59], date: "10.04" }
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[27], width: 3, date: "10.05-10.07" }
+              attrs: { item: _vm.tasks[60], width: 3, date: "10.05-10.07" }
             }),
             _vm._v(" "),
             _c("v-direction-callendar-item", { attrs: { date: "10.08" } }),
@@ -55173,28 +55799,16 @@ var render = function() {
             _c("v-direction-callendar-item", { attrs: { date: "10.04" } }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[28], width: 3, date: "10.05-10.07" }
+              attrs: { item: _vm.tasks[61], date: "10.05" }
             }),
-            _vm._v(" "),
-            _c("v-direction-callendar-item", { attrs: { date: "10.08" } }),
-            _vm._v(" "),
-            _c("v-direction-callendar-item", {
-              attrs: { weekend: true, date: "10.09" }
-            }),
-            _vm._v(" "),
-            _c("v-direction-callendar-item", {
-              attrs: { weekend: true, date: "10.10" }
-            }),
-            _vm._v(" "),
-            _c("v-direction-callendar-item", { attrs: { date: "10.04" } }),
-            _vm._v(" "),
-            _c("v-direction-callendar-item", { attrs: { date: "10.05" } }),
             _vm._v(" "),
             _c("v-direction-callendar-item", { attrs: { date: "10.06" } }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
-              attrs: { item: _vm.tasks[31], width: 2, date: "10.07-10.08" }
+              attrs: { item: _vm.tasks[64], date: "10.07" }
             }),
+            _vm._v(" "),
+            _c("v-direction-callendar-item", { attrs: { date: "10.08" } }),
             _vm._v(" "),
             _c("v-direction-callendar-item", {
               attrs: { weekend: true, date: "10.09" }
@@ -60339,7 +60953,7 @@ var render = function() {
             ? _c("v-direction-fun-callendar", { attrs: { tasks: _vm.tasks } })
             : _vm.direction.slug === "sport"
             ? _c("v-direction-sport-callendar", { attrs: { tasks: _vm.tasks } })
-            : _vm.direction.slug === "funs"
+            : _vm.direction.slug === "fans"
             ? _c("v-direction-funs-callendar", { attrs: { tasks: _vm.tasks } })
             : _vm._e(),
           _vm._v(" "),

@@ -29,6 +29,6 @@ class DatabaseSeeder extends Seeder
         $this->call(StarsSeeder::class);
         $this->call(CommentaryRoomsSeeder::class);
         $this->call(TasksSeeder::class);
-        //$this->call(FirstSportTaskSeeder::class);
+        $this->call(FirstSportTaskSeeder::class);
     }
 }
