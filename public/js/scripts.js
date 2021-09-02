@@ -1,51 +1,4 @@
 $(() => {
-	// Авторизация
-	// $('.auth .data .btns .recovery_btn').click((e) => {
-	// 	e.preventDefault()
-	//
-	// 	$('.auth .data > *').hide()
-	// 	$('.auth .data .recovery_form').fadeIn(300)
-	// })
-
-	// $('.auth .data .btns .login_btn').click((e) => {
-	// 	e.preventDefault()
-	//
-	// 	$('.auth .data > *').hide()
-	// 	$('.auth .data .login_form').fadeIn(300)
-	// })
-
-	// $('.auth .data .btns .register_btn').click((e) => {
-	// 	e.preventDefault()
-	//
-	// 	$('.auth .data > *').hide()
-	// 	$('.auth .data .register_form').fadeIn(300)
-	// })
-
-
-	// $('.auth .data .register_form').submit((e) => {
-	// 	e.preventDefault()
-	//
-	// 	$('.auth .data > *').hide()
-	// 	$('.auth .data .add_password_form').fadeIn(300)
-	// })
-
-
-	// Like
-	// $('.like_btn').click(function (e) {
-	// 	e.preventDefault()
-	//
-	// 	$(this).toggleClass('active')
-	// })
-
-
-	// Favorite
-	$('.favorite_btn').click(function (e) {
-		e.preventDefault()
-
-		$(this).toggleClass('active')
-	})
-
-
 	// Flag
 	$('.lk_info .history .item .flag_btn').click(function (e) {
 		e.preventDefault()
@@ -89,27 +42,6 @@ $(() => {
 		this.style.height = '1px'
 		this.style.height = this.scrollHeight + 'px'
 	})
-
-	// $('.chat .messages .message .reaply_btn').click(function (e) {
-	// 	e.preventDefault()
-	//
-	// 	let parent = $(this).closest('.message_wrap')
-	//
-	// 	$('.chat .messages .reaply').hide()
-	// 	$('.chat .messages .message').fadeIn(200)
-	//
-	// 	parent.find('> .message').hide()
-	// 	parent.find('> .reaply').fadeIn(200)
-	// })
-
-	// $('.chat .messages .reaply .cancel_btn').click(function (e) {
-	// 	e.preventDefault()
-	//
-	// 	let parent = $(this).closest('.message_wrap')
-	//
-	// 	parent.find('> .reaply').hide()
-	// 	parent.find('> .message').fadeIn(200)
-	// })
 
 
 	// Направления на главной
@@ -156,6 +88,21 @@ $(() => {
 
 
 	// Расписание
+	// $('.direction_info .schedule .head .challenge_btn').click(function (e) {
+	// 	e.preventDefault()
+	//
+	// 	$('.direction_info .schedule').hide()
+	// 	$('.direction_info .challenge').fadeIn(300)
+	// })
+	//
+	// $('.direction_info .challenge .head .back_btn').click(function (e) {
+	// 	e.preventDefault()
+	//
+	// 	$('.direction_info .challenge').hide()
+	// 	$('.direction_info .schedule').fadeIn(300)
+	// })
+
+
 	const scrollContainer2 = document.querySelector('.direction_info .schedule .week_wrap')
 	let isDown2 = false,
 		startX2,
@@ -254,18 +201,8 @@ $(window).on('load', () => {
 
 		if (offsetLeft > 50) $('.lk_info .lk_aside .links').scrollLeft(offsetLeft)
 	}
-
-
-	// // Чат
-	// $('.about_info .chat').height($('.about_info .video .link').outerHeight())
 })
 
-
-
-// $(window).on('resize', () => {
-// 	// Чат
-// 	$('.about_info .chat').height($('.about_info .video .link').outerHeight())
-// })
 
 
 function timerCycle() {

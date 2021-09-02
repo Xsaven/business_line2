@@ -111,6 +111,7 @@ export default {
                 });
             },
             sendCommentary () {
+
                 if (!isRequired(this.message) || !isLengthBetween(this.message, 1, 1200)) {
                     return "toast:error".exec("Минимум 1 символ!");
                 }
@@ -118,7 +119,7 @@ export default {
                 const message = this.message;
                 this.message = ''
 
-                jax.commentary.home_commentary(message).then(({result, comment}) => {
+                if (this.user.can) jax.commentary.home_commentary(message).then(({result, comment}) => {
                     if (result && this.user.active_commentaries) {
                         this.comments.push(comment);
                         this.scrollToBottom(true);

@@ -172,6 +172,13 @@
     }
 
 
+    .form .files .file_error
+    {
+        font-size: 13px;
+        line-height: 17px;
+    }
+
+
 
     /*----------------
         Typography
@@ -1273,7 +1280,8 @@
 
     .direction_info .terms,
     .direction_info .prizes,
-    .direction_info .schedule
+    .direction_info .schedule,
+    .direction_info .challenge
     {
         margin-top: 44px;
     }
@@ -1309,18 +1317,19 @@
         padding-top: 4px;
     }
 
-    .direction_info .schedule .head .challenge
+
+    .direction_info .schedule .head .challenge_btn
     {
         width: 274px;
         padding: 12px 20px;
     }
 
-    .direction_info .schedule .head .challenge .title
+    .direction_info .schedule .head .challenge_btn .title
     {
         font-size: 16px;
     }
 
-    .direction_info .schedule .head .challenge .duration
+    .direction_info .schedule .head .challenge_btn .duration
     {
         margin-top: 2px;
     }
@@ -1347,6 +1356,28 @@
         width: 20px;
         height: 20px;
         margin-right: 7px;
+    }
+
+
+
+    .direction_info .challenge .head
+    {
+        margin-bottom: 32px;
+    }
+
+    .direction_info .challenge .head .title
+    {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .direction_info .challenge .head .back_btn
+    {
+        font-size: 15px;
+        line-height: 19px;
+
+        width: 100px;
+        height: 40px;
     }
 
 

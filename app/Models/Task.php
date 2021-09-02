@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property string $action_type
  * @property int $cost
  * @property string|null $prize_src
- * @property string|null $terms_of_participation
+ * @property string $terms_of_participation
  * @property bool $is_challenge
  * @property \Illuminate\Support\Carbon|null $start_at
  * @property \Illuminate\Support\Carbon|null $finish_at

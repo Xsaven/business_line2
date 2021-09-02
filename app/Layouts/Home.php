@@ -3,9 +3,11 @@
 namespace App\Layouts;
 
 use App\Http\Resources\AuthUserResource;
+use App\Http\Resources\DirectionResource;
 use App\Http\Resources\NotificationResource;
 use App\Http\Resources\UserResource;
 use App\Repositories\AuthUserRepository;
+use App\Repositories\DirectionRepository;
 use Illuminate\Http\Request;
 use Lar\Layout\Abstracts\LayoutComponent;
 
@@ -106,6 +108,9 @@ class Home extends LayoutComponent
         if (\Auth::check()) {
             $auth_repo = app(AuthUserRepository::class);
             $this->js()->state('user', AuthUserResource::make(\Auth::user())->toArray($request));
+            $this->js()->state('directions', DirectionResource::collection(
+                app(DirectionRepository::class)->all
+            )->toArray(request()));
             $this->js()->state('new_notifications_count', $auth_repo->new_notifications_count);
             $this->js()->state('new_notifications', NotificationResource::collection(
                 $auth_repo->new_notifications

@@ -10,10 +10,10 @@
                     <img src="/images/twenty_years_mini.svg" alt="">
                 </div>
 
-                <div class="links">
-                    <div><a href="/">Fun</a></div>
-                    <div><a href="/">Sport</a></div>
-                    <div><a href="/">Болельщики</a></div>
+                <div class="links" v-if="directions">
+                    <div><a :href="`/direction/${directions[0].slug}`">{{directions[0].name}}</a></div>
+                    <div><a :href="`/direction/${directions[1].slug}`">{{directions[1].name}}</a></div>
+                    <div><a :href="`/direction/${directions[2].slug}`">{{directions[2].name}}</a></div>
                     <div class="margin"><a href="/rules">Правила</a></div>
                 </div>
 
@@ -77,10 +77,10 @@
                 <div class="scores">{{user.balance}} б</div>
             </div>
 
-            <div class="links">
-                <div><a href="/">Fun</a></div>
-                <div><a href="/">Sport</a></div>
-                <div><a href="/">Болельщики</a></div>
+            <div class="links" v-if="directions">
+                <div><a :href="`/direction/${directions[0].slug}`">{{directions[0].name}}</a></div>
+                <div><a :href="`/direction/${directions[1].slug}`">{{directions[1].name}}</a></div>
+                <div><a :href="`/direction/${directions[2].slug}`">{{directions[2].name}}</a></div>
                 <div><a href="/rules">Правила</a></div>
                 <div><a href="/">Магазин</a></div>
             </div>
@@ -90,12 +90,13 @@
 
 <script>
     export default {
-        $sync: ["user"],
+        $sync: ["user", "directions"],
         name: "v-header",
         props: {},
         data () {
             return {
-                user: {}
+                user: {},
+                directions: {}
             };
         },
         mounted () {},

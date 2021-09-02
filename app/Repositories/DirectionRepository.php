@@ -42,6 +42,6 @@ class DirectionRepository extends CoreRepository
     {
         $slug = $request->direction;
 
-        return Direction::whereSlug($slug)->first();
+        return Direction::whereSlug($slug)->with('tasks')->first();
     }
 }

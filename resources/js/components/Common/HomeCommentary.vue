@@ -14,7 +14,7 @@
 
             <div class="date">{{comment.created_at}}</div>
 
-            <button class="reaply_btn" v-if="iteration < 2" type="button" @click="reply_button">Ответить</button>
+            <button class="reaply_btn" v-if="iteration < 2 && user.can" type="button" @click="reply_button">Ответить</button>
 
             <button :class="{like_btn: true, active: user.liked_comment_ids.indexOf(comment.id) !== -1}" type="button" @click="like">
                 <span>{{comment.likes}}</span>
@@ -23,7 +23,7 @@
             </button>
         </div>
 
-        <div v-else class="reaply" v-if="iteration < 2">
+        <div v-else class="reaply" v-if="iteration < 2 && user.can">
             <button class="cancel_btn" @click="cancel_reply" type="button">
                 <v-icon icon="ic_close" />
             </button>
@@ -90,7 +90,7 @@
                 this.comments = this.comment.child.filter((i) => i.id!==id);
             },
             like () {
-                ljs.onetime(() => {
+                if (this.user.can) ljs.onetime(() => {
                     jax.commentary.like(this.comment.id).then(({liked_comment_ids, comment}) => {
                         if (comment) Object.keys(comment).map((key) => {
                             this.comment[key] = comment[key];

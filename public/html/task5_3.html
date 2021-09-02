@@ -264,17 +264,7 @@
 									</div>
 
 									<div class="line files">
-										<div class="choose field">
-											<input type="file" name="file" id="file">
-											<label for="file">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_attachment"></use></svg>
-												<span>Прикрепить фото/ видео</span>
-
-												<div class="rules">jpg, jpeg, png до 10 МБ<br> mov, mp4, mpeg, mpg до 20 МБ</div>
-											</label>
-										</div>
-
-										<div class="loading">
+										<div class="selected" style="display: block;">
 											<div class="row">
 												<div class="icon">
 													<svg><use xlink:href="images/sprite.svg#ic_file2"></use></svg>
@@ -283,19 +273,24 @@
 												<div>
 													<div class="name">Название файла.mp4</div>
 
-													<div class="progress">
-														<div class="bar" style="width: 70%;"></div>
-													</div>
-
 													<div class="size">
-														<span class="upload">28 Мб</span> из
 														<span class="total">57 Мб</span>
-														<span class="percents">78% загружено</span>
+														<span class="percents">Файл загружен</span>
 													</div>
 												</div>
 											</div>
 
-											<button type="button" class="cancel_btn">Отмена</button>
+											<button type="button" class="delete_btn">Удалить</button>
+										</div>
+
+										<div class="choose field" style="display: none;">
+											<input type="file" name="file" id="file">
+											<label for="file">
+												<svg class="icon"><use xlink:href="images/sprite.svg#ic_attachment"></use></svg>
+												<span>Прикрепить фото/ видео</span>
+
+												<div class="rules">jpg, jpeg, png до 10 МБ<br> mov, mp4, mpeg, mpg до 20 МБ</div>
+											</label>
 										</div>
 									</div>
 
