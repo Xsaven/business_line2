@@ -1,0 +1,104 @@
+<template>
+    <v-layout>
+      <section class="shop">
+        <div class="cont">
+          <div class="block_head">
+            <div class="title">Магазин подарков</div>
+
+            <div class="scores">Доступно: {{user.balance}} {{declOfNum(user.balance,['бал','бала','балов'])}}</div>
+          </div>
+
+          <div class="products">
+            <div class="row">
+              <div class="product" v-for="(product, product_index) in prods">
+                <div :class="{'scores': true,'red': product.cost > user.balance }">{{product.cost}} {{declOfNum(product.cost,['бал','бала','балов'])}}</div>
+
+                <div class="thumb">
+                  <img :src="product.src" alt="" class="lozad">
+                </div>
+
+                <v-product-info  :product="product" />
+
+                <button class="buy_btn modal_btn" data-content="#buy_modal" @click="selected=product_index">Купить</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="modal" id="buy_modal">
+        <div class="row">
+          <div class="product">
+            <div class="thumb">
+              <img :src="prods[selected].src" alt="" class="lozad">
+            </div>
+
+            <v-product-info  v-if="selected && prods[selected].id" :product="prods[selected]" salt="modal" />
+
+          </div>
+
+          <form action="" class="form">
+            <div class="title">Оформление заказа</div>
+
+            <div class="columns row">
+              <div class="line">
+                <div class="field">
+                  <input type="tel" name="" value="" class="input" placeholder="Номер телефона">
+                </div>
+              </div>
+
+              <div class="line">
+                <div class="field">
+                  <input type="email" name="" value="" class="input" placeholder="Электронная почта">
+                </div>
+              </div>
+            </div>
+
+            <div class="line">
+              <div class="field">
+                <select name="">
+                  <option value="0" data-display="Адрес ОСП для доставки"></option>
+                  <option value="1">Вариант 1</option>
+                  <option value="2">Вариант 2</option>
+                  <option value="3">Вариант 3</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="submit">
+              <button type="submit" class="submit_btn">Оформить заказ</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </v-layout>
+</template>
+
+<script>
+    export default {
+        name: "pages_product",
+        $sync: ['user'],
+        props: {
+          products: {required:true}
+        },
+        data () {
+            return {
+                user: {},
+                selected: 0,
+                prods: this.products
+            };
+        },
+        mounted () {},
+        computed: {},
+        watch: {},
+        methods: {
+          declOfNum(n, text_forms) {
+            n = Math.abs(n) % 100;
+            var n1 = n % 10;
+            if (n > 10 && n < 20) { return text_forms[2]; }
+            if (n1 > 1 && n1 < 5) { return text_forms[1]; }
+            if (n1 === 1) { return text_forms[0]; }
+            return text_forms[2];
+          }
+        }
+    }
+</script>

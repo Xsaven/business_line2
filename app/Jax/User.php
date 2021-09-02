@@ -2,7 +2,18 @@
 
 namespace App\Jax;
 
+use App\Events\ReportDownloadFileImageTask;
+use App\Events\ReportDownloadFileTask;
+use App\Events\ReportImageVideoTask;
+use App\Events\ReportPhotoTask;
+use App\Events\ReportQuizTask;
+use App\Events\ReportStarQuizTask;
 use App\Events\ReportTaskEvent;
+use App\Events\ReportTextImageTask;
+use App\Events\ReportTextImageVideoTask;
+use App\Events\ReportTextTask;
+use App\Events\ReportTextVideoTask;
+use App\Events\ReportVideoTask;
 use App\Events\SubscribeDirectionEvent;
 use App\Events\User\ChangeName;
 use App\Http\Resources\AuthUserResource;
@@ -118,24 +129,178 @@ class User extends JaxExecutor
         $this->reload();
     }
 
+
     /**
      * @param int $task_id
      * @param string $comment
-     * @param Request $request
      */
-    public function task_report(int $task_id, string $comment, Request $request)
+    public function text_report(int $task_id,string $comment)
     {
-        $files = $request->file('files');
-
-        $user_id = \Auth::user()->id;
-
         /**
-         * @var ReportTaskEvent
+         * @var ReportTextTask
          */
-        $event = new ReportTaskEvent($task_id, $user_id, $comment, $files);
+        $event = new ReportTextTask($task_id,$comment);
 
         event($event);
 
         $this->reload();
     }
+
+    /**
+     * @param int $task_id
+     * @param $videos
+     */
+    public function video_report(int $task_id,Request $request)
+    {
+        $videos = '';
+        /**
+         * @var ReportVideoTask
+         */
+        $event = new ReportVideoTask($task_id,$videos);
+
+        event($event);
+
+        $this->reload();
+    }
+
+    /**
+     * @param int $task_id
+     * @param Request $request
+     */
+    public function image_report(int $task_id,Request $request)
+    {
+        $files = [];
+
+        $event = new ReportPhotoTask($task_id,$files);
+
+        event($event);
+
+        $this->reload();
+    }
+
+    public function text_or_image_or_video_report(int $task_id,string $comment,$files,$videos)
+    {
+        $files = [];
+        $videos = [];
+
+        /**
+         * @var ReportTextImageVideoTask
+         */
+        $event = new ReportTextImageVideoTask($task_id,$comment,$files,$videos);
+
+        event($event);
+
+        $this->reload();
+    }
+
+    /**
+     * @param int $task_id
+     * @param Request $request
+     */
+    public function image_or_video_report(int $task_id,Request $request)
+    {
+        $files = [];
+        $videos = [];
+
+        /**
+         * @var ReportImageVideoTask
+         */
+        $event = new ReportImageVideoTask($task_id,$files,$videos);
+
+        event($event);
+
+        $this->reload();
+    }
+
+    /**
+     * @param int $task_id
+     * @param string $comment
+     * @param $videos
+     */
+    public function text_or_video_report(int $task_id,string $comment,$videos)
+    {
+        $videos = [];
+
+        /**
+         * @var ReportTextVideoTask
+         */
+        $event = new ReportTextVideoTask($task_id,$comment,$videos);
+
+        event($event);
+
+        $this->reload();
+    }
+
+    /**
+     * @param int $task_id
+     * @param string $comment
+     * @param Request $request
+     */
+    public function text_or_image_report(int $task_id, string $comment, Request $request)
+    {
+        $files = $request->file('files');
+
+        /**
+         * @var ReportTextImageTask
+         */
+        $event = new ReportTextImageTask($task_id, $comment, $files);
+
+        event($event);
+
+        $this->reload();
+    }
+
+    /**
+     * @param int $task_id
+     * @param array $quiz_answers
+     */
+    public function quiz_report(int $task_id,array $quiz_answers)
+    {
+        $event = new ReportQuizTask($task_id,$quiz_answers);
+
+        event($event);
+
+        $this->reload();
+    }
+
+    /**
+     * @param int $task_id
+     * @param array $star_quiz_answers
+     */
+    public function star_quiz_report(int $task_id,array $star_quiz_answers)
+    {
+        $event = new ReportStarQuizTask($task_id,$star_quiz_answers);
+
+        event($event);
+
+        $this->reload();
+    }
+
+    /**
+     * @param int $task_id
+     */
+    public function download_file_report(int $task_id)
+    {
+        $event = new ReportDownloadFileTask($task_id);
+
+        event($event);
+
+        $this->reload();
+    }
+
+
+    /**
+     * @param int $task_id
+     * @param $files
+     */
+    public function download_file_image_report(int $task_id,$files)
+    {
+        $event = new ReportDownloadFileImageTask($task_id,$files);
+
+        event($event);
+
+        $this->reload();
+    }
+
+
 }

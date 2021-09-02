@@ -17,6 +17,9 @@ module.exports = (Vue) => {
     Vue.component('v-upload-report-soon', require('./Common/UploadReportSoon.vue').default);
     Vue.component('v-upload-text-or-video', require('./Common/UploadTextOrVideoReport.vue').default);
     Vue.component('v-upload-text-or-image', require('./Common/UploadTextOrImageReport.vue').default);
+    Vue.component('v-my-report', require('./Common/MyReport.vue').default);
+    Vue.component('v-download-file-report', require('./Common/DownloadFileReport.vue').default);
+    Vue.component('v-download-file-image', require('./Common/DownloadFileAndUploadImageReport.vue').default);
     Vue.component('v-upload-tiv-report', require('./Common/UploadTextOrImageOrVideoReport.vue').default);
     Vue.component('v-upload-image-or-video', require('./Common/UploadImageOrVideoReport.vue').default);
     Vue.component('v-upload-quiz-task-report', require('./Common/UploadQuizTaskReport.vue').default);
@@ -28,4 +31,5 @@ module.exports = (Vue) => {
     Vue.component('v-home-field-set-commentary', require('./Common/HomeFieldSetCommentary.vue').default);
     Vue.component('v-home-smiles-commentary', require('./Common/HomeSmilesCommentary.vue').default);
     Vue.component('v-home-make-commentary', require('./Common/HomeMakeCommentary.vue').default);
+    Vue.component('v-product-info', require('./Common/ProductInfo.vue').default);
 }

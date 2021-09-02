@@ -6,7 +6,7 @@
       <form action="" class="form">
         <div class="line">
           <div class="field">
-            <textarea name="" placeholder="Комментарий" class="min_h"></textarea>
+            <textarea v-model="comment" name="" placeholder="Комментарий" class="min_h"></textarea>
 
             <div class="smiles modal_cont">
               <button type="button" class="btn mini_modal_btn" data-modal-id="#smiles_modal">
@@ -95,7 +95,7 @@
         </div>
 
         <div class="submit">
-          <button type="submit" class="submit_btn">Отправить</button>
+          <button @click.prevent.stop="send()" type="submit" class="submit_btn">Отправить</button>
         </div>
       </form>
 
@@ -106,7 +106,30 @@
 
 <script>
 export default {
-  name: "v-upload-text-or-image"
+  name: "v-upload-text-or-image",
+  props: ['task'],
+  data () {
+    return {
+      files: [],
+      comment: ''
+    };
+  },
+  mounted () {},
+  computed: {},
+  watch: {},
+  methods: {
+    fileRemove (index) {
+      this.files =  this.files.filter((i,k) => index!==k);
+    },
+    handleUpload() {
+      Object.values(this.$refs.file.files).map((file) => this.files.push(file));
+    },
+    send() {
+      jax.params({files: this.files}).user.text_or_image_report(this.task.id,this.comment)
+          .then(() => {
+          })
+    }
+  }
 }
 </script>
 

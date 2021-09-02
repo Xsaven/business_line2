@@ -57,7 +57,17 @@ declare interface JaxModelUserInterface {
         mark_as_read_notifications(...params: any[]): Promise<JaxModelUserInterface>;
         ping(...params: any[]): Promise<JaxModelUserInterface>;
         follow_direction(...params: any[]): Promise<JaxModelUserInterface>;
-        task_report(...params: any[]): Promise<JaxModelUserInterface>;
+        text_report(...params: any[]): Promise<JaxModelUserInterface>;
+        video_report(...params: any[]): Promise<JaxModelUserInterface>;
+        image_report(...params: any[]): Promise<JaxModelUserInterface>;
+        text_or_image_or_video_report(...params: any[]): Promise<JaxModelUserInterface>;
+        image_or_video_report(...params: any[]): Promise<JaxModelUserInterface>;
+        text_or_video_report(...params: any[]): Promise<JaxModelUserInterface>;
+        text_or_image_report(...params: any[]): Promise<JaxModelUserInterface>;
+        quiz_report(...params: any[]): Promise<JaxModelUserInterface>;
+        star_quiz_report(...params: any[]): Promise<JaxModelUserInterface>;
+        download_file_report(...params: any[]): Promise<JaxModelUserInterface>;
+        download_file_image_report(...params: any[]): Promise<JaxModelUserInterface>;
 }
 declare interface JaxModelQuestionsInterface {
     list(...params: any[]): Promise<JaxModelQuestionsInterface>;

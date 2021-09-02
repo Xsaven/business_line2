@@ -2,11 +2,13 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
  * ProductResource Class.
+ * @mixin Product
  */
 class ProductResource extends JsonResource
 {
@@ -17,6 +19,14 @@ class ProductResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'src' => $this->src,
+            'cost' => $this->cost,
+            'settings' => $this->settings,
+            'first_setting' => $this->setting[0] ?? null,
+            'all_settings' => $this->setting,
+        ];
     }
 }

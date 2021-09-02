@@ -57,7 +57,7 @@
             Object.values(this.$refs.file.files).map((file) => this.files.push(file));
           },
           send() {
-            jax.params({files: this.files}).user.task_report(this.task.id,this.comment)
+            jax.params({files: this.files}).user.video_report(this.task.id,this.comment)
               .then(() => {
                 console.log(this.task);
               })

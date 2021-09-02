@@ -44,7 +44,9 @@
           <v-upload-text-or-image v-else-if="!task_report && task.report_type === 'text_or_image' && green_button" :task="task"/>
           <v-upload-quiz-task-report v-else-if="!task_report && task.report_type === 'quiz' && green_button" :task="task"/>
           <v-upload-star-quiz-task-report v-else-if="!task_report && task.report_type === 'star_quiz' && green_button" :task="task"/>
+          <v-download-file-report v-else-if="!task_report && task.report_type === 'download_file' && green_button" :task="task"/>
           <v-get-task-report v-else-if="task_report && task_report.status === 'created'"/>
+          <v-my-report v-else-if="task_report && task_report.status === 'uploaded'" :report="task_report" :task="task"/>
           <v-upload-report-soon v-else-if="between_days" />
         </div>
       </section>

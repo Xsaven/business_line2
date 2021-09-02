@@ -95,7 +95,7 @@
         watch: {},
         methods: {
           send() {
-            jax.user.task_report(this.task.id,this.comment)
+            jax.user.text_report(this.task.id,this.comment)
               .then(() => {
                 console.log(this.task);
               })

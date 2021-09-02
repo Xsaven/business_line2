@@ -125,7 +125,7 @@ export default {
       Object.values(this.$refs.file.files).map((file) => this.files.push(file));
     },
     send() {
-      jax.params({files: this.files}).user.task_report(this.task.id,this.comment)
+      jax.params({files: this.files}).user.text_or_image_or_video_report(this.task.id,this.comment)
           .then(() => {
             console.log(this.files);
           })

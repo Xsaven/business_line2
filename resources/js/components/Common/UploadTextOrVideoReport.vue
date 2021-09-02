@@ -106,7 +106,30 @@
 
 <script>
 export default {
-  name: "v-upload-text-or-video"
+  name: "v-upload-text-or-video",
+  props: ['task'],
+  data () {
+    return {
+      files: [],
+      comment: ''
+    };
+  },
+  mounted () {},
+  computed: {},
+  watch: {},
+  methods: {
+    fileRemove (index) {
+      this.files =  this.files.filter((i,k) => index!==k);
+    },
+    handleUpload() {
+      Object.values(this.$refs.file.files).map((file) => this.files.push(file));
+    },
+    send() {
+      jax.params({files: this.files}).user.text_or_video_report(this.task.id,this.comment)
+          .then(() => {
+          })
+    }
+  }
 }
 </script>
 

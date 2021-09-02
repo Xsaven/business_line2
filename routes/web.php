@@ -46,6 +46,12 @@ use Lar\Roads\Roads;
 
 \Road::layout('home')
     ->web()
+    ->auth()
+    ->component('/products', \App\Components\Vue\Pages\Product::class)
+    ->name('products');
+
+\Road::layout('home')
+    ->web()
     ->component('/faq', \App\Components\Vue\Pages\FAQ::class)
     ->name('faq');
 

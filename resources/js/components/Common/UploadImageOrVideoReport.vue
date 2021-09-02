@@ -15,7 +15,7 @@
           </div>
 
           <div class="field">
-            <input type="file" name="file" id="file" ref="file" @change="handleUpload" multiple>
+            <input type="file" name="file" id="file" ref="file" @change="handleUpload">
             <label for="file">
               <v-icon icon="ic_attachment" />
               <span>Прикрепить фото/ видео</span>
@@ -37,7 +37,30 @@
 
 <script>
 export default {
-  name: "v-upload-image-or-video"
+  name: "v-upload-image-or-video",
+  props: ['task'],
+  data () {
+    return {
+      files: [],
+      comment: ''
+    };
+  },
+  mounted () {},
+  computed: {},
+  watch: {},
+  methods: {
+    fileRemove (index) {
+      this.files =  this.files.filter((i,k) => index!==k);
+    },
+    handleUpload() {
+      Object.values(this.$refs.file.files).map((file) => this.files.push(file));
+    },
+    send() {
+      jax.params({files: this.files}).user.image_or_video_report(this.task.id)
+          .then(() => {
+          })
+    }
+  }
 }
 </script>
 

@@ -13,6 +13,7 @@
         "common_header": "Common/Header.vue",
         "pages_direction": "Pages/Direction.vue",
         "pages_task": "Pages/Task.vue",
-        "pages_new_password": "Pages/NewPassword.vue"
+        "pages_new_password": "Pages/NewPassword.vue",
+        "pages_product": "Pages/Product.vue"
     }
 }
