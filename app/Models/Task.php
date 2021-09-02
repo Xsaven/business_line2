@@ -22,13 +22,16 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property string $action_type
  * @property int $cost
  * @property string|null $prize_src
- * @property string $terms_of_participation
+ * @property string|null $terms_of_participation
+ * @property bool $is_challenge
  * @property \Illuminate\Support\Carbon|null $start_at
  * @property \Illuminate\Support\Carbon|null $finish_at
  * @property int $direction_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Direction|null $direction
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Download[] $downloads
+ * @property-read int|null $downloads_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Log[] $logs
  * @property-read int|null $logs_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\QuizQuestion[] $quizQuestions
@@ -47,6 +50,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereEventType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereFinishAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereIsChallenge($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task wherePrizeSrc($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereReportConfigs($value)
@@ -140,6 +144,7 @@ class Task extends Model
         'cost',
         'prize_src',
         'terms_of_participation',
+        'is_challenge',
         'start_at',
         'finish_at',
         'direction_id',
@@ -159,6 +164,7 @@ class Task extends Model
         'cost' => 'integer',
         'prize_src' => 'string',
         'terms_of_participation' => 'string',
+        'is_challenge' => 'boolean',
         'start_at' => 'datetime',
         'finish_at' => 'datetime',
         'direction_id' => 'integer',
@@ -173,7 +179,17 @@ class Task extends Model
         'report_type' => 'text',
         'action_type' => 'manually',
         'cost' => 0,
+        'is_challenge' => 0,
     ];
+
+    /**
+     * The "hasMany" relation for "Zagruzki".
+     * @return HasMany
+     */
+    public function downloads() : HasMany
+    {
+        return $this->hasMany(Download::class, 'task_id', 'id');
+    }
 
     /**
      * The "hasMany" relation for "Rezultaty' viktorin".

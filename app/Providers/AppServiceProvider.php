@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
 
         \Cache::store('redis');
 
-        if (\Schema::hasTable('settings')) {
+        if (\Schema::hasTable('settings') && class_exists(Setting::class)) {
             $cfg = Setting::pluck('value', 'name')->toArray();
             \View::share('cfg', $cfg);
             config($cfg);

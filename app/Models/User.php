@@ -55,6 +55,8 @@ use Illuminate\Notifications\Notifiable;
  * @property-read int|null $commentary_likes_count
  * @property-read \App\Models\Direction|null $direction
  * @property-read \App\Models\Division|null $division
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Download[] $downloads
+ * @property-read int|null $downloads_count
  * @property-read string $full_name
  * @property-read string $short_name
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Log[] $logs
@@ -204,6 +206,15 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    /**
+     * The "hasMany" relation for "Zagruzki".
+     * @return HasMany
+     */
+    public function downloads() : HasMany
+    {
+        return $this->hasMany(Download::class, 'user_id', 'id');
+    }
 
     /**
      * The "hasMany" relation for "Rezultaty' viktorin".

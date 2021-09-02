@@ -29,57 +29,57 @@ class Navigator extends NavigatorExtensionProvider implements ActionWorkExtensio
         if (! class_exists(User::class)) {
             return;
         }
-        $this->item(Direction::TITLE)
-            ->resource('direction', 'DirectionController')
-            ->icon_directions();
-
-        $this->item(Position::TITLE)
-            ->resource('position', 'PositionController')
-            ->icon_hard_hat();
-
-        $this->item(Division::TITLE)
-            ->resource('division', 'DivisionController')
-            ->icon_building();
-
-        $this->item(User::TITLE)
-            ->resource('users', 'UsersController')
-            ->icon_users();
-
-        $this->item(Task::TITLE)
-            ->resource('task', 'TaskController')
-            ->icon_tasks();
-
-        $this->item(Faq::TITLE)
-            ->resource('faq', 'FaqController')
-            ->icon_question_circle();
-
-        $this->item(Prize::TITLE)
-            ->resource('prize', 'PrizeController')
-            ->icon_gift();
-
-        $this->item(Product::TITLE)
-            ->resource('products', 'ProductController')
-            ->icon_gifts();
-
-        $this->item(Order::TITLE)
-            ->resource('orders', 'OrderController')
-            ->icon_first_order();
-
-        $this->item(Commentary::TITLE)
-            ->resource('commentary', 'CommentariesController')
-            ->icon_comments();
-
-        $this->item(Log::TITLE)
-            ->resource('logs', 'LogController')
-            ->icon_list();
-
-        $this->item(Setting::TITLE)
-            ->resource('setting', 'SettingsController')
-            ->icon_cogs();
-
-        $this->item(ProductSetting::TITLE)
-            ->resource('product_settings', 'ProductSettingController')
-            ->icon_cogs();
+//        $this->item(Direction::TITLE)
+//            ->resource('direction', 'DirectionController')
+//            ->icon_directions();
+//
+//        $this->item(Position::TITLE)
+//            ->resource('position', 'PositionController')
+//            ->icon_hard_hat();
+//
+//        $this->item(Division::TITLE)
+//            ->resource('division', 'DivisionController')
+//            ->icon_building();
+//
+//        $this->item(User::TITLE)
+//            ->resource('users', 'UsersController')
+//            ->icon_users();
+//
+//        $this->item(Task::TITLE)
+//            ->resource('task', 'TaskController')
+//            ->icon_tasks();
+//
+//        $this->item(Faq::TITLE)
+//            ->resource('faq', 'FaqController')
+//            ->icon_question_circle();
+//
+//        $this->item(Prize::TITLE)
+//            ->resource('prize', 'PrizeController')
+//            ->icon_gift();
+//
+//        $this->item(Product::TITLE)
+//            ->resource('products', 'ProductController')
+//            ->icon_gifts();
+//
+//        $this->item(Order::TITLE)
+//            ->resource('orders', 'OrderController')
+//            ->icon_first_order();
+//
+//        $this->item(Commentary::TITLE)
+//            ->resource('commentary', 'CommentariesController')
+//            ->icon_comments();
+//
+//        $this->item(Log::TITLE)
+//            ->resource('logs', 'LogController')
+//            ->icon_list();
+//
+//        $this->item(Setting::TITLE)
+//            ->resource('setting', 'SettingsController')
+//            ->icon_cogs();
+//
+//        $this->item(ProductSetting::TITLE)
+//            ->resource('product_settings', 'ProductSettingController')
+//            ->icon_cogs();
 
         $this->makeDefaults();
     }
