@@ -143,7 +143,7 @@
 
                 <div class="events">
 
-                    <v-direction-callendar-item :item="tasks[42]" :left="true" date="09.20" />
+                    <v-direction-callendar-item :item="tasks[42]" date="09.20" />
 
                     <v-direction-callendar-item :item="tasks[44]" date="09.21" />
 
@@ -159,11 +159,11 @@
 
                     <!--LINE-->
 
-                    <v-direction-callendar-item :item="tasks[10]" :width="3" date="09.20-09.22" />
+                    <v-direction-callendar-item :item="tasks[43]" date="09.20" />
 
-                    <v-direction-callendar-item date="09.23" />
+                    <v-direction-callendar-item date="09.21" />
 
-                    <v-direction-callendar-item :item="tasks[15]" :right="true" date="09.24-09.28" />
+                    <v-direction-callendar-item :item="tasks[46]" :width="3" date="09.22-09.24" />
 
                     <v-direction-callendar-item :weekend="true" date="09.25" />
 
@@ -171,11 +171,27 @@
 
                     <!--LINE-->
 
-                    <v-direction-callendar-item :item="tasks[9]" date="09.20" />
+                    <v-direction-callendar-item date="09.20" />
 
                     <v-direction-callendar-item date="09.21" />
 
-                    <v-direction-callendar-item :item="tasks[13]" :width="3" date="09.22-09.24" />
+                    <v-direction-callendar-item :item="tasks[46]" :width="3" date="09.22-09.24" />
+
+                    <v-direction-callendar-item :weekend="true" date="09.25" />
+
+                    <v-direction-callendar-item :weekend="true" date="09.26" />
+
+                    <!--LINE-->
+
+                    <v-direction-callendar-item date="09.20" />
+
+                    <v-direction-callendar-item date="09.21" />
+
+                    <v-direction-callendar-item date="09.22" />
+
+                    <v-direction-callendar-item date="09.23" />
+
+                    <v-direction-callendar-item :item="tasks[48]" :right="true" date="09.24-09.28" />
 
                     <v-direction-callendar-item :weekend="true" date="09.25" />
 
@@ -225,13 +241,13 @@
 
                 <div class="events">
 
-                    <v-direction-callendar-item :item="tasks[15]" :width="2" :left="true" date="09.24-09.28" />
+                    <v-direction-callendar-item :item="tasks[48]" :width="2" :left="true" date="09.24-09.28" />
 
-                    <v-direction-callendar-item :item="tasks[21]" date="09.29" />
+                    <v-direction-callendar-item :item="tasks[54]" date="09.29" />
 
-                    <v-direction-callendar-item :item="tasks[23]" date="09.30" />
+                    <v-direction-callendar-item :item="tasks[56]" date="09.30" />
 
-                    <v-direction-callendar-item :item="tasks[24]" date="10.01" />
+                    <v-direction-callendar-item :item="tasks[57]" date="10.01" />
 
                     <v-direction-callendar-item :weekend="true" date="10.02" />
 
@@ -239,9 +255,9 @@
 
                     <!--LINE-->
 
-                    <v-direction-callendar-item :item="tasks[18]" date="09.27" />
+                    <v-direction-callendar-item :item="tasks[51]" date="09.27" />
 
-                    <v-direction-callendar-item :item="tasks[19]" :width="3" date="09.28-09.30" />
+                    <v-direction-callendar-item :item="tasks[52]" :width="3" date="09.28-09.30" />
 
                     <v-direction-callendar-item date="10.01" />
 
@@ -253,11 +269,11 @@
 
                     <v-direction-callendar-item date="09.27" />
 
-                    <v-direction-callendar-item :item="tasks[20]" date="09.28" />
+                    <v-direction-callendar-item :item="tasks[53]" date="09.28" />
 
                     <v-direction-callendar-item date="09.29" />
 
-                    <v-direction-callendar-item :item="tasks[22]" :width="2" :right="true" date="09.28-10.05" />
+                    <v-direction-callendar-item :item="tasks[55]" :width="2" :right="true" date="09.30-10.05" />
 
                     <v-direction-callendar-item :weekend="true" date="10.02" />
 
@@ -307,13 +323,13 @@
 
                 <div class="events">
 
-                    <v-direction-callendar-item :item="tasks[22]" :width="2" :left="true" date="09.30-10.05" />
+                    <v-direction-callendar-item :item="tasks[55]" :width="2" :left="true" date="09.30-10.05" />
 
-                    <v-direction-callendar-item :item="tasks[29]" date="10.06" />
+                    <v-direction-callendar-item :item="tasks[62]" date="10.06" />
 
-                    <v-direction-callendar-item :item="tasks[30]" date="10.07" />
+                    <v-direction-callendar-item :item="tasks[63]" date="10.07" />
 
-                    <v-direction-callendar-item :item="tasks[32]" date="10.08" />
+                    <v-direction-callendar-item :item="tasks[65]" date="10.08" />
 
                     <v-direction-callendar-item :weekend="true" date="10.09" />
 
@@ -321,9 +337,9 @@
 
                     <!--LINE-->
 
-                    <v-direction-callendar-item :item="tasks[26]" date="10.04" />
+                    <v-direction-callendar-item :item="tasks[59]" date="10.04" />
 
-                    <v-direction-callendar-item :item="tasks[27]" :width="3" date="10.05-10.07" />
+                    <v-direction-callendar-item :item="tasks[60]" :width="3" date="10.05-10.07" />
 
                     <v-direction-callendar-item date="10.08" />
 
@@ -335,23 +351,13 @@
 
                     <v-direction-callendar-item date="10.04" />
 
-                    <v-direction-callendar-item :item="tasks[28]" :width="3" date="10.05-10.07" />
-
-                    <v-direction-callendar-item date="10.08" />
-
-                    <v-direction-callendar-item :weekend="true" date="10.09" />
-
-                    <v-direction-callendar-item :weekend="true" date="10.10" />
-
-                    <!--LINE-->
-
-                    <v-direction-callendar-item date="10.04" />
-
-                    <v-direction-callendar-item date="10.05" />
+                    <v-direction-callendar-item :item="tasks[61]" date="10.05" />
 
                     <v-direction-callendar-item date="10.06" />
 
-                    <v-direction-callendar-item :item="tasks[31]" :width="2" date="10.07-10.08" />
+                    <v-direction-callendar-item :item="tasks[64]" date="10.07" />
+
+                    <v-direction-callendar-item date="10.08" />
 
                     <v-direction-callendar-item :weekend="true" date="10.09" />
 
@@ -365,7 +371,9 @@
 <script>
     export default {
         name: "v-direction-sport-callendar",
-        props: {},
+        props: {
+            tasks: {required:true},
+        },
         data () {
             return {
 
