@@ -10,27 +10,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 /**
  * Order Class.
- *
  * @package App\Models
- * @property int $id
- * @property string $status
- * @property int $user_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Log[] $logs
- * @property-read int|null $logs_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Product[] $products
- * @property-read int|null $products_count
- * @property-read \App\Models\User|null $user
- * @method static \Illuminate\Database\Eloquent\Builder|Order newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Order newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Order query()
- * @method static \Illuminate\Database\Eloquent\Builder|Order whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Order whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Order whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Order whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Order whereUserId($value)
- * @mixin \Eloquent
  */
 class Order extends Model
 {
@@ -64,8 +44,11 @@ class Order extends Model
      * @return array
      */
     protected $fillable = [
+        'phone',
+        'email',
         'status',
         'user_id',
+        'delivery_id',
     ];
 
     /**
@@ -73,8 +56,11 @@ class Order extends Model
      * @return array
      */
     protected $casts = [
+        'phone' => 'string',
+        'email' => 'string',
         'status' => 'string',
         'user_id' => 'integer',
+        'delivery_id' => 'integer',
     ];
 
     /**
@@ -110,5 +96,14 @@ class Order extends Model
     public function logs() : MorphMany
     {
         return $this->morphMany(Log::class, 'logable', 'logable_type', 'logable_id', 'id');
+    }
+
+    /**
+     * The "hasOne" relation for "Punkty' dostavki".
+     * @return HasOne
+     */
+    public function delivery() : HasOne
+    {
+        return $this->hasOne(Delivery::class, 'id', 'delivery_id');
     }
 }

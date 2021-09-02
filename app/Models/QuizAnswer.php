@@ -8,25 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * QuizAnswer Class.
- *
  * @package App\Models
- * @property int $id
- * @property string $answer
- * @property int $quiz_question_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\QuizQuestion|null $quizQuestion
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Star[] $stars
- * @property-read int|null $stars_count
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer query()
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereAnswer($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereQuizQuestionId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereUpdatedAt($value)
- * @mixin \Eloquent
  */
 class QuizAnswer extends Model
 {

@@ -23,16 +23,16 @@ class Create
 
         $user_id = \Auth::user()->id;
 
-        if($event->files) {
+        if ($event->files) {
             foreach ($event->files as $file) {
                 $img = \Image::make($file->path())
                     ->resize(800, 600, function ($constraint) {
                         $constraint->aspectRatio();
                     })->encode('jpg');
 
-                $file_name = $user_id . $event->task_id . $i . '.jpg';
+                $file_name = $user_id.$event->task_id.$i.'.jpg';
 
-                \Storage::disk('yandexcloud')->put('/'.$file_name, (string)$img);
+                \Storage::disk('yandexcloud')->put('/'.$file_name, (string) $img);
 
                 $upload_files[] = $file_name;
 

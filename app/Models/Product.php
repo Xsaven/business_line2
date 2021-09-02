@@ -10,33 +10,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 /**
  * Product Class.
- *
  * @package App\Models
- * @property int $id
- * @property string $name
- * @property string $src
- * @property int $cost
- * @property array $settings
- * @property int $setting_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Log[] $logs
- * @property-read int|null $logs_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Order[] $orders
- * @property-read int|null $orders_count
- * @property-read \App\Models\ProductSetting|null $setting
- * @method static \Illuminate\Database\Eloquent\Builder|Product newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Product newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Product query()
- * @method static \Illuminate\Database\Eloquent\Builder|Product whereCost($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Product whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Product whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Product whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Product whereSettingId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Product whereSettings($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Product whereSrc($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
- * @mixin \Eloquent
  */
 class Product extends Model
 {

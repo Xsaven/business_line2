@@ -21,5 +21,6 @@ class ReportVideoTask
     public function __construct(
         public int $task_id,
         public $videos
-    ){}
+    ) {
+    }
 }

@@ -23,6 +23,6 @@ class ReportImageVideoTask
         public int $task_id,
         public $files,
         public $videos
-    ){}
-
+    ) {
+    }
 }

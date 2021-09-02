@@ -7,24 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * Download Class.
- *
  * @package App\Models
- * @property int $id
- * @property int $task_id
- * @property int $user_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Task|null $task
- * @property-read \App\Models\User|null $user
- * @method static \Illuminate\Database\Eloquent\Builder|Download newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Download newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Download query()
- * @method static \Illuminate\Database\Eloquent\Builder|Download whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Download whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Download whereTaskId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Download whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Download whereUserId($value)
- * @mixin \Eloquent
  */
 class Download extends Model
 {

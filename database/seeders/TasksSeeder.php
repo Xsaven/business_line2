@@ -87,7 +87,6 @@ class TasksSeeder extends Seeder
             'is_challenge' => 1,
         ], //8 - challenge
 
-
         [
             'direction_id' => 1,
             'name' => 'Коробка-подарок',
@@ -171,7 +170,6 @@ class TasksSeeder extends Seeder
             'is_challenge' => 1,
         ], //17 - challenge
 
-
         [
             'direction_id' => 1,
             'name' => 'Ну я вам покажу!',
@@ -246,7 +244,6 @@ class TasksSeeder extends Seeder
             'is_challenge' => 1,
         ], //25 - challenge
 
-
         [
             'direction_id' => 1,
             'name' => 'Битва уикендов',
@@ -320,7 +317,6 @@ class TasksSeeder extends Seeder
             'finish_at' => '2021-10-08',
             'is_challenge' => 1,
         ], //33 - challenge
-
 
         // Sport
         [
@@ -628,7 +624,6 @@ class TasksSeeder extends Seeder
             'finish_at' => '2021-10-08',
             'is_challenge' => 1,
         ], //66 - challenge
-
 
         // Funs
         [

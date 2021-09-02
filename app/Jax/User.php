@@ -2,6 +2,7 @@
 
 namespace App\Jax;
 
+use App\Events\OrderEvent;
 use App\Events\ReportDownloadFileImageTask;
 use App\Events\ReportDownloadFileTask;
 use App\Events\ReportImageVideoTask;
@@ -129,17 +130,16 @@ class User extends JaxExecutor
         $this->reload();
     }
 
-
     /**
      * @param int $task_id
      * @param string $comment
      */
-    public function text_report(int $task_id,string $comment)
+    public function text_report(int $task_id, string $comment)
     {
         /**
          * @var ReportTextTask
          */
-        $event = new ReportTextTask($task_id,$comment);
+        $event = new ReportTextTask($task_id, $comment);
 
         event($event);
 
@@ -150,13 +150,13 @@ class User extends JaxExecutor
      * @param int $task_id
      * @param $videos
      */
-    public function video_report(int $task_id,Request $request)
+    public function video_report(int $task_id, Request $request)
     {
         $videos = '';
         /**
          * @var ReportVideoTask
          */
-        $event = new ReportVideoTask($task_id,$videos);
+        $event = new ReportVideoTask($task_id, $videos);
 
         event($event);
 
@@ -167,18 +167,18 @@ class User extends JaxExecutor
      * @param int $task_id
      * @param Request $request
      */
-    public function image_report(int $task_id,Request $request)
+    public function image_report(int $task_id, Request $request)
     {
         $files = [];
 
-        $event = new ReportPhotoTask($task_id,$files);
+        $event = new ReportPhotoTask($task_id, $files);
 
         event($event);
 
         $this->reload();
     }
 
-    public function text_or_image_or_video_report(int $task_id,string $comment,$files,$videos)
+    public function text_or_image_or_video_report(int $task_id, string $comment, $files, $videos)
     {
         $files = [];
         $videos = [];
@@ -186,7 +186,7 @@ class User extends JaxExecutor
         /**
          * @var ReportTextImageVideoTask
          */
-        $event = new ReportTextImageVideoTask($task_id,$comment,$files,$videos);
+        $event = new ReportTextImageVideoTask($task_id, $comment, $files, $videos);
 
         event($event);
 
@@ -197,7 +197,7 @@ class User extends JaxExecutor
      * @param int $task_id
      * @param Request $request
      */
-    public function image_or_video_report(int $task_id,Request $request)
+    public function image_or_video_report(int $task_id, Request $request)
     {
         $files = [];
         $videos = [];
@@ -205,7 +205,7 @@ class User extends JaxExecutor
         /**
          * @var ReportImageVideoTask
          */
-        $event = new ReportImageVideoTask($task_id,$files,$videos);
+        $event = new ReportImageVideoTask($task_id, $files, $videos);
 
         event($event);
 
@@ -217,14 +217,14 @@ class User extends JaxExecutor
      * @param string $comment
      * @param $videos
      */
-    public function text_or_video_report(int $task_id,string $comment,$videos)
+    public function text_or_video_report(int $task_id, string $comment, $videos)
     {
         $videos = [];
 
         /**
          * @var ReportTextVideoTask
          */
-        $event = new ReportTextVideoTask($task_id,$comment,$videos);
+        $event = new ReportTextVideoTask($task_id, $comment, $videos);
 
         event($event);
 
@@ -254,9 +254,9 @@ class User extends JaxExecutor
      * @param int $task_id
      * @param array $quiz_answers
      */
-    public function quiz_report(int $task_id,array $quiz_answers)
+    public function quiz_report(int $task_id, array $quiz_answers)
     {
-        $event = new ReportQuizTask($task_id,$quiz_answers);
+        $event = new ReportQuizTask($task_id, $quiz_answers);
 
         event($event);
 
@@ -267,9 +267,9 @@ class User extends JaxExecutor
      * @param int $task_id
      * @param array $star_quiz_answers
      */
-    public function star_quiz_report(int $task_id,array $star_quiz_answers)
+    public function star_quiz_report(int $task_id, array $star_quiz_answers)
     {
-        $event = new ReportStarQuizTask($task_id,$star_quiz_answers);
+        $event = new ReportStarQuizTask($task_id, $star_quiz_answers);
 
         event($event);
 
@@ -288,19 +288,25 @@ class User extends JaxExecutor
         $this->reload();
     }
 
-
     /**
      * @param int $task_id
      * @param $files
      */
-    public function download_file_image_report(int $task_id,$files)
+    public function download_file_image_report(int $task_id, $files)
     {
-        $event = new ReportDownloadFileImageTask($task_id,$files);
+        $event = new ReportDownloadFileImageTask($task_id, $files);
 
         event($event);
 
         $this->reload();
     }
 
+    public function create_order(string $phone,string $email,int $delivery_id,string $color)
+    {
+        $event = new OrderEvent($phone,$email,$delivery_id,$color);
 
+        event($event);
+
+        $this->reload();
+    }
 }

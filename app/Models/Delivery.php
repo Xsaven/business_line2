@@ -6,27 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * ProductSetting Class.
+ * Delivery Class.
  * @package App\Models
  */
-class ProductSetting extends Model
+class Delivery extends Model
 {
-    const TITLE = 'Настройки продуктов';
+    const TITLE = 'Пункты доставки';
 
     /**
      * The table associated with the model.
      * @return string
      */
-    protected $table = 'product_settings';
+    protected $table = 'deliveries';
 
     /**
      * The attributes that are mass assignable.
      * @return array
      */
     protected $fillable = [
-        'name',
-        'slug',
-        'data',
+        'address',
     ];
 
     /**
@@ -34,17 +32,15 @@ class ProductSetting extends Model
      * @return array
      */
     protected $casts = [
-        'name' => 'string',
-        'slug' => 'string',
-        'data' => 'json',
+        'address' => 'string',
     ];
 
     /**
-     * The "hasMany" relation for "Produkty'".
+     * The "hasMany" relation for "Zakazy'".
      * @return HasMany
      */
-    public function products() : HasMany
+    public function orders() : HasMany
     {
-        return $this->hasMany(Product::class, 'setting_id', 'id');
+        return $this->hasMany(Order::class, 'delivery_id', 'id');
     }
 }

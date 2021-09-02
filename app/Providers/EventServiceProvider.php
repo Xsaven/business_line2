@@ -138,6 +138,12 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\ReportDownloadFileImageTask\Create::class,
             \App\Listeners\ReportTask\NotifyUsers::class,
         ],
+
+        \App\Events\OrderEvent::class => [
+            \App\Listeners\OrderEvent\Validate::class,
+            \App\Listeners\OrderEvent\Create::class,
+            \App\Listeners\ReportTask\NotifyUsers::class,
+        ],
     ];
 
     /**

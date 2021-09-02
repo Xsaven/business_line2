@@ -19,7 +19,9 @@
 
                 <v-product-info  :product="product" />
 
-                <button class="buy_btn modal_btn" data-content="#buy_modal" @click="selected=product_index">Купить</button>
+                <div v-if="user.balance < product.cost" class="not_available">Для покупки тебе не хватает баллов :(</div>
+
+                <button v-else-if="user.balance >= product.cost" class="buy_btn modal_btn" data-content="#buy_modal" @click="selected=product_index">Купить</button>
               </div>
             </div>
           </div>
@@ -53,19 +55,17 @@
               </div>
             </div>
 
-            <div class="line">
+            <div class="line" >
               <div class="field">
                 <select name="">
                   <option value="0" data-display="Адрес ОСП для доставки"></option>
-                  <option value="1">Вариант 1</option>
-                  <option value="2">Вариант 2</option>
-                  <option value="3">Вариант 3</option>
+                  <option @change="form.select_address = address.id" v-for="address in deliveries" :value="address.id">{{address.address}}</option>
                 </select>
               </div>
             </div>
 
             <div class="submit">
-              <button type="submit" class="submit_btn">Оформить заказ</button>
+              <button @click.prevent.stop="buy_product()" type="submit" class="submit_btn">Оформить заказ</button>
             </div>
           </form>
         </div>
@@ -78,16 +78,24 @@
         name: "pages_product",
         $sync: ['user'],
         props: {
-          products: {required:true}
+          products: {required:true},
+          deliveries: {required:true}
         },
         data () {
             return {
                 user: {},
                 selected: 0,
-                prods: this.products
+                prods: this.products,
+
+                form: {
+                  phone: '',
+                  email: '',
+                  select_address: null,
+                }
             };
         },
-        mounted () {},
+        mounted () {
+        },
         computed: {},
         watch: {},
         methods: {
@@ -98,7 +106,10 @@
             if (n1 > 1 && n1 < 5) { return text_forms[1]; }
             if (n1 === 1) { return text_forms[0]; }
             return text_forms[2];
-          }
+          },
+          buy_product() {
+            jax.user.create_order()
+          },
         }
     }
 </script>

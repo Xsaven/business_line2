@@ -28,7 +28,7 @@ class TaskReportResource extends JsonResource
             })->toArray(),
             'comment' => $this->comment,
             'month' => Carbon::parse($this->created_at)->format('Y-m-d H:i'),
-            'time' => Carbon::parse($this->created_at)->format('H:i')
+            'time' => Carbon::parse($this->created_at)->format('H:i'),
         ];
     }
 }

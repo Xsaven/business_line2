@@ -2,23 +2,24 @@
 
 namespace App\Events;
 
-use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class ReportDownloadFileTask
+class OrderEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * @param int $task_id
+     * @param string $phone
+     * @param string $email
+     * @param int $delivery_id
+     * @param string $color
      */
     public function __construct(
-        public int $task_id
-    ) {
-    }
+        public string $phone,
+        public string $email,
+        public int $delivery_id,
+        public string $color
+    ){}
 }

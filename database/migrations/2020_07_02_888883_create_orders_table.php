@@ -15,8 +15,11 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('phone', 64)->nullable();
+            $table->string('email', 191)->nullable();
             $table->string('status', 191)->default('created');
             $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('delivery_id')->constrained('deliveries')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }

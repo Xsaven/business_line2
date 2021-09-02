@@ -21,5 +21,6 @@ class ReportTextTask
     public function __construct(
         public int $task_id,
         public string $comment
-    ){}
+    ) {
+    }
 }

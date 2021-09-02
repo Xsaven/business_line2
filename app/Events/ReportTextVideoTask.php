@@ -23,5 +23,6 @@ class ReportTextVideoTask
         public int $task_id,
         public string $comment,
         public $videos
-    ){}
+    ) {
+    }
 }

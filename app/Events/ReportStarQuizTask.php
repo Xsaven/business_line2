@@ -22,5 +22,6 @@ class ReportStarQuizTask
     public function __construct(
         public int $task_id,
         public array $star_quiz_answers
-    ){}
+    ) {
+    }
 }

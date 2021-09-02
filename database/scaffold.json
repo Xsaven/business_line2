@@ -347,6 +347,21 @@
       {"name": "Футболка-поло женская «20 лет в отрыв!»", "src": "images/tmp/product_thumb2.png", "cost": 100, "setting_id": 1, "settings": ["XL", "XXL"]}
     ]
   },
+  "deliveries": {
+    "const:title": "Пункты доставки",
+    "fields": [
+      "address"
+    ],
+    "resource": [],
+    "seed": [
+      {"address": "Broome St, New York, NY 10013, USA"},
+      {"address": "Washington Pl, New York, NY 10003"},
+      {"address": "14th Street, New York"},
+      {"address": "Washington Square S, New York"},
+      {"address": "Sullivan St, New York, NY"},
+      {"address": "Washington Mews, New York"}
+    ]
+  },
   "order": {
     "traits": ["HasLogs"],
     "const:title": "Заказы",
@@ -364,13 +379,13 @@
     "fields": [
       "phone",
       "email",
-      "address",
       ["status", {"default": "created"}]
     ],
     "relations": {
       "products:belongsToMany": {},
       "user": {},
-      "logs": {}
+      "logs": {},
+      "delivery": {}
     },
     "resource": []
   },

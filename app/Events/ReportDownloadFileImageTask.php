@@ -22,5 +22,6 @@ class ReportDownloadFileImageTask
     public function __construct(
         public int $task_id,
         public array $files
-    ){}
+    ) {
+    }
 }

@@ -21,6 +21,6 @@ class ReportPhotoTask
     public function __construct(
         public int $task_id,
         public $files
-    ){}
-
+    ) {
+    }
 }

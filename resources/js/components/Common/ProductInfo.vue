@@ -46,6 +46,7 @@
 <script>
     export default {
         name: "v-product-info",
+        $sync: ['user'],
         props: {
           product: {required: true},
           salt: {default:""}

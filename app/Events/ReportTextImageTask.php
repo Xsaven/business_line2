@@ -23,6 +23,6 @@ class ReportTextImageTask
         public int $task_id,
         public string $comment = '',
         public array $files = []
-    ){}
-
+    ) {
+    }
 }

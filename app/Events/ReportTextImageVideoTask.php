@@ -24,5 +24,6 @@ class ReportTextImageVideoTask
         public string $comment,
         public $files,
         public $videos
-    ){}
+    ) {
+    }
 }
