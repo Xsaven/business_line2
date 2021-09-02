@@ -264,7 +264,7 @@
 									</div>
 
 									<div class="line files">
-										<div class="choose field">
+										<div class="choose field" style="display: none;">
 											<input type="file" name="file" id="file">
 											<label for="file">
 												<svg class="icon"><use xlink:href="images/sprite.svg#ic_attachment"></use></svg>
@@ -274,28 +274,14 @@
 											</label>
 										</div>
 
-										<div class="loading">
-											<div class="row">
-												<div class="icon">
-													<svg><use xlink:href="images/sprite.svg#ic_file2"></use></svg>
-												</div>
+										<div class="file_error">
+											<svg class="icon"><use xlink:href="images/sprite.svg#ic_error"></use></svg>
 
-												<div>
-													<div class="name">Название файла.mp4</div>
+											<div>Файл слишком большой. <a href="/" target="_blank">Инструкция по сжатию файла</a></div>
 
-													<div class="progress">
-														<div class="bar" style="width: 70%;"></div>
-													</div>
-
-													<div class="size">
-														<span class="upload">28 Мб</span> из
-														<span class="total">57 Мб</span>
-														<span class="percents">78% загружено</span>
-													</div>
-												</div>
-											</div>
-
-											<button type="button" class="cancel_btn">Отмена</button>
+											<button type="button" class="close_btn">
+												<svg class="icon"><use xlink:href="images/sprite.svg#ic_delete"></use></svg>
+											</button>
 										</div>
 									</div>
 

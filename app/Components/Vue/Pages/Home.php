@@ -27,10 +27,6 @@ class Home extends Page
      */
     public function __construct($id = null, array $attrs = [], ...$params)
     {
-        $attrs['directions'] = DirectionResource::make(
-            app(DirectionRepository::class)
-        )->toArray(request());
-
         $attrs['commentaries'] = CommentaryResource::collection(
             app(CommentaryRepository::class)->home_commentaries
         )->toArray(request());

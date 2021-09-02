@@ -383,6 +383,13 @@
 
 
 
+    .direction_info .challenge .events .item
+    {
+        padding: 12px 18px;
+    }
+
+
+
     /*----------------
         About info
     ----------------*/

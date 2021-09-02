@@ -81,6 +81,53 @@
 
 
 
+    /*------------------
+        Form elements
+    ------------------*/
+    .form .files .loading .cancel_btn
+    {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .form .files .loading .name
+    {
+        font-size: 14px;
+        line-height: 20px;
+
+        width: calc(100% - 76px);
+    }
+
+    .form .files .loading .size
+    {
+        font-size: 13px;
+        line-height: 21px;
+    }
+
+
+
+    .form .files .selected .delete_btn
+    {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .form .files .selected .name
+    {
+        font-size: 14px;
+        line-height: 20px;
+
+        width: calc(100% - 76px);
+    }
+
+    .form .files .selected .size
+    {
+        font-size: 13px;
+        line-height: 21px;
+    }
+
+
+
     /*----------
         Auth
     ----------*/
@@ -701,6 +748,31 @@
         width: 12px;
         height: 12px;
         margin-right: 4px;
+    }
+
+
+
+    .direction_info .challenge .head .title
+    {
+        width: 100%;
+    }
+
+    .direction_info .challenge .head .back_btn
+    {
+        width: 100%;
+        margin-top: 16px;
+    }
+
+
+    .direction_info .challenge .days
+    {
+        margin-left: 0;
+    }
+
+    .direction_info .challenge .days .col
+    {
+        width: 100%;
+        margin-left: 0;
     }
 
 

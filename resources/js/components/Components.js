@@ -32,4 +32,9 @@ module.exports = (Vue) => {
     Vue.component('v-home-smiles-commentary', require('./Common/HomeSmilesCommentary.vue').default);
     Vue.component('v-home-make-commentary', require('./Common/HomeMakeCommentary.vue').default);
     Vue.component('v-product-info', require('./Common/ProductInfo.vue').default);
+    Vue.component('v-direction-fun-callendar', require('./Common/DirectionFunCallendar.vue').default);
+    Vue.component('v-direction-funs-callendar', require('./Common/DirectionFunsCallendar.vue').default);
+    Vue.component('v-direction-sport-callendar', require('./Common/DirectionSportCallendar.vue').default);
+    Vue.component('v-direction-callendar-item', require('./Common/DirectionCallendarItem.vue').default);
+    Vue.component('v-direction-challenge-item', require('./Common/DirectionChallengeItem.vue').default);
 }

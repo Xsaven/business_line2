@@ -156,6 +156,21 @@ $(() => {
 
 
 	// Расписание
+	$('.direction_info .schedule .head .challenge_btn').click(function (e) {
+		e.preventDefault()
+
+		$('.direction_info .schedule').hide()
+		$('.direction_info .challenge').fadeIn(300)
+	})
+
+	$('.direction_info .challenge .head .back_btn').click(function (e) {
+		e.preventDefault()
+
+		$('.direction_info .challenge').hide()
+		$('.direction_info .schedule').fadeIn(300)
+	})
+
+
 	const scrollContainer2 = document.querySelector('.direction_info .schedule .week_wrap')
 	let isDown2 = false,
 		startX2,
@@ -242,6 +257,27 @@ $(() => {
 			$('.task_info .performance .quiz').hide()
 			$('.task_info .performance .quiz_result').fadeIn(300)
 		}
+	})
+
+
+
+	// Загрузка файла
+	$('.form .files .selected .delete_btn, .form .files .loading .cancel_btn').click(function (e) {
+		e.preventDefault()
+
+		let files = $(this).closest('.files')
+
+		files.find('.selected, .loading').hide()
+		files.find('.choose').fadeIn(300)
+	})
+
+	$('.form .files .file_error .close_btn').click(function (e) {
+		e.preventDefault()
+
+		let files = $(this).closest('.files')
+
+		files.find('.file_error').hide()
+		files.find('.choose').fadeIn(300)
 	})
 })
 

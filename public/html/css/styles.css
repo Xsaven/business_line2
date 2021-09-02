@@ -2127,70 +2127,103 @@ header .mob_menu_btn.active .icon + .icon
 
 .form .files .selected
 {
-    margin-bottom: 24px;
-}
+    position: relative;
 
-.form .files .selected:empty
-{
     display: none;
 }
 
-.form .files .selected > * + *
-{
-    margin-top: 8px;
-}
 
-.form .files .selected .file
+.form .files .selected .delete_btn
 {
-    color: #fcaf17;
+    color: #cbcbcb;
+    font-size: 16px;
     line-height: 24px;
 
-    position: relative;
-
-    display: flex;
-
-    padding-left: 26px;
-
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
-}
-
-.form .files .selected .file .icon
-{
     position: absolute;
-    top: 3px;
-    left: 0;
+    top: 0;
+    right: 0;
 
-    display: block;
-
-    width: 18px;
-    height: 18px;
+    transition: color .2s linear;
+    text-align: right;
 }
 
-.form .files .selected .file .del_btn
+.form .files .selected .delete_btn .icon
 {
     color: #fff;
 
-    display: flex;
-
-    width: 20px;
-    height: 20px;
-    margin-left: 8px;
-
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
-}
-
-.form .files .selected .file .del_btn > *
-{
     display: block;
 
     width: 12px;
     height: 12px;
+    margin: 5px 0;
+
+    transition: color .2s linear;
+}
+
+.form .files .selected .delete_btn:hover,
+.form .files .selected .delete_btn:hover .icon
+{
+    color: #fab501;
+}
+
+
+.form .files .selected .icon
+{
+    color: #cbcbcb;
+
+    width: 21px;
+    height: 26px;
+    margin-top: 2px;
+}
+
+.form .files .selected .icon > *
+{
+    display: block;
+
+    width: 21px;
+    height: 26px;
+}
+
+.form .files .selected .icon + div
+{
+    width: calc(100% - 34px);
+    margin-left: auto;
+}
+
+
+.form .files .selected .name
+{
+    color: #fff;
+    font-size: 16px;
+    line-height: 24px;
+
+    width: calc(100% - 92px);
+}
+
+.form .files .selected .name.inline
+{
+    overflow: hidden;
+
+    width: calc(100% - 28px);
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+.form .files .selected .size
+{
+    color: #cbcbcb;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.form .files .selected .size .percents
+{
+    color: #fab501;
+    font-weight: 500;
+
+    margin-left: 4px;
 }
 
 
@@ -2242,6 +2275,194 @@ header .mob_menu_btn.active .icon + .icon
 .form .files label:hover
 {
     color: #fcaf17;
+}
+
+
+.form .files .loading
+{
+    position: relative;
+
+    display: none;
+}
+
+
+.form .files .loading .cancel_btn
+{
+    color: #cbcbcb;
+    font-size: 16px;
+    line-height: 24px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    transition: color .2s linear;
+    text-align: right;
+}
+
+.form .files .loading .cancel_btn .icon
+{
+    color: #fff;
+
+    display: block;
+
+    width: 12px;
+    height: 12px;
+    margin: 5px 0;
+
+    transition: color .2s linear;
+}
+
+.form .files .loading .cancel_btn:hover,
+.form .files .loading .cancel_btn:hover .icon
+{
+    color: #fab501;
+}
+
+
+.form .files .loading .icon
+{
+    color: #cbcbcb;
+
+    width: 21px;
+    height: 26px;
+    margin-top: 2px;
+}
+
+.form .files .loading .icon > *
+{
+    display: block;
+
+    width: 21px;
+    height: 26px;
+}
+
+.form .files .loading .icon + div
+{
+    width: calc(100% - 34px);
+    margin-left: auto;
+}
+
+
+.form .files .loading .name
+{
+    color: #fff;
+    font-size: 16px;
+    line-height: 24px;
+
+    width: calc(100% - 92px);
+}
+
+.form .files .loading .name.inline
+{
+    overflow: hidden;
+
+    width: calc(100% - 28px);
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+.form .files .loading .progress
+{
+    height: 2px;
+    margin: 7px 0;
+
+    border-radius: 50px;
+    background: #3b3b3b;
+}
+
+.form .files .loading .progress .bar
+{
+    height: 2px;
+
+    transition: width .2s linear;
+
+    border-radius: 50px;
+    background: #fff;
+}
+
+
+.form .files .loading .size
+{
+    color: #cbcbcb;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.form .files .loading .size .percents
+{
+    color: #fab501;
+    font-weight: 500;
+
+    margin-left: 4px;
+}
+
+
+.form .files .file_error
+{
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+
+    position: relative;
+
+    padding: 12px 42px;
+
+    border-radius: 3px;
+    background: #e8584d;
+}
+
+.form .files .file_error.mini
+{
+    font-size: 12px;
+    line-height: 16px;
+}
+
+
+.form .files .file_error > .icon
+{
+    position: absolute;
+    top: 16px;
+    left: 16px;
+
+    display: block;
+
+    width: 14px;
+    height: 14px;
+}
+
+
+.form .files .file_error a
+{
+    color: currentColor;
+}
+
+
+.form .files .file_error .close_btn
+{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+
+    display: flex;
+
+    width: 14px;
+    height: 14px;
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.form .files .file_error .close_btn .icon
+{
+    display: block;
+
+    width: 10px;
+    height: 10px;
 }
 
 
@@ -6762,7 +6983,7 @@ header .mob_menu_btn.active .icon + .icon
 }
 
 
-.direction_info .schedule .head .challenge
+.direction_info .schedule .head .challenge_btn
 {
     color: #000;
 
@@ -6771,6 +6992,8 @@ header .mob_menu_btn.active .icon + .icon
     width: 337px;
     max-width: 100%;
     padding: 17px 20px 17px 26px;
+
+    text-align: left;
 
     border-radius: 8px;
     background: linear-gradient(94.11deg, #fdc54e -5.5%, #f59e00 108.52%);
@@ -6781,13 +7004,13 @@ header .mob_menu_btn.active .icon + .icon
     flex-wrap: wrap;
 }
 
-.direction_info .schedule .head .challenge .title
+.direction_info .schedule .head .challenge_btn .title
 {
     font-size: 20px;
     line-height: 24px;
 }
 
-.direction_info .schedule .head .challenge .duration
+.direction_info .schedule .head .challenge_btn .duration
 {
     font-size: 12px;
     line-height: 14px;
@@ -6798,7 +7021,7 @@ header .mob_menu_btn.active .icon + .icon
     white-space: nowrap;
 }
 
-.direction_info .schedule .head .challenge .name
+.direction_info .schedule .head .challenge_btn .name
 {
     font-size: 13px;
     line-height: 17px;
@@ -6807,7 +7030,7 @@ header .mob_menu_btn.active .icon + .icon
     margin-top: 2px;
 }
 
-.direction_info .schedule .head .challenge:hover
+.direction_info .schedule .head .challenge_btn:hover
 {
     background: linear-gradient(94.11deg, #ffd464 -5.5%, #ffb82f 108.52%);
 }
@@ -7070,6 +7293,182 @@ header .mob_menu_btn.active .icon + .icon
 }
 
 .direction_info .schedule .events .item .favorite_btn.active
+{
+    color: #fcaf17;
+}
+
+
+
+.direction_info .challenge
+{
+    display: none;
+
+    width: 100%;
+    margin-top: 98px;
+}
+
+
+.direction_info .challenge .head
+{
+    display: flex;
+
+    margin-bottom: 44px;
+
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+
+.direction_info .challenge .head .title
+{
+    color: #fff;
+    font-size: 34px;
+    line-height: 40px;
+}
+
+
+.direction_info .challenge .head .back_btn
+{
+    color: #fff;
+    font-size: 16px;
+    line-height: 19px;
+
+    width: 123px;
+    height: 46px;
+    margin-left: auto;
+
+    border-radius: 3px;
+    background: linear-gradient(180deg, #303032 0%, #202021 55.21%, #1c1c1c 91.15%);
+}
+
+.direction_info .challenge .head .back_btn:hover
+{
+    background: linear-gradient(180deg, #474749 -30.53%, #252525 59.06%);
+}
+
+
+.direction_info .challenge .days
+{
+    display: flex;
+
+    margin-bottom: 2px;
+    margin-left: -2px;
+
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    flex-wrap: wrap;
+}
+
+.direction_info .challenge .days .col
+{
+    width: calc(25% - 2px);
+    margin-left: 2px;
+}
+
+
+.direction_info .challenge .day
+{
+    color: #999;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+
+    padding: 17px;
+
+    border-radius: 3px;
+    background: linear-gradient(138.29deg, #262626 15.96%, rgba(33, 33, 33, 0) 67.88%);
+}
+
+.direction_info .challenge .day .number
+{
+    font-size: 20px;
+    line-height: 23px;
+
+    margin-bottom: 4px;
+}
+
+
+.direction_info .challenge .events .item
+{
+    color: #1a1a1a;
+
+    position: relative;
+
+    display: block;
+
+    min-height: 80px;
+    margin-top: 2px;
+    padding: 12px 41px 12px 18px;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+    background: linear-gradient(97.63deg, #fcc249 .68%, #f5a106 99.68%);
+    box-shadow: 6px 8px 27px rgba(0, 0, 0, .25);
+}
+
+
+.direction_info .challenge .events .item.grey
+{
+    color: #999;
+
+    background: linear-gradient(0deg, #3e3e3e, #3e3e3e);
+}
+
+.direction_info .challenge .events .item.grey:hover
+{
+    background: #515151;
+}
+
+
+.direction_info .challenge .events .item .time
+{
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+
+    display: flex;
+
+    margin-bottom: 4px;
+
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.direction_info .challenge .events .item .name
+{
+    font-size: 12px;
+    line-height: 17px;
+}
+
+
+.direction_info .challenge .events .item .favorite_btn
+{
+    color: #fff;
+
+    position: absolute;
+    top: 11px;
+    right: 11px;
+
+    display: block;
+
+    transition: color .1s linear;
+}
+
+.direction_info .challenge .events .item .favorite_btn .icon
+{
+    display: block;
+
+    width: 14px;
+    height: 17px;
+}
+
+.direction_info .challenge .events .item .favorite_btn.active
 {
     color: #fcaf17;
 }

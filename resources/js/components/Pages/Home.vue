@@ -32,7 +32,7 @@
                 <div class="title">Направления участия</div>
 
                 <div class="row_wrap">
-                    <div class="row">
+                    <div class="row" v-if="directions">
                         <a :href="`/direction/${directions[0].slug}`" class="item">
                             <div class="name">{{directions[0].name}}</div>
 
@@ -66,15 +66,15 @@
 
 <script>
     export default {
-        $sync: ['user'],
+        $sync: ['user', 'directions'],
         name: "pages_home",
         props: {
-            directions: {required:true},
             commentaries: {required:true}
         },
         data () {
             return {
-                user: {}
+                user: {},
+                directions: {},
             };
         },
         mounted () {},
