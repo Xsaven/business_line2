@@ -132,7 +132,7 @@ class User extends JaxExecutor
         /**
          * @var ReportTaskEvent
          */
-        $event = new ReportTaskEvent($task_id,$user_id,$comment,$files);
+        $event = new ReportTaskEvent($task_id, $user_id, $comment, $files);
 
         event($event);
 

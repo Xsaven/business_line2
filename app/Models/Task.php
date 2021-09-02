@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\Traits\Task\TaskHasLogs;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Traits\Task\TaskMutators;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -37,7 +37,6 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property-read int|null $quiz_results_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\TaskReport[] $taskReports
  * @property-read int|null $task_reports_count
- * @method static \Database\Factories\TaskFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Task newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Task newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Task query()
@@ -60,7 +59,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  */
 class Task extends Model
 {
-    use TaskHasLogs, HasFactory;
+    use TaskHasLogs, TaskMutators;
 
     const TITLE = 'Задания';
 
@@ -86,11 +85,9 @@ class Task extends Model
 
     const REPORT_TYPE_STAR_QUIZ = 'star_quiz';
 
-    const REPORT_TYPE_SUBSCRIPTIONS = 'subscriptions';
+    const REPORT_TYPE_DOWNLOAD_FILE = 'download_file';
 
-    const REPORT_TYPE_LIKES = 'likes';
-
-    const REPORT_TYPE_TASKS = 'tasks';
+    const REPORT_TYPE_DOWNLOAD_FILE_PHOTO = 'download_file_photo';
 
     const EVENT_TYPE_MULTI_DAY = 'multi-day';
 
@@ -114,9 +111,8 @@ class Task extends Model
         'text_or_image' => 'Текст или Фото отчёт',
         'quiz' => 'Викторина',
         'star_quiz' => 'Звёздная викторина',
-        'subscriptions' => 'Подписаться на (N) кол-во пользователей',
-        'likes' => 'Поставить (N) кол-во лайков',
-        'tasks' => 'Выполнить (N) кол-во заданий',
+        'download_file' => 'Скачать файл',
+        'report_type_download_file_photo' => 'Скачать файл и прикрепить фото',
     ];
 
     const ACTION_TYPES = [

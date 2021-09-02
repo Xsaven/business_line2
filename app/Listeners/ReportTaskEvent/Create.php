@@ -21,7 +21,6 @@ class Create
 
         $upload_files = [];
 
-
         foreach ($event->files as $file) {
             $img = \Image::make($file->path())
                 ->resize(800, 600, function ($constraint) {

@@ -213,11 +213,12 @@
       {"name": "support_telegram_link", "value": "https://t.me", "info": "Support telegram link"},
       {"name": "support_whatsapp_phone", "value": "+79999999999", "info": "Support whatsapp phone"},
       {"name": "support_whatsapp_link", "value": "https://whatsapp.com", "info": "Support whatsapp link"},
-      {"name": "main_video", "value": "", "info": "The code for the player on the main page"}
+      {"name": "main_video", "value": "", "info": "The code for the player on the main page"},
+      {"name": "terms_of_participation", "value": "<p>С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт рамки и место обучения кадров способствует подготовке и реализации направлений прогрессивного развития.</p><p>Повседневная практика показывает, что постоянное информационно-пропагандистское обеспечение нашей деятельности играет важную роль в формировании системы обучения кадров, соответствует насущным потребностям.</p>", "info": "Условия участия"}
     ]
   },
   "task": {
-    "traits": ["HasLogs"],
+    "traits": ["HasLogs", "Mutators"],
     "const:title": "Задания",
     "const:action_type_auto": "auto",
     "const:action_type_manually": "manually",
@@ -231,9 +232,8 @@
     "const:report_type_text_or_image": "text_or_image",
     "const:report_type_quiz": "quiz",
     "const:report_type_star_quiz": "star_quiz",
-    "const:report_type_subscriptions": "subscriptions",
-    "const:report_type_likes": "likes",
-    "const:report_type_tasks": "tasks",
+    "const:report_type_download_file": "download_file",
+    "const:report_type_download_file_photo": "download_file_photo",
 
     "const:event_type_multi_day": "multi-day",
     "const:event_type_one_day": "one-day",
@@ -254,9 +254,8 @@
       "text_or_image": "Текст или Фото отчёт",
       "quiz": "Викторина",
       "star_quiz": "Звёздная викторина",
-      "subscriptions": "Подписаться на (N) кол-во пользователей",
-      "likes": "Поставить (N) кол-во лайков",
-      "tasks": "Выполнить (N) кол-во заданий"
+      "download_file": "Скачать файл",
+      "report_type_download_file_photo": "Скачать файл и прикрепить фото"
     },
     "const:action_types": {
       "auto": "Автоматическое",
@@ -280,20 +279,7 @@
       "direction": {},
       "quiz_questions:hasMany": {}
     },
-    "resource": [],
-    "factory": {
-      "name": "\\faker.name()",
-      "short_description": "\\faker.text(30)",
-      "prize_src": "images/tmp/prizes_thumb.png",
-      "event_type": "\\faker.randomElement(['multi-day', 'one-day', 'instant'])",
-      "report_type": "\\faker.randomElement(['text', 'video', 'image'])",
-      "cost": "\\faker.randomNumber(rand(1,3))",
-      "start_at": "\\now()",
-      "terms_of_participation": "\\faker.text(500)",
-      "finish_at": "\\now().addDays(10)",
-      "direction_id": "\\faker.randomElement([1,2,3])"
-    },
-    "seed": "factory:5"
+    "resource": []
   },
   "task_reports": {
     "traits": ["HasLogs"],

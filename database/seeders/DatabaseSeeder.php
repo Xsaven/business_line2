@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(FaqsSeeder::class);
         $this->call(SettingsSeeder::class);
         $this->call(PrizesSeeder::class);
-        $this->call(TasksSeeder::class);
         $this->call(TrackPrizesSeeder::class);
         $this->call(SettingsPlayRuleSeeder::class);
         $this->call(ProductSettingsSeeder::class);
@@ -30,5 +29,6 @@ class DatabaseSeeder extends Seeder
         $this->call(StarsSeeder::class);
         $this->call(FirstSportTaskSeeder::class);
         $this->call(CommentaryRoomsSeeder::class);
+        $this->call(TasksSeeder::class);
     }
 }

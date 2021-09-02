@@ -24,6 +24,6 @@ class ReportTaskEvent
         public int $user_id,
         public string $comment,
         public array $files
-    ){}
-
+    ) {
+    }
 }
