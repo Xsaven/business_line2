@@ -2900,8 +2900,11 @@ header .mob_menu_btn.active .icon + .icon
 
 .search_result .persons .avatar
 {
+    color: #000;
+
     position: relative;
 
+    display: flex;
     overflow: hidden;
 
     width: 61px;
@@ -2909,10 +2912,19 @@ header .mob_menu_btn.active .icon + .icon
 
     border-radius: 50%;
     background: #ddd;
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .search_result .persons .avatar img
 {
+    position: absolute;
+    top: 0;
+    left: 0;
+
     display: block;
 
     width: 100%;
@@ -3006,8 +3018,11 @@ header .mob_menu_btn.active .icon + .icon
 
 .search_result .reports .avatar
 {
+    color: #000;
+
     position: relative;
 
+    display: flex;
     overflow: hidden;
 
     width: 61px;
@@ -3015,10 +3030,19 @@ header .mob_menu_btn.active .icon + .icon
 
     border-radius: 50%;
     background: #ddd;
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .search_result .reports .avatar img
 {
+    position: absolute;
+    top: 0;
+    left: 0;
+
     display: block;
 
     width: 100%;
@@ -3714,12 +3738,28 @@ header .mob_menu_btn.active .icon + .icon
 
 .lk_info .user_info .avatar
 {
+    color: #000;
+
     position: relative;
 
     padding-bottom: 100%;
 
     border-radius: 50%;
     background: #ddd;
+}
+
+.lk_info .user_info .avatar span
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 20px;
+    margin: auto;
+
+    text-align: center;
 }
 
 .lk_info .user_info .avatar img:not(.bg)
@@ -4002,8 +4042,11 @@ header .mob_menu_btn.active .icon + .icon
 
 .tasks_list .task .author .avatar
 {
+    color: #000;
+
     position: relative;
 
+    display: flex;
     overflow: hidden;
 
     width: 42px;
@@ -4011,10 +4054,19 @@ header .mob_menu_btn.active .icon + .icon
 
     border-radius: 50%;
     background: #ddd;
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .tasks_list .task .author .avatar img
 {
+    position: absolute;
+    top: 0;
+    left: 0;
+
     display: block;
 
     width: 100%;
@@ -5020,13 +5072,22 @@ header .mob_menu_btn.active .icon + .icon
 
 .lk_info .personal .avatar .img
 {
+    color: #000;
+
     position: relative;
+
+    display: flex;
 
     width: 168px;
     height: 168px;
 
     border-radius: 50%;
     background: #ddd;
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .lk_info .personal .avatar .img img:not(.bg)
@@ -6209,8 +6270,11 @@ header .mob_menu_btn.active .icon + .icon
 
 .task_info .report .task .author .avatar
 {
+    color: #000;
+
     position: relative;
 
+    display: flex;
     overflow: hidden;
 
     width: 42px;
@@ -6219,10 +6283,19 @@ header .mob_menu_btn.active .icon + .icon
 
     border-radius: 50%;
     background: #ddd;
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .task_info .report .task .author .avatar img
 {
+    position: absolute;
+    top: 0;
+    left: 0;
+
     display: block;
 
     width: 100%;
@@ -6725,7 +6798,11 @@ header .mob_menu_btn.active .icon + .icon
 
 .direction_info .data .author .avatar
 {
+    color: #000;
+
     position: relative;
+
+    display: flex;
 
     width: 130px;
     height: 130px;
@@ -6733,6 +6810,11 @@ header .mob_menu_btn.active .icon + .icon
 
     border-radius: 50%;
     background: #ddd;
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .direction_info .data .author .avatar img:not(.bg)
