@@ -6,7 +6,7 @@
 
             <div>
                 <div class="user_name">
-                    <a href="/">{{comment.user.full_name}}</a>
+                    <a :href="`/user/${comment.user.id}`">{{comment.user.full_name}}</a>
                 </div>
 
                 <div class="text">{{comment.text}}</div>

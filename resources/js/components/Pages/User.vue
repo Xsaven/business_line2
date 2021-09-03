@@ -2,21 +2,15 @@
     <section class="lk_info">
         <div class="cont">
             <section class="user_info">
-                <div class="avatar">
-                    <img data-src="/images/tmp/user_avatar3.jpg" alt="" class="lozad">
-
-                    <img data-src="/images/bg_user_avatar.svg" alt="" class="lozad bg">
-                </div>
+                <div class="avatar" v-html="avatar"></div>
 
                 <div class="stats">
-                    <div>Баллы: 256</div>
-                    <div>Рейтинг: 20</div>
-                    <div>Лайки: 15</div>
-                    <div>Рейтинг: 47</div>
+                    <div>Баллы: {{user.balance}}</div>
+                    <div>Лайки: {{user.likes}}</div>
                 </div>
 
                 <button class="subscribe_btn">
-                    <svg class="icon"><use xlink:href="/images/sprite.svg#ic_notifications"></use></svg>
+                    <v-icon icon="ic_notifications" />
                     <span>Подписаться</span>
                 </button>
             </section>
@@ -43,9 +37,9 @@
             </section>
 
             <section class="tasks_list">
-                <div class="title">Выполненные задания (18)</div>
+                <div class="title">Выполненные задания ({{complete_tasks_count}})</div>
 
-                <div class="list">
+                <div class="list" v-if="Number(complete_tasks_count)">
                     <div class="task_wrap">
                         <div class="task">
                             <div class="head">
@@ -125,67 +119,7 @@
                             </div>
 
                             <div class="add_message">
-                                <div class="smiles modal_cont">
-                                    <button type="button" class="btn mini_modal_btn" data-modal-id="#smiles_modal">
-                                        <svg class="icon"><use xlink:href="/images/sprite.svg#ic_smile"></use></svg>
-                                    </button>
-
-                                    <div class="mini_modal" id="smiles_modal">
-                                        <button type="button" class="close_btn">
-                                            <svg class="icon"><use xlink:href="/images/sprite.svg#ic_close"></use></svg>
-                                        </button>
-
-                                        <div class="section">
-                                            <div class="title">Эмоджи</div>
-
-                                            <div class="row">
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="section stickers">
-                                            <div class="title">Стикеры</div>
-
-                                            <div class="row">
-                                                <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                                                <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <v-home-smiles-commentary />
                             </div>
                         </div>
                     </div>
@@ -256,67 +190,7 @@
                                 <svg class="icon"><use xlink:href="/images/sprite.svg#ic_like_a"></use></svg>
                             </button>
 
-                            <div class="smiles modal_cont">
-                                <button type="button" class="btn mini_modal_btn" data-modal-id="#smiles_modal3">
-                                    <svg class="icon"><use xlink:href="/images/sprite.svg#ic_smile"></use></svg>
-                                </button>
-
-                                <div class="mini_modal down" id="smiles_modal3">
-                                    <button type="button" class="close_btn">
-                                        <svg class="icon"><use xlink:href="/images/sprite.svg#ic_close"></use></svg>
-                                    </button>
-
-                                    <div class="section">
-                                        <div class="title">Эмоджи</div>
-
-                                        <div class="row">
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="section stickers">
-                                        <div class="title">Стикеры</div>
-
-                                        <div class="row">
-                                            <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                                            <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <v-home-smiles-commentary />
                         </div>
                     </div>
                 </div>
@@ -329,14 +203,21 @@
 <script>
     export default {
         name: "pages_user",
-        props: {},
+        props: {
+            user: {required: true},
+            complete_tasks_count: {required: true},
+        },
         data () {
             return {
 
             };
         },
         mounted () {},
-        computed: {},
+        computed: {
+            avatar () {
+                return this.user.avatar + "<img data-src=\"/images/bg_user_avatar.svg\" alt=\"\" class=\"lozad bg\">";
+            }
+        },
         watch: {},
         methods: {}
     }

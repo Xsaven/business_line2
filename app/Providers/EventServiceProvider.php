@@ -61,6 +61,7 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\CommentaryLike\Validation::class,
             \App\Listeners\CommentaryLike\Incrementing::class,
             \App\Listeners\CommentaryLike\NotifyUsers::class,
+            \App\Listeners\CommentaryLike\UpdateUsers::class,
         ],
         \App\Events\ReportTaskEvent::class => [
             \App\Listeners\ReportTaskEvent\Create::class,

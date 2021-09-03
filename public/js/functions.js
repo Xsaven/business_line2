@@ -25,33 +25,6 @@ $(() => {
 	// Кастомный select
 	$('select').niceSelect()
 
-
-	// Мини всплывающие окна
-	$(document).on('click', '.mini_modal_btn', function (e) {
-		e.preventDefault()
-
-		const modalId = $(this).data('modal-id')
-
-		if ($(this).hasClass('active')) {
-			$(this).removeClass('active')
-			$('.mini_modal').removeClass('active')
-
-			if (is_touch_device()) $('body').css('cursor', 'default')
-		} else {
-			$('.mini_modal_btn').removeClass('active')
-			$(this).addClass('active')
-
-			$('.mini_modal').removeClass('active')
-			$(modalId).addClass('active')
-
-			setTimeout(() => {
-				$(modalId).find('input').focus()
-			}, 100)
-
-			if (is_touch_device()) $('body').css('cursor', 'pointer')
-		}
-	})
-
 	// Закрываем всплывашку при клике за её пределами
 	$(document).click((e) => {
 		if ($(e.target).closest('.modal_cont').length === 0) {
@@ -82,7 +55,7 @@ $(() => {
 	}
 
 	Fancybox.defaults.template = {
-		closeButton: '<svg><use xlink:href="images/sprite.svg#ic_close"></use></svg>',
+		closeButton: '<svg><use xlink:href="/images/sprite.svg#ic_close"></use></svg>',
 	}
 
 	// Всплывающие окна

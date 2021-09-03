@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="account">
-                        <a href="javascript:;" class="user">
+                        <a :href="`/profile`" class="user">
                             <div class="avatar" v-html="user.avatar"></div>
                             <div class="name">{{user.full_name}}</div>
                         </a>
@@ -69,7 +69,7 @@
             </div>
 
             <div class="account">
-                <a href="/" class="user">
+                <a :href="`/profile`" class="user">
                     <div class="avatar" v-html="user.avatar"></div>
                     <div class="name">{{user.full_name}}</div>
                 </a>
