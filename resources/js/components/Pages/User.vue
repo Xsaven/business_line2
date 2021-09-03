@@ -17,22 +17,21 @@
 
 
             <section class="user_data">
-                <div class="name">Дмитрий Соболев</div>
-                <div class="user_name">d_sobolev</div>
+                <div class="name">{{user.name}} {{user.last_name}}</div>
+                <div class="user_name">{{user.login}}</div>
 
-                <div class="info">
-                    <div>Водитель-экспедитор категории «Е»</div>
-                    <div>Нижний Новгород 2 ТК</div>
+                <div class="info" v-if="user.position">
+                    <div>{{user.position}}</div>
                 </div>
 
                 <div class="desc">
                     <div class="title">О себе:</div>
 
-                    <div>Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме.</div>
+                    <div>{{user.about}}</div>
                 </div>
 
-                <div class="direction">
-                    Направление участия: <a href="/">Sport</a>
+                <div class="direction" v-if="user.follow_direction">
+                    Направление участия: <a :href="`/direction/${user.follow_direction.slug}`">{{user.follow_direction.name}}</a>
                 </div>
             </section>
 

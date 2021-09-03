@@ -29,6 +29,9 @@ class UserResource extends JsonResource
             'likes' => $this->likes,
             'balance' => $this->balance,
             'photo' => $this->photo ? asset($this->photo) : $this->photo,
+            'position' => $this->position ? $this->position->name : '',
+            'follow_direction' => $this->direction ?? null,
+            'about' => $this->about
         ];
     }
 }
