@@ -1,0 +1,343 @@
+<template>
+    <section class="lk_info">
+        <div class="cont">
+            <section class="user_info">
+                <div class="avatar">
+                    <img data-src="/images/tmp/user_avatar3.jpg" alt="" class="lozad">
+
+                    <img data-src="/images/bg_user_avatar.svg" alt="" class="lozad bg">
+                </div>
+
+                <div class="stats">
+                    <div>Баллы: 256</div>
+                    <div>Рейтинг: 20</div>
+                    <div>Лайки: 15</div>
+                    <div>Рейтинг: 47</div>
+                </div>
+
+                <button class="subscribe_btn">
+                    <svg class="icon"><use xlink:href="/images/sprite.svg#ic_notifications"></use></svg>
+                    <span>Подписаться</span>
+                </button>
+            </section>
+
+
+            <section class="user_data">
+                <div class="name">Дмитрий Соболев</div>
+                <div class="user_name">d_sobolev</div>
+
+                <div class="info">
+                    <div>Водитель-экспедитор категории «Е»</div>
+                    <div>Нижний Новгород 2 ТК</div>
+                </div>
+
+                <div class="desc">
+                    <div class="title">О себе:</div>
+
+                    <div>Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме.</div>
+                </div>
+
+                <div class="direction">
+                    Направление участия: <a href="/">Sport</a>
+                </div>
+            </section>
+
+            <section class="tasks_list">
+                <div class="title">Выполненные задания (18)</div>
+
+                <div class="list">
+                    <div class="task_wrap">
+                        <div class="task">
+                            <div class="head">
+                                <div class="title">
+                                    <a href="/">Отжаться 10 раз за 10 секунд</a>
+                                </div>
+
+                                <div class="date">20 августа 18:15</div>
+                            </div>
+
+                            <div class="author">
+                                <div class="avatar">
+                                    <img data-src="/images/tmp/user_avatar3.jpg" alt="" class="lozad">
+                                </div>
+
+                                <div>
+                                    <div class="name">Евгений Иванов</div>
+                                    <div class="text">Круто! Спасибо за участие 😀</div>
+                                </div>
+                            </div>
+
+                            <div class="video">
+                                <img data-src="/images/tmp/video_thumb.jpg" alt="" class="lozad">
+                                <svg class="icon"><use xlink:href="/images/sprite.svg#ic_video_play"></use></svg>
+                            </div>
+
+                            <div class="bottom">
+                                <button class="like_btn active">
+                                    <span>18</span>
+                                    <svg class="icon"><use xlink:href="/images/sprite.svg#ic_like"></use></svg>
+                                    <svg class="icon"><use xlink:href="/images/sprite.svg#ic_like_a"></use></svg>
+                                </button>
+                            </div>
+                        </div>
+
+
+                        <div class="dialog">
+                            <div class="messages">
+                                <div class="message">
+                                    <div class="user">
+                                        <div class="avatar">
+                                            <span>АВ</span>
+                                            <img data-src="/images/tmp/user_avatar.jpg" alt="" class="lozad">
+                                        </div>
+
+                                        <div>
+                                            <div class="name">
+                                                <a href="/">Алена Васильева</a>
+                                            </div>
+                                            <div class="date">21 августа 18:47</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="text">
+                                        <img src="/images/tmp/dialog_img.jpg" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="message">
+                                    <div class="user">
+                                        <div class="avatar">
+                                            <span>АН</span>
+                                        </div>
+
+                                        <div>
+                                            <div class="name">
+                                                <a href="/">Алексей Николае...</a>
+                                            </div>
+                                            <div class="date">21 августа 18:47</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="text">
+                                        😀
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="add_message">
+                                <div class="smiles modal_cont">
+                                    <button type="button" class="btn mini_modal_btn" data-modal-id="#smiles_modal">
+                                        <svg class="icon"><use xlink:href="/images/sprite.svg#ic_smile"></use></svg>
+                                    </button>
+
+                                    <div class="mini_modal" id="smiles_modal">
+                                        <button type="button" class="close_btn">
+                                            <svg class="icon"><use xlink:href="/images/sprite.svg#ic_close"></use></svg>
+                                        </button>
+
+                                        <div class="section">
+                                            <div class="title">Эмоджи</div>
+
+                                            <div class="row">
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="section stickers">
+                                            <div class="title">Стикеры</div>
+
+                                            <div class="row">
+                                                <div><img src="/images/tmp/sticker_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/sticker_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/sticker_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/sticker_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/sticker_img.png" alt=""></div>
+                                                <div><img src="/images/tmp/sticker_img.png" alt=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="task">
+                        <div class="head">
+                            <div class="title">
+                                <a href="/">Отжаться 10 раз за 10 секунд</a>
+                            </div>
+
+                            <div class="date">20 августа 18:15</div>
+                        </div>
+
+                        <div class="author">
+                            <div class="avatar">
+                                <img data-src="/images/tmp/user_avatar3.jpg" alt="" class="lozad">
+                            </div>
+
+                            <div>
+                                <div class="name">Евгений Иванов</div>
+                                <div class="text">Круто! Спасибо за участие 😀</div>
+                            </div>
+                        </div>
+
+                        <div class="video">
+                            <img data-src="/images/tmp/video_thumb.jpg" alt="" class="lozad">
+                            <svg class="icon"><use xlink:href="/images/sprite.svg#ic_video_play"></use></svg>
+                        </div>
+
+                        <div class="bottom">
+                            <button class="like_btn">
+                                <span>18</span>
+                                <svg class="icon"><use xlink:href="/images/sprite.svg#ic_like"></use></svg>
+                                <svg class="icon"><use xlink:href="/images/sprite.svg#ic_like_a"></use></svg>
+                            </button>
+
+                            <v-home-smiles-commentary />
+                        </div>
+                    </div>
+
+
+                    <div class="task">
+                        <div class="head">
+                            <div class="title">
+                                <a href="/">Отжаться 10 раз за 10 секунд</a>
+                            </div>
+
+                            <div class="date">20 августа 18:15</div>
+                        </div>
+
+                        <div class="author">
+                            <div class="avatar">
+                                <img data-src="/images/tmp/user_avatar3.jpg" alt="" class="lozad">
+                            </div>
+
+                            <div>
+                                <div class="name">Евгений Иванов</div>
+                                <div class="text">Круто! Спасибо за участие 😀</div>
+                            </div>
+                        </div>
+
+                        <div class="desc">Текстовый отчет Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+
+                        <div class="bottom">
+                            <button class="like_btn">
+                                <span>18</span>
+                                <svg class="icon"><use xlink:href="/images/sprite.svg#ic_like"></use></svg>
+                                <svg class="icon"><use xlink:href="/images/sprite.svg#ic_like_a"></use></svg>
+                            </button>
+
+                            <div class="smiles modal_cont">
+                                <button type="button" class="btn mini_modal_btn" data-modal-id="#smiles_modal3">
+                                    <svg class="icon"><use xlink:href="/images/sprite.svg#ic_smile"></use></svg>
+                                </button>
+
+                                <div class="mini_modal down" id="smiles_modal3">
+                                    <button type="button" class="close_btn">
+                                        <svg class="icon"><use xlink:href="/images/sprite.svg#ic_close"></use></svg>
+                                    </button>
+
+                                    <div class="section">
+                                        <div class="title">Эмоджи</div>
+
+                                        <div class="row">
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/smile_img.png" alt=""></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="section stickers">
+                                        <div class="title">Стикеры</div>
+
+                                        <div class="row">
+                                            <div><img src="/images/tmp/sticker_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/sticker_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/sticker_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/sticker_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/sticker_img.png" alt=""></div>
+                                            <div><img src="/images/tmp/sticker_img.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="clear"></div>
+        </div>
+    </section>
+</template>
+
+<script>
+    export default {
+        name: "pages_user",
+        props: {},
+        data () {
+            return {
+
+            };
+        },
+        mounted () {},
+        computed: {},
+        watch: {},
+        methods: {}
+    }
+</script>
