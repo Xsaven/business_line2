@@ -10,11 +10,11 @@
 
                 <div class="user_informer">
                     <div class="item">
-                        <div>Баллы: 0</div>
+                        <div>Баллы: {{user.balance}}</div>
                     </div>
 
                     <div class="item">
-                        <div>Лайки: 0</div>
+                        <div>Лайки:{{user.likes}}</div>
                     </div>
 
                     <img data-src="/images/bg_user_informer.svg" alt="" class="lozad bg">
