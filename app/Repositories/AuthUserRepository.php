@@ -18,6 +18,7 @@ use Lar\Developer\CoreRepository;
  * @property-read array $liked_comment_ids
  * @property-read \Illuminate\Database\Eloquent\Collection|Collection|DatabaseNotification[] $new_notifications
  * @property-read int $completeTaskCount
+ * @property-read array $subscribesUsers
  */
 class AuthUserRepository extends CoreRepository
 {
@@ -91,5 +92,13 @@ class AuthUserRepository extends CoreRepository
     {
         return $this->user->taskReports()
             ->where('status', TaskReport::STATUS_CHECKED)->count();
+    }
+
+    /**
+     * @return array
+     */
+    public function subscribesUsers(): array
+    {
+        return $this->user->subscribers()->allRelatedIds()->toArray();
     }
 }

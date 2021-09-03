@@ -9,7 +9,7 @@
                     <div>Лайки: {{user.likes}}</div>
                 </div>
 
-                <button class="subscribe_btn">
+                <button class="subscribe_btn" v-if="user.id!==u.id && u.subscribes_users.indexOf(user.id) === -1" @click="subscribe">
                     <v-icon icon="ic_notifications" />
                     <span>Подписаться</span>
                 </button>
@@ -201,6 +201,7 @@
 
 <script>
     export default {
+        $sync: {user: "u"},
         name: "pages_user",
         props: {
             user: {required: true},
@@ -208,7 +209,7 @@
         },
         data () {
             return {
-
+                u: {}
             };
         },
         mounted () {},
@@ -218,6 +219,10 @@
             }
         },
         watch: {},
-        methods: {}
+        methods: {
+            subscribe () {
+                jax.user.subscribe(this.user.id);
+            }
+        }
     }
 </script>

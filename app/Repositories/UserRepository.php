@@ -44,4 +44,13 @@ class UserRepository extends CoreRepository
         return $this->findBySlug->taskReports()
             ->where('status', TaskReport::STATUS_CHECKED)->count();
     }
+
+    /**
+     * @param  int  $id
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Model[]|mixed|null
+     */
+    public function find(int $id)
+    {
+        return $this->model()->find($id);
+    }
 }

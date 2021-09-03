@@ -131,7 +131,6 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\ReportDownloadFileTask\Create::class,
             \App\Listeners\ReportTask\NotifyUsers::class,
         ],
-
         \App\Events\ReportDownloadFileImageTask::class => [
             \App\Listeners\ReportDownloadFileImageTask\Validate::class,
             \App\Listeners\ReportTask\PhotoValidate::class,
@@ -139,11 +138,14 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\ReportDownloadFileImageTask\Create::class,
             \App\Listeners\ReportTask\NotifyUsers::class,
         ],
-
         \App\Events\OrderEvent::class => [
             \App\Listeners\OrderEvent\Validate::class,
             \App\Listeners\OrderEvent\Create::class,
             \App\Listeners\ReportTask\NotifyUsers::class,
+        ],
+        \App\Events\SubscribeUserEvent::class => [
+            \App\Listeners\SubscribeUserEvent\Validate::class,
+            \App\Listeners\SubscribeUserEvent\Update::class,
         ],
     ];
 

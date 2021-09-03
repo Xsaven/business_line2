@@ -16,6 +16,7 @@ use App\Events\ReportTextTask;
 use App\Events\ReportTextVideoTask;
 use App\Events\ReportVideoTask;
 use App\Events\SubscribeDirectionEvent;
+use App\Events\SubscribeUserEvent;
 use App\Events\User\ChangeName;
 use App\Http\Resources\AuthUserResource;
 use App\Http\Resources\NotificationResource;
@@ -39,6 +40,16 @@ class User extends JaxExecutor
     public function access()
     {
         return \Auth::check();
+    }
+
+    /**
+     * @param  int  $user_id
+     */
+    public function subscribe(int $user_id)
+    {
+        event(new SubscribeUserEvent($user_id));
+
+        $this->reload();
     }
 
     /**
