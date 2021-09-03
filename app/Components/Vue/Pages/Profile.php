@@ -2,18 +2,17 @@
 
 namespace App\Components\Vue\Pages;
 
-use Lar\Tagable\Vue;
+use App\Components\Vue\Page;
 
 /**
- * Profile Class
+ * Profile Class.
  * @package App\Components\Vue\Pages
  */
-class Profile extends Vue
+class Profile extends Page
 {
     /**
-     * Protected variable Element
+     * Protected variable Element.
      * @var string
      */
-    protected $element = "pages_profile";
-
+    protected $element = 'pages_profile';
 }

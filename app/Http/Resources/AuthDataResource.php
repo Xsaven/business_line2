@@ -32,6 +32,7 @@ class AuthDataResource extends JsonResource
             'subscribe_direction' => (int) (bool) $this->direction_id,
             'liked_comment_ids' => $repo->liked_comment_ids,
             'active_commentaries' => $this->active_commentaries,
+            'complete_tasks_count' => $repo->completeTaskCount,
         ];
     }
 }

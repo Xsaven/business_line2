@@ -945,23 +945,18 @@ namespace Lar\Layout {
      * @method \App\Components\Vue\Common\Footer _common_footer($id = null, array $attrs = [], ...$params) Add Component common_footer to parent
      * @method \App\Components\Vue\Common\Header common_header($id = null, array $attrs = [], ...$params) Add Component common_header
      * @method \App\Components\Vue\Common\Header _common_header($id = null, array $attrs = [], ...$params) Add Component common_header to parent
-     * @method \App\Components\Vue\Common\SmilesModal common_smiles($id = null, array $attrs = [], ...$params) Add Component common_smiles
-     * @method \App\Components\Vue\Common\SmilesModal _common_smiles($id = null, array $attrs = [], ...$params) Add Component common_smiles to parent
      * @method \App\Components\Vue\Pages\Direction pages_direction($id = null, array $attrs = [], ...$params) Add Component pages_direction
      * @method \App\Components\Vue\Pages\Direction _pages_direction($id = null, array $attrs = [], ...$params) Add Component pages_direction to parent
      * @method \App\Components\Vue\Pages\Task pages_task($id = null, array $attrs = [], ...$params) Add Component pages_task
      * @method \App\Components\Vue\Pages\Task _pages_task($id = null, array $attrs = [], ...$params) Add Component pages_task to parent
      * @method \App\Components\Vue\Pages\NewPassword pages_new_password($id = null, array $attrs = [], ...$params) Add Component pages_new_password
      * @method \App\Components\Vue\Pages\NewPassword _pages_new_password($id = null, array $attrs = [], ...$params) Add Component pages_new_password to parent
-<<<<<<< HEAD
      * @method \App\Components\Vue\Pages\Product pages_product($id = null, array $attrs = [], ...$params) Add Component pages_product
      * @method \App\Components\Vue\Pages\Product _pages_product($id = null, array $attrs = [], ...$params) Add Component pages_product to parent
-=======
      * @method \App\Components\Vue\Pages\Profile pages_profile($id = null, array $attrs = [], ...$params) Add Component pages_profile
      * @method \App\Components\Vue\Pages\Profile _pages_profile($id = null, array $attrs = [], ...$params) Add Component pages_profile to parent
      * @method \App\Components\Vue\Pages\User pages_user($id = null, array $attrs = [], ...$params) Add Component pages_user
      * @method \App\Components\Vue\Pages\User _pages_user($id = null, array $attrs = [], ...$params) Add Component pages_user to parent
->>>>>>> 0c222ff0c3507c824b62a222783b59d467a9ac96
      * @method \Lar\LteAdmin\Segments\Tagable\Row row(...$params) Add Component row
      * @method \Lar\LteAdmin\Segments\Tagable\Row _row(...$params) Add Component row to parent
      * @method \Lar\LteAdmin\Segments\Tagable\Col col($num = null, ...$params) Add Component col

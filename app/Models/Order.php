@@ -15,10 +15,6 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property int $id
  * @property string|null $phone
  * @property string|null $email
-<<<<<<< HEAD
-=======
- * @property string $address
->>>>>>> 0c222ff0c3507c824b62a222783b59d467a9ac96
  * @property string $status
  * @property int $user_id
  * @property int $delivery_id
@@ -33,12 +29,8 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Order newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Order newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Order query()
- * @method static \Illuminate\Database\Eloquent\Builder|Order whereAddress($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereCreatedAt($value)
-<<<<<<< HEAD
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereDeliveryId($value)
-=======
->>>>>>> 0c222ff0c3507c824b62a222783b59d467a9ac96
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order wherePhone($value)

@@ -22,7 +22,7 @@ class UpdateUsers
                 ->user;
 
             $user->update([
-                'likes' => $user->commentaryLikes()->count()
+                'likes' => $user->commentaryLikes()->count(),
             ]);
         }
     }

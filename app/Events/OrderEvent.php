@@ -23,5 +23,6 @@ class OrderEvent
         public int $delivery_id,
         public string $value,
         public string $product_id
-    ){}
+    ) {
+    }
 }

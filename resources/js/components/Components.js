@@ -37,4 +37,7 @@ module.exports = (Vue) => {
     Vue.component('v-direction-sport-callendar', require('./Common/DirectionSportCallendar.vue').default);
     Vue.component('v-direction-callendar-item', require('./Common/DirectionCallendarItem.vue').default);
     Vue.component('v-direction-challenge-item', require('./Common/DirectionChallengeItem.vue').default);
+    Vue.component('v-profile-personal-information', require('./Common/ProfilePersonalInformation.vue').default);
+    Vue.component('v-profile-personal-history', require('./Common/ProfilePersonalHistory.vue').default);
+    Vue.component('v-profile-personal-orders', require('./Common/ProfilePersonalOrders.vue').default);
 }

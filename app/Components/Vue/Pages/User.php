@@ -8,16 +8,16 @@ use App\Models\TaskReport;
 use App\Repositories\UserRepository;
 
 /**
- * User Class
+ * User Class.
  * @package App\Components\Vue\Pages
  */
 class User extends Page
 {
     /**
-     * Protected variable Element
+     * Protected variable Element.
      * @var string
      */
-    protected $element = "pages_user";
+    protected $element = 'pages_user';
 
     /**
      * @param  null  $id
@@ -27,15 +27,12 @@ class User extends Page
     public function __construct($id = null, array $attrs = [], ...$params)
     {
         $repo = app(UserRepository::class);
-
-        if (!$repo->findBySlug) {
-
+        if (! $repo->findBySlug) {
             abort(404);
         }
 
         $attrs['user'] = UserResource::make($repo->findBySlug)->toArray(request());
-        $attrs['complete_tasks_count'] = $repo->findBySlug->taskReports()
-            ->where('status', TaskReport::STATUS_CHECKED)->count();
+        $attrs['complete_tasks_count'] = $repo->completeTaskCount;
 
         parent::__construct($id, $attrs, $params);
     }

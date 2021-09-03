@@ -301,9 +301,9 @@ class User extends JaxExecutor
         $this->reload();
     }
 
-    public function create_order(string $phone, string $email, int $delivery_id, string $value,int $product_id)
+    public function create_order(string $phone, string $email, int $delivery_id, string $value, int $product_id)
     {
-        $event = new OrderEvent($phone, $email, $delivery_id, $value,$product_id);
+        $event = new OrderEvent($phone, $email, $delivery_id, $value, $product_id);
 
         event($event);
 

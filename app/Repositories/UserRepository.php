@@ -2,19 +2,21 @@
 
 namespace App\Repositories;
 
+use App\Models\TaskReport;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Lar\Developer\CoreRepository;
 
 /**
- * Class UserRepository
+ * Class UserRepository.
  * @package App\Repositories
  * @property-read User|null $findBySlug
+ * @property-read int $completeTaskCount
  */
 class UserRepository extends CoreRepository
 {
     /**
-     * Model class namespace getter
+     * Model class namespace getter.
      *
      * @return string
      */
@@ -32,5 +34,14 @@ class UserRepository extends CoreRepository
         $id = $request->user;
 
         return $id ? $this->model()->find($id) : null;
+    }
+
+    /**
+     * @return int
+     */
+    public function completeTaskCount(): int
+    {
+        return $this->findBySlug->taskReports()
+            ->where('status', TaskReport::STATUS_CHECKED)->count();
     }
 }

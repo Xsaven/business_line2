@@ -27,18 +27,18 @@ class Create
             'email' => $event->email,
             'status' => Order::STATUS_CREATED,
             'user_id' => $user->id,
-            'delivery_id' => $event->delivery_id
+            'delivery_id' => $event->delivery_id,
         ]);
 
         $order->products()->sync([
            $product->id => [
                'order_id' => $order->id,
-               'value' => $event->value
-           ]
+               'value' => $event->value,
+           ],
         ]);
 
         $user->update([
-            'balance' => $user->balance - $product->cost
+            'balance' => $user->balance - $product->cost,
         ]);
     }
 }

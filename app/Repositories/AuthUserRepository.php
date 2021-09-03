@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\TaskReport;
 use App\Models\User;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Support\Collection;
@@ -16,6 +17,7 @@ use Lar\Developer\CoreRepository;
  * @property-read int $notifications_count
  * @property-read array $liked_comment_ids
  * @property-read \Illuminate\Database\Eloquent\Collection|Collection|DatabaseNotification[] $new_notifications
+ * @property-read int $completeTaskCount
  */
 class AuthUserRepository extends CoreRepository
 {
@@ -80,5 +82,14 @@ class AuthUserRepository extends CoreRepository
     public function liked_comment_ids(): array
     {
         return $this->user->commentaryLikes()->allRelatedIds()->toArray();
+    }
+
+    /**
+     * @return int
+     */
+    public function completeTaskCount(): int
+    {
+        return $this->user->taskReports()
+            ->where('status', TaskReport::STATUS_CHECKED)->count();
     }
 }

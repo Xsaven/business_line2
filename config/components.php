@@ -12,6 +12,6 @@ return [
     'pages_task' => 'App\\Components\\Vue\\Pages\\Task',
     'pages_new_password' => 'App\\Components\\Vue\\Pages\\NewPassword',
     'pages_product' => 'App\\Components\\Vue\\Pages\\Product',
-    "pages_profile" => "App\\Components\\Vue\\Pages\\Profile",
-    "pages_user" => "App\\Components\\Vue\\Pages\\User"
+    'pages_profile' => 'App\\Components\\Vue\\Pages\\Profile',
+    'pages_user' => 'App\\Components\\Vue\\Pages\\User',
 ];
