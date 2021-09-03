@@ -8,7 +8,34 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 /**
  * Log Class.
+ *
  * @package App\Models
+ * @property int $id
+ * @property string|null $field
+ * @property string $type
+ * @property string $message
+ * @property string $logable_type
+ * @property int $logable_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read Model|\Eloquent $direction
+ * @property-read Model|\Eloquent $order
+ * @property-read Model|\Eloquent $product
+ * @property-read Model|\Eloquent $task
+ * @property-read Model|\Eloquent $taskReport
+ * @property-read Model|\Eloquent $user
+ * @method static \Illuminate\Database\Eloquent\Builder|Log newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Log newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Log query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Log whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Log whereField($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Log whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Log whereLogableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Log whereLogableType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Log whereMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Log whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Log whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class Log extends Model
 {

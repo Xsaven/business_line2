@@ -8,7 +8,27 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * QuizQuestion Class.
+ *
  * @package App\Models
+ * @property int $id
+ * @property string $question
+ * @property int $cost
+ * @property int $task_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\QuizAnswer[] $quizAnswers
+ * @property-read int|null $quiz_answers_count
+ * @property-read \App\Models\Task|null $task
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion query()
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereCost($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereQuestion($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereTaskId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class QuizQuestion extends Model
 {

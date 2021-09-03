@@ -7,7 +7,28 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * QuizResult Class.
+ *
  * @package App\Models
+ * @property int $id
+ * @property bool $is_success
+ * @property string $time
+ * @property int $user_id
+ * @property int $task_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Task|null $task
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizResult newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizResult newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizResult query()
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizResult whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizResult whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizResult whereIsSuccess($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizResult whereTaskId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizResult whereTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizResult whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|QuizResult whereUserId($value)
+ * @mixin \Eloquent
  */
 class QuizResult extends Model
 {

@@ -11,7 +11,55 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 /**
  * Task Class.
+ *
  * @package App\Models
+ * @property int $id
+ * @property string $name
+ * @property string|null $short_description
+ * @property string $event_type
+ * @property string $report_type
+ * @property array|null $report_configs
+ * @property string $action_type
+ * @property int $cost
+ * @property string|null $prize_src
+ * @property string $terms_of_participation
+ * @property bool $is_challenge
+ * @property \Illuminate\Support\Carbon|null $start_at
+ * @property \Illuminate\Support\Carbon|null $finish_at
+ * @property int $direction_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Direction|null $direction
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Download[] $downloads
+ * @property-read int|null $downloads_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Log[] $logs
+ * @property-read int|null $logs_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\QuizQuestion[] $quizQuestions
+ * @property-read int|null $quiz_questions_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\QuizResult[] $quizResults
+ * @property-read int|null $quiz_results_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\TaskReport[] $taskReports
+ * @property-read int|null $task_reports_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Task newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Task newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Task query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereActionType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereCost($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereDirectionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereEventType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereFinishAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereIsChallenge($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task wherePrizeSrc($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereReportConfigs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereReportType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereShortDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereStartAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereTermsOfParticipation($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class Task extends Model
 {

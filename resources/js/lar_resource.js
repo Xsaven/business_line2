@@ -22,6 +22,13 @@ const load = () => {
     }
     ljs.vue.config.productionTip = false
     ljs.vue.config.devtools = true
+    ljs.vue.directive('input-mask', {
+        bind: function(el) {
+            new Inputmask({
+                mask: $(el).attr('mask'),
+            }).mask(el);
+        },
+    });
     require('./components/Components')(ljs.vue);
 };
 

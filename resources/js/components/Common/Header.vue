@@ -34,7 +34,7 @@
                         </div>
                     </div>
 
-                    <div class="cart"><a href="/">
+                    <div class="cart"><a href="/products">
                         <v-icon icon="ic_cart" />
                     </a></div>
                 </div>
@@ -82,7 +82,7 @@
                 <div><a :href="`/direction/${directions[1].slug}`">{{directions[1].name}}</a></div>
                 <div><a :href="`/direction/${directions[2].slug}`">{{directions[2].name}}</a></div>
                 <div><a href="/rules">Правила</a></div>
-                <div><a href="/">Магазин</a></div>
+                <div><a href="/products">Магазин</a></div>
             </div>
         </section>
     </span>

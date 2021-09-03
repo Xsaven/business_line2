@@ -7,7 +7,22 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Delivery Class.
+ *
  * @package App\Models
+ * @property int $id
+ * @property string $address
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Order[] $orders
+ * @property-read int|null $orders_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Delivery newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Delivery newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Delivery query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Delivery whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Delivery whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Delivery whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Delivery whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class Delivery extends Model
 {

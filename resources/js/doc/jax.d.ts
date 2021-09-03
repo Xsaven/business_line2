@@ -68,6 +68,7 @@ declare interface JaxModelUserInterface {
         star_quiz_report(...params: any[]): Promise<JaxModelUserInterface>;
         download_file_report(...params: any[]): Promise<JaxModelUserInterface>;
         download_file_image_report(...params: any[]): Promise<JaxModelUserInterface>;
+        create_order(...params: any[]): Promise<JaxModelUserInterface>;
 }
 declare interface JaxModelQuestionsInterface {
     list(...params: any[]): Promise<JaxModelQuestionsInterface>;

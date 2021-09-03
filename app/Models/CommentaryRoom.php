@@ -7,7 +7,22 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 /**
  * CommentaryRoom Class.
+ *
  * @package App\Models
+ * @property int $id
+ * @property string $name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Commentary[] $commentaries
+ * @property-read int|null $commentaries_count
+ * @method static \Illuminate\Database\Eloquent\Builder|CommentaryRoom newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|CommentaryRoom newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|CommentaryRoom query()
+ * @method static \Illuminate\Database\Eloquent\Builder|CommentaryRoom whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CommentaryRoom whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CommentaryRoom whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CommentaryRoom whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class CommentaryRoom extends Model
 {

@@ -12,7 +12,38 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 /**
  * Commentary Class.
+ *
  * @package App\Models
+ * @property int $id
+ * @property $text
+ * @property bool $active
+ * @property string $commentaryable_type
+ * @property int $commentaryable_id
+ * @property int $user_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|Commentary[] $commentaries
+ * @property-read int|null $commentaries_count
+ * @property-read Model|\Eloquent $commentary
+ * @property-read Model|\Eloquent $commentaryRoom
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $likes
+ * @property-read int|null $likes_count
+ * @property-read Model|\Eloquent $taskReport
+ * @property-read \App\Models\User|null $user
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $users
+ * @property-read int|null $users_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Commentary newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Commentary newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Commentary query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereCommentaryableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereCommentaryableType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereText($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereUserId($value)
+ * @mixin \Eloquent
  */
 class Commentary extends Model
 {

@@ -10,7 +10,34 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 /**
  * Order Class.
+ *
  * @package App\Models
+ * @property int $id
+ * @property string|null $phone
+ * @property string|null $email
+ * @property string $status
+ * @property int $user_id
+ * @property int $delivery_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Delivery|null $delivery
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Log[] $logs
+ * @property-read int|null $logs_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Product[] $products
+ * @property-read int|null $products_count
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|Order newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Order newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Order query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereDeliveryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereUserId($value)
+ * @mixin \Eloquent
  */
 class Order extends Model
 {

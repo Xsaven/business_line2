@@ -1,4 +1,4 @@
-<template>
+<template xmlns="http://www.w3.org/1999/html">
     <v-layout>
       <section class="shop">
         <div class="cont">
@@ -44,22 +44,24 @@
             <div class="columns row">
               <div class="line">
                 <div class="field">
-                  <input type="tel" name="" value="" class="input" placeholder="Номер телефона">
+                  <input v-model="form.phone"
+                         v-input-mask mask="+7 (999) 999-99-99"
+                         type="tel" ref="phone" class="input" placeholder="Номер телефона">
                 </div>
               </div>
 
               <div class="line">
                 <div class="field">
-                  <input type="email" name="" value="" class="input" placeholder="Электронная почта">
+                  <input v-model="form.email" type="email" class="input" placeholder="Электронная почта">
                 </div>
               </div>
             </div>
 
             <div class="line" >
               <div class="field">
-                <select name="">
+                <select name="" required>
                   <option value="0" data-display="Адрес ОСП для доставки"></option>
-                  <option @change="form.select_address = address.id" v-for="address in deliveries" :value="address.id">{{address.address}}</option>
+                  <option :value="form.select_address = address.id" v-for="address in deliveries">{{address.address}}</option>
                 </select>
               </div>
             </div>
@@ -67,6 +69,10 @@
             <div class="submit">
               <button @click.prevent.stop="buy_product()" type="submit" class="submit_btn">Оформить заказ</button>
             </div>
+            <br/>
+            <label
+                v-if="error === true"
+                class="error input-wrap_error" style="color: rgb(255 124 99); box-shadow: none">Необходимо заполнить все поля!</label>
           </form>
         </div>
       </section>
@@ -91,14 +97,23 @@
                   phone: '',
                   email: '',
                   select_address: null,
-                }
+                },
+
+               error: false,
             };
         },
         mounted () {
+          this.$refs.phone.addEventListener('keyup',  this.setPhone.bind(this))
         },
-        computed: {},
+      beforeDestroy() {
+          this.$refs.phone.removeEventListener('keyup',this.setPhone.bind(this));
+      },
+      computed: {},
         watch: {},
         methods: {
+          setPhone() {
+            this.form.phone = this.$refs.phone.value;
+          },
           declOfNum(n, text_forms) {
             n = Math.abs(n) % 100;
             var n1 = n % 10;
@@ -108,7 +123,21 @@
             return text_forms[2];
           },
           buy_product() {
-            jax.user.create_order()
+            if(!this.form.phone || !this.form.email || !this.form.select_address || !this.products[this.selected].first_setting) {
+              this.error = true
+            }
+            else {
+              jax.user.create_order(
+                  this.form.phone,
+                  this.form.email,
+                  this.form.select_address,
+                  this.products[this.selected].first_setting,
+                  this.products[this.selected].id
+              )
+                  .then(() => {
+                    Fancybox.close();
+                  })
+            }
           },
         }
     }

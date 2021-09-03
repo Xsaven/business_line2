@@ -7,7 +7,26 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * Star Class.
+ *
  * @package App\Models
+ * @property int $id
+ * @property string $name
+ * @property string $text
+ * @property string $photo
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\QuizAnswer[] $quizAnswers
+ * @property-read int|null $quiz_answers_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Star newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Star newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Star query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Star whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Star whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Star whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Star wherePhoto($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Star whereText($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Star whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class Star extends Model
 {
