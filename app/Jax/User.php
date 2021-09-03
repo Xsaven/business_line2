@@ -28,6 +28,7 @@ use App\Repositories\TaskReportRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Lar\LJS\JaxExecutor;
+use Lar\LteAdmin\Models\LteFileStorage;
 
 /**
  * User Class.
@@ -40,6 +41,43 @@ class User extends JaxExecutor
     public function access()
     {
         return \Auth::check();
+    }
+
+    /**
+     * @param string $login
+     * @param int $division_id
+     * @param int $position_id
+     * @param string $about
+     */
+    public function update_user_data(string $login, int $division_id, int $position_id, string $about)
+    {
+        if (app(AuthUserRepository::class)
+            ->user
+            ->update([
+                'login' => $login,
+                'division_id' => $division_id,
+                'position_id' => $position_id,
+                'about' => $about
+            ])) {
+            $this->reload();
+        }
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function upload_avatar(Request $request)
+    {
+        if ($request->hasFile('avatar')) {
+
+            if (app(AuthUserRepository::class)
+                ->user
+                ->update([
+                    'photo' => LteFileStorage::makeFile('avatar')
+                ])) {
+                $this->reload();
+            }
+        }
     }
 
     /**

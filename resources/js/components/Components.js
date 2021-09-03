@@ -40,4 +40,5 @@ module.exports = (Vue) => {
     Vue.component('v-profile-personal-information', require('./Common/ProfilePersonalInformation.vue').default);
     Vue.component('v-profile-personal-history', require('./Common/ProfilePersonalHistory.vue').default);
     Vue.component('v-profile-personal-orders', require('./Common/ProfilePersonalOrders.vue').default);
+    Vue.component('v-select', require('./Common/Select.vue').default);
 }

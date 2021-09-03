@@ -50,7 +50,9 @@ declare interface JaxModelLteAdminInterface {
         load_modal(...params: any[]): Promise<JaxModelLteAdminInterface>;
 }
 declare interface JaxModelUserInterface {
-    subscribe(...params: any[]): Promise<JaxModelUserInterface>;
+    update_user_data(...params: any[]): Promise<JaxModelUserInterface>;
+        upload_avatar(...params: any[]): Promise<JaxModelUserInterface>;
+        subscribe(...params: any[]): Promise<JaxModelUserInterface>;
         update(...params: any[]): Promise<JaxModelUserInterface>;
         change_name(...params: any[]): Promise<JaxModelUserInterface>;
         question_likes(...params: any[]): Promise<JaxModelUserInterface>;

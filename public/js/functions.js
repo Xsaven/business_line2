@@ -23,7 +23,7 @@ $(() => {
 	//$('input[type=tel]').inputmask('+7 (999) 999-99-99')
 
 	// Кастомный select
-	$('select').niceSelect()
+	// $('select').niceSelect()
 
 	// Закрываем всплывашку при клике за её пределами
 	$(document).click((e) => {

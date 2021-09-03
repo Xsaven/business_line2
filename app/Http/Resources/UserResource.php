@@ -33,7 +33,9 @@ class UserResource extends JsonResource
             'position' => $this->position ? $this->position->name : '',
             'division' => $this->division ? $this->division->name : '',
             'follow_direction' => $this->direction ?? null,
-            'about' => $this->about
+            'about' => $this->about,
+            'division_id' => $this->division_id,
+            'position_id' => $this->position_id
         ];
     }
 }

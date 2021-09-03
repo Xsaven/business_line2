@@ -1,30 +1,10 @@
 $(() => {
 	// Flag
-	$('.lk_info .history .item .flag_btn').click(function (e) {
-		e.preventDefault()
-
-		$(this).toggleClass('active')
-	})
-
-
-	// Личная информация
-	$('.lk_info .personal .edit_btn').click(function (e) {
-		e.preventDefault()
-
-		let parent = $(this).closest('.personal')
-
-		parent.find('.user_data').hide()
-		parent.find('.edit_form, .avatar .upload').fadeIn(300)
-	})
-
-	$('.lk_info .personal .edit_form .cancel_btn').click(function (e) {
-		e.preventDefault()
-
-		let parent = $(this).closest('.personal')
-
-		parent.find('.edit_form, .avatar .upload').hide()
-		parent.find('.user_data').fadeIn(300)
-	})
+	// $('.lk_info .history .item .flag_btn').click(function (e) {
+	// 	e.preventDefault()
+	//
+	// 	$(this).toggleClass('active')
+	// })
 
 
 	// Моб. меню

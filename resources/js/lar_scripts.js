@@ -6,6 +6,9 @@
  */
 module.exports = ($root, $methods) => {
 
+    // $root.find('select').niceSelect();
+    // console.log($root);
+
     window.onfocus = () => {
         if (ljs.cfg('name') !== 'login' && ljs.cfg('name') !== 'password.reset') {
 

@@ -5,7 +5,7 @@
             <div class="user_data">
                 <div class="name">
                     <span>{{user.name}}<br> {{user.lastname}}</span>
-                    <button class="edit_btn">
+                    <button class="edit_btn" @click="edit_btn">
                         <v-icon icon="ic_edit" />
                     </button>
                 </div>
@@ -28,32 +28,32 @@
             </div>
 
 
-            <form action="" class="form edit_form">
+            <form @submit.stop.prevent="update" class="form edit_form">
                 <div class="name">{{user.name}} {{user.last_name}}</div>
 
                 <div class="line">
                     <div class="field">
-                        <input type="text" name="" v-model="form.login" class="input" :placeholder="user.login">
+                        <input type="text" v-model="form.login" class="input" :placeholder="user.login">
                     </div>
                 </div>
 
                 <div class="line">
                     <div class="field">
-                        <select name="">
+                        <v-select v-model="form.position_id">
                             <option v-if="!user.position" value="0" data-display="Должность"></option>
                             <option v-else value="0" :data-display="user.position"></option>
-                            <option :value="form.position_id = position.id" v-for="position in positions">{{position.name}}</option>
-                        </select>
+                            <option v-for="position in positions" :selected="user.position_id === position.id" :value="position.id">{{position.name}}</option>
+                        </v-select>
                     </div>
                 </div>
 
                 <div class="line">
                     <div class="field">
-                        <select name="">
+                        <v-select v-model="form.division_id">
                             <option v-if="!user.division" value="0" data-display="Подразделение"></option>
                             <option v-else value="0" :data-display="user.division"></option>
-                            <option :value="form.division_id = division.id" v-for="division in divisions">{{division.name}}</option>
-                        </select>
+                            <option v-for="division in divisions" :selected="user.division_id === division.id" :value="division.id">{{division.name}}</option>
+                        </v-select>
                     </div>
                 </div>
 
@@ -66,7 +66,7 @@
 
                 <div class="submit">
                     <button type="submit" class="submit_btn">Сохранить</button>
-                    <button type="button" class="cancel_btn">Отмена</button>
+                    <button type="button" class="cancel_btn" @click="cancel">Отмена</button>
                 </div>
             </form>
 
@@ -103,12 +103,16 @@
                   login: '',
                   division_id: null,
                   position_id: null,
-                  about: '',
-                  avatar: null
+                  about: ''
                 }
             };
         },
-        mounted () {},
+        mounted () {
+          this.form.login = this.user.login;
+          this.form.division_id = this.user.division_id;
+          this.form.position_id = this.user.position_id;
+          this.form.about = this.user.about;
+        },
         computed: {
             avatar () {
                 return this.user.avatar + "<img data-src=\"/images/bg_user_avatar.svg\" alt=\"\" class=\"lozad bg\">";
@@ -116,11 +120,29 @@
         },
         watch: {},
         methods: {
-          handleUpload() {
-            console.log(this.$refs.file.files);
-            console.log(this.form);
-            this.avatar = Object.values(this.$refs.file.files[0])
+          edit_btn (e) {
+            let parent = $(e.target).closest('.personal')
+            parent.find('.user_data').hide()
+            parent.find('.edit_form, .avatar .upload').fadeIn(300)
           },
+          cancel (e) {
+            let parent = $(e.target).closest('.personal')
+            parent.find('.edit_form, .avatar .upload').hide()
+            parent.find('.user_data').fadeIn(300)
+          },
+          handleUpload() {
+            jax.param('avatar', Object.values(this.$refs.file.files)[0])
+                .user
+                .upload_avatar().then(() => this.cancel());
+          },
+          update () {
+            jax.user.update_user_data(
+                this.form.login,
+                this.form.division_id,
+                this.form.position_id,
+                this.form.about,
+            ).then(() => this.cancel());
+          }
         }
     }
 </script>
