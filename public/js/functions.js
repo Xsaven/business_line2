@@ -27,7 +27,7 @@ $(() => {
 
 
 	// Мини всплывающие окна
-	$('.mini_modal_btn').click(function (e) {
+	$(document).on('click', '.mini_modal_btn', function (e) {
 		e.preventDefault()
 
 		const modalId = $(this).data('modal-id')

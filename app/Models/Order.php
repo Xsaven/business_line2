@@ -13,6 +13,9 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  *
  * @package App\Models
  * @property int $id
+ * @property string|null $phone
+ * @property string|null $email
+ * @property string $address
  * @property string $status
  * @property int $user_id
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -25,8 +28,11 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Order newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Order newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Order query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereAddress($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereUserId($value)
@@ -64,6 +70,9 @@ class Order extends Model
      * @return array
      */
     protected $fillable = [
+        'phone',
+        'email',
+        'address',
         'status',
         'user_id',
     ];
@@ -73,6 +82,9 @@ class Order extends Model
      * @return array
      */
     protected $casts = [
+        'phone' => 'string',
+        'email' => 'string',
+        'address' => 'string',
         'status' => 'string',
         'user_id' => 'integer',
     ];

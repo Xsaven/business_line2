@@ -1,10 +1,10 @@
 <template>
     <div class="smiles modal_cont">
-        <button type="button" class="btn mini_modal_btn" data-modal-id="#smiles_modal">
+        <button type="button" ref="btn" class="btn mini_modal_btn" @click="toggle">
             <v-icon icon="ic_smile" />
         </button>
 
-        <div class="mini_modal" id="smiles_modal">
+        <div :class="{mini_modal: true}" ref="mini_modal">
             <button type="button" class="close_btn">
                 <v-icon icon="ic_close" />
             </button>
@@ -45,7 +45,6 @@
                     <div><img src="/images/tmp/smile_img.png" alt=""></div>
                 </div>
             </div>
-
             <div class="section stickers">
                 <div class="title">Стикеры</div>
 
@@ -68,12 +67,36 @@
         props: {},
         data () {
             return {
-
+                show: false
             };
         },
         mounted () {},
         computed: {},
         watch: {},
-        methods: {}
+        methods: {
+            toggle () {
+                const modal = $(this.$refs.mini_modal);
+                const btn = $(this.$refs.btn);
+
+                if (btn.hasClass('active')) {
+                    btn.removeClass('active')
+                    $('.mini_modal').removeClass('active')
+
+                    if (is_touch_device()) $('body').css('cursor', 'default')
+                } else {
+                    $('.mini_modal_btn').removeClass('active')
+                    btn.addClass('active')
+
+                    $('.mini_modal').removeClass('active')
+
+                    setTimeout(() => {
+                        modal.addClass('active')
+                        modal.find('input').focus()
+                    }, 100)
+
+                    if (is_touch_device()) $('body').css('cursor', 'pointer')
+                }
+            }
+        }
     }
 </script>
