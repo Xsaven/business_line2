@@ -84,7 +84,7 @@
           </div>
 
           <div class="field">
-            <input type="file" name="file" id="file" ref="file" @change="handleUpload" multiple>
+            <input type="file" name="file" id="file" ref="file" @change="handleUpload">
             <label for="file">
               <v-icon icon="ic_attachment" />
               <span>Прикрепить фото/ видео</span>

@@ -33,17 +33,16 @@
 
                 <div class="line">
                     <div class="field">
-                        <input type="text" name="" :value="user.login" class="input" placeholder="Задать свой Ник">
+                        <input type="text" name="" v-model="form.login" class="input" :placeholder="user.login">
                     </div>
                 </div>
 
                 <div class="line">
                     <div class="field">
                         <select name="">
-                            <option value="0" data-display="Должность"></option>
-                            <option value="1">Вариант 1</option>
-                            <option value="2">Вариант 2</option>
-                            <option value="3">Вариант 3</option>
+                            <option v-if="!user.position" value="0" data-display="Должность"></option>
+                            <option v-else value="0" :data-display="user.position"></option>
+                            <option :value="form.position_id = position.id" v-for="position in positions">{{position.name}}</option>
                         </select>
                     </div>
                 </div>
@@ -51,17 +50,17 @@
                 <div class="line">
                     <div class="field">
                         <select name="">
-                            <option value="0" data-display="Подразделение"></option>
-                            <option value="1">Вариант 1</option>
-                            <option value="2">Вариант 2</option>
-                            <option value="3">Вариант 3</option>
+                            <option v-if="!user.division" value="0" data-display="Подразделение"></option>
+                            <option v-else value="0" :data-display="user.division"></option>
+                            <option :value="form.division_id = division.id" v-for="division in divisions">{{division.name}}</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="line">
-                    <div class="field">
-                        <textarea :value="user.about" name="" placeholder="О себе"></textarea>
+                    <div class="field" >
+                      <textarea v-model="form.about" v-if="!user.about" placeholder="О себе"></textarea>
+                      <textarea v-model="form.about" v-else :placeholder="user.about"></textarea>
                     </div>
                 </div>
 
@@ -76,7 +75,7 @@
                 <div class="img" v-html="avatar"></div>
 
                 <div class="upload">
-                    <input type="file" name="avatar" id="avatar">
+                    <input type="file" name="avatar" id="avatar" ref="file" @change="handleUpload">
                     <label for="avatar">Загрузить фото</label>
                 </div>
             </div>
@@ -96,10 +95,17 @@
     export default {
         $sync: ['user'],
         name: "v-profile-personal-information",
-        props: {},
+        props: ['positions','divisions'],
         data () {
             return {
-                user: {}
+                user: {},
+                form: {
+                  login: '',
+                  division_id: null,
+                  position_id: null,
+                  about: '',
+                  avatar: null
+                }
             };
         },
         mounted () {},
@@ -109,6 +115,12 @@
             }
         },
         watch: {},
-        methods: {}
+        methods: {
+          handleUpload() {
+            console.log(this.$refs.file.files);
+            console.log(this.form);
+            this.avatar = Object.values(this.$refs.file.files[0])
+          },
+        }
     }
 </script>

@@ -21,7 +21,7 @@
                     <img data-src="/images/bg_user_informer2.svg" alt="" class="lozad bg2">
                 </div>
             </section>
-            <v-profile-personal-information v-if="select===1" />
+            <v-profile-personal-information v-if="select===1" :divisions="divisions" :positions="positions"/>
             <v-profile-personal-history v-else-if="select===2" />
             <v-profile-personal-orders v-else-if="select===3" />
         </div>
@@ -32,7 +32,10 @@
     export default {
         $sync: ["user"],
         name: "pages_profile",
-        props: {},
+        props: {
+          divisions: {required:true},
+          positions: {required:true}
+        },
         data () {
             return {
                 user: {},

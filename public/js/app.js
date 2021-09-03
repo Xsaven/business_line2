@@ -4687,14 +4687,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   $sync: ['user'],
   name: "v-profile-personal-information",
-  props: {},
+  props: ['positions', 'divisions'],
   data: function data() {
     return {
-      user: {}
+      user: {},
+      form: {
+        login: '',
+        division_id: null,
+        position_id: null,
+        about: '',
+        avatar: null
+      }
     };
   },
   mounted: function mounted() {},
@@ -4704,7 +4710,13 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   watch: {},
-  methods: {}
+  methods: {
+    handleUpload: function handleUpload() {
+      console.log(this.$refs.file.files);
+      console.log(this.form);
+      this.avatar = Object.values(this.$refs.file.files[0]);
+    }
+  }
 });
 
 /***/ }),
@@ -7487,7 +7499,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   $sync: ["user"],
   name: "pages_profile",
-  props: {},
+  props: {
+    divisions: {
+      required: true
+    },
+    positions: {
+      required: true
+    }
+  },
   data: function data() {
     return {
       user: {},
@@ -60122,27 +60141,134 @@ var render = function() {
         _c("div", { staticClass: "line" }, [
           _c("div", { staticClass: "field" }, [
             _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.login,
+                  expression: "form.login"
+                }
+              ],
               staticClass: "input",
-              attrs: { type: "text", name: "", placeholder: "Задать свой Ник" },
-              domProps: { value: _vm.user.login }
+              attrs: { type: "text", name: "", placeholder: _vm.user.login },
+              domProps: { value: _vm.form.login },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "login", $event.target.value)
+                }
+              }
             })
           ])
         ]),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
         _vm._v(" "),
         _c("div", { staticClass: "line" }, [
           _c("div", { staticClass: "field" }, [
-            _c("textarea", {
-              attrs: { name: "", placeholder: "О себе" },
-              domProps: { value: _vm.user.about }
-            })
+            _c(
+              "select",
+              { attrs: { name: "" } },
+              [
+                !_vm.user.position
+                  ? _c("option", {
+                      attrs: { value: "0", "data-display": "Должность" }
+                    })
+                  : _c("option", {
+                      attrs: { value: "0", "data-display": _vm.user.position }
+                    }),
+                _vm._v(" "),
+                _vm._l(_vm.positions, function(position) {
+                  return _c(
+                    "option",
+                    {
+                      domProps: { value: (_vm.form.position_id = position.id) }
+                    },
+                    [_vm._v(_vm._s(position.name))]
+                  )
+                })
+              ],
+              2
+            )
           ])
         ]),
         _vm._v(" "),
-        _vm._m(2)
+        _c("div", { staticClass: "line" }, [
+          _c("div", { staticClass: "field" }, [
+            _c(
+              "select",
+              { attrs: { name: "" } },
+              [
+                !_vm.user.division
+                  ? _c("option", {
+                      attrs: { value: "0", "data-display": "Подразделение" }
+                    })
+                  : _c("option", {
+                      attrs: { value: "0", "data-display": _vm.user.division }
+                    }),
+                _vm._v(" "),
+                _vm._l(_vm.divisions, function(division) {
+                  return _c(
+                    "option",
+                    {
+                      domProps: { value: (_vm.form.division_id = division.id) }
+                    },
+                    [_vm._v(_vm._s(division.name))]
+                  )
+                })
+              ],
+              2
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "line" }, [
+          _c("div", { staticClass: "field" }, [
+            !_vm.user.about
+              ? _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.about,
+                      expression: "form.about"
+                    }
+                  ],
+                  attrs: { placeholder: "О себе" },
+                  domProps: { value: _vm.form.about },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "about", $event.target.value)
+                    }
+                  }
+                })
+              : _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.about,
+                      expression: "form.about"
+                    }
+                  ],
+                  attrs: { placeholder: _vm.user.about },
+                  domProps: { value: _vm.form.about },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "about", $event.target.value)
+                    }
+                  }
+                })
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "avatar" }, [
@@ -60151,7 +60277,15 @@ var render = function() {
           domProps: { innerHTML: _vm._s(_vm.avatar) }
         }),
         _vm._v(" "),
-        _vm._m(3)
+        _c("div", { staticClass: "upload" }, [
+          _c("input", {
+            ref: "file",
+            attrs: { type: "file", name: "avatar", id: "avatar" },
+            on: { change: _vm.handleUpload }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "avatar" } }, [_vm._v("Загрузить фото")])
+        ])
       ])
     ]),
     _vm._v(" "),
@@ -60173,44 +60307,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "line" }, [
-      _c("div", { staticClass: "field" }, [
-        _c("select", { attrs: { name: "" } }, [
-          _c("option", { attrs: { value: "0", "data-display": "Должность" } }),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "1" } }, [_vm._v("Вариант 1")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "2" } }, [_vm._v("Вариант 2")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "3" } }, [_vm._v("Вариант 3")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "line" }, [
-      _c("div", { staticClass: "field" }, [
-        _c("select", { attrs: { name: "" } }, [
-          _c("option", {
-            attrs: { value: "0", "data-display": "Подразделение" }
-          }),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "1" } }, [_vm._v("Вариант 1")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "2" } }, [_vm._v("Вариант 2")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "3" } }, [_vm._v("Вариант 3")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "submit" }, [
       _c("button", { staticClass: "submit_btn", attrs: { type: "submit" } }, [
         _vm._v("Сохранить")
@@ -60219,16 +60315,6 @@ var staticRenderFns = [
       _c("button", { staticClass: "cancel_btn", attrs: { type: "button" } }, [
         _vm._v("Отмена")
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "upload" }, [
-      _c("input", { attrs: { type: "file", name: "avatar", id: "avatar" } }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "avatar" } }, [_vm._v("Загрузить фото")])
     ])
   }
 ]
@@ -61972,7 +62058,7 @@ var render = function() {
           _c("div", { staticClass: "field" }, [
             _c("input", {
               ref: "file",
-              attrs: { type: "file", name: "file", id: "file", multiple: "" },
+              attrs: { type: "file", name: "file", id: "file" },
               on: { change: _vm.handleUpload }
             }),
             _vm._v(" "),
@@ -65157,7 +65243,9 @@ var render = function() {
         ]),
         _vm._v(" "),
         _vm.select === 1
-          ? _c("v-profile-personal-information")
+          ? _c("v-profile-personal-information", {
+              attrs: { divisions: _vm.divisions, positions: _vm.positions }
+            })
           : _vm.select === 2
           ? _c("v-profile-personal-history")
           : _vm.select === 3

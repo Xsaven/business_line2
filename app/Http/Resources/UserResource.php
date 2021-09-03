@@ -30,6 +30,7 @@ class UserResource extends JsonResource
             'balance' => $this->balance,
             'photo' => $this->photo ? asset($this->photo) : $this->photo,
             'position' => $this->position ? $this->position->name : '',
+            'division' => $this->division ? $this->division->name : '',
             'follow_direction' => $this->direction ?? null,
             'about' => $this->about
         ];
