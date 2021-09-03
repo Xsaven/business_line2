@@ -18,3 +18,4 @@ public/lte-admin
 public/ljs
 resources/js/route.json
 .php_cs.cache
+/public/uploads
