@@ -70,6 +70,23 @@ class User extends JaxExecutor
     {
         if ($request->hasFile('avatar')) {
 
+            $file = $request->file('avatar');
+
+            if (
+                !is_image($file->getPathname()) ||
+                !str_contains($file->getMimeType(), 'jpg') ||
+                !str_contains($file->getMimeType(), 'jpeg') ||
+                !str_contains($file->getMimeType(), 'png')
+            ) {
+                $this->toast_error('Неверное расширение файла.');
+                return ;
+            }
+
+            if ($file->getSize() > 10485760) {
+                $this->toast_error('Слишком большой объём файла.');
+                return ;
+            }
+
             $img = \Image::make($request->file('avatar'))
                 ->resize(800, 600, function ($constraint) {
                     $constraint->aspectRatio();
