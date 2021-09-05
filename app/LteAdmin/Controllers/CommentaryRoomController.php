@@ -32,6 +32,10 @@ class CommentaryRoomController extends Controller
             $table->search->at();
 
             $table->id();
+            $table->col('Название', 'name')->sort();
+            $table->col('Заголовок', 'title')->sort();
+            $table->col('Состояние', fn (CommentaryRoom $room) => CommentaryRoom::STATES[$room->state])
+                ->sort('state')->badge('success');
             $table->at();
         });
     }
@@ -43,7 +47,15 @@ class CommentaryRoomController extends Controller
     {
         return new Matrix(function (Form $form) {
             $form->info_id();
-            $form->autoMake();
+            $form->input('name', 'Название')->required();
+            $form->input('title', 'Заголовок')->required();
+            $form->select('state', 'Состояние')
+                ->options(CommentaryRoom::STATES)->required();
+            $form->input('video_title', 'Видео заголовок')->required();
+            $form->input('video_info', 'Видео описание')->required();
+            $form->input('video_data', 'Код видеоплейера')->required();
+            $form->input('translation_data', 'Код трансляции')->required();
+            $form->textarea('description', 'Описание страницы')->required();
             $form->info_at();
         });
     }
