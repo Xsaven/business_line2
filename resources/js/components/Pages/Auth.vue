@@ -204,7 +204,7 @@
                 <div class="copyright">&copy; ГК «Деловые Линии», 2001–2021</div>
 
                 <div class="links">
-                    <div><a href="/">Техническая поддержка</a></div>
+                    <div><a href="/support">Техническая поддержка</a></div>
                 </div>
             </div>
 

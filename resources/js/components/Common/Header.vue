@@ -1,7 +1,7 @@
 <template>
     <span>
         <header>
-            <div class="cont row">
+            <div class="cont row" v-if="user">
                 <div class="logo mob_mini" data-href="/home">
                     <img src="/images/logo.svg" alt="">
                 </div>
