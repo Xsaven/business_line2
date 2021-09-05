@@ -4716,7 +4716,21 @@ __webpack_require__.r(__webpack_exports__);
     },
     handleUpload: function handleUpload() {
       jax.param('avatar', Object.values(this.$refs.file.files)[0]).user.upload_avatar().then(function () {
-        window.location.reload();
+        //window.location.reload();
+        jax.user.update().then(function (_ref) {
+          var data = _ref.data;
+          state.user = data;
+          ljs.onetime(function () {
+            var observer = lozad('.lozad', {
+              rootMargin: '200px 0px',
+              threshold: 0,
+              loaded: function loaded(el) {
+                return el.classList.add('loaded');
+              }
+            });
+            observer.observe();
+          }, 200);
+        });
       });
     },
     update: function update() {
@@ -65128,28 +65142,30 @@ var render = function() {
                 "div",
                 { staticClass: "product" },
                 [
-                  _c(
-                    "div",
-                    {
-                      class: {
-                        scores: true,
-                        red: product.cost > _vm.user.balance
-                      }
-                    },
-                    [
-                      _vm._v(
-                        _vm._s(product.cost) +
-                          " " +
-                          _vm._s(
-                            _vm.declOfNum(product.cost, [
-                              "бал",
-                              "бала",
-                              "балов"
-                            ])
+                  product.cost > 0
+                    ? _c(
+                        "div",
+                        {
+                          class: {
+                            scores: true,
+                            red: product.cost > _vm.user.balance
+                          }
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(product.cost) +
+                              " " +
+                              _vm._s(
+                                _vm.declOfNum(product.cost, [
+                                  "бал",
+                                  "бала",
+                                  "балов"
+                                ])
+                              )
                           )
+                        ]
                       )
-                    ]
-                  ),
+                    : _vm._e(),
                   _vm._v(" "),
                   _c("div", { staticClass: "thumb" }, [
                     _c("img", {
@@ -65160,11 +65176,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("v-product-info", { attrs: { product: product } }),
                   _vm._v(" "),
-                  _vm.user.balance < product.cost
+                  _vm.user.balance < product.cost && product.cost > 0
                     ? _c("div", { staticClass: "not_available" }, [
                         _vm._v("Для покупки тебе не хватает баллов :(")
                       ])
-                    : _vm.user.balance >= product.cost
+                    : _vm.user.balance >= product.cost && product.cost > 0
                     ? _c(
                         "button",
                         {

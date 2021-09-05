@@ -145,7 +145,18 @@
             jax.param('avatar', Object.values(this.$refs.file.files)[0])
                 .user
                 .upload_avatar().then(() => {
-              window.location.reload();
+              //window.location.reload();
+              jax.user.update().then(({data}) => {
+                state.user = data;
+                ljs.onetime(() => {
+                  const observer = lozad('.lozad', {
+                    rootMargin: '200px 0px',
+                    threshold: 0,
+                    loaded: (el) => el.classList.add('loaded')
+                  });
+                  observer.observe();
+                },200);
+              });
             });
           },
           update () {
