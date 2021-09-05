@@ -62,7 +62,7 @@
                             <div class="title">Восстановление пароля</div>
 
                             <div class="line">
-                                <div class="label">Введите почту, указанную при регистрации</div>
+                                <div class="label">Введите корпоративную почту или почту, указанную при регистрации</div>
 
                                 <div class="field">
                                     <input v-model="recovery.email" type="email" @click="clear_errors"
