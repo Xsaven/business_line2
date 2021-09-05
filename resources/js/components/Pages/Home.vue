@@ -3,14 +3,14 @@
         <section class="about_info">
             <div class="cont row">
                 <div class="data">
-                    <div class="title">Краткое название проекта </div>
+                    <div class="title">{{room.title}}</div>
 
-                    <div class="desc">Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме.</div>
+                    <div class="desc">{{room.description}}</div>
                 </div>
 
 
                 <div class="video">
-                    <div class="views">
+                    <div class="views" v-if="room.state === 'translation'">
                         <v-icon icon="ic_view" />
                         <span>{{o}}</span>
                     </div>
@@ -19,12 +19,12 @@
                         <v-icon icon="ic_video_play" />
 
                         <div class="info">
-                            <div class="name"><span>Церемония открытия</span></div>
-                            <div class="type"><span>Онлайн трансляция</span></div>
+                            <div class="name"><span>{{room.video_title}}</span></div>
+                            <div class="type"><span>{{room.video_info}}</span></div>
                         </div>
                     </a>
                 </div>
-                <v-home-commentaries :commentaries="commentaries" />
+                <v-home-commentaries v-if="room.state === 'translation'" :commentaries="commentaries" />
             </div>
         </section>
         <section class="directions">
@@ -71,6 +71,7 @@
         name: "pages_home",
         props: {
             commentaries: {required:true},
+            room: {required:true},
             online: {required:true, type:Number}
         },
         data () {
