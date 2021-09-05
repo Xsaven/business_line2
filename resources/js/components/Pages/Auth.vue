@@ -378,11 +378,11 @@ export default {
         enter_register_email() {
             this.clear_errors();
             if (!isRequired(this.registration.name) || !isBetween(this.registration.name, 2, 191)) {
-                this.errors.name = "Имя обязательно для ввода и должно содержать от 3 до 191 символов";
+                this.errors.name = "Имя обязательно для ввода и должно содержать от 2 до 191 символов";
                 return;
             }
             if (!isRequired(this.registration.lastname) || !isBetween(this.registration.lastname, 2, 191)) {
-                this.errors.lastname = "Фамилия обязательна для ввода и должна содержать от 3 до 191 символов";
+                this.errors.lastname = "Фамилия обязательна для ввода и должна содержать от 2 до 191 символов";
                 return;
             }
             if (!isRequired(this.registration.number) || !isLengthBetween(this.registration.number, 1, 191) || !isNumber(this.registration.number)) {
