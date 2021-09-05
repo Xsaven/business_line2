@@ -1,23 +1,23 @@
 <template>
     <span>
         <header>
-            <div class="cont row" v-if="user">
-                <div class="logo mob_mini" data-href="/home">
+            <div class="cont row">
+                <a class="logo mob_mini" href="/home">
                     <img src="/images/logo.svg" alt="">
-                </div>
+                </a>
 
                 <div class="twenty_years">
                     <img src="/images/twenty_years_mini.svg" alt="">
                 </div>
 
-                <div class="links" v-if="directions">
+                <div class="links" v-if="directions && user">
                     <div><a :href="`/direction/${directions[0].slug}`">{{directions[0].name}}</a></div>
                     <div><a :href="`/direction/${directions[1].slug}`">{{directions[1].name}}</a></div>
                     <div><a :href="`/direction/${directions[2].slug}`">{{directions[2].name}}</a></div>
                     <div class="margin"><a href="/rules">Правила</a></div>
                 </div>
 
-                <div class="icons">
+                <div class="icons" v-if="user">
                     <div class="search modal_cont">
                         <button class="btn mini_modal_btn" data-modal-id="#search_modal">
                             <v-icon icon="ic_search" />
@@ -39,7 +39,7 @@
                     </a></div>
                 </div>
 
-                <div class="col_right">
+                <div class="col_right" v-if="user">
                     <div class="scores">{{user.balance}} б</div>
 
                     <div class="notifications modal_cont">
@@ -57,7 +57,7 @@
                     </div>
                 </div>
 
-                <button class="mob_menu_btn">
+                <button class="mob_menu_btn" v-if="user">
                     <v-icon icon="ic_menu" />
                     <v-icon icon="ic_delete" />
                 </button>
@@ -68,7 +68,7 @@
                 <img src="/images/twenty_years_mini.svg" alt="">
             </div>
 
-            <div class="account">
+            <div class="account" v-if="user">
                 <a :href="`/profile`" class="user">
                     <div class="avatar" v-html="user.avatar"></div>
                     <div class="name">{{user.full_name}}</div>
@@ -77,7 +77,7 @@
                 <div class="scores">{{user.balance}} б</div>
             </div>
 
-            <div class="links" v-if="directions">
+            <div class="links" v-if="directions && user">
                 <div><a :href="`/direction/${directions[0].slug}`">{{directions[0].name}}</a></div>
                 <div><a :href="`/direction/${directions[1].slug}`">{{directions[1].name}}</a></div>
                 <div><a :href="`/direction/${directions[2].slug}`">{{directions[2].name}}</a></div>

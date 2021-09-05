@@ -104,6 +104,8 @@
 
 
                         <form class="form add_email_form" @submit.stop.prevent="enter_register_password" style="display: none">
+                            <div class="title">Ваш E-mail</div>
+
                             <div class="line" v-if="!empty_email">
                                 <div class="field">
                                     <input v-model="registration.email" type="email"
@@ -136,8 +138,7 @@
 
                             <div class="line agree">
                                 <div class="field">
-                                    <input v-model="registration.agree" type="checkbox" id="agree_check">
-                                    <label for="agree_check">Я согласен на обработку персональных данных</label>
+                                    <label>Запомните эту почту на случай восстановления пароля.</label>
                                 </div>
                             </div>
 
@@ -146,7 +147,7 @@
                             </div>
 
                             <div class="btns">
-                                <div>Уже зарегистрированные?
+                                <div>Уже зарегистрированы?
                                     <button type="button" class="btn login_btn" @click="login_form">Войти</button>
                                 </div>
                             </div>
@@ -181,6 +182,13 @@
                                                placeholder="Табельный номер" @click="clear_errors" @blur="clear_errors">
                                         <div class="exp">{{ errors.number }}</div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="line agree">
+                                <div class="field">
+                                    <input v-model="registration.agree" type="checkbox" id="agree_check">
+                                    <label for="agree_check">Я согласен на обработку персональных данных</label>
                                 </div>
                             </div>
 
@@ -236,7 +244,7 @@
                 <div class="copyright">&copy; ГК «Деловые Линии», 2001–2021</div>
 
                 <div class="links">
-                    <div><a href="/support">Техническая поддержка</a></div>
+                    <div><a href="/guest_support">Техническая поддержка</a></div>
                 </div>
             </div>
 
@@ -369,11 +377,11 @@ export default {
         },
         enter_register_email() {
             this.clear_errors();
-            if (!isRequired(this.registration.name) || !isBetween(this.registration.name, 3, 191)) {
+            if (!isRequired(this.registration.name) || !isBetween(this.registration.name, 2, 191)) {
                 this.errors.name = "Имя обязательно для ввода и должно содержать от 3 до 191 символов";
                 return;
             }
-            if (!isRequired(this.registration.lastname) || !isBetween(this.registration.lastname, 3, 191)) {
+            if (!isRequired(this.registration.lastname) || !isBetween(this.registration.lastname, 2, 191)) {
                 this.errors.lastname = "Фамилия обязательна для ввода и должна содержать от 3 до 191 символов";
                 return;
             }
@@ -401,7 +409,7 @@ export default {
                         $('.auth .data .add_email_form').fadeIn(300);
                     } else {
                         this.empty_email = true;
-                        this.errors.lastname = "Пользователь не найден";
+                        this.errors.lastname = "Пользователь уже зарегистрирован";
                     }
                 });
         },

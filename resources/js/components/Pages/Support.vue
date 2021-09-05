@@ -11,12 +11,12 @@
 
                     <div class="time">
                         <div>
-                            <div class="val">13.09 – 19.09</div>
+                            <div class="val">10.09 – 17.09</div>
                             <div class="desc">круглосуточно</div>
                         </div>
 
                         <div>
-                            <div class="val">20.09–10.10</div>
+                            <div class="val">18.09–10.10</div>
                             <div class="desc">
                                 <div>пн–пт: 09.00–19.00 (мск)</div>
                                 <div>сб, вс: 11.00–17.00 (мск)</div>
@@ -29,7 +29,7 @@
                     <div class="title">Техническая поддержка сайта</div>
 
                     <div class="email">
-                        <a href="mailto:email@mail.ru">{{ settings.support_email }}</a>
+                        <a :href="`mailto:${settings.support_email}`">{{ settings.support_email }}</a>
                     </div>
 
                     <div class="messengers">

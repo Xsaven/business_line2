@@ -26,6 +26,11 @@ use Lar\Roads\Roads;
     ->component('/new_password', \App\Components\Vue\Pages\NewPassword::class)
     ->name('password.reset');
 
+\Road::layout('auth')
+    ->web()
+    ->component('/guest_support', \App\Components\Vue\Pages\GuestSupport::class)
+    ->name('guest_support');
+
 \Road::layout('home')
     ->web()
     ->auth()
@@ -62,6 +67,7 @@ use Lar\Roads\Roads;
 
 \Road::layout('home')
     ->web()
+    ->auth()
     ->component('/support', \App\Components\Vue\Pages\Support::class)
     ->name('support');
 
