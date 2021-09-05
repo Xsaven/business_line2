@@ -104,7 +104,6 @@ class UsersController extends Controller
                 ->unique_if($this->isType('create'), 'users', 'login')
                 ->unique_if($this->isType('edit'), 'users', 'login', $this->model()->login, 'login');
             $form->email('email', 'Email')
-                ->required()
                 ->unique_if($this->isType('create'), 'users', 'email')
                 ->unique_if($this->isType('edit'), 'users', 'email', $this->model()->email, 'email');
 
