@@ -18,7 +18,6 @@ class Update
     public function handle(SubscribeUserEvent $event)
     {
         if ($event->validated) {
-
             app(AuthUserRepository::class)
                 ->user->subscribers()->toggle($event->user_id);
         }

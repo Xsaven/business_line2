@@ -12,7 +12,7 @@
                 <div class="video">
                     <div class="views">
                         <v-icon icon="ic_view" />
-                        <span>285</span>
+                        <span>{{o}}</span>
                     </div>
 
                     <a href="/" class="link">
@@ -67,19 +67,26 @@
 <script>
     export default {
         $sync: ['user', 'directions'],
+        $exec: ['setOnline'],
         name: "pages_home",
         props: {
-            commentaries: {required:true}
+            commentaries: {required:true},
+            online: {required:true, type:Number}
         },
         data () {
             return {
                 user: {},
                 directions: {},
+                o: this.online,
             };
         },
         mounted () {},
         computed: {},
         watch: {},
-        methods: {}
+        methods: {
+            setOnline (val) {
+                this.o = val;
+            }
+        }
     }
 </script>

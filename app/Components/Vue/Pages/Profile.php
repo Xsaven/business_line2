@@ -20,7 +20,6 @@ class Profile extends Page
      */
     protected $element = 'pages_profile';
 
-
     public function __construct($id = null, array $attrs = [], ...$params)
     {
         $attrs['positions'] = PositionResource::collection(Position::all())->toArray(request());

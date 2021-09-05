@@ -8,7 +8,6 @@ use App\Models\Traits\User\UserHasSubscribers;
 use App\Models\Traits\User\UserNotifyConfig;
 use App\Models\Traits\User\UserOnline;
 use App\Models\Traits\User\UserScopes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -73,7 +72,6 @@ use Illuminate\Notifications\Notifiable;
  * @property-read int|null $subscriptions_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\TaskReport[] $taskReports
  * @property-read int|null $task_reports_count
- * @method static \Database\Factories\UserFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User query()
@@ -110,7 +108,7 @@ use Illuminate\Notifications\Notifiable;
  */
 class User extends Authenticatable
 {
-    use Notifiable, UserHasSubscribers, UserHasLogs, UserOnline, UserScopes, UserAttributes, UserNotifyConfig, HasFactory;
+    use Notifiable, UserHasSubscribers, UserHasLogs, UserOnline, UserScopes, UserAttributes, UserNotifyConfig;
 
     const TITLE = 'Пользователи';
 

@@ -7,20 +7,21 @@ use App\Models\User;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class Attempt
+class Find
 {
     /**
      * Handle the event.
      *
+     * @param  Register  $event
      * @return void
      */
     public function handle(Register $event)
     {
-        if ($event->validated && $event->user) {
-            $event->attempted = $event->user->update([
-                'email' => $event->email,
-                'password' => bcrypt($event->password),
-            ]);
+        if ($event->validated) {
+            $event->user = User::where('password', 'none')
+                ->where('number', $event->number)
+                ->where('lastname', $event->lastname)
+                ->where('name', $event->name)->first();
         }
     }
 }

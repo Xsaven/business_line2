@@ -16,6 +16,8 @@ class CreateDeliveriesTable extends Migration
         Schema::create('deliveries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('address', 191);
+            $table->string('osp', 191)->nullable();
+            $table->string('city', 191)->nullable();
             $table->timestamps();
         });
     }

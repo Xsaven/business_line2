@@ -26,6 +26,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         \App\Events\Register::class => [
             \App\Listeners\Register\Validation::class,
+            \App\Listeners\Register\Find::class,
             \App\Listeners\Register\Attempt::class,
             \App\Listeners\Register\Respond::class,
         ],

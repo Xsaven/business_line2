@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
         //$this->app->register(FortifyServiceProvider::class);
 
         if (! \App::isLocal()) {
-            LConfigs::add('ws_host', 'ws.frudev.ru');
+            LConfigs::add('ws_host', 'ws.dellin.ru');
         }
     }
 

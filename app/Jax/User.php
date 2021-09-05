@@ -57,7 +57,7 @@ class User extends JaxExecutor
                 'login' => $login,
                 'division_id' => $division_id,
                 'position_id' => $position_id,
-                'about' => $about
+                'about' => $about,
             ])) {
             $this->reload();
         }
@@ -69,11 +69,10 @@ class User extends JaxExecutor
     public function upload_avatar(Request $request)
     {
         if ($request->hasFile('avatar')) {
-
             if (app(AuthUserRepository::class)
                 ->user
                 ->update([
-                    'photo' => LteFileStorage::makeFile('avatar')
+                    'photo' => LteFileStorage::makeFile('avatar'),
                 ])) {
                 $this->reload();
             }

@@ -81,6 +81,7 @@ declare interface JaxModelQuestionsInterface {
 declare interface JaxModelGuestInterface {
     login(...params: any[]): Promise<JaxModelGuestInterface>;
         registration(...params: any[]): Promise<JaxModelGuestInterface>;
+        registration_data(...params: any[]): Promise<JaxModelGuestInterface>;
 }
 declare interface JaxModelCommentaryInterface {
     find(...params: any[]): Promise<JaxModelCommentaryInterface>;
