@@ -30,7 +30,6 @@ declare interface JaxModelCommentariesControlInterface {
     list_for_approve(...params: any[]): Promise<JaxModelCommentariesControlInterface>;
         approve(...params: any[]): Promise<JaxModelCommentariesControlInterface>;
         drop(...params: any[]): Promise<JaxModelCommentariesControlInterface>;
-        anchor(...params: any[]): Promise<JaxModelCommentariesControlInterface>;
         switch_moderation(...params: any[]): Promise<JaxModelCommentariesControlInterface>;
         switch_commentary(...params: any[]): Promise<JaxModelCommentariesControlInterface>;
 }

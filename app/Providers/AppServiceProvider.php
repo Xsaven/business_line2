@@ -10,7 +10,7 @@ use Laravel\Fortify\Fortify;
 
 class AppServiceProvider extends ServiceProvider
 {
-    static $cfg = [];
+    public static $cfg = [];
 
     /**
      * Register any application services.
