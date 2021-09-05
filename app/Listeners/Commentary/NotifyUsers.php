@@ -21,7 +21,8 @@ class NotifyUsers
     {
         if ($event->result() && $event->commentary) {
             if (\Auth::user()->active_commentaries) {
-                AllUserExec::dispatch(['update::add_commentary_child_id' => [$event->commentary->commentaryable_id, $event->commentary->id]]);
+                //AllUserExec::dispatch(['update::add_commentary_child_id' => [$event->commentary->commentaryable_id, $event->commentary->id]]);
+                AllUserExec::dispatch(["comment-add-{$event->commentary->commentaryable_id}" => $event->commentary->id]);
             } else {
                 AllAdminExec::dispatch(['commentaries:update']);
             }

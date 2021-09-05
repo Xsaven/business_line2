@@ -21,7 +21,7 @@ class Create
             $event->commentary = $event->parent->commentaries()->create([
                 'text' => $event->message,
                 'user_id' => \Auth::id(),
-                'active' => \Auth::user()->active_commentaries,
+                'active' => \Auth::user()->active_commentaries || config('free_chat'),
             ]);
 
             if ($event->commentary) {

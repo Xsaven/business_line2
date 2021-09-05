@@ -74,7 +74,8 @@ class CommentariesController extends Controller
                 ->labels('Да', 'Нет');
             $form->info_at();
             ModelSaver::on_save(static::$model, function (array $data, Commentary $model) {
-                AllUserExec::dispatch(['update::commentary_id' => [$model->id]]);
+                //AllUserExec::dispatch(['update::commentary_id' => [$model->id]]);
+                AllUserExec::dispatch(["comment-update-{$model->id}"]);
                 AllAdminExec::dispatch(['commentaries:update']);
             });
         });
@@ -113,9 +114,10 @@ class CommentariesController extends Controller
         $return = parent::destroy_default();
 
         if ($model->commentaryRoom instanceof CommentaryRoom && $model->commentaryRoom->id === 1) {
-            AllUserExec::dispatch(['update::drop_commentary_home_id' => [$model->id]]);
+            AllUserExec::dispatch(['v-home-commentaries:drop' => $model->id]);
         } else {
-            AllUserExec::dispatch(['update::drop_commentary_child_id' => [$model->commentaryable_id, $model->id]]);
+            //AllUserExec::dispatch(['update::drop_commentary_child_id' => [$model->commentaryable_id, $model->id]]);
+            AllUserExec::dispatch(["comment-drop-{$model->commentaryable_id}" => $model->id]);
         }
         AllAdminExec::dispatch(['commentaries:update']);
 

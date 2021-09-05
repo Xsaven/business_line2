@@ -29,6 +29,9 @@ class Navigator extends NavigatorExtensionProvider implements ActionWorkExtensio
         if (! class_exists(User::class)) {
             return;
         }
+
+        $this->nav_bar_view('admin.navbar_controls');
+
         $this->item(Direction::TITLE)
             ->resource('direction', 'DirectionController')
             ->icon_directions();

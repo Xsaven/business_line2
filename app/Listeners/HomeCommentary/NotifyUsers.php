@@ -21,7 +21,7 @@ class NotifyUsers
     {
         if ($event->result() && $event->commentary) {
             if (\Auth::user()->active_commentaries) {
-                AllUserExec::dispatch(['update::add_comment_to_home' => [$event->commentary->id]]);
+                AllUserExec::dispatch(['v-home-commentaries:add_to_child' => [$event->commentary->id]]);
             } else {
                 AllAdminExec::dispatch(['commentaries:update']);
             }

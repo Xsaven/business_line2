@@ -31,7 +31,7 @@ class Commentary extends JaxExecutor
     {
         $model = app(CommentaryRepository::class)->find($id);
 
-        return $model ? CommentaryNoChildResource::make($model) : null;
+        return $model ? CommentaryResource::make($model) : null;
     }
 
     /**
@@ -83,7 +83,7 @@ class Commentary extends JaxExecutor
             'result' => $event->result(),
             'liked_comment_ids' => app(AuthUserRepository::class)->liked_comment_ids,
             'comment' => $event->commentary ?
-                CommentaryNoChildResource::make($event->commentary) : null,
+                CommentaryResource::make($event->commentary) : null,
         ];
     }
 

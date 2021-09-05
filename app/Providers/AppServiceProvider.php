@@ -10,6 +10,8 @@ use Laravel\Fortify\Fortify;
 
 class AppServiceProvider extends ServiceProvider
 {
+    static $cfg = [];
+
     /**
      * Register any application services.
      *
@@ -37,6 +39,7 @@ class AppServiceProvider extends ServiceProvider
 
         if (\Schema::hasTable('settings') && class_exists(Setting::class)) {
             $cfg = Setting::pluck('value', 'name')->toArray();
+            static::$cfg = $cfg;
             \View::share('cfg', $cfg);
             config($cfg);
         }
