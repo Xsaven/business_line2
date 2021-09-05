@@ -56,6 +56,7 @@ class UsersController extends Controller
 
             $table->id();
             $table->col('Имя', 'name')->sort()->copied();
+            $table->col('Фамилия', 'lastname')->sort()->copied();
             $table->col('Email', 'email')->sort()->copied();
             $table->col('Баланс', 'balance')->sort()->badge_number();
             $table->col('lte.active', 'active')->input_switcher('Да', 'Нет')->sort();
@@ -97,6 +98,7 @@ class UsersController extends Controller
             $form->image('photo', 'Фото');
             $form->input('number', 'Табельный номер')->required();
             $form->input('name', 'Имя')->required();
+            $form->input('lastname', 'Фамилия');
             $form->input('login', 'Логин')
                 ->required()->slugable()
                 ->unique_if($this->isType('create'), 'users', 'login')

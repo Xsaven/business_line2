@@ -103,7 +103,36 @@
                         </div>
 
 
-                        <form class="form register_form" @submit.stop.prevent="enter_register_password">
+                        <form class="form add_email_form" @submit.stop.prevent="enter_register_password" style="display: none">
+                            <div class="line">
+                                <div class="field">
+                                    <input v-model="registration.email" type="email"
+                                           :class="{input: true, error: errors.email}"
+                                           placeholder="Корпоративный или личный e-mail" @click="clear_errors"
+                                           @blur="clear_errors">
+                                    <div class="exp">{{ errors.email }}</div>
+                                </div>
+                            </div>
+
+                            <div class="line agree">
+                                <div class="field">
+                                    <input v-model="registration.agree" type="checkbox" id="agree_check">
+                                    <label for="agree_check">Я согласен на обработку персональных данных</label>
+                                </div>
+                            </div>
+
+                            <div class="submit">
+                                <button type="submit" class="submit_btn">Продолжить</button>
+                            </div>
+
+                            <div class="btns">
+                                <div>Уже зарегистрированные?
+                                    <button type="button" class="btn login_btn" @click="login_form">Войти</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <form class="form register_form" @submit.stop.prevent="enter_register_email">
                             <div class="title">Регистрация</div>
 
                             <div class="columns row">
@@ -132,23 +161,6 @@
                                                placeholder="Табельный номер" @click="clear_errors" @blur="clear_errors">
                                         <div class="exp">{{ errors.number }}</div>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="line">
-                                <div class="field">
-                                    <input v-model="registration.email" type="email"
-                                           :class="{input: true, error: errors.email}"
-                                           placeholder="Корпоративный или личный e-mail" @click="clear_errors"
-                                           @blur="clear_errors">
-                                    <div class="exp">{{ errors.email }}</div>
-                                </div>
-                            </div>
-
-                            <div class="line agree">
-                                <div class="field">
-                                    <input v-model="registration.agree" type="checkbox" id="agree_check">
-                                    <label for="agree_check">Я согласен на обработку персональных данных</label>
                                 </div>
                             </div>
 
@@ -266,8 +278,7 @@ export default {
     },
     methods: {
         find_email () {
-            if (!this.registration.email) jax.guest.registration_data(this.registration.name, this.registration.lastname, this.registration.number)
-                .then(({email}) => { if(email) this.registration.email = email; });
+
         },
         recovery_submit() {
             this.clear_errors();
@@ -305,7 +316,11 @@ export default {
         },
         registration_submit() {
             this.clear_errors();
-            if (!isRequired(this.registration.password) || !isLengthBetween(this.registration.password, 6, 191)) {
+            if (
+                !isRequired(this.registration.password) ||
+                !isLengthBetween(this.registration.password, 6, 191) ||
+                !this.validPassword(this.registration.password)
+            ) {
                 this.errors.password = "Пароль должен содержать 6 и более символов, прописные латинские буквы, строчные латинские буквы, цифры";
                 return;
             }
@@ -340,7 +355,7 @@ export default {
             $('.auth .data > *').hide();
             $('.auth .data .login_form').fadeIn(300);
         },
-        enter_register_password() {
+        enter_register_email() {
             this.clear_errors();
             if (!isRequired(this.registration.name) || !isBetween(this.registration.name, 3, 191)) {
                 this.errors.name = "Имя обязательно для ввода и должно содержать от 3 до 191 символов";
@@ -354,13 +369,30 @@ export default {
                 this.errors.number = "Табельный номер обязателен для ввода и должен содержать от 1 до 191 цифр";
                 return;
             }
-            if (!isRequired(this.registration.email) || !isEmail(this.registration.email)) {
-                this.errors.email = "E-mail обязателен для ввода и должен быть корректным";
-                return;
-            }
             if (!isTrue(this.registration.agree)) {
                 "toast:error".exec("Необходимо дать согласие на обработку персональных данных");
                 return;
+            }
+
+            if (!this.registration.email) jax.guest.registration_data(this.registration.name, this.registration.lastname, this.registration.number)
+                .then(({email}) => {
+                    if(email) {
+                        this.registration.email = email;
+                    } else {
+                        this.errors.email = "E-mail обязателен для ввода и должен быть корректным";
+                    }
+                });
+
+            $('.auth .data > *').hide();
+            $('.auth .data .add_email_form').fadeIn(300);
+        },
+        enter_register_password() {
+            this.clear_errors();
+
+
+            if (!isRequired(this.registration.email) || !isEmail(this.registration.email)) {
+                this.errors.email = "E-mail обязателен для ввода и должен быть корректным";
+                return ;
             }
 
             $('.auth .data > *').hide();
@@ -371,6 +403,10 @@ export default {
         },
         has_errors() {
             return Object.values(this.errors).filter((i) => !!i).length;
+        },
+        validPassword(password) {
+            let re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/;
+            return re.test(password);
         }
     }
 }

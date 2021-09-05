@@ -14,11 +14,11 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     /**
-     * Logout
+     * Logout.
      */
     public function logout()
     {
-        \Cache::forget("n:user:session:" . \Auth::id());
+        \Cache::forget('n:user:session:'.\Auth::id());
 
         \Auth::user()->update(['session' => null]);
 
