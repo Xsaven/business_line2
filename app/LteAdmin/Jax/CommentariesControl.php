@@ -34,10 +34,9 @@ class CommentariesControl extends LteAdminExecutor
 
         if ($comment && $comment->update(['active' => 1])) {
             if ($comment->commentaryRoom instanceof CommentaryRoom && $comment->commentaryRoom->id === 1) {
-                AllUserExec::dispatch(['update::add_comment_to_home' => [$comment->id]]);
+                AllUserExec::dispatch(['v-home-commentaries:add_to_child' => [$comment->id]]);
             } else {
-                AllUserExec::dispatch(['update::add_commentary_child_id' => [$comment->commentaryable_id, $comment->id]]);
-                //AllUserExec::dispatch(['v-home-commentaries:load_commentaries']);
+                AllUserExec::dispatch(["comment-add-{$comment->commentaryable_id}" => $comment->id]);
             }
             AllAdminExec::dispatch(['commentaries:update']);
         }
@@ -51,24 +50,10 @@ class CommentariesControl extends LteAdminExecutor
         $comment = Commentary::find($id);
 
         if ($comment && $comment->delete()) {
-            if ($comment->parent_id) {
-                AllUserExec::dispatch(["comment-{$comment->parent_id}"]);
+            if ($comment->commentaryRoom instanceof CommentaryRoom && $comment->commentaryRoom->id === 1) {
+                AllUserExec::dispatch(['v-home-commentaries:add_to_child' => [$comment->id]]);
             } else {
-                AllUserExec::dispatch(['v-home-commentaries:load_commentaries']);
-            }
-            AllAdminExec::dispatch(['commentaries:update']);
-        }
-    }
-
-    public function anchor(int $id)
-    {
-        $comment = Commentary::find($id);
-
-        if ($comment && $comment->update(['anchored' => 1, 'active' => 1])) {
-            if ($comment->parent_id) {
-                AllUserExec::dispatch(["comment-{$comment->parent_id}"]);
-            } else {
-                AllUserExec::dispatch(['v-home-commentaries:load_commentaries']);
+                AllUserExec::dispatch(["comment-add-{$comment->commentaryable_id}" => [$comment->commentaryable_id, $comment->id]]);
             }
             AllAdminExec::dispatch(['commentaries:update']);
         }
@@ -79,15 +64,10 @@ class CommentariesControl extends LteAdminExecutor
      */
     public function switch_moderation()
     {
-        Setting::whereName('commentary_moderation')
-            ->update(['value' => ! AppServiceProvider::$cfg['commentary_moderation']]);
+        Setting::whereName('free_chat')
+            ->update(['value' => ! AppServiceProvider::$cfg['free_chat']]);
 
-        if (AppServiceProvider::$cfg['commentary_moderation']) {
-            Commentary::where('active', 0)->update([
-                'active' => 1,
-            ]);
-
-            AllUserExec::dispatch(['v-home-commentaries:load_commentaries']);
+        if (AppServiceProvider::$cfg['free_chat']) {
             AllAdminExec::dispatch(['commentaries:update']);
         }
 

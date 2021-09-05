@@ -19,7 +19,7 @@ class NotifyUsers
     {
         if ($event->result() && $event->commentary) {
             AllUserExec::dispatch([
-                'update::commentary_id' => $event->commentary->id,
+                "comment-update-{$event->commentary->id}" => [],
                 'update' => [],
             ]);
         }

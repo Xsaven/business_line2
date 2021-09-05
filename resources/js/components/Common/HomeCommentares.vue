@@ -37,6 +37,7 @@ import uniqBy from "lodash/uniqBy";
 
 export default {
         $sync: ["user"],
+        $exec: ["update_list", "add_to_child", "drop"],
         name: "v-home-commentaries",
         props: {
             commentaries: {required:true}
@@ -51,13 +52,9 @@ export default {
         },
         mounted () {
             $('.messages')[0].scrollTo(0,document.querySelector(".messages").scrollHeight);
-            state.update_home_notifications = () => this.update_list();
-            state.add_to_child = (id) => this.add_to_child(id);
-            state.drop_child = (id) => this.drop(id);
-        },
-        beforeDestroy() {
-            delete state.update_home_notifications;
-            delete state.add_to_child;
+            // state.update_home_notifications = () => this.update_list();
+            // state.add_to_child = (id) => this.add_to_child(id);
+            // state.drop_child = (id) => this.drop(id);
         },
         computed: {
             sorted_comments () {

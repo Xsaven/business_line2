@@ -35,6 +35,12 @@ class SettingsSeeder extends Seeder
                 'field' => 'switcher',
             ],
             [
+                'name' => 'free_chat',
+                'value' => false,
+                'info' => 'Chat messages without moderation',
+                'field' => 'switcher',
+            ],
+            [
                 'name' => 'support_email',
                 'value' => 'email@mail.ru',
                 'info' => 'Support email',

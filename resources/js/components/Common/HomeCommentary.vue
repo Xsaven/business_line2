@@ -66,13 +66,9 @@
             };
         },
         mounted () {
-            state[`comment_update_${this.comment.id}`] = () => this.update();
-            state[`comment_add_child_${this.comment.id}`] = (id) => this.add_to_child(id);
-            state[`comment_drop_child_${this.comment.id}`] = (id) => this.drop(id);
-        },
-        beforeDestroy() {
-            delete state.update_home_notifications;
-            delete state.add_to_child;
+            ljs.toExec(`comment-update-${this.comment.id}`, this.update.bind(this));
+            ljs.toExec(`comment-add-${this.comment.id}`, this.add_to_child.bind(this));
+            ljs.toExec(`comment-drop-${this.comment.id}`, this.drop.bind(this));
         },
         computed: {
             sorted_child () {
@@ -85,6 +81,11 @@
             }
         },
         watch: {},
+        updated() {
+            ljs.toExec(`comment-update-${this.comment.id}`, this.update.bind(this));
+            ljs.toExec(`comment-add-${this.comment.id}`, this.add_to_child.bind(this));
+            ljs.toExec(`comment-drop-${this.comment.id}`, this.drop.bind(this));
+        },
         methods: {
             drop (id) {
                 this.comments = this.comment.child.filter((i) => i.id!==id);

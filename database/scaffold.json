@@ -198,6 +198,7 @@
     "resource": ["Support"],
     "seed": [
       {"name": "osm", "value": false, "info": "Only shop mode", "field": "switcher"},
+      {"name": "free_chat", "value": false, "info": "Chat messages without moderation", "field": "switcher"},
       {"name": "support_email", "value": "email@mail.ru", "info": "Support email"},
       {"name": "mail_phone", "value": "+79999999999", "info": "Mail phone"},
       {"name": "support_telegram_phone", "value": "+79999999999", "info": "Support telegram phone"},

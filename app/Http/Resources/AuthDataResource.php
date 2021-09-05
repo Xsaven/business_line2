@@ -32,7 +32,7 @@ class AuthDataResource extends JsonResource
             'subscribe_direction' => (int) (bool) $this->direction_id,
             'liked_comment_ids' => $repo->liked_comment_ids,
             'subscribes_users' => $repo->subscribesUsers,
-            'active_commentaries' => $this->active_commentaries,
+            'active_commentaries' => $this->active_commentaries || config('free_chat'),
             'complete_tasks_count' => $repo->completeTaskCount,
         ];
     }
