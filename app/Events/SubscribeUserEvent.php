@@ -32,5 +32,6 @@ class SubscribeUserEvent
      */
     public function __construct(
         public $user_id
-    ) {}
+    ) {
+    }
 }

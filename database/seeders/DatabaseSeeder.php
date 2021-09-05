@@ -25,11 +25,11 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingsPlayRuleSeeder::class);
         $this->call(ProductSettingsSeeder::class);
         $this->call(ProductsSeeder::class);
-        $this->call(UsersSeeder::class);
         $this->call(StarsSeeder::class);
         $this->call(CommentaryRoomsSeeder::class);
         $this->call(TasksSeeder::class);
         //$this->call(FirstSportTaskSeeder::class);
-        $this->call(DeliveriesSeeder::class);
+        $this->call(OspSeeder::class);
+        $this->call(UsersListSeeder::class);
     }
 }

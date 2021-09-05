@@ -23,10 +23,10 @@ class Validation
             'password' => $event->password,
             'password_confirmation' => $event->password_confirmation,
         ], [
-            'name' => 'required|string|min:3|max:191',
+            'name' => 'required|string|min:3|max:191|exists:users,name',
+            'lastname' => 'required|string|min:3|max:191|exists:users,lastname',
+            'number' => 'required|numeric|min:1|max:191|exists:users,number',
             'email' => 'required|string|email|min:3|max:191',
-            'lastname' => 'required|string|min:3|max:191',
-            'number' => 'required|string|min:3|max:191',
             'password' => 'required|string|min:6|max:191|confirmed',
         ]);
     }

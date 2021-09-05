@@ -253,8 +253,22 @@ export default {
     mounted() {
     },
     computed: {},
-    watch: {},
+    watch: {
+        'registration.name' () {
+            this.find_email();
+        },
+        'registration.lastname' () {
+            this.find_email();
+        },
+        'registration.number' () {
+            this.find_email();
+        },
+    },
     methods: {
+        find_email () {
+            if (!this.registration.email) jax.guest.registration_data(this.registration.name, this.registration.lastname, this.registration.number)
+                .then(({email}) => { if(email) this.registration.email = email; });
+        },
         recovery_submit() {
             this.clear_errors();
             if (!isRequired(this.recovery.email) || !isEmail(this.recovery.email)) {
@@ -273,8 +287,8 @@ export default {
         },
         login_submit() {
             this.clear_errors();
-            if (!isRequired(this.auth.login) || !isLengthBetween(this.auth.login, 6, 191)) {
-                this.errors.login = "Имя обязательно для ввода и должно содержать от 6 до 191 символов";
+            if (!isRequired(this.auth.login) || !isLengthBetween(this.auth.login, 1, 191)) {
+                this.errors.login = "Имя обязательно для ввода и должно содержать от 1 до 191 символов";
                 return;
             }
             if (!isRequired(this.auth.password) || !isLengthBetween(this.auth.password, 6, 191)) {
@@ -336,8 +350,8 @@ export default {
                 this.errors.lastname = "Фамилия обязательна для ввода и должна содержать от 3 до 191 символов";
                 return;
             }
-            if (!isRequired(this.registration.number) || !isLengthBetween(this.registration.number, 6, 191) || !isNumber(this.registration.number)) {
-                this.errors.number = "Табельный номер обязателен для ввода и должен содержать от 6 до 191 цифр";
+            if (!isRequired(this.registration.number) || !isLengthBetween(this.registration.number, 1, 191) || !isNumber(this.registration.number)) {
+                this.errors.number = "Табельный номер обязателен для ввода и должен содержать от 1 до 191 цифр";
                 return;
             }
             if (!isRequired(this.registration.email) || !isEmail(this.registration.email)) {

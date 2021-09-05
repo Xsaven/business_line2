@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -45,6 +46,11 @@ class Register
     public string $password_confirmation;
 
     /**
+     * @var User|null
+     */
+    public ?User $user = null;
+
+    /**
      * @var bool
      */
     public $validated = false;
@@ -74,6 +80,6 @@ class Register
      */
     public function result(): bool
     {
-        return $this->validated && $this->attempted;
+        return $this->validated && $this->attempted && $this->user;
     }
 }

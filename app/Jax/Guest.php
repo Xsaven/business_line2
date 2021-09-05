@@ -4,6 +4,8 @@ namespace App\Jax;
 
 use App\Events\Login;
 use App\Events\Register;
+use App\Http\Resources\UserResource;
+use App\Repositories\UserRepository;
 use Lar\LJS\JaxExecutor;
 
 /**
@@ -49,5 +51,22 @@ class Guest extends JaxExecutor
         event($event);
 
         return ['result' => $event->result()];
+    }
+
+    /**
+     * @param  string  $name
+     * @param  string  $lastname
+     * @param  string  $number
+     * @return array
+     */
+    public function registration_data(string $name, string $lastname, string $number): array
+    {
+        return ['email' => app(UserRepository::class)
+            ->model()
+            ->where('password', 'none')
+            ->where('name', $name)
+            ->where('lastname', $lastname)
+            ->where('number', $number)
+            ->first()?->email, ];
     }
 }
