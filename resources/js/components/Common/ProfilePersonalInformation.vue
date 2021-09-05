@@ -28,7 +28,7 @@
             </div>
 
 
-            <form @submit.stop.prevent="update" class="form edit_form">
+            <form v-if="edit" @submit.stop.prevent="update" class="form edit_form">
                 <div class="name">{{user.name}} {{user.last_name}}</div>
 
                 <div class="line">
@@ -41,7 +41,7 @@
                     <div class="field">
                         <v-select v-model="form.position_id">
                             <option v-if="!user.position" value="0" data-display="Должность"></option>
-                            <option v-else value="0" :data-display="user.position"></option>
+<!--                            <option v-else value="0" :data-display="user.position"></option>-->
                             <option v-for="position in positions" :selected="user.position_id === position.id" :value="position.id">{{position.name}}</option>
                         </v-select>
                     </div>
@@ -51,7 +51,7 @@
                     <div class="field">
                         <v-select v-model="form.division_id">
                             <option v-if="!user.division" value="0" data-display="Подразделение"></option>
-                            <option v-else value="0" :data-display="user.division"></option>
+<!--                            <option v-else value="0" :data-display="user.division"></option>-->
                             <option v-for="division in divisions" :selected="user.division_id === division.id" :value="division.id">{{division.name}}</option>
                         </v-select>
                     </div>
@@ -60,13 +60,13 @@
                 <div class="line">
                     <div class="field" >
                       <textarea v-model="form.about" v-if="!user.about" placeholder="О себе"></textarea>
-                      <textarea v-model="form.about" v-else :placeholder="user.about"></textarea>
+                      <textarea v-else v-model="form.about"></textarea>
                     </div>
                 </div>
 
                 <div class="submit">
                     <button type="submit" class="submit_btn">Сохранить</button>
-                    <button type="button" class="cancel_btn" @click="cancel">Отмена</button>
+                    <button type="button" class="cancel_btn" ref="cancel_btn" @click="cancel">Отмена</button>
                 </div>
             </form>
 
@@ -98,6 +98,7 @@
         props: ['positions','divisions'],
         data () {
             return {
+                edit: false,
                 user: {},
                 form: {
                   login: '',
@@ -108,10 +109,7 @@
             };
         },
         mounted () {
-          this.form.login = this.user.login;
-          this.form.division_id = this.user.division_id;
-          this.form.position_id = this.user.position_id;
-          this.form.about = this.user.about;
+          this.update_state();
         },
         computed: {
             avatar () {
@@ -120,20 +118,35 @@
         },
         watch: {},
         methods: {
-          edit_btn (e) {
-            let parent = $(e.target).closest('.personal')
-            parent.find('.user_data').hide()
-            parent.find('.edit_form, .avatar .upload').fadeIn(300)
+          update_state() {
+            this.form.login = this.user.login;
+            this.form.division_id = this.user.division_id;
+            this.form.position_id = this.user.position_id;
+            this.form.about = this.user.about;
           },
-          cancel (e) {
-            let parent = $(e.target).closest('.personal')
+          edit_btn (e) {
+            this.update_state()
+            this.edit = true;
+            ljs.onetime(() => {
+              let parent = $(e.target).closest('.personal')
+              parent.find('.user_data').hide()
+              parent.find('.edit_form, .avatar .upload').fadeIn(300)
+            });
+          },
+          cancel () {
+            let parent = $(this.$refs.cancel_btn).closest('.personal')
             parent.find('.edit_form, .avatar .upload').hide()
             parent.find('.user_data').fadeIn(300)
+            ljs.onetime(() => {
+              this.edit = false;
+            }, 301)
           },
           handleUpload() {
             jax.param('avatar', Object.values(this.$refs.file.files)[0])
                 .user
-                .upload_avatar().then(() => this.cancel());
+                .upload_avatar().then(() => {
+              window.location.reload();
+            });
           },
           update () {
             jax.user.update_user_data(

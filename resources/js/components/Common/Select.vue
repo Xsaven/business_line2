@@ -10,16 +10,21 @@
         },
         data () {
             return {
-
+                plugin: null
             };
         },
         mounted () {
-          $(this.$refs.s).niceSelect().on('change', (e) => {
+          this.plugin = $(this.$refs.s).niceSelect();
+          this.plugin.on('change', (e) => {
             this.$emit('input', e.target.value)
           });
         },
         computed: {},
-        watch: {},
+        watch: {
+          value (val) {
+            this.plugin.val(val);
+          }
+        },
         methods: {}
     }
 </script>

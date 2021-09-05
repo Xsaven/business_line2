@@ -59,7 +59,7 @@ class User extends JaxExecutor
                 'position_id' => $position_id,
                 'about' => $about,
             ])) {
-            $this->reload();
+            $this->put('update');
         }
     }
 
@@ -74,7 +74,7 @@ class User extends JaxExecutor
                 ->update([
                     'photo' => LteFileStorage::makeFile('avatar'),
                 ])) {
-                $this->reload();
+                //$this->put("window.location.reload");
             }
         }
     }
