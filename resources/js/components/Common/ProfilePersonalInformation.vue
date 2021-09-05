@@ -78,6 +78,7 @@
                 <div class="upload">
                     <input type="file" name="avatar" id="avatar" ref="file" @change="handleUpload">
                     <label for="avatar">Загрузить фото</label>
+                    <label>jpg, jpeg, png до 10 МБ</label>
                 </div>
 
                 <div class="logout" style="margin-top: 32px;line-height: 19px;display: block;cursor: pointer;text-align: center;text-decoration-line: underline;">
