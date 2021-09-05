@@ -51,11 +51,11 @@ class CommentaryRoomController extends Controller
             $form->input('title', 'Заголовок')->required();
             $form->select('state', 'Состояние')
                 ->options(CommentaryRoom::STATES)->required();
-            $form->input('video_title', 'Видео заголовок')->required();
-            $form->input('video_info', 'Видео описание')->required();
-            $form->input('video_data', 'Код видеоплейера')->required();
-            $form->input('translation_data', 'Код трансляции')->required();
-            $form->textarea('description', 'Описание страницы')->required();
+            $form->input('video_title', 'Видео заголовок');
+            $form->input('video_info', 'Видео описание');
+            $form->input('video_data', 'Код видеоплейера');
+            $form->input('translation_data', 'Код трансляции');
+            $form->textarea('description', 'Описание страницы');
             $form->info_at();
         });
     }

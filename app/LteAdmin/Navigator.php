@@ -32,6 +32,10 @@ class Navigator extends NavigatorExtensionProvider implements ActionWorkExtensio
 
         $this->nav_bar_view('admin.navbar_controls');
 
+        $this->item("Комнаты")
+            ->resource('rooms', 'CommentaryRoomController')
+            ->icon_door_open();
+
         $this->item(Direction::TITLE)
             ->resource('direction', 'DirectionController')
             ->icon_directions();
