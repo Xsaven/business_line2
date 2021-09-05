@@ -70,17 +70,10 @@ class User extends JaxExecutor
     {
         if ($request->hasFile('avatar')) {
 
-            try {
-                $img = \Image::make($request->file('avatar'))
-                    ->resize(800, 600, function ($constraint) {
-                        $constraint->aspectRatio();
-                    })->encode('jpg');
-            } catch (\Throwable) {
-                $img = \Image::make($request->file('avatar'))
-                    ->resize(800, 600, function ($constraint) {
-                        $constraint->aspectRatio();
-                    });
-            }
+            $img = \Image::make($request->file('avatar'))
+                ->resize(800, 600, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
 
             $file_name = \Auth::id().'_avatar.jpg';
 
