@@ -402,7 +402,7 @@ export default {
                         this.registration.email_confirmation = email;
                     } else {
                         this.empty_email = true;
-                        this.errors.email = "E-mail обязателен для ввода и должен быть корректным";
+                        //this.errors.email = "E-mail обязателен для ввода и должен быть корректным";
                     }
                     if (has) {
                         $('.auth .data > *').hide();
