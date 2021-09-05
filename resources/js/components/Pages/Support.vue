@@ -28,10 +28,6 @@
 
                     <div class="title">Техническая поддержка сайта</div>
 
-                    <div class="email">
-                        <a :href="`mailto:${settings.support_email}`">{{ settings.support_email }}</a>
-                    </div>
-
                     <div class="messengers">
                         <div><a :href="settings.support_telegram_link">
                             <div class="icon">
@@ -51,7 +47,7 @@
                     <img data-src="images/bg_support_data.svg" alt="" class="bg lozad">
                 </div>
 
-                <div class="text">Если вы не получили ответ от технической поддержки сайта в течение 12 часов,  обратитесь в ГК «Деловые Линии»: email@dellin.ru</div>
+                <div class="text">Если вы не получили ответ от технической поддержки сайта в течение 12 часов,  обратитесь в ГК «Деловые Линии»: {{ settings.support_email }}</div>
             </div>
         </section>
     </v-layout>

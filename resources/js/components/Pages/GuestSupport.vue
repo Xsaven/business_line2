@@ -6,10 +6,6 @@
                     <a href="/" class="logo mob_mini">
                         <img src="images/logo.svg" alt="">
                     </a>
-
-                    <div class="twenty_years">
-                        <img src="images/twenty_years_mini.svg" alt="">
-                    </div>
                 </div>
             </header>
 
@@ -49,10 +45,6 @@
 
                         <div class="title">Техническая поддержка сайта</div>
 
-                        <div class="email">
-                            <a :href="`mailto:${settings.support_email}`">{{ settings.support_email }}</a>
-                        </div>
-
                         <div class="messengers">
                             <div><a :href="settings.support_telegram_link">
                                 <div class="icon">
@@ -72,7 +64,7 @@
                         <img data-src="images/bg_support_data.svg" alt="" class="bg lozad">
                     </div>
 
-                    <div class="text">Если вы не получили ответ от технической поддержки сайта в течение 12 часов,  обратитесь в ГК «Деловые Линии»: email@dellin.ru</div>
+                    <div class="text">Если вы не получили ответ от технической поддержки сайта в течение 12 часов,  обратитесь в ГК «Деловые Линии»: {{ settings.support_email }}</div>
                 </div>
             </section>
         </div>
@@ -81,10 +73,6 @@
         <footer class="big_margin">
             <div class="cont row">
                 <div class="copyright">&copy; ГК «Деловые Линии», 2001–2021</div>
-
-                <div class="links">
-                    <div><a href="/">FAQ</a></div>
-                </div>
             </div>
 
             <img data-src="images/bg_footer2.svg" alt="" class="lozad bg bg2">
