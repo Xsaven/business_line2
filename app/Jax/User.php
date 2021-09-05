@@ -49,7 +49,7 @@ class User extends JaxExecutor
      * @param int $position_id
      * @param string $about
      */
-    public function update_user_data(string $login, int $division_id, int $position_id, string $about)
+    public function update_user_data(string $login, int $division_id = null, int $position_id = null, string $about = "")
     {
         if (app(AuthUserRepository::class)
             ->user
