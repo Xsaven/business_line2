@@ -25,6 +25,7 @@ class CommentaryNoChildResource extends JsonResource
             'likes' => $this->likes_count,
             'user' => UserResource::make($this->user),
             'created_at' => butty_date_time($this->created_at),
+
         ];
     }
 }
