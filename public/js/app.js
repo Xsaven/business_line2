@@ -64386,7 +64386,8 @@ var render = function() {
                       },
                       [_vm._v("Присоединиться")]
                     )
-                  : _c(
+                  : _vm.user.direction_id === _vm.direction.id
+                  ? _c(
                       "button",
                       {
                         staticClass: "join_btn modal_btn",
@@ -64394,6 +64395,7 @@ var render = function() {
                       },
                       [_vm._v("Вы уже подписаны на трек")]
                     )
+                  : _vm._e()
               ])
             ]),
             _vm._v(" "),

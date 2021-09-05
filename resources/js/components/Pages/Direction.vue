@@ -14,7 +14,7 @@
                             <div class="members">Участники: {{users}}</div>
 
                             <button  v-if="!user.subscribe_direction" class="join_btn modal_btn" data-content="#join_modal">Присоединиться</button>
-                            <button disabled  v-else class="join_btn modal_btn" data-content="#join_modal">Вы уже подписаны на трек</button>
+                            <button disabled  v-else-if="user.direction_id === direction.id" class="join_btn modal_btn" data-content="#join_modal">Вы уже подписаны на трек</button>
                         </div>
                     </div>
 

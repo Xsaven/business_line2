@@ -35,7 +35,8 @@ class UserResource extends JsonResource
             'follow_direction' => $this->direction ?? null,
             'about' => $this->about,
             'division_id' => $this->division_id,
-            'position_id' => $this->position_id
+            'position_id' => $this->position_id,
+            'direction_id' => $this->direction_id
         ];
     }
 }
