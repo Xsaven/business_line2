@@ -48,6 +48,7 @@ class DirectionController extends Controller
             $form->info_id();
             $form->input('name', 'Название')->required();
             $form->textarea('description', 'Описание');
+            $form->ckeditor('terms_of_participation','Условия участия');
             $form->info_at();
         });
     }
@@ -61,6 +62,7 @@ class DirectionController extends Controller
             $table->id();
             $table->row('Название', 'name');
             $table->row('Описание', 'description');
+            $table->row('Условия участия','terms_of_participation');
             $table->at();
         });
     }

@@ -59,7 +59,7 @@
 
             <div class="line" >
               <div class="field">
-                <v-select required v-model="form.select_address">
+                <v-select v-model="form.select_address">
                   <option value="0" data-display="Адрес ОСП для доставки"></option>
                   <option v-for="address in deliveries" :value="address.id">{{address.address}}</option>
                 </v-select>
@@ -96,7 +96,7 @@
                 form: {
                   phone: '',
                   email: '',
-                  select_address: null,
+                  select_address: '',
                 },
 
                error: false,

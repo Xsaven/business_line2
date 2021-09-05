@@ -46,7 +46,7 @@ class PrizeController extends Controller
         return new Matrix(function (Form $form) {
             $form->info_id();
             $form->input('name', 'Название')->required();
-            $form->input('src', 'Изображение')
+            $form->image('src', 'Изображение')
                 ->required_condition($this->isType('create'));
             $form->info_at();
         });

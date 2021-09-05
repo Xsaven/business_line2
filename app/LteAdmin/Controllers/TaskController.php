@@ -34,7 +34,6 @@ class TaskController extends Controller
 
             $table->id();
             $table->col('Приз', 'prize_src')->sort()->avatar(50);
-            $table->col('Трек', 'track.name')->sort('track_id');
             $table->col('Название', 'name')->sort();
             $table->col('Тип события', fn (Task $task) => Task::EVENT_TYPES[$task->event_type])->sort('event_type');
             $table->col('Тип отчёта', fn (Task $task) => Task::REPORT_TYPES[$task->report_type])->sort('report_type');
@@ -53,16 +52,15 @@ class TaskController extends Controller
             $form->input('name', 'Название')->required();
             $form->image('prize_src', 'Фото приза')
                 ->required_condition($this->isType('create'));
-            $form->select('track_id', 'Трек')
-                ->load(Track::class);
             $form->select('event_type', 'Тип события')
                 ->options(Task::EVENT_TYPES, true);
-            $form->select('event_type', 'Тип отчёта')
+            $form->select('report_type', 'Тип отчёта')
                 ->options(Task::REPORT_TYPES, true);
             $form->multi_select('action_types', 'Проверка задания')
                 ->options(Task::ACTION_TYPES, true);
             $form->numeric('cost', 'Стоимость')->required()
                 ->icon_dollar_sign();
+            $form->ckeditor('terms_of_participation', 'Условия участия');
             $form->divider('Дата и время');
             $form->date_time('start_at', 'Начало')->required();
             $form->date_time('finish_at', 'Конец')->required();
@@ -78,10 +76,10 @@ class TaskController extends Controller
         return Info::create(function (ModelInfoTable $table) {
             $table->id();
             $table->row('Приз', 'prize_src')->avatar(200);
-            $table->row('Трек', 'track.name');
             $table->row('Название', 'name');
             $table->row('Тип события', fn (Task $task) => Task::EVENT_TYPES[$task->event_type]);
             $table->row('Тип отчёта', fn (Task $task) => Task::REPORT_TYPES[$task->report_type]);
+            $table->row('Условия участия', 'terms_of_participation');
             $table->row('Стоимость', 'cost')->money('баллов');
             $table->at();
         });

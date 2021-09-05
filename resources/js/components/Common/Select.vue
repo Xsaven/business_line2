@@ -1,5 +1,5 @@
 <template>
-    <select @change="$emit('input', $event.target.value)" ref="s"><slot></slot></select>
+    <select ref="s"><slot></slot></select>
 </template>
 
 <script>
@@ -14,7 +14,9 @@
             };
         },
         mounted () {
-          $(this.$refs.s).niceSelect();
+          $(this.$refs.s).niceSelect().on('change', (e) => {
+            this.$emit('input', e.target.value)
+          });
         },
         computed: {},
         watch: {},

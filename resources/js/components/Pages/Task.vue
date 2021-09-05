@@ -18,7 +18,7 @@
 
               <div>
                 <div class="scores">{{task.cost}} {{declOfNum(task.cost,['бал','бала','балов'])}}</div>
-                <div class="members">Участники: 152</div>
+                <div class="members">Участники: {{task.participants}}</div>
               </div>
             </div>
 

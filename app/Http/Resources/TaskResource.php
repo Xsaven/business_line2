@@ -34,7 +34,7 @@ class TaskResource extends JsonResource
             'report_configs' => $this->report_configs,
             'action_type' => $this->action_type,
             'complete_user' => $this->taskReports()->where('user_id', \Auth::id())->exists(),
-            'participants' => $this->taskReports()->count()
+            'participants' => $this->taskReports()->count(),
         ];
     }
 }

@@ -18,7 +18,7 @@ class Create
      */
     public function handle(OrderEvent $event)
     {
-        $user = \Auth::user()->first();
+        $user = \Auth::user();
 
         $product = Product::whereId($event->product_id)->first();
 
