@@ -69,16 +69,23 @@ class User extends JaxExecutor
     public function upload_avatar(Request $request)
     {
         if ($request->hasFile('avatar')) {
-            
-            $img = \Image::make($request->file('avatar'))
-                ->resize(800, 600, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->encode('jpg');
+
+            try {
+                $img = \Image::make($request->file('avatar'))
+                    ->resize(800, 600, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->encode('jpg');
+            } catch (\Throwable) {
+                $img = \Image::make($request->file('avatar'))
+                    ->resize(800, 600, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+            }
 
             $file_name = \Auth::id().'_avatar.jpg';
 
             \Storage::disk('yandexcloud')->put($file_name, (string) $img);
-            
+
             if (app(AuthUserRepository::class)
                 ->user
                 ->update([
