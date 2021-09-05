@@ -25,7 +25,7 @@ use Illuminate\Notifications\Notifiable;
  * @property string|null $login
  * @property int $balance
  * @property string|null $about
- * @property string $email
+ * @property string|null $email
  * @property string $number
  * @property string|null $photo
  * @property \Illuminate\Support\Carbon|null $email_verified_at

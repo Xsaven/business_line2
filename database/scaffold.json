@@ -97,7 +97,7 @@
       ["login", {"nullable": []}],
       ["balance", "integer", {"default": 0}],
       ["about", "text", {"nullable":  []}],
-      ["email", {"unique" : []}],
+      ["email", {"unique" : [], "nullable": []}],
       ["number", {"unique" : []}],
       ["photo", {"nullable" : []}],
       ["email_verified_at", {"nullable" : []}],
