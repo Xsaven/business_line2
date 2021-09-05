@@ -152,14 +152,33 @@
   },
   "commentary_room": {
     "const:title": "Комнаты комментариев",
+    "const:state_translation": "translation",
+    "const:state_video": "video",
+    "const:states": {
+      "translation": "Трансляция",
+      "video": "Видео"
+    },
     "fields": [
-      "name"
+      "name",
+      "title",
+      "state",
+      ["video_title", {"nullable": []}],
+      ["video_info", {"nullable": []}],
+      ["video_data", {"nullable": []}],
+      ["translation_data", {"nullable": []}],
+      ["description", {"nullable": []}]
     ],
     "relations": {
       "commentaries": {}
     },
+    "resource": [],
     "seed": {
-      "name": "Главная страница"
+      "name": "Главная страница",
+      "title": "Краткое название проекта",
+      "state": "video",
+      "video_title": "Церемония открытия",
+      "video_info": "Онлайн трансляция",
+      "description": "Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме."
     }
   },
   "faq" : {

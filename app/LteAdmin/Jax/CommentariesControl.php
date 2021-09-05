@@ -71,6 +71,8 @@ class CommentariesControl extends LteAdminExecutor
             AllAdminExec::dispatch(['commentaries:update']);
         }
 
+        AllUserExec::dispatch(['doc::reload']);
+
         $this->reload();
     }
 
@@ -79,8 +81,8 @@ class CommentariesControl extends LteAdminExecutor
      */
     public function switch_commentary()
     {
-        Setting::whereName('commentary')
-            ->update(['value' => ! AppServiceProvider::$cfg['commentary']]);
+        Setting::whereName('osm')
+            ->update(['value' => ! AppServiceProvider::$cfg['osm']]);
 
         AllUserExec::dispatch(['doc::reload']);
 

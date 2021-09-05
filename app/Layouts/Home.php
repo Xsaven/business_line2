@@ -42,6 +42,7 @@ class Home extends LayoutComponent
      * @var array
      */
     protected $body_scripts = [
+        'https://player.vimeo.com/api/player.js',
         'js/jquery-3.5.0.min.js',
         'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
         'js/lozad.min.js',
