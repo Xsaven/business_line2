@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Events\Ws\AllAdminExec;
+use App\Events\Ws\AllUserExec;
 use App\Models\Online;
 use App\Models\Setting;
 use App\Models\User;
@@ -26,6 +27,8 @@ class AdminStatisticJob implements ShouldQueue
     {
         $online = User::select('id')->get()->filter(fn ($i) => $i->online())->count();
 
+        \Cache::forever('online', $online);
+
         $online_p = Online::orderByDesc('peck')->first();
 
         $online_p = $online_p ? $online_p->peck : 0;
@@ -42,5 +45,7 @@ class AdminStatisticJob implements ShouldQueue
             $online,
             $online_peck,
         ]]);
+
+        AllUserExec::dispatch(['pages_home:setOnline' => $online]);
     }
 }

@@ -31,6 +31,8 @@ class Home extends Page
             app(CommentaryRepository::class)->home_commentaries
         )->toArray(request());
 
+        $attrs['online'] = \Cache::get('online', 0);
+
         parent::__construct($id, $attrs, $params);
     }
 }
