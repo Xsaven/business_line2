@@ -197,7 +197,7 @@
                             </div>
 
                             <div class="btns">
-                                <div>Уже зарегистрированные?
+                                <div>Уже зарегистрированы?
                                     <button type="button" class="btn login_btn" @click="login_form">Войти</button>
                                 </div>
                             </div>
@@ -228,7 +228,7 @@
                             </div>
 
                             <div class="btns">
-                                <div>Уже зарегистрированные?
+                                <div>Уже зарегистрированы?
                                     <button type="button" class="btn login_btn" @click="login_form">Войти</button>
                                 </div>
                             </div>

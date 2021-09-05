@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="item">
-                        <div>Лайки:{{user.likes}}</div>
+                        <div>Лайки: {{user.likes}}</div>
                     </div>
 
                     <img data-src="/images/bg_user_informer.svg" alt="" class="lozad bg">
