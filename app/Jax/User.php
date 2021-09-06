@@ -89,7 +89,7 @@ class User extends JaxExecutor
             }
 
             $img = \Image::make($request->file('avatar'))
-                ->resize(800, 600, function ($constraint) {
+                ->resize(168, 168, function ($constraint) {
                     $constraint->aspectRatio();
                 });
 
