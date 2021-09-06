@@ -72,10 +72,10 @@ class User extends JaxExecutor
             $file = $request->file('avatar');
 
             if (
-                ! is_image($file->getPathname()) ||
-                ! str_contains(strtolower($file->getMimeType()), 'jpg') ||
-                ! str_contains(strtolower($file->getMimeType()), 'jpeg') ||
-                ! str_contains(strtolower($file->getMimeType()), 'png')
+                ! is_image($file->getPathname()) &&
+                ! str_contains($file->getMimeType(), 'jpg') &&
+                ! str_contains($file->getMimeType(), 'jpeg') &&
+                ! str_contains($file->getMimeType(), 'png')
             ) {
                 $this->toast_error('Неверное расширение файла.');
 
