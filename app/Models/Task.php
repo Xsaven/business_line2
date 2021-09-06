@@ -71,7 +71,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Task extends Model
 {
-    use TaskHasLogs, TaskMutators, SoftDeletes;
+    use TaskHasLogs, TaskMutators; //, SoftDeletes;
 
     const TITLE = 'Задания';
 
