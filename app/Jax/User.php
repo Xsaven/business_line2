@@ -73,9 +73,9 @@ class User extends JaxExecutor
             $file = $request->file('avatar');
 
             if (
-                ! is_image($file->getPathname()) ||
-                ! str_contains($file->getMimeType(), 'jpg') ||
-                ! str_contains($file->getMimeType(), 'jpeg') ||
+                ! is_image($file->getPathname()) &&
+                ! str_contains($file->getMimeType(), 'jpg') &&
+                ! str_contains($file->getMimeType(), 'jpeg') &&
                 ! str_contains($file->getMimeType(), 'png')
             ) {
                 $this->toast_error('Неверное расширение файла.');
@@ -108,11 +108,18 @@ class User extends JaxExecutor
 //
 //            $img = $img->encode('jpg');
 
-            $img = $img->resize(400, 400, function ($constraint) {
+            if (\Auth::user()->photo) {
+                \Storage::disk('yandexcloud')->delete(
+                    str_replace(config('filesystems.disks.yandexcloud.url') . '/', '', \Auth::user()->photo)
+                );
+            }
+
+            $img = $img->resize(800, 800, function ($constraint) {
+
                 $constraint->aspectRatio();
             })->encode('jpg');
 
-            $file_name = \Auth::id().'_avatar.jpg';
+            $file_name = \Auth::id().'_'.time().'_avatar.jpg';
 
             \Storage::disk('yandexcloud')->put($file_name, (string) $img);
 

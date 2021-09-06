@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Task Class.
@@ -28,6 +29,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property \Illuminate\Support\Carbon|null $start_at
  * @property \Illuminate\Support\Carbon|null $finish_at
  * @property int $direction_id
+ * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Direction|null $direction
@@ -43,10 +45,12 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property-read int|null $task_reports_count
  * @method static \Illuminate\Database\Eloquent\Builder|Task newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Task newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Task onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Task query()
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereActionType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereCost($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereDirectionId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereEventType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereFansTask($value)
@@ -61,11 +65,13 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereStartAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereTermsOfParticipation($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|Task withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Task withoutTrashed()
  * @mixin \Eloquent
  */
 class Task extends Model
 {
-    use TaskHasLogs, TaskMutators;
+    use TaskHasLogs, TaskMutators; //, SoftDeletes;
 
     const TITLE = 'Задания';
 

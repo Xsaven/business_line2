@@ -91,7 +91,7 @@
                 <v-direction-sport-callendar v-else-if="direction.slug === 'sport'" :tasks="tasks" />
                 <v-direction-funs-callendar v-else-if="direction.slug === 'fans'" :tasks="tasks" />
 
-                <v-direction-challenge-item v-if="direction.slug === 'fun' || direction.slug === 'sport'" :tasks="challenge_items" />
+                <v-direction-challenge-item v-if="direction.slug === 'sport'" :tasks="challenge_items" />
             </div>
         </section>
 

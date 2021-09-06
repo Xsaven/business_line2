@@ -13,6 +13,7 @@ use Lar\Developer\CoreRepository;
  * @method Direction model()
  * @property-read Direction[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection $all
  * @property-read Direction|\Illuminate\Database\Eloquent\Builder|Model|object|null $findBySlug
+ * @property-read Direction|\Illuminate\Database\Eloquent\Builder|Model|object|null $findById
  */
 class DirectionRepository extends CoreRepository
 {
@@ -43,5 +44,16 @@ class DirectionRepository extends CoreRepository
         $slug = $request->direction;
 
         return Direction::whereSlug($slug)->with('tasks')->first();
+    }
+
+    /**
+     * @param Request $request
+     * @return Direction|\Illuminate\Database\Eloquent\Builder|Model|object|null
+     */
+    public function findById(Request $request)
+    {
+        $slug = $request->direction;
+
+        return Direction::whereId($slug)->first();
     }
 }

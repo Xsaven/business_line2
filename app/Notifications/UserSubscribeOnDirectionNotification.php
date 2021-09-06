@@ -14,7 +14,7 @@ class UserSubscribeOnDirectionNotification extends Notification
      */
     public function __construct(User $user, Direction $direction)
     {
-        $this->message = "Вы успешно подписались на {$direction->name} трек!";
+        $this->message = "Вы успешно подписались на трек {$direction->name}!";
         $this->user_id = $user->id;
     }
 }

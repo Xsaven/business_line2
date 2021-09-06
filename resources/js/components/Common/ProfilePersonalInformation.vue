@@ -78,7 +78,7 @@
                 <div class="upload">
                     <input type="file" name="avatar" id="avatar" ref="file" @change="handleUpload">
                     <label for="avatar">Загрузить фото</label>
-                    <label style="text-decoration-line: none;margin-top: 10px;cursor: default;">jpg, jpeg, png до 10 МБ</label>
+                    <label style="text-decoration-line: none;margin-top: 10px;cursor: default;">jpg, jpeg, png <br>до 10 МБ</label>
                 </div>
 
                 <div class="logout" style="margin-top: 32px;line-height: 19px;display: block;cursor: pointer;text-align: center;text-decoration-line: underline;">
@@ -160,9 +160,9 @@
                 .user
                 .upload_avatar().then(({result}) => {
               //window.location.reload();
-                if (result) {
-                    "toast:success".exec("Загрузка аватара завершена!");
-                }
+              //   if (result) {
+              //       "toast:success".exec("Загрузка аватара завершена!");
+              //   }
                 state.user.avatar = `<span>${this.user.short_name}</span>`;
               jax.user.update().then(({data}) => {
                 state.user = data;

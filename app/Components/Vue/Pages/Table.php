@@ -3,7 +3,9 @@
 namespace App\Components\Vue\Pages;
 
 use App\Components\Vue\Page;
+use App\Http\Resources\DirectionResource;
 use App\Http\Resources\UserResource;
+use App\Repositories\DirectionRepository;
 use App\Repositories\UserRepository;
 
 /**
@@ -31,7 +33,14 @@ class Table extends Page
 
         $attrs['users'] = [];
 
-        $attrs['direction_id'] = request()->direction;
+        $direction = app(DirectionRepository::class)->findById;
+
+        if (!$direction) {
+
+            abort(404);
+        }
+
+        $attrs['direction'] = DirectionResource::make($direction)->toArray(request());
 
 //            app(\App\Jax\Table::class)
 //            ->pagination(request()->direction, $attrs['sort'])
