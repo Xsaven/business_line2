@@ -91,9 +91,9 @@ class User extends JaxExecutor
             $img = \Image::make($request->file('avatar'))
                 ->resize(168, 168, function ($constraint) {
                     $constraint->aspectRatio();
-                });
+                })->encode('jpg');
 
-            $file_name = \Auth::id().'_avatar.'.$file->extension();
+            $file_name = \Auth::id().'_avatar.jpg';
 
             \Storage::disk('yandexcloud')->put($file_name, (string) $img);
 
