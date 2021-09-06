@@ -83,6 +83,12 @@ use Lar\Roads\Roads;
     ->component('/user/{user:id}', \App\Components\Vue\Pages\User::class)
     ->name('user');
 
+\Road::layout('home')
+    ->web()
+    ->auth()
+    ->component('/search', \App\Components\Vue\Pages\Search::class)
+    ->name('search');
+
 \Road::web()
     ->auth()
     ->get('/logout', [\App\Http\Controllers\Controller::class, 'logout'])

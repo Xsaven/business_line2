@@ -14,5 +14,6 @@ return [
     "pages_product" => "App\\Components\\Vue\\Pages\\Product",
     "pages_profile" => "App\\Components\\Vue\\Pages\\Profile",
     "pages_user" => "App\\Components\\Vue\\Pages\\User",
-    "pages_guest_support" => "App\\Components\\Vue\\Pages\\GuestSupport"
+    "pages_guest_support" => "App\\Components\\Vue\\Pages\\GuestSupport",
+    "pages_search" => "App\\Components\\Vue\\Pages\\Search"
 ];

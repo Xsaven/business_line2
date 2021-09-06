@@ -58,4 +58,15 @@ class TaskReportRepository extends CoreRepository
                 'task_id' => $task_id,
             ]);
     }
+
+    /**
+     * @param  string  $q
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model[]|\Illuminate\Support\Collection
+     */
+    public function search(string $q = "")
+    {
+        return $q ? $this->model()
+            ->where('comment', 'like', "%{$q}%")
+            ->get(): collect();
+    }
 }
