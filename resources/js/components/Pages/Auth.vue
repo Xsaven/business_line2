@@ -319,7 +319,7 @@ export default {
         login_submit() {
             this.clear_errors();
             if (!isRequired(this.auth.login) || !isLengthBetween(this.auth.login, 1, 191)) {
-                this.errors.login = "Имя обязательно для ввода и должно содержать от 1 до 191 символов";
+                this.errors.login = "Табельный номер обязателен для ввода и должен содержать от 1 до 191 символов";
                 return;
             }
             if (!isRequired(this.auth.password) || !isLengthBetween(this.auth.password, 6, 191)) {
