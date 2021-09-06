@@ -55,7 +55,7 @@ class CommentaryRoomController extends Controller
             $form->input('video_info', 'Видео описание');
             $form->input('video_data', 'Код видеоплейера');
             $form->input('translation_data', 'Код трансляции');
-            $form->textarea('description', 'Описание страницы');
+            $form->ckeditor('description', 'Описание страницы');
             $form->info_at();
         });
     }

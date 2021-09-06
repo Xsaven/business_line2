@@ -15,4 +15,6 @@ return [
     'pages_profile' => 'App\\Components\\Vue\\Pages\\Profile',
     'pages_user' => 'App\\Components\\Vue\\Pages\\User',
     'pages_guest_support' => 'App\\Components\\Vue\\Pages\\GuestSupport',
+    'pages_search' => 'App\\Components\\Vue\\Pages\\Search',
+    'pages_table' => 'App\\Components\\Vue\\Pages\\Table',
 ];

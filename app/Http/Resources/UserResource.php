@@ -30,13 +30,14 @@ class UserResource extends JsonResource
             'likes' => $this->likes,
             'balance' => $this->balance,
             'photo' => $this->photo ? asset($this->photo) : $this->photo,
-            'position' => $this->position ? $this->position->name : '',
-            'division' => $this->division ? $this->division->name : '',
+            'position' => $this->position_id ? $this->position->name : '',
+            'division' => $this->division_id ? $this->division->name : '',
             'follow_direction' => $this->direction ?? null,
             'about' => $this->about,
             'division_id' => $this->division_id,
             'position_id' => $this->position_id,
             'direction_id' => $this->direction_id,
+            'reports_count' => $this->task_reports_count,
         ];
     }
 }

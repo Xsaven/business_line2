@@ -74,7 +74,7 @@
                             </div>
 
                             <div class="submit">
-                                <button type="submit" class="submit_btn">Получить ссылку для входа</button>
+                                <button type="submit" class="submit_btn" @click="recovery_submit">Получить ссылку для входа</button>
                             </div>
 
                             <div class="btns">
@@ -143,7 +143,7 @@
                             </div>
 
                             <div class="submit">
-                                <button type="submit" class="submit_btn">Продолжить</button>
+                                <button type="submit" class="submit_btn" @click="enter_register_password">Продолжить</button>
                             </div>
 
                             <div class="btns">
@@ -193,7 +193,7 @@
                             </div>
 
                             <div class="submit">
-                                <button type="submit" class="submit_btn">Продолжить</button>
+                                <button type="submit" class="submit_btn" @click="enter_register_email">Продолжить</button>
                             </div>
 
                             <div class="btns">
@@ -224,7 +224,7 @@
                             </div>
 
                             <div class="submit">
-                                <button type="submit" class="submit_btn">Зарегистрироваться</button>
+                                <button type="submit" class="submit_btn" @click="registration_submit">Зарегистрироваться</button>
                             </div>
 
                             <div class="btns">
@@ -319,7 +319,7 @@ export default {
         login_submit() {
             this.clear_errors();
             if (!isRequired(this.auth.login) || !isLengthBetween(this.auth.login, 1, 191)) {
-                this.errors.login = "Имя обязательно для ввода и должно содержать от 1 до 191 символов";
+                this.errors.login = "Табельный номер обязателен для ввода и должен содержать от 1 до 191 символов";
                 return;
             }
             if (!isRequired(this.auth.password) || !isLengthBetween(this.auth.password, 6, 191)) {
@@ -395,7 +395,11 @@ export default {
             }
 
             if (!this.registration.email) jax.guest.registration_data(this.registration.name, this.registration.lastname, this.registration.number)
-                .then(({email, has}) => {
+                .then(({email, has, registered}) => {
+                    if (registered) {
+                        this.errors.lastname = "Пользователь уже зарегистрирован";
+                        return ;
+                    }
                     if(email) {
                         this.empty_email = false;
                         this.registration.email = email;
@@ -409,7 +413,7 @@ export default {
                         $('.auth .data .add_email_form').fadeIn(300);
                     } else {
                         this.empty_email = true;
-                        this.errors.lastname = "Пользователь уже зарегистрирован";
+                        this.errors.lastname = "Пользователь не найден";
                     }
                 });
         },

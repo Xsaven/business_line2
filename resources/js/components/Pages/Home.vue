@@ -5,7 +5,7 @@
                 <div class="data">
                     <div class="title">{{room.title}}</div>
 
-                    <div class="desc">{{room.description}}</div>
+                    <div class="desc" v-html="room.description"></div>
                 </div>
 
 

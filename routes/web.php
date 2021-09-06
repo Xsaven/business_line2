@@ -52,6 +52,12 @@ use Lar\Roads\Roads;
 \Road::layout('home')
     ->web()
     ->auth()
+    ->component('/table/{direction:id}', \App\Components\Vue\Pages\Table::class)
+    ->name('table');
+
+\Road::layout('home')
+    ->web()
+    ->auth()
     ->component('/products', \App\Components\Vue\Pages\Product::class)
     ->name('products');
 
@@ -82,6 +88,12 @@ use Lar\Roads\Roads;
     ->auth()
     ->component('/user/{user:id}', \App\Components\Vue\Pages\User::class)
     ->name('user');
+
+\Road::layout('home')
+    ->web()
+    ->auth()
+    ->component('/search', \App\Components\Vue\Pages\Search::class)
+    ->name('search');
 
 \Road::web()
     ->auth()

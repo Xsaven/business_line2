@@ -33,4 +33,16 @@ class TaskRepository extends CoreRepository
 
         return Task::find($id);
     }
+
+    /**
+     * @param  string  $q
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model[]|\Illuminate\Support\Collection
+     */
+    public function search(string $q = '')
+    {
+        return $q ? $this->model()
+            ->where('name', 'like', "%{$q}%")
+            ->where('short_description', 'like', "%{$q}%")
+            ->get() : collect();
+    }
 }

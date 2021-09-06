@@ -63,12 +63,12 @@ class Guest extends JaxExecutor
     {
         $result = app(UserRepository::class)
             ->model()
-            ->where('password', 'none')
+            //->where('password', 'none')
             ->where('name', $name)
             ->where('lastname', $lastname)
             ->where('number', $number)
             ->first();
 
-        return ['email' => $result?->email, 'has' => (bool) $result];
+        return ['email' => $result?->email, 'has' => (bool) $result, 'registered' => $result && $result->password !== 'none'];
     }
 }

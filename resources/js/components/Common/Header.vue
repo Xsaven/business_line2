@@ -18,21 +18,7 @@
                 </div>
 
                 <div class="icons" v-if="user">
-                    <div class="search modal_cont">
-                        <button class="btn mini_modal_btn" data-modal-id="#search_modal">
-                            <v-icon icon="ic_search" />
-                        </button>
-
-                        <div class="mini_modal" id="search_modal">
-                            <form action="" class="form">
-                                <input type="text" name="" value="" class="input" placeholder="Поиск по сайту">
-
-                                <button type="submit" class="submit_btn">
-                                    <v-icon icon="ic_search" />
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                    <v-search-modal />
 
                     <div class="cart"><a href="/products">
                         <v-icon icon="ic_cart" />
