@@ -109,10 +109,12 @@ class User extends JaxExecutor
 //            $img = $img->encode('jpg');
 
             if (\Auth::user()->photo) {
-                \Storage::disk('yandexcloud')->delete(\Auth::user()->photo);
+                \Storage::disk('yandexcloud')->delete(
+                    str_replace(config('filesystems.disks.yandexcloud.url') . '/', '', \Auth::user()->photo)
+                );
             }
 
-            $img = $img->resize(400, 400, function ($constraint) {
+            $img = $img->resize(800, 800, function ($constraint) {
                 $constraint->aspectRatio();
             })->encode('jpg');
 
