@@ -31,7 +31,7 @@
                         <tbody>
                             <template v-for="(user, ui) in data">
                                 <tr>
-                                    <td class="number">{{ui+1+(page > 1 ? page*10:0)}}</td>
+                                    <td class="number">{{ui+1+(page > 1 ? (page-1)*10 : 0)}}</td>
                                     <td class="name"><a :href="`/user/${user.id}`">{{user.full_name}}</a></td>
                                     <td class="scores">{{user[sort]}}</td>
                                     <td class="tasks">{{user.reports_count}}</td>
@@ -41,22 +41,19 @@
                     </table>
                 </div>
 
-<!--                <div class="bottom">-->
-<!--                    <div class="pagination">-->
-<!--                        <a href="/" class="prev disabled"></a>-->
+                <div class="bottom" v-if="meta.last_page > 1">
+                    <div class="pagination">
+                        <a href="javascript:void(0)" @click="prevPage" :class="{prev: true, disabled: page === 1}"></a>
+                        <a
+                            v-for="(p,i) in pages"
+                            href="javascript:void(0)" :key="`page_${i}`" @click="setPage(p)"
+                            :class="{'active': page === p}">{{p}}</a>
 
-<!--                        <a class="active">1</a>-->
-<!--                        <a href="/">2</a>-->
-<!--                        <a href="/">3</a>-->
-<!--                        <a href="/">4</a>-->
-<!--                        <div class="sep">...</div>-->
-<!--                        <a href="/">13</a>-->
+                        <a href="javascript:void(0)" @click="nextPage" :class="{next: true, disabled: page === meta.last_page}"></a>
+                    </div>
 
-<!--                        <a href="/" class="next"></a>-->
-<!--                    </div>-->
-
-<!--                    &lt;!&ndash; <a href="/" class="catch_up_link">Как догнать лидеров?</a> &ndash;&gt;-->
-<!--                </div>-->
+                    <!-- <a href="/" class="catch_up_link">Как догнать лидеров?</a> -->
+                </div>
             </section>
         </div>
     </section>
@@ -68,6 +65,7 @@ export default {
     props: {
         sort: {required: true},
         users: {required: true},
+        direction_id: {required: true},
     },
     data() {
         return {
@@ -84,17 +82,33 @@ export default {
         };
     },
     mounted() {
+        this.load();
     },
-    computed: {},
-    watch: {},
+    computed: {
+        pages () {
+            let pages = [];
+            if (this.page-2 >= 1 && this.page === this.meta.last_page) { pages.push(this.page-2); }
+            if (this.page-1 >= 1) { pages.push(this.page-1); }
+            pages.push(this.page);
+            if (this.page+1 <= this.meta.last_page) { pages.push(this.page+1); }
+            if (this.page+2 <= this.meta.last_page && this.page === 1) { pages.push(this.page+2); }
+            return pages;
+        }
+    },
+    watch: {
+        page () {
+            this.load();
+        },
+    },
     methods: {
         href(get) {
             return location.pathname + "?sort=" + get
         },
         load () {
+            this.loading = true;
             jax.params({page: this.page})
                 .table
-                .pagination()
+                .pagination(this.direction_id, this.sort)
                 .then(({data, meta}) => {
                     this.data = data;
                     this.meta.to = meta.to;
@@ -103,7 +117,35 @@ export default {
                     this.meta.per_page = meta.per_page;
                     this.meta.last_page = meta.last_page;
                     this.meta.current_page = meta.current_page;
+                    this.loading = false;
+                }).catch(() => {
+                    this.loading = false;
                 });
+        },
+        setPage (page) {
+            if (!this.loading) {
+                this.page = page;
+            }
+        },
+        nextPage () {
+            if (!this.loading && this.page < this.meta.last_page) {
+                this.page++;
+            }
+        },
+        prevPage () {
+            if (!this.loading && this.page > 1) {
+                this.page--;
+            }
+        },
+        lastPage () {
+            if (!this.loading && this.page !== this.meta.last_page) {
+                this.page = this.meta.last_page;
+            }
+        },
+        firstPage () {
+            if (!this.loading && this.page !== 1) {
+                this.page = 1;
+            }
         },
     }
 }

@@ -29,9 +29,13 @@ class Table extends Page
 
         $attrs['sort'] = $sort !== 'balance' && $sort !== 'likes' ? 'balance' : $sort;
 
-        $attrs['users'] = app(\App\Jax\Table::class)
-            ->pagination(request()->direction, $attrs['sort'])
-            ->toArray(request());
+        $attrs['users'] = [];
+
+        $attrs['direction_id'] = request()->direction;
+
+//            app(\App\Jax\Table::class)
+//            ->pagination(request()->direction, $attrs['sort'])
+//            ->toArray(request());
 
         parent::__construct($id, $attrs, $params);
     }
