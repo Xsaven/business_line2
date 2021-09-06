@@ -229,7 +229,7 @@
     ]
   },
   "task": {
-    "traits": ["HasLogs", "Mutators"],
+    "traits": ["HasLogs", "Mutators", "SoftDeletes"],
     "const:title": "Задания",
     "const:action_type_auto": "auto",
     "const:action_type_manually": "manually",

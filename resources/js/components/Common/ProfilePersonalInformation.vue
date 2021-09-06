@@ -160,9 +160,9 @@
                 .user
                 .upload_avatar().then(({result}) => {
               //window.location.reload();
-                if (result) {
-                    "toast:success".exec("Загрузка аватара завершена!");
-                }
+              //   if (result) {
+              //       "toast:success".exec("Загрузка аватара завершена!");
+              //   }
                 state.user.avatar = `<span>${this.user.short_name}</span>`;
               jax.user.update().then(({data}) => {
                 state.user = data;
