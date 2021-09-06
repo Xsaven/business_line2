@@ -15,8 +15,8 @@ class UserForFansSelect extends JsonResource
     public function toArray($request)
     {
         return [
-            'full_name' => $this->name . ' ' . $this->lastname,
-            'id' => $this->id
+            'full_name' => $this->name.' '.$this->lastname,
+            'id' => $this->id,
         ];
     }
 }

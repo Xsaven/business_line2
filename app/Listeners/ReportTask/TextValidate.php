@@ -15,7 +15,8 @@ class TextValidate
      */
     public function handle(ReportTextTask $event)
     {
-        if(is_string($event->comment))
+        if (is_string($event->comment)) {
             return true;
+        }
     }
 }

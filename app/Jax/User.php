@@ -387,7 +387,6 @@ class User extends JaxExecutor
         $this->reload();
     }
 
-
     public function get_all_users(Request $request)
     {
         return UserForFansSelect::collection(\App\Models\User::all())->toArray(\request());

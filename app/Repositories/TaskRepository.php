@@ -42,7 +42,7 @@ class TaskRepository extends CoreRepository
     {
         return $q ? $this->model()
             ->where('name', 'like', "%{$q}%")
-            ->where('short_description', 'like', "%{$q}%")
+            ->orWhere('short_description', 'like', "%{$q}%")
             ->get() : collect();
     }
 }

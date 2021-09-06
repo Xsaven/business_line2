@@ -19,7 +19,6 @@ class Create
     {
         $user_id = \Auth::user()->id;
 
-
         TaskReport::create([
             'status' => TaskReport::STATUS_UPLOADED,
             'comment' => $event->comment,
