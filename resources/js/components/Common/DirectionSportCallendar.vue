@@ -175,18 +175,6 @@
 
                     <v-direction-callendar-item date="09.21" />
 
-                    <v-direction-callendar-item :item="tasks[46]" :width="3" date="09.22-09.24" />
-
-                    <v-direction-callendar-item :weekend="true" date="09.25" />
-
-                    <v-direction-callendar-item :weekend="true" date="09.26" />
-
-                    <!--LINE-->
-
-                    <v-direction-callendar-item date="09.20" />
-
-                    <v-direction-callendar-item date="09.21" />
-
                     <v-direction-callendar-item date="09.22" />
 
                     <v-direction-callendar-item date="09.23" />
