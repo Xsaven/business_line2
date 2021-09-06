@@ -5,13 +5,13 @@
           <div class="block_head">
             <div class="title">Магазин подарков</div>
 
-            <div class="scores">Доступно: {{user.balance}} {{declOfNum(user.balance,['бал','бала','балов'])}}</div>
+            <div class="scores">Доступно: {{user.balance}} {{declOfNum(user.balance,['бал','бала','баллов'])}}</div>
           </div>
 
           <div class="products">
             <div class="row">
               <div class="product" v-for="(product, product_index) in prods">
-                <div v-if="product.cost > 0" :class="{'scores': true,'red': product.cost > user.balance }">{{product.cost}} {{declOfNum(product.cost,['бал','бала','балов'])}}</div>
+                <div v-if="product.cost > 0" :class="{'scores': true,'red': product.cost > user.balance }">{{product.cost}} {{declOfNum(product.cost,['бал','бала','баллов'])}}</div>
 
                 <div class="thumb">
                   <img :src="product.src" alt="" class="lozad">

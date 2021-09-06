@@ -20,7 +20,7 @@
               </div>
 
               <div>
-                <div class="scores">{{task.cost}} {{declOfNum(task.cost,['бал','бала','балов'])}}</div>
+                <div class="scores">{{task.cost}} {{declOfNum(task.cost,['бал','бала','баллов'])}}</div>
                 <div class="members">Участники: {{task.participants}}</div>
               </div>
             </div>
