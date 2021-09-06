@@ -3,29 +3,19 @@
 namespace App\Listeners\ReportTask;
 
 use App\Events\ReportTextImageTask;
+use App\Events\ReportTextTask;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
 class TextValidate
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
+     * @param ReportTextTask $event
+     * @return bool|void
      */
-    public function __construct()
+    public function handle(ReportTextTask $event)
     {
-        //
-    }
-
-    /**
-     * Handle the event.
-     *
-     * @param  ReportTextImageTask  $event
-     * @return void
-     */
-    public function handle(ReportTextImageTask $event)
-    {
-        //
+        if(is_string($event->comment))
+            return true;
     }
 }

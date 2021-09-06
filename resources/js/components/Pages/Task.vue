@@ -40,6 +40,7 @@
 <!--            <v-bottom-action :task="task" />-->
           <v-upload-image-task-report v-if="!task_report && task.report_type === 'image' && green_button" :task="task"/>
           <v-upload-video-task-report v-else-if="!task_report && task.report_type === 'video' && green_button" :task="task"/>
+          <v-upload-fan-task_report v-else-if="!task_report && task.report_type === 'text' && green_button && task.fans_task === true" :task="task"/>
           <v-upload-text-task-report v-else-if="!task_report && task.report_type === 'text' && green_button" :task="task"/>
           <v-upload-tiv-report v-else-if="!task_report && task.report_type === 'text_or_image_or_video' && green_button" :task="task"/>
           <v-upload-image-or-video v-else-if="!task_report && task.report_type === 'image_or_video' && green_button" :task="task"/>
@@ -95,9 +96,11 @@
         computed: {},
         watch: {},
         methods: {
+
+
+
           getBetweenDays() {
-            this.between_days = moment(this.local_task.start_at).minute(0).second(0).hour(0)
-                .diff(moment().minute(0).second(0).hour(0),'days') + 1;
+
 
             let start_at = moment(this.local_task.start_at).minute(0).second(0).hour(0);
             let finish_at = moment(this.local_task.finish_at).minute(0).second(0).hour(0);
@@ -105,10 +108,13 @@
 
             if (start_at === finish_at && start_at === now) {
               this.green_button = true
-            } else if (now >= start_at && finish_at <= now) {
+            } else if (now >= start_at || finish_at <= now) {
               this.green_button = true
-            } else if(finish_at > now) {
+            } else if(finish_at > now && this.between_days === 0) {
               this.red_button = true;
+            } else {
+              this.between_days = moment(this.local_task.start_at).minute(0).second(0).hour(0)
+                  .diff(moment().minute(0).second(0).hour(0),'days') + 1;
             }
 
           },

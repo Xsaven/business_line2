@@ -41,7 +41,7 @@ class Create
         }
 
         TaskReport::create([
-            'status' => TaskReport::STATUS_CREATED,
+            'status' => TaskReport::STATUS_UPLOADED,
             'files' => $upload_files,
             'comment' => $event->comment,
             'user_id' => $user_id,

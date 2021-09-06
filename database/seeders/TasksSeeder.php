@@ -786,6 +786,7 @@ class TasksSeeder extends Seeder
             'short_description' => 'Прислать текстовое сообщение',
             'event_type' => Task::EVENT_TYPE_ONE_DAY,
             'report_type' => Task::REPORT_TYPE_TEXT,
+            'fans_task' => true,
             'start_at' => '2021-09-16',
             'finish_at' => '2021-09-16',
         ], //68
@@ -804,6 +805,7 @@ class TasksSeeder extends Seeder
             'short_description' => 'Прислать текстовое сообщение',
             'event_type' => Task::EVENT_TYPE_ONE_DAY,
             'report_type' => Task::REPORT_TYPE_TEXT,
+            'fans_task' => true,
             'start_at' => '2021-09-24',
             'finish_at' => '2021-09-24',
         ], //70

@@ -4,25 +4,41 @@
 
     <div class="info">
       <form action="" class="form">
-          <div class="line files">
-            <div class="selected">
-              <div v-for="(file, f_key) in files" class="file">
-                <v-icon icon="ic_file" />
-                <div class="name">{{file.name}}</div>
-                  <button type="button" @click="fileRemove(f_key)" class="del_btn">
-                    <svg><use xlink:href="/images/sprite.svg#ic_delete"></use></svg>
-                  </button>
-                </div>
-              </div>
-
-            <div class="field">
-              <input type="file" name="file" id="file" ref="file" @change="handleUpload" multiple>
-              <label for="file">
-                <v-icon icon="ic_attachment" />
-                <span>Прикрепить фото</span>
+        <div class="line files">
+          <div class="choose field">
+            <input type="file" name="file" id="file">
+            <label for="file">
+              <svg class="icon"><use xlink:href="/images/sprite.svg#ic_attachment"></use></svg>
+              <span>Прикрепить фото</span>
 
               <div class="rules">jpg, jpeg, png до 10 МБ</div>
             </label>
+          </div>
+
+          <div class="loading" style="display: block;">
+            <div class="row">
+              <div class="icon">
+                <svg><use xlink:href="/images/sprite.svg#ic_file2"></use></svg>
+              </div>
+
+              <div>
+                <div class="name inline">Длинное название файла.mp4</div>
+
+                <div class="progress">
+                  <div class="bar" style="width: 70%;"></div>
+                </div>
+
+                <div class="size">
+                  <span class="upload">28 Мб</span> из
+                  <span class="total">57 Мб</span>
+                  <span class="percents">78% загружено</span>
+                </div>
+              </div>
+            </div>
+
+            <button type="button" class="cancel_btn">
+              <svg class="icon"><use xlink:href="/images/sprite.svg#ic_delete"></use></svg>
+            </button>
           </div>
         </div>
 
@@ -54,6 +70,7 @@
             this.files =  this.files.filter((i,k) => index!==k);
           },
           handleUpload() {
+            console.log(1)
             Object.values(this.$refs.file.files).map((file) => this.files.push(file));
           },
           send() {

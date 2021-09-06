@@ -20,6 +20,7 @@ use App\Events\SubscribeUserEvent;
 use App\Events\User\ChangeName;
 use App\Http\Resources\AuthUserResource;
 use App\Http\Resources\NotificationResource;
+use App\Http\Resources\UserForFansSelect;
 use App\Http\Resources\UserResource;
 use App\Jobs\AdminStatisticJob;
 use App\Jobs\OffLineJob;
@@ -49,7 +50,7 @@ class User extends JaxExecutor
      * @param int $position_id
      * @param string $about
      */
-    public function update_user_data(string $login, int $division_id = null, int $position_id = null, string $about = "")
+    public function update_user_data(string $login, int $division_id = null, int $position_id = null, string $about = '')
     {
         if (app(AuthUserRepository::class)
             ->user
@@ -69,22 +70,23 @@ class User extends JaxExecutor
     public function upload_avatar(Request $request)
     {
         if ($request->hasFile('avatar')) {
-
             $file = $request->file('avatar');
 
             if (
-                !is_image($file->getPathname()) ||
-                !str_contains($file->getMimeType(), 'jpg') ||
-                !str_contains($file->getMimeType(), 'jpeg') ||
-                !str_contains($file->getMimeType(), 'png')
+                ! is_image($file->getPathname()) ||
+                ! str_contains($file->getMimeType(), 'jpg') ||
+                ! str_contains($file->getMimeType(), 'jpeg') ||
+                ! str_contains($file->getMimeType(), 'png')
             ) {
                 $this->toast_error('Неверное расширение файла.');
-                return ;
+
+                return;
             }
 
             if ($file->getSize() > 10485760) {
                 $this->toast_error('Слишком большой объём файла.');
-                return ;
+
+                return;
             }
 
             $img = \Image::make($request->file('avatar'))
@@ -383,5 +385,11 @@ class User extends JaxExecutor
         event($event);
 
         $this->reload();
+    }
+
+
+    public function get_all_users(Request $request)
+    {
+        return UserForFansSelect::collection(\App\Models\User::all())->toArray(\request());
     }
 }

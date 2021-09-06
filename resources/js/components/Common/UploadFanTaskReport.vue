@@ -4,13 +4,15 @@
 
     <div class="info">
       <form action="" class="form">
+        <div class="cols row">
+          <div class="col">
             <div class="line">
               <div class="field">
-                <textarea v-model="comment" name="" placeholder="Комментарий"></textarea>
+                <textarea v-model="form.comment" placeholder="Комментарий"></textarea>
 
                 <div class="smiles modal_cont">
                   <button type="button" class="btn mini_modal_btn" data-modal-id="#smiles_modal">
-                    <v-icon icon="ic_smile" />
+                   <v-icon icon="ic_smile" />
                   </button>
 
                   <div class="mini_modal" id="smiles_modal">
@@ -70,34 +72,57 @@
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div class="line">
+              <div class="field">
+                <v-select>
+                  <option value="0" data-display="За кого болеешь"></option>
+                  <template v-for="user in users_local">
+                    <option :value="user.id">{{user.full_name}}</option>
+                  </template>
+                </v-select>
+              </div>
+            </div>
+          </div>
         </div>
+
         <div class="submit">
-          <button @click.prevent.stop="send()" type="submit" class="submit_btn">Отправить</button>
+          <button type="submit" class="submit_btn">Отправить</button>
         </div>
       </form>
 
-      <img data-src="/images/bg_performance.svg" alt="" class="bg lozad loaded" src="/images/bg_performance.svg" data-loaded="true">
+      <img data-src="/images/bg_performance.svg" alt="" class="bg lozad">
     </div>
   </div>
 </template>
 
 <script>
-    export default {
-        name: "v-upload-text-task-report",
-        props: ['task'],
-        data () {
-            return {
-                comment: ''
-            };
-        },
-        mounted () {},
-        computed: {},
-        watch: {},
-        methods: {
-          send() {
-            jax.user.text_report(this.task.id,this.comment)
-              .then(() => {})
-          }
-        }
+export default {
+  name: "v-upload-fan-task_report",
+  data() {
+    return {
+      users_local: {},
+      form: {
+        user_id: null,
+        comment: ''
+      }
     }
+  },
+  mounted() {
+    this.users();
+  },
+  methods: {
+    users() {
+      jax.user.get_all_users()
+        .then((data) => {
+          this.users_local = data
+        })
+    }
+  }
+}
 </script>
+
+<style scoped>
+
+</style>
