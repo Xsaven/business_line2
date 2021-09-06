@@ -68,7 +68,7 @@
 
                     <div class="desc" v-html="direction.terms_of_participation"></div>
 
-<!--                    <a href="javascript:;" class="link">Условия участия</a>-->
+                    <a href="/rules" class="link">Правила</a>
                 </div>
 
 
