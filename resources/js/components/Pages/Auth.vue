@@ -395,7 +395,11 @@ export default {
             }
 
             if (!this.registration.email) jax.guest.registration_data(this.registration.name, this.registration.lastname, this.registration.number)
-                .then(({email, has}) => {
+                .then(({email, has, registered}) => {
+                    if (registered) {
+                        this.errors.lastname = "Пользователь уже зарегистрирован";
+                        return ;
+                    }
                     if(email) {
                         this.empty_email = false;
                         this.registration.email = email;
@@ -409,7 +413,7 @@ export default {
                         $('.auth .data .add_email_form').fadeIn(300);
                     } else {
                         this.empty_email = true;
-                        this.errors.lastname = "Пользователь уже зарегистрирован";
+                        this.errors.lastname = "Пользователь не найден";
                     }
                 });
         },
