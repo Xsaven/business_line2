@@ -160,6 +160,7 @@
                 .user
                 .upload_avatar().then(() => {
               //window.location.reload();
+                "toast:success".exec("Загрузка аватара завершена!");
               jax.user.update().then(({data}) => {
                 state.user = data;
                 ljs.onetime(() => {
