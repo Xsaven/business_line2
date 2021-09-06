@@ -2,7 +2,7 @@
     <section class="standings">
         <div class="cont row">
             <div class="block_head">
-                <div class="title">Турнирная таблица Sport направления</div>
+                <div class="title">Турнирная таблица {{direction.name}} направления</div>
             </div>
 
             <section class="aside">
@@ -65,7 +65,7 @@ export default {
     props: {
         sort: {required: true},
         users: {required: true},
-        direction_id: {required: true},
+        direction: {required: true},
     },
     data() {
         return {
@@ -108,7 +108,7 @@ export default {
             this.loading = true;
             jax.params({page: this.page})
                 .table
-                .pagination(this.direction_id, this.sort)
+                .pagination(this.direction.id, this.sort)
                 .then(({data, meta}) => {
                     this.data = data;
                     this.meta.to = meta.to;

@@ -84,6 +84,7 @@ class TasksSeeder extends Seeder
             'report_type' => Task::REPORT_TYPE_IMAGE,
             'start_at' => '2021-09-17',
             'finish_at' => '2021-09-17',
+            'deleted_at' => '2021-09-17',
             'is_challenge' => 1,
         ], //8 - challenge
 
@@ -167,6 +168,7 @@ class TasksSeeder extends Seeder
             'report_type' => Task::REPORT_TYPE_IMAGE,
             'start_at' => '2021-09-24',
             'finish_at' => '2021-09-24',
+            'deleted_at' => '2021-09-17',
             'is_challenge' => 1,
         ], //17 - challenge
 
@@ -241,6 +243,7 @@ class TasksSeeder extends Seeder
             'report_type' => Task::REPORT_TYPE_IMAGE,
             'start_at' => '2021-10-01',
             'finish_at' => '2021-10-01',
+            'deleted_at' => '2021-09-17',
             'is_challenge' => 1,
         ], //25 - challenge
 
@@ -315,6 +318,7 @@ class TasksSeeder extends Seeder
             'report_type' => Task::REPORT_TYPE_IMAGE,
             'start_at' => '2021-10-08',
             'finish_at' => '2021-10-08',
+            'deleted_at' => '2021-09-17',
             'is_challenge' => 1,
         ], //33 - challenge
 
@@ -854,6 +858,18 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-10-07',
             'finish_at' => '2021-10-07',
         ], //75
+
+
+        [
+            'direction_id' => 1,
+            'name' => 'Челлендж месяца',
+            'short_description' => 'Прислать фото (по одному фото каждую пятницу)',
+            'event_type' => Task::EVENT_TYPE_ONE_DAY,
+            'report_type' => Task::REPORT_TYPE_IMAGE,
+            'start_at' => '2021-09-13',
+            'finish_at' => '2021-10-08',
+            'is_challenge' => 1,
+        ], //76 - challenge
     ];
 
     /**

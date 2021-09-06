@@ -29,6 +29,7 @@ class CreateTasksTable extends Migration
             $table->timestamp('start_at')->nullable();
             $table->timestamp('finish_at')->nullable();
             $table->foreignId('direction_id')->constrained('directions')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

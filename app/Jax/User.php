@@ -109,13 +109,12 @@ class User extends JaxExecutor
 //            $img = $img->encode('jpg');
 
             if (\Auth::user()->photo) {
-
                 \Storage::disk('yandexcloud')->delete(\Auth::user()->photo);
             }
 
             $img = $img->resize(400, 400, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->encode('jpg');
+                $constraint->aspectRatio();
+            })->encode('jpg');
 
             $file_name = \Auth::id().'_'.time().'_avatar.jpg';
 
@@ -129,10 +128,11 @@ class User extends JaxExecutor
                 //$this->put("window.location.reload");
             }
 
-            return ["result" => true];
+            return ['result' => true];
         } else {
-            $this->toast_error("Системная ошибка загрузки файла!");
-            return ["result" => false];
+            $this->toast_error('Системная ошибка загрузки файла!');
+
+            return ['result' => false];
         }
     }
 
