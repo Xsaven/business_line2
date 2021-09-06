@@ -89,22 +89,28 @@ class User extends JaxExecutor
             }
             $img = \Image::make($request->file('avatar'));
 
-//            $img->orientate();
-//
-//            if ($img->height() > $img->width()) {
-//                $img = $img->resize(168);
-//            } else if ($img->height() < $img->width()) {
-//                $img = $img->resize(null, 168);
-//            } else {
-//                $img = $img->resize(168, 168);
-//            }
-//
-//            $img = $img->encode('jpg');
+            $img->orientate();
 
-
-            $img = $img->resize(336, 336, function ($constraint) {
+            if ($img->height() > $img->width()) {
+                $img->resize(168, null, function ($constraint) {
                     $constraint->aspectRatio();
-                })->encode('jpg');
+                });
+            } else if ($img->height() < $img->width()) {
+                $img->resize(null, 168, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            } else {
+                $img->resize(168, 168, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            }
+
+            $img = $img->encode('jpg');
+
+
+//            $img = $img->resize(336, 336, function ($constraint) {
+//                    $constraint->aspectRatio();
+//                })->encode('jpg');
 
             $file_name = \Auth::id().'_avatar.jpg';
 
