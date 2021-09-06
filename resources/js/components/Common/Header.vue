@@ -42,12 +42,7 @@
                 <div class="col_right" v-if="user">
                     <div class="scores">{{user.balance}} б</div>
 
-                    <div class="notifications modal_cont">
-                        <button :class="{'btn mini_modal_btn': true, new: !!Number(user.new_notifications_count)}" data-modal-id="#notifications_modal">
-                            <v-icon icon="ic_notifications" />
-                        </button>
-                        <v-new-commentaries />
-                    </div>
+                    <v-new-commentaries />
 
                     <div class="account">
                         <a :href="`/profile`" class="user">

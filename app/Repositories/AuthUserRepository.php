@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\TaskReport;
 use App\Models\User;
 use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Lar\Developer\CoreRepository;
 
@@ -59,12 +60,12 @@ class AuthUserRepository extends CoreRepository
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Collection|Collection
+     * @return LengthAwarePaginator|Collection
      */
-    public function new_notifications(): \Illuminate\Database\Eloquent\Collection|Collection
+    public function new_notifications(): LengthAwarePaginator|Collection
     {
         return $this->user ?
-            $this->user->notifications()->whereNull('read_at')->get() : collect();
+            $this->user->notifications()->paginate(30) : collect();
     }
 
     /**
