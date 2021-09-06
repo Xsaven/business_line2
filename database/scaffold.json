@@ -283,6 +283,7 @@
       ["prize_src", {"nullable": []}],
       ["terms_of_participation", "text", {"nullable": []}],
       ["is_challenge", {"default":  0}],
+      ["fans_task","boolean", {"default": false}],
       "start_at",
       "finish_at"
     ],

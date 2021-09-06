@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property string|null $prize_src
  * @property string $terms_of_participation
  * @property bool $is_challenge
+ * @property bool $fans_task
  * @property \Illuminate\Support\Carbon|null $start_at
  * @property \Illuminate\Support\Carbon|null $finish_at
  * @property int $direction_id
@@ -48,6 +49,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereDirectionId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereEventType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereFansTask($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereFinishAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereIsChallenge($value)
@@ -145,6 +147,7 @@ class Task extends Model
         'prize_src',
         'terms_of_participation',
         'is_challenge',
+        'fans_task',
         'start_at',
         'finish_at',
         'direction_id',
@@ -165,6 +168,7 @@ class Task extends Model
         'prize_src' => 'string',
         'terms_of_participation' => 'string',
         'is_challenge' => 'boolean',
+        'fans_task' => 'boolean',
         'start_at' => 'datetime',
         'finish_at' => 'datetime',
         'direction_id' => 'integer',
@@ -180,6 +184,7 @@ class Task extends Model
         'action_type' => 'manually',
         'cost' => 0,
         'is_challenge' => 0,
+        'fans_task' => false,
     ];
 
     /**
