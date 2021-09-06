@@ -57,7 +57,7 @@
                                 <img src="/images/ic_star.svg" alt="">
                             </div>
 
-                            <a :href="`/table/${direction.id}`">Рейтинг участников</a>
+                            <a :href="`/table/${direction.id}`" target="_blank">Рейтинг участников</a>
                         </div>
                     </div>
                 </div>
