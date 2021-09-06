@@ -35,8 +35,7 @@ class Table extends Page
 
         $direction = app(DirectionRepository::class)->findById;
 
-        if (!$direction) {
-
+        if (! $direction) {
             abort(404);
         }
 

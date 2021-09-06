@@ -859,7 +859,6 @@ class TasksSeeder extends Seeder
             'finish_at' => '2021-10-07',
         ], //75
 
-
         [
             'direction_id' => 1,
             'name' => 'Челлендж месяца',
