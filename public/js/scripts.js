@@ -108,13 +108,13 @@ $(() => {
 	}
 
 
-	$('.direction_info .schedule .events .item').mouseover(function () {
+	$(document).on('mouseover', '.direction_info .schedule .events .item', function () {
 		let group = $(this).data('group')
 
 		$('.direction_info .schedule .events .item[data-group="' + group + '"]').addClass('hover')
 	})
 
-	$('.direction_info .schedule .events .item').mouseleave(function () {
+	$(document).on('mouseleave', '.direction_info .schedule .events .item', function () {
 		$('.direction_info .schedule .events .item').removeClass('hover')
 	})
 
