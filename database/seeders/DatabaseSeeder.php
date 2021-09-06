@@ -15,12 +15,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(LteSeeder::class);
+        $this->call(PrizesSeeder::class);
         $this->call(DirectionsSeeder::class);
         $this->call(PositionsSeeder::class);
         $this->call(DivisionsSeeder::class);
         $this->call(FaqsSeeder::class);
         $this->call(SettingsSeeder::class);
-        $this->call(PrizesSeeder::class);
         $this->call(TrackPrizesSeeder::class);
         $this->call(SettingsPlayRuleSeeder::class);
         $this->call(ProductSettingsSeeder::class);

@@ -40,7 +40,7 @@ class OrderController extends Controller
             $table->id();
             $table->col('Пользователь', 'user.name')->admin_resource_route('users')->sort('user_id');
             $table->col('Статус', fn (Order $order) => Order::STATUSES[$order->status])->sort('status');
-            $table->col('Адрес', 'delivery.address' );
+            $table->col('Адрес', 'delivery.address');
             $table->at();
             $table->controlEdit(false);
         });

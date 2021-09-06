@@ -30,15 +30,27 @@ class PrizesSeeder extends Seeder
         return [
             [
                 'name' => 'Смартфон Apple iPhone 12 128GB Black',
-                'src' => 'images/tmp/prizes_thumb.png',
+                'src' => 'images/prizes/prizes_thumb.png',
             ],
             [
                 'name' => 'Планшет Apple iPad 10.2 Wi-Fi 32GB Space Grey',
-                'src' => 'images/tmp/prizes_thumb2.png',
+                'src' => 'images/prizes/prizes_thumb3.png',
             ],
             [
                 'name' => 'Робот-пылесос Xiaomi Viomi Cleaning V3 Global Black',
-                'src' => 'images/tmp/prizes_thumb3.png',
+                'src' => 'images/prizes/prizes_thumb2.png',
+            ],
+            [
+                'name' => 'Кружка с логотипом',
+                'src' => 'images/prizes/prizes_thumb4.png',
+            ],
+            [
+                'name' => 'Толстовка с логотипом',
+                'src' => 'images/prizes/prizes_thumb6.png',
+            ],
+            [
+                'name' => 'Фитнес-браслет Mi Smart Band 6',
+                'src' => 'images/prizes/prizes_thumb5.png',
             ],
         ];
     }

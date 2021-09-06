@@ -33,7 +33,6 @@ class Direction extends Page
         }
 
         $attrs['direction'] = DirectionResource::make($repo->findBySlug)->toArray(request());
-        $attrs['prizes'] = PrizeResource::collection(Prize::all())->toArray(request());
         $attrs['dates'] = diff_day_chunk($repo->findBySlug->start_at, $repo->findBySlug->end_at);
         $attrs['users'] = $repo->findBySlug->users()->count();
         $attrs['tasks'] = collect(TaskResource::collection($repo->findBySlug->tasks)->toArray(request()))

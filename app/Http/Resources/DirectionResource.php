@@ -32,6 +32,7 @@ class DirectionResource extends JsonResource
             'terms_of_participation' => $this->terms_of_participation,
             'start_at' => Carbon::parse($this->start_at)->toDateString(),
             'end_at' => Carbon::parse($this->end_at)->toDateString(),
+            'prizes' => $this->prizes,
         ];
     }
 }

@@ -38,7 +38,6 @@
                     <div class="author" v-if="direction.arbitrator_name">
                         <div class="avatar">
                             <img :src="`/${direction.arbitrator_photo}`" alt="" class="lozad">
-                            <img data-src="/images/bg_direction_author.svg" alt="" class="bg lozad">
                         </div>
 
                         <div>
@@ -64,7 +63,7 @@
 
 
                 <div class="terms">
-                    <div class="title">Условия участия</div>
+                    <div class="title">Описания направления</div>
 
                     <div class="desc" v-html="direction.terms_of_participation"></div>
 
@@ -77,7 +76,7 @@
 
                     <div class="row_wrap">
                         <div class="row">
-                            <div class="item" v-for="prize in prizes">
+                            <div class="item" v-for="prize in direction.prizes">
                                 <div class="thumb">
                                     <img :src="`/${prize.src}`" alt="" class="lozad">
                                 </div>
@@ -125,7 +124,6 @@
         $sync: ['user'],
         props: {
             direction: {required:true},
-            prizes: {required:true},
             dates: {required:true},
             users: {required:true},
             tasks: {required:true},
