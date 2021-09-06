@@ -2,7 +2,7 @@
     <section class="standings">
         <div class="cont row">
             <div class="block_head">
-                <div class="title">Турнирная таблица {{direction.name}} направления</div>
+                <div class="title">Турнирная таблица направления {{direction.name}}</div>
             </div>
 
             <section class="aside">

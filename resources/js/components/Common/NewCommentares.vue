@@ -11,7 +11,7 @@
             </div>
 
             <div v-for="(i,k) in new_notifications" class="item">
-                <div class="avatar" v-html="i.avatar"></div>
+                <div class="avatar" v-html="i.user.avatar"></div>
                 <div>{{i.message}}<a v-if="i.link" :href="i.link"> {{i.link_title ? i.link_title : i.link}}</a><span v-else-if="i.link_title"> {{i.link_title}}</span>.
                     <span class="time">{{i.created_at}}</span></div>
             </div>
