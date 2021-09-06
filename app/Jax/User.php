@@ -89,6 +89,7 @@ class User extends JaxExecutor
             }
             $img = \Image::make($request->file('avatar'));
 
+            $img->orientate();
 
             if ($img->height() > $img->width()) {
                 $img->resize(168);
