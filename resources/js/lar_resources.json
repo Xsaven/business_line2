@@ -16,7 +16,7 @@
         "pages_new_password": "Pages/NewPassword.vue",
         "pages_product": "Pages/Product.vue",
         "pages_profile": "Pages/Profile.vue",
-        "pages_user": "Pages/User.vue"
-
+        "pages_user": "Pages/User.vue",
+        "pages_guest_support": "Pages/GuestSupport.vue"
     }
 }

@@ -11,12 +11,12 @@
 
                     <div class="time">
                         <div>
-                            <div class="val">13.09 – 19.09</div>
+                            <div class="val">10.09 – 17.09</div>
                             <div class="desc">круглосуточно</div>
                         </div>
 
                         <div>
-                            <div class="val">20.09–10.10</div>
+                            <div class="val">18.09–10.10</div>
                             <div class="desc">
                                 <div>пн–пт: 09.00–19.00 (мск)</div>
                                 <div>сб, вс: 11.00–17.00 (мск)</div>
@@ -27,10 +27,6 @@
                     <div class="line"></div>
 
                     <div class="title">Техническая поддержка сайта</div>
-
-                    <div class="email">
-                        <a href="mailto:email@mail.ru">{{ settings.support_email }}</a>
-                    </div>
 
                     <div class="messengers">
                         <div><a :href="settings.support_telegram_link">
@@ -51,7 +47,7 @@
                     <img data-src="images/bg_support_data.svg" alt="" class="bg lozad">
                 </div>
 
-                <div class="text">Если вы не получили ответ от технической поддержки сайта в течение 12 часов,  обратитесь в ГК «Деловые Линии»: email@dellin.ru</div>
+                <div class="text">Если вы не получили ответ от технической поддержки сайта в течение 12 часов,  обратитесь в ГК «Деловые Линии»: {{ settings.support_email }}</div>
             </div>
         </section>
     </v-layout>

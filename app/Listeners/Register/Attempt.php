@@ -18,9 +18,13 @@ class Attempt
     {
         if ($event->validated && $event->user) {
             $event->attempted = $event->user->update([
-                'email' => $event->email,
                 'password' => bcrypt($event->password),
             ]);
+            if (! $event->user->email && $event->attempted) {
+                $event->attempted = $event->user->update([
+                    'email' => $event->email,
+                ]);
+            }
         }
     }
 }

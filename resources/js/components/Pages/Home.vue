@@ -18,9 +18,9 @@
                     <a href="/" class="link">
                         <v-icon icon="ic_video_play" />
 
-                        <div class="info">
-                            <div class="name"><span>{{room.video_title}}</span></div>
-                            <div class="type"><span>{{room.video_info}}</span></div>
+                        <div class="info" v-if="room.video_title || room.video_info">
+                            <div class="name" v-if="room.video_title"><span>{{room.video_title}}</span></div>
+                            <div class="type" v-if="room.video_info"><span>{{room.video_info}}</span></div>
                         </div>
                     </a>
                 </div>

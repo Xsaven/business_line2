@@ -14,6 +14,7 @@
 
                 <div class="info" v-if="user.position">
                     <div>{{user.position}}</div>
+                    <div>{{user.division}}</div>
                 </div>
 
                 <div class="desc">
@@ -77,6 +78,11 @@
                 <div class="upload">
                     <input type="file" name="avatar" id="avatar" ref="file" @change="handleUpload">
                     <label for="avatar">Загрузить фото</label>
+                    <label style="text-decoration-line: none;margin-top: 10px;cursor: default;">jpg, jpeg, png до 10 МБ</label>
+                </div>
+
+                <div class="logout" style="margin-top: 32px;line-height: 19px;display: block;cursor: pointer;text-align: center;text-decoration-line: underline;">
+                    <a href="/logout" target style="color: #fff;">Выйти</a>
                 </div>
             </div>
         </div>
@@ -131,11 +137,13 @@
               let parent = $(e.target).closest('.personal')
               parent.find('.user_data').hide()
               parent.find('.edit_form, .avatar .upload').fadeIn(300)
+              parent.find('.avatar .logout').fadeOut(300)
             });
           },
           cancel () {
             let parent = $(this.$refs.cancel_btn).closest('.personal')
             parent.find('.edit_form, .avatar .upload').hide()
+            parent.find('.edit_form, .avatar .logout').show()
             parent.find('.user_data').fadeIn(300)
             ljs.onetime(() => {
               this.edit = false;

@@ -4,7 +4,7 @@
             <div class="copyright">&copy; ГК «Деловые Линии», 2001–2021</div>
 
             <div class="links">
-                <div v-if="no_faq_page"><a href="/faq">FAQ</a></div>
+                <div v-if="no_faq_page && user"><a href="/faq">FAQ</a></div>
                 <div><a href="/support">Техническая поддержка</a></div>
             </div>
         </div>
@@ -15,11 +15,12 @@
 
 <script>
 export default {
+    $sync: ['user'],
     name: "v-footer",
     props: {},
     data () {
         return {
-
+            user: {}
         };
     },
     mounted () {},

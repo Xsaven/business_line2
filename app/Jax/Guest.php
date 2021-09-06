@@ -44,7 +44,7 @@ class Guest extends JaxExecutor
      * @param $password_confirmation
      * @return array
      */
-    public function registration($name, $lastname, $number, $email, $password, $password_confirmation): array
+    public function registration($name, $lastname, $number, $email, $email_confirmation, $password, $password_confirmation): array
     {
         $event = new Register($name, $lastname, $number, $email, $password, $password_confirmation);
 
@@ -61,12 +61,14 @@ class Guest extends JaxExecutor
      */
     public function registration_data(string $name, string $lastname, string $number): array
     {
-        return ['email' => app(UserRepository::class)
+        $result = app(UserRepository::class)
             ->model()
             ->where('password', 'none')
             ->where('name', $name)
             ->where('lastname', $lastname)
             ->where('number', $number)
-            ->first()?->email, ];
+            ->first();
+
+        return ['email' => $result?->email, 'has' => (bool) $result];
     }
 }

@@ -62,7 +62,7 @@
                             <div class="title">Восстановление пароля</div>
 
                             <div class="line">
-                                <div class="label">Введите почту, указанную при регистрации</div>
+                                <div class="label">Введите корпоративную почту или почту, указанную при регистрации</div>
 
                                 <div class="field">
                                     <input v-model="recovery.email" type="email" @click="clear_errors"
@@ -103,7 +103,57 @@
                         </div>
 
 
-                        <form class="form register_form" @submit.stop.prevent="enter_register_password">
+                        <form class="form add_email_form" @submit.stop.prevent="enter_register_password" style="display: none">
+                            <div class="title">Ваш E-mail</div>
+
+                            <div class="line" v-if="!empty_email">
+                                <div class="field">
+                                    <input v-model="registration.email" type="email"
+                                           :class="{input: true, error: errors.email}"
+                                           :disabled="!empty_email"
+                                           placeholder="Введите корпоративный или личный e-mail" @click="clear_errors"
+                                           @blur="clear_errors">
+                                    <div class="exp">{{ errors.email }}</div>
+                                </div>
+                            </div>
+
+
+                            <div class="line" v-if="empty_email">
+                                <div class="field">
+                                    <input v-model="registration.email" type="email"
+                                           :class="{input: true, error: errors.email}"
+                                           placeholder="Введите корпоративный или личный e-mail" @click="clear_errors"
+                                           @blur="clear_errors">
+                                    <div class="exp">{{ errors.email }}</div>
+                                </div>
+                            </div>
+                            <div class="line" v-if="empty_email">
+                                <div class="field">
+                                    <input v-model="registration.email_confirmation" type="email"
+                                           :class="{input: true, error: errors.email}"
+                                           placeholder="Повторите ввод" @click="clear_errors"
+                                           @blur="clear_errors">
+                                </div>
+                            </div>
+
+                            <div class="line agree">
+                                <div class="field">
+                                    <label>Запомните эту почту на случай восстановления пароля.</label>
+                                </div>
+                            </div>
+
+                            <div class="submit">
+                                <button type="submit" class="submit_btn">Продолжить</button>
+                            </div>
+
+                            <div class="btns">
+                                <div>Уже зарегистрированы?
+                                    <button type="button" class="btn login_btn" @click="login_form">Войти</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <form class="form register_form" @submit.stop.prevent="enter_register_email">
                             <div class="title">Регистрация</div>
 
                             <div class="columns row">
@@ -135,16 +185,6 @@
                                 </div>
                             </div>
 
-                            <div class="line">
-                                <div class="field">
-                                    <input v-model="registration.email" type="email"
-                                           :class="{input: true, error: errors.email}"
-                                           placeholder="Корпоративный или личный e-mail" @click="clear_errors"
-                                           @blur="clear_errors">
-                                    <div class="exp">{{ errors.email }}</div>
-                                </div>
-                            </div>
-
                             <div class="line agree">
                                 <div class="field">
                                     <input v-model="registration.agree" type="checkbox" id="agree_check">
@@ -157,7 +197,7 @@
                             </div>
 
                             <div class="btns">
-                                <div>Уже зарегистрированные?
+                                <div>Уже зарегистрированы?
                                     <button type="button" class="btn login_btn" @click="login_form">Войти</button>
                                 </div>
                             </div>
@@ -188,7 +228,7 @@
                             </div>
 
                             <div class="btns">
-                                <div>Уже зарегистрированные?
+                                <div>Уже зарегистрированы?
                                     <button type="button" class="btn login_btn" @click="login_form">Войти</button>
                                 </div>
                             </div>
@@ -204,7 +244,7 @@
                 <div class="copyright">&copy; ГК «Деловые Линии», 2001–2021</div>
 
                 <div class="links">
-                    <div><a href="/">Техническая поддержка</a></div>
+                    <div><a href="/guest_support">Техническая поддержка</a></div>
                 </div>
             </div>
 
@@ -224,6 +264,7 @@ export default {
     props: {},
     data() {
         return {
+            empty_email: true,
             auth: {
                 login: '',
                 password: '',
@@ -233,6 +274,7 @@ export default {
                 lastname: '',
                 number: '',
                 email: '',
+                email_confirmation: '',
                 password: '',
                 password_confirmation: '',
                 agree: true,
@@ -253,21 +295,10 @@ export default {
     mounted() {
     },
     computed: {},
-    watch: {
-        'registration.name' () {
-            this.find_email();
-        },
-        'registration.lastname' () {
-            this.find_email();
-        },
-        'registration.number' () {
-            this.find_email();
-        },
-    },
+    watch: {},
     methods: {
         find_email () {
-            if (!this.registration.email) jax.guest.registration_data(this.registration.name, this.registration.lastname, this.registration.number)
-                .then(({email}) => { if(email) this.registration.email = email; });
+
         },
         recovery_submit() {
             this.clear_errors();
@@ -305,7 +336,11 @@ export default {
         },
         registration_submit() {
             this.clear_errors();
-            if (!isRequired(this.registration.password) || !isLengthBetween(this.registration.password, 6, 191)) {
+            if (
+                !isRequired(this.registration.password) ||
+                !isLengthBetween(this.registration.password, 6, 191) ||
+                !this.validPassword(this.registration.password)
+            ) {
                 this.errors.password = "Пароль должен содержать 6 и более символов, прописные латинские буквы, строчные латинские буквы, цифры";
                 return;
             }
@@ -340,27 +375,60 @@ export default {
             $('.auth .data > *').hide();
             $('.auth .data .login_form').fadeIn(300);
         },
-        enter_register_password() {
+        enter_register_email() {
             this.clear_errors();
-            if (!isRequired(this.registration.name) || !isBetween(this.registration.name, 3, 191)) {
-                this.errors.name = "Имя обязательно для ввода и должно содержать от 3 до 191 символов";
+            if (!isRequired(this.registration.name) || !isBetween(this.registration.name, 2, 191)) {
+                this.errors.name = "Имя обязательно для ввода и должно содержать от 2 до 191 символов";
                 return;
             }
-            if (!isRequired(this.registration.lastname) || !isBetween(this.registration.lastname, 3, 191)) {
-                this.errors.lastname = "Фамилия обязательна для ввода и должна содержать от 3 до 191 символов";
+            if (!isRequired(this.registration.lastname) || !isBetween(this.registration.lastname, 2, 191)) {
+                this.errors.lastname = "Фамилия обязательна для ввода и должна содержать от 2 до 191 символов";
                 return;
             }
             if (!isRequired(this.registration.number) || !isLengthBetween(this.registration.number, 1, 191) || !isNumber(this.registration.number)) {
                 this.errors.number = "Табельный номер обязателен для ввода и должен содержать от 1 до 191 цифр";
                 return;
             }
-            if (!isRequired(this.registration.email) || !isEmail(this.registration.email)) {
-                this.errors.email = "E-mail обязателен для ввода и должен быть корректным";
-                return;
-            }
             if (!isTrue(this.registration.agree)) {
                 "toast:error".exec("Необходимо дать согласие на обработку персональных данных");
                 return;
+            }
+
+            if (!this.registration.email) jax.guest.registration_data(this.registration.name, this.registration.lastname, this.registration.number)
+                .then(({email, has}) => {
+                    if(email) {
+                        this.empty_email = false;
+                        this.registration.email = email;
+                        this.registration.email_confirmation = email;
+                    } else {
+                        this.empty_email = true;
+                        //this.errors.email = "E-mail обязателен для ввода и должен быть корректным";
+                    }
+                    if (has) {
+                        $('.auth .data > *').hide();
+                        $('.auth .data .add_email_form').fadeIn(300);
+                    } else {
+                        this.empty_email = true;
+                        this.errors.lastname = "Пользователь уже зарегистрирован";
+                    }
+                });
+        },
+        enter_register_password() {
+            this.clear_errors();
+
+            if (
+                !isRequired(this.registration.email) ||
+                !isEmail(this.registration.email) ||
+                !isRequired(this.registration.email_confirmation) ||
+                !isEmail(this.registration.email_confirmation)
+            ) {
+                this.errors.email = "E-mail обязателен для ввода и должен быть корректным";
+                return ;
+            }
+
+            if (this.registration.email !== this.registration.email_confirmation) {
+                this.errors.email = "E-mail должен совпадать";
+                return ;
             }
 
             $('.auth .data > *').hide();
@@ -371,6 +439,10 @@ export default {
         },
         has_errors() {
             return Object.values(this.errors).filter((i) => !!i).length;
+        },
+        validPassword(password) {
+            let re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/;
+            return re.test(password);
         }
     }
 }

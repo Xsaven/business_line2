@@ -26,6 +26,11 @@ use Lar\Roads\Roads;
     ->component('/new_password', \App\Components\Vue\Pages\NewPassword::class)
     ->name('password.reset');
 
+\Road::layout('auth')
+    ->web()
+    ->component('/guest_support', \App\Components\Vue\Pages\GuestSupport::class)
+    ->name('guest_support');
+
 \Road::layout('home')
     ->web()
     ->auth()
@@ -62,6 +67,7 @@ use Lar\Roads\Roads;
 
 \Road::layout('home')
     ->web()
+    ->auth()
     ->component('/support', \App\Components\Vue\Pages\Support::class)
     ->name('support');
 
@@ -76,6 +82,11 @@ use Lar\Roads\Roads;
     ->auth()
     ->component('/user/{user:id}', \App\Components\Vue\Pages\User::class)
     ->name('user');
+
+\Road::web()
+    ->auth()
+    ->get('/logout', [\App\Http\Controllers\Controller::class, 'logout'])
+    ->name('logout');
 
 Road::web()->middleware(['lte-auth'])->prefix(config('lte.route.prefix'))->prefix('download')->group(function (Roads $road) {
     $road->get('/commentaries/export', ['\App\LteAdmin\Controllers\CommentariesController', 'export'])
