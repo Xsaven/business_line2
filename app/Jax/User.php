@@ -88,13 +88,32 @@ class User extends JaxExecutor
 
                 return;
             }
+            $img = \Image::make($request->file('avatar'));
 
-            $img = \Image::make($request->file('avatar'))
-                ->resize(168, 168, function ($constraint) {
+            $img->orientate();
+
+//            if ($img->height() > $img->width()) {
+//                $img->resize(168, null, function ($constraint) {
+//                    $constraint->aspectRatio();
+//                });
+//            } else if ($img->height() < $img->width()) {
+//                $img->resize(null, 168, function ($constraint) {
+//                    $constraint->aspectRatio();
+//                });
+//            } else {
+//                $img->resize(168, 168, function ($constraint) {
+//                    $constraint->aspectRatio();
+//                });
+//            }
+//
+//            $img = $img->encode('jpg');
+
+
+            $img = $img->resize(400, 400, function ($constraint) {
                     $constraint->aspectRatio();
-                });
+                })->encode('jpg');
 
-            $file_name = \Auth::id().'_avatar.'.$file->extension();
+            $file_name = \Auth::id().'_avatar.jpg';
 
             \Storage::disk('yandexcloud')->put($file_name, (string) $img);
 
@@ -105,6 +124,8 @@ class User extends JaxExecutor
                 ])) {
                 //$this->put("window.location.reload");
             }
+        } else {
+            $this->toast_error("Системная ошибка загрузки файла!");
         }
     }
 
