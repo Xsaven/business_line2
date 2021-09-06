@@ -864,7 +864,7 @@ class TasksSeeder extends Seeder
             'direction_id' => 1,
             'name' => 'Челлендж месяца',
             'short_description' => 'Прислать фото (по одному фото каждую пятницу)',
-            'event_type' => Task::EVENT_TYPE_ONE_DAY,
+            'event_type' => Task::EVENT_TYPE_MULTI_DAY,
             'report_type' => Task::REPORT_TYPE_IMAGE,
             'start_at' => '2021-09-13',
             'finish_at' => '2021-10-08',
