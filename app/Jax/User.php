@@ -93,7 +93,7 @@ class User extends JaxExecutor
                     $constraint->aspectRatio();
                 });
 
-            $file_name = \Auth::id().'_avatar.jpg';
+            $file_name = \Auth::id().'_avatar.'.$file->extension();
 
             \Storage::disk('yandexcloud')->put($file_name, (string) $img);
 
