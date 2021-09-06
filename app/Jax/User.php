@@ -124,8 +124,11 @@ class User extends JaxExecutor
                 ])) {
                 //$this->put("window.location.reload");
             }
+
+            return ["result" => true];
         } else {
             $this->toast_error("Системная ошибка загрузки файла!");
+            return ["result" => false];
         }
     }
 

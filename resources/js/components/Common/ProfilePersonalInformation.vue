@@ -158,9 +158,12 @@
           handleUpload() {
             jax.param('avatar', Object.values(this.$refs.file.files)[0])
                 .user
-                .upload_avatar().then(() => {
+                .upload_avatar().then(({result}) => {
               //window.location.reload();
-                "toast:success".exec("Загрузка аватара завершена!");
+                if (result) {
+                    "toast:success".exec("Загрузка аватара завершена!");
+                }
+                state.user.avatar = `<span>${this.user.short_name}</span>`;
               jax.user.update().then(({data}) => {
                 state.user = data;
                 ljs.onetime(() => {
