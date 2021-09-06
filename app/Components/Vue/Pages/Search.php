@@ -11,16 +11,16 @@ use App\Repositories\TaskRepository;
 use App\Repositories\UserRepository;
 
 /**
- * Search Class
+ * Search Class.
  * @package App\Components\Vue\Pages
  */
 class Search extends Page
 {
     /**
-     * Protected variable Element
+     * Protected variable Element.
      * @var string
      */
-    protected $element = "pages_search";
+    protected $element = 'pages_search';
 
     /**
      * @param  null  $id
@@ -36,7 +36,7 @@ class Search extends Page
         $attrs['tasks'] = TaskResource::collection(
             app(TaskRepository::class)->search((string) request('q'))
         )->toArray(request());
-        
+
         $attrs['reports'] = TaskReportResource::collection(
             app(TaskReportRepository::class)->search((string) request('q'))
         )->toArray(request());

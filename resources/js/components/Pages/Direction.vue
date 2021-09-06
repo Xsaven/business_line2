@@ -31,7 +31,7 @@
                                 <img src="/images/ic_star.svg" alt="">
                             </div>
 
-                            <a href="javascript:;">Рейтинг участников</a>
+                            <a :href="`/table/${direction.id}`">Рейтинг участников</a>
                         </div>
                     </div>
 
@@ -57,7 +57,7 @@
                                 <img src="/images/ic_star.svg" alt="">
                             </div>
 
-                            <a href="javascript:;">Рейтинг участников</a>
+                            <a :href="`/table/${direction.id}`">Рейтинг участников</a>
                         </div>
                     </div>
                 </div>

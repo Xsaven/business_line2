@@ -961,6 +961,8 @@ namespace Lar\Layout {
      * @method \App\Components\Vue\Pages\GuestSupport _pages_guest_support($id = null, array $attrs = [], ...$params) Add Component pages_guest_support to parent
      * @method \App\Components\Vue\Pages\Search pages_search($id = null, array $attrs = [], ...$params) Add Component pages_search
      * @method \App\Components\Vue\Pages\Search _pages_search($id = null, array $attrs = [], ...$params) Add Component pages_search to parent
+     * @method \App\Components\Vue\Pages\Table pages_table($id = null, array $attrs = [], ...$params) Add Component pages_table
+     * @method \App\Components\Vue\Pages\Table _pages_table($id = null, array $attrs = [], ...$params) Add Component pages_table to parent
      * @method \Lar\LteAdmin\Segments\Tagable\Row row(...$params) Add Component row
      * @method \Lar\LteAdmin\Segments\Tagable\Row _row(...$params) Add Component row to parent
      * @method \Lar\LteAdmin\Segments\Tagable\Col col($num = null, ...$params) Add Component col

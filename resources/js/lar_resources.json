@@ -18,6 +18,7 @@
         "pages_profile": "Pages/Profile.vue",
         "pages_user": "Pages/User.vue",
         "pages_guest_support": "Pages/GuestSupport.vue",
-        "pages_search": "Pages/Search.vue"
+        "pages_search": "Pages/Search.vue",
+        "pages_table": "Pages/Table.vue"
     }
 }

@@ -30,7 +30,7 @@ class TaskReportResource extends JsonResource
             'month' => Carbon::parse($this->created_at)->format('Y-m-d H:i'),
             'time' => Carbon::parse($this->created_at)->format('H:i'),
             'user' => UserResource::make($this->user),
-            'task' => TaskReportResource::make($this->task)
+            'task' => self::make($this->task),
         ];
     }
 }

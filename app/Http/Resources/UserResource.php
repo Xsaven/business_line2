@@ -37,6 +37,7 @@ class UserResource extends JsonResource
             'division_id' => $this->division_id,
             'position_id' => $this->position_id,
             'direction_id' => $this->direction_id,
+            'reports_count' => $this->task_reports_count,
         ];
     }
 }

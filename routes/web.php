@@ -52,6 +52,12 @@ use Lar\Roads\Roads;
 \Road::layout('home')
     ->web()
     ->auth()
+    ->component('/table/{direction:id}', \App\Components\Vue\Pages\Table::class)
+    ->name('table');
+
+\Road::layout('home')
+    ->web()
+    ->auth()
     ->component('/products', \App\Components\Vue\Pages\Product::class)
     ->name('products');
 

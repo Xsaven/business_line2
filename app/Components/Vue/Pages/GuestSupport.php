@@ -7,16 +7,16 @@ use App\Repositories\SettingRepository;
 use Lar\Tagable\Vue;
 
 /**
- * GuestSupport Class
+ * GuestSupport Class.
  * @package App\Components\Vue\Pages
  */
 class GuestSupport extends Vue
 {
     /**
-     * Protected variable Element
+     * Protected variable Element.
      * @var string
      */
-    protected $element = "pages_guest_support";
+    protected $element = 'pages_guest_support';
 
     /**
      * @param  null  $id
@@ -31,5 +31,4 @@ class GuestSupport extends Vue
 
         parent::__construct($id, $attrs, $params);
     }
-
 }
