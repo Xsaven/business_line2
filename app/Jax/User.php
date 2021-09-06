@@ -89,24 +89,26 @@ class User extends JaxExecutor
             }
             $img = \Image::make($request->file('avatar'));
 
-            $img->orientate();
+//            $img->orientate();
+//
+//            if ($img->height() > $img->width()) {
+//                $img = $img->resize(168);
+//            } else if ($img->height() < $img->width()) {
+//                $img = $img->resize(null, 168);
+//            } else {
+//                $img = $img->resize(168, 168);
+//            }
+//
+//            $img = $img->encode('jpg');
 
-            if ($img->height() > $img->width()) {
-                $img->resize(168);
-            } else if ($img->height() < $img->width()) {
-                $img->resize(null, 168);
-            } else {
-                $img->resize(168, 168);
-            }
 
-
-//            $img = $img->resize(168, 168, function ($constraint) {
-//                    $constraint->aspectRatio();
-//                })->encode('jpg');
+            $img = $img->resize(336, 336, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->encode('jpg');
 
             $file_name = \Auth::id().'_avatar.jpg';
 
-            \Storage::disk('yandexcloud')->put($file_name, (string) $img->encode('jpg'));
+            \Storage::disk('yandexcloud')->put($file_name, (string) $img);
 
             if (app(AuthUserRepository::class)
                 ->user
