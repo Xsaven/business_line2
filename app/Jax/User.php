@@ -108,7 +108,7 @@ class User extends JaxExecutor
 //            $img = $img->encode('jpg');
 
 
-            $img = $img->resize(336, 336, function ($constraint) {
+            $img = $img->resize(400, 400, function ($constraint) {
                     $constraint->aspectRatio();
                 })->encode('jpg');
 
@@ -123,6 +123,8 @@ class User extends JaxExecutor
                 ])) {
                 //$this->put("window.location.reload");
             }
+        } else {
+            $this->toast_error("Системная ошибка загрузки файла!");
         }
     }
 
