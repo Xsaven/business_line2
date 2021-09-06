@@ -67,7 +67,7 @@
 
                     <div class="desc" v-html="direction.terms_of_participation"></div>
 
-                    <a href="/rules" class="link">Правила</a>
+                    <a href="/rules" class="link" target="_blank">Правила</a>
                 </div>
 
 
