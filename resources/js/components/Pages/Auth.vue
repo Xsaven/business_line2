@@ -74,7 +74,7 @@
                             </div>
 
                             <div class="submit">
-                                <button type="submit" class="submit_btn">Получить ссылку для входа</button>
+                                <button type="submit" class="submit_btn" @click="recovery_submit">Получить ссылку для входа</button>
                             </div>
 
                             <div class="btns">
@@ -143,7 +143,7 @@
                             </div>
 
                             <div class="submit">
-                                <button type="submit" class="submit_btn">Продолжить</button>
+                                <button type="submit" class="submit_btn" @click="enter_register_password">Продолжить</button>
                             </div>
 
                             <div class="btns">
@@ -193,7 +193,7 @@
                             </div>
 
                             <div class="submit">
-                                <button type="submit" class="submit_btn">Продолжить</button>
+                                <button type="submit" class="submit_btn" @click="enter_register_email">Продолжить</button>
                             </div>
 
                             <div class="btns">
@@ -224,7 +224,7 @@
                             </div>
 
                             <div class="submit">
-                                <button type="submit" class="submit_btn">Зарегистрироваться</button>
+                                <button type="submit" class="submit_btn" @click="registration_submit">Зарегистрироваться</button>
                             </div>
 
                             <div class="btns">

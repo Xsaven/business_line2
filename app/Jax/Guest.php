@@ -69,6 +69,6 @@ class Guest extends JaxExecutor
             ->where('number', $number)
             ->first();
 
-        return ['email' => $result?->email, 'has' => (bool) $result, 'registered' => $result->password !== 'none'];
+        return ['email' => $result?->email, 'has' => (bool) $result, 'registered' => $result && $result->password !== 'none'];
     }
 }
