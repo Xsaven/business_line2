@@ -33,9 +33,9 @@ export default {
         item_classes () {
             return {
                 item: true,
-                color1: this.item.event_type === 'one-day' && !this.item.finished,
-                color2: this.item.event_type === 'instant' && !this.item.finished,
-                color3: this.item.event_type === 'multi-day' && !this.item.finished,
+                color1: this.item.event_type === 'one-day' && this.item.started,
+                color2: this.item.event_type === 'instant' && this.item.started,
+                color3: this.item.event_type === 'multi-day' && this.item.started,
                 width2: this.width === 2,
                 width3: this.width === 3,
                 break_left: this.left,
@@ -43,7 +43,7 @@ export default {
             }
         },
         href () {
-            return `/task/${this.item.id}`;
+            return this.item.started ? `/task/${this.item.id}` : 'javascript:void(0);';
         }
     },
     watch: {},
