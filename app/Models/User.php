@@ -247,7 +247,7 @@ class User extends Authenticatable
      */
     public function commentaries() : HasMany
     {
-        return $this->hasMany(Commentary::class, 'user_id', 'id');
+        return $this->hasMany(Commentary::class, 'fun_id', 'id');
     }
 
     /**
@@ -292,7 +292,7 @@ class User extends Authenticatable
      */
     public function subscriptions() : BelongsToMany
     {
-        return $this->belongsToMany(self::class, 'user_subscriptions', 'user_id', 'subscription_id');
+        return $this->belongsToMany(self::class, 'user_subscriptions', 'fun_id', 'subscription_id');
     }
 
     /**
@@ -301,6 +301,6 @@ class User extends Authenticatable
      */
     public function commentaryLikes() : BelongsToMany
     {
-        return $this->belongsToMany(Commentary::class, 'user_commentaries', 'user_id', 'commentary_id');
+        return $this->belongsToMany(Commentary::class, 'user_commentaries', 'fun_id', 'commentary_id');
     }
 }

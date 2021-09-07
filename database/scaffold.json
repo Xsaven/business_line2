@@ -290,6 +290,10 @@
       "user": {},
       "logs": {},
       "task": {},
+      "?user": {
+        "method": "fun",
+        "field": "fun_id"
+      },
       "commentary": {}
     },
     "resource": []

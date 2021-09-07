@@ -57,7 +57,7 @@ class Notification extends LaravelNotification
      */
     public function via($notifiable)
     {
-        return ['database', 'broadcast'];
+        return ['database'];
     }
 
     /**

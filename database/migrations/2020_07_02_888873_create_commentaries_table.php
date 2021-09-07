@@ -19,7 +19,7 @@ class CreateCommentariesTable extends Migration
             $table->boolean('active')->default(0);
             $table->string('commentaryable_type', 191);
             $table->bigInteger('commentaryable_id');
-            $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('fun_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@
           </div>
 
           <div class="loading" style="display: block;">
-            <div class="row">
+            <div class="row" v-for="(file, f_key) in files">
               <div class="icon">
                 <svg><use xlink:href="/images/sprite.svg#ic_file2"></use></svg>
               </div>

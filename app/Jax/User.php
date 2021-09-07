@@ -253,7 +253,7 @@ class User extends JaxExecutor
         $this->reload();
     }
 
-    public function text_report_for_fans(int $task_id,string $comment,int $fun_id)
+    public function text_report_for_fans(int $task_id, string $comment, int $fun_id)
     {
         /**
          * @var ReportTextTask

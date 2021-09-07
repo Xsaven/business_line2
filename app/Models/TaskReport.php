@@ -18,10 +18,12 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property string|null $comment
  * @property int $user_id
  * @property int $task_id
+ * @property int|null $fun_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Commentary[] $commentary
  * @property-read int|null $commentary_count
+ * @property-read \App\Models\User|null $fun
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Log[] $logs
  * @property-read int|null $logs_count
  * @property-read \App\Models\Task|null $task
@@ -32,6 +34,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereComment($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereFiles($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereFunId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereLikes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereStatus($value)
@@ -81,6 +84,7 @@ class TaskReport extends Model
         'comment',
         'user_id',
         'task_id',
+        'fun_id',
     ];
 
     /**
@@ -94,6 +98,7 @@ class TaskReport extends Model
         'comment' => 'string',
         'user_id' => 'integer',
         'task_id' => 'integer',
+        'fun_id' => 'integer',
     ];
 
     /**
@@ -130,6 +135,15 @@ class TaskReport extends Model
     public function task() : HasOne
     {
         return $this->hasOne(Task::class, 'id', 'task_id');
+    }
+
+    /**
+     * The "hasOne" relation for "Polzovateli".
+     * @return HasOne
+     */
+    public function fun() : HasOne
+    {
+        return $this->hasOne(User::class, 'id', 'fun_id');
     }
 
     /**

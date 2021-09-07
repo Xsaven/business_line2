@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @property bool $active
  * @property string $commentaryable_type
  * @property int $commentaryable_id
- * @property int $user_id
+ * @property int $fun_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|Commentary[] $commentaries
@@ -39,10 +39,10 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereCommentaryableId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereCommentaryableType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereFunId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereText($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Commentary whereUserId($value)
  * @mixin \Eloquent
  */
 class Commentary extends Model
@@ -66,7 +66,7 @@ class Commentary extends Model
         'active',
         'commentaryable_type',
         'commentaryable_id',
-        'user_id',
+        'fun_id',
     ];
 
     /**
@@ -78,7 +78,7 @@ class Commentary extends Model
         'active' => 'boolean',
         'commentaryable_type' => 'string',
         'commentaryable_id' => 'integer',
-        'user_id' => 'integer',
+        'fun_id' => 'integer',
     ];
 
     /**
@@ -113,7 +113,7 @@ class Commentary extends Model
      */
     public function user() : HasOne
     {
-        return $this->hasOne(User::class, 'id', 'user_id');
+        return $this->hasOne(User::class, 'id', 'fun_id');
     }
 
     /**
@@ -140,6 +140,6 @@ class Commentary extends Model
      */
     public function users() : BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'user_commentaries', 'user_id', 'commentary_id');
+        return $this->belongsToMany(User::class, 'user_commentaries', 'fun_id', 'commentary_id');
     }
 }

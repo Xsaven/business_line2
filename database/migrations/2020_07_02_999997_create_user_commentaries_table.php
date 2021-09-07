@@ -14,7 +14,7 @@ class CreateUserCommentariesTable extends Migration
     public function up()
     {
         Schema::create('user_commentaries', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('fun_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('commentary_id')->constrained('commentaries')->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
