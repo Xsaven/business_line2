@@ -349,6 +349,9 @@ export default {
                 return;
             }
 
+            this.registration.email = String(this.registration.email).toLowerCase();
+            this.registration.email_confirmation = String(this.registration.email_confirmation).toLowerCase();
+
             jax.guest.registration(...Object.values(this.registration))
                 .then(({result}) => {
                     this.clear_errors();
