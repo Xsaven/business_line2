@@ -146,7 +146,7 @@ class UsersController extends Controller
             if ($this->isType('edit')) {
                 $form->hr();
                 $form->password('password', 'Пароль')
-                    ->min(6)->max(6)->nullable()->default('')
+                    ->min(6)->nullable()->default('')
                     ->confirm();
                 $form->hr();
                 $form->info('updated_at', 'lte.updated_at');
