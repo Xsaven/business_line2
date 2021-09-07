@@ -375,6 +375,9 @@ export default {
         },
         login_form() {
             this.clear_errors();
+            this.empty_email = true;
+            this.registration.email = null;
+            this.registration.email_confirmation = null;
             $('.auth .data > *').hide();
             $('.auth .data .login_form').fadeIn(300);
         },
