@@ -5079,74 +5079,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-upload-fan-task_report",
+  props: ['task'],
   data: function data() {
     return {
       users_local: {},
       q: '',
       form: {
-        user_id: null,
         comment: ''
       },
       fun_user_id: null,
@@ -5155,8 +5095,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {},
   watch: {
-    q: function q() {
-      this.users(this.q);
+    q: function q(val) {
+      if (val) this.users(val);
     }
   },
   methods: {
@@ -5169,11 +5109,14 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
-    send_report: function send_report(full_name, user_id) {
+    save_changes: function save_changes(full_name, user_id) {
       this.fun_user_id = user_id;
       this.fun_full_name = full_name;
       this.q = this.fun_full_name;
       this.users_local.splice(0);
+    },
+    send_report: function send_report() {
+      jax.user.text_report_for_fans(this.task.id, this.form.comment, this.fun_user_id).then(function () {});
     }
   }
 });
@@ -61924,139 +61867,120 @@ var render = function() {
     _c("div", { staticClass: "title" }, [_vm._v("Загрузи свой отчет")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
-      _c("form", { staticClass: "form", attrs: { action: "" } }, [
-        _c("div", { staticClass: "cols row" }, [
-          _c("div", { staticClass: "col" }, [
-            _c("div", { staticClass: "line" }, [
-              _c("div", { staticClass: "field" }, [
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.comment,
-                      expression: "form.comment"
-                    }
+      _c(
+        "form",
+        {
+          staticClass: "form",
+          attrs: { action: "" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              $event.stopPropagation()
+              return _vm.send_report()
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "cols row" }, [
+            _c("div", { staticClass: "col" }, [
+              _c("div", { staticClass: "line" }, [
+                _c(
+                  "div",
+                  { staticClass: "field" },
+                  [
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.comment,
+                          expression: "form.comment"
+                        }
+                      ],
+                      attrs: { placeholder: "Комментарий" },
+                      domProps: { value: _vm.form.comment },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "comment", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-home-smiles-commentary")
                   ],
-                  attrs: { placeholder: "Комментарий" },
-                  domProps: { value: _vm.form.comment },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "line" }, [
+                _c("div", { staticClass: "field" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.q,
+                        expression: "q"
                       }
-                      _vm.$set(_vm.form, "comment", $event.target.value)
+                    ],
+                    staticClass: "input",
+                    attrs: { type: "text", placeholder: "За кого болеешь" },
+                    domProps: { value: _vm.q },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.q = $event.target.value
+                      }
                     }
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "smiles modal_cont" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn mini_modal_btn",
-                      attrs: {
-                        type: "button",
-                        "data-modal-id": "#smiles_modal"
-                      }
-                    },
-                    [_c("v-icon", { attrs: { icon: "ic_smile" } })],
-                    1
-                  ),
+                  }),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "mini_modal",
-                      attrs: { id: "smiles_modal" }
-                    },
-                    [
-                      _c(
-                        "button",
-                        { staticClass: "close_btn", attrs: { type: "button" } },
-                        [_c("v-icon", { attrs: { icon: "ic_close" } })],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _vm._m(0),
-                      _vm._v(" "),
-                      _vm._m(1)
-                    ]
-                  )
+                  _vm.users_local.length
+                    ? _c(
+                        "div",
+                        {
+                          staticClass: "fieldset",
+                          staticStyle: { display: "block" }
+                        },
+                        _vm._l(_vm.users_local, function(user) {
+                          return _c("div", [
+                            _c("div", {
+                              staticClass: "avatar",
+                              domProps: { innerHTML: _vm._s(user.avatar) }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "name",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.save_changes(
+                                      user.full_name,
+                                      user.id
+                                    )
+                                  }
+                                }
+                              },
+                              [_vm._v(_vm._s(user.full_name))]
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    : _vm._e()
                 ])
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "line" }, [
-              _c("div", { staticClass: "field" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.q,
-                      expression: "q"
-                    }
-                  ],
-                  staticClass: "input",
-                  attrs: {
-                    type: "text",
-                    name: "",
-                    value: "",
-                    placeholder: "За кого болеешь"
-                  },
-                  domProps: { value: _vm.q },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.q = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.q
-                  ? _c(
-                      "div",
-                      {
-                        staticClass: "fieldset",
-                        staticStyle: { display: "block" }
-                      },
-                      _vm._l(_vm.users_local, function(user) {
-                        return _c("div", [
-                          _c("div", {
-                            staticClass: "avatar",
-                            domProps: { innerHTML: _vm._s(user.avatar) }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass: "name",
-                              on: {
-                                click: function($event) {
-                                  return _vm.send_report(
-                                    user.full_name,
-                                    user.id
-                                  )
-                                }
-                              }
-                            },
-                            [_vm._v(_vm._s(user.full_name))]
-                          )
-                        ])
-                      }),
-                      0
-                    )
-                  : _vm._e()
-              ])
             ])
-          ])
-        ]),
-        _vm._v(" "),
-        _vm._m(2)
-      ]),
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ]
+      ),
       _vm._v(" "),
       _c("img", {
         staticClass: "bg lozad",
@@ -62066,170 +61990,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "section" }, [
-      _c("div", { staticClass: "title" }, [_vm._v("Эмоджи")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/smile_img.png", alt: "" } })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "section stickers" }, [
-      _c("div", { staticClass: "title" }, [_vm._v("Стикеры")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/sticker_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/sticker_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/sticker_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/sticker_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/sticker_img.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { src: "/images/tmp/sticker_img.png", alt: "" } })
-        ])
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

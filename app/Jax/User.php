@@ -258,7 +258,7 @@ class User extends JaxExecutor
         /**
          * @var ReportTextTask
          */
-        $event = new ReportTextTask($task_id, $comment);
+        $event = new ReportTextTask($task_id, $comment,$fun_id);
 
         event($event);
 
@@ -420,6 +420,13 @@ class User extends JaxExecutor
         $this->reload();
     }
 
+    /**
+     * @param string $phone
+     * @param string $email
+     * @param int $delivery_id
+     * @param string $value
+     * @param int $product_id
+     */
     public function create_order(string $phone, string $email, int $delivery_id, string $value, int $product_id)
     {
         $event = new OrderEvent($phone, $email, $delivery_id, $value, $product_id);
@@ -429,6 +436,10 @@ class User extends JaxExecutor
         $this->reload();
     }
 
+    /**
+     * @param string $q
+     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
+     */
     public function search_users(string $q)
     {
         return UserForFansSelect::collection(app(UserRepository::class)->search_users_for_fans($q))->toArray(\request());
