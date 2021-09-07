@@ -194,6 +194,7 @@ class User extends Authenticatable
         'complete_tasks' => 0,
         'active_commentaries' => false,
         'active' => true,
+        'password' => 'none',
     ];
 
     /**

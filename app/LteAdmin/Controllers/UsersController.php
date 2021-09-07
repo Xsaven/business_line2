@@ -74,6 +74,10 @@ class UsersController extends Controller
                     $group->danger(['fas fa-ban'])
                         ->setTitle('Завершить сеанс пользователя')
                         ->on_click('jax.user_control.logout', $user->id);
+
+                    $group->danger(['fas fa-key'])
+                        ->setTitle('Сбросить регистрацию')
+                        ->on_click('jax.user_control.reset_password', $user->id);
                 });
             });
         });
@@ -138,12 +142,6 @@ class UsersController extends Controller
                 ->default(0)->labels('Да', 'Нет');
 
             $form->switcher('active', 'lte.active')->default(1);
-
-            $form->hr();
-
-            $form->password('password', 'Пароль')
-                ->min(6)->max(6)->nullable()->default('')
-                ->confirm();
 
             if ($this->isType('edit')) {
                 $form->hr();

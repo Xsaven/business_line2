@@ -12,6 +12,18 @@ use Lar\LteAdmin\Jax\LteAdminExecutor;
  */
 class UserControl extends LteAdminExecutor
 {
+    public function reset_password(int $id)
+    {
+        if ($user = User::find($id)) {
+
+            $user->update(['password' => 'none']);
+
+            AdminStatisticJob::dispatch();
+
+            $this->toast_success("Пользователь {$user->email} сброшен!");
+        }
+    }
+
     public function auth(int $id)
     {
         if ($user = User::find($id)) {
