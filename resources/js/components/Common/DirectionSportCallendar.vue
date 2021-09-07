@@ -90,7 +90,7 @@
 
                     <v-direction-callendar-item date="09.15" />
 
-                    <v-direction-callendar-item :item="tasks[39]" :width="2" :right="true" date="09.16" />
+                    <v-direction-callendar-item :item="tasks[39]" :right="true" date="09.16" />
 
                     <v-direction-callendar-item date="09.17" />
 
