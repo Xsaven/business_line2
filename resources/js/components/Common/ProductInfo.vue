@@ -13,14 +13,10 @@
                    name="product_color"
                    @change="product.first_setting=color"
                    :checked="product.first_setting===color"
-                   :id="`radio_color_${i}${product.id}${salt}`">
+                   :id="`radio_size_${i}${product.id}${salt}`">
             <label :for="`radio_size_${i}${product.id}${salt}`" :style="`
-                border-radius: 50%;
-                object-fit: cover;
-                display: block;
-                background-color: ${color};
-                width: 20px;
-                height: 20px;`">
+                background-color: ${color};`"
+            >
             </label>
         </template>
       </div>

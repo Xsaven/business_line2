@@ -8642,18 +8642,6 @@ footer .links a:hover
     border-left: 2px solid #fff;
 }
 
-#buy_modal .product .color .vals label img
-{
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    border-radius: inherit;
-
-    object-fit: cover;
-}
-
 #buy_modal .product .color .vals input:checked + label:after
 {
     opacity: 1;
