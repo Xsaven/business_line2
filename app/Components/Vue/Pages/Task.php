@@ -28,7 +28,7 @@ class Task extends Page
 
         if (! $repo->findById) {
             abort(404);
-        } elseif (now() < Carbon::parse($repo->findById->start_at) && ! \App::isLocal()) {
+        } elseif (! $repo->findById->is_challenge && now() < Carbon::parse($repo->findById->start_at) && ! \App::isLocal()) {
             abort(404);
         }
 

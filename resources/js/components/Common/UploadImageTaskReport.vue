@@ -6,7 +6,7 @@
       <form action="" class="form">
         <div class="line files">
           <div class="choose field">
-            <input type="file" name="file" id="file">
+            <input type="file" name="file" id="file" ref="file" @change="handleUpload" accept="image/jpeg, image/png">
             <label for="file">
               <svg class="icon"><use xlink:href="/images/sprite.svg#ic_attachment"></use></svg>
               <span>Прикрепить фото</span>
@@ -58,7 +58,7 @@
         props: ['task'],
         data () {
             return {
-                files: [],
+                file: null,
                 comment: ''
             };
         },
@@ -70,11 +70,21 @@
             this.files =  this.files.filter((i,k) => index!==k);
           },
           handleUpload() {
-            console.log(1)
-            Object.values(this.$refs.file.files).map((file) => this.files.push(file));
+              if (this.$refs.file.files[0]) {
+                  let file = this.$refs.file.files[0];
+                  let allowed_mime_types = [ 'image/jpeg', 'image/png' ];
+                  let allowed_size_mb = 10;
+                  if(allowed_mime_types.indexOf(file.type) === -1) {
+                      return "toast:error".exec("Неверный формат файла!");
+                  }
+                  if(file.size > allowed_size_mb*1024*1024) {
+                      return "toast:error".exec("Превышен максимальный размер файла!");
+                  }
+                  this.file = file;
+              }
           },
           send() {
-            jax.params({files: this.files}).user.image_report(this.task.id,this.comment)
+            jax.params({files: [this.file]}).user.image_report(this.task.id,this.comment)
               .then(() => {
               })
           }
