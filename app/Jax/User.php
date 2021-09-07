@@ -92,22 +92,6 @@ class User extends JaxExecutor
 
             $img->orientate();
 
-//            if ($img->height() > $img->width()) {
-//                $img->resize(168, null, function ($constraint) {
-//                    $constraint->aspectRatio();
-//                });
-//            } else if ($img->height() < $img->width()) {
-//                $img->resize(null, 168, function ($constraint) {
-//                    $constraint->aspectRatio();
-//                });
-//            } else {
-//                $img->resize(168, 168, function ($constraint) {
-//                    $constraint->aspectRatio();
-//                });
-//            }
-//
-//            $img = $img->encode('jpg');
-
             if (\Auth::user()->photo) {
                 \Storage::disk('yandexcloud')->delete(
                     str_replace(config('filesystems.disks.yandexcloud.url').'/', '', \Auth::user()->photo)
@@ -288,9 +272,7 @@ class User extends JaxExecutor
      */
     public function image_report(int $task_id, Request $request)
     {
-        $files = [];
-
-        $event = new ReportPhotoTask($task_id, $files);
+        $event = new ReportPhotoTask($task_id, $request->file('files'));
 
         event($event);
 

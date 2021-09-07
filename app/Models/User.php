@@ -70,6 +70,8 @@ use Illuminate\Notifications\Notifiable;
  * @property-read \Illuminate\Database\Eloquent\Collection|User[] $subscribers
  * @property-read int|null $subscribers_count
  * @property-read int|null $subscriptions_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\TaskReport[] $taskReportLikes
+ * @property-read int|null $task_report_likes_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\TaskReport[] $taskReports
  * @property-read int|null $task_reports_count
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
@@ -302,5 +304,14 @@ class User extends Authenticatable
     public function commentaryLikes() : BelongsToMany
     {
         return $this->belongsToMany(Commentary::class, 'user_commentaries', 'fun_id', 'commentary_id');
+    }
+
+    /**
+     * The "belongsToMany" relation for "Otcyoty' zadanii".
+     * @return BelongsToMany
+     */
+    public function taskReportLikes() : BelongsToMany
+    {
+        return $this->belongsToMany(TaskReport::class, 'user_task_reports', 'fun_id', 'task_report_id');
     }
 }

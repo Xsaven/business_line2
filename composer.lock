@@ -157,20 +157,20 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.192.0",
+            "version": "3.192.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "3f3026ecd3ef534701499ce98c8e3393604fca8b"
+                "reference": "60b618429c040b4a1f567cf9ee56b3d2d14fe54b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/3f3026ecd3ef534701499ce98c8e3393604fca8b",
-                "reference": "3f3026ecd3ef534701499ce98c8e3393604fca8b",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/60b618429c040b4a1f567cf9ee56b3d2d14fe54b",
+                "reference": "60b618429c040b4a1f567cf9ee56b3d2d14fe54b",
                 "shasum": ""
             },
             "require": {
-                "aws/aws-crt-php": "^1.0.1",
+                "aws/aws-crt-php": "^1.0.2",
                 "ext-json": "*",
                 "ext-pcre": "*",
                 "ext-simplexml": "*",
@@ -242,9 +242,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.192.0"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.192.1"
             },
-            "time": "2021-09-03T18:13:44+00:00"
+            "time": "2021-09-07T18:32:31+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -3311,12 +3311,12 @@
             "source": {
                 "type": "git",
                 "url": "https://bitbucket.org/lar-repo/ljs.git",
-                "reference": "8eb5be52ed2b15c354d44c3b015ccc1523a9d4eb"
+                "reference": "2a7c8a3e7c5c7638165adbab2e2758243e7f3e85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/lar-repo/ljs/get/8eb5be52ed2b15c354d44c3b015ccc1523a9d4eb.zip",
-                "reference": "8eb5be52ed2b15c354d44c3b015ccc1523a9d4eb",
+                "url": "https://bitbucket.org/lar-repo/ljs/get/2a7c8a3e7c5c7638165adbab2e2758243e7f3e85.zip",
+                "reference": "2a7c8a3e7c5c7638165adbab2e2758243e7f3e85",
                 "shasum": ""
             },
             "require": {
@@ -3363,9 +3363,9 @@
                 "laravel"
             ],
             "support": {
-                "source": "https://bitbucket.org/lar-repo/ljs/src/8eb5be52ed2b15c354d44c3b015ccc1523a9d4eb/?at=v2.5.4"
+                "source": "https://bitbucket.org/lar-repo/ljs/src/2a7c8a3e7c5c7638165adbab2e2758243e7f3e85/?at=v2.5.4"
             },
-            "time": "2021-09-07T13:59:44+00:00"
+            "time": "2021-09-07T23:02:48+00:00"
         },
         {
             "name": "lar/lte-admin",
@@ -3611,16 +3611,16 @@
         },
         {
             "name": "laravel/fortify",
-            "version": "v1.8.1",
+            "version": "v1.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/fortify.git",
-                "reference": "84c9dac118366c7e76db08b24dbc675763cbc104"
+                "reference": "a52a980b922694fbf7298ab70cc3da7fb716cfff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/fortify/zipball/84c9dac118366c7e76db08b24dbc675763cbc104",
-                "reference": "84c9dac118366c7e76db08b24dbc675763cbc104",
+                "url": "https://api.github.com/repos/laravel/fortify/zipball/a52a980b922694fbf7298ab70cc3da7fb716cfff",
+                "reference": "a52a980b922694fbf7298ab70cc3da7fb716cfff",
                 "shasum": ""
             },
             "require": {
@@ -3670,7 +3670,7 @@
                 "issues": "https://github.com/laravel/fortify/issues",
                 "source": "https://github.com/laravel/fortify"
             },
-            "time": "2021-08-24T15:56:40+00:00"
+            "time": "2021-09-07T14:30:59+00:00"
         },
         {
             "name": "laravel/framework",

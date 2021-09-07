@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models\Traits\Commentary;
+namespace App\Models\Traits\TaskReport;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
- * CommentaryLikeConfig Trait.
- * @package App\Models\Traits\Commentary
+ * TaskReportLikeConfig Trait.
+ * @package App\Models\Traits\TaskReport
  */
-trait CommentaryLikeConfig
+trait TaskReportLikeConfig
 {
     /**
      * The "belongsToMany" relation for "Polzovateli".
@@ -17,6 +17,6 @@ trait CommentaryLikeConfig
      */
     public function likes(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'user_commentaries', 'commentary_id', 'fun_id');
+        return $this->belongsToMany(User::class, 'user_task_reports', 'task_report_id', 'fun_id');
     }
 }

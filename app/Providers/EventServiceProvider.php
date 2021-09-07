@@ -21,6 +21,7 @@ class EventServiceProvider extends ServiceProvider
         \App\Events\Login::class => [
             \App\Listeners\Login\Validation::class,
             \App\Listeners\Login\Attempt::class,
+            \App\Listeners\Login\LogoutOtherWindows::class,
             \App\Listeners\Login\Statistic::class,
             \App\Listeners\Login\Respond::class,
         ],

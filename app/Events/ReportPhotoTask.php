@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\Task;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -15,12 +16,20 @@ class ReportPhotoTask
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * @param int $task_id
-     * @param $files
+     * @param  int  $task_id
+     * @param  array|\Illuminate\Http\UploadedFile[]  $files
+     * @param  bool  $validated
+     * @param  bool  $uploaded
+     * @param  bool  $filename
+     * @param  Task|null  $task
      */
     public function __construct(
         public int $task_id,
-        public $files
+        public array $files,
+        public bool $validated = false,
+        public bool $uploaded = false,
+        public bool $filename = false,
+        public ?Task $task = null,
     ) {
     }
 }

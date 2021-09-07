@@ -9,22 +9,12 @@ use Illuminate\Queue\InteractsWithQueue;
 class VideoUpload
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
      * Handle the event.
      *
      * @param  ReportTextVideoTask  $event
      * @return void
      */
-    public function handle(ReportTextVideoTask $event)
+    public function handle($event)
     {
         //
     }

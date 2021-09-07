@@ -102,6 +102,10 @@
       "commentary": {
         "type": "belongsToMany",
         "method": "commentary_likes"
+      },
+      "task_reports": {
+        "type": "belongsToMany",
+        "method": "task_report_likes"
       }
     }
   },
@@ -266,7 +270,7 @@
     "resource": []
   },
   "task_reports": {
-    "traits": ["HasLogs"],
+    "traits": ["HasLogs", "LikeConfig"],
     "const:title": "Отчёты заданий",
     "const:status_created": "created",
     "const:status_uploading": "uploading",

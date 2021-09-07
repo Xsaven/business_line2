@@ -2,6 +2,7 @@
 
 namespace App\Listeners\ReportTask;
 
+use App\Events\ReportPhotoTask;
 use App\Events\ReportTextImageTask;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -9,23 +10,29 @@ use Illuminate\Queue\InteractsWithQueue;
 class PhotoUpload
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
      * Handle the event.
      *
-     * @param  ReportTextImageTask  $event
+     * @param  ReportTextImageTask|ReportPhotoTask  $event
      * @return void
      */
-    public function handle(ReportTextImageTask $event)
+    public function handle($event)
     {
-        //
+        if ($event->validated) {
+            $user_id = \Auth::id();
+
+            $file = $event->files[0];
+
+            $img = \Image::make($file);
+
+            $img->orientate();
+
+            $img->resize(1200, 1200, function ($constraint) {
+                $constraint->aspectRatio();
+            })->encode('jpg');
+
+            $event->filename = "task_{$event->task_id}/".$user_id.$event->task_id.'.jpg';
+
+            \Storage::disk('yandexcloud')->put($event->filename, (string) $img);
+        }
     }
 }

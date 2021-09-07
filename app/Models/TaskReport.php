@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use App\Models\Traits\TaskReport\TaskReportHasLogs;
+use App\Models\Traits\TaskReport\TaskReportLikeConfig;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
@@ -28,6 +30,8 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property-read int|null $logs_count
  * @property-read \App\Models\Task|null $task
  * @property-read \App\Models\User|null $user
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $users
+ * @property-read int|null $users_count
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport query()
@@ -45,7 +49,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  */
 class TaskReport extends Model
 {
-    use TaskReportHasLogs;
+    use TaskReportHasLogs, TaskReportLikeConfig;
 
     const TITLE = 'Отчёты заданий';
 
@@ -153,5 +157,14 @@ class TaskReport extends Model
     public function commentary() : MorphMany
     {
         return $this->morphMany(Commentary::class, 'commentaryable', 'commentaryable_type', 'commentaryable_id', 'id');
+    }
+
+    /**
+     * The "belongsToMany" relation for "Polzovateli".
+     * @return BelongsToMany
+     */
+    public function users() : BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'user_task_reports', 'fun_id', 'task_report_id');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\Task;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -21,7 +22,9 @@ class ReportStarQuizTask
      */
     public function __construct(
         public int $task_id,
-        public array $star_quiz_answers
+        public array $star_quiz_answers,
+        public bool $validated = false,
+        public ?Task $task = null,
     ) {
     }
 }

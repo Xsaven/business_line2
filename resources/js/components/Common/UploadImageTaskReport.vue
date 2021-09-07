@@ -3,47 +3,45 @@
     <div class="title">Загрузи свой отчет</div>
 
     <div class="info">
-      <form action="" class="form">
-        <div class="line files">
-          <div class="choose field">
-            <input type="file" name="file" id="file" ref="file" @change="handleUpload" accept="image/jpeg, image/png">
-            <label for="file">
-              <svg class="icon"><use xlink:href="/images/sprite.svg#ic_attachment"></use></svg>
-              <span>Прикрепить фото</span>
+      <form class="form" @submit.stop.prevent="send">
 
-              <div class="rules">jpg, jpeg, png до 10 МБ</div>
-            </label>
-          </div>
-
-          <div class="loading" style="display: block;">
-            <div class="row" v-for="(file, f_key) in files">
-              <div class="icon">
-                <svg><use xlink:href="/images/sprite.svg#ic_file2"></use></svg>
+          <div class="line files">
+              <div class="choose field" v-if="!file">
+                  <input type="file" name="file" id="file" ref="file" @change="handleUpload" accept="image/jpeg, image/png">
+                  <label for="file">
+                      <v-icon icon="ic_attachment" />
+                      <span>Прикрепить фото</span>
+                      <div class="rules">jpg, jpeg, png до 10 МБ</div>
+                  </label>
               </div>
 
-              <div>
-                <div class="name inline">Длинное название файла.mp4</div>
+              <div class="loading" v-else style="display: block">
+                  <div class="row">
+                      <div class="icon">
+                          <svg><use xlink:href="/images/sprite.svg#ic_file2"></use></svg>
+                      </div>
 
-                <div class="progress">
-                  <div class="bar" style="width: 70%;"></div>
-                </div>
+                      <div>
+                          <div class="name">{{file.name}}</div>
 
-                <div class="size">
-                  <span class="upload">28 Мб</span> из
-                  <span class="total">57 Мб</span>
-                  <span class="percents">78% загружено</span>
-                </div>
+                          <div class="progress">
+                              <div class="bar" :style="`width: ${loading}%;`"></div>
+                          </div>
+
+                          <div class="size">
+                              <span class="upload">{{loaded}} Мб</span> из
+                              <span class="total">{{total}} Мб</span>
+                              <span class="percents">{{loading}}% загружено</span>
+                          </div>
+                      </div>
+                  </div>
+
+                  <button type="button" class="cancel_btn" @click="file=null" v-if="!loading">Отмена</button>
               </div>
-            </div>
-
-            <button type="button" class="cancel_btn">
-              <svg class="icon"><use xlink:href="/images/sprite.svg#ic_delete"></use></svg>
-            </button>
           </div>
-        </div>
 
         <div class="submit">
-          <button @click.prevent.stop="send()" type="submit" class="submit_btn">Отправить</button>
+          <button type="submit" class="submit_btn">Отправить</button>
         </div>
       </form>
 
@@ -59,7 +57,10 @@
         data () {
             return {
                 file: null,
-                comment: ''
+                comment: '',
+                loading: 0,
+                loaded: 0,
+                total: 0
             };
         },
         mounted () {},
@@ -67,10 +68,10 @@
         watch: {},
         methods: {
           fileRemove (index) {
-            this.files =  this.files.filter((i,k) => index!==k);
+            this.file = null;
           },
           handleUpload() {
-              if (this.$refs.file.files[0]) {
+              if (this.$refs.file && this.$refs.file.files[0]) {
                   let file = this.$refs.file.files[0];
                   let allowed_mime_types = [ 'image/jpeg', 'image/png' ];
                   let allowed_size_mb = 10;
@@ -81,12 +82,25 @@
                       return "toast:error".exec("Превышен максимальный размер файла!");
                   }
                   this.file = file;
+                  this.total = ljs.help.number_format(file.size / 1048576, 2);
               }
           },
           send() {
-            jax.params({files: [this.file]}).user.image_report(this.task.id,this.comment)
-              .then(() => {
-              })
+              if (this.file) {
+
+                  jax.progress(this.progress.bind(this)).params({files: [this.file]}).user.image_report(this.task.id)
+                      .then(() => {
+                      })
+
+              } else {
+
+                  "toast::error".exec("Сначала выберите файл.");
+              }
+          },
+          progress (e) {
+              this.loading = Math.round((e.loaded / e.total) * 100);
+              this.loaded = ljs.help.number_format(e.loaded / 1048576, 2);
+              this.total = ljs.help.number_format(e.total / 1048576, 2);
           }
         }
     }

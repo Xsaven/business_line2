@@ -15,14 +15,20 @@ class ReportTextImageTask
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * @param int $task_id
-     * @param string $comment
-     * @param array $files
+     * @param  int  $task_id
+     * @param  string  $comment
+     * @param  array  $files
+     * @param  bool  $validated
+     * @param  bool  $uploaded
+     * @param  bool  $filename
      */
     public function __construct(
         public int $task_id,
         public string $comment = '',
-        public array $files = []
+        public array $files = [],
+        public bool $validated = false,
+        public bool $uploaded = false,
+        public bool $filename = false,
     ) {
     }
 }

@@ -17,34 +17,14 @@ class Create
      */
     public function handle(ReportPhotoTask $event)
     {
-        $i = 0;
+        if ($event->validated) {
+            $user_id = \Auth::id();
 
-        $user_id = \Auth::user()->id;
-
-        $upload_files = [];
-
-        if ($event->files) {
-            foreach ($event->files as $file) {
-                $img = \Image::make($file->path())
-                    ->resize(800, 600, function ($constraint) {
-                        $constraint->aspectRatio();
-                    })->encode('jpg');
-
-                $file_name = $user_id.$event->task_id.$i.'.jpg';
-
-                \Storage::disk('yandexcloud')->put('/'.$file_name, (string) $img);
-
-                $upload_files[] = $file_name;
-
-                $i++;
-            }
+            $event->task->taskReports()->create([
+                'status' => TaskReport::STATUS_UPLOADED,
+                'files' => [$event->filename],
+                'user_id' => $user_id,
+            ]);
         }
-
-        TaskReport::create([
-            'status' => TaskReport::STATUS_UPLOADED,
-            'files' => $upload_files,
-            'user_id' => $user_id,
-            'task_id' => $event->task_id,
-        ]);
     }
 }

@@ -14,10 +14,10 @@ module.exports = ($root, $methods) => {
 
             jax.user.ping(1).then(({result}) => {
                 if (!result) {
-                    "doc::reload".exec();
+                    //"doc::reload".exec();
                 }
             }).catch(() => {
-                "doc::reload".exec();
+                //"doc::reload".exec();
             });
         }
     };

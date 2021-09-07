@@ -38,6 +38,8 @@ class Task extends Page
 
         if ($report) {
             $attrs['task_report'] = TaskReportResource::make($report)->toArray(request());
+        } else {
+            $attrs['task_report'] = null;
         }
 
         parent::__construct($id, $attrs, $params);
