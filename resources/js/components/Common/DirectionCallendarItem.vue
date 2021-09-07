@@ -36,6 +36,7 @@ export default {
                 color1: this.item.event_type === 'one-day' && this.item.started,
                 color2: this.item.event_type === 'instant' && this.item.started,
                 color3: this.item.event_type === 'multi-day' && this.item.started,
+                color4: !this.item.started,
                 width2: this.width === 2,
                 width3: this.width === 3,
                 break_left: this.left,
