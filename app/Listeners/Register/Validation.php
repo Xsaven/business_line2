@@ -15,7 +15,7 @@ class Validation
      */
     public function handle(Register $event)
     {
-        $event->validated = ! quick_validate([
+        $v = quick_validate([
             'name' => $event->name,
             'lastname' => $event->lastname,
             'number' => $event->number,
@@ -25,9 +25,11 @@ class Validation
         ], [
             'name' => 'required|string|min:3|max:191|exists:users,name',
             'lastname' => 'required|string|min:3|max:191|exists:users,lastname',
-            'number' => 'required|numeric|min:1|max:191|exists:users,number',
+            'number' => 'required|string|min:1|max:191|exists:users,number',
             'email' => 'required|string|email|max:191',
             'password' => 'required|string|min:6|max:191|confirmed',
         ]);
+
+        $event->validated = ! $v;
     }
 }

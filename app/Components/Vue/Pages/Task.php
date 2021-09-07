@@ -6,6 +6,7 @@ use App\Components\Vue\Page;
 use App\Http\Resources\TaskReportResource;
 use App\Http\Resources\TaskResource;
 use App\Repositories\TaskRepository;
+use Carbon\Carbon;
 
 /**
  * Task Class.
@@ -26,6 +27,8 @@ class Task extends Page
         $repo = app(TaskRepository::class);
 
         if (! $repo->findById) {
+            abort(404);
+        } else if (now() < Carbon::parse($repo->findById->start_at) && !\App::isLocal()) {
             abort(404);
         }
 
