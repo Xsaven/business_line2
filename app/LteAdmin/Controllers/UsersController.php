@@ -153,7 +153,11 @@ class UsersController extends Controller
                 $form->info('created_at', 'lte.created_at');
             }
 
-            ModelSaver::on_save(function (array $array, User $user) {
+            ModelSaver::on_created(function (array $array, User $user) {
+                Exec::dispatch($user->id, 'update');
+            });
+
+            ModelSaver::on_update(function (array $array, User $user) {
                 Exec::dispatch($user->id, 'update');
             });
         });
