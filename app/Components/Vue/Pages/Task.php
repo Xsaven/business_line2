@@ -26,7 +26,9 @@ class Task extends Page
 
         $repo = app(TaskRepository::class);
 
-        if (! $repo->findById && now() <= Carbon::parse($repo->findById->start_at)) {
+        if (! $repo->findById) {
+            abort(404);
+        } else if (now() < Carbon::parse($repo->findById->start_at) && !\App::isLocal()) {
             abort(404);
         }
 
