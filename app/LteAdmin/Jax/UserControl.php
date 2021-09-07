@@ -15,7 +15,6 @@ class UserControl extends LteAdminExecutor
     public function reset_password(int $id)
     {
         if ($user = User::find($id)) {
-
             $user->update(['password' => 'none']);
 
             AdminStatisticJob::dispatch();

@@ -34,8 +34,7 @@
               <img :src="prods[selected].src" alt="" class="lozad">
             </div>
 
-            <v-product-info  v-if="selected && prods[selected].id" :product="prods[selected]" salt="modal" />
-
+            <v-product-info  v-if="prods[selected].id" :product="prods[selected]" salt="modal" />
           </div>
 
           <form action="" class="form">

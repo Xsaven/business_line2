@@ -65,4 +65,17 @@ class UserRepository extends CoreRepository
             ->orWhere('lastname', 'like', "%{$q}%")
             ->get() : collect();
     }
+
+
+    /**
+     * @param string $q
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function search_users_for_fans(string $q = '')
+    {
+        return $this->model()
+            ->where('name','like',"%{$q}%")
+            ->orWhere('lastname','like',"%{$q}%")
+            ->paginate(100);
+    }
 }

@@ -19,7 +19,8 @@ declare interface JaxModelInterface {
     path (path: string, ...params: any): JaxModelInterface
 }
 declare interface JaxModelUserControlInterface {
-    auth(...params: any[]): Promise<JaxModelUserControlInterface>;
+    reset_password(...params: any[]): Promise<JaxModelUserControlInterface>;
+        auth(...params: any[]): Promise<JaxModelUserControlInterface>;
         logout(...params: any[]): Promise<JaxModelUserControlInterface>;
 }
 declare interface JaxModelQuestionsControlInterface {

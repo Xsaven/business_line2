@@ -76,12 +76,14 @@
 
             <div class="line">
               <div class="field">
-                <v-select>
-                  <option value="0" data-display="За кого болеешь"></option>
-                  <template v-for="user in users_local">
-                    <option :value="user.id">{{user.full_name}}</option>
-                  </template>
-                </v-select>
+                <input v-model="q" type="text" name="" value="" class="input" placeholder="За кого болеешь">
+
+                <div v-if="q" class="fieldset" style="display: block">
+                  <div v-for="user in users_local">
+                    <div class="avatar" v-html="user.avatar"></div>
+                    <div @click="send_report(user.full_name,user.id)" class="name">{{user.full_name}}</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -103,21 +105,36 @@ export default {
   data() {
     return {
       users_local: {},
+      q: '',
       form: {
         user_id: null,
         comment: ''
-      }
+      },
+      fun_user_id: null,
+      fun_full_name: '',
     }
   },
   mounted() {
-    this.users();
+  },
+  watch:{
+    q() {
+      this.users(this.q);
+    }
   },
   methods: {
     users() {
-      jax.user.get_all_users()
-        .then((data) => {
-          this.users_local = data
-        })
+      if(String(this.q).indexOf(' ') === -1) {
+        jax.user.search_users(this.q)
+            .then((data) => {
+              this.users_local = data
+            })
+      }
+    },
+    send_report(full_name,user_id,) {
+      this.fun_user_id = user_id
+      this.fun_full_name = full_name
+      this.q = this.fun_full_name
+      this.users_local.splice(0)
     }
   }
 }

@@ -13,7 +13,8 @@
                    name="product_color"
                    @change="product.first_setting=color"
                    :checked="product.first_setting===color"
-                   :id="`radio_color_${i}${product.id}${salt}`">
+                   :id="`radio_color_${i}${product.id}${salt}`"
+                   :disabled="!product.settings.includes(color)">
             <label :for="`radio_color_${i}${product.id}${salt}`" :style="`
                 background-color: ${color};`"
             >

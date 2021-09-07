@@ -17,6 +17,7 @@ class UserForFansSelect extends JsonResource
         return [
             'full_name' => $this->name.' '.$this->lastname,
             'id' => $this->id,
+            'avatar' => user_avatar($this->resource)
         ];
     }
 }

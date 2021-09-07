@@ -253,6 +253,18 @@ class User extends JaxExecutor
         $this->reload();
     }
 
+    public function text_report_for_fans(int $task_id,string $comment,int $fun_id)
+    {
+        /**
+         * @var ReportTextTask
+         */
+        $event = new ReportTextTask($task_id, $comment);
+
+        event($event);
+
+        $this->reload();
+    }
+
     /**
      * @param int $task_id
      * @param $videos
@@ -417,8 +429,8 @@ class User extends JaxExecutor
         $this->reload();
     }
 
-    public function get_all_users(Request $request)
+    public function search_users(string $q)
     {
-        return UserForFansSelect::collection(\App\Models\User::all())->toArray(\request());
+        return UserForFansSelect::collection(app(UserRepository::class)->search_users_for_fans($q))->toArray(\request());
     }
 }
