@@ -31,6 +31,7 @@ class AuthDataResource extends JsonResource
             'new_notifications_count' => $repo->new_notifications_count,
             'subscribe_direction' => (int) (bool) $this->direction_id,
             'liked_comment_ids' => $repo->liked_comment_ids,
+            'liked_task_report_ids' => $repo->liked_task_report_ids,
             'subscribes_users' => $repo->subscribesUsers,
             'active_commentaries' => $this->active_commentaries || config('free_chat'),
             'complete_tasks_count' => $repo->completeTaskCount,

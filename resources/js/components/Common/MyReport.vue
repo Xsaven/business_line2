@@ -9,7 +9,7 @@
             <div class="task">
               <div class="head">
                 <div class="title">
-                  <a :href="`task/${task.id}`">{{task.name}}</a>
+                  <a :href="`/task/${task.id}`">{{task.name}}</a>
                 </div>
 
                 <div class="date">{{String(report.month).split('-')[1]}} {{month[String(report.month).split('-')[1]]}} {{String(report.time)}}</div>

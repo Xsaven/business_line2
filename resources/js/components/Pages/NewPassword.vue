@@ -98,7 +98,11 @@ export default {
     methods: {
         recovery_submit() {
             this.clear_errors();
-            if (!isRequired(this.recovery.password) || !isLengthBetween(this.recovery.password, 6, 191)) {
+            if (
+                !isRequired(this.recovery.password) ||
+                !isLengthBetween(this.recovery.password, 6, 191) ||
+                !this.validPassword(this.registration.password)
+            ) {
                 this.errors.password = "Пароль должен содержать 6 и более символов, прописные латинские буквы, строчные латинские буквы, цифры";
                 return;
             }
@@ -106,12 +110,6 @@ export default {
                 this.errors.password = "Пароли должны совпадать";
                 return;
             }
-
-            // jax.guest.new_password(...Object.values(this.registration))
-            //     .then(({result}) => {
-            //         this.clear_errors();
-            //         if (!result) "toast:error".exec("Введены некорректные данные");
-            //     });
 
             ljs.$jax.post('/reset-password', {
                 email: this.email,
@@ -127,6 +125,10 @@ export default {
         },
         clear_errors() {
             Object.keys(this.errors).map((key) => this.$set(this.errors, key, null));
+        },
+        validPassword(password) {
+            let re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/;
+            return re.test(password);
         }
     }
 }
