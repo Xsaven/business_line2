@@ -5,6 +5,7 @@ namespace App\Components\Vue\Pages;
 use App\Components\Vue\Page;
 use App\Http\Resources\TaskReportResource;
 use App\Http\Resources\TaskResource;
+use App\Models\TaskReport;
 use App\Repositories\TaskRepository;
 use Carbon\Carbon;
 
@@ -38,8 +39,12 @@ class Task extends Page
 
         if ($report) {
             $attrs['task_report'] = TaskReportResource::make($report)->toArray(request());
+            $attrs['reports'] = TaskReportResource::collection(
+                $repo->findById->taskReports()->where('status', TaskReport::STATUS_CHECKED)
+            )->toArray(request());
         } else {
             $attrs['task_report'] = null;
+            $attrs['reports'] = null;
         }
 
         parent::__construct($id, $attrs, $params);

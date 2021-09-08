@@ -50,7 +50,7 @@
           <v-upload-star-quiz-task-report v-else-if="!task_report && task.report_type === 'star_quiz' && green_button" :task="task"/>
           <v-download-file-report v-else-if="!task_report && task.report_type === 'download_file' && green_button" :task="task"/>
           <v-get-task-report v-else-if="task_report && task_report.status === 'created'"/>
-          <v-my-report v-else-if="task_report && task_report.status === 'uploaded'" :report="task_report" :task="task"/>
+          <v-my-report v-else-if="task_report && task_report.status === 'uploaded'" :report="task_report" :task="task" :reports="reports"/>
           <v-upload-report-soon v-else-if="between_days" />
         </div>
       </section>
@@ -65,7 +65,8 @@
         name: "pages_task",
         props: {
           task: {required:true},
-          task_report: {required:true}
+          task_report: {required:true},
+          reports: {required:true},
         },
         data () {
             return {

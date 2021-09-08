@@ -43,6 +43,7 @@ class SettingsController extends Controller
             $table->search->at();
 
             $table->column('ID', 'id')->sort('id');
+            $table->column('Системное название', 'name')->sort('name')->copied();
             $table->column('Название', 'info')->sort('name');
             $table->column('Значение', 'value')->sort('value')
                 ->to_string()->str_limit(200);
