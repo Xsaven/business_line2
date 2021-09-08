@@ -3,38 +3,38 @@
         <div class="task">
             <div class="head">
                 <div class="title">
-                    <a :href="`/task/${task.id}`">{{task.name}}</a>
+                    <a :href="`/task/${report.task.id}`">{{report.task.name}}</a>
                 </div>
 
                 <div class="date">{{String(report.month).split('-')[1]}} {{month[String(report.month).split('-')[1]]}} {{String(report.time)}}</div>
             </div>
 
             <div class="author">
-                <div class="avatar" v-html="user.avatar">
+                <div class="avatar" v-html="report.user.avatar">
                 </div>
 
                 <div>
-                    <div class="name">{{user.name}}</div>
+                    <div class="name">{{report.user.name}}</div>
                     <div class="text">{{report.comment}}</div>
                 </div>
             </div>
 
             <div class="video" v-for="image in report.files">
-                <img :src="image.files" alt="" class="lozad">
+                <img :src="image" alt="" class="lozad">
                 <!--                <svg class="icon"><use xlink:href="/images/sprite.svg#ic_video_play"></use></svg>-->
             </div>
 
             <div class="bottom">
-                <button class="like_btn active">
+                <button :class="{like_btn: true, active: user.liked_comment_ids.indexOf(comment.id) !== -1}" type="button" @click="like">
                     <span>{{report.likes}}</span>
-                    <v-icon icon="ic_like"/>
+                    <v-icon icon="ic_like" />
                     <v-icon icon="ic_like_a" />
                 </button>
             </div>
         </div>
 
 
-        <div class="dialog">
+        <div class="dialog" v-if="false">
             <div class="messages">
                 <div class="message">
                     <div class="user">
@@ -85,13 +85,28 @@
 
 <script>
     export default {
+        $sync: ['user'],
         name: "v-task-report",
         props: {
-            task: {required: true}
+            report: {required: true},
         },
         data () {
             return {
-
+                user: {},
+                month: {
+                    '01': 'января',
+                    '02': 'февраля',
+                    '03': 'марта',
+                    '04': 'апреля',
+                    '05': 'мая',
+                    '06': 'июня',
+                    '07': 'июля',
+                    '08': 'августа',
+                    '09': 'сентября',
+                    '10': 'октября',
+                    '11': 'ноября',
+                    '12': 'декабря',
+                },
             };
         },
         mounted () {},

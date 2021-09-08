@@ -4,6 +4,7 @@ namespace App\Listeners\Login;
 
 use App\Events\Login;
 use App\Events\Ws\Exec;
+use App\Events\Ws\ExecNoSelf;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -18,8 +19,7 @@ class LogoutOtherWindows
     public function handle(Login $event)
     {
         if ($event->validated) {
-
-            Exec::dispatch(\Auth::id(), ['doc::location' => '/logout']);
+            Exec::dispatch(\Auth::id(), 'v-layout:logout');
         }
     }
 }

@@ -332,6 +332,11 @@ export default {
                     this.clear_errors();
                     if (!result) "toast:error".exec("Пользователь с такими данными не найден!");
                     this.auth.password = '';
+                    if (result) {
+                        localStorage.setItem('logined', Date.now());
+                    } else {
+                        localStorage.removeItem('logined');
+                    }
                 });
         },
         registration_submit() {

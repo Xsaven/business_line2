@@ -46,13 +46,8 @@ class SettingsSeeder extends Seeder
                 'info' => 'Support email',
             ],
             [
-                'name' => 'mail_phone',
-                'value' => '+79999999999',
-                'info' => 'Mail phone',
-            ],
-            [
                 'name' => 'support_telegram_phone',
-                'value' => '+79999999999',
+                'value' => '+7 995 508 34 72',
                 'info' => 'Support telegram phone',
             ],
             [
@@ -62,7 +57,7 @@ class SettingsSeeder extends Seeder
             ],
             [
                 'name' => 'support_whatsapp_phone',
-                'value' => '+79999999999',
+                'value' => '+7 995 508 75 94',
                 'info' => 'Support whatsapp phone',
             ],
             [
