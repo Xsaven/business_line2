@@ -62,22 +62,14 @@
     "fields": [
       "name"
     ],
-    "resource": [],
-    "factory": {
-      "name": "\\faker.jobTitle()"
-    },
-    "seed": "factory:50,100"
+    "resource": []
   },
   "division": {
     "const:title" : "Подразделения",
     "fields": [
       "name"
     ],
-    "resource": [],
-    "factory": {
-      "name": "\\faker.company()"
-    },
-    "seed": "factory:100,300"
+    "resource": []
   },
   "user" : {
     "const:title" : "Пользователи",

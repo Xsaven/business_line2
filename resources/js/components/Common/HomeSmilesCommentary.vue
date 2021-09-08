@@ -49,9 +49,11 @@
                 <div class="title">Стикеры</div>
 
                 <div class="row">
-                    <div v-for="sticker in stickers">
-                        <img :src="sticker.src" :alt="sticker.src">
-                    </div>
+                    <template v-for="sticker in stickers">
+                        <div @click="sticker_click(sticker.id)">
+                            <img :src="sticker.src" :alt="sticker.src">
+                        </div>
+                    </template>
                 </div>
             </div>
         </div>
@@ -76,6 +78,10 @@
         computed: {},
         watch: {},
         methods: {
+            sticker_click (id) {
+                this.$emit('sticker', id);
+                this.toggle();
+            },
             toggle () {
                 const modal = $(this.$refs.mini_modal);
                 const btn = $(this.$refs.btn);

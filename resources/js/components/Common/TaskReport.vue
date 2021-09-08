@@ -31,55 +31,42 @@
                     <v-icon icon="ic_like_a" />
                 </button>
 
-                <v-home-smiles-commentary v-if="!r.comments.length" :show_smiles="false" :show_stickers="true" />
+                <v-home-smiles-commentary
+                    v-if="!r.comments.length"
+                    :show_smiles="false"
+                    :show_stickers="true"
+                    @sticker="sticker"
+                />
             </div>
         </div>
 
 
         <div class="dialog" v-if="r.comments.length">
             <div class="messages">
-                <div class="message">
+
+                <div class="message" v-for="comment in r.comments">
                     <div class="user">
-                        <div class="avatar">
-                            <span>АВ</span>
-                            <img data-src="/images/tmp/user_avatar.jpg" alt="" class="lozad">
-                        </div>
+                        <div class="avatar" v-html="comment.user.avatar"></div>
 
                         <div>
                             <div class="name">
-                                <a href="/">Алена Васильева</a>
+                                <a :href="`/user/${comment.user.id}`">{{comment.user.full_name}}</a>
                             </div>
-                            <div class="date">21 августа 18:47</div>
+                            <div class="date">{{comment.created_at}}</div>
                         </div>
                     </div>
 
-                    <div class="text">
-                        <img src="/images/tmp/dialog_img.jpg" alt="">
-                    </div>
+                    <div class="text" v-html="comment.text"></div>
                 </div>
 
-                <div class="message">
-                    <div class="user">
-                        <div class="avatar">
-                            <span>АН</span>
-                        </div>
-
-                        <div>
-                            <div class="name">
-                                <a href="/">Алексей Николае...</a>
-                            </div>
-                            <div class="date">21 августа 18:47</div>
-                        </div>
-                    </div>
-
-                    <div class="text">
-                        😀
-                    </div>
-                </div>
             </div>
 
             <div class="add_message">
-                <v-home-smiles-commentary :smiles="false" />
+                <v-home-smiles-commentary
+                    :show_smiles="false"
+                    :show_stickers="true"
+                    @sticker="sticker"
+                />
             </div>
         </div>
     </div>
@@ -121,6 +108,11 @@
         computed: {},
         watch: {},
         methods: {
+            sticker (id) {
+                jax.task_report.comment(this.r.id, `[${id}]`).then(({report}) => {
+                    this.r = report;
+                });
+            },
             update () {
                 jax.task_report.find(this.r.id).then(({data}) => {
                     this.r = data;

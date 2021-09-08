@@ -20,7 +20,7 @@ class Create
         if ($event->validated) {
             $event->commentary = $event->parent->commentaries()->create([
                 'text' => $event->message,
-                'user_id' => \Auth::id(),
+                'fun_id' => \Auth::id(),
                 'active' => \Auth::user()->active_commentaries || config('free_chat'),
             ]);
 

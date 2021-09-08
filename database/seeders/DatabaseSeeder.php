@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(LteSeeder::class);
         $this->call(PrizesSeeder::class);
         $this->call(DirectionsSeeder::class);
-        $this->call(PositionsSeeder::class);
-        $this->call(DivisionsSeeder::class);
+        $this->call(PositionSeeder::class);
+        $this->call(DivisionSeeder::class);
         $this->call(FaqsSeeder::class);
         $this->call(SettingsSeeder::class);
         $this->call(TrackPrizesSeeder::class);
