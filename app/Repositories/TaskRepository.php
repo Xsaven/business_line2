@@ -35,6 +35,15 @@ class TaskRepository extends CoreRepository
     }
 
     /**
+     * @param  int  $id
+     * @return Task|Task[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|mixed|null
+     */
+    public function find(int $id)
+    {
+        return Task::find($id);
+    }
+
+    /**
      * @param  string  $q
      * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model[]|\Illuminate\Support\Collection
      */

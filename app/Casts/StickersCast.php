@@ -3,6 +3,8 @@
 namespace App\Casts;
 
 use App\Models\Commentary;
+use App\Models\Sticker;
+use App\Repositories\StickerRepository;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 
 /**
@@ -11,6 +13,11 @@ use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 class StickersCast implements CastsAttributes
 {
     /**
+     * @var null
+     */
+    public static $ids = null;
+
+    /**
      * Cast the given value.
      * @param Commentary $model
      * @param string $key
@@ -18,7 +25,12 @@ class StickersCast implements CastsAttributes
      */
     public function get($model, $key, $value, $attributes)
     {
-        return $value;
+        if (! static::$ids) {
+            static::$ids = app(StickerRepository::class)
+                ->active->pluck('src', 'id')->toArray();
+        }
+
+        return tag_replace($value, static::$ids, '[*]');
     }
 
     /**

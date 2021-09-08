@@ -16,8 +16,8 @@ class Validation
      */
     public function handle(TaskLike $event)
     {
-        $event->validated = ! quick_validate(['id' => $event->commentary_id], [
-                'id' => 'required|int|min:1|exists:commentaries,id',
+        $event->validated = ! quick_validate(['id' => $event->task_report_id], [
+                'id' => 'required|int|min:1|exists:task_reports,id',
             ]) && \Auth::check();
     }
 }

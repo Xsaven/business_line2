@@ -52,7 +52,7 @@ class SettingsSeeder extends Seeder
             ],
             [
                 'name' => 'support_telegram_link',
-                'value' => 'https://t.me',
+                'value' => 'https://t.me/DL_support',
                 'info' => 'Support telegram link',
             ],
             [
@@ -62,7 +62,7 @@ class SettingsSeeder extends Seeder
             ],
             [
                 'name' => 'support_whatsapp_link',
-                'value' => 'https://whatsapp.com',
+                'value' => 'https://api.whatsapp.com/send/?phone=79955087594&text&app_absent=0',
                 'info' => 'Support whatsapp link',
             ],
             [

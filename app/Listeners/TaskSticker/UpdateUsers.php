@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Listeners\TaskLike;
+namespace App\Listeners\TaskSticker;
 
-use App\Events\TaskLike;
+use App\Events\TaskSticker;
 use App\Repositories\AuthUserRepository;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -12,18 +12,16 @@ class UpdateUsers
     /**
      * Handle the event.
      *
-     * @param  TaskLike  $event
+     * @param  TaskSticker  $event
      * @return void
      */
-    public function handle(TaskLike $event)
+    public function handle(TaskSticker $event)
     {
         if ($event->result()) {
             $user = app(AuthUserRepository::class)
                 ->user;
 
-            $user->update([
-                'likes' => $user->commentaryLikes()->count() + $user->taskReportLikes()->count(),
-            ]);
+            $user->increment('stickers');
         }
     }
 }

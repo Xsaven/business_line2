@@ -22,7 +22,7 @@ class StickerResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'src' => asset($this->src)
+            'src' => asset($this->src),
         ];
     }
 }

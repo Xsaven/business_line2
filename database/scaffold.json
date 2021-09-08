@@ -239,6 +239,9 @@
     "const:event_type_one_day": "one-day",
     "const:event_type_instant": "instant",
 
+    "const:welcome_type_banner": "banner",
+    "const:welcome_type_video": "video",
+
     "const:event_types": {
       "multi-day": "Многодневное",
       "one-day": "Однодневное",
@@ -261,6 +264,10 @@
       "auto": "Автоматическое",
       "manually": "Модерирование"
     },
+    "const:welcome_type": {
+      "banner": "Банер",
+      "video": "Видео"
+    },
     "fields": [
       "name",
       ["short_description", {"nullable": []}],
@@ -269,6 +276,7 @@
       ["report_configs", "text", {"cast": "array", "nullable": []}],
       ["action_type", {"default": "manually"}],
       ["cost", {"default": 0}],
+      ["welcome_type", {"default": "banner"}],
       ["prize_src", {"nullable": []}],
       ["terms_of_participation", "text", {"nullable": []}],
       ["is_challenge", {"default":  0}],

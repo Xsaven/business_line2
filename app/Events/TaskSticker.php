@@ -2,7 +2,6 @@
 
 namespace App\Events;
 
-use App\Models\Task;
 use App\Models\TaskReport;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -12,7 +11,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class TaskLike
+class TaskSticker
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -35,9 +34,11 @@ class TaskLike
      * Create a new event instance.
      *
      * @param  int  $task_report_id
+     * @param  string  $message
      */
     public function __construct(
-        public int $task_report_id
+        public int $task_report_id,
+        public string $message
     ) {
     }
 

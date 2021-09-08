@@ -69,4 +69,13 @@ class TaskReportRepository extends CoreRepository
             ->where('comment', 'like', "%{$q}%")
             ->get() : collect();
     }
+
+    /**
+     * @param  int  $id
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Model[]|mixed|null
+     */
+    public function find(int $id)
+    {
+        return $this->model()->with('commentary')->withCount('likes')->find($id);
+    }
 }

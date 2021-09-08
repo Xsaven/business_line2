@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Listeners\TaskLike;
+namespace App\Listeners\TaskSticker;
 
-use App\Events\TaskLike;
+use App\Events\TaskSticker;
 use App\Events\Ws\AllUserExec;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -12,10 +12,10 @@ class NotifyUsers
     /**
      * Handle the event.
      *
-     * @param  TaskLike  $event
+     * @param  TaskSticker  $event
      * @return void
      */
-    public function handle(TaskLike $event)
+    public function handle(TaskSticker $event)
     {
         if ($event->result() && $event->task_report) {
             AllUserExec::dispatch([
