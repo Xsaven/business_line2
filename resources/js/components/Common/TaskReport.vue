@@ -25,7 +25,7 @@
             </div>
 
             <div class="bottom">
-                <button :class="{like_btn: true, active: user.liked_comment_ids.indexOf(comment.id) !== -1}" type="button" @click="like">
+                <button :class="{like_btn: true, active: user.liked_comment_ids.indexOf(report.id) !== -1}" type="button" @click="like">
                     <span>{{report.likes}}</span>
                     <v-icon icon="ic_like" />
                     <v-icon icon="ic_like_a" />
@@ -112,6 +112,10 @@
         mounted () {},
         computed: {},
         watch: {},
-        methods: {}
+        methods: {
+            like () {
+
+            }
+        }
     }
 </script>
