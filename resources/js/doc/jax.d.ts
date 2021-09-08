@@ -3,6 +3,7 @@ declare interface JaxModelInterface {
     guest: JaxModelGuestInterface;
     questions: JaxModelQuestionsInterface;
     table: JaxModelTableInterface;
+    task_report: JaxModelTaskReportInterface;
     user: JaxModelUserInterface;
     lte_admin: JaxModelLteAdminInterface;
     lte_root_preferences: JaxModelLteRootPreferencesInterface;
@@ -75,6 +76,11 @@ declare interface JaxModelUserInterface {
         download_file_image_report(...params: any[]): Promise<JaxModelUserInterface>;
         create_order(...params: any[]): Promise<JaxModelUserInterface>;
         search_users(...params: any[]): Promise<JaxModelUserInterface>;
+}
+declare interface JaxModelTaskReportInterface {
+    find(...params: any[]): Promise<JaxModelTaskReportInterface>;
+        like(...params: any[]): Promise<JaxModelTaskReportInterface>;
+        comment(...params: any[]): Promise<JaxModelTaskReportInterface>;
 }
 declare interface JaxModelTableInterface {
     pagination(...params: any[]): Promise<JaxModelTableInterface>;

@@ -22,6 +22,8 @@ class CreateTasksTable extends Migration
             $table->text('report_configs')->nullable();
             $table->string('action_type', 191)->default('manually');
             $table->integer('cost')->default(0);
+            $table->string('welcome', 191)->default('');
+            $table->string('welcome_type', 191)->default('banner');
             $table->string('prize_src', 191)->nullable();
             $table->text('terms_of_participation')->nullable();
             $table->boolean('is_challenge')->default(0);

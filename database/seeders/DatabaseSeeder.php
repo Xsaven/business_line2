@@ -31,5 +31,6 @@ class DatabaseSeeder extends Seeder
         //$this->call(FirstSportTaskSeeder::class);
         $this->call(OspSeeder::class);
         $this->call(UsersListSeeder::class);
+        $this->call(StickersSeeder::class);
     }
 }

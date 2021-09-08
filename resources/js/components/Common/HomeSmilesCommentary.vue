@@ -9,7 +9,7 @@
                 <v-icon icon="ic_close" />
             </button>
 
-            <div class="section">
+            <div class="section" v-if="smiles">
                 <div class="title">Эмоджи</div>
 
                 <div class="row">
@@ -45,16 +45,13 @@
                     <div><img src="/images/tmp/smile_img.png" alt=""></div>
                 </div>
             </div>
-            <div class="section stickers">
+            <div class="section stickers" v-if="stickers.length && show_stickers">
                 <div class="title">Стикеры</div>
 
                 <div class="row">
-                    <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                    <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                    <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                    <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                    <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                    <div><img src="/images/tmp/sticker_img.png" alt=""></div>
+                    <div v-for="sticker in stickers">
+                        <img :src="sticker.src" :alt="sticker.src">
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,10 +60,15 @@
 
 <script>
     export default {
+        $sync: ['stickers'],
         name: "v-home-smiles-commentary",
-        props: {},
+        props: {
+            show_smiles: {default: true},
+            show_stickers: {default: false},
+        },
         data () {
             return {
+                stickers: [],
                 show: false
             };
         },

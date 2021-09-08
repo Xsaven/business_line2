@@ -21,6 +21,7 @@ class TaskReportResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'status' => $this->status,
             'likes' => $this->likes_count,
             'files' => collect($this->files)->map(function ($file) {
@@ -29,6 +30,7 @@ class TaskReportResource extends JsonResource
             'comment' => $this->comment,
             'month' => Carbon::parse($this->created_at)->format('Y-m-d H:i'),
             'time' => Carbon::parse($this->created_at)->format('H:i'),
+            'created_at' => butty_date_time($this->created_at),
             'user' => UserResource::make($this->user),
             'task' => TaskResource::make($this->task),
             'comments' => CommentaryNoChildResource::collection($this->commentary),

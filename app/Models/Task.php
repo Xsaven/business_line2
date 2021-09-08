@@ -22,6 +22,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property array|null $report_configs
  * @property string $action_type
  * @property int $cost
+ * @property string $welcome
+ * @property string $welcome_type
  * @property string|null $prize_src
  * @property string $terms_of_participation
  * @property bool $is_challenge
@@ -65,6 +67,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereStartAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereTermsOfParticipation($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Task whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereWelcome($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Task whereWelcomeType($value)
  * @method static \Illuminate\Database\Query\Builder|Task withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Task withoutTrashed()
  * @mixin \Eloquent
@@ -107,6 +111,10 @@ class Task extends Model
 
     const EVENT_TYPE_INSTANT = 'instant';
 
+    const WELCOME_TYPE_BANNER = 'banner';
+
+    const WELCOME_TYPE_VIDEO = 'video';
+
     const EVENT_TYPES = [
         'multi-day' => 'Многодневное',
         'one-day' => 'Однодневное',
@@ -132,6 +140,11 @@ class Task extends Model
         'manually' => 'Модерирование',
     ];
 
+    const WELCOME_TYPE = [
+        'banner' => 'Банер',
+        'video' => 'Видео',
+    ];
+
     /**
      * The table associated with the model.
      * @return string
@@ -150,6 +163,8 @@ class Task extends Model
         'report_configs',
         'action_type',
         'cost',
+        'welcome',
+        'welcome_type',
         'prize_src',
         'terms_of_participation',
         'is_challenge',
@@ -171,6 +186,8 @@ class Task extends Model
         'report_configs' => 'array',
         'action_type' => 'string',
         'cost' => 'integer',
+        'welcome' => 'string',
+        'welcome_type' => 'string',
         'prize_src' => 'string',
         'terms_of_participation' => 'string',
         'is_challenge' => 'boolean',
@@ -189,6 +206,8 @@ class Task extends Model
         'report_type' => 'text',
         'action_type' => 'manually',
         'cost' => 0,
+        'welcome' => '',
+        'welcome_type' => 'banner',
         'is_challenge' => 0,
         'fans_task' => false,
     ];
