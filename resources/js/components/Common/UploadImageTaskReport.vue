@@ -1,7 +1,6 @@
 <template>
 
   <div class="upload_report">
-узцлалзуца
     <div class="title">Загрузи свой отчет</div>
 
     <div class="info">
@@ -59,7 +58,6 @@
         data () {
             return {
                 file: null,
-                comment: '',
                 loading: 0,
                 loaded: 0,
                 total: 0

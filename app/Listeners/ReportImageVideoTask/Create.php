@@ -17,5 +17,14 @@ class Create
      */
     public function handle(ReportImageVideoTask $event)
     {
+        if ($event->validated) {
+            $user_id = \Auth::id();
+
+            $event->task->taskReports()->create([
+                'status' => TaskReport::STATUS_UPLOADED,
+                'files' => [$event->filename],
+                'user_id' => $user_id,
+            ]);
+        }
     }
 }

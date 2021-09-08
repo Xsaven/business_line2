@@ -17,11 +17,14 @@ class ReportTextTask
     /**
      * @param int $task_id
      * @param string $comment
+     * @param int $fun_id
+     * @param bool $validated
      */
     public function __construct(
         public int $task_id,
         public string $comment,
-        public int $fun_id = 0
+        public int $fun_id = 0,
+        public bool $validated = false,
     ) {
     }
 }

@@ -23,20 +23,24 @@ class Create
         $task = Task::find($event->task_id);
 
         if (! $task->fans_task) {
-            TaskReport::create([
-                'status' => TaskReport::STATUS_UPLOADED,
-                'comment' => $event->comment,
-                'user_id' => $user_id,
-                'task_id' => $event->task_id,
-            ]);
+            if($event->validated) {
+                TaskReport::create([
+                    'status' => TaskReport::STATUS_UPLOADED,
+                    'comment' => $event->comment,
+                    'user_id' => $user_id,
+                    'task_id' => $event->task_id,
+                ]);
+            }
         } else {
-            TaskReport::create([
-                'status' => TaskReport::STATUS_UPLOADED,
-                'comment' => $event->comment,
-                'user_id' => $user_id,
-                'task_id' => $event->task_id,
-                'fun_id' => $event->fun_id,
-            ]);
+            if($event->validated) {
+                TaskReport::create([
+                    'status' => TaskReport::STATUS_UPLOADED,
+                    'comment' => $event->comment,
+                    'user_id' => $user_id,
+                    'task_id' => $event->task_id,
+                    'fun_id' => $event->fun_id,
+                ]);
+            }
         }
     }
 }

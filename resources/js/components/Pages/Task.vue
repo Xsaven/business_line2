@@ -50,7 +50,6 @@
           <v-download-file-report v-else-if="!task_report && task.report_type === 'download_file' && green_button" :task="task"/>
           <v-get-task-report v-else-if="task_report && task_report.status === 'created'"/>
           <v-my-report v-else-if="task_report && task_report.status === 'uploaded'" :report="task_report" :task="task" :reports="reports"/>
-          <v-upload-report-soon v-else-if="between_days" />
         </div>
       </section>
     </v-layout>
@@ -83,7 +82,6 @@
                 '11': 'ноября',
                 '12': 'декабря',
               },
-              between_days: '',
               green_button: false,
               red_button: false,
               local_task: this.task,
@@ -100,19 +98,18 @@
 
 
           getBetweenDays() {
-            let start_at = moment(this.local_task.start_at).minute(0).second(0).hour(0);
-            let finish_at = moment(this.local_task.finish_at).minute(0).second(0).hour(0);
-            let now = moment().minute(0).second(0).hour(0);
+            let start_at = moment(moment(this.local_task.start_at).minute(0).second(0).hour(0)).format('ddd MMM DD YYYY HH:mm');
+            let finish_at = moment(moment(this.local_task.finish_at).minute(0).second(0).hour(0)).format('ddd MMM DD YYYY HH:mm');
+            let now = moment().minute(0).second(0).hour(0).format('ddd MMM DD YYYY HH:mm');
 
-            if (start_at === finish_at && start_at === now) {
+            if (start_at === finish_at && finish_at >= now) {
               this.green_button = true
-            } else if (now >= start_at && finish_at <= now) {
+            }
+            else if(start_at >= now && finish_at <= now) {
               this.green_button = true
-            } else if(finish_at > now && this.between_days === 0) {
+            }
+            else if(finish_at < now) {
               this.red_button = true;
-            } else {
-              this.between_days = moment(this.local_task.start_at).minute(0).second(0).hour(0)
-                  .diff(moment().minute(0).second(0).hour(0),'days') + 1;
             }
 
           },

@@ -2,50 +2,24 @@
 
 namespace App\Listeners\ReportTextVideoTask;
 
-use App\Events\ReportTextImageTask;
+use App\Events\ReportTextVideoTask;
 use App\Models\TaskReport;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 class Create
 {
     /**
-     * Handle the event.
-     *
-     * @param  ReportTextImageTask  $event
-     * @return void
+     * @param ReportTextVideoTask $event
      */
-    public function handle(ReportTextImageTask $event)
+    public function handle(ReportTextVideoTask $event)
     {
-        $i = 0;
+        if ($event->validated) {
+            $user_id = \Auth::id();
 
-        $upload_files = [];
-
-        $user_id = \Auth::user()->id;
-
-        if ($event->files) {
-            foreach ($event->files as $file) {
-                $img = \Image::make($file->path())
-                    ->resize(800, 600, function ($constraint) {
-                        $constraint->aspectRatio();
-                    })->encode('jpg');
-
-                $file_name = $user_id.$event->task_id.$i.'.jpg';
-
-                \Storage::disk('yandexcloud')->put('/'.$file_name, (string) $img);
-
-                $upload_files[] = $file_name;
-
-                $i++;
-            }
+            $event->task->taskReports()->create([
+                'status' => TaskReport::STATUS_UPLOADED,
+                'files' => [$event->filename],
+                'user_id' => $user_id,
+            ]);
         }
-
-        TaskReport::create([
-            'status' => TaskReport::STATUS_UPLOADED,
-            'files' => $upload_files,
-            'comment' => $event->comment,
-            'user_id' => $user_id,
-            'task_id' => $event->task_id,
-        ]);
     }
 }

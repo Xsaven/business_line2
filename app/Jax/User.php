@@ -251,15 +251,15 @@ class User extends JaxExecutor
 
     /**
      * @param int $task_id
-     * @param $videos
+     * @param Request $request
      */
     public function video_report(int $task_id, Request $request)
     {
-        $videos = '';
+
         /**
          * @var ReportVideoTask
          */
-        $event = new ReportVideoTask($task_id, $videos);
+        $event = new ReportVideoTask($task_id, $request->file('files'));
 
         event($event);
 
@@ -279,15 +279,13 @@ class User extends JaxExecutor
         $this->reload();
     }
 
-    public function text_or_image_or_video_report(int $task_id, string $comment, $files, $videos)
+    public function text_or_image_or_video_report(int $task_id, string $comment, Request $request)
     {
-        $files = [];
-        $videos = [];
 
         /**
          * @var ReportTextImageVideoTask
          */
-        $event = new ReportTextImageVideoTask($task_id, $comment, $files, $videos);
+        $event = new ReportTextImageVideoTask($task_id, $comment,$request->file('files'));
 
         event($event);
 
@@ -300,13 +298,10 @@ class User extends JaxExecutor
      */
     public function image_or_video_report(int $task_id, Request $request)
     {
-        $files = [];
-        $videos = [];
-
         /**
          * @var ReportImageVideoTask
          */
-        $event = new ReportImageVideoTask($task_id, $files, $videos);
+        $event = new ReportImageVideoTask($task_id,$request->file('files'));
 
         event($event);
 
@@ -318,14 +313,12 @@ class User extends JaxExecutor
      * @param string $comment
      * @param $videos
      */
-    public function text_or_video_report(int $task_id, string $comment, $videos)
+    public function text_or_video_report(int $task_id, string $comment, Request $request)
     {
-        $videos = [];
-
         /**
          * @var ReportTextVideoTask
          */
-        $event = new ReportTextVideoTask($task_id, $comment, $videos);
+        $event = new ReportTextVideoTask($task_id,  $request->file('files'),$comment,);
 
         event($event);
 

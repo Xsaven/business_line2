@@ -16,7 +16,7 @@ class TextValidate
     public function handle($event)
     {
         if (is_string($event->comment)) {
-            return true;
+            $event->validated = true;
         }
     }
 }

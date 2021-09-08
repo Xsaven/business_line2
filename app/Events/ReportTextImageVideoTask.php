@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\Task;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -22,8 +23,11 @@ class ReportTextImageVideoTask
     public function __construct(
         public int $task_id,
         public string $comment,
-        public $files,
-        public $videos
+        public array $files,
+        public bool $validated = false,
+        public bool $uploaded = false,
+        public ?string $filename = null,
+        public ?Task $task = null,
     ) {
     }
 }
