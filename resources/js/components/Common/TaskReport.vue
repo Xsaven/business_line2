@@ -1,5 +1,5 @@
 <template>
-    <div class="task_wrap">
+    <div :class="{task_wrap: report.comments.length}">
         <div class="task">
             <div class="head">
                 <div class="title">
@@ -30,11 +30,13 @@
                     <v-icon icon="ic_like" />
                     <v-icon icon="ic_like_a" />
                 </button>
+
+                <v-home-smiles-commentary v-if="!report.comments.length" :show_smiles="false" :show_stickers="true" />
             </div>
         </div>
 
 
-        <div class="dialog" v-if="false">
+        <div class="dialog" v-if="report.comments.length">
             <div class="messages">
                 <div class="message">
                     <div class="user">
@@ -77,7 +79,7 @@
             </div>
 
             <div class="add_message">
-                <v-home-smiles-commentary />
+                <v-home-smiles-commentary :smiles="false" />
             </div>
         </div>
     </div>

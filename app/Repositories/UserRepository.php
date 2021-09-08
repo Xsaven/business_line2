@@ -10,6 +10,7 @@ use Lar\Developer\CoreRepository;
 /**
  * Class UserRepository.
  * @package App\Repositories
+ * @method User model()
  * @property-read User|null $findBySlug
  * @property-read int $completeTaskCount
  */
