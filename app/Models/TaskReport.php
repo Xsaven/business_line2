@@ -9,45 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
-/**
- * TaskReport Class.
- *
- * @package App\Models
- * @property int $id
- * @property string $status
- * @property \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $likes
- * @property array|null $files
- * @property string|null $comment
- * @property int $user_id
- * @property int $task_id
- * @property int|null $fun_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Commentary[] $commentary
- * @property-read int|null $commentary_count
- * @property-read \App\Models\User|null $fun
- * @property-read int|null $likes_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Log[] $logs
- * @property-read int|null $logs_count
- * @property-read \App\Models\Task|null $task
- * @property-read \App\Models\User|null $user
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $users
- * @property-read int|null $users_count
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport query()
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereComment($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereFiles($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereFunId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereLikes($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereTaskId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereUserId($value)
- * @mixin \Eloquent
- */
+
 class TaskReport extends Model
 {
     use TaskReportHasLogs, TaskReportLikeConfig;
@@ -84,7 +46,6 @@ class TaskReport extends Model
      */
     protected $fillable = [
         'status',
-        'likes',
         'files',
         'comment',
         'user_id',
@@ -98,7 +59,6 @@ class TaskReport extends Model
      */
     protected $casts = [
         'status' => 'string',
-        'likes' => 'integer',
         'files' => 'array',
         'comment' => 'string',
         'user_id' => 'integer',
@@ -112,7 +72,6 @@ class TaskReport extends Model
      */
     protected $attributes = [
         'status' => 'created',
-        'likes' => 0,
     ];
 
     /**

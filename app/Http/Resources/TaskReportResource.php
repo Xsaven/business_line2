@@ -20,17 +20,29 @@ class TaskReportResource extends JsonResource
      */
     public function toArray($request)
     {
+//            //dump($this->commentary);
+//            dump($this->resource);
+        ////        if ($this->commentary === null) {
+        ////            dd($this->resource);
+        ////        }
+//        try {
+//            CommentaryNoChildResource::collection($this->commentary);
+//        } catch (\Throwable $exception) {
+//            throw $exception;
+//            dd($this->resource);
+//        }
         return [
             'status' => $this->status,
             'likes' => $this->likes,
             'files' => collect($this->files)->map(function ($file) {
-                return ['files' => \Storage::disk('yandexcloud')->url($file)];
+                return \Storage::disk('yandexcloud')->url($file);
             })->toArray(),
             'comment' => $this->comment,
             'month' => Carbon::parse($this->created_at)->format('Y-m-d H:i'),
             'time' => Carbon::parse($this->created_at)->format('H:i'),
             'user' => UserResource::make($this->user),
-            'task' => self::make($this->task),
+            'task' => TaskResource::make($this->task),
+            'comments' => CommentaryNoChildResource::collection($this->commentary),
         ];
     }
 }

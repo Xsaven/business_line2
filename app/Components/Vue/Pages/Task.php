@@ -35,16 +35,23 @@ class Task extends Page
 
         $attrs['task'] = TaskResource::make($repo->findById)->toArray(request());
 
-        $report = $user->taskReports->where('task_id', $attrs['task']['id'])->first();
+        /** @var TaskReport $report */
+        $report = $user->taskReports()->with('commentary')->withCount('likes')
+            ->where('task_id', $attrs['task']['id'])->first();
 
         if ($report) {
             $attrs['task_report'] = TaskReportResource::make($report)->toArray(request());
             $attrs['reports'] = TaskReportResource::collection(
-                $repo->findById->taskReports()->where('status', TaskReport::STATUS_CHECKED)
+                $repo->findById
+                    ->taskReports()
+                    ->with('commentary')
+                    ->where('status', TaskReport::STATUS_CHECKED)
+                    ->where('id', '!=', $report->id)
+                    ->get()
             )->toArray(request());
         } else {
-            $attrs['task_report'] = null;
-            $attrs['reports'] = null;
+            $attrs['task_report'] = collect();
+            $attrs['reports'] = collect();
         }
 
         parent::__construct($id, $attrs, $params);

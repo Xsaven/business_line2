@@ -11,6 +11,7 @@
 <script>
     export default {
         $sync: ['user'],
+        $exec: ['logout'],
         name: "v-layout",
         namespace: "app.events.ws",
         props: {},
@@ -52,6 +53,7 @@
                 if (!this.ws_channel_personal) {
                     this.ws_channel_personal =
                         this.channel_personal.listen('exec', 'execCallback');
+                        this.channel_personal.listen('exec_no_self', 'execCallback');
                 }
                 if (!this.ws_channel_notification) {
                     this.ws_channel_notification =
@@ -78,6 +80,14 @@
                 "update::new_notifications".exec();
 
                 return `toast:${status}`.exec(text, title);
+            },
+            logout () {
+                let time = Number(localStorage.getItem('logined'));
+                if (!time || (Date.now()-time) > 4000) {
+                    "doc::redirect".exec("/logout");
+                } else {
+                    localStorage.removeItem('logined')
+                }
             }
         }
     }
