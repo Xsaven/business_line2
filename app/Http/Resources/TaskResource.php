@@ -37,6 +37,9 @@ class TaskResource extends JsonResource
             'complete_user' => $this->taskReports()->where('user_id', \Auth::id())->exists(),
             'participants' => $this->taskReports()->count(),
             'fans_task' => $this->fans_task,
+            'welcome_type' => $this->welcome_type,
+            'welcome_video' => $this->welcome_video,
+            'welcome_banner' => $this->welcome_banner,
         ];
     }
 }

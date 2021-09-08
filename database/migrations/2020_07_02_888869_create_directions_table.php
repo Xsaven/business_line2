@@ -17,7 +17,9 @@ class CreateDirectionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 191);
             $table->string('slug', 191);
+            $table->string('type', 191)->default('video');
             $table->string('video', 191)->nullable();
+            $table->string('banner', 191)->nullable();
             $table->string('arbitrator_name', 191)->nullable();
             $table->string('arbitrator_photo', 191)->nullable();
             $table->string('arbitrator_position', 191)->nullable();

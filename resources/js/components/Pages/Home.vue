@@ -15,14 +15,17 @@
                         <span>{{o}}</span>
                     </div>
 
-                    <a href="/" class="link">
-                        <v-icon icon="ic_video_play" />
 
-                        <div class="info" v-if="room.video_title || room.video_info">
+<!--                        <v-icon icon="ic_video_play" />-->
+
+                      <v-player :video_id="room.video_data"/>
+
+
+                      <div class="info" v-if="(room.video_title || room.video_info) && room.state === 'video'">
                             <div class="name" v-if="room.video_title"><span>{{room.video_title}}</span></div>
                             <div class="type" v-if="room.video_info"><span>{{room.video_info}}</span></div>
                         </div>
-                    </a>
+
                 </div>
                 <v-home-commentaries v-if="room.state === 'translation'" :commentaries="commentaries" />
             </div>

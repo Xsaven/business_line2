@@ -23,7 +23,7 @@ class Create
         $task = Task::find($event->task_id);
 
         if (! $task->fans_task) {
-            if($event->validated) {
+            if ($event->validated) {
                 TaskReport::create([
                     'status' => TaskReport::STATUS_UPLOADED,
                     'comment' => $event->comment,
@@ -32,7 +32,7 @@ class Create
                 ]);
             }
         } else {
-            if($event->validated) {
+            if ($event->validated) {
                 TaskReport::create([
                     'status' => TaskReport::STATUS_UPLOADED,
                     'comment' => $event->comment,

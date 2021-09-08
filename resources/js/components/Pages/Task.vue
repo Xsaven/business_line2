@@ -25,8 +25,12 @@
             </div>
 
 
-            <div class="video">
+            <div v-if="task.welcome_type === 'video'" class="video" >
+                <v-player :video_id="task.welcome_video" />
+            </div>
 
+            <div v-else-if="task.welcome_type === 'banner'" class="video" >
+              <img :src="`/${task.welcome_banner}`">
             </div>
           </div>
 
@@ -98,14 +102,14 @@
 
 
           getBetweenDays() {
-            let start_at = moment(moment(this.local_task.start_at).minute(0).second(0).hour(0)).format('ddd MMM DD YYYY HH:mm');
-            let finish_at = moment(moment(this.local_task.finish_at).minute(0).second(0).hour(0)).format('ddd MMM DD YYYY HH:mm');
-            let now = moment().minute(0).second(0).hour(0).format('ddd MMM DD YYYY HH:mm');
+            let start_at = moment(moment(this.local_task.start_at).minute(0).second(0).hour(0)).format('MMM DD YYYY HH:mm');
+            let finish_at = moment(moment(this.local_task.finish_at).minute(0).second(0).hour(0)).format('MMM DD YYYY HH:mm');
+            let now = moment().minute(0).second(0).hour(0).format('MMM DD YYYY HH:mm');
 
-            if (start_at === finish_at && finish_at >= now) {
+            if (start_at === finish_at && finish_at === now) {
               this.green_button = true
             }
-            else if(start_at >= now && finish_at <= now) {
+            else if(start_at <= now && finish_at >= now) {
               this.green_button = true
             }
             else if(finish_at < now) {

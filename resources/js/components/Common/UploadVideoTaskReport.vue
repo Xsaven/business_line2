@@ -73,7 +73,7 @@
             if (this.$refs.file && this.$refs.file.files[0]) {
               let file = this.$refs.file.files[0];
               let allowed_mime_types = [ 'video/mov', 'video/mp4','video/mpeg','video/mpg' ];
-              let allowed_size_mb = 20;
+              let allowed_size_mb = 300;
               if(allowed_mime_types.indexOf(file.type) === -1) {
                 return "toast:error".exec("Неверный формат файла!");
               }

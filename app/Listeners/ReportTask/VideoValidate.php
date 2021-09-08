@@ -30,7 +30,7 @@ class VideoValidate
                     str_contains($file->getMimeType(), 'mpg') ||
                     str_contains($file->getMimeType(), 'mpeg')
                 ) &&
-                $file->getSize() < 20971520
+                $file->getSize() < 314572800
             ) {
                 $event->validated = true;
             }

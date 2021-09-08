@@ -25,6 +25,7 @@ class DirectionResource extends JsonResource
             'name' => $this->name,
             'slug' => $this->slug,
             'video' => $this->video,
+            'banner' => $this->banner,
             'arbitrator_name' => $this->arbitrator_name,
             'arbitrator_photo' => $this->arbitrator_photo,
             'arbitrator_position' => $this->arbitrator_position,

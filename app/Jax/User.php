@@ -285,7 +285,7 @@ class User extends JaxExecutor
         /**
          * @var ReportTextImageVideoTask
          */
-        $event = new ReportTextImageVideoTask($task_id, $comment,$request->file('files'));
+        $event = new ReportTextImageVideoTask($task_id, $comment, $request->file('files'));
 
         event($event);
 
@@ -301,7 +301,7 @@ class User extends JaxExecutor
         /**
          * @var ReportImageVideoTask
          */
-        $event = new ReportImageVideoTask($task_id,$request->file('files'));
+        $event = new ReportImageVideoTask($task_id, $request->file('files'));
 
         event($event);
 
@@ -318,7 +318,7 @@ class User extends JaxExecutor
         /**
          * @var ReportTextVideoTask
          */
-        $event = new ReportTextVideoTask($task_id,  $request->file('files'),$comment,);
+        $event = new ReportTextVideoTask($task_id, $request->file('files'), $comment, );
 
         event($event);
 

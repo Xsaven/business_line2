@@ -12,7 +12,7 @@ trait TaskMutators
      * @param $value
      * @return string
      */
-    public function getTermsOfParticipationAttribute($value): string
+    public function getTermsOfParticipationAttribute($value)
     {
         return $value ?: config('terms_of_participation');
     }

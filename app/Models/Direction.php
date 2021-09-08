@@ -14,7 +14,9 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property int $id
  * @property string $name
  * @property string $slug
+ * @property string $type
  * @property string|null $video
+ * @property string|null $banner
  * @property string|null $arbitrator_name
  * @property string|null $arbitrator_photo
  * @property string|null $arbitrator_position
@@ -38,6 +40,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereArbitratorName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereArbitratorPhoto($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereArbitratorPosition($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Direction whereBanner($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereEndAt($value)
@@ -46,6 +49,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereStartAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereTermsOfParticipation($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Direction whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereVideo($value)
  * @mixin \Eloquent
@@ -53,6 +57,15 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 class Direction extends Model
 {
     const TITLE = 'Направления';
+
+    const TYPE_VIDEO = 'video';
+
+    const TYPE_BANNER = 'banner';
+
+    const TYPES = [
+        'video' => 'Видео',
+        'banner' => 'Баннер',
+    ];
 
     /**
      * The table associated with the model.
@@ -67,7 +80,9 @@ class Direction extends Model
     protected $fillable = [
         'name',
         'slug',
+        'type',
         'video',
+        'banner',
         'arbitrator_name',
         'arbitrator_photo',
         'arbitrator_position',
@@ -84,7 +99,9 @@ class Direction extends Model
     protected $casts = [
         'name' => 'string',
         'slug' => 'string',
+        'type' => 'string',
         'video' => 'string',
+        'banner' => 'string',
         'arbitrator_name' => 'string',
         'arbitrator_photo' => 'string',
         'arbitrator_position' => 'string',
@@ -92,6 +109,14 @@ class Direction extends Model
         'terms_of_participation' => 'string',
         'start_at' => 'datetime',
         'end_at' => 'datetime',
+    ];
+
+    /**
+     * The model's attributes.
+     * @return array
+     */
+    protected $attributes = [
+        'type' => 'video',
     ];
 
     /**

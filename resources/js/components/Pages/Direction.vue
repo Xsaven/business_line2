@@ -20,9 +20,10 @@
 
 
                     <div class="video" v-if="direction.arbitrator_name">
-                        <a href="/" class="link">
-                            <v-icon icon="ic_video_play"/>
-                        </a>
+
+                        <v-player v-if="direction.video" :video_id="direction.video" />
+
+                        <img v-else-if="direction.banner" :src="`/${direction.banner}`">
 
                         <div class="rating">
                             <div class="stars">
@@ -38,6 +39,7 @@
                     <div class="author" v-if="direction.arbitrator_name">
                         <div class="avatar">
                             <img :src="`/${direction.arbitrator_photo}`" alt="" class="lozad">
+                            <img data-src="/images/bg_direction_author.svg" alt="" class="bg lozad">
                         </div>
 
                         <div>
