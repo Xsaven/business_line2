@@ -8525,14 +8525,14 @@ __webpack_require__.r(__webpack_exports__);
       var finish_at = moment_moment__WEBPACK_IMPORTED_MODULE_0___default()(this.local_task.finish_at).minute(0).second(0).hour(0);
       var now = moment_moment__WEBPACK_IMPORTED_MODULE_0___default()().minute(0).second(0).hour(0);
 
-      if (start_at === finish_at && start_at === now) {
-        this.green_button = true;
-      } else if (now >= start_at || finish_at <= now) {
-        this.green_button = true;
-      } else if (finish_at > now && this.between_days === 0) {
-        this.red_button = true;
-      } else {
+      if (start_at > now) {
         this.between_days = moment_moment__WEBPACK_IMPORTED_MODULE_0___default()(this.local_task.start_at).minute(0).second(0).hour(0).diff(moment_moment__WEBPACK_IMPORTED_MODULE_0___default()().minute(0).second(0).hour(0), 'days') + 1;
+      } else if (start_at === now && finish_at > now) {
+        console.log(1);
+        this.green_button = true; // } else if (now >= start_at && finish_at <= now) {
+        //   this.green_button = true
+      } else if (finish_at === now && finish_at < now) {
+        this.red_button = true;
       }
     },
     declOfNum: function declOfNum(n, text_forms) {

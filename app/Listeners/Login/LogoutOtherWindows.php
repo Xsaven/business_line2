@@ -18,7 +18,6 @@ class LogoutOtherWindows
     public function handle(Login $event)
     {
         if ($event->validated) {
-
             Exec::dispatch(\Auth::id(), ['doc::location' => '/logout']);
         }
     }

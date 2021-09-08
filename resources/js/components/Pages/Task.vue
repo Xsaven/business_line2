@@ -107,15 +107,18 @@
             let finish_at = moment(this.local_task.finish_at).minute(0).second(0).hour(0);
             let now = moment().minute(0).second(0).hour(0);
 
-            if (start_at === finish_at && start_at === now) {
-              this.green_button = true
-            } else if (now >= start_at || finish_at <= now) {
-              this.green_button = true
-            } else if(finish_at > now && this.between_days === 0) {
-              this.red_button = true;
-            } else {
+            if(start_at > now) {
               this.between_days = moment(this.local_task.start_at).minute(0).second(0).hour(0)
-                  .diff(moment().minute(0).second(0).hour(0),'days') + 1;
+                  .diff(moment().minute(0).second(0).hour(0), 'days') + 1;
+            }
+            else if (start_at === now && finish_at > now) {
+              console.log(1);
+              this.green_button = true
+              // } else if (now >= start_at && finish_at <= now) {
+              //   this.green_button = true
+            }
+            else if (finish_at === now && finish_at < now) {
+              this.red_button = true;
             }
 
           },

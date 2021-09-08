@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateTableLteRoleUser extends Migration
 {
@@ -14,6 +14,7 @@ class CreateTableLteRoleUser extends Migration
     public function up()
     {
         Schema::create('lte_role_user', function (Blueprint $table) {
+
             $table->unsignedBigInteger('lte_role_id');
 
             $table->unsignedBigInteger('lte_user_id');
