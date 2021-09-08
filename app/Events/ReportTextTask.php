@@ -20,7 +20,8 @@ class ReportTextTask
      */
     public function __construct(
         public int $task_id,
-        public string $comment
+        public string $comment,
+        public int $fun_id = 0
     ) {
     }
 }
