@@ -19,6 +19,8 @@ class UserControl extends LteAdminExecutor
 
             AdminStatisticJob::dispatch();
 
+            Exec::dispatch($user->id, 'v-layout:logout');
+
             $this->toast_success("Пользователь {$user->email} сброшен!");
         }
     }
@@ -43,7 +45,7 @@ class UserControl extends LteAdminExecutor
         if ($user) {
             \Cache::forget('n:user:session:'.$user->id);
 
-            Exec::dispatch($user->id, ['doc::location' => '/logout']);
+            Exec::dispatch($user->id, 'v-layout:logout');
 
             \Cache::forget('n:user:session:'.$user->id);
 

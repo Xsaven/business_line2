@@ -101,7 +101,7 @@ export default {
             if (
                 !isRequired(this.recovery.password) ||
                 !isLengthBetween(this.recovery.password, 6, 191) ||
-                !this.validPassword(this.registration.password)
+                !this.validPassword(this.recovery.password)
             ) {
                 this.errors.password = "Пароль должен содержать 6 и более символов, прописные латинские буквы, строчные латинские буквы, цифры";
                 return;
