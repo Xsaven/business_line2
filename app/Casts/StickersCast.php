@@ -27,7 +27,9 @@ class StickersCast implements CastsAttributes
     {
         if (! static::$ids) {
             static::$ids = app(StickerRepository::class)
-                ->active->pluck('src', 'id')->toArray();
+                ->active->mapWithKeys(function (Sticker $sticker) {
+                    return [$sticker->id => "<img src='{$sticker->src}' alt=''>"];
+                });
         }
 
         return tag_replace($value, static::$ids, '[*]');

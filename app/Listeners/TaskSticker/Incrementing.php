@@ -22,9 +22,9 @@ class Incrementing
             $event->task_report = app(TaskReportRepository::class)
                 ->find($event->task_report_id);
             if ($event->task_report) {
-                $event->attempted = $event->task_report->commentary()->create([
+                $event->attempted = !!$event->task_report->commentary()->create([
                     'text' => $event->message,
-                    'user_id' => \Auth::id(),
+                    'fun_id' => \Auth::id(),
                     'active' => 1, //\Auth::user()->active_commentaries || config('free_chat'),
                 ]);
             } else {

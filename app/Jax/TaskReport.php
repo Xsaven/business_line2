@@ -3,6 +3,7 @@
 namespace App\Jax;
 
 use App\Events\TaskLike;
+use App\Events\TaskSticker;
 use App\Http\Resources\TaskReportResource;
 use App\Repositories\AuthUserRepository;
 use App\Repositories\TaskReportRepository;
@@ -51,16 +52,21 @@ class TaskReport extends JaxExecutor
         ];
     }
 
+    /**
+     * @param  int  $id
+     * @param  string  $message
+     * @return array
+     */
     public function comment(int $id, string $message)
     {
-        $event = new TaskLike($message, $parent_id);
+        $event = new TaskSticker($id, $message);
 
         event($event);
 
         return [
             'result' => $event->result(),
-            'comment' => $event->commentary ?
-                CommentaryResource::make($event->commentary) : null,
+            'report' => $event->task_report ?
+                TaskReportResource::make($event->task_report) : null,
         ];
     }
 }
