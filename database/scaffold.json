@@ -276,6 +276,7 @@
       ["report_configs", "text", {"cast": "array", "nullable": []}],
       ["action_type", {"default": "manually"}],
       ["cost", {"default": 0}],
+      ["welcome", {"default": ""}],
       ["welcome_type", {"default": "banner"}],
       ["prize_src", {"nullable": []}],
       ["terms_of_participation", "text", {"nullable": []}],
