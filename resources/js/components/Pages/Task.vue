@@ -14,8 +14,7 @@
                 <div v-else-if="(String(task.start_at).split('-')[1] === String(task.finish_at).split('-')[1]) && (String(task.start_at).split('-')[2] !== String(task.finish_at).split('-')[2])" class="date">{{String(task.start_at).split('-')[2]}}-{{String(task.finish_at).split('-')[2]}} {{month[String(task.finish_at).split('-')[1]]}}</div>
                 <div v-else-if="(String(task.start_at).split('-')[1] === String(task.finish_at).split('-')[1]) && (String(task.start_at).split('-')[2] === String(task.finish_at).split('-')[2])" class="date">{{String(task.finish_at).split('-')[2]}} {{month[String(task.finish_at).split('-')[1]]}}</div>
 
-                <div v-if="between_days" class="before_start">До начала {{between_days}} {{declOfNum(between_days,['день','дня','дней'])}}</div>
-                <div v-else-if="green_button" class="before_start green">Действуй!</div>
+                <div v-if="green_button" class="before_start green">Действуй!</div>
                 <div v-else-if="red_button" class="before_start red">Завершен</div>
               </div>
 
@@ -101,24 +100,19 @@
 
 
           getBetweenDays() {
-
-
             let start_at = moment(this.local_task.start_at).minute(0).second(0).hour(0);
             let finish_at = moment(this.local_task.finish_at).minute(0).second(0).hour(0);
             let now = moment().minute(0).second(0).hour(0);
 
-            if(start_at > now) {
-              this.between_days = moment(this.local_task.start_at).minute(0).second(0).hour(0)
-                  .diff(moment().minute(0).second(0).hour(0), 'days') + 1;
-            }
-            else if (start_at === now && finish_at > now) {
-              console.log(1);
+            if (start_at === finish_at && start_at === now) {
               this.green_button = true
-              // } else if (now >= start_at && finish_at <= now) {
-              //   this.green_button = true
-            }
-            else if (finish_at === now && finish_at < now) {
+            } else if (now >= start_at && finish_at <= now) {
+              this.green_button = true
+            } else if(finish_at > now && this.between_days === 0) {
               this.red_button = true;
+            } else {
+              this.between_days = moment(this.local_task.start_at).minute(0).second(0).hour(0)
+                  .diff(moment().minute(0).second(0).hour(0),'days') + 1;
             }
 
           },

@@ -1,5 +1,7 @@
 <template>
+
   <div class="upload_report">
+узцлалзуца
     <div class="title">Загрузи свой отчет</div>
 
     <div class="info">

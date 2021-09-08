@@ -44,13 +44,13 @@ class Task extends Page
             $attrs['reports'] = TaskReportResource::collection(
                 $repo->findById
                     ->taskReports()
-                    ->with('commentary')
+                    ->with('commentary')->withCount('likes')
                     ->where('status', TaskReport::STATUS_CHECKED)
                     ->where('id', '!=', $report->id)
                     ->get()
             )->toArray(request());
         } else {
-            $attrs['task_report'] = collect();
+            $attrs['task_report'] = null;
             $attrs['reports'] = collect();
         }
 

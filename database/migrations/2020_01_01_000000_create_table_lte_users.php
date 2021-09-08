@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateTableLteUsers extends Migration
 {
@@ -14,7 +14,6 @@ class CreateTableLteUsers extends Migration
     public function up()
     {
         Schema::create('lte_users', function (Blueprint $table) {
-
             $table->bigIncrements('id');
 
             $table->string('login', 190)->unique();

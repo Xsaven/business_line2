@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateTableLtePermission extends Migration
 {
@@ -14,7 +14,6 @@ class CreateTableLtePermission extends Migration
     public function up()
     {
         Schema::create('lte_permission', function (Blueprint $table) {
-
             $table->bigIncrements('id');
 
             $table->string('path')->default('*');
@@ -25,7 +24,7 @@ class CreateTableLtePermission extends Migration
 
             $table->unsignedBigInteger('lte_role_id');
 
-            $table->boolean("active")->default(1);
+            $table->boolean('active')->default(1);
 
             $table->timestamps();
 

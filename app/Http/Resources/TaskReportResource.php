@@ -20,20 +20,9 @@ class TaskReportResource extends JsonResource
      */
     public function toArray($request)
     {
-//            //dump($this->commentary);
-//            dump($this->resource);
-        ////        if ($this->commentary === null) {
-        ////            dd($this->resource);
-        ////        }
-//        try {
-//            CommentaryNoChildResource::collection($this->commentary);
-//        } catch (\Throwable $exception) {
-//            throw $exception;
-//            dd($this->resource);
-//        }
         return [
             'status' => $this->status,
-            'likes' => $this->likes,
+            'likes' => $this->likes_count,
             'files' => collect($this->files)->map(function ($file) {
                 return \Storage::disk('yandexcloud')->url($file);
             })->toArray(),

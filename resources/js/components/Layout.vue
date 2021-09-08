@@ -53,7 +53,7 @@
                 if (!this.ws_channel_personal) {
                     this.ws_channel_personal =
                         this.channel_personal.listen('exec', 'execCallback');
-                        this.channel_personal.listen('exec_no_self', 'execCallback');
+                        //this.channel_personal.listen('exec_no_self', 'execCallback');
                 }
                 if (!this.ws_channel_notification) {
                     this.ws_channel_notification =

@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateTableLteFunctions extends Migration
 {
@@ -14,20 +14,18 @@ class CreateTableLteFunctions extends Migration
     public function up()
     {
         Schema::create('lte_functions', function (Blueprint $table) {
-
             $table->bigIncrements('id');
 
             $table->string('slug')->unique();
 
             $table->text('description')->nullable();
 
-            $table->boolean("active")->default(1);
+            $table->boolean('active')->default(1);
 
             $table->timestamps();
         });
 
         Schema::create('lte_role_function', function (Blueprint $table) {
-
             $table->unsignedBigInteger('lte_role_id');
 
             $table->unsignedBigInteger('lte_function_id');
