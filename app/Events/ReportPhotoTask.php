@@ -20,7 +20,7 @@ class ReportPhotoTask
      * @param  array|\Illuminate\Http\UploadedFile[]  $files
      * @param  bool  $validated
      * @param  bool  $uploaded
-     * @param  bool  $filename
+     * @param  string|null  $filename
      * @param  Task|null  $task
      */
     public function __construct(
@@ -28,7 +28,7 @@ class ReportPhotoTask
         public array $files,
         public bool $validated = false,
         public bool $uploaded = false,
-        public bool $filename = false,
+        public ?string $filename = null,
         public ?Task $task = null,
     ) {
     }
