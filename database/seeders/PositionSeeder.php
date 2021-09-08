@@ -366,5 +366,4 @@ class PositionSeeder extends Seeder
 Юрист
 TEXT;
     }
-
 }

@@ -49,8 +49,6 @@ class DirectionController extends Controller
             $form->info_id();
             $form->input('video', 'Видео код')->icon_video();
             $form->input('name', 'Название')->required();
-            $form->date('start_at', 'Начало')->required();
-            $form->date('finish_at', 'Конец')->required();
             $form->textarea('description', 'Описание');
             $form->multi_select('prizes[]', 'Призы')
                 ->load(Prize::class);
@@ -60,8 +58,7 @@ class DirectionController extends Controller
                 ->required();
             $form->input('arbitrator_position', 'Должность ведущего')
                 ->required();
-            $form->ckeditor('short_description', 'Краткое описание')
-                ->required();
+            $form->ckeditor('short_description', 'Краткое описание');
             $form->ckeditor('terms_of_participation', 'Условия участия');
             $form->info_at();
         });

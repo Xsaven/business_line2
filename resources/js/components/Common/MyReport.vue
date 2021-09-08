@@ -12,10 +12,25 @@
 
 
     <div class="head">
-      <div class="title">Отчеты участников (0)</div>
+      <div class="title">Отчеты участников ({{r.length}})</div>
+        <div class="sort">
+            <div class="name">Сортировать:</div>
+
+            <select name="">
+                <option value="1" selected>По дате публикации</option>
+                <option value="2">По лайкам</option>
+            </select>
+        </div>
     </div>
 
-    <div class="empty">Здесь скоро появятся отчёты других участников</div>
+    <div class="empty" v-if="!r.length">Здесь скоро появятся отчёты других участников</div>
+      <div class="tasks_list">
+          <div class="list">
+              <template v-for="r_report in r">
+                  <v-task-report :report="r_report" />
+              </template>
+          </div>
+      </div>
   </div>
 </template>
 
@@ -27,6 +42,7 @@ export default {
   data() {
     return {
       user: {},
+      r: this.reports,
     }
   }
 

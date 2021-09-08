@@ -21,7 +21,7 @@ class DivisionSeeder extends Seeder
 
         foreach ($exploded as $item) {
             Division::create([
-                'name' => trim($item)
+                'name' => trim($item),
             ]);
         }
     }
