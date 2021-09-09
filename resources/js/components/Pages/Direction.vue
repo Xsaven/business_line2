@@ -19,11 +19,10 @@
                     </div>
 
 
-                    <div class="video" v-if="direction.arbitrator_name">
+                    <div :class="{video: direction.type === 'video', banner: direction.type === 'banner'}">
 
-                        <v-player v-if="direction.video" :video_id="direction.video" />
-
-                        <img v-else-if="direction.banner" :src="`/${direction.banner}`">
+                        <v-player v-if="direction.type === 'video'" :video_id="direction.video" />
+                        <img v-if="direction.type === 'banner'" :src="direction.banner">
 
                         <div class="rating">
                             <div class="stars">
@@ -45,20 +44,6 @@
                         <div>
                             <div class="name">{{direction.arbitrator_name}}</div>
                             <div class="post">{{direction.arbitrator_position}}</div>
-                        </div>
-                    </div>
-
-                    <div class="banner" v-else>
-                        <img src="/images/tmp/direction_banner_img.jpg" alt="">
-
-                        <div class="rating">
-                            <div class="stars">
-                                <img src="/images/ic_star.svg" alt="">
-                                <img src="/images/ic_star.svg" alt="">
-                                <img src="/images/ic_star.svg" alt="">
-                            </div>
-
-                            <a :href="`/table/${direction.id}`">Рейтинг участников</a>
                         </div>
                     </div>
                 </div>

@@ -20,12 +20,14 @@ class DirectionResource extends JsonResource
      */
     public function toArray($request)
     {
+        //if ($this->id == 3) dd($this->banner);
         return [
             'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
             'video' => $this->video,
-            'banner' => $this->banner,
+            'banner' => $this->banner ? asset($this->banner) : null,
+            'type' => $this->type,
             'arbitrator_name' => $this->arbitrator_name,
             'arbitrator_photo' => $this->arbitrator_photo,
             'arbitrator_position' => $this->arbitrator_position,

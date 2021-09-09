@@ -75,6 +75,7 @@ class DirectionsSeeder extends Seeder
                 'start_at' => '13-09-2021',
                 'end_at' => '08-10-2021',
                 'banner' => 'images/banners/fans.jpg',
+                'type' => 'banner',
                 'prizes' => [
                     4,
                     5,
