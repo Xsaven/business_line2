@@ -117,10 +117,12 @@
         margin-bottom: 32px;
     }
 
+
     .block_head .title
     {
         line-height: calc(var(--font_size_title) + 4px);
     }
+
 
     .block_head .scores
     {
@@ -131,6 +133,12 @@
         margin-top: 12px;
 
         text-align: left;
+    }
+
+
+    .block_head .download_link
+    {
+        padding: 8px 20px;
     }
 
 
@@ -199,6 +207,24 @@
     .text_block * + h2
     {
         margin-top: 40px;
+    }
+
+
+    .text_block .cols .col + .col
+    {
+        margin-top: 40px;
+    }
+
+
+    .text_block ul li
+    {
+        padding-left: 20px;
+    }
+
+
+    .text_block ol > li
+    {
+        padding-left: 40px;
     }
 
 

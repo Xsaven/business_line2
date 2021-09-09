@@ -87,6 +87,17 @@
     /*----------------
         Block head
     ----------------*/
+    .block_head .title
+    {
+        width: 100%;
+    }
+
+
+    .block_head .download_link
+    {
+        margin-top: 20px;
+        margin-left: 0;
+    }
 
 
 
@@ -113,6 +124,17 @@
     {
         column-gap: 0;
         column-count: 1;
+    }
+
+
+    .text_block .cols .col
+    {
+        width: 100%;
+    }
+
+    .text_block .cols .col + .col
+    {
+        margin-top: 72px;
     }
 
 

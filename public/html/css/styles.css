@@ -1175,6 +1175,7 @@ header .notifications .item .avatar
 {
     position: relative;
 
+    display: flex;
     overflow: hidden;
 
     width: 35px;
@@ -1182,10 +1183,19 @@ header .notifications .item .avatar
 
     border-radius: 50%;
     background: #ddd;
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 header .notifications .item .avatar img
 {
+    position: absolute;
+    top: 0;
+    left: 0;
+
     display: block;
 
     width: 100%;
@@ -1575,7 +1585,7 @@ header .mob_menu_btn.active .icon + .icon
     display: flex;
 
     width: 100%;
-    margin-bottom: 21px;
+    margin-bottom: 32px;
 
     justify-content: flex-start;
     align-items: center;
@@ -1605,6 +1615,43 @@ header .mob_menu_btn.active .icon + .icon
     margin-left: auto;
 
     text-align: right;
+}
+
+
+.block_head .download_link
+{
+    color: #000;
+    font-size: 16px;
+    line-height: 19px;
+
+    display: flex;
+
+    margin-left: auto;
+    padding: 12px 28px;
+
+    text-decoration: none;
+
+    border-radius: 3px;
+    background: linear-gradient(180deg, #fec64d 0%, #f59e00 89.52%);
+
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.block_head .download_link .icon
+{
+    display: block;
+
+    width: 18px;
+    height: 22px;
+    margin-right: 12px;
+}
+
+.block_head .download_link:hover
+{
+    background: #fcaf17;
 }
 
 
@@ -1872,6 +1919,50 @@ header .mob_menu_btn.active .icon + .icon
 }
 
 
+.form .tooltip
+{
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right: 0;
+}
+
+.form .tooltip .icon
+{
+    color: #000;
+
+    display: flex;
+
+    width: 48px;
+    height: 48px;
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.form .tooltip .icon > *
+{
+    display: block;
+
+    width: 18px;
+    height: 18px;
+}
+
+.form .tooltip .exp
+{
+    display: none;
+
+    max-width: none;
+}
+
+.form .tooltip:hover .exp
+{
+    display: block;
+}
+
+
 .form .exp
 {
     color: #afafaf;
@@ -1880,7 +1971,7 @@ header .mob_menu_btn.active .icon + .icon
 
     position: absolute;
     z-index: 5;
-    top: calc(100% + 15px);
+    top: calc(100% + 12px);
     right: 0;
 
     display: none;
@@ -1903,7 +1994,7 @@ header .mob_menu_btn.active .icon + .icon
 .form .exp:before
 {
     position: absolute;
-    right: 29px;
+    right: 17px;
     bottom: 100%;
 
     display: block;
@@ -2543,13 +2634,15 @@ header .mob_menu_btn.active .icon + .icon
 
 
 .text_block > :last-child,
-.text_block .columns > :last-child
+.text_block .columns > :last-child,
+.text_block .cols .col > :last-child
 {
     margin-bottom: 0 !important;
 }
 
 .text_block > :first-child,
-.text_block .columns > :first-child
+.text_block .columns > :first-child,
+.text_block .cols .col > :first-child
 {
     margin-top: 0 !important;
 }
@@ -2562,7 +2655,7 @@ header .mob_menu_btn.active .icon + .icon
     font-weight: 400;
     line-height: 24px;
 
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 }
 
 
@@ -2590,6 +2683,159 @@ header .mob_menu_btn.active .icon + .icon
     --webkit-column-break-inside: avoid;
     page-break-inside: avoid;
     break-inside: avoid;
+}
+
+
+.text_block .cols
+{
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.text_block .cols .col
+{
+    width: calc(50% - 48px);
+}
+
+
+.text_block ul li
+{
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    padding-left: 24px;
+
+    list-style-type: none;
+}
+
+.text_block ul li:before
+{
+    position: absolute;
+    top: 10px;
+    left: 0;
+
+    display: block;
+
+    width: 8px;
+    height: 1px;
+
+    content: '';
+
+    background: currentColor;
+}
+
+.text_block ul li + li
+{
+    margin-top: 4px;
+}
+
+
+.text_block ol
+{
+    counter-reset: li;
+}
+
+
+.text_block ol ul,
+.text_block ol ol
+{
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+
+.text_block ol > li
+{
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    padding-left: 52px;
+
+    list-style-type: none;
+}
+
+.text_block ol > li:before
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    content: counters(li, '.') '.';
+    counter-increment: li;
+}
+
+.text_block ol.start1 > li:before
+{
+    content: '1.' counters(li, '.') '.';
+}
+
+.text_block ol.start2 > li:before
+{
+    content: '2.' counters(li, '.') '.';
+}
+
+.text_block ol.start3 > li:before
+{
+    content: '3.' counters(li, '.') '.';
+}
+
+.text_block ol.start4 > li:before
+{
+    content: '4.' counters(li, '.') '.';
+}
+
+.text_block ol.start5 > li:before
+{
+    content: '5.' counters(li, '.') '.';
+}
+
+.text_block ol.start6 > li:before
+{
+    content: '6.' counters(li, '.') '.';
+}
+
+.text_block ol.start7 > li:before
+{
+    content: '7.' counters(li, '.') '.';
+}
+
+.text_block ol.start8 > li:before
+{
+    content: '8.' counters(li, '.') '.';
+}
+
+.text_block ol.start9 > li:before
+{
+    content: '9.' counters(li, '.') '.';
+}
+
+.text_block ol.start10 > li:before
+{
+    content: '10.' counters(li, '.') '.';
+}
+
+.text_block ol.start11 > li:before
+{
+    content: '11.' counters(li, '.') '.';
+}
+
+.text_block ol > li + li
+{
+    margin-top: 8px;
+}
+
+
+.text_block a
+{
+    color: #fff;
 }
 
 
@@ -2787,7 +3033,7 @@ header .mob_menu_btn.active .icon + .icon
 -------------------------*/
 .participation_rules
 {
-    margin-bottom: 291px;
+    margin-bottom: 100px;
 }
 
 
@@ -4103,29 +4349,20 @@ header .mob_menu_btn.active .icon + .icon
     position: relative;
 
     display: block;
-    overflow: hidden;
 
     width: calc(100% + 40px);
     margin-top: 24px;
     margin-right: -20px;
     margin-left: -20px;
-    padding-bottom: 56.66%;
 
     background: #ddd;
 }
 
 .tasks_list .task .video img
 {
-    position: absolute;
-    top: 0;
-    left: 0;
-
     display: block;
 
     width: 100%;
-    height: 100%;
-
-    object-fit: cover;
 }
 
 .tasks_list .task .video .icon
@@ -4447,7 +4684,7 @@ header .mob_menu_btn.active .icon + .icon
     top: 0;
     left: 0;
 
-    width: 42px;
+    width: 100%;
     height: 100%;
 }
 
