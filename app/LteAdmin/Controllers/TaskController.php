@@ -60,7 +60,9 @@ class TaskController extends Controller
                 ->options(Task::ACTION_TYPES, true);
             $form->numeric('cost', 'Стоимость')->required()
                 ->icon_dollar_sign();
+
             $form->ckeditor('terms_of_participation', 'Условия участия');
+
             $form->divider('Дата и время');
             $form->date_time('start_at', 'Начало')->required();
             $form->date_time('finish_at', 'Конец')->required();
