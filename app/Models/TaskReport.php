@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @package App\Models
  * @property int $id
  * @property string $status
- * @property array|null $files
+ * @property string|null $file
  * @property string|null $comment
  * @property int $user_id
  * @property int $task_id
@@ -38,7 +38,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport query()
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereComment($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereFiles($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereFile($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereFunId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereStatus($value)
@@ -83,7 +83,7 @@ class TaskReport extends Model
      */
     protected $fillable = [
         'status',
-        'files',
+        'file',
         'comment',
         'user_id',
         'task_id',
@@ -96,7 +96,7 @@ class TaskReport extends Model
      */
     protected $casts = [
         'status' => 'string',
-        'files' => 'array',
+        'file' => 'string',
         'comment' => 'string',
         'user_id' => 'integer',
         'task_id' => 'integer',

@@ -2,11 +2,11 @@
 
 namespace App\Listeners\ReportTask;
 
-use App\Events\ReportVideoTask;
+use App\Events\ReportImageVideoTask;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class VideoValidate
+class PhotoVideoValidate
 {
     /**
      * Create the event listener.
@@ -21,10 +21,10 @@ class VideoValidate
     /**
      * Handle the event.
      *
-     * @param  ReportVideoTask  $event
+     * @param  ReportImageVideoTask  $event
      * @return void
      */
-    public function handle(ReportVideoTask $event)
+    public function handle(ReportImageVideoTask $event)
     {
         //
     }

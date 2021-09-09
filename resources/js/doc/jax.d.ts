@@ -76,6 +76,8 @@ declare interface JaxModelUserInterface {
         download_file_image_report(...params: any[]): Promise<JaxModelUserInterface>;
         create_order(...params: any[]): Promise<JaxModelUserInterface>;
         search_users(...params: any[]): Promise<JaxModelUserInterface>;
+        upload_file(...params: any[]): Promise<JaxModelUserInterface>;
+        drop_file(...params: any[]): Promise<JaxModelUserInterface>;
 }
 declare interface JaxModelTaskReportInterface {
     find(...params: any[]): Promise<JaxModelTaskReportInterface>;

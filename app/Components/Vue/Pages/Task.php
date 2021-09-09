@@ -53,7 +53,7 @@ class Task extends Page
             )->toArray(request());
         } else {
             $attrs['task_report'] = null;
-            $attrs['reports'] = collect();
+            $attrs['reports'] = [];
         }
 
         if ($repo->findById->report_type === 'quiz') {

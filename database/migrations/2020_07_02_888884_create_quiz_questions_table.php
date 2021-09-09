@@ -16,7 +16,6 @@ class CreateQuizQuestionsTable extends Migration
         Schema::create('quiz_questions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('question', 191);
-            $table->integer('cost')->default(1);
             $table->foreignId('task_id')->constrained('tasks')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });

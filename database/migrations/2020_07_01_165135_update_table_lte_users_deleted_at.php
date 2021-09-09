@@ -8,7 +8,7 @@ class UpdateTableLteUsersDeletedAt extends Migration
 {
     /**
      * Run the migrations.
-     * Кохайтесь чорнобриві,та не з москалями.
+     *
      * @return void
      */
     public function up()

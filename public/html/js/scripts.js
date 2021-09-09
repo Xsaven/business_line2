@@ -258,27 +258,6 @@ $(() => {
 			$('.task_info .performance .quiz_result').fadeIn(300)
 		}
 	})
-
-
-
-	// Загрузка файла
-	$('.form .files .selected .delete_btn, .form .files .loading .cancel_btn').click(function (e) {
-		e.preventDefault()
-
-		let files = $(this).closest('.files')
-
-		files.find('.selected, .loading').hide()
-		files.find('.choose').fadeIn(300)
-	})
-
-	$('.form .files .file_error .close_btn').click(function (e) {
-		e.preventDefault()
-
-		let files = $(this).closest('.files')
-
-		files.find('.file_error').hide()
-		files.find('.choose').fadeIn(300)
-	})
 })
 
 
