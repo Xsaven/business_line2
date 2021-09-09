@@ -42,7 +42,7 @@
             send() {
                 if (this.file) {
 
-                    jax.user.video_report(this.task.id)
+                    jax.user.video_report(this.task.id, this.file)
                         .then(() => {
                         })
 

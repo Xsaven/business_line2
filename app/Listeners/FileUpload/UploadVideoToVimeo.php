@@ -37,7 +37,8 @@ class UploadVideoToVimeo implements ShouldQueue
                 'POST'
             );
             if (isset($video_response['body']['uri'])) {
-                $code = explode('/', $video_response['body']['uri'])[3];
+                info($video_response['body']['uri']);
+                $code = explode('/', $video_response['body']['uri'])[2];
                 $report = TaskReport::whereFile($event->filename)->first();
                 if ($report) {
                     $report->update([

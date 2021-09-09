@@ -1,6 +1,6 @@
 <template>
   <div class="upload_report">
-    <div class="title">Загрузите ваш отчёт</div>
+    <div class="title">Отчёт</div>
 
     <div class="info">
       <!-- <div class="status">
@@ -10,7 +10,7 @@
 
       <div class="status">
         <v-icon icon="ic_success" class="green" />
-        <div>Твой отчет успешно отправлен</div>
+        <div>Ваш отчет успешно отправлен</div>
       </div>
 
       <!-- <div class="status">

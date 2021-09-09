@@ -254,17 +254,16 @@ class User extends JaxExecutor
      * @param int $task_id
      * @param Request $request
      */
-    public function video_report(int $task_id, Request $request)
+    public function video_report(int $task_id, string $file)
     {
-
-        /**
-         * @var ReportVideoTask
-         */
-        $event = new ReportVideoTask($task_id, $request->file('files'));
+        $event = new ReportVideoTask($task_id, $file);
 
         event($event);
 
-        $this->reload();
+        if ($event->validated) {
+
+            $this->reload();
+        }
     }
 
     /**
@@ -332,14 +331,9 @@ class User extends JaxExecutor
      * @param string $comment
      * @param Request $request
      */
-    public function text_or_image_report(int $task_id, string $comment, Request $request)
+    public function text_or_image_report(int $task_id, string $comment, string $file)
     {
-        $files = $request->file('files');
-
-        /**
-         * @var ReportTextImageTask
-         */
-        $event = new ReportTextImageTask($task_id, $comment, $files);
+        $event = new ReportTextImageTask($task_id, $comment, $file);
 
         event($event);
 

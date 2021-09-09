@@ -21,8 +21,8 @@ class VideoTrapCast implements CastsAttributes
      */
     public function get($model, $key, $value, $attributes)
     {
-        return str_ends_with($value, '.jpg') ? \Storage::disk('yandexcloud')->url($value) : (
-            str_starts_with($value, 'https://') ? $value : asset($value)
+        return str_ends_with('.jpg', $value) ? \Storage::disk('yandexcloud')->url($value) : (
+            str_starts_with('https://', $value) ? asset($value) : $value
         );
     }
 

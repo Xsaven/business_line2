@@ -121,7 +121,7 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\ReportTask\NotifyUsers::class,
         ],
         \App\Events\ReportTextImageTask::class => [
-            \App\Listeners\ReportTask\TextValidate::class,
+            \App\Listeners\ReportTextVideoTask\Validation::class,
             \App\Listeners\ReportTextVideoTask\Create::class,
             \App\Listeners\ReportTask\NotifyUsers::class,
         ],

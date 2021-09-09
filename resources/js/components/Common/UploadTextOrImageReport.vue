@@ -6,93 +6,27 @@
       <form action="" class="form">
         <div class="line">
           <div class="field">
-            <textarea v-model="comment" name="" placeholder="Комментарий" class="min_h"></textarea>
+            <textarea v-model="comment" ref="text" placeholder="Комментарий" class="min_h"></textarea>
 
             <div class="smiles modal_cont">
               <button type="button" class="btn mini_modal_btn" data-modal-id="#smiles_modal">
                 <v-icon icon="ic_smile" />
               </button>
 
-              <div class="mini_modal" id="smiles_modal">
-                <button type="button" class="close_btn">
-                  <v-icon icon="ic_close" />
-                </button>
-
-                <div class="section">
-                  <div class="title">Эмоджи</div>
-
-                  <div class="row">
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                    <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                  </div>
-                </div>
-
-                <div class="section stickers">
-                  <div class="title">Стикеры</div>
-
-                  <div class="row">
-                    <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                    <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                    <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                    <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                    <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                    <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                  </div>
-                </div>
-              </div>
+              <v-home-smiles-commentary :target="$refs.text" />
             </div>
           </div>
         </div>
 
-        <div class="line files">
-          <div class="selected">
-            <div v-for="(file, f_key) in files" class="file">
-              <v-icon icon="ic_file" />
-              <div class="name">{{file.name}}</div>
-              <button type="button" @click="fileRemove(f_key)" class="del_btn">
-                <svg><use xlink:href="/images/sprite.svg#ic_delete"></use></svg>
-              </button>
-            </div>
-          </div>
-
-          <div class="field">
-            <input type="file" name="file" id="file" ref="file" @change="handleUpload" multiple>
-            <label for="file">
-              <v-icon icon="ic_attachment" />
-              <span>Прикрепить фото</span>
-
-              <div class="rules">jpg, jpeg, png до 10 МБ</div>
-            </label>
-          </div>
-        </div>
+          <v-file-uploader
+              :image="false"
+              :video="true"
+              v-model="file"
+              @upload_start="() => {this.uploaded = false}"
+              @upload_success="() => {this.uploaded = true}"
+              @upload_finish="() => {this.uploaded = true}"
+              @upload_drop="() => {this.uploaded = false}"
+          />
 
         <div class="submit">
           <button @click.prevent.stop="send()" type="submit" class="submit_btn">Отправить</button>
@@ -110,22 +44,17 @@ export default {
   props: ['task'],
   data () {
     return {
-      files: [],
-      comment: ''
+      file: null,
+      comment: '',
+      uploaded: false
     };
   },
   mounted () {},
   computed: {},
   watch: {},
   methods: {
-    fileRemove (index) {
-      this.files =  this.files.filter((i,k) => index!==k);
-    },
-    handleUpload() {
-      Object.values(this.$refs.file.files).map((file) => this.files.push(file));
-    },
     send() {
-      jax.params({files: this.files}).user.text_or_image_report(this.task.id,this.comment)
+      jax.user.text_or_image_report(this.task.id,this.comment,this.file)
           .then(() => {
           })
     }

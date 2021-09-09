@@ -11,7 +11,6 @@
             <div class="challenge_btn" style="cursor: pointer" data-href="/task/76">
                 <div class="title">Челлендж на месяц</div>
                 <div class="duration">13.09 – 8.10</div>
-                <div class="name">Стульчик-челлендж</div>
             </div>
         </div>
 

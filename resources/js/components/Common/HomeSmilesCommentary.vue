@@ -9,7 +9,7 @@
                 <v-icon icon="ic_close" />
             </button>
 
-            <div class="section" v-if="smiles">
+            <div class="section" v-if="show_smiles">
                 <div class="title">Эмоджи</div>
 
                 <div class="row">
@@ -65,8 +65,9 @@
         $sync: ['stickers'],
         name: "v-home-smiles-commentary",
         props: {
-            show_smiles: {default: true},
-            show_stickers: {default: false},
+            show_smiles: {default: false},
+            show_stickers: {default: true},
+            target: {}
         },
         data () {
             return {
@@ -81,6 +82,15 @@
             sticker_click (id) {
                 this.$emit('sticker', id);
                 this.toggle();
+                let textarea = this.target;
+                if (textarea) {
+                    let start = textarea.selectionStart;
+                    let end = textarea.selectionEnd;
+                    let sel = textarea.value.substring(start, end);
+                    textarea.value = textarea.value.substring(0, start) + `[${id}]` + textarea.value.substring(end);
+                    textarea.focus();
+                    textarea.selectionEnd = end + 3;
+                }
             },
             toggle () {
                 const modal = $(this.$refs.mini_modal);

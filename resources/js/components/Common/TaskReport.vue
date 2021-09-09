@@ -20,7 +20,8 @@
             </div>
 
             <div class="video">
-                <img :src="r.file" alt="" class="lozad">
+                <v-player v-if="Number.isInteger(Number(r.file))" :video_id="r.file" />
+                <img v-else :src="r.file" alt="" class="lozad">
                 <!--                <svg class="icon"><use xlink:href="/images/sprite.svg#ic_video_play"></use></svg>-->
             </div>
 
@@ -73,6 +74,8 @@
 </template>
 
 <script>
+    import {isNumber} from "../rules";
+
     export default {
         $sync: ['user'],
         name: "v-task-report",
@@ -101,6 +104,7 @@
         },
         mounted () {
             ljs.toExec(`task-report-update-${this.r.id}`, this.update.bind(this));
+            console.log(this.r.file);
         },
         updated() {
             ljs.toExec(`task-report-update-${this.r.id}`, this.update.bind(this));
@@ -108,6 +112,9 @@
         computed: {},
         watch: {},
         methods: {
+            num (num) {
+                return isNumber(num)
+            },
             sticker (id) {
                 jax.task_report.comment(this.r.id, `[${id}]`).then(({report}) => {
                     this.r = report;
