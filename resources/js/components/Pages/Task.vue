@@ -54,7 +54,8 @@
           <v-upload-star-quiz-task-report v-else-if="!task_report && task.report_type === 'star_quiz' && green_button" :task="task"/>
           <v-download-file-report v-else-if="!task_report && task.report_type === 'download_file' && green_button" :task="task"/>
           <v-get-task-report v-else-if="task_report && task_report.status === 'uploading'"/>
-          <v-my-report v-else-if="task_report && (task_report.status === 'uploaded' || task_report.status === 'checked')" :report="task_report" :task="task" :reports="reports"/>
+          <v-get-task-report v-else-if="(task.report_type === 'quiz' || task.report_type === 'star_quiz') && task_report.status === 'checked'" status="done"/>
+          <v-my-report v-else-if="task_report && (task_report.status === 'uploaded' || task_report.status === 'checked') && task.report_type !== 'quiz'" :report="task_report" :task="task" :reports="reports"/>
           <v-upload-report-soon v-else-if="between_days" />
         </div>
       </section>
