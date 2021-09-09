@@ -16,7 +16,7 @@
                 <div class="events">
                     <a :href="`/task/${tasks[0].id}`" :class="{item: true, grey: tasks[0].finished}">
                         <div class="time">00:01-23:59</div>
-                        <div class="name">{{tasks[0].short_description}}</div>
+                        <div class="name" v-html="tasks[0].short_description"></div>
 
                         <button :class="{favorite_btn: true, active: tasks[0].complete_user}">
                             <v-icon icon="ic_flag"/>
@@ -35,7 +35,7 @@
                 <div class="events">
                     <a :href="`/task/${tasks[1].id}`" :class="{item: true, grey: tasks[1].finished}">
                         <div class="time">00:01-23:59</div>
-                        <div class="name">{{tasks[1].short_description}}</div>
+                        <div class="name" v-html="tasks[1].short_description"></div>
 
                         <button :class="{favorite_btn: true, active: tasks[1].complete_user}">
                             <v-icon icon="ic_flag"/>
@@ -54,7 +54,7 @@
                 <div class="events">
                     <a :href="`/task/${tasks[2].id}`" :class="{item: true, grey: tasks[2].finished}">
                         <div class="time">00:01-23:59</div>
-                        <div class="name">{{tasks[2].short_description}}</div>
+                        <div class="name" v-html="tasks[2].short_description"></div>
 
                         <button :class="{favorite_btn: true, active: tasks[2].complete_user}">
                             <v-icon icon="ic_flag"/>
@@ -73,7 +73,7 @@
                 <div class="events">
                     <a :href="`/task/${tasks[3].id}`" :class="{item: true, grey: tasks[3].finished}">
                         <div class="time">00:01-23:59</div>
-                        <div class="name">{{tasks[3].short_description}}</div>
+                        <div class="name" v-html="tasks[3].short_description"></div>
 
                         <button :class="{favorite_btn: true, active: tasks[3].complete_user}">
                             <v-icon icon="ic_flag"/>

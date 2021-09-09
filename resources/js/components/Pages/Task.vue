@@ -6,7 +6,7 @@
             <div class="info">
               <div>
                 <div class="title">{{task.name}}</div>
-                <div class="desc">{{task.short_description}}</div>
+                <div class="desc" v-html="task.short_description"></div>
               </div>
 
               <div>
