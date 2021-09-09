@@ -24,9 +24,7 @@ class TaskReportResource extends JsonResource
             'id' => $this->id,
             'status' => $this->status,
             'likes' => $this->likes_count,
-            'files' => collect($this->files)->map(function ($file) {
-                return \Storage::disk('yandexcloud')->url($file);
-            })->toArray(),
+            'file' => $this->file,
             'comment' => $this->comment,
             'month' => Carbon::parse($this->created_at)->format('Y-m-d H:i'),
             'time' => Carbon::parse($this->created_at)->format('H:i'),

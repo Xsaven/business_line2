@@ -17,18 +17,14 @@ class ReportPhotoTask
 
     /**
      * @param  int  $task_id
-     * @param  array|\Illuminate\Http\UploadedFile[]  $files
+     * @param  string|null  $file
      * @param  bool  $validated
-     * @param  bool  $uploaded
-     * @param  string|null  $filename
      * @param  Task|null  $task
      */
     public function __construct(
         public int $task_id,
-        public array $files,
+        public ?string $file = null,
         public bool $validated = false,
-        public bool $uploaded = false,
-        public ?string $filename = null,
         public ?Task $task = null,
     ) {
     }
