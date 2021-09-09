@@ -55,10 +55,8 @@ class DirectionController extends Controller
                 ->load(Prize::class);
             $form->image('arbitrator_photo', 'Фото ведущего')
                 ->required_condition($this->isType('create'));
-            $form->input('arbitrator_name', 'Имя ведущего')
-                ->required();
-            $form->input('arbitrator_position', 'Должность ведущего')
-                ->required();
+            $form->input('arbitrator_name', 'Имя ведущего');
+            $form->input('arbitrator_position', 'Должность ведущего');
             $form->ckeditor('short_description', 'Краткое описание');
             $form->ckeditor('terms_of_participation', 'Условия участия');
             $form->info_at();
