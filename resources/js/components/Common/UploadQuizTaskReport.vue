@@ -8,7 +8,7 @@
         <button class="start_btn" type="button" @click="start">Старт</button>
       </div>
 
-      <form class="quiz">
+      <form class="quiz" ref="quiz">
         <div class="head">
           <div class="steps">
             <div v-for="(quiz,i) in quiz" :class="{'active': true}">{{i + 1}}</div>
@@ -36,8 +36,7 @@
           </div>
         </template>
 
-        <button v-if="iteration !== quiz.length" type="button" class="next_btn">Ответить</button>
-        <button v-else-if="iteration === quiz.length" type="button" class="next_btn">Закончить</button>
+        <button v-if="currentStep !== quiz.length + 1" type="button" class="next_btn" @click="nextQ">Ответить</button>
       </form>
 
 
@@ -46,8 +45,8 @@
         <v-icon icon="ic_success" class="icon success"/>
         <!-- <svg class="icon error"><use xlink:href="images/sprite.svg#ic_bad"></use></svg> -->
 
-        <div>Ты ответил на все вопросы правильно!</div>
-        <div class="scores">+72 балла</div>
+        <div>Вы закончили викторину!</div>
+        <div class="scores">+{{this.balls}} {{declOfNum(task.balls,['бал','бала','баллов'])}}</div>
       </div>
 
       <img data-src="/images/bg_performance.svg" alt="" class="bg lozad">
@@ -59,12 +58,14 @@
     export default {
         name: "v-upload-quiz-task-report",
         props: {
-          quiz:{required:true}
+          quiz:{required:true},
+          task: {required:true}
         },
         data () {
             return {
               quiz_answers: {},
-              iteration: null,
+              currentStep: 1,
+              balls: 0,
             };
         },
         mounted () {
@@ -73,6 +74,42 @@
         computed: {},
         watch: {},
         methods: {
+
+          declOfNum(n, text_forms) {
+            n = Math.abs(n) % 100;
+            var n1 = n % 10;
+            if (n > 10 && n < 20) { return text_forms[2]; }
+            if (n1 > 1 && n1 < 5) { return text_forms[1]; }
+            if (n1 === 1) { return text_forms[0]; }
+            return text_forms[2];
+          },
+          finishQ () {
+            jax.user.quiz_report(this.task.id,this.quiz_answers)
+              .then((data) => {
+                this.balls = data.balls;
+                $('.task_info .performance .quiz').hide()
+                $('.task_info .performance .quiz_result').fadeIn(300)
+              })
+          },
+          nextQ () {
+
+            let parent = $(this.$refs.quiz)
+            let steps = $('.task_info .performance .quiz .steps > *');
+            steps.removeClass('active')
+            steps.eq(this.currentStep).addClass('active')
+            steps.eq(this.currentStep - 1).addClass('success')
+
+            this.currentStep++
+            if (this.currentStep === (this.quiz.length + 1)) return this.finishQ();
+
+            parent.find('.step').hide()
+            parent.find('.step' + this.currentStep).fadeIn(300)
+
+            if (this.currentStep > steps.length) {
+              $('.task_info .performance .quiz').hide()
+              $('.task_info .performance .quiz_result').fadeIn(300)
+            }
+          },
           start () {
             let parent = $(this.$refs.p)
 

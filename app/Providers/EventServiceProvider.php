@@ -129,6 +129,7 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\ReportQuizTask\Validate::class,
             \App\Listeners\ReportQuizTask\Create::class,
             \App\Listeners\ReportTask\NotifyUsers::class,
+            \App\Listeners\ReportQuizTask\NotifyUserAboutFinishQuiz::class,
         ],
         \App\Events\ReportStarQuizTask::class => [
             \App\Listeners\ReportStarQuizTask\Validate::class,

@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\Task;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -15,12 +16,14 @@ class ReportQuizTask
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * @param int $task_id
+     * @param Task|null $task
      * @param array $quiz_answers
+     * @param int $balls
      */
     public function __construct(
-        public int $task_id,
-        public array $quiz_answers
+        public ?Task $task,
+        public array $quiz_answers,
+        public int $balls = 0
     ) {
     }
 }

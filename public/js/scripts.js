@@ -136,23 +136,23 @@ $(() => {
 	// 	timerCycle()
 	// })
 
-	$('.task_info .performance .quiz .next_btn').click(function () {
-		let parent = $(this).closest('.quiz')
-
-		$('.task_info .performance .quiz .steps > *').removeClass('active')
-		$('.task_info .performance .quiz .steps > *').eq(currentStep).addClass('active')
-		$('.task_info .performance .quiz .steps > *').eq(currentStep - 1).addClass('success')
-
-		currentStep++
-
-		parent.find('.step').hide()
-		parent.find('.step' + currentStep).fadeIn(300)
-
-		if (currentStep > $('.task_info .performance .quiz .steps > *').length) {
-			$('.task_info .performance .quiz').hide()
-			$('.task_info .performance .quiz_result').fadeIn(300)
-		}
-	})
+	// $('.task_info .performance .quiz .next_btn').click(function () {
+	// 	let parent = $(this).closest('.quiz')
+	//
+	// 	$('.task_info .performance .quiz .steps > *').removeClass('active')
+	// 	$('.task_info .performance .quiz .steps > *').eq(currentStep).addClass('active')
+	// 	$('.task_info .performance .quiz .steps > *').eq(currentStep - 1).addClass('success')
+	//
+	// 	currentStep++
+	//
+	// 	parent.find('.step').hide()
+	// 	parent.find('.step' + currentStep).fadeIn(300)
+	//
+	// 	if (currentStep > $('.task_info .performance .quiz .steps > *').length) {
+	// 		$('.task_info .performance .quiz').hide()
+	// 		$('.task_info .performance .quiz_result').fadeIn(300)
+	// 	}
+	// })
 })
 
 

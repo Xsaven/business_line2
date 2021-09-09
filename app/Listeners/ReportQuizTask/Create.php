@@ -4,6 +4,7 @@ namespace App\Listeners\ReportQuizTask;
 
 use App\Events\ReportQuizTask;
 use App\Models\QuizAnswer;
+use App\Models\TaskReport;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -17,15 +18,22 @@ class Create
      */
     public function handle(ReportQuizTask $event)
     {
-        foreach ($event->quiz_answers as $k=>$quiz_answer) {
-            $answer = QuizAnswer::whereId($quiz_answer)->first();
 
-            if ($answer->quizQuestion->id === $k) {
-                $balls = 0;
-                $balls += $answer->cost;
-            }
+        $balls = 0;
+        foreach (QuizAnswer::whereIn('id', array_values($event->quiz_answers))->get() as $answer) {
+            $balls += $answer->cost;
         }
 
-        dd($balls);
+        $event->balls = $balls;
+
+        \Auth::user()->update([
+            'balance' => $balls
+        ]);
+
+        TaskReport::create([
+            'status' => TaskReport::STATUS_CHECKED,
+            'user_id' => \Auth::user()->id,
+            'task_id' => $event->task->id,
+        ]);
     }
 }

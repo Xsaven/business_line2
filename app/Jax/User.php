@@ -341,16 +341,17 @@ class User extends JaxExecutor
     }
 
     /**
-     * @param int $task_id
+     * @param $task
      * @param array $quiz_answers
+     * @return array
      */
-    public function quiz_report(int $task_id, array $quiz_answers)
+    public function quiz_report($task, array $quiz_answers)
     {
-        $event = new ReportQuizTask($task_id, $quiz_answers);
+        $event = new ReportQuizTask($task, $quiz_answers);
 
         event($event);
 
-        $this->reload();
+        return ['balls' => $event->balls];
     }
 
     /**
