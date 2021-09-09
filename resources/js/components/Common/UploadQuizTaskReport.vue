@@ -11,7 +11,7 @@
       <form class="quiz" ref="quiz">
         <div class="head">
           <div class="steps">
-            <div v-for="(quiz,i) in quiz" :class="{'active': true}">{{i + 1}}</div>
+            <div v-for="(quiz,i) in quiz" :class="{'active': !i}">{{i + 1}}</div>
           </div>
 
           <div class="time">
@@ -28,7 +28,7 @@
             <template v-for="(answer,k) in question.answers">
               <div  class="answers" :key="`quiz_answer_${k}`">
                 <div class="field">
-                  <input :value="answer.id" v-model="quiz_answers[question.id]" type="radio"  :name="`group${i}`" :id="`group1_check${k}_${i}`">
+                  <input :value="answer.id" v-model="quiz_answers[i]" type="radio"  :name="`group${i}`" :id="`group1_check${k}_${i}`">
                   <label :for="`group1_check${k}_${i}`">{{answer.answer}}</label>
                 </div>
               </div>
@@ -92,7 +92,9 @@
               })
           },
           nextQ () {
-
+            if (this.quiz_answers[this.currentStep-1] === undefined) {
+              return "toast:error".exec("Для начала дайте правельный ответ!");
+            }
             let parent = $(this.$refs.quiz)
             let steps = $('.task_info .performance .quiz .steps > *');
             steps.removeClass('active')

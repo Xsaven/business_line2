@@ -16,14 +16,16 @@ class ReportQuizTask
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * @param Task|null $task
+     * @param int $task_id
      * @param array $quiz_answers
      * @param int $balls
      */
     public function __construct(
-        public ?Task $task,
+        public int $task_id,
         public array $quiz_answers,
-        public int $balls = 0
+        public int $balls = 0,
+        public bool $validated = false,
+        public ?Task $task = null,
     ) {
     }
 }
