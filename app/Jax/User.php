@@ -25,6 +25,7 @@ use App\Http\Resources\UserForFansSelect;
 use App\Http\Resources\UserResource;
 use App\Jobs\AdminStatisticJob;
 use App\Jobs\OffLineJob;
+use App\Models\QuizAnswer;
 use App\Repositories\AuthUserRepository;
 use App\Repositories\TaskReportRepository;
 use App\Repositories\UserRepository;
@@ -453,5 +454,13 @@ class User extends JaxExecutor
         }
 
         return ['result' => false];
+    }
+
+
+    public function answer(int $answer_id)
+    {
+        $answer = QuizAnswer::find($answer_id);
+
+        return ['result' => !!$answer->cost];
     }
 }

@@ -11,7 +11,9 @@
       <form class="quiz" ref="quiz">
         <div class="head">
           <div class="steps">
-            <div v-for="(quiz,i) in quiz" :class="{'active': !i}">{{i + 1}}</div>
+            <template v-for="(quiz,i) in quiz">
+              <div :key="`qan_${i}`" :class="{'active': !i, 'error': !ri_answer[i] && ri_answer[i] !== undefined && ri_answer[i] !== null, 'success': ri_answer[i]}">{{i + 1}}</div>
+            </template>
           </div>
 
 <!--          <div class="time">-->
@@ -42,10 +44,12 @@
 
       <div class="quiz_result">
         <!--            <svg class="icon success"><use xlink:href="images/sprite.svg#ic_success"></use></svg>-->
-        <v-icon icon="ic_success" class="icon success"/>
+        <v-icon v-if="!hase"  icon="ic_success" class="icon success"/>
         <!-- <svg class="icon error"><use xlink:href="images/sprite.svg#ic_bad"></use></svg> -->
+        <v-icon v-else icon="ic_bad" class="error"/>
 
-        <div>Вы закончили викторину!</div>
+        <div v-if="!hase">Вы ответили на все вопросы правильно!</div>
+        <div v-else>У тебя несколько ошибок</div>
         <div class="scores">+{{this.balls}} {{declOfNum(task.balls,['бал','бала','баллов'])}}</div>
       </div>
 
@@ -63,15 +67,21 @@
         },
         data () {
             return {
-              quiz_answers: {},
+              quiz_answers: [],
               currentStep: 1,
               balls: 0,
+              ri_answer: [],
+              hase: false
             };
         },
         mounted () {
-
+          //this.quiz.map((v,i) => this.ri_answer[i] = undefined)
         },
-        computed: {},
+        computed: {
+          has_errors () {
+            return !!this.ri_answer.filter((i) => !i).length;
+          }
+        },
         watch: {},
         methods: {
 
@@ -83,6 +93,16 @@
             if (n1 === 1) { return text_forms[0]; }
             return text_forms[2];
           },
+          answer_check(id, index) {
+
+            jax.user.answer(id)
+                .then(({result}) => {
+                  this.ri_answer[index] = result;
+                  let steps = $('.task_info .performance .quiz .steps > *');
+                  steps.eq(index).addClass(result ? 'success' : 'error');
+                  if(!result) this.hase = true
+                })
+          },
           finishQ () {
             jax.user.quiz_report(this.task.id,this.quiz_answers)
               .then((data) => {
@@ -92,16 +112,19 @@
               })
           },
           nextQ () {
+            this.ri_answer[this.currentStep-1] = null;
             if (this.quiz_answers[this.currentStep-1] === undefined) {
               return "toast:error".exec("Для начала дайте правельный ответ!");
             }
+            this.answer_check(this.quiz_answers[this.currentStep-1], this.currentStep-1)
             let parent = $(this.$refs.quiz)
             let steps = $('.task_info .performance .quiz .steps > *');
             steps.removeClass('active')
             steps.eq(this.currentStep).addClass('active')
-            steps.eq(this.currentStep - 1).addClass('success')
+            //steps.eq(this.currentStep - 1).addClass('success')
 
             this.currentStep++
+
             if (this.currentStep === (this.quiz.length + 1)) return this.finishQ();
 
             parent.find('.step').hide()
