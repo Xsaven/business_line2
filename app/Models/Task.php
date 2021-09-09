@@ -134,7 +134,7 @@ class Task extends Model
         'quiz' => 'Викторина',
         'star_quiz' => 'Звёздная викторина',
         'download_file' => 'Скачать файл',
-        'report_type_download_file_photo' => 'Скачать файл и прикрепить фото',
+        'download_file_photo' => 'Скачать файл и прикрепить фото',
     ];
 
     const ACTION_TYPES = [
