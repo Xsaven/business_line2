@@ -9,7 +9,7 @@
                     <div class="item" v-for="faq in faqs">
                         <div class="question">{{ faq.question }}</div>
 
-                        <div class="answer">{{faq.answer}}</div>
+                        <div class="answer" v-html="faq.answer"></div>
                     </div>
                 </div>
             </div>

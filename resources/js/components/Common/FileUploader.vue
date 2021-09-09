@@ -6,7 +6,6 @@
             <label for="file">
                 <v-icon icon="ic_attachment" />
                 <span>Прикрепить <span v-if="video && image">фото/видео</span><span v-if="video">видео</span><span v-if="image">фото</span></span>
-
                 <div class="rules" v-if="rules" v-html="rules"></div>
             </label>
         </div>
@@ -16,7 +15,7 @@
 
             <div v-if="error_format">Неверный формат файла!</div>
             <div v-else-if="error_system">Системная ошибка загрузки файла!</div>
-            <div v-else-if="error_big">Файл слишком большой. <a href="/" target="_blank">Инструкция по сжатию файла</a></div>
+            <div v-else-if="error_big">Файл слишком большой. <a href="/faq" target="_blank">Инструкция по сжатию файла</a></div>
 
             <button type="button" class="close_btn" @click="close_error">
                 <v-icon icon="ic_delete" />

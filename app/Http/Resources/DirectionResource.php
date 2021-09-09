@@ -32,6 +32,7 @@ class DirectionResource extends JsonResource
             'arbitrator_photo' => $this->arbitrator_photo,
             'arbitrator_position' => $this->arbitrator_position,
             'description' => $this->description,
+            'description_inside' => $this->description_inside,
             'terms_of_participation' => $this->terms_of_participation,
             'start_at' => Carbon::parse($this->start_at)->toDateString(),
             'end_at' => Carbon::parse($this->end_at)->toDateString(),
