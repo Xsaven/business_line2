@@ -108,18 +108,14 @@
                 return rules.join("<br>");
             }
         },
-        watch: {
-            loading (val) {
-                if (Number(val) === 100)
-                    ljs.onetime(() => this.to_step('selected'), 100)
-            }
-        },
+        watch: {},
         methods: {
             fileRemove (index) {
                 this.file = null;
                 this.$refs.file.value = "";
                 jax.user.drop_file(this.filename);
                 this.to_step('choose');
+                this.$emit('upload_drop');
             },
             handleUpload() {
                 if (this.$refs.file && this.$refs.file.files[0]) {
@@ -159,12 +155,13 @@
                                 this.$emit('input', file);
                                 this.filename = file;
                                 this.$emit('upload_success');
+                                this.to_step('selected');
                             } else {
                                 this.error_system = true;
                                 this.to_step('file_error');
                             }
-                            this.xhr = null;
                             this.$emit('upload_finish');
+                            this.xhr = null;
                         }).catch(() => {
                             this.$emit('upload_error');
                             ljs.onetime(() => {
@@ -186,6 +183,7 @@
                 this.file = null;
                 this.$refs.file.value = "";
                 this.to_step('choose');
+                this.$emit('upload_drop');
             },
 
 

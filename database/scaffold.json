@@ -47,6 +47,7 @@
       ["arbitrator_photo", {"nullable": []}],
       ["arbitrator_position", {"nullable": []}],
       ["description", {"nullable": []}],
+      ["description_inside", {"nullable": []}],
       ["terms_of_participation", "text"],
       "start_at",
       "end_at"

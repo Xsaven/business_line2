@@ -271,9 +271,11 @@ class User extends JaxExecutor
      * @param int $task_id
      * @param Request $request
      */
-    public function image_report(int $task_id, Request $request)
+    public function image_report(int $task_id, string $file)
     {
-        $event = new ReportPhotoTask($task_id, $request->file('files'));
+        //dd($task_id, $file);
+
+        $event = new ReportPhotoTask($task_id, $file);
 
         event($event);
 
@@ -282,7 +284,6 @@ class User extends JaxExecutor
 
     public function text_or_image_or_video_report(int $task_id, string $comment, Request $request)
     {
-
         /**
          * @var ReportTextImageVideoTask
          */
@@ -445,12 +446,17 @@ class User extends JaxExecutor
 
     /**
      * @param  string  $file
-     * @return bool[]|false[]
+     * @return bool[]|false[]|null[]
      */
     public function drop_file(string $file)
     {
         if (\Cache::has(\Auth::id().'-'.$file)) {
-            return ['result' => \Storage::disk('yandexcloud')->delete($file)];
+
+            if (str_ends_with($file, '.jpg')) {
+                return ['result' => \Storage::disk('yandexcloud')->delete($file)];
+            } else {
+                return ['result' => is_file($file) ? unlink($file) : null];
+            }
         }
 
         return ['result' => false];

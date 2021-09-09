@@ -22,7 +22,7 @@ class Create
 
             $event->task->taskReports()->create([
                 'status' => TaskReport::STATUS_UPLOADED,
-                'files' => [$event->filename],
+                'files' => $event->file,
                 'user_id' => $user_id,
             ]);
         }

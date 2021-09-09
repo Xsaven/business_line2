@@ -6,10 +6,18 @@
     <div class="info">
       <form class="form" @submit.stop.prevent="send">
 
-        <v-file-uploader :image="true" :video="true" v-model="file" />
+        <v-file-uploader
+            :image="true"
+            :video="false"
+            v-model="file"
+            @upload_start="() => {this.uploaded = false}"
+            @upload_success="() => {this.uploaded = true}"
+            @upload_finish="() => {this.uploaded = true}"
+            @upload_drop="() => {this.uploaded = false}"
+        />
 
         <div class="submit">
-          <button type="submit" class="submit_btn">Отправить</button>
+          <button type="submit" class="submit_btn" :disabled="!uploaded">Отправить</button>
         </div>
       </form>
 
@@ -25,6 +33,7 @@
         data () {
             return {
                 file: null,
+                uploaded: false
             };
         },
         mounted () {},
@@ -34,7 +43,7 @@
           send() {
               if (this.file) {
 
-                  jax.params({files: [this.file]}).user.image_report(this.task.id)
+                  jax.user.image_report(this.task.id, this.file)
                       .then(() => {
                       })
 

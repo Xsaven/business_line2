@@ -19,8 +19,8 @@
                 </div>
             </div>
 
-            <div class="video" v-for="image in r.files">
-                <img :src="image" alt="" class="lozad">
+            <div class="video">
+                <img :src="r.file" alt="" class="lozad">
                 <!--                <svg class="icon"><use xlink:href="/images/sprite.svg#ic_video_play"></use></svg>-->
             </div>
 
