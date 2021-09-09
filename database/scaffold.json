@@ -343,7 +343,7 @@
     },
     "fields": [
       ["status", {"default": "created"}],
-      ["file", {"nullable": []}],
+      ["file", {"nullable": [], "cast": "VideoTrap"}],
       ["comment", "text", {"nullable": []}]
     ],
     "withCount": ["likes"],
