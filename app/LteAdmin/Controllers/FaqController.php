@@ -48,7 +48,7 @@ class FaqController extends Controller
         return new Matrix(function (Form $form) {
             $form->info_id();
             $form->input('question', 'Вопрос')->required();
-            $form->textarea('answer', 'Ответ')->required()->rows(6);
+            $form->ckeditor('answer', 'Ответ')->required();
             $form->switcher('active', 'lte.active');
             $form->info_at();
         });

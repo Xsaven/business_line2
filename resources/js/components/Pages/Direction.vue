@@ -7,7 +7,7 @@
                         <div>
                             <div class="title">{{direction.name}}</div>
 
-                            <div class="desc">{{direction.description}}</div>
+                            <div class="desc" v-html="direction.description_inside"></div>
                         </div>
 
                         <div>
