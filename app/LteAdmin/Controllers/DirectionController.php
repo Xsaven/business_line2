@@ -49,7 +49,8 @@ class DirectionController extends Controller
             $form->info_id();
             $form->input('video', 'Видео код')->icon_video();
             $form->input('name', 'Название')->required();
-            $form->textarea('description', 'Описание');
+            $form->textarea('description', 'Описание кнопки');
+            $form->ckeditor('description_inside', 'Описание');
             $form->multi_select('prizes[]', 'Призы')
                 ->load(Prize::class);
             $form->image('arbitrator_photo', 'Фото ведущего')

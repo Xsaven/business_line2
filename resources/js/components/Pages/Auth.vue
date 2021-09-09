@@ -32,6 +32,17 @@
                                     <input v-model="auth.login" type="text" :class="{input: true, error: errors.login}"
                                            placeholder="Табельный номер" @click="clear_errors" @blur="clear_errors">
                                     <div class="exp">{{ errors.login }}</div>
+                                    <div class="tooltip">
+                                        <div class="icon">
+                                            <svg><use xlink:href="images/sprite.svg#ic_tooltip"></use></svg>
+                                        </div>
+
+                                        <div class="exp">
+                                            Табельный номер вы можете уточнить у своего руководителя, или узнать его самостоятельно, если у вас есть доступ в ЦУП:<br>
+                                            1. Вы можете видеть табельный номер в своем расчетном листе;<br>
+                                            2. Номер можно узнать при создании заявки на отпуск: выбирая сотрудника, обратите внимание в открывшемся поле на столбец "код" (справа от столбцов с ФИО, ОСП, отделом, должностью и датой рождения).
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
