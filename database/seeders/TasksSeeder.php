@@ -78,7 +78,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-09-14',
             'finish_at' => '2021-09-16',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598337779',
+            'welcome_video' => '598337921',
         ], //3
         [
             'direction_id' => 1,
@@ -316,7 +316,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-09-23',
             'finish_at' => '2021-09-23',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598337779',
+            'welcome_video' => '600762927',
         ], //14
         [
             'direction_id' => 1,
@@ -482,7 +482,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-09-30',
             'finish_at' => '2021-10-05',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598337779',
+            'welcome_video' => '600763782',
         ], //22
         [
             'direction_id' => 1,
@@ -576,7 +576,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-10-05',
             'finish_at' => '2021-10-07',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598337779',
+            'welcome_video' => '600764261',
         ], //27
         [
             'direction_id' => 1,
@@ -776,7 +776,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-09-14',
             'finish_at' => '2021-09-16',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598346361',
+            'welcome_video' => '600764373',
         ], //36
         [
             'direction_id' => 2,
@@ -1032,7 +1032,7 @@ class TasksSeeder extends Seeder
             'finish_at' => '2021-09-17',
             'is_challenge' => 1,
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598337779',
+            'welcome_video' => '600764846',
         ], //41 - challenge
 
         [
@@ -1199,7 +1199,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-09-24',
             'finish_at' => '2021-09-24',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598346361',
+            'welcome_video' => '600764846',
         ], //49
         [
             'direction_id' => 2,
@@ -1253,7 +1253,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-09-27',
             'finish_at' => '2021-09-27',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598346361',
+            'welcome_video' => '600762427',
         ], //51
         [
             'direction_id' => 2,
@@ -1411,7 +1411,7 @@ class TasksSeeder extends Seeder
             'finish_at' => '2021-10-01',
             'is_challenge' => 1,
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598337779',
+            'welcome_video' => '600764846',
         ], //58 - challenge
 
         [
@@ -1431,7 +1431,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-10-04',
             'finish_at' => '2021-10-04',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598346361',
+            'welcome_video' => '600762729',
         ], //59
         [
             'direction_id' => 2,
@@ -1497,7 +1497,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-10-06',
             'finish_at' => '2021-10-06',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598346361',
+            'welcome_video' => '600763358',
         ], //62
         [
             'direction_id' => 2,
@@ -1595,7 +1595,7 @@ class TasksSeeder extends Seeder
             'finish_at' => '2021-10-08',
             'is_challenge' => 1,
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598337779',
+            'welcome_video' => '600764846',
         ], //66 - challenge
 
         // Funs
