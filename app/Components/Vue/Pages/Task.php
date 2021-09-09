@@ -51,7 +51,7 @@ class Task extends Page
             )->toArray(request());
         } else {
             $attrs['task_report'] = null;
-            $attrs['reports'] = collect();
+            $attrs['reports'] = [];
         }
 
         parent::__construct($id, $attrs, $params);

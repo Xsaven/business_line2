@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @package App\Models
  * @property int $id
  * @property string $question
- * @property int $cost
  * @property int $task_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -22,7 +21,6 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion query()
- * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereCost($value)
  * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereQuestion($value)
@@ -46,7 +44,6 @@ class QuizQuestion extends Model
      */
     protected $fillable = [
         'question',
-        'cost',
         'task_id',
     ];
 
@@ -56,16 +53,7 @@ class QuizQuestion extends Model
      */
     protected $casts = [
         'question' => 'string',
-        'cost' => 'integer',
         'task_id' => 'integer',
-    ];
-
-    /**
-     * The model's attributes.
-     * @return array
-     */
-    protected $attributes = [
-        'cost' => 1,
     ];
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Jax;
 
+use App\Events\FileUpload;
 use App\Events\OrderEvent;
 use App\Events\ReportDownloadFileImageTask;
 use App\Events\ReportDownloadFileTask;
@@ -418,5 +419,42 @@ class User extends JaxExecutor
     public function search_users(string $q)
     {
         return UserForFansSelect::collection(app(UserRepository::class)->search_users_for_fans($q))->toArray(\request());
+    }
+
+    /**
+     * @param  Request  $request
+     * @return array|false[]
+     * @throws \Psr\SimpleCache\InvalidArgumentException
+     */
+    public function upload_file(Request $request)
+    {
+        if ($request->hasFile('file')) {
+            $event = new FileUpload($request->file('file'));
+
+            event($event);
+
+            //dd($event->result(), $event->validated, $event->uploaded, $event->filename, ($event->is_image || $event->is_video));
+
+            if ($event->result()) {
+                \Cache::set(\Auth::id().'-'.$event->filename, 1, now()->addDay());
+            }
+
+            return ['result' => $event->result(), 'file' => $event->filename];
+        }
+
+        return ['result' => false, 'file' => null];
+    }
+
+    /**
+     * @param  string  $file
+     * @return bool[]|false[]
+     */
+    public function drop_file(string $file)
+    {
+        if (\Cache::has(\Auth::id().'-'.$file)) {
+            return ['result' => \Storage::disk('yandexcloud')->delete($file)];
+        }
+
+        return ['result' => false];
     }
 }

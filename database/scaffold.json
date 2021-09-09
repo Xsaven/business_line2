@@ -463,8 +463,7 @@
   "quiz_questions": {
     "const:title": "Вопросы викторин",
     "fields": [
-      "question",
-      "cost"
+      "question"
     ],
     "relations": {
       "quiz_answers:hasMany": {}
@@ -473,7 +472,8 @@
   "quiz_answers": {
     "const:title": "Ответы викторин",
     "fields": [
-      "answer"
+      "answer",
+      ["cost", {"default": 1}]
     ],
     "relations": {
       "stars:belongsToMany": {}
