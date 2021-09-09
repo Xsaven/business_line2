@@ -6,27 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * Delivery Class.
- *
+ * Delivery Class
  * @package App\Models
- * @property int $id
- * @property string $address
- * @property string|null $osp
- * @property string|null $city
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Order[] $orders
- * @property-read int|null $orders_count
- * @method static \Illuminate\Database\Eloquent\Builder|Delivery newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Delivery newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Delivery query()
- * @method static \Illuminate\Database\Eloquent\Builder|Delivery whereAddress($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Delivery whereCity($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Delivery whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Delivery whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Delivery whereOsp($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Delivery whereUpdatedAt($value)
- * @mixin \Eloquent
  */
 class Delivery extends Model
 {
@@ -45,7 +26,7 @@ class Delivery extends Model
     protected $fillable = [
         'address',
         'osp',
-        'city',
+        'city'
     ];
 
     /**
@@ -53,17 +34,18 @@ class Delivery extends Model
      * @return array
      */
     protected $casts = [
-        'address' => 'string',
-        'osp' => 'string',
-        'city' => 'string',
+        "address" => 'string',
+        "osp" => 'string',
+        "city" => 'string'
     ];
 
     /**
-     * The "hasMany" relation for "Zakazy'".
+     * The "hasMany" relation for "Zakazy'"
      * @return HasMany
      */
     public function orders() : HasMany
     {
         return $this->hasMany(Order::class, 'delivery_id', 'id');
     }
+
 }

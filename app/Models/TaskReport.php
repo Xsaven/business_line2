@@ -2,51 +2,17 @@
 
 namespace App\Models;
 
-use App\Casts\VideoTrapCast;
+use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\TaskReport\TaskReportHasLogs;
 use App\Models\Traits\TaskReport\TaskReportLikeConfig;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Casts\VideoTrapCast;
 
 /**
- * TaskReport Class.
- *
+ * TaskReport Class
  * @package App\Models
- * @property int $id
- * @property string $status
- * @property mixed|null $file
- * @property string|null $comment
- * @property int $user_id
- * @property int $task_id
- * @property int|null $fun_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Commentary[] $commentary
- * @property-read int|null $commentary_count
- * @property-read \App\Models\User|null $fun
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $likes
- * @property-read int|null $likes_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Log[] $logs
- * @property-read int|null $logs_count
- * @property-read \App\Models\Task|null $task
- * @property-read \App\Models\User|null $user
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $users
- * @property-read int|null $users_count
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport query()
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereComment($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereFile($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereFunId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereTaskId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereUserId($value)
- * @mixin \Eloquent
  */
 class TaskReport extends Model
 {
@@ -65,11 +31,11 @@ class TaskReport extends Model
     const STATUS_CANCELED = 'canceled';
 
     const STATUSES = [
-        'created' => 'Созданный',
-        'uploading' => 'Загрузка',
-        'uploaded' => 'Загруженный',
-        'checked' => 'Одобренный',
-        'canceled' => 'Отменённый',
+        "created" => 'Созданный',
+        "uploading" => 'Загрузка',
+        "uploaded" => 'Загруженный',
+        "checked" => 'Одобренный',
+        "canceled" => 'Отменённый'
     ];
 
     /**
@@ -88,7 +54,7 @@ class TaskReport extends Model
         'comment',
         'user_id',
         'task_id',
-        'fun_id',
+        'fun_id'
     ];
 
     /**
@@ -96,12 +62,12 @@ class TaskReport extends Model
      * @return array
      */
     protected $casts = [
-        'status' => 'string',
-        'file' => VideoTrapCast::class,
-        'comment' => 'string',
-        'user_id' => 'integer',
-        'task_id' => 'integer',
-        'fun_id' => 'integer',
+        "status" => 'string',
+        "file" => VideoTrapCast::class,
+        "comment" => 'string',
+        "user_id" => 'integer',
+        "task_id" => 'integer',
+        "fun_id" => 'integer'
     ];
 
     /**
@@ -109,11 +75,11 @@ class TaskReport extends Model
      * @return array
      */
     protected $attributes = [
-        'status' => 'created',
+        "status" => 'created'
     ];
 
     /**
-     * The "hasOne" relation for "Polzovateli".
+     * The "hasOne" relation for "Polzovateli"
      * @return HasOne
      */
     public function user() : HasOne
@@ -122,7 +88,7 @@ class TaskReport extends Model
     }
 
     /**
-     * The "morphMany" relation for "Logi polzovatelei".
+     * The "morphMany" relation for "Logi polzovatelei"
      * @return MorphMany
      */
     public function logs() : MorphMany
@@ -131,7 +97,7 @@ class TaskReport extends Model
     }
 
     /**
-     * The "hasOne" relation for "Zadaniya".
+     * The "hasOne" relation for "Zadaniya"
      * @return HasOne
      */
     public function task() : HasOne
@@ -140,7 +106,7 @@ class TaskReport extends Model
     }
 
     /**
-     * The "hasOne" relation for "Polzovateli".
+     * The "hasOne" relation for "Polzovateli"
      * @return HasOne
      */
     public function fun() : HasOne
@@ -149,7 +115,7 @@ class TaskReport extends Model
     }
 
     /**
-     * The "morphMany" relation for "Kommentarii".
+     * The "morphMany" relation for "Kommentarii"
      * @return MorphMany
      */
     public function commentary() : MorphMany
@@ -158,11 +124,12 @@ class TaskReport extends Model
     }
 
     /**
-     * The "belongsToMany" relation for "Polzovateli".
+     * The "belongsToMany" relation for "Polzovateli"
      * @return BelongsToMany
      */
     public function users() : BelongsToMany
     {
         return $this->belongsToMany(User::class, 'user_task_reports', 'fun_id', 'task_report_id');
     }
+
 }

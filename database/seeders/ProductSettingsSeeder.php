@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\ProductSetting;
 use Illuminate\Database\Seeder;
+use App\Models\ProductSetting;
 
 /**
- * ProductSettingsSeeder Class.
+ * ProductSettingsSeeder Class
  * @package Database\Seeders
  */
 class ProductSettingsSeeder extends Seeder
@@ -29,26 +29,27 @@ class ProductSettingsSeeder extends Seeder
     {
         return [
             [
-                'name' => 'Размер',
-                'slug' => 'size',
-                'data' => [
-                    'S',
-                    'M',
-                    'L',
-                    'XL',
-                    'XXL',
-                ],
+                "name" => "Размер",
+                "slug" => "size",
+                "data" => [
+                    "S",
+                    "M",
+                    "L",
+                    "XL",
+                    "XXL"
+                ]
             ],
             [
-                'name' => 'Цвет',
-                'slug' => 'color',
-                'data' => [
-                    '#c4c4c4',
-                    '#2e2e2e',
-                    '#f9b400',
-                    '#df3333',
-                ],
-            ],
+                "name" => "Цвет",
+                "slug" => "color",
+                "data" => [
+                    "#c4c4c4",
+                    "#2e2e2e",
+                    "#f9b400",
+                    "#df3333"
+                ]
+            ]
         ];
     }
+
 }

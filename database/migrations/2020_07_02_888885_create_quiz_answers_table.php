@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreateQuizAnswersTable Class.
+ * CreateQuizAnswersTable Class
  */
 class CreateQuizAnswersTable extends Migration
 {
@@ -29,4 +29,5 @@ class CreateQuizAnswersTable extends Migration
     {
         Schema::dropIfExists('quiz_answers');
     }
+
 }

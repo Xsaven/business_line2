@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Prize;
 use Illuminate\Database\Seeder;
+use App\Models\Prize;
 
 /**
- * PrizesSeeder Class.
+ * PrizesSeeder Class
  * @package Database\Seeders
  */
 class PrizesSeeder extends Seeder
@@ -29,29 +29,30 @@ class PrizesSeeder extends Seeder
     {
         return [
             [
-                'name' => 'Смартфон Apple iPhone 12 128GB Black',
-                'src' => 'images/prizes/prizes_thumb.png',
+                "name" => "Смартфон Apple iPhone 12 128GB Black",
+                "src" => "images/prizes/prizes_thumb.png"
             ],
             [
-                'name' => 'Планшет Apple iPad 10.2 Wi-Fi 32GB Space Grey',
-                'src' => 'images/prizes/prizes_thumb3.png',
+                "name" => "Планшет Apple iPad 10.2 Wi-Fi 32GB Space Grey",
+                "src" => "images/prizes/prizes_thumb3.png"
             ],
             [
-                'name' => 'Робот-пылесос Xiaomi Viomi Cleaning V3 Global Black',
-                'src' => 'images/prizes/prizes_thumb2.png',
+                "name" => "Робот-пылесос Xiaomi Viomi Cleaning V3 Global Black",
+                "src" => "images/prizes/prizes_thumb2.png"
             ],
             [
-                'name' => 'Кружка с логотипом',
-                'src' => 'images/prizes/prizes_thumb4.png',
+                "name" => "Кружка с логотипом",
+                "src" => "images/prizes/prizes_thumb4.png"
             ],
             [
-                'name' => 'Толстовка с логотипом',
-                'src' => 'images/prizes/prizes_thumb6.png',
+                "name" => "Толстовка с логотипом",
+                "src" => "images/prizes/prizes_thumb6.png"
             ],
             [
-                'name' => 'Фитнес-браслет Mi Smart Band 6',
-                'src' => 'images/prizes/prizes_thumb5.png',
-            ],
+                "name" => "Фитнес-браслет Mi Smart Band 6",
+                "src" => "images/prizes/prizes_thumb5.png"
+            ]
         ];
     }
+
 }

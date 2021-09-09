@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreateCommentaryRoomsTable Class.
+ * CreateCommentaryRoomsTable Class
  */
 class CreateCommentaryRoomsTable extends Migration
 {
@@ -34,4 +34,5 @@ class CreateCommentaryRoomsTable extends Migration
     {
         Schema::dropIfExists('commentary_rooms');
     }
+
 }

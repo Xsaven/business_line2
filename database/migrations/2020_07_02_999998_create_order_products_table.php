@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreateOrderProductsTable Class.
+ * CreateOrderProductsTable Class
  */
 class CreateOrderProductsTable extends Migration
 {
@@ -26,4 +26,5 @@ class CreateOrderProductsTable extends Migration
     {
         Schema::dropIfExists('order_products');
     }
+
 }

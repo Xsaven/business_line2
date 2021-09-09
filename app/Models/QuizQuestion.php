@@ -7,26 +7,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * QuizQuestion Class.
- *
+ * QuizQuestion Class
  * @package App\Models
- * @property int $id
- * @property string $question
- * @property int $task_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\QuizAnswer[] $quizAnswers
- * @property-read int|null $quiz_answers_count
- * @property-read \App\Models\Task|null $task
- * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion query()
- * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereQuestion($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereTaskId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizQuestion whereUpdatedAt($value)
- * @mixin \Eloquent
  */
 class QuizQuestion extends Model
 {
@@ -44,7 +26,7 @@ class QuizQuestion extends Model
      */
     protected $fillable = [
         'question',
-        'task_id',
+        'task_id'
     ];
 
     /**
@@ -52,12 +34,12 @@ class QuizQuestion extends Model
      * @return array
      */
     protected $casts = [
-        'question' => 'string',
-        'task_id' => 'integer',
+        "question" => 'string',
+        "task_id" => 'integer'
     ];
 
     /**
-     * The "hasMany" relation for "Otvety' viktorin".
+     * The "hasMany" relation for "Otvety' viktorin"
      * @return HasMany
      */
     public function quizAnswers() : HasMany
@@ -66,11 +48,12 @@ class QuizQuestion extends Model
     }
 
     /**
-     * The "hasOne" relation for "Zadaniya".
+     * The "hasOne" relation for "Zadaniya"
      * @return HasOne
      */
     public function task() : HasOne
     {
         return $this->hasOne(Task::class, 'task_id', 'id');
     }
+
 }

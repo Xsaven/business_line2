@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreateDirectionsTable Class.
+ * CreateDirectionsTable Class
  */
 class CreateDirectionsTable extends Migration
 {
@@ -39,4 +39,5 @@ class CreateDirectionsTable extends Migration
     {
         Schema::dropIfExists('directions');
     }
+
 }

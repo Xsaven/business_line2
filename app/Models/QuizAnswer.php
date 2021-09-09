@@ -7,28 +7,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * QuizAnswer Class.
- *
+ * QuizAnswer Class
  * @package App\Models
- * @property int $id
- * @property string $answer
- * @property int $cost
- * @property int $quiz_question_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\QuizQuestion|null $quizQuestion
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Star[] $stars
- * @property-read int|null $stars_count
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer query()
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereAnswer($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereCost($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereQuizQuestionId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|QuizAnswer whereUpdatedAt($value)
- * @mixin \Eloquent
  */
 class QuizAnswer extends Model
 {
@@ -47,7 +27,7 @@ class QuizAnswer extends Model
     protected $fillable = [
         'answer',
         'cost',
-        'quiz_question_id',
+        'quiz_question_id'
     ];
 
     /**
@@ -55,9 +35,9 @@ class QuizAnswer extends Model
      * @return array
      */
     protected $casts = [
-        'answer' => 'string',
-        'cost' => 'integer',
-        'quiz_question_id' => 'integer',
+        "answer" => 'string',
+        "cost" => 'integer',
+        "quiz_question_id" => 'integer'
     ];
 
     /**
@@ -65,11 +45,11 @@ class QuizAnswer extends Model
      * @return array
      */
     protected $attributes = [
-        'cost' => 1,
+        "cost" => 1
     ];
 
     /**
-     * The "belongsToMany" relation for "Zvyozdy' viktorin".
+     * The "belongsToMany" relation for "Zvyozdy' viktorin"
      * @return BelongsToMany
      */
     public function stars() : BelongsToMany
@@ -78,11 +58,12 @@ class QuizAnswer extends Model
     }
 
     /**
-     * The "hasOne" relation for "Voprosy' viktorin".
+     * The "hasOne" relation for "Voprosy' viktorin"
      * @return HasOne
      */
     public function quizQuestion() : HasOne
     {
         return $this->hasOne(QuizQuestion::class, 'quiz_question_id', 'id');
     }
+
 }

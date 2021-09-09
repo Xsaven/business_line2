@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreateUserTaskReportsTable Class.
+ * CreateUserTaskReportsTable Class
  */
 class CreateUserTaskReportsTable extends Migration
 {
@@ -26,4 +26,5 @@ class CreateUserTaskReportsTable extends Migration
     {
         Schema::dropIfExists('user_task_reports');
     }
+
 }

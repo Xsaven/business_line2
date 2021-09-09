@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreatePositionsTable Class.
+ * CreatePositionsTable Class
  */
 class CreatePositionsTable extends Migration
 {
@@ -27,4 +27,5 @@ class CreatePositionsTable extends Migration
     {
         Schema::dropIfExists('positions');
     }
+
 }
