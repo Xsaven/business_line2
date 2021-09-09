@@ -18,7 +18,7 @@ class FileUpload
     /**
      * Create a new event instance.
      *
-     * @param  UploadedFile  $file
+     * @param  UploadedFile|null  $file
      * @param  bool  $validated
      * @param  bool  $uploaded
      * @param  string|null  $filename
@@ -26,7 +26,7 @@ class FileUpload
      * @param  bool  $is_video
      */
     public function __construct(
-        public UploadedFile $file,
+        public ?UploadedFile $file,
         public bool $validated = false,
         public bool $uploaded = false,
         public ?string $filename = null,

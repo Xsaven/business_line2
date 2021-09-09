@@ -343,7 +343,7 @@
     },
     "fields": [
       ["status", {"default": "created"}],
-      ["files", "text", {"nullable": [], "cast": "array"}],
+      ["file", {"nullable": []}],
       ["comment", "text", {"nullable": []}]
     ],
     "withCount": ["likes"],

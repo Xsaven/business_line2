@@ -82,6 +82,7 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\FileUpload\ValidationVideo::class,
             \App\Listeners\FileUpload\UploadImage::class,
             \App\Listeners\FileUpload\UploadVideo::class,
+            \App\Listeners\FileUpload\UploadVideoToVimeo::class,
         ],
         \App\Events\ReportTaskEvent::class => [
             \App\Listeners\ReportTaskEvent\Create::class,

@@ -167,8 +167,10 @@
                             this.$emit('upload_finish');
                         }).catch(() => {
                             this.$emit('upload_error');
-                            this.error_system = true;
-                            this.to_step('file_error');
+                            ljs.onetime(() => {
+                                this.error_system = true;
+                                this.to_step('file_error');
+                            }, 200)
                         });
                 }, 301)
             },

@@ -433,8 +433,6 @@ class User extends JaxExecutor
 
             event($event);
 
-            //dd($event->result(), $event->validated, $event->uploaded, $event->filename, ($event->is_image || $event->is_video));
-
             if ($event->result()) {
                 \Cache::set(\Auth::id().'-'.$event->filename, 1, now()->addDay());
             }

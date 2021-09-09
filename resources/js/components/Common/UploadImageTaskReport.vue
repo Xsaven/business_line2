@@ -6,7 +6,7 @@
     <div class="info">
       <form class="form" @submit.stop.prevent="send">
 
-        <v-file-uploader :image="true" v-model="file" />
+        <v-file-uploader :image="true" :video="true" v-model="file" />
 
         <div class="submit">
           <button type="submit" class="submit_btn">Отправить</button>
