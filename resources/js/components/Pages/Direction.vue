@@ -50,7 +50,7 @@
 
 
                 <div class="terms">
-                    <div class="title">Описания направления</div>
+                    <div class="title">Описания трека</div>
 
                     <div class="desc" v-html="direction.terms_of_participation"></div>
 

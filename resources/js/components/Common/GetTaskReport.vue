@@ -1,6 +1,6 @@
 <template>
   <div class="upload_report">
-    <div class="title">Загрузи свой отчет</div>
+    <div class="title">Загрузите ваш отчёт</div>
 
     <div class="info">
       <!-- <div class="status">

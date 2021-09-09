@@ -3,8 +3,10 @@
 namespace App\Components\Vue\Pages;
 
 use App\Components\Vue\Page;
+use App\Http\Resources\QuizQuestionResource;
 use App\Http\Resources\TaskReportResource;
 use App\Http\Resources\TaskResource;
+use App\Models\QuizQuestion;
 use App\Models\TaskReport;
 use App\Repositories\TaskRepository;
 use Carbon\Carbon;
@@ -52,6 +54,13 @@ class Task extends Page
         } else {
             $attrs['task_report'] = null;
             $attrs['reports'] = collect();
+        }
+
+        if ($repo->findById->report_type === 'quiz') {
+            $attrs['quiz'] = QuizQuestionResource::collection(QuizQuestion::where('task_id', $repo->findById->id)->get())
+                ->toArray(request());
+        } else {
+            $attrs['quiz'] = [];
         }
 
         parent::__construct($id, $attrs, $params);

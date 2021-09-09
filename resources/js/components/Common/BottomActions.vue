@@ -7,13 +7,13 @@
       <button class="start_btn">Старт</button> -->
 
       <div class="upload_report">
-        <div class="title">Загрузи свой отчет</div>
+        <div class="title">Загрузите ваш отчёт</div>
 
         <div class="info">
           <div class="status">
 <!--            <svg class="icon yellow"><use xlink:href="images/sprite.svg#"></use></svg>-->
             <v-icon class="yellow" icon="ic_time" />
-            <div>Скоро ты сможешь загрузить свой отчет</div>
+            <div>Скоро вы сможете загрузить ваш отчёт</div>
           </div>
 
           <!-- <div class="status">

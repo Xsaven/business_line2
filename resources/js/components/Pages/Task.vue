@@ -50,7 +50,7 @@
           <v-upload-image-or-video v-else-if="!task_report && task.report_type === 'image_or_video' && green_button" :task="task"/>
           <v-upload-text-or-video v-else-if="!task_report && task.report_type === 'text_or_video' && green_button" :task="task"/>
           <v-upload-text-or-image v-else-if="!task_report && task.report_type === 'text_or_image' && green_button" :task="task"/>
-          <v-upload-quiz-task-report v-else-if="!task_report && task.report_type === 'quiz' && green_button" :task="task"/>
+          <v-upload-quiz-task-report v-else-if="!task_report && task.report_type === 'quiz' && green_button" :task="task" :quiz="quiz"/>
           <v-upload-star-quiz-task-report v-else-if="!task_report && task.report_type === 'star_quiz' && green_button" :task="task"/>
           <v-download-file-report v-else-if="!task_report && task.report_type === 'download_file' && green_button" :task="task"/>
           <v-get-task-report v-else-if="task_report && task_report.status === 'created'"/>
@@ -71,6 +71,7 @@
           task: {required:true},
           task_report: {required:true},
           reports: {required:true},
+          quiz: {required: true}
         },
         data () {
             return {

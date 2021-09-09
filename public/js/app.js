@@ -5418,182 +5418,59 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-upload-quiz-task-report",
-  props: {},
+  props: {
+    quiz: {
+      required: true
+    }
+  },
   data: function data() {
     return {};
   },
   mounted: function mounted() {},
   computed: {},
   watch: {},
-  methods: {}
+  methods: {
+    start: function start() {
+      var parent = $(this.$refs.p);
+      parent.find('.quiz_start').hide();
+      parent.find('.quiz').fadeIn(300); // Секундомер
+
+      this.timerCycle();
+    },
+    timerCycle: function (_timerCycle) {
+      function timerCycle() {
+        return _timerCycle.apply(this, arguments);
+      }
+
+      timerCycle.toString = function () {
+        return _timerCycle.toString();
+      };
+
+      return timerCycle;
+    }(function () {
+      var sec = parseInt(sec);
+      var min = parseInt(min);
+      sec = sec + 1;
+
+      if (sec === 60) {
+        min = min + 1;
+        sec = 0;
+      }
+
+      if (min === 60) {
+        min = 0;
+        sec = 0;
+      }
+
+      if (sec < 10 || sec === 0) sec = '0' + sec;
+      if (min < 10 || min === 0) min = '0' + min;
+      $('.task_info .performance .quiz .time .minutes').text(min);
+      $('.task_info .performance .quiz .time .seconds').text(sec);
+      var cycle = setTimeout(timerCycle, 1000);
+    })
+  }
 });
 
 /***/ }),
@@ -8606,6 +8483,9 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     reports: {
+      required: true
+    },
+    quiz: {
       required: true
     }
   },
@@ -57634,7 +57514,7 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c("div", { staticClass: "upload_report" }, [
-        _c("div", { staticClass: "title" }, [_vm._v("Загрузи свой отчет")]),
+        _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт")]),
         _vm._v(" "),
         _c("div", { staticClass: "info" }, [
           _c(
@@ -57646,7 +57526,7 @@ var render = function() {
                 attrs: { icon: "ic_time" }
               }),
               _vm._v(" "),
-              _c("div", [_vm._v("Скоро ты сможешь загрузить свой отчет")])
+              _c("div", [_vm._v("Скоро вы сможете загрузить ваш отчёт")])
             ],
             1
           ),
@@ -59660,7 +59540,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузи свой отчет")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c(
@@ -61898,7 +61778,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузи свой отчет")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c(
@@ -62058,7 +61938,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузи свой отчет")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c("form", { staticClass: "form", attrs: { action: "" } }, [
@@ -62182,7 +62062,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузи свой отчет")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c(
@@ -62339,36 +62219,111 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "task_info" }, [
-    _c("div", { staticClass: "performance" }, [
-      _c("div", { staticClass: "title" }, [_vm._v("Выполнение задания")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "info" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
+  return _c("div", { ref: "p", staticClass: "performance" }, [
+    _c("div", { staticClass: "title" }, [_vm._v("Выполнение задания")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "info" }, [
+      _c("div", { staticClass: "quiz_start" }, [
+        _c("div", [_vm._v("Нажми, чтобы приступить к выполнению")]),
         _vm._v(" "),
         _c(
-          "div",
-          { staticClass: "quiz_result" },
-          [
-            _c("v-icon", {
-              staticClass: "icon success",
-              attrs: { icon: "ic_success" }
-            }),
+          "button",
+          {
+            staticClass: "start_btn",
+            attrs: { type: "button" },
+            on: { click: _vm.start }
+          },
+          [_vm._v("Старт")]
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "form",
+        { staticClass: "quiz" },
+        [
+          _c("div", { staticClass: "head" }, [
+            _c(
+              "div",
+              { staticClass: "steps" },
+              _vm._l(_vm.quiz, function(quiz, i) {
+                return _c("div", { class: { active: true } }, [
+                  _vm._v(" " + _vm._s(i + 1))
+                ])
+              }),
+              0
+            ),
             _vm._v(" "),
-            _c("div", [_vm._v("Ты ответил на все вопросы правильно!")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "scores" }, [_vm._v("+72 балла")])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "bg lozad",
-          attrs: { "data-src": "images/bg_performance.svg", alt: "" }
-        })
-      ])
+            _vm._m(0)
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.quiz, function(question, i) {
+            return [
+              _c(
+                "div",
+                { key: "quiz_" + i, class: "step step" + (i + 1) },
+                [
+                  _c("div", { staticClass: "question" }, [
+                    _vm._v(_vm._s(question.question))
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(question.answers, function(answer, k) {
+                    return [
+                      _c(
+                        "div",
+                        { key: "quiz_answer_" + k, staticClass: "answers" },
+                        [
+                          _c("div", { staticClass: "field" }, [
+                            _c("input", {
+                              attrs: {
+                                type: "radio",
+                                name: "group" + i,
+                                id: "group1_check" + k + "_" + i
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              { attrs: { for: "group1_check" + k + "_" + i } },
+                              [_vm._v(_vm._s(answer.answer))]
+                            )
+                          ])
+                        ]
+                      )
+                    ]
+                  })
+                ],
+                2
+              )
+            ]
+          }),
+          _vm._v(" "),
+          _c("button", { staticClass: "next_btn", attrs: { type: "button" } }, [
+            _vm._v("Ответить")
+          ])
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "quiz_result" },
+        [
+          _c("v-icon", {
+            staticClass: "icon success",
+            attrs: { icon: "ic_success" }
+          }),
+          _vm._v(" "),
+          _c("div", [_vm._v("Ты ответил на все вопросы правильно!")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "scores" }, [_vm._v("+72 балла")])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "bg lozad",
+        attrs: { "data-src": "/images/bg_performance.svg", alt: "" }
+      })
     ])
   ])
 }
@@ -62377,412 +62332,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "quiz_start" }, [
-      _c("div", [_vm._v("Нажми, чтобы приступить к выполнению")]),
+    return _c("div", { staticClass: "time" }, [
+      _c("span", { staticClass: "minutes" }, [_vm._v("00")]),
       _vm._v(" "),
-      _c("button", { staticClass: "start_btn" }, [_vm._v("Старт")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("form", { staticClass: "quiz", attrs: { action: "" } }, [
-      _c("div", { staticClass: "head" }, [
-        _c("div", { staticClass: "steps" }, [
-          _c("div", { staticClass: "active" }, [_vm._v("1")]),
-          _vm._v(" "),
-          _c("div", [_vm._v("2")]),
-          _vm._v(" "),
-          _c("div", [_vm._v("3")]),
-          _vm._v(" "),
-          _c("div", [_vm._v("4")]),
-          _vm._v(" "),
-          _c("div", [_vm._v("5")]),
-          _vm._v(" "),
-          _c("div", [_vm._v("6")]),
-          _vm._v(" "),
-          _c("div", [_vm._v("7")]),
-          _vm._v(" "),
-          _c("div", [_vm._v("8")]),
-          _vm._v(" "),
-          _c("div", [_vm._v("9")]),
-          _vm._v(" "),
-          _c("div", [_vm._v("10")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "time" }, [
-          _c("span", { staticClass: "minutes" }, [_vm._v("00")]),
-          _vm._v(" "),
-          _c("span", { staticClass: "sep" }, [_vm._v(":")]),
-          _vm._v(" "),
-          _c("span", { staticClass: "seconds" }, [_vm._v("00")])
-        ])
-      ]),
+      _c("span", { staticClass: "sep" }, [_vm._v(":")]),
       _vm._v(" "),
-      _c("div", { staticClass: "step step1" }, [
-        _c("div", { staticClass: "question" }, [
-          _vm._v(
-            "Кто из знаменитых художников за жизнь продал всего одну картину?"
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "answers" }, [
-          _c("div", { staticClass: "field" }, [
-            _c("input", {
-              attrs: { type: "radio", name: "group1", id: "group1_check1" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group1_check1" } }, [
-              _vm._v("Винсент Ван Гог")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group1", id: "group1_check2" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group1_check2" } }, [
-              _vm._v("Пьер Огюст Ренуар")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group1", id: "group1_check3" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group1_check3" } }, [
-              _vm._v("Поль Сезанн")
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "step step2" }, [
-        _c("div", { staticClass: "question" }, [
-          _vm._v(
-            "Кто из знаменитых художников за жизнь продал всего одну картину?"
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "answers" }, [
-          _c("div", { staticClass: "field" }, [
-            _c("input", {
-              attrs: { type: "radio", name: "group2", id: "group2_check1" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group2_check1" } }, [
-              _vm._v("Винсент Ван Гог")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group2", id: "group2_check2" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group2_check2" } }, [
-              _vm._v("Пьер Огюст Ренуар")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group2", id: "group2_check3" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group2_check3" } }, [
-              _vm._v("Поль Сезанн")
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "step step3" }, [
-        _c("div", { staticClass: "question" }, [
-          _vm._v(
-            "Кто из знаменитых художников за жизнь продал всего одну картину?"
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "answers" }, [
-          _c("div", { staticClass: "field" }, [
-            _c("input", {
-              attrs: { type: "radio", name: "group3", id: "group3_check1" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group3_check1" } }, [
-              _vm._v("Винсент Ван Гог")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group3", id: "group3_check2" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group3_check2" } }, [
-              _vm._v("Пьер Огюст Ренуар")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group3", id: "group3_check3" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group3_check3" } }, [
-              _vm._v("Поль Сезанн")
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "step step4" }, [
-        _c("div", { staticClass: "question" }, [
-          _vm._v(
-            "Кто из знаменитых художников за жизнь продал всего одну картину?"
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "answers" }, [
-          _c("div", { staticClass: "field" }, [
-            _c("input", {
-              attrs: { type: "radio", name: "group4", id: "group4_check1" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group4_check1" } }, [
-              _vm._v("Винсент Ван Гог")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group4", id: "group4_check2" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group4_check2" } }, [
-              _vm._v("Пьер Огюст Ренуар")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group4", id: "group4_check3" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group4_check3" } }, [
-              _vm._v("Поль Сезанн")
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "step step5" }, [
-        _c("div", { staticClass: "question" }, [
-          _vm._v(
-            "Кто из знаменитых художников за жизнь продал всего одну картину?"
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "answers" }, [
-          _c("div", { staticClass: "field" }, [
-            _c("input", {
-              attrs: { type: "radio", name: "group5", id: "group5_check1" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group5_check1" } }, [
-              _vm._v("Винсент Ван Гог")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group5", id: "group5_check2" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group5_check2" } }, [
-              _vm._v("Пьер Огюст Ренуар")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group5", id: "group5_check3" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group5_check3" } }, [
-              _vm._v("Поль Сезанн")
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "step step6" }, [
-        _c("div", { staticClass: "question" }, [
-          _vm._v(
-            "Кто из знаменитых художников за жизнь продал всего одну картину?"
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "answers" }, [
-          _c("div", { staticClass: "field" }, [
-            _c("input", {
-              attrs: { type: "radio", name: "group6", id: "group6_check1" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group6_check1" } }, [
-              _vm._v("Винсент Ван Гог")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group6", id: "group6_check2" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group6_check2" } }, [
-              _vm._v("Пьер Огюст Ренуар")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group6", id: "group6_check3" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group6_check3" } }, [
-              _vm._v("Поль Сезанн")
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "step step7" }, [
-        _c("div", { staticClass: "question" }, [
-          _vm._v(
-            "Кто из знаменитых художников за жизнь продал всего одну картину?"
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "answers" }, [
-          _c("div", { staticClass: "field" }, [
-            _c("input", {
-              attrs: { type: "radio", name: "group7", id: "group7_check1" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group7_check1" } }, [
-              _vm._v("Винсент Ван Гог")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group7", id: "group7_check2" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group7_check2" } }, [
-              _vm._v("Пьер Огюст Ренуар")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group7", id: "group7_check3" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group7_check3" } }, [
-              _vm._v("Поль Сезанн")
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "step step8" }, [
-        _c("div", { staticClass: "question" }, [
-          _vm._v(
-            "Кто из знаменитых художников за жизнь продал всего одну картину?"
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "answers" }, [
-          _c("div", { staticClass: "field" }, [
-            _c("input", {
-              attrs: { type: "radio", name: "group8", id: "group8_check1" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group8_check1" } }, [
-              _vm._v("Винсент Ван Гог")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group8", id: "group8_check2" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group8_check2" } }, [
-              _vm._v("Пьер Огюст Ренуар")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group8", id: "group8_check3" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group8_check3" } }, [
-              _vm._v("Поль Сезанн")
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "step step9" }, [
-        _c("div", { staticClass: "question" }, [
-          _vm._v(
-            "Кто из знаменитых художников за жизнь продал всего одну картину?"
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "answers" }, [
-          _c("div", { staticClass: "field" }, [
-            _c("input", {
-              attrs: { type: "radio", name: "group9", id: "group9_check1" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group9_check1" } }, [
-              _vm._v("Винсент Ван Гог")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group9", id: "group9_check2" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group9_check2" } }, [
-              _vm._v("Пьер Огюст Ренуар")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group9", id: "group9_check3" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group9_check3" } }, [
-              _vm._v("Поль Сезанн")
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "step step10" }, [
-        _c("div", { staticClass: "question" }, [
-          _vm._v(
-            "Кто из знаменитых художников за жизнь продал всего одну картину?"
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "answers" }, [
-          _c("div", { staticClass: "field" }, [
-            _c("input", {
-              attrs: { type: "radio", name: "group10", id: "group10_check1" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group10_check1" } }, [
-              _vm._v("Винсент Ван Гог")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group10", id: "group10_check2" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group10_check2" } }, [
-              _vm._v("Пьер Огюст Ренуар")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "radio", name: "group10", id: "group10_check3" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "group10_check3" } }, [
-              _vm._v("Поль Сезанн")
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "next_btn", attrs: { type: "button" } }, [
-        _vm._v("Ответить")
-      ])
+      _c("span", { staticClass: "seconds" }, [_vm._v("00")])
     ])
   }
 ]
@@ -62809,7 +62364,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузи свой отчет")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c(
@@ -62818,7 +62373,7 @@ var render = function() {
         [
           _c("v-icon", { staticClass: "yellow", attrs: { icon: "ic_time" } }),
           _vm._v(" "),
-          _c("div", [_vm._v("Скоро ты сможешь загрузить свой отчет")]),
+          _c("div", [_vm._v("Скоро вы сможете загрузить ваш отчёт")]),
           _vm._v(" "),
           _c("img", {
             staticClass: "bg lozad loaded",
@@ -63448,7 +63003,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузи свой отчет")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт ")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c("div", { staticClass: "status" }, [
@@ -63500,7 +63055,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузи свой отчет")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт ")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c("form", { staticClass: "form", attrs: { action: "" } }, [
@@ -63849,7 +63404,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузи свой отчет")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c("form", { staticClass: "form", attrs: { action: "" } }, [
@@ -64190,7 +63745,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузи свой отчет")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт ")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c("form", { staticClass: "form", attrs: { action: "" } }, [
@@ -64508,7 +64063,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузи свой отчет")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт ")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c("form", { staticClass: "form", attrs: { action: "" } }, [
@@ -64786,7 +64341,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузи свой отчет")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт ")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c(
@@ -66022,9 +65577,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "terms" }, [
-            _c("div", { staticClass: "title" }, [
-              _vm._v("Описания направления")
-            ]),
+            _c("div", { staticClass: "title" }, [_vm._v("Описания трека")]),
             _vm._v(" "),
             _c("div", {
               staticClass: "desc",
@@ -67880,7 +67433,9 @@ var render = function() {
             : !_vm.task_report &&
               _vm.task.report_type === "quiz" &&
               _vm.green_button
-            ? _c("v-upload-quiz-task-report", { attrs: { task: _vm.task } })
+            ? _c("v-upload-quiz-task-report", {
+                attrs: { task: _vm.task, quiz: _vm.quiz }
+              })
             : !_vm.task_report &&
               _vm.task.report_type === "star_quiz" &&
               _vm.green_button

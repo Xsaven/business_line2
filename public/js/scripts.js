@@ -124,17 +124,17 @@ $(() => {
 		min = 0,
 		sec = 0
 
-	$('.task_info .performance .start_btn').click(function (e) {
-		e.preventDefault()
-
-		let parent = $(this).closest('.performance')
-
-		parent.find('.quiz_start').hide()
-		parent.find('.quiz').fadeIn(300)
-
-		// Секундомер
-		timerCycle()
-	})
+	// $('.task_info .performance .start_btn').click(function (e) {
+	// 	e.preventDefault()
+	//
+	// 	let parent = $(this).closest('.performance')
+	//
+	// 	parent.find('.quiz_start').hide()
+	// 	parent.find('.quiz').fadeIn(300)
+	//
+	// 	// Секундомер
+	// 	timerCycle()
+	// })
 
 	$('.task_info .performance .quiz .next_btn').click(function () {
 		let parent = $(this).closest('.quiz')
