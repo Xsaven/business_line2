@@ -21,7 +21,6 @@ class PhotoValidate
 
         //if ($event->file && (is_numeric($event->file) || str_ends_with($event->file, '.jpg'))) {
         if ($event->task && $event->file && str_ends_with($event->file, '.jpg')) {
-
             $event->validated = true;
         }
     }

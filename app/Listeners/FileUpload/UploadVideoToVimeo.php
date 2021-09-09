@@ -31,7 +31,7 @@ class UploadVideoToVimeo implements ShouldQueue
                 [
                     'upload' => [
                         'approach' => 'pull',
-                        'link' => asset($event->filename)
+                        'link' => asset($event->filename),
                     ],
                 ],
                 'POST'
@@ -40,7 +40,10 @@ class UploadVideoToVimeo implements ShouldQueue
                 $code = explode('/', $video_response['body']['uri'])[3];
                 $report = TaskReport::whereFile($event->filename)->first();
                 if ($report) {
-                    $report->update(['file' => $code]);
+                    $report->update([
+                        'file' => $code,
+                        'status' => TaskReport::STATUS_UPLOADED,
+                    ]);
                 } else {
                     \Cache::set($event->filename, $code, now()->addDay());
                 }

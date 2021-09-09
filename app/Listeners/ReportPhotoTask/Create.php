@@ -20,9 +20,17 @@ class Create
         if ($event->validated) {
             $user_id = \Auth::id();
 
-            $event->task->taskReports()->create([
+//            $event->task->taskReports()->create([
+//                'status' => TaskReport::STATUS_UPLOADED,
+//                'files' => $event->file,
+//                'user_id' => $user_id,
+//            ]);
+
+            TaskReport::create([
+                'task_id' => $event->task_id,
+                //'status' => \Cache::has($event->file) ? TaskReport::STATUS_UPLOADED : TaskReport::STATUS_UPLOADING,
                 'status' => TaskReport::STATUS_UPLOADED,
-                'files' => $event->file,
+                'file' => $event->file,
                 'user_id' => $user_id,
             ]);
         }

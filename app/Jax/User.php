@@ -451,7 +451,6 @@ class User extends JaxExecutor
     public function drop_file(string $file)
     {
         if (\Cache::has(\Auth::id().'-'.$file)) {
-
             if (str_ends_with($file, '.jpg')) {
                 return ['result' => \Storage::disk('yandexcloud')->delete($file)];
             } else {

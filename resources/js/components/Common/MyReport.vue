@@ -13,14 +13,14 @@
 
     <div class="head">
       <div class="title">Отчеты участников ({{r.length}})</div>
-        <div class="sort">
-            <div class="name">Сортировать:</div>
+<!--        <div class="sort">-->
+<!--            <div class="name">Сортировать:</div>-->
 
-            <select name="">
-                <option value="1" selected>По дате публикации</option>
-                <option value="2">По лайкам</option>
-            </select>
-        </div>
+<!--            <select name="">-->
+<!--                <option value="1" selected>По дате публикации</option>-->
+<!--                <option value="2">По лайкам</option>-->
+<!--            </select>-->
+<!--        </div>-->
     </div>
 
     <div class="empty" v-if="!r.length">Здесь скоро появятся отчёты других участников</div>

@@ -25,4 +25,24 @@ class VideoTrapCast implements CastsAttributes
             str_starts_with($value, 'https://') ? $value : asset($value)
         );
     }
+
+    /**
+     * Prepare the given value for storage.
+     * @param TaskReport $model
+     * @param string $key
+     * @param mixed $value
+     * @param array $attributes
+     * @return mixed
+     */
+    public function set($model, $key, $value, $attributes)
+    {
+        if (\Cache::has($value)) {
+            $data = \Cache::get($value);
+            \Cache::forget($value);
+
+            return $data;
+        }
+
+        return $value;
+    }
 }
