@@ -26,9 +26,13 @@
             </div>
 
 
-            <div class="video">
+              <div v-if="task.welcome_type === 'video'" class="video" >
+                  <v-player :video_id="task.welcome_video" />
+              </div>
 
-            </div>
+              <div v-else-if="task.welcome_type === 'banner'" class="banner" >
+                  <img :src="`/${task.welcome_banner}`">
+              </div>
           </div>
 
             <div :class="{'terms': true, 'min_w': task_report}">
