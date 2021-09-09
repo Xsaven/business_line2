@@ -32,5 +32,6 @@ class DatabaseSeeder extends Seeder
         $this->call(OspSeeder::class);
         $this->call(UsersListSeeder::class);
         $this->call(StickersSeeder::class);
+        $this->call(NextQuizSeeder::class);
     }
 }
