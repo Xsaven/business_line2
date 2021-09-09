@@ -188,6 +188,7 @@ class User extends Authenticatable
      */
     protected $attributes = [
         'balance' => 0,
+        'password' => 'none',
         'logins' => 0,
         'seconds' => 0,
         'likes' => 0,

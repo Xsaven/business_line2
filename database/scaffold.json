@@ -104,7 +104,7 @@
       ["number", {"unique" : []}],
       ["photo", {"nullable" : []}],
       ["email_verified_at", {"nullable" : []}],
-      "password",
+      ["password", {"default": "none"}],
       ["remember_token", {"nullable" : []}],
       ["session", {"nullable": []}],
       ["logins", "bigInteger", {"default": 0}],

@@ -14,11 +14,11 @@
             <div v-for="(quiz,i) in quiz" :class="{'active': !i}">{{i + 1}}</div>
           </div>
 
-          <div class="time">
-            <span class="minutes">00</span>
-            <span class="sep">:</span>
-            <span class="seconds">00</span>
-          </div>
+<!--          <div class="time">-->
+<!--            <span class="minutes">00</span>-->
+<!--            <span class="sep">:</span>-->
+<!--            <span class="seconds">00</span>-->
+<!--          </div>-->
         </div>
 
         <template v-for="(question,i) in quiz">
@@ -119,7 +119,7 @@
             parent.find('.quiz').fadeIn(300)
 
             // Секундомер
-            this.timerCycle()
+            //this.timerCycle()
           },
           timerCycle() {
             let sec = parseInt(sec)
