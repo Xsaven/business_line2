@@ -20,8 +20,10 @@ const load = () => {
             ljs.vue.component(name, require(`./components/${vue}`).default);
         });
     }
-    ljs.vue.config.productionTip = false
-    ljs.vue.config.devtools = true
+    if (process.env.NODE_ENV === 'development') {
+        ljs.vue.config.productionTip = false
+        ljs.vue.config.devtools = true
+    }
     ljs.vue.directive('input-mask', {
         bind: function(el) {
             new Inputmask({
