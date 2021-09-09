@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\VideoTrapCast;
 use App\Models\Traits\TaskReport\TaskReportHasLogs;
 use App\Models\Traits\TaskReport\TaskReportLikeConfig;
 use Illuminate\Database\Eloquent\Model;
@@ -15,7 +16,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @package App\Models
  * @property int $id
  * @property string $status
- * @property string|null $file
+ * @property mixed|null $file
  * @property string|null $comment
  * @property int $user_id
  * @property int $task_id
@@ -96,7 +97,7 @@ class TaskReport extends Model
      */
     protected $casts = [
         'status' => 'string',
-        'file' => 'string',
+        'file' => VideoTrapCast::class,
         'comment' => 'string',
         'user_id' => 'integer',
         'task_id' => 'integer',

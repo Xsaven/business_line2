@@ -166,7 +166,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-09-17',
             'finish_at' => '2021-09-17',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598337779',
+            'welcome_video' => '600932223',
         ], //7
         [
             'direction_id' => 1,
@@ -213,7 +213,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-09-20',
             'finish_at' => '2021-09-20',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598337779',
+            'welcome_video' => '600932796',
         ], //9
         [
             'direction_id' => 1,
@@ -238,7 +238,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-09-20',
             'finish_at' => '2021-09-22',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598337779',
+            'welcome_video' => '600933254',
         ], //10
         [
             'direction_id' => 1,
@@ -283,7 +283,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-09-22',
             'finish_at' => '2021-09-22',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598337779',
+            'welcome_video' => '600933685',
         ], //12
         [
             'direction_id' => 1,
@@ -536,7 +536,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-10-01',
             'finish_at' => '2021-10-01',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598337779',
+            'welcome_video' => '600934864',
         ], //24
         [
             'direction_id' => 1,
@@ -1137,7 +1137,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-09-22',
             'finish_at' => '2021-09-24',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598346361',
+            'welcome_video' => '600935056',
         ], //46
         [
             'direction_id' => 2,
@@ -1181,7 +1181,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-09-24',
             'finish_at' => '2021-09-28',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598346361',
+            'welcome_video' => '600935443',
         ], //48
         [
             'direction_id' => 2,
@@ -1202,7 +1202,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-09-24',
             'finish_at' => '2021-09-24',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '600764846',
+            'welcome_video' => '600936021',
         ], //49
         [
             'direction_id' => 2,
@@ -1332,7 +1332,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-09-30',
             'finish_at' => '2021-10-05',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598346361',
+            'welcome_video' => '600932564',
         ], //55
         [
             'direction_id' => 2,
@@ -1435,7 +1435,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-10-05',
             'finish_at' => '2021-10-07',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598346361',
+            'welcome_video' => '600934047',
         ], //60
         [
             'direction_id' => 2,
@@ -1518,7 +1518,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-10-07',
             'finish_at' => '2021-10-07',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598346361',
+            'welcome_video' => '600934484',
         ], //64
         [
             'direction_id' => 2,
