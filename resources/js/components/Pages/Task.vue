@@ -30,7 +30,7 @@
                   <v-player :video_id="task.welcome_video" />
               </div>
 
-              <div v-else-if="task.welcome_type === 'banner'" class="banner" >
+              <div v-else-if="task.welcome_type === 'banner'" class="video" >
                   <img :src="`/${task.welcome_banner}`">
               </div>
           </div>
