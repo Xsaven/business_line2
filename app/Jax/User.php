@@ -261,7 +261,6 @@ class User extends JaxExecutor
         event($event);
 
         if ($event->validated) {
-
             $this->reload();
         }
     }

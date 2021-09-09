@@ -18,6 +18,6 @@ class Validate
     public function handle(ReportQuizTask $event)
     {
         $event->task = Task::find($event->task_id);
-        $event->validated = !!$event->task;
+        $event->validated = (bool) $event->task;
     }
 }

@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property string|null $arbitrator_photo
  * @property string|null $arbitrator_position
  * @property string|null $description
+ * @property string|null $description_inside
  * @property string $terms_of_participation
  * @property \Illuminate\Support\Carbon|null $start_at
  * @property \Illuminate\Support\Carbon|null $end_at
@@ -43,6 +44,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereBanner($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Direction whereDescriptionInside($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereEndAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereName($value)

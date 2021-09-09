@@ -18,7 +18,6 @@ class Create
      */
     public function handle(ReportQuizTask $event)
     {
-
         $balls = 0;
         foreach (QuizAnswer::whereIn('id', array_values($event->quiz_answers))->get() as $answer) {
             $balls += $answer->cost;
@@ -27,7 +26,7 @@ class Create
         $event->balls = $balls;
 
         \Auth::user()->update([
-            'balance' => $balls
+            'balance' => $balls,
         ]);
 
         TaskReport::create([

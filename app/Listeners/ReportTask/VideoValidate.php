@@ -19,8 +19,7 @@ class VideoValidate
     {
         $event->task = Task::find($event->task_id);
 
-        if ($event->task && $event->file && str_starts_with($event->file, "uploads/files")) {
-
+        if ($event->task && $event->file && str_starts_with($event->file, 'uploads/files')) {
             $event->validated = true;
         }
     }
