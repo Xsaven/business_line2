@@ -5,12 +5,28 @@
       "src", "active"
     ],
     "seed": [
-      {"src": "/images/tmp/sticker_img.png"},
-      {"src": "/images/tmp/sticker_img.png"},
-      {"src": "/images/tmp/sticker_img.png"},
-      {"src": "/images/tmp/sticker_img.png"},
-      {"src": "/images/tmp/sticker_img.png"},
-      {"src": "/images/tmp/sticker_img.png"}
+      {"src": "/images/stickers/1.png"},
+      {"src": "/images/stickers/2.png"},
+      {"src": "/images/stickers/3.png"},
+      {"src": "/images/stickers/4.png"},
+      {"src": "/images/stickers/5.png"},
+      {"src": "/images/stickers/6.png"},
+      {"src": "/images/stickers/7.png"},
+      {"src": "/images/stickers/8.png"},
+      {"src": "/images/stickers/9.png"},
+      {"src": "/images/stickers/10.png"},
+      {"src": "/images/stickers/11.png"},
+      {"src": "/images/stickers/12.png"},
+      {"src": "/images/stickers/13.png"},
+      {"src": "/images/stickers/14.png"},
+      {"src": "/images/stickers/15.png"},
+      {"src": "/images/stickers/16.png"},
+      {"src": "/images/stickers/17.png"},
+      {"src": "/images/stickers/18.png"},
+      {"src": "/images/stickers/19.png"},
+      {"src": "/images/stickers/20.png"},
+      {"src": "/images/stickers/21.png"}
+
     ],
     "resource": []
   },
@@ -168,7 +184,7 @@
       "state": "video",
       "video_title": "",
       "video_info": "",
-      "video_data": "598315189",
+      "video_data": "601089753",
       "description": "<p>С 13 сентября по 8 октября здесь проходит онлайн-марафон в честь 20-летия “Деловых Линий”!</p><p>Выбирайте интересное для вас направление, ежедневно выполняйте задания на активность, творчество, поддержку коллег… и зарабатывайте баллы!</p><p>Лидеры рейтинга получат суперпризы, а все остальные смогут обменять баллы на призы в магазине!</p><p>Присоединяйтесь ;)</p>"
     }
   },

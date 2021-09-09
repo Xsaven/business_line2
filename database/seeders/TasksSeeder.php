@@ -1498,7 +1498,7 @@ class TasksSeeder extends Seeder
             'start_at' => '2021-10-07',
             'finish_at' => '2021-10-07',
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598346361',
+            'welcome_video' => '600936869',
         ], //63
         [
             'direction_id' => 2,
@@ -1781,7 +1781,7 @@ class TasksSeeder extends Seeder
             'finish_at' => '2021-10-08',
             'is_challenge' => 1,
             'welcome_type' => Task::WELCOME_TYPE_VIDEO,
-            'welcome_video' => '598337779',
+            'welcome_video' => '601085986',
         ], //76 - challenge
     ];
 

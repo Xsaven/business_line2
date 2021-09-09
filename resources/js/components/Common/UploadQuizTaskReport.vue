@@ -11,7 +11,7 @@
       <form class="quiz">
         <div class="head">
           <div class="steps">
-            <div v-for="(quiz,i) in quiz" :class="{'active': true}"> {{i + 1}}</div>
+            <div v-for="(quiz,i) in quiz" :class="{'active': true}">{{i + 1}}</div>
           </div>
 
           <div class="time">
@@ -28,7 +28,7 @@
             <template v-for="(answer,k) in question.answers">
               <div  class="answers" :key="`quiz_answer_${k}`">
                 <div class="field">
-                  <input type="radio" :name="`group${i}`" :id="`group1_check${k}_${i}`">
+                  <input :value="answer.id" v-model="quiz_answers[question.id]" type="radio"  :name="`group${i}`" :id="`group1_check${k}_${i}`">
                   <label :for="`group1_check${k}_${i}`">{{answer.answer}}</label>
                 </div>
               </div>
@@ -36,7 +36,8 @@
           </div>
         </template>
 
-        <button type="button" class="next_btn">Ответить</button>
+        <button v-if="iteration !== quiz.length" type="button" class="next_btn">Ответить</button>
+        <button v-else-if="iteration === quiz.length" type="button" class="next_btn">Закончить</button>
       </form>
 
 
@@ -62,7 +63,8 @@
         },
         data () {
             return {
-
+              quiz_answers: {},
+              iteration: null,
             };
         },
         mounted () {
@@ -103,6 +105,9 @@
 
 
             let cycle = setTimeout(timerCycle, 1000)
+          },
+          results() {
+            console.log(this.quiz_answers);
           }
         }
     }
