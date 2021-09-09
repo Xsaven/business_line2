@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreateStickersTable Class
+ * CreateStickersTable Class.
  */
 class CreateStickersTable extends Migration
 {
@@ -28,5 +28,4 @@ class CreateStickersTable extends Migration
     {
         Schema::dropIfExists('stickers');
     }
-
 }

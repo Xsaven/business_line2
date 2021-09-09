@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreateDivisionsTable Class
+ * CreateDivisionsTable Class.
  */
 class CreateDivisionsTable extends Migration
 {
@@ -27,5 +27,4 @@ class CreateDivisionsTable extends Migration
     {
         Schema::dropIfExists('divisions');
     }
-
 }

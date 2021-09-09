@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreateDownloadsTable Class
+ * CreateDownloadsTable Class.
  */
 class CreateDownloadsTable extends Migration
 {
@@ -28,5 +28,4 @@ class CreateDownloadsTable extends Migration
     {
         Schema::dropIfExists('downloads');
     }
-
 }

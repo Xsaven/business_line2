@@ -2,15 +2,41 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\Product\ProductHasLogs;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 /**
- * Product Class
+ * Product Class.
+ *
  * @package App\Models
+ * @property int $id
+ * @property string $name
+ * @property string $src
+ * @property int $cost
+ * @property array $settings
+ * @property int $setting_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Log[] $logs
+ * @property-read int|null $logs_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Order[] $orders
+ * @property-read int|null $orders_count
+ * @property-read \App\Models\ProductSetting|null $setting
+ * @method static \Illuminate\Database\Eloquent\Builder|Product newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Product newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Product query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereCost($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereSettingId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereSettings($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereSrc($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class Product extends Model
 {
@@ -33,7 +59,7 @@ class Product extends Model
         'src',
         'cost',
         'settings',
-        'setting_id'
+        'setting_id',
     ];
 
     /**
@@ -41,11 +67,11 @@ class Product extends Model
      * @return array
      */
     protected $casts = [
-        "name" => 'string',
-        "src" => 'string',
-        "cost" => 'integer',
-        "settings" => 'json',
-        "setting_id" => 'integer'
+        'name' => 'string',
+        'src' => 'string',
+        'cost' => 'integer',
+        'settings' => 'json',
+        'setting_id' => 'integer',
     ];
 
     /**
@@ -53,11 +79,11 @@ class Product extends Model
      * @return array
      */
     protected $attributes = [
-        "cost" => 1
+        'cost' => 1,
     ];
 
     /**
-     * The "belongsToMany" relation for "Zakazy'"
+     * The "belongsToMany" relation for "Zakazy'".
      * @return BelongsToMany
      */
     public function orders() : BelongsToMany
@@ -66,7 +92,7 @@ class Product extends Model
     }
 
     /**
-     * The "morphMany" relation for "Logi polzovatelei"
+     * The "morphMany" relation for "Logi polzovatelei".
      * @return MorphMany
      */
     public function logs() : MorphMany
@@ -75,12 +101,11 @@ class Product extends Model
     }
 
     /**
-     * The "hasOne" relation for "Nastroiki produktov"
+     * The "hasOne" relation for "Nastroiki produktov".
      * @return HasOne
      */
     public function setting() : HasOne
     {
         return $this->hasOne(ProductSetting::class, 'id', 'setting_id');
     }
-
 }

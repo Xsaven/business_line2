@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreateCommentariesTable Class
+ * CreateCommentariesTable Class.
  */
 class CreateCommentariesTable extends Migration
 {
@@ -31,5 +31,4 @@ class CreateCommentariesTable extends Migration
     {
         Schema::dropIfExists('commentaries');
     }
-
 }

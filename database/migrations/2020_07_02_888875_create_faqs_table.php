@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreateFaqsTable Class
+ * CreateFaqsTable Class.
  */
 class CreateFaqsTable extends Migration
 {
@@ -29,5 +29,4 @@ class CreateFaqsTable extends Migration
     {
         Schema::dropIfExists('faqs');
     }
-
 }

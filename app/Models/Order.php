@@ -2,15 +2,42 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\Order\OrderHasLogs;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 /**
- * Order Class
+ * Order Class.
+ *
  * @package App\Models
+ * @property int $id
+ * @property string|null $phone
+ * @property string|null $email
+ * @property string $status
+ * @property int $user_id
+ * @property int $delivery_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Delivery|null $delivery
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Log[] $logs
+ * @property-read int|null $logs_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Product[] $products
+ * @property-read int|null $products_count
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|Order newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Order newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Order query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereDeliveryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereUserId($value)
+ * @mixin \Eloquent
  */
 class Order extends Model
 {
@@ -27,10 +54,10 @@ class Order extends Model
     const STATUS_SUCCESS = 'success';
 
     const STATUSES = [
-        "created" => 'Создан',
-        "approved" => 'Оформлен',
-        "transit" => 'В пути',
-        "success" => 'Доставлен'
+        'created' => 'Создан',
+        'approved' => 'Оформлен',
+        'transit' => 'В пути',
+        'success' => 'Доставлен',
     ];
 
     /**
@@ -48,7 +75,7 @@ class Order extends Model
         'email',
         'status',
         'user_id',
-        'delivery_id'
+        'delivery_id',
     ];
 
     /**
@@ -56,11 +83,11 @@ class Order extends Model
      * @return array
      */
     protected $casts = [
-        "phone" => 'string',
-        "email" => 'string',
-        "status" => 'string',
-        "user_id" => 'integer',
-        "delivery_id" => 'integer'
+        'phone' => 'string',
+        'email' => 'string',
+        'status' => 'string',
+        'user_id' => 'integer',
+        'delivery_id' => 'integer',
     ];
 
     /**
@@ -68,11 +95,11 @@ class Order extends Model
      * @return array
      */
     protected $attributes = [
-        "status" => 'created'
+        'status' => 'created',
     ];
 
     /**
-     * The "belongsToMany" relation for "Produkty'"
+     * The "belongsToMany" relation for "Produkty'".
      * @return BelongsToMany
      */
     public function products() : BelongsToMany
@@ -81,7 +108,7 @@ class Order extends Model
     }
 
     /**
-     * The "hasOne" relation for "Polzovateli"
+     * The "hasOne" relation for "Polzovateli".
      * @return HasOne
      */
     public function user() : HasOne
@@ -90,7 +117,7 @@ class Order extends Model
     }
 
     /**
-     * The "morphMany" relation for "Logi polzovatelei"
+     * The "morphMany" relation for "Logi polzovatelei".
      * @return MorphMany
      */
     public function logs() : MorphMany
@@ -99,12 +126,11 @@ class Order extends Model
     }
 
     /**
-     * The "hasOne" relation for "Punkty' dostavki"
+     * The "hasOne" relation for "Punkty' dostavki".
      * @return HasOne
      */
     public function delivery() : HasOne
     {
         return $this->hasOne(Delivery::class, 'id', 'delivery_id');
     }
-
 }

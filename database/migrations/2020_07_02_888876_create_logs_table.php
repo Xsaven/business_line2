@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreateLogsTable Class
+ * CreateLogsTable Class.
  */
 class CreateLogsTable extends Migration
 {
@@ -31,5 +31,4 @@ class CreateLogsTable extends Migration
     {
         Schema::dropIfExists('logs');
     }
-
 }

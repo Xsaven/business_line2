@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreateTasksTable Class
+ * CreateTasksTable Class.
  */
 class CreateTasksTable extends Migration
 {
@@ -44,5 +44,4 @@ class CreateTasksTable extends Migration
     {
         Schema::dropIfExists('tasks');
     }
-
 }

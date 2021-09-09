@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreatePrizesTable Class
+ * CreatePrizesTable Class.
  */
 class CreatePrizesTable extends Migration
 {
@@ -28,5 +28,4 @@ class CreatePrizesTable extends Migration
     {
         Schema::dropIfExists('prizes');
     }
-
 }

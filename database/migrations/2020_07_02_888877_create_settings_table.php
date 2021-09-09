@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * CreateSettingsTable Class
+ * CreateSettingsTable Class.
  */
 class CreateSettingsTable extends Migration
 {
@@ -30,5 +30,4 @@ class CreateSettingsTable extends Migration
     {
         Schema::dropIfExists('settings');
     }
-
 }
