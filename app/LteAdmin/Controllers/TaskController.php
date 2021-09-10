@@ -61,6 +61,15 @@ class TaskController extends Controller
             $form->numeric('cost', 'Стоимость')->required()
                 ->icon_dollar_sign();
 
+            $form->select('welcome_type', 'Тип приветствия')
+                ->options(Task::WELCOME_TYPE)
+                ->required();
+
+            $form->input('welcome_video', 'Видео код приветствия')
+                ->icon_video();
+
+            $form->image('welcome_banner', 'Банер приветствия');
+
             $form->ckeditor('short_description', 'Описание');
             $form->ckeditor('terms_of_participation', 'Условия участия');
 
