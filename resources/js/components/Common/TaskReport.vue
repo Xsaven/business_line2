@@ -3,7 +3,7 @@
         <div class="task">
             <div class="head">
                 <div class="title">
-                    <a :href="`/task/${r.task.id}`">{{r.task.full_name}}</a>
+                    <a :href="`/task/${r.task.id}`">{{r.task.name}}</a>
                 </div>
 
                 <div class="date">{{r.created_at}}</div>
@@ -14,7 +14,7 @@
                 </div>
 
                 <div>
-                    <div class="name">{{r.user.name}}</div>
+                    <div class="name">{{r.user.full_name}}</div>
                     <div class="text">{{r.comment}}</div>
                 </div>
             </div>
