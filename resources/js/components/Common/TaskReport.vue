@@ -3,7 +3,7 @@
         <div class="task">
             <div class="head">
                 <div class="title">
-                    <a :href="`/task/${r.task.id}`">{{r.task.name}}</a>
+                    <a :href="`/task/${r.task.id}`">{{r.task.full_name}}</a>
                 </div>
 
                 <div class="date">{{r.created_at}}</div>
