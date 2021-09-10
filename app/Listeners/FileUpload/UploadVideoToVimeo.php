@@ -31,7 +31,7 @@ class UploadVideoToVimeo implements ShouldQueue
                 [
                     'upload' => [
                         'approach' => 'pull',
-                        'link' => asset($event->filename),
+                        'link' => "http://" . getHostByName('localdl') . '/' . $event->filename,
                     ],
                 ],
                 'POST'
