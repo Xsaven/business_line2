@@ -36,7 +36,7 @@
                                     <a :href="`/task/${task.id}`">{{task.name}}</a>
                                 </div>
 
-                                <div class="desc">{{task.short_description}}</div>
+                                <div class="desc" v-html="task.short_description"></div>
                             </div>
                         </div>
                     </template>

@@ -49,6 +49,7 @@ class UsersController extends Controller
 
             $table->search->id();
             $table->search->input('name', 'Имя');
+            $table->search->input('lastname', 'Фамилия');
             $table->search->input('login', 'Логин');
             $table->search->input('email', 'Email');
             $table->search->input('number', 'Табельный номер');
