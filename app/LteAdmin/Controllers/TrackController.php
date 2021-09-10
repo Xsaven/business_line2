@@ -4,6 +4,7 @@ namespace App\LteAdmin\Controllers;
 
 use App\Models\Direction;
 use App\Models\Prize;
+use App\Models\Task;
 use App\Models\Track;
 use Lar\LteAdmin\Segments\Info;
 use Lar\LteAdmin\Segments\Matrix;
@@ -55,7 +56,16 @@ class TrackController extends Controller
             $form->select('direction_id', 'Направление')
                 ->load(Direction::class)
                 ->required();
-            $form->input('video', 'Видео код')->icon_video();
+
+            $form->select('welcome_type', 'Тип приветствия')
+                ->options(Task::WELCOME_TYPE)
+                ->required();
+
+            $form->input('welcome_video', 'Видео код приветствия')
+                ->icon_video();
+
+            $form->image('welcome_banner', 'Банер приветствия');
+
             $form->input('name', 'Название')->required();
             $form->image('arbitrator_photo', 'Фото ведущего')
                 ->required_condition($this->isType('create'));
