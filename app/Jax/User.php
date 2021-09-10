@@ -357,6 +357,7 @@ class User extends JaxExecutor
     /**
      * @param int $task_id
      * @param array $star_quiz_answers
+     * @return array
      */
     public function star_quiz_report(int $task_id, array $star_quiz_answers)
     {
@@ -364,7 +365,7 @@ class User extends JaxExecutor
 
         event($event);
 
-        $this->reload();
+        return ['star' => $event->star];
     }
 
     /**

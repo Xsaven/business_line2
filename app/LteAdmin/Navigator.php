@@ -12,6 +12,7 @@ use App\Models\Position;
 use App\Models\Prize;
 use App\Models\Product;
 use App\Models\ProductSetting;
+use App\Models\QuizQuestion;
 use App\Models\Setting;
 use App\Models\Task;
 use App\Models\Track;
@@ -46,6 +47,10 @@ class Navigator extends NavigatorExtensionProvider implements ActionWorkExtensio
 
         $this->item(Division::TITLE)
             ->resource('division', 'DivisionController')
+            ->icon_building();
+
+        $this->item(QuizQuestion::TITLE)
+            ->resource('quiz_question', 'QuizQuestionController')
             ->icon_building();
 
         $this->item(User::TITLE)

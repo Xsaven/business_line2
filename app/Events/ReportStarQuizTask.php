@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\Star;
 use App\Models\Task;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -16,15 +17,18 @@ class ReportStarQuizTask
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * Create a new event instance.
-     *
-     * @return void
+     * @param int $task_id
+     * @param array $quiz_answers
+     * @param bool $validated
+     * @param Task|null $task
+     * @param Star|null $star
      */
     public function __construct(
         public int $task_id,
-        public array $star_quiz_answers,
+        public array $quiz_answers,
         public bool $validated = false,
         public ?Task $task = null,
+        public ?Star $star = null
     ) {
     }
 }

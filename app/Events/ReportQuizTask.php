@@ -19,6 +19,8 @@ class ReportQuizTask
      * @param int $task_id
      * @param array $quiz_answers
      * @param int $balls
+     * @param bool $validated
+     * @param Task|null $task
      */
     public function __construct(
         public int $task_id,

@@ -1,219 +1,57 @@
 <template>
   <section class="task_info">
-    <div class="performance">
+    <div class="performance" ref="p">
       <div class="title">Выполнение задания</div>
 
       <div class="info">
         <div class="quiz_start">
           <div>Нажми, чтобы приступить к выполнению</div>
-          <button class="start_btn">Старт</button>
+          <button class="start_btn" @click="start">Старт</button>
         </div>
 
-        <form action="" class="quiz">
+        <form action="" class="quiz" ref="quiz">
           <div class="head">
             <div class="steps">
-              <div class="active">1</div>
-              <div>2</div>
-              <div>3</div>
-              <div>4</div>
-              <div>5</div>
-              <div>6</div>
-              <div>7</div>
-              <div>8</div>
-              <div>9</div>
-              <div>10</div>
+              <template v-for="(quiz,i) in star_quiz">
+              <div :class="{'active': !i,}">{{i + 1}}</div>
+              </template>
             </div>
 
-            <div class="time">
-              <span class="minutes">00</span>
-              <span class="sep">:</span>
-              <span class="seconds">00</span>
-            </div>
+<!--            <div class="time">-->
+<!--              <span class="minutes">00</span>-->
+<!--              <span class="sep">:</span>-->
+<!--              <span class="seconds">00</span>-->
+<!--            </div>-->
           </div>
 
-          <div class="step step1">
-            <div class="question">Кто из знаменитых художников за жизнь продал всего одну картину?</div>
+          <template v-for="(question,i) in star_quiz">
+            <div :class="`step step${i + 1}`" :key="`quiz_${i}`">
+              <div class="question">{{ question.question }}</div>
 
-            <div class="answers">
-              <div class="field">
-                <input type="radio" name="group1" id="group1_check1">
-                <label for="group1_check1">Винсент Ван Гог</label>
-
-                <input type="radio" name="group1" id="group1_check2">
-                <label for="group1_check2">Пьер Огюст Ренуар</label>
-
-                <input type="radio" name="group1" id="group1_check3">
-                <label for="group1_check3">Поль Сезанн</label>
-              </div>
+              <template v-for="(answer,k) in question.answers">
+                <div class="answers" :key="`quiz_answer_${k}`">
+                  <div class="field">
+                    <input :value="answer.id" v-model="quiz_answers[i]" type="radio" :name="`group${i}`" :id="`group1_check${k}_${i}`">
+                    <label :for="`group1_check${k}_${i}`">{{answer.answer}}</label>
+                  </div>
+                </div>
+              </template>
             </div>
-          </div>
+          </template>
 
-          <div class="step step2">
-            <div class="question">Кто из знаменитых художников за жизнь продал всего одну картину?</div>
-
-            <div class="answers">
-              <div class="field">
-                <input type="radio" name="group2" id="group2_check1">
-                <label for="group2_check1">Винсент Ван Гог</label>
-
-                <input type="radio" name="group2" id="group2_check2">
-                <label for="group2_check2">Пьер Огюст Ренуар</label>
-
-                <input type="radio" name="group2" id="group2_check3">
-                <label for="group2_check3">Поль Сезанн</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="step step3">
-            <div class="question">Кто из знаменитых художников за жизнь продал всего одну картину?</div>
-
-            <div class="answers">
-              <div class="field">
-                <input type="radio" name="group3" id="group3_check1">
-                <label for="group3_check1">Винсент Ван Гог</label>
-
-                <input type="radio" name="group3" id="group3_check2">
-                <label for="group3_check2">Пьер Огюст Ренуар</label>
-
-                <input type="radio" name="group3" id="group3_check3">
-                <label for="group3_check3">Поль Сезанн</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="step step4">
-            <div class="question">Кто из знаменитых художников за жизнь продал всего одну картину?</div>
-
-            <div class="answers">
-              <div class="field">
-                <input type="radio" name="group4" id="group4_check1">
-                <label for="group4_check1">Винсент Ван Гог</label>
-
-                <input type="radio" name="group4" id="group4_check2">
-                <label for="group4_check2">Пьер Огюст Ренуар</label>
-
-                <input type="radio" name="group4" id="group4_check3">
-                <label for="group4_check3">Поль Сезанн</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="step step5">
-            <div class="question">Кто из знаменитых художников за жизнь продал всего одну картину?</div>
-
-            <div class="answers">
-              <div class="field">
-                <input type="radio" name="group5" id="group5_check1">
-                <label for="group5_check1">Винсент Ван Гог</label>
-
-                <input type="radio" name="group5" id="group5_check2">
-                <label for="group5_check2">Пьер Огюст Ренуар</label>
-
-                <input type="radio" name="group5" id="group5_check3">
-                <label for="group5_check3">Поль Сезанн</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="step step6">
-            <div class="question">Кто из знаменитых художников за жизнь продал всего одну картину?</div>
-
-            <div class="answers">
-              <div class="field">
-                <input type="radio" name="group6" id="group6_check1">
-                <label for="group6_check1">Винсент Ван Гог</label>
-
-                <input type="radio" name="group6" id="group6_check2">
-                <label for="group6_check2">Пьер Огюст Ренуар</label>
-
-                <input type="radio" name="group6" id="group6_check3">
-                <label for="group6_check3">Поль Сезанн</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="step step7">
-            <div class="question">Кто из знаменитых художников за жизнь продал всего одну картину?</div>
-
-            <div class="answers">
-              <div class="field">
-                <input type="radio" name="group7" id="group7_check1">
-                <label for="group7_check1">Винсент Ван Гог</label>
-
-                <input type="radio" name="group7" id="group7_check2">
-                <label for="group7_check2">Пьер Огюст Ренуар</label>
-
-                <input type="radio" name="group7" id="group7_check3">
-                <label for="group7_check3">Поль Сезанн</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="step step8">
-            <div class="question">Кто из знаменитых художников за жизнь продал всего одну картину?</div>
-
-            <div class="answers">
-              <div class="field">
-                <input type="radio" name="group8" id="group8_check1">
-                <label for="group8_check1">Винсент Ван Гог</label>
-
-                <input type="radio" name="group8" id="group8_check2">
-                <label for="group8_check2">Пьер Огюст Ренуар</label>
-
-                <input type="radio" name="group8" id="group8_check3">
-                <label for="group8_check3">Поль Сезанн</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="step step9">
-            <div class="question">Кто из знаменитых художников за жизнь продал всего одну картину?</div>
-
-            <div class="answers">
-              <div class="field">
-                <input type="radio" name="group9" id="group9_check1">
-                <label for="group9_check1">Винсент Ван Гог</label>
-
-                <input type="radio" name="group9" id="group9_check2">
-                <label for="group9_check2">Пьер Огюст Ренуар</label>
-
-                <input type="radio" name="group9" id="group9_check3">
-                <label for="group9_check3">Поль Сезанн</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="step step10">
-            <div class="question">Кто из знаменитых художников за жизнь продал всего одну картину?</div>
-
-            <div class="answers">
-              <div class="field">
-                <input type="radio" name="group10" id="group10_check1">
-                <label for="group10_check1">Винсент Ван Гог</label>
-
-                <input type="radio" name="group10" id="group10_check2">
-                <label for="group10_check2">Пьер Огюст Ренуар</label>
-
-                <input type="radio" name="group10" id="group10_check3">
-                <label for="group10_check3">Поль Сезанн</label>
-              </div>
-            </div>
-          </div>
-
-          <button type="button" class="next_btn">Ответить</button>
+          <button v-if="currentStep !== star_quiz.length + 1" type="button" class="next_btn" @click="nextQ">Ответить</button>
         </form>
 
         <div class="quiz_result">
           <div class="you_look_like">
             <div class="photo">
-              <img data-src="/images/tmp/user_avatar3.jpg" alt="" class="lozad">
+              <img :src="`/${star.photo}`" alt="" class="lozad">
             </div>
 
             <div class="text">
-              <div>Вы похожи на Криштиану<br> Роналду – Вот это да!</div>
+              <div>Вы похожи на {{star.name}} – Вот это да!</div>
 
-              <div>Перед нами обладатель золотого мяча и золотого контракта со всеми рекламодателями.</div>
+              <div>{{star.text}}</div>
             </div>
           </div>
         </div>
@@ -224,9 +62,86 @@
 
 <script>
 export default {
-  name: "v-upload-star-quiz-task-report"
+  name: "v-upload-star-quiz-task-report",
+  props: {
+    star_quiz: {required: true},
+    task: {required: true},
+  },
+  data() {
+    return {
+      currentStep: 1,
+      quiz_answers: [],
+      star: {},
+    }
+  },
+  methods: {
+    finishQ () {
+      jax.user.star_quiz_report(this.task.id,this.quiz_answers)
+          .then((data) => {
+            this.star = data.star
+            $('.task_info .performance .quiz').hide()
+            $('.task_info .performance .quiz_result').fadeIn(300)
+          })
+    },
+    nextQ() {
+      if (this.quiz_answers[this.currentStep-1] === undefined) {
+        return "toast:error".exec("Для начала дайте правельный ответ!");
+      }
+      let parent = $(this.$refs.quiz)
+      let steps = $('.task_info .performance .quiz .steps > *');
+      steps.removeClass('active')
+      steps.eq(this.currentStep).addClass('active')
+      steps.eq(this.currentStep - 1).addClass('success')
+
+      this.currentStep++
+
+      if (this.currentStep === (this.star_quiz.length + 1)) return this.finishQ();
+
+      parent.find('.step').hide()
+      parent.find('.step' + this.currentStep).fadeIn(300)
+
+      if (this.currentStep > steps.length) {
+        $('.task_info .performance .quiz').hide()
+        $('.task_info .performance .quiz_result').fadeIn(300)
+      }
+    },
+    start() {
+      let parent = $(this.$refs.p)
+
+      parent.find('.quiz_start').hide()
+      parent.find('.quiz').fadeIn(300)
+
+      // Секундомер
+      //this.timerCycle()
+    },
+    timerCycle() {
+      let sec = parseInt(sec)
+      let min = parseInt(min)
+
+      sec = sec + 1
+
+      if (sec === 60) {
+        min = min + 1
+        sec = 0
+      }
+      if (min === 60) {
+        min = 0
+        sec = 0
+      }
+
+      if (sec < 10 || sec === 0) sec = '0' + sec
+      if (min < 10 || min === 0) min = '0' + min
+
+      $('.task_info .performance .quiz .time .minutes').text(min)
+      $('.task_info .performance .quiz .time .seconds').text(sec)
+
+
+      let cycle = setTimeout(timerCycle, 1000)
+    },
+  }
 }
 </script>
+
 
 <style scoped>
 

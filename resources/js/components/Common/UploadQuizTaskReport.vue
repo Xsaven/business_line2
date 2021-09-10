@@ -12,7 +12,7 @@
         <div class="head">
           <div class="steps">
             <template v-for="(quiz,i) in quiz">
-              <div :key="`qan_${i}`" :class="{'active': !i, 'error': !ri_answer[i] && ri_answer[i] !== undefined && ri_answer[i] !== null, 'success': ri_answer[i]}">{{i + 1}}</div>
+              <div  :class="{'active': !i, 'error': !ri_answer[i] && ri_answer[i] !== undefined && ri_answer[i] !== null, 'success': ri_answer[i]}">{{i + 1}}</div>
             </template>
           </div>
 

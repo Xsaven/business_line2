@@ -63,6 +63,13 @@ class Task extends Page
             $attrs['quiz'] = [];
         }
 
+        if($repo->findById->report_type === 'star_quiz') {
+            $attrs['star_quiz'] = QuizQuestionResource::collection(QuizQuestion::where('task_id',$repo->findById->id)->get())
+                ->toArray(request());
+        } else {
+            $attrs['star_quiz'] = [];
+        }
+
         parent::__construct($id, $attrs, $params);
     }
 }
