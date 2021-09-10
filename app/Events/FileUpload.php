@@ -24,6 +24,7 @@ class FileUpload
      * @param  string|null  $filename
      * @param  bool  $is_image
      * @param  bool  $is_video
+     * @param  string|null  $ip
      */
     public function __construct(
         public ?UploadedFile $file,
@@ -32,8 +33,8 @@ class FileUpload
         public ?string $filename = null,
         public bool $is_image = false,
         public bool $is_video = false,
-    ) {
-    }
+        public ?string $ip = null,
+    ) {}
 
     /**
      * @return bool
