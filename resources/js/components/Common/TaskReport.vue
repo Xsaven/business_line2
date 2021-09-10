@@ -104,6 +104,7 @@
         },
         mounted () {
             ljs.toExec(`task-report-update-${this.r.id}`, this.update.bind(this));
+            ljs.onetime(() => this.$ref.m.scrollTo(0,this.$ref.m.scrollHeight), 101)
         },
         updated() {
             ljs.toExec(`task-report-update-${this.r.id}`, this.update.bind(this));
