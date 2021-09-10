@@ -194,8 +194,8 @@ class User extends JaxExecutor
     {
         $user = \Auth::user();
 
-        \Cache::set("n:user:session:{$user->id}", 2, now()->addMinutes(3));
-        \Cache::set("n:user:{$page}:{$user->id}", 2, now()->addMinutes(3));
+        \Cache::set("n:user:session:{$user->id}", 2, now()->addMinutes(5));
+        \Cache::set("n:user:{$page}:{$user->id}", 2, now()->addMinutes(5));
 
         if (! $come_back) {
             \Auth::user()->increment('seconds', 60);

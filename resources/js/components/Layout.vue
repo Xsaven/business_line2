@@ -43,7 +43,7 @@
                     }).catch(() => {
                         //"doc::reload".exec();
                     });
-                }, 1000*60);
+                }, 3000*60);
             },
             echo_mount () {
                 if (!this.ws_channel_global) {

@@ -49,6 +49,7 @@ class TaskController extends Controller
     {
         return new Matrix(function (Form $form) {
             $form->info_id();
+            $form->info('Направление');
             $form->input('name', 'Название')->required();
             $form->image('prize_src', 'Фото приза')
                 ->required_condition($this->isType('create'));
