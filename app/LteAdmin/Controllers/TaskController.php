@@ -61,7 +61,7 @@ class TaskController extends Controller
             $form->numeric('cost', 'Стоимость')->required()
                 ->icon_dollar_sign();
 
-            $form->ckeditor('short_description', 'Писание');
+            $form->ckeditor('short_description', 'Описание');
             $form->ckeditor('terms_of_participation', 'Условия участия');
 
             $form->divider('Дата и время');
