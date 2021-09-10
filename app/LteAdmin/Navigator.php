@@ -14,6 +14,7 @@ use App\Models\Product;
 use App\Models\ProductSetting;
 use App\Models\QuizQuestion;
 use App\Models\Setting;
+use App\Models\Star;
 use App\Models\Task;
 use App\Models\Track;
 use App\Models\User;
@@ -52,6 +53,10 @@ class Navigator extends NavigatorExtensionProvider implements ActionWorkExtensio
         $this->item(QuizQuestion::TITLE)
             ->resource('quiz_question', 'QuizQuestionController')
             ->icon_building();
+
+        $this->item(Star::TITLE)
+            ->resource('star', 'StarController')
+            ->icon_star();
 
         $this->item(User::TITLE)
             ->resource('users', 'UsersController')
