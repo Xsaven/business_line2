@@ -104,17 +104,13 @@
         },
         mounted () {
             ljs.toExec(`task-report-update-${this.r.id}`, this.update.bind(this));
-            ljs.onetime(() => this.$ref.m.scrollTo(0,this.$ref.m.scrollHeight), 101)
+            this.$refs.m.scrollTo(0,this.$refs.m.scrollHeight)
         },
         updated() {
             ljs.toExec(`task-report-update-${this.r.id}`, this.update.bind(this));
         },
         computed: {},
-        watch: {
-            r () {
-                ljs.onetime(() => this.$ref.m.scrollTo(0,this.$ref.m.scrollHeight), 101)
-            }
-        },
+        watch: {},
         methods: {
             num (num) {
                 return isNumber(num)
@@ -122,13 +118,13 @@
             sticker (id) {
                 jax.task_report.comment(this.r.id, `[${id}]`).then(({report}) => {
                     this.r = report;
-                    ljs.onetime(() => this.$ref.m.scrollTo(0,this.$ref.m.scrollHeight), 101)
+                    ljs.onetime(() => this.$refs.m.scrollTo(0,this.$refs.m.scrollHeight), 101)
                 });
             },
             update () {
                 jax.task_report.find(this.r.id).then(({data}) => {
                     this.r = data;
-                    ljs.onetime(() => this.$ref.m.scrollTo(0,this.$ref.m.scrollHeight), 102)
+                    ljs.onetime(() => this.$refs.m.scrollTo(0,this.$refs.m.scrollHeight), 102)
                 });
             },
             like () {
