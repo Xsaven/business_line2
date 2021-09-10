@@ -85,7 +85,7 @@
         <section v-if="!user.subscribe_direction" class="modal" id="join_modal">
             <div class="title">Внимание</div>
 
-            <div class="desc">Вы можете выбрать только один трек. Дальнейшее изменение направления будет невозможным.</div>
+          <div class="desc">Вы можете выбрать <b>только один трек.</b> Дальнейшее изменение направления будет невозможным.</div>
 
             <form action="" class="form">
                 <div class="field">
