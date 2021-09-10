@@ -461,6 +461,6 @@ class User extends JaxExecutor
     {
         $answer = QuizAnswer::find($answer_id);
 
-        return ['result' => (bool) $answer->cost];
+        return ['result' => (bool) $answer?->cost];
     }
 }

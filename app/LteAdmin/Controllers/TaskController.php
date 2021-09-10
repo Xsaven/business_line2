@@ -49,7 +49,10 @@ class TaskController extends Controller
     {
         return new Matrix(function (Form $form) {
             $form->info_id();
-            $form->info('Направление');
+            if ($this->isType('edit')) {
+                $form->info('direction_name', 'Направление')
+                    ->value($this->model()?->direction?->name);
+            }
             $form->input('name', 'Название')->required();
             $form->input('prize_src', 'Фото приза')
                 ->required_condition($this->isType('create'));

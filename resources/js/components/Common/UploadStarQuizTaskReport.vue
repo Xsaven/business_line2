@@ -5,7 +5,7 @@
 
       <div class="info">
         <div class="quiz_start">
-          <div>Нажми, чтобы приступить к выполнению</div>
+          <div>Нажмите, чтобы приступить к выполнению</div>
           <button class="start_btn" @click="start">Старт</button>
         </div>
 

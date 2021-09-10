@@ -4,7 +4,7 @@
 
     <div class="info">
       <div class="quiz_start">
-        <div>Нажми, чтобы приступить к выполнению</div>
+        <div>Нажмите, чтобы приступить к выполнению</div>
         <button class="start_btn" type="button" @click="start">Старт</button>
       </div>
 
@@ -16,11 +16,11 @@
             </template>
           </div>
 
-<!--          <div class="time">-->
-<!--            <span class="minutes">00</span>-->
-<!--            <span class="sep">:</span>-->
-<!--            <span class="seconds">00</span>-->
-<!--          </div>-->
+          <div class="time">
+            <span class="minutes">00</span>
+            <span class="sep">:</span>
+            <span class="seconds">{{seconds}}</span>
+          </div>
         </div>
 
         <template v-for="(question,i) in quiz">
@@ -49,7 +49,7 @@
         <v-icon v-else icon="ic_bad" class="error"/>
 
         <div v-if="!hase">Вы ответили на все вопросы правильно!</div>
-        <div v-else>У тебя несколько ошибок</div>
+        <div v-else>У вас несколько ошибок</div>
         <div class="scores">+{{this.balls}} {{declOfNum(task.balls,['бал','бала','баллов'])}}</div>
       </div>
 
@@ -71,7 +71,9 @@
               currentStep: 1,
               balls: 0,
               ri_answer: [],
-              hase: false
+              hase: false,
+                sec: 0,
+                timer: null
             };
         },
         mounted () {
@@ -80,7 +82,10 @@
         computed: {
           has_errors () {
             return !!this.ri_answer.filter((i) => !i).length;
-          }
+          },
+            seconds () {
+              return this.sec > 9 ? this.sec : `0${this.sec}`;
+            }
         },
         watch: {},
         methods: {
@@ -142,32 +147,18 @@
             parent.find('.quiz').fadeIn(300)
 
             // Секундомер
-            //this.timerCycle()
+              if (this.timer) clearInterval(this.timer);
+              setInterval(this.timerCycle.bind(this), 1000);
           },
-          timerCycle() {
-            let sec = parseInt(sec)
-            let min = parseInt(min)
-
-            sec = sec + 1
-
-            if (sec === 60) {
-              min = min + 1
-              sec = 0
-            }
-            if (min === 60) {
-              min = 0
-              sec = 0
-            }
-
-            if (sec < 10 || sec === 0) sec = '0' + sec
-            if (min < 10 || min === 0) min = '0' + min
-
-            $('.task_info .performance .quiz .time .minutes').text(min)
-            $('.task_info .performance .quiz .time .seconds').text(sec)
-
-
-            let cycle = setTimeout(timerCycle, 1000)
-          },
+            timerCycle () {
+                if (this.sec === 10) {
+                    this.sec = 0;
+                    this.quiz_answers[this.currentStep-1] = 0;
+                    this.nextQ();
+                    return ;
+                }
+                this.sec++;
+            },
           results() {
             console.log(this.quiz_answers);
           }
