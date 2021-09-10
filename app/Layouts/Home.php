@@ -97,6 +97,8 @@ class Home extends LayoutComponent
         $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_1279.css'), 'media' => 'print, (max-width: 1279px)']);
         $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_767.css'), 'media' => 'print, (max-width: 767px)']);
         $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_479.css'), 'media' => '(max-width: 479px)']);
+        $this->head->link(['rel' => 'icon', 'type' => 'image/png', 'href' => asset('favicon.ico')]);
+        $this->head->link(['rel' => 'apple-touch-icon', 'href' => asset('favicon.ico')]);
         $this->head->text($this->g_script_1());
         $this->body->text($this->g_script_2());
         $this->applyStates(request());
