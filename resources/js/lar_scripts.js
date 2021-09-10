@@ -28,4 +28,8 @@ module.exports = ($root, $methods) => {
         loaded: (el) => el.classList.add('loaded')
     });
     observer.observe();
+
+    window.link = (link) => {
+        return String(link).indexOf('http') === 0 ? link : `/${link}`;
+    };
 };
