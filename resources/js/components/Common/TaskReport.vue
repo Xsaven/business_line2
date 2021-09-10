@@ -103,14 +103,17 @@
             };
         },
         mounted () {
-            this.$ref.m.scrollTo(0,this.$ref.m.scrollHeight);
             ljs.toExec(`task-report-update-${this.r.id}`, this.update.bind(this));
         },
         updated() {
             ljs.toExec(`task-report-update-${this.r.id}`, this.update.bind(this));
         },
         computed: {},
-        watch: {},
+        watch: {
+            r () {
+                ljs.onetime(() => this.$ref.m.scrollTo(0,this.$ref.m.scrollHeight), 101)
+            }
+        },
         methods: {
             num (num) {
                 return isNumber(num)
