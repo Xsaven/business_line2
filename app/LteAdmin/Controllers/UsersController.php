@@ -100,7 +100,7 @@ class UsersController extends Controller
                     ->value(number_format($this->model()->seconds ? $this->model()->seconds / 60 : 0, 2));
                 $form->info('logins', 'Авторизаций');
             }
-            $form->image('photo', 'Фото');
+            $form->input('photo', 'Фото');
             $form->input('number', 'Табельный номер')->required();
             $form->input('name', 'Имя')->required();
             $form->input('lastname', 'Фамилия');

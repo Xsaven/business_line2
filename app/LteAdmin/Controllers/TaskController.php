@@ -49,8 +49,9 @@ class TaskController extends Controller
     {
         return new Matrix(function (Form $form) {
             $form->info_id();
+            $form->info('Направление');
             $form->input('name', 'Название')->required();
-            $form->image('prize_src', 'Фото приза')
+            $form->input('prize_src', 'Фото приза')
                 ->required_condition($this->isType('create'));
             $form->select('event_type', 'Тип события')
                 ->options(Task::EVENT_TYPES, true);
@@ -68,7 +69,7 @@ class TaskController extends Controller
             $form->input('welcome_video', 'Видео код приветствия')
                 ->icon_video();
 
-            $form->image('welcome_banner', 'Банер приветствия');
+            $form->input('welcome_banner', 'Банер приветствия');
 
             $form->ckeditor('short_description', 'Описание');
             $form->ckeditor('terms_of_participation', 'Условия участия');

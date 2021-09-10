@@ -14,7 +14,7 @@
                 </div>
 
                 <div>
-                    <div class="name">{{r.user.name}}</div>
+                    <div class="name">{{r.user.full_name}}</div>
                     <div class="text">{{r.comment}}</div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
 
 
         <div class="dialog" v-if="r.comments.length">
-            <div class="messages">
+            <div class="messages" ref="m">
 
                 <div class="message" v-for="comment in r.comments">
                     <div class="user">
@@ -104,7 +104,7 @@
         },
         mounted () {
             ljs.toExec(`task-report-update-${this.r.id}`, this.update.bind(this));
-            console.log(this.r.file);
+            this.$refs.m.scrollTo(0,this.$refs.m.scrollHeight)
         },
         updated() {
             ljs.toExec(`task-report-update-${this.r.id}`, this.update.bind(this));
@@ -118,11 +118,13 @@
             sticker (id) {
                 jax.task_report.comment(this.r.id, `[${id}]`).then(({report}) => {
                     this.r = report;
+                    ljs.onetime(() => this.$refs.m.scrollTo(0,this.$refs.m.scrollHeight), 101)
                 });
             },
             update () {
                 jax.task_report.find(this.r.id).then(({data}) => {
                     this.r = data;
+                    ljs.onetime(() => this.$refs.m.scrollTo(0,this.$refs.m.scrollHeight), 102)
                 });
             },
             like () {

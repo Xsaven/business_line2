@@ -194,8 +194,8 @@ class User extends JaxExecutor
     {
         $user = \Auth::user();
 
-        \Cache::set("n:user:session:{$user->id}", 2, now()->addMinutes(3));
-        \Cache::set("n:user:{$page}:{$user->id}", 2, now()->addMinutes(3));
+        \Cache::set("n:user:session:{$user->id}", 2, now()->addMinutes(5));
+        \Cache::set("n:user:{$page}:{$user->id}", 2, now()->addMinutes(5));
 
         if (! $come_back) {
             \Auth::user()->increment('seconds', 60);
@@ -457,11 +457,10 @@ class User extends JaxExecutor
         return ['result' => false];
     }
 
-
     public function answer(int $answer_id)
     {
         $answer = QuizAnswer::find($answer_id);
 
-        return ['result' => !!$answer->cost];
+        return ['result' => (bool) $answer->cost];
     }
 }

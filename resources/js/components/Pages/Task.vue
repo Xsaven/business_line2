@@ -31,7 +31,7 @@
               </div>
 
               <div v-else-if="task.welcome_type === 'banner'" class="video" >
-                  <img :src="`/${task.welcome_banner}`">
+                  <img :src="link(task.welcome_banner)" />
               </div>
           </div>
 
@@ -105,7 +105,7 @@
         watch: {},
         methods: {
 
-
+            link (link) { return window.link(link); },
 
           getBetweenDays() {
 

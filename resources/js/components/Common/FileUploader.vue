@@ -78,7 +78,7 @@
         data () {
             return {
                 allowed_image_mb: 10,
-                allowed_video_mb: 20,
+                allowed_video_mb: 300,
                 image_types: ['image/jpeg', 'image/png'],
                 video_types: ['video/quicktime', 'video/mp4', 'video/mpeg'],
                 error_format: false,

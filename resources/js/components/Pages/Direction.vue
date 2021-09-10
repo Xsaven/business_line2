@@ -37,7 +37,7 @@
 
                     <div class="author" v-if="direction.arbitrator_name">
                         <div class="avatar">
-                            <img :src="`/${direction.arbitrator_photo}`" alt="" class="lozad">
+                            <img :src="link(direction.arbitrator_photo)" alt="" class="lozad">
                             <img data-src="/images/bg_direction_author.svg" alt="" class="bg lozad">
                         </div>
 
@@ -65,7 +65,7 @@
                         <div class="row">
                             <div class="item" v-for="prize in direction.prizes">
                                 <div class="thumb">
-                                    <img :src="`/${prize.src}`" alt="" class="lozad">
+                                    <img :src="link(prize.src)" alt="" class="lozad">
                                 </div>
 
                                 <div class="name">{{prize.name}}</div>
@@ -159,6 +159,7 @@
         },
         watch: {},
         methods: {
+            link (link) { return window.link(link); },
             follow() {
                 if (this.user.can) jax.user.follow_direction(this.direction.id)
                     .then(() => {

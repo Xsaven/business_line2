@@ -24,10 +24,11 @@ class ValidationVideo
                     str_contains($event->file->getMimeType(), 'mp4') ||
                     str_contains($event->file->getMimeType(), 'mpeg')
                 ) &&
-                $event->file->getSize() < (10485760 * 2)
+                $event->file->getSize() < (10485760 * 30)
             ) {
                 $event->validated = true;
                 $event->is_video = true;
+                $event->ip = gethostbyname('localdl');
             }
         }
     }

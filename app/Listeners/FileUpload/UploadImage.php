@@ -23,7 +23,7 @@ class UploadImage
 
             $img->orientate();
 
-            $img->resize(2000, 2000, function ($constraint) {
+            $img->resize(1200, 1200, function ($constraint) {
                 $constraint->aspectRatio();
             })->encode('jpg');
 
