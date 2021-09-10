@@ -28,7 +28,7 @@ class ValidationVideo
             ) {
                 $event->validated = true;
                 $event->is_video = true;
-                $event->ip = getHostByName('localdl');
+                $event->ip = gethostbyname('localdl');
             }
         }
     }

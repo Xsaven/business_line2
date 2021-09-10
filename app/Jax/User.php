@@ -456,11 +456,10 @@ class User extends JaxExecutor
         return ['result' => false];
     }
 
-
     public function answer(int $answer_id)
     {
         $answer = QuizAnswer::find($answer_id);
 
-        return ['result' => !!$answer->cost];
+        return ['result' => (bool) $answer->cost];
     }
 }

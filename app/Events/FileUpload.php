@@ -34,7 +34,8 @@ class FileUpload
         public bool $is_image = false,
         public bool $is_video = false,
         public ?string $ip = null,
-    ) {}
+    ) {
+    }
 
     /**
      * @return bool
