@@ -10,14 +10,10 @@
             :image="true"
             :video="false"
             v-model="file"
-            @upload_start="() => {this.uploaded = false}"
-            @upload_success="() => {this.uploaded = true}"
-            @upload_finish="() => {this.uploaded = true}"
-            @upload_drop="() => {this.uploaded = false}"
         />
 
         <div class="submit">
-          <button type="submit" class="submit_btn" :disabled="!uploaded">Отправить</button>
+          <button type="submit" class="submit_btn">Отправить</button>
         </div>
       </form>
 
@@ -32,8 +28,7 @@
         props: ['task'],
         data () {
             return {
-                file: null,
-                uploaded: false
+                file: null
             };
         },
         mounted () {},

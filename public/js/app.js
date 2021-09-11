@@ -3183,17 +3183,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-download-file-image",
   props: ['task'],
   data: function data() {
     return {
       downloaded: false,
-      uploaded: false,
       file: null
     };
   },
@@ -4288,8 +4283,8 @@ __webpack_require__.r(__webpack_exports__);
         var start = textarea.selectionStart;
         var end = textarea.selectionEnd;
         textarea.value = textarea.value.substring(0, start) + emoji + textarea.value.substring(end);
-        textarea.focus();
-        textarea.selectionEnd = end + 3;
+        this.$emit('input', textarea.value);
+        textarea.focus(); //textarea.selectionEnd = end + 3;
       }
     },
     sticker_click: function sticker_click(id) {
@@ -5545,17 +5540,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-upload-image-or-video",
   props: ['task'],
   data: function data() {
     return {
-      file: null,
-      uploaded: false
+      file: null
     };
   },
   mounted: function mounted() {},
@@ -5609,17 +5599,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-upload-image-task-report",
   props: ['task'],
   data: function data() {
     return {
-      file: null,
-      uploaded: false
+      file: null
     };
   },
   mounted: function mounted() {},
@@ -6130,17 +6115,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-upload-tiv-report",
   props: ['task'],
   data: function data() {
     return {
       file: null,
-      uploaded: false,
       comment: '',
       myref: null
     };
@@ -6204,17 +6184,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-upload-text-or-image",
   props: ['task'],
   data: function data() {
     return {
       file: null,
-      uploaded: false,
       comment: '',
       myref: null
     };
@@ -6278,17 +6253,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-upload-text-or-video",
   props: ['task'],
   data: function data() {
     return {
       file: null,
-      uploaded: false,
       comment: '',
       myref: null
     };
@@ -6406,17 +6376,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-upload-video-task-report",
   props: ['task'],
   data: function data() {
     return {
-      file: null,
-      uploaded: false
+      file: null
     };
   },
   mounted: function mounted() {},
@@ -60015,7 +59980,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function() {
-  var this$1 = this
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -60064,20 +60028,6 @@ var render = function() {
           _vm.downloaded
             ? _c("v-file-uploader", {
                 attrs: { image: true, video: false },
-                on: {
-                  upload_start: function() {
-                    this$1.uploaded = false
-                  },
-                  upload_success: function() {
-                    this$1.uploaded = true
-                  },
-                  upload_finish: function() {
-                    this$1.uploaded = true
-                  },
-                  upload_drop: function() {
-                    this$1.uploaded = false
-                  }
-                },
                 model: {
                   value: _vm.file,
                   callback: function($$v) {
@@ -60092,10 +60042,7 @@ var render = function() {
             ? _c("div", { staticClass: "submit" }, [
                 _c(
                   "button",
-                  {
-                    staticClass: "submit_btn",
-                    attrs: { type: "submit", disabled: !_vm.uploaded }
-                  },
+                  { staticClass: "submit_btn", attrs: { type: "submit" } },
                   [_vm._v("Отправить")]
                 )
               ])
@@ -62706,7 +62653,7 @@ var render = function() {
                         }
                       ],
                       ref: "text",
-                      attrs: { name: "comment", placeholder: "Комментарий" },
+                      attrs: { placeholder: "Комментарий" },
                       domProps: { value: _vm.comment },
                       on: {
                         input: function($event) {
@@ -62724,6 +62671,13 @@ var render = function() {
                             show_smiles: true,
                             show_stickers: false,
                             target: _vm.myref
+                          },
+                          model: {
+                            value: _vm.comment,
+                            callback: function($$v) {
+                              _vm.comment = $$v
+                            },
+                            expression: "comment"
                           }
                         })
                       : _vm._e()
@@ -62838,7 +62792,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function() {
-  var this$1 = this
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -62861,20 +62814,6 @@ var render = function() {
         [
           _c("v-file-uploader", {
             attrs: { image: true, video: true },
-            on: {
-              upload_start: function() {
-                this$1.uploaded = false
-              },
-              upload_success: function() {
-                this$1.uploaded = true
-              },
-              upload_finish: function() {
-                this$1.uploaded = true
-              },
-              upload_drop: function() {
-                this$1.uploaded = false
-              }
-            },
             model: {
               value: _vm.file,
               callback: function($$v) {
@@ -62884,16 +62823,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "submit" }, [
-            _c(
-              "button",
-              {
-                staticClass: "submit_btn",
-                attrs: { type: "submit", disabled: !_vm.uploaded }
-              },
-              [_vm._v("Отправить")]
-            )
-          ])
+          _vm._m(0)
         ],
         1
       ),
@@ -62905,7 +62835,18 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "submit" }, [
+      _c("button", { staticClass: "submit_btn", attrs: { type: "submit" } }, [
+        _vm._v("Отправить")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -62925,7 +62866,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function() {
-  var this$1 = this
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -62948,20 +62888,6 @@ var render = function() {
         [
           _c("v-file-uploader", {
             attrs: { image: true, video: false },
-            on: {
-              upload_start: function() {
-                this$1.uploaded = false
-              },
-              upload_success: function() {
-                this$1.uploaded = true
-              },
-              upload_finish: function() {
-                this$1.uploaded = true
-              },
-              upload_drop: function() {
-                this$1.uploaded = false
-              }
-            },
             model: {
               value: _vm.file,
               callback: function($$v) {
@@ -62971,16 +62897,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "submit" }, [
-            _c(
-              "button",
-              {
-                staticClass: "submit_btn",
-                attrs: { type: "submit", disabled: !_vm.uploaded }
-              },
-              [_vm._v("Отправить")]
-            )
-          ])
+          _vm._m(0)
         ],
         1
       ),
@@ -62997,7 +62914,18 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "submit" }, [
+      _c("button", { staticClass: "submit_btn", attrs: { type: "submit" } }, [
+        _vm._v("Отправить")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -63487,7 +63415,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function() {
-  var this$1 = this
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -63552,20 +63479,6 @@ var render = function() {
           _vm._v(" "),
           _c("v-file-uploader", {
             attrs: { image: true, video: true },
-            on: {
-              upload_start: function() {
-                this$1.uploaded = false
-              },
-              upload_success: function() {
-                this$1.uploaded = true
-              },
-              upload_finish: function() {
-                this$1.uploaded = true
-              },
-              upload_drop: function() {
-                this$1.uploaded = false
-              }
-            },
             model: {
               value: _vm.file,
               callback: function($$v) {
@@ -63575,16 +63488,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "submit" }, [
-            _c(
-              "button",
-              {
-                staticClass: "submit_btn",
-                attrs: { type: "submit", disabled: !_vm.uploaded }
-              },
-              [_vm._v("Отправить")]
-            )
-          ])
+          _vm._m(0)
         ],
         1
       ),
@@ -63596,7 +63500,18 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "submit" }, [
+      _c("button", { staticClass: "submit_btn", attrs: { type: "submit" } }, [
+        _vm._v("Отправить")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -63616,7 +63531,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function() {
-  var this$1 = this
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -63681,20 +63595,6 @@ var render = function() {
           _vm._v(" "),
           _c("v-file-uploader", {
             attrs: { image: true, video: false },
-            on: {
-              upload_start: function() {
-                this$1.uploaded = false
-              },
-              upload_success: function() {
-                this$1.uploaded = true
-              },
-              upload_finish: function() {
-                this$1.uploaded = true
-              },
-              upload_drop: function() {
-                this$1.uploaded = false
-              }
-            },
             model: {
               value: _vm.file,
               callback: function($$v) {
@@ -63704,16 +63604,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "submit" }, [
-            _c(
-              "button",
-              {
-                staticClass: "submit_btn",
-                attrs: { type: "submit", disabled: !_vm.uploaded }
-              },
-              [_vm._v("Отправить")]
-            )
-          ])
+          _vm._m(0)
         ],
         1
       ),
@@ -63725,7 +63616,18 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "submit" }, [
+      _c("button", { staticClass: "submit_btn", attrs: { type: "submit" } }, [
+        _vm._v("Отправить")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -63745,7 +63647,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function() {
-  var this$1 = this
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -63810,20 +63711,6 @@ var render = function() {
           _vm._v(" "),
           _c("v-file-uploader", {
             attrs: { image: false, video: true },
-            on: {
-              upload_start: function() {
-                this$1.uploaded = false
-              },
-              upload_success: function() {
-                this$1.uploaded = true
-              },
-              upload_finish: function() {
-                this$1.uploaded = true
-              },
-              upload_drop: function() {
-                this$1.uploaded = false
-              }
-            },
             model: {
               value: _vm.file,
               callback: function($$v) {
@@ -63833,16 +63720,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "submit" }, [
-            _c(
-              "button",
-              {
-                staticClass: "submit_btn",
-                attrs: { type: "submit", disabled: !_vm.uploaded }
-              },
-              [_vm._v("Отправить")]
-            )
-          ])
+          _vm._m(0)
         ],
         1
       ),
@@ -63854,7 +63732,18 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "submit" }, [
+      _c("button", { staticClass: "submit_btn", attrs: { type: "submit" } }, [
+        _vm._v("Отправить")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -63982,7 +63871,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function() {
-  var this$1 = this
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -64005,20 +63893,6 @@ var render = function() {
         [
           _c("v-file-uploader", {
             attrs: { image: false, video: true },
-            on: {
-              upload_start: function() {
-                this$1.uploaded = false
-              },
-              upload_success: function() {
-                this$1.uploaded = true
-              },
-              upload_finish: function() {
-                this$1.uploaded = true
-              },
-              upload_drop: function() {
-                this$1.uploaded = false
-              }
-            },
             model: {
               value: _vm.file,
               callback: function($$v) {
@@ -64028,16 +63902,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "submit" }, [
-            _c(
-              "button",
-              {
-                staticClass: "submit_btn",
-                attrs: { type: "submit", disabled: !_vm.uploaded }
-              },
-              [_vm._v("Отправить")]
-            )
-          ])
+          _vm._m(0)
         ],
         1
       ),
@@ -64054,7 +63919,18 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "submit" }, [
+      _c("button", { staticClass: "submit_btn", attrs: { type: "submit" } }, [
+        _vm._v("Отправить")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

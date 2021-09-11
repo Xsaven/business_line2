@@ -14,14 +14,10 @@
                     :image="true"
                     :video="false"
                     v-model="file"
-                    @upload_start="() => {this.uploaded = false}"
-                    @upload_success="() => {this.uploaded = true}"
-                    @upload_finish="() => {this.uploaded = true}"
-                    @upload_drop="() => {this.uploaded = false}"
                 />
 
                 <div v-if="downloaded" class="submit">
-                    <button type="submit" :disabled="!uploaded" class="submit_btn">Отправить</button>
+                    <button type="submit" class="submit_btn">Отправить</button>
                 </div>
 
             </form>
@@ -38,7 +34,6 @@ export default {
     data () {
         return {
             downloaded: false,
-            uploaded: false,
             file: null,
         };
     },

@@ -11,9 +11,9 @@
 
             <div class="line">
               <div class="field">
-                  <textarea v-model="comment" ref="text" name="comment" placeholder="Комментарий"></textarea>
+                  <textarea v-model="comment" ref="text" placeholder="Комментарий"></textarea>
 
-                  <v-home-smiles-commentary v-if="myref" :show_smiles="true" :show_stickers="false" :target="myref" />
+                  <v-home-smiles-commentary v-if="myref" :show_smiles="true" :show_stickers="false" v-model="comment" :target="myref" />
               </div>
             </div>
 
@@ -50,8 +50,8 @@ export default {
     return {
       users_local: {},
       q: '',
-        comment: '',
-        myref: null,
+      comment: '',
+      myref: null,
       fun_user_id: null,
       fun_full_name: '',
     }

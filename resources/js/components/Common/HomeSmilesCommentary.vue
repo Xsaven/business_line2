@@ -60,8 +60,9 @@
                     let start = textarea.selectionStart;
                     let end = textarea.selectionEnd;
                     textarea.value = textarea.value.substring(0, start) + emoji + textarea.value.substring(end);
+                    this.$emit('input', textarea.value);
                     textarea.focus();
-                    textarea.selectionEnd = end + 3;
+                    //textarea.selectionEnd = end + 3;
                 }
             },
             sticker_click (id) {
