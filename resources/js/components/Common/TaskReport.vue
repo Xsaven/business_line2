@@ -15,7 +15,7 @@
 
                 <div>
                     <div class="name">{{r.user.full_name}}</div>
-                    <div class="text" v-html="r.comment"></div>
+                    <div class="text" v-html="r.comment" v-if="!r.file"></div>
                 </div>
             </div>
 
@@ -24,6 +24,7 @@
                 <img v-else :src="r.file" alt="" class="lozad">
                 <!--                <svg class="icon"><use xlink:href="/images/sprite.svg#ic_video_play"></use></svg>-->
             </div>
+            <div class="desc" v-else-if="r.comment" v-html="r.comment"></div>
 
             <div class="bottom">
                 <button :class="{like_btn: true, active: user.liked_task_report_ids.indexOf(r.id) !== -1}" type="button" @click="like">
