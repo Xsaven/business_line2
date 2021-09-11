@@ -1,15 +1,11 @@
 <template>
-  <div class="upload_report">
-    <div class="title">Скачай файл</div>
+  <div class="performance">
+    <div class="title">Скачайте файл</div>
     <div class="info">
-      <form class="form">
-
-          <a :href="task.report_configs.download" @click="send" target="_blank" class="download_link" style="color: #fab509;">
-              <v-icon icon="ic_file" />
-              <span>Скачать файл</span>
-          </a>
-
-      </form>
+        <div class="quiz_start">
+            <div>Нажмите, чтобы приступить к выполнению</div>
+            <button type="button" @click="send" class="start_btn">Старт</button>
+        </div>
 
       <img data-src="/images/bg_performance.svg" alt="" class="bg lozad">
     </div>
@@ -22,6 +18,7 @@ export default {
   props: ['task'],
   methods: {
       send() {
+          window.open(this.task.report_configs.download,'_blank');
           jax.user.download_file_report(this.task.id)
               .then(() => {})
       }

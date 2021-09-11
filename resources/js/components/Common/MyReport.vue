@@ -31,7 +31,7 @@
 <!--        </div>-->
     </div>
 
-    <div class="empty" v-if="!r.length">Здесь скоро появятся отчёты других участников</div>
+    <div class="empty" v-if="!r.length">Здесь скоро появятся отчеты других участников</div>
       <div class="tasks_list">
           <div class="list">
               <template v-for="r_report in r">

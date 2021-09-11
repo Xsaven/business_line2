@@ -113,6 +113,7 @@
                 })
           },
           finishQ () {
+              if (this.timer) clearInterval(this.timer);
             jax.user.quiz_report(this.task.id,this.quiz_answers)
               .then((data) => {
                 this.balls = data.balls;

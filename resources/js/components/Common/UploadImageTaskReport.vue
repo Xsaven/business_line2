@@ -1,7 +1,7 @@
 <template>
 
   <div class="upload_report">
-    <div class="title">Загрузите ваш отчёт</div>
+    <div class="title">Загрузите ваш отчет</div>
 
     <div class="info">
       <form class="form" @submit.stop.prevent="send">

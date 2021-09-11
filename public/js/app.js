@@ -3235,15 +3235,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-download-file-report",
   props: ['task'],
   methods: {
     send: function send() {
+      window.open(this.task.report_configs.download, '_blank');
       jax.user.download_file_report(this.task.id).then(function () {});
     }
   }
@@ -5783,6 +5780,7 @@ __webpack_require__.r(__webpack_exports__);
     finishQ: function finishQ() {
       var _this2 = this;
 
+      if (this.timer) clearInterval(this.timer);
       jax.user.quiz_report(this.task.id, this.quiz_answers).then(function (data) {
         _this2.balls = data.balls;
         $('.task_info .performance .quiz').hide();
@@ -58132,7 +58130,7 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c("div", { staticClass: "upload_report" }, [
-        _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт")]),
+        _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчет")]),
         _vm._v(" "),
         _c("div", { staticClass: "info" }, [
           _c(
@@ -58144,7 +58142,7 @@ var render = function() {
                 attrs: { icon: "ic_time" }
               }),
               _vm._v(" "),
-              _c("div", [_vm._v("Скоро вы сможете загрузить ваш отчёт")])
+              _c("div", [_vm._v("Скоро вы сможете загрузить ваш отчет")])
             ],
             1
           ),
@@ -60136,25 +60134,21 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Скачай файл")]),
+  return _c("div", { staticClass: "performance" }, [
+    _c("div", { staticClass: "title" }, [_vm._v("Скачайте файл")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
-      _c("form", { staticClass: "form" }, [
+      _c("div", { staticClass: "quiz_start" }, [
+        _c("div", [_vm._v("Нажмите, чтобы приступить к выполнению")]),
+        _vm._v(" "),
         _c(
-          "a",
+          "button",
           {
-            staticClass: "download_link",
-            staticStyle: { color: "#fab509" },
-            attrs: { href: _vm.task.report_configs.download, target: "_blank" },
+            staticClass: "start_btn",
+            attrs: { type: "button" },
             on: { click: _vm.send }
           },
-          [
-            _c("v-icon", { attrs: { icon: "ic_file" } }),
-            _vm._v(" "),
-            _c("span", [_vm._v("Скачать файл")])
-          ],
-          1
+          [_vm._v("Старт")]
         )
       ]),
       _vm._v(" "),
@@ -60457,7 +60451,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Отчёт")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Мой отчет")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _vm.status === "upload"
@@ -61411,7 +61405,7 @@ var render = function() {
     _vm._v(" "),
     !_vm.r.length
       ? _c("div", { staticClass: "empty" }, [
-          _vm._v("Здесь скоро появятся отчёты других участников")
+          _vm._v("Здесь скоро появятся отчеты других участников")
         ])
       : _vm._e(),
     _vm._v(" "),
@@ -62679,7 +62673,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчет")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c(
@@ -62849,7 +62843,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчет")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c(
@@ -62936,7 +62930,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчет")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c(
@@ -63223,7 +63217,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчет")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c(
@@ -63232,7 +63226,7 @@ var render = function() {
         [
           _c("v-icon", { staticClass: "yellow", attrs: { icon: "ic_time" } }),
           _vm._v(" "),
-          _c("div", [_vm._v("Скоро вы сможете загрузить ваш отчёт")]),
+          _c("div", [_vm._v("Скоро вы сможете загрузить ваш отчет")]),
           _vm._v(" "),
           _c("img", {
             staticClass: "bg lozad loaded",
@@ -63445,7 +63439,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт ")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчет ")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c("div", { staticClass: "status" }, [
@@ -63498,7 +63492,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт ")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчет ")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c(
@@ -63627,7 +63621,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчет")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c(
@@ -63756,7 +63750,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт ")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчет ")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c(
@@ -63884,7 +63878,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт ")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчет ")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c(
@@ -63993,7 +63987,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчёт ")]),
+    _c("div", { staticClass: "title" }, [_vm._v("Загрузите ваш отчет ")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
       _c(

@@ -1,6 +1,6 @@
 <template>
   <div class="upload_report">
-    <div class="title">Отчёт</div>
+    <div class="title">Мой отчет</div>
 
     <div class="info">
       <div v-if="status === 'upload'" class="status">
