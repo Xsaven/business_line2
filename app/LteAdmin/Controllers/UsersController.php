@@ -60,6 +60,7 @@ class UsersController extends Controller
             $table->col('Фамилия', 'lastname')->sort()->copied();
             $table->col('Email', 'email')->sort()->copied();
             $table->col('Баланс', 'balance')->sort()->badge_number();
+            $table->col('В системе', 'logins')->sort()->yes_no()->info('Уже зарегистрирован');
             $table->col('lte.active', 'active')->input_switcher('Да', 'Нет')->sort();
             $table->col('Комментарии', 'active_commentaries')->input_switcher('Да', 'Нет')->sort()
                 ->info('Без модерации');
