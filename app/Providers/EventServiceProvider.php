@@ -102,7 +102,6 @@ class EventServiceProvider extends ServiceProvider
         /**
          * Отчёты по заданиям
          */
-
         \App\Events\ReportTextTask::class => [ // Текстовый отчёт
             \App\Listeners\ReportTextTask\Validation::class,
             \App\Listeners\ReportTextTask\Create::class,
@@ -128,12 +127,12 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\ReportImageVideoTask\Create::class,
             \App\Listeners\ReportTask\NotifyUsers::class,
         ],
-        \App\Events\ReportTextVideoTask::class => [ // Текст или Видео отчёт
+        \App\Events\ReportTextVideoTask::class => [ // Текст и Видео отчёт
             \App\Listeners\ReportTextVideoTask\Validation::class,
             \App\Listeners\ReportTextVideoTask\Create::class,
             \App\Listeners\ReportTask\NotifyUsers::class,
         ],
-        \App\Events\ReportTextImageTask::class => [ // Текст или Фото отчёт
+        \App\Events\ReportTextImageTask::class => [ // Текст и Фото отчёт
             \App\Listeners\ReportTextImageTask\Validation::class,
             \App\Listeners\ReportTextImageTask\Create::class,
             \App\Listeners\ReportTask\NotifyUsers::class,

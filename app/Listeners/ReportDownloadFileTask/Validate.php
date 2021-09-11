@@ -19,6 +19,6 @@ class Validate
     {
         $event->task = $event->task_id ? app(TaskRepository::class)->find($event->task_id) : null;
 
-        $event->validated = !!$event->task;
+        $event->validated = (bool) $event->task;
     }
 }

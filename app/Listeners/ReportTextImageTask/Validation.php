@@ -19,6 +19,6 @@ class Validation
     {
         $event->task = $event->task_id ? app(TaskRepository::class)->find($event->task_id) : null;
 
-        $event->validated = $event->task && ($event->comment || $event->file);
+        $event->validated = $event->task && ($event->comment && $event->file);
     }
 }

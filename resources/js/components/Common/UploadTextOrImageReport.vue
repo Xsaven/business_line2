@@ -51,7 +51,7 @@ export default {
   watch: {},
   methods: {
     send() {
-        if (this.file || !!this.comment) {
+        if (this.file && !!this.comment) {
 
             jax.user.text_or_image_report(this.task.id,this.comment,this.file)
                 .then(() => {
@@ -59,7 +59,7 @@ export default {
 
         } else {
 
-            "toast::error".exec("Сначала выберите файл или напишите комментарий.");
+            "toast::error".exec("Сначала выберите файл и напишите комментарий.");
         }
     }
   }
