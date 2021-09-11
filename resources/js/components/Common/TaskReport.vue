@@ -15,7 +15,7 @@
 
                 <div>
                     <div class="name">{{r.user.full_name}}</div>
-                    <div class="text" v-html="r.comment" v-if="!r.file"></div>
+                    <div class="text" v-html="r.comment" v-if="r.file"></div>
                 </div>
             </div>
 
