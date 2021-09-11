@@ -4,6 +4,7 @@ namespace App\Listeners\ReportQuizTask;
 
 use App\Events\ReportQuizTask;
 use App\Models\QuizAnswer;
+use App\Models\Task;
 use App\Models\TaskReport;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -25,13 +26,11 @@ class Create
 
         $event->balls = $balls;
 
-        \Auth::user()->update([
-            'balance' => $balls,
-        ]);
+        \Auth::user()->increment('balance', $balls);
 
         TaskReport::create([
-            'status' => TaskReport::STATUS_CHECKED,
-            'user_id' => \Auth::user()->id,
+            'status' => $event->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
+            'user_id' => \Auth::id(),
             'task_id' => $event->task->id,
         ]);
     }

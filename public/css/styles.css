@@ -595,11 +595,32 @@ button
     right: -16px;
     left: auto;
 
+    overflow: auto;
+
     width: 328px;
+    max-height: 452px;
     padding: 40px 28px 28px;
 
     border-radius: 3px;
     background: #fff;
+
+    scrollbar-color: #cbcbcb #fff;
+    scrollbar-width: thin;
+}
+
+.smiles .mini_modal::-webkit-scrollbar
+{
+    width: 6px;
+    height: 6px;
+
+    border: 1px solid #cbcbcb;
+    background-color: #fff;
+}
+
+.smiles .mini_modal::-webkit-scrollbar-thumb
+{
+    border-radius: 3px;
+    background-color: #cbcbcb;
 }
 
 
@@ -1124,7 +1145,7 @@ header .notifications .head
 
     margin-bottom: 14px;
 
-    justify-content: space-between
+    justify-content: space-between;
     align-items: center;
     align-content: center;
     flex-wrap: wrap;
@@ -5934,9 +5955,23 @@ header .mob_menu_btn.active .icon + .icon
 
 .task_info .performance .quiz
 {
-    display: none;
+    visibility: hidden;
+    overflow: hidden;
+
+    height: 0;
 
     text-align: left;
+    pointer-events: none;
+}
+
+.task_info .performance .quiz.show
+{
+    visibility: visible;
+    overflow: visible;
+
+    height: auto;
+
+    pointer-events: auto;
 }
 
 
@@ -6014,12 +6049,22 @@ header .mob_menu_btn.active .icon + .icon
 
 .task_info .performance .quiz .step
 {
-    display: none;
+    visibility: hidden;
+    overflow: hidden;
+
+    height: 0;
+
+    pointer-events: none;
 }
 
-.task_info .performance .quiz .step1
+.task_info .performance .quiz .step.show
 {
-    display: block;
+    visibility: visible;
+    overflow: visible;
+
+    height: auto;
+
+    pointer-events: auto;
 }
 
 

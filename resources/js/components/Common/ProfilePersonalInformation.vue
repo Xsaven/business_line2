@@ -91,7 +91,9 @@
             <div class="title">Выполненные задания ({{user.complete_tasks_count}})</div>
 
             <div class="list" v-if="Number(user.complete_tasks_count)">
-
+                <template v-for="(report, i_report) in reports">
+                    <v-task-report :key="i_report" :report="report" />
+                </template>
             </div>
         </div>
     </section>
@@ -101,7 +103,7 @@
     export default {
         $sync: ['user'],
         name: "v-profile-personal-information",
-        props: ['positions','divisions'],
+        props: ['positions','divisions','reports'],
         data () {
             return {
                 edit: false,

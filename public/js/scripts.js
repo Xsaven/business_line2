@@ -87,16 +87,18 @@ $(() => {
 
 		scrollContainer2.addEventListener('mouseleave', () => {
 			isDown2 = false;
-			scrollContainer.classList.remove('active')
+			if (scrollContainer.classList)
+				scrollContainer.classList.remove('active')
 		})
 
 		scrollContainer2.addEventListener('mouseup', () => {
 			isDown2 = false;
-			scrollContainer2.classList.remove('active')
+			if (scrollContainer2.classList)
+				scrollContainer2.classList.remove('active')
 		})
 
 		scrollContainer2.addEventListener('mousemove', e => {
-			if (!isDown2) return
+			if (!isDown2 || !scrollContainer2) return
 
 			e.preventDefault()
 

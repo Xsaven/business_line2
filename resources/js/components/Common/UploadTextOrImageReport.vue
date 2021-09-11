@@ -3,24 +3,18 @@
     <div class="title">Загрузите ваш отчёт</div>
 
     <div class="info">
-      <form action="" class="form">
+      <form @submit.prevent.stop="send" class="form">
         <div class="line">
           <div class="field">
-            <textarea v-model="comment" ref="text" placeholder="Комментарий" class="min_h"></textarea>
+            <textarea v-model="comment" ref="text" name="comment" placeholder="Комментарий" class="min_h"></textarea>
 
-            <div class="smiles modal_cont">
-              <button type="button" class="btn mini_modal_btn" data-modal-id="#smiles_modal">
-                <v-icon icon="ic_smile" />
-              </button>
-
-              <v-home-smiles-commentary :target="$refs.text" />
-            </div>
+              <v-home-smiles-commentary v-if="myref" :show_smiles="true" :show_stickers="false" :target="myref" />
           </div>
         </div>
 
           <v-file-uploader
-              :image="false"
-              :video="true"
+              :image="true"
+              :video="false"
               v-model="file"
               @upload_start="() => {this.uploaded = false}"
               @upload_success="() => {this.uploaded = true}"
@@ -29,7 +23,7 @@
           />
 
         <div class="submit">
-          <button @click.prevent.stop="send()" type="submit" class="submit_btn">Отправить</button>
+          <button type="submit" :disabled="!uploaded" class="submit_btn">Отправить</button>
         </div>
       </form>
 
@@ -45,18 +39,28 @@ export default {
   data () {
     return {
       file: null,
+      uploaded: false,
       comment: '',
-      uploaded: false
+      myref: null,
     };
   },
-  mounted () {},
+  mounted () {
+      this.myref = this.$refs.text;
+  },
   computed: {},
   watch: {},
   methods: {
     send() {
-      jax.user.text_or_image_report(this.task.id,this.comment,this.file)
-          .then(() => {
-          })
+        if (this.file || !!this.comment) {
+
+            jax.user.text_or_image_report(this.task.id,this.comment,this.file)
+                .then(() => {
+                })
+
+        } else {
+
+            "toast::error".exec("Сначала выберите файл или напишите комментарий.");
+        }
     }
   }
 }

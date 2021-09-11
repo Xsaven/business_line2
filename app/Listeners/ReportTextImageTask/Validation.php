@@ -1,24 +1,24 @@
 <?php
 
-namespace App\Listeners\ReportDownloadFileTask;
+namespace App\Listeners\ReportTextImageTask;
 
-use App\Events\ReportDownloadFileTask;
+use App\Events\ReportTextImageTask;
 use App\Repositories\TaskRepository;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class Validate
+class Validation
 {
     /**
      * Handle the event.
      *
-     * @param  ReportDownloadFileTask  $event
+     * @param  ReportTextImageTask  $event
      * @return void
      */
-    public function handle(ReportDownloadFileTask $event)
+    public function handle(ReportTextImageTask $event)
     {
         $event->task = $event->task_id ? app(TaskRepository::class)->find($event->task_id) : null;
 
-        $event->validated = !!$event->task;
+        $event->validated = $event->task && ($event->comment || $event->file);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\Task;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -15,16 +16,18 @@ class ReportTextTask
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * @param int $task_id
-     * @param string $comment
-     * @param int $fun_id
-     * @param bool $validated
+     * @param  int  $task_id
+     * @param  string  $comment
+     * @param  int  $fun_id
+     * @param  bool  $validated
+     * @param  Task|null  $task
      */
     public function __construct(
         public int $task_id,
         public string $comment,
         public int $fun_id = 0,
         public bool $validated = false,
+        public ?Task $task = null,
     ) {
     }
 }

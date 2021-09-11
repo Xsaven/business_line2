@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\Task;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -21,7 +22,9 @@ class ReportDownloadFileImageTask
      */
     public function __construct(
         public int $task_id,
-        public array $files
+        public ?string $file = null,
+        public bool $validated = false,
+        public ?Task $task = null,
     ) {
     }
 }

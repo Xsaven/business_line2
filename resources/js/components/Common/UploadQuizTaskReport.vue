@@ -72,7 +72,7 @@
               balls: 0,
               ri_answer: [],
               hase: false,
-                sec: 0,
+                sec: 20,
                 timer: null
             };
         },
@@ -128,6 +128,7 @@
             steps.eq(this.currentStep).addClass('active')
             //steps.eq(this.currentStep - 1).addClass('success')
 
+              this.sec = 20;
             this.currentStep++
 
             if (this.currentStep === (this.quiz.length + 1)) return this.finishQ();
@@ -151,13 +152,12 @@
               setInterval(this.timerCycle.bind(this), 1000);
           },
             timerCycle () {
-                if (this.sec === 10) {
-                    this.sec = 0;
+                if (this.sec === 0) {
                     this.quiz_answers[this.currentStep-1] = 0;
                     this.nextQ();
                     return ;
                 }
-                this.sec++;
+                this.sec--;
             },
           results() {
             console.log(this.quiz_answers);

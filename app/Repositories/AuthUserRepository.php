@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Task;
 use App\Models\TaskReport;
 use App\Models\User;
 use Illuminate\Notifications\DatabaseNotification;
@@ -21,6 +22,8 @@ use Lar\Developer\CoreRepository;
  * @property-read \Illuminate\Database\Eloquent\Collection|Collection|DatabaseNotification[] $new_notifications
  * @property-read int $completeTaskCount
  * @property-read array $subscribesUsers
+ * @property-read TaskReport[] $userTaskReports
+ * @property-read TaskReport[] $userCompleteTaskReports
  */
 class AuthUserRepository extends CoreRepository
 {
@@ -101,7 +104,11 @@ class AuthUserRepository extends CoreRepository
     public function completeTaskCount(): int
     {
         return $this->user->taskReports()
-            ->where('status', TaskReport::STATUS_CHECKED)->count();
+            ->where('status', TaskReport::STATUS_CHECKED)
+            ->whereHas('task', function ($q) {
+                return $q->where('action_type', '!=', Task::ACTION_TYPE_AUTO);
+            })
+            ->count();
     }
 
     /**
@@ -110,5 +117,36 @@ class AuthUserRepository extends CoreRepository
     public function subscribesUsers(): array
     {
         return $this->user->subscribers()->allRelatedIds()->toArray();
+    }
+
+    /**
+     * @return TaskReport[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function userTaskReports()
+    {
+        $user = \Auth::user();
+        /** @var TaskReport $result */
+        return $this->user->taskReports()
+            ->with('commentary')
+            ->whereHas('task', function ($q) {
+                return $q->where('action_type', '!=', Task::ACTION_TYPE_AUTO);
+            })->withCount('likes')
+            ->get();
+    }
+
+    /**
+     * @return TaskReport[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function userCompleteTaskReports()
+    {
+        $user = \Auth::user();
+        /** @var TaskReport $result */
+        return $this->user->taskReports()
+            ->with('commentary')
+            ->where('status', TaskReport::STATUS_CHECKED)
+            ->whereHas('task', function ($q) {
+                return $q->where('action_type', '!=', Task::ACTION_TYPE_AUTO);
+            })->withCount('likes')
+            ->get();
     }
 }

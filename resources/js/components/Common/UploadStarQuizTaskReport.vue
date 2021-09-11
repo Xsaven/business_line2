@@ -54,6 +54,9 @@
               <div>{{star.text}}</div>
             </div>
           </div>
+
+            <div class="scores">+{{this.balls}} {{declOfNum(this.balls,['бал','бала','баллов'])}}</div>
+
         </div>
       </div>
     </div>
@@ -72,13 +75,15 @@ export default {
       currentStep: 1,
       quiz_answers: [],
       star: {},
+      balls: 0
     }
   },
   methods: {
     finishQ () {
       jax.user.star_quiz_report(this.task.id,this.quiz_answers)
-          .then((data) => {
-            this.star = data.star
+          .then(({star, balls}) => {
+            this.star = star
+            this.balls = balls
             $('.task_info .performance .quiz').hide()
             $('.task_info .performance .quiz_result').fadeIn(300)
           })
@@ -114,30 +119,14 @@ export default {
       // Секундомер
       //this.timerCycle()
     },
-    timerCycle() {
-      let sec = parseInt(sec)
-      let min = parseInt(min)
-
-      sec = sec + 1
-
-      if (sec === 60) {
-        min = min + 1
-        sec = 0
-      }
-      if (min === 60) {
-        min = 0
-        sec = 0
-      }
-
-      if (sec < 10 || sec === 0) sec = '0' + sec
-      if (min < 10 || min === 0) min = '0' + min
-
-      $('.task_info .performance .quiz .time .minutes').text(min)
-      $('.task_info .performance .quiz .time .seconds').text(sec)
-
-
-      let cycle = setTimeout(timerCycle, 1000)
-    },
+      declOfNum(n, text_forms) {
+          n = Math.abs(n) % 100;
+          let n1 = n % 10;
+          if (n > 10 && n < 20) { return text_forms[2]; }
+          if (n1 > 1 && n1 < 5) { return text_forms[1]; }
+          if (n1 === 1) { return text_forms[0]; }
+          return text_forms[2];
+      },
   }
 }
 </script>

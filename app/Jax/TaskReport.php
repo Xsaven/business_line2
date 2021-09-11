@@ -66,7 +66,8 @@ class TaskReport extends JaxExecutor
         return [
             'result' => $event->result(),
             'report' => $event->task_report ?
-                TaskReportResource::make($event->task_report) : null,
+                TaskReportResource::make(app(TaskReportRepository::class)
+                    ->find($event->task_report_id)) : null,
         ];
     }
 }

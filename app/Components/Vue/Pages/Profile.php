@@ -5,8 +5,10 @@ namespace App\Components\Vue\Pages;
 use App\Components\Vue\Page;
 use App\Http\Resources\DivisionResource;
 use App\Http\Resources\PositionResource;
+use App\Http\Resources\TaskReportResource;
 use App\Models\Division;
 use App\Models\Position;
+use App\Repositories\AuthUserRepository;
 
 /**
  * Profile Class.
@@ -22,8 +24,11 @@ class Profile extends Page
 
     public function __construct($id = null, array $attrs = [], ...$params)
     {
-        $attrs['positions'] = PositionResource::collection(Position::all())->toArray(request());
-        $attrs['divisions'] = DivisionResource::collection(Division::all())->toArray(request());
+        $attrs['positions'] = PositionResource::collection(Position::all());
+        $attrs['divisions'] = DivisionResource::collection(Division::all());
+        $attrs['reports'] = TaskReportResource::collection(
+            app(AuthUserRepository::class)->userCompleteTaskReports
+        );
 
         parent::__construct($id, $attrs, $params);
     }

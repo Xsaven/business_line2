@@ -23,10 +23,8 @@ class ReportTextImageVideoTask
     public function __construct(
         public int $task_id,
         public string $comment,
-        public array $files,
+        public string $file,
         public bool $validated = false,
-        public bool $uploaded = false,
-        public ?string $filename = null,
         public ?Task $task = null,
     ) {
     }

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Listeners\ReportTask;
+namespace App\Listeners\ReportVideoTask;
 
 use App\Events\ReportVideoTask;
 use App\Models\Task;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class VideoValidate
+class Validation
 {
     /**
      * Handle the event.

@@ -48,8 +48,6 @@ use Illuminate\Notifications\Notifiable;
  * @property int|null $division_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Balance[] $balances
- * @property-read int|null $balances_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Commentary[] $commentaries
  * @property-read int|null $commentaries_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Commentary[] $commentaryLikes
@@ -209,15 +207,6 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
-    /**
-     * The "hasMany" relation for "Statistika balansa".
-     * @return HasMany
-     */
-    public function balances() : HasMany
-    {
-        return $this->hasMany(Balance::class, 'user_id', 'id');
-    }
 
     /**
      * The "hasMany" relation for "Zagruzki".

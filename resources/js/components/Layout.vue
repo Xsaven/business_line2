@@ -62,9 +62,15 @@
                 // this.channel_live
                 //     .listen('ws_events.message');
 
-                // this.channel_live.listenForWhisper('update_question');
+                this.channel_live.listenForWhisper('execCallback');
+                state.to_all = (exec) => {
+                    this.channel_live.whisper('execCallback', {exec});
+                };
                 // this.channel_live.listenForWhisper('update_comment_section');
                 // this.channel_live.listenForWhisper('update_comment');
+            },
+            execCallback2 (...qwe) {
+                console.log(qwe);
             },
             execCallback ({exec}) {
                 state.ws = true;

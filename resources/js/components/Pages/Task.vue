@@ -53,9 +53,10 @@
           <v-upload-quiz-task-report v-else-if="!task_report && task.report_type === 'quiz' && green_button" :task="task" :quiz="quiz"/>
           <v-upload-star-quiz-task-report v-else-if="!task_report && task.report_type === 'star_quiz' && green_button" :task="task" :star_quiz="star_quiz"/>
           <v-download-file-report v-else-if="!task_report && task.report_type === 'download_file' && green_button" :task="task"/>
-          <v-get-task-report v-else-if="task_report && task_report.status === 'uploading'"/>
-          <v-get-task-report v-else-if="(task.report_type === 'quiz' || task.report_type === 'star_quiz') && task_report.status === 'checked'" status="done"/>
-          <v-my-report v-else-if="task_report && (task_report.status === 'uploaded' || task_report.status === 'checked') && task.report_type !== 'quiz'" :report="task_report" :task="task" :reports="reports"/>
+          <v-download-file-image v-else-if="!task_report && task.report_type === 'download_file_photo' && green_button" :task="task"/>
+<!--          <v-get-task-report v-else-if="task_report && task_report.status === 'uploading'"/>-->
+          <v-get-task-report v-else-if="(task.report_type === 'quiz' || task.report_type === 'star_quiz' || task.report_type === 'download_file') && task_report.status === 'checked'" status="done"/>
+          <v-my-report v-else-if="task_report && (task_report.status === 'uploading' || task_report.status === 'uploaded' || task_report.status === 'checked') && task.report_type !== 'quiz'" :report="task_report" :task="task" :reports="reports"/>
           <v-upload-report-soon v-else-if="between_days" />
         </div>
       </section>

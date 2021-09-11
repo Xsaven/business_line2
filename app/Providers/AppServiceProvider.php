@@ -4,6 +4,10 @@ namespace App\Providers;
 
 use App\Actions\Fortify\ResetUserPassword;
 use App\Models\Setting;
+use App\Models\TaskReport;
+use App\Models\User;
+use App\Observers\TaskReportObserver;
+use App\Observers\UserObserver;
 use Illuminate\Support\ServiceProvider;
 use Lar\Layout\Core\LConfigs;
 use Laravel\Fortify\Fortify;
@@ -45,5 +49,8 @@ class AppServiceProvider extends ServiceProvider
         }
 
         \View::share('route', \Route::currentRouteName());
+
+        User::observe(UserObserver::class);
+        TaskReport::observe(TaskReportObserver::class);
     }
 }

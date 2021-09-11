@@ -18,29 +18,14 @@ class Create
      */
     public function handle(ReportTextTask $event)
     {
-        $user_id = \Auth::user()->id;
-
-        $task = Task::find($event->task_id);
-
-        if (! $task->fans_task) {
-            if ($event->validated) {
-                TaskReport::create([
-                    'status' => TaskReport::STATUS_UPLOADED,
-                    'comment' => $event->comment,
-                    'user_id' => $user_id,
-                    'task_id' => $event->task_id,
-                ]);
-            }
-        } else {
-            if ($event->validated) {
-                TaskReport::create([
-                    'status' => TaskReport::STATUS_UPLOADED,
-                    'comment' => $event->comment,
-                    'user_id' => $user_id,
-                    'task_id' => $event->task_id,
-                    'fun_id' => $event->fun_id,
-                ]);
-            }
+        if ($event->validated) {
+            TaskReport::create([
+                'status' => $event->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
+                'comment' => $event->comment,
+                'user_id' => \Auth::id(),
+                'task_id' => $event->task_id,
+                'fun_id' => $event->fun_id ?: null,
+            ]);
         }
     }
 }

@@ -15,12 +15,12 @@
 
                 <div>
                     <div class="name">{{r.user.full_name}}</div>
-                    <div class="text">{{r.comment}}</div>
+                    <div class="text" v-html="r.comment"></div>
                 </div>
             </div>
 
-            <div class="video">
-                <v-player v-if="Number.isInteger(Number(r.file))" :video_id="r.file" />
+            <div class="video" v-if="r.file">
+                <v-player v-if="Number.isInteger(Number(r.file)) && Number(r.file) > 0" :video_id="r.file" />
                 <img v-else :src="r.file" alt="" class="lozad">
                 <!--                <svg class="icon"><use xlink:href="/images/sprite.svg#ic_video_play"></use></svg>-->
             </div>
@@ -104,7 +104,8 @@
         },
         mounted () {
             ljs.toExec(`task-report-update-${this.r.id}`, this.update.bind(this));
-            this.$refs.m.scrollTo(0,this.$refs.m.scrollHeight)
+            this.scrollDown();
+            ljs.onetime(() => this.scrollDown(), 101)
         },
         updated() {
             ljs.toExec(`task-report-update-${this.r.id}`, this.update.bind(this));
@@ -112,19 +113,27 @@
         computed: {},
         watch: {},
         methods: {
+            scrollDown () {
+                if (this.$refs.m) {
+                    this.$refs.m.scrollTo(0,this.$refs.m.scrollHeight);
+                }
+            },
             num (num) {
                 return isNumber(num)
             },
             sticker (id) {
                 jax.task_report.comment(this.r.id, `[${id}]`).then(({report}) => {
+                    console.log(report);
                     this.r = report;
-                    ljs.onetime(() => this.$refs.m.scrollTo(0,this.$refs.m.scrollHeight), 101)
+                    this.to_all();
+                    ljs.onetime(() => this.scrollDown(), 101)
                 });
             },
             update () {
+                "update".exec();
                 jax.task_report.find(this.r.id).then(({data}) => {
                     this.r = data;
-                    ljs.onetime(() => this.$refs.m.scrollTo(0,this.$refs.m.scrollHeight), 102)
+                    ljs.onetime(() => this.scrollDown(), 102)
                 });
             },
             like () {
@@ -133,8 +142,12 @@
                         this.r = report;
                         state['user.liked_task_report_ids'] = liked_task_report_ids;
                         "update".exec();
+                        this.to_all();
                     });
                 }, 102)
+            },
+            to_all () {
+                state.to_all(`task-report-update-${this.r.id}`);
             }
         }
     }

@@ -2,31 +2,19 @@
   <div class="upload_report">
     <div class="title">Загрузите ваш отчёт</div>
     <div class="info">
-      <form action="" class="form">
-        <div class="line files">
-          <div class="selected">
-            <div v-for="(file, f_key) in files" class="file">
-              <v-icon icon="ic_file" />
-              <div class="name">{{file.name}}</div>
-              <button type="button" @click="fileRemove(f_key)" class="del_btn">
-                <svg><use xlink:href="/images/sprite.svg#ic_delete"></use></svg>
-              </button>
-            </div>
-          </div>
-
-          <div class="field">
-            <input type="file" name="file" id="file" ref="file" @change="handleUpload">
-            <label for="file">
-              <v-icon icon="ic_attachment" />
-              <span>Прикрепить фото/ видео</span>
-
-              <div class="rules">jpg, jpeg, png до 10 МБ<br> mov, mp4, mpeg, mpg до 20 МБ</div>
-            </label>
-          </div>
-        </div>
+      <form @submit.prevent.stop="send" class="form">
+          <v-file-uploader
+              :image="true"
+              :video="true"
+              v-model="file"
+              @upload_start="() => {this.uploaded = false}"
+              @upload_success="() => {this.uploaded = true}"
+              @upload_finish="() => {this.uploaded = true}"
+              @upload_drop="() => {this.uploaded = false}"
+          />
 
         <div class="submit">
-          <button type="submit" class="submit_btn">Отправить</button>
+            <button type="submit" :disabled="!uploaded" class="submit_btn">Отправить</button>
         </div>
       </form>
 
@@ -41,24 +29,25 @@ export default {
   props: ['task'],
   data () {
     return {
-      files: [],
-      comment: ''
+        file: null,
+        uploaded: false,
     };
   },
   mounted () {},
   computed: {},
   watch: {},
   methods: {
-    fileRemove (index) {
-      this.files =  this.files.filter((i,k) => index!==k);
-    },
-    handleUpload() {
-      Object.values(this.$refs.file.files).map((file) => this.files.push(file));
-    },
     send() {
-      jax.params({files: this.files}).user.image_or_video_report(this.task.id)
-          .then(() => {
-          })
+        if (this.file) {
+
+            jax.user.image_or_video_report(this.task.id,this.file)
+                .then(() => {
+                })
+
+        } else {
+
+            "toast::error".exec("Сначала выберите файл.");
+        }
     }
   }
 }

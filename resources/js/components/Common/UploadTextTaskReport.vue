@@ -3,76 +3,16 @@
     <div class="title">Загрузите ваш отчёт </div>
 
     <div class="info">
-      <form action="" class="form">
+      <form @submit.prevent.stop="send" class="form">
             <div class="line">
               <div class="field">
-                <textarea v-model="comment" name="" placeholder="Комментарий"></textarea>
+                  <textarea v-model="comment" ref="text" name="comment" placeholder="Комментарий"></textarea>
 
-                <div class="smiles modal_cont">
-                  <button type="button" class="btn mini_modal_btn" data-modal-id="#smiles_modal">
-                    <v-icon icon="ic_smile" />
-                  </button>
-
-                  <div class="mini_modal" id="smiles_modal">
-                    <button type="button" class="close_btn">
-                      <v-icon icon="ic_close" />
-                    </button>
-
-                    <div class="section">
-                      <div class="title">Эмоджи</div>
-
-                      <div class="row">
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                        <div><img src="/images/tmp/smile_img.png" alt=""></div>
-                      </div>
-                    </div>
-
-                    <div class="section stickers">
-                      <div class="title">Стикеры</div>
-
-                      <div class="row">
-                        <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                        <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                        <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                        <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                        <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                        <div><img src="/images/tmp/sticker_img.png" alt=""></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  <v-home-smiles-commentary v-if="myref" :show_smiles="true" :show_stickers="false" :target="myref" />
               </div>
         </div>
         <div class="submit">
-          <button @click.prevent.stop="send()" type="submit" class="submit_btn">Отправить</button>
+          <button type="submit" class="submit_btn">Отправить</button>
         </div>
       </form>
 
@@ -87,16 +27,26 @@
         props: ['task'],
         data () {
             return {
-                comment: ''
+                comment: '',
+                myref: null,
             };
         },
-        mounted () {},
+        mounted () {
+            this.myref = this.$refs.text;
+        },
         computed: {},
         watch: {},
         methods: {
           send() {
-            jax.user.text_report(this.task.id,this.comment)
-              .then(() => {})
+              if (this.file || !!this.comment) {
+
+                  jax.user.text_report(this.task.id,this.comment)
+                      .then(() => {})
+
+              } else {
+
+                  "toast::error".exec("Сначала напишите комментарий.");
+              }
           }
         }
     }

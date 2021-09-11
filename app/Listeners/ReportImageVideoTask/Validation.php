@@ -1,23 +1,14 @@
 <?php
 
-namespace App\Listeners\ReportTask;
+namespace App\Listeners\ReportImageVideoTask;
 
 use App\Events\ReportImageVideoTask;
+use App\Repositories\TaskRepository;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class PhotoVideoValidate
+class Validation
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
     /**
      * Handle the event.
      *
@@ -26,6 +17,8 @@ class PhotoVideoValidate
      */
     public function handle(ReportImageVideoTask $event)
     {
-        //
+        $event->task = $event->task_id ? app(TaskRepository::class)->find($event->task_id) : null;
+
+        $event->validated = $event->task && $event->file;
     }
 }

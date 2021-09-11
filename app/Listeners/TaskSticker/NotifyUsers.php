@@ -19,7 +19,7 @@ class NotifyUsers
     {
         if ($event->result() && $event->task_report) {
             AllUserExec::dispatch([
-                "task-report-update-{$event->task_report_id}" => [],
+                //"task-report-update-{$event->task_report_id}" => [],
                 'update' => [],
             ]);
         }

@@ -5,7 +5,7 @@
             <input type="file" name="file" id="file" ref="file" @change="handleUpload" :accept="accept">
             <label for="file">
                 <v-icon icon="ic_attachment" />
-                <span>Прикрепить <span v-if="video && image">фото/видео</span><span v-if="video">видео</span><span v-if="image">фото</span></span>
+                <span>Прикрепить <span v-if="video && image">фото/видео</span><span v-if="video && !image">видео</span><span v-if="image && !video">фото</span></span>
                 <div class="rules" v-if="rules" v-html="rules"></div>
             </label>
         </div>

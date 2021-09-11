@@ -134,14 +134,12 @@ $(() => {
 
 		scrollContainer.addEventListener('mouseleave', () => {
 			isDown = false;
-			if (scrollContainer.classList)
-				scrollContainer.classList.remove('active')
+			scrollContainer.classList.remove('active')
 		})
 
 		scrollContainer.addEventListener('mouseup', () => {
 			isDown = false;
-			if (scrollContainer.classList)
-				scrollContainer.classList.remove('active')
+			scrollContainer.classList.remove('active')
 		})
 
 		scrollContainer.addEventListener('mousemove', e => {
@@ -237,7 +235,7 @@ $(() => {
 		let parent = $(this).closest('.performance')
 
 		parent.find('.quiz_start').hide()
-		parent.find('.quiz').fadeIn(300)
+		parent.find('.quiz').addClass('show')
 
 		// Секундомер
 		timerCycle()
@@ -252,11 +250,11 @@ $(() => {
 
 		currentStep++
 
-		parent.find('.step').hide()
-		parent.find('.step' + currentStep).fadeIn(300)
+		parent.find('.step').removeClass('show')
+		parent.find('.step' + currentStep).addClass('show')
 
 		if (currentStep > $('.task_info .performance .quiz .steps > *').length) {
-			$('.task_info .performance .quiz').hide()
+			$('.task_info .performance .quiz').removeClass('show')
 			$('.task_info .performance .quiz_result').fadeIn(300)
 		}
 	})
@@ -294,16 +292,19 @@ $(window).on('load', () => {
 	}
 
 
-	// // Чат
-	// $('.about_info .chat').height($('.about_info .video .link').outerHeight())
+	// Выравнивание элементов в викторине
+	setHeight($('.task_info .performance .quiz .step .height'))
 })
 
 
 
-// $(window).on('resize', () => {
-// 	// Чат
-// 	$('.about_info .chat').height($('.about_info .video .link').outerHeight())
-// })
+$(window).resize(() => {
+	// Выравнивание элементов в викторине
+	$('.task_info .performance .quiz .step .height').height('auto')
+
+	setHeight($('.task_info .performance .quiz .step .height'))
+})
+
 
 
 function timerCycle() {

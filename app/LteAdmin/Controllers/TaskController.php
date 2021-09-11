@@ -9,10 +9,12 @@ use Lar\LteAdmin\Segments\Matrix;
 use Lar\LteAdmin\Segments\Sheet;
 use Lar\LteAdmin\Segments\Tagable\Form;
 use Lar\LteAdmin\Segments\Tagable\ModelInfoTable;
+use Lar\LteAdmin\Segments\Tagable\ModelLive;
 use Lar\LteAdmin\Segments\Tagable\ModelTable;
 
 /**
  * TaskController Class.
+ * @method Task model()
  */
 class TaskController extends Controller
 {
@@ -56,10 +58,19 @@ class TaskController extends Controller
             $form->input('name', 'Название')->required();
             $form->input('prize_src', 'Фото приза')
                 ->required_condition($this->isType('create'));
+
+            $form->select('action_type', 'Тип подтверждения')
+                ->options(Task::ACTION_TYPES, true);
+
             $form->select('event_type', 'Тип события')
                 ->options(Task::EVENT_TYPES, true);
+
             $form->select('report_type', 'Тип отчёта')
                 ->options(Task::REPORT_TYPES, true);
+
+            $form->model_live('report_type', ModelLive::IN(Task::REPORT_TYPE_DOWNLOAD_FILE, Task::REPORT_TYPE_DOWNLOAD_FILE_PHOTO), function (ModelLive $live) {
+                $live->input('report_configs[download]', 'Ссылка для скачивания');
+            });
             $form->multi_select('action_types', 'Проверка задания')
                 ->options(Task::ACTION_TYPES, true);
             $form->numeric('cost', 'Стоимость')->required()

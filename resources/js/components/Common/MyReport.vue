@@ -16,10 +16,10 @@
 <!--        <div class="sort">-->
 <!--            <div class="name">Сортировать:</div>-->
 
-<!--            <select name="">-->
+<!--            <v-select name="">-->
 <!--                <option value="1" selected>По дате публикации</option>-->
 <!--                <option value="2">По лайкам</option>-->
-<!--            </select>-->
+<!--            </v-select>-->
 <!--        </div>-->
     </div>
 

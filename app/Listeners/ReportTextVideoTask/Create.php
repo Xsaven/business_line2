@@ -3,6 +3,7 @@
 namespace App\Listeners\ReportTextVideoTask;
 
 use App\Events\ReportTextVideoTask;
+use App\Models\Task;
 use App\Models\TaskReport;
 
 class Create
@@ -15,9 +16,10 @@ class Create
         if ($event->validated) {
             $user_id = \Auth::id();
 
-            $event->task->taskReports()->create([
-                'status' => TaskReport::STATUS_UPLOADED,
-                'files' => [$event->filename],
+            TaskReport::create([
+                'task_id' => $event->task_id,
+                'status' => $event->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
+                'file' => $event->file,
                 'user_id' => $user_id,
             ]);
         }

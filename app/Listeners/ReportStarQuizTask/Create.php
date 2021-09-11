@@ -5,6 +5,7 @@ namespace App\Listeners\ReportStarQuizTask;
 use App\Events\ReportStarQuizTask;
 use App\Models\QuizAnswer;
 use App\Models\Star;
+use App\Models\Task;
 use App\Models\TaskReport;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -25,7 +26,7 @@ class Create
         foreach ($event->quiz_answers as $quiz_answer) {
             $answer = QuizAnswer::find($quiz_answer);
             $stars[] = $answer->stars->pluck('id')->toArray();
-       }
+        }
 
         $result = collect($stars)->collapse()
             ->groupBy(fn ($i) => $i)
@@ -34,8 +35,17 @@ class Create
 
         $event->star = Star::find($result);
 
+        $balls = 0;
+        foreach (QuizAnswer::whereIn('id', array_values($event->quiz_answers))->get() as $answer) {
+            $balls += $answer->cost;
+        }
+
+        $event->balls = $balls;
+
+        \Auth::user()->increment('balance', $balls);
+
         TaskReport::create([
-            'status' => TaskReport::STATUS_CHECKED,
+            'status' => $event->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
             'user_id' => \Auth::user()->id,
             'task_id' => $event->task->id,
         ]);

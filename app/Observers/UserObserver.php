@@ -2,9 +2,10 @@
 
 namespace App\Observers;
 
+use App\Events\Ws\Exec;
 use App\Models\User;
 
-class UserOserver
+class UserObserver
 {
     /**
      * Handle the User "created" event.
@@ -25,7 +26,7 @@ class UserOserver
      */
     public function updated(User $user)
     {
-        //
+        Exec::dispatch($user->id, 'update');
     }
 
     /**

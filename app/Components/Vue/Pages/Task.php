@@ -23,53 +23,54 @@ class Task extends Page
      */
     protected $element = 'pages_task';
 
+    /**
+     * @param  null  $id
+     * @param  array  $attrs
+     * @param ...$params
+     */
     public function __construct($id = null, array $attrs = [], ...$params)
     {
-        $user = \Auth::user();
-
         $repo = app(TaskRepository::class);
 
-        if (! $repo->findById) {
-            abort(404);
-        } elseif (! $repo->findById->is_challenge && now() < Carbon::parse($repo->findById->start_at) && ! \App::isLocal()) {
-            abort(404);
-        }
+        $this->abort($repo);
 
-        $attrs['task'] = TaskResource::make($repo->findById)->toArray(request());
+        $report = $repo->user_task_report;
 
-        /** @var TaskReport $report */
-        $report = $user->taskReports()->with('commentary')->withCount('likes')
-            ->where('task_id', $attrs['task']['id'])->first();
+        /**
+         * Attributes.
+         */
+        $attrs['task'] = TaskResource::make($repo->findById);
 
-        if ($report) {
-            $attrs['task_report'] = TaskReportResource::make($report)->toArray(request());
-            $attrs['reports'] = TaskReportResource::collection(
-                $repo->findById
-                    ->taskReports()
-                    ->with('commentary')->withCount('likes')
-                    ->where('status', TaskReport::STATUS_CHECKED)
-                    ->where('id', '!=', $report->id)
-                    ->get()
-            )->toArray(request());
-        } else {
-            $attrs['task_report'] = null;
-            $attrs['reports'] = [];
-        }
+        $attrs['task_report'] = $report ? TaskReportResource::make($report) : null;
 
-        if ($repo->findById->report_type === 'quiz') {
-            $attrs['quiz'] = QuizQuestionResource::collection(QuizQuestion::where('task_id', $repo->findById->id)->get())
-                ->toArray(request());
-        } else {
-            $attrs['quiz'] = [];
-        }
+        $attrs['reports'] = $report ? TaskReportResource::collection(
+            $repo->reports_in_task($report)
+        ) : [];
 
-        if($repo->findById->report_type === 'star_quiz') {
-            $attrs['star_quiz'] = QuizQuestionResource::collection(QuizQuestion::where('task_id',$repo->findById->id)->get())
-                ->toArray(request());
-        } else {
-            $attrs['star_quiz'] = [];
-        }
+        $attrs['quiz'] = $repo->findById->report_type === 'quiz' ? QuizQuestionResource::collection(
+            QuizQuestion::where('task_id', $repo->findById->id)->get()
+        ) : [];
+
+        $attrs['star_quiz'] = $repo->findById->report_type === 'star_quiz' ? QuizQuestionResource::collection(
+            QuizQuestion::where('task_id', $repo->findById->id)->get()
+        ) : [];
 
         parent::__construct($id, $attrs, $params);
+    }
+
+    /**
+     * @param  TaskRepository  $repo
+     */
+    protected function abort(TaskRepository $repo)
+    {
+        if (! $repo->findById) {
+            abort(404);
+        } elseif (
+            ! $repo->findById->is_challenge &&
+            now() < Carbon::parse($repo->findById->start_at) &&
+            ! \App::isLocal()
+        ) {
+            abort(404);
+        }
     }
 }

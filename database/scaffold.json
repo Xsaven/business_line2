@@ -563,14 +563,5 @@
       "task": {},
       "user": {}
     }
-  },
-  "balance": {
-    "const:title": "Статистика баланса",
-    "fields": [
-      "description"
-    ],
-    "relations": {
-      "user": {}
-    }
   }
 }

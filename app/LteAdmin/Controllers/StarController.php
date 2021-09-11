@@ -2,43 +2,40 @@
 
 namespace App\LteAdmin\Controllers;
 
-use Lar\LteAdmin\Segments\Info;
-use Lar\LteAdmin\Segments\Sheet;
-use Lar\LteAdmin\Segments\Matrix;
-use Lar\LteAdmin\Segments\Tagable\Form;
-use Lar\LteAdmin\Segments\Tagable\ModelTable;
-use Lar\LteAdmin\Segments\Tagable\ModelInfoTable;
 use App\Models\Star;
+use Lar\LteAdmin\Segments\Info;
+use Lar\LteAdmin\Segments\Matrix;
+use Lar\LteAdmin\Segments\Sheet;
+use Lar\LteAdmin\Segments\Tagable\Form;
+use Lar\LteAdmin\Segments\Tagable\ModelInfoTable;
+use Lar\LteAdmin\Segments\Tagable\ModelTable;
 
 /**
- * StarController Class
+ * StarController Class.
  * @package App\LteAdmin\Controllers
  */
 class StarController extends Controller
 {
     /**
-     * Static variable Model
+     * Static variable Model.
      * @var string
      */
-    static $model = Star::class;
+    public static $model = Star::class;
 
     /**
      * @return Sheet
      */
     public function index()
     {
-
         return Sheet::create(function (ModelTable $table) {
-
             $table->search->id();
-            $table->search->input('name','Имя');
+            $table->search->input('name', 'Имя');
             $table->search->at();
 
             $table->id();
-            $table->col('Имя','name')->sort();
+            $table->col('Имя', 'name')->sort();
             $table->col('Фото', 'photo')->avatar();
-            $table->col('Описание','text')->sort();
-
+            $table->col('Описание', 'text')->sort();
 
             $table->at();
         });
@@ -49,12 +46,11 @@ class StarController extends Controller
      */
     public function matrix()
     {
-
         return new Matrix(function (Form $form) {
             $form->info_id();
-            $form->input('name','Имя');
-            $form->input('photo','Ссылка на фотографию');
-            $form->textarea('text','Описание');
+            $form->input('name', 'Имя');
+            $form->input('photo', 'Ссылка на фотографию');
+            $form->textarea('text', 'Описание');
             $form->info_at();
         });
     }
@@ -64,14 +60,12 @@ class StarController extends Controller
      */
     public function show()
     {
-
         return Info::create(function (ModelInfoTable $table) {
             $table->id();
-            $table->row('Имя','name')->sort();
+            $table->row('Имя', 'name')->sort();
             $table->row('Фото', 'photo')->avatar();
-            $table->row('Описание','text')->sort();
+            $table->row('Описание', 'text')->sort();
             $table->at();
         });
     }
-
 }

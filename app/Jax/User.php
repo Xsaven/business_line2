@@ -281,12 +281,9 @@ class User extends JaxExecutor
         $this->reload();
     }
 
-    public function text_or_image_or_video_report(int $task_id, string $comment, Request $request)
+    public function text_or_image_or_video_report(int $task_id, string $comment, string $file)
     {
-        /**
-         * @var ReportTextImageVideoTask
-         */
-        $event = new ReportTextImageVideoTask($task_id, $comment, $request->file('files'));
+        $event = new ReportTextImageVideoTask($task_id, $comment, $file);
 
         event($event);
 
@@ -294,15 +291,12 @@ class User extends JaxExecutor
     }
 
     /**
-     * @param int $task_id
-     * @param Request $request
+     * @param  int  $task_id
+     * @param  string  $file
      */
-    public function image_or_video_report(int $task_id, Request $request)
+    public function image_or_video_report(int $task_id, string $file)
     {
-        /**
-         * @var ReportImageVideoTask
-         */
-        $event = new ReportImageVideoTask($task_id, $request->file('files'));
+        $event = new ReportImageVideoTask($task_id, $file);
 
         event($event);
 
@@ -310,16 +304,13 @@ class User extends JaxExecutor
     }
 
     /**
-     * @param int $task_id
-     * @param string $comment
-     * @param $videos
+     * @param  int  $task_id
+     * @param  string  $comment
+     * @param  string  $file
      */
-    public function text_or_video_report(int $task_id, string $comment, Request $request)
+    public function text_or_video_report(int $task_id, string $comment, string $file)
     {
-        /**
-         * @var ReportTextVideoTask
-         */
-        $event = new ReportTextVideoTask($task_id, $request->file('files'), $comment, );
+        $event = new ReportTextVideoTask($task_id, $file, $comment);
 
         event($event);
 
@@ -365,7 +356,7 @@ class User extends JaxExecutor
 
         event($event);
 
-        return ['star' => $event->star];
+        return ['star' => $event->star, 'balls' => $event->balls];
     }
 
     /**
@@ -381,12 +372,12 @@ class User extends JaxExecutor
     }
 
     /**
-     * @param int $task_id
-     * @param $files
+     * @param  int  $task_id
+     * @param  string  $file
      */
-    public function download_file_image_report(int $task_id, $files)
+    public function download_file_image_report(int $task_id, string $file)
     {
-        $event = new ReportDownloadFileImageTask($task_id, $files);
+        $event = new ReportDownloadFileImageTask($task_id, $file);
 
         event($event);
 

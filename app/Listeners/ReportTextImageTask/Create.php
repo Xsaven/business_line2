@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Listeners\ReportDownloadFileImageTask;
+namespace App\Listeners\ReportTextImageTask;
 
-use App\Events\ReportDownloadFileImageTask;
+use App\Events\ReportTextImageTask;
 use App\Models\Task;
 use App\Models\TaskReport;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -13,10 +13,10 @@ class Create
     /**
      * Handle the event.
      *
-     * @param  ReportDownloadFileImageTask  $event
+     * @param  ReportTextImageTask  $event
      * @return void
      */
-    public function handle(ReportDownloadFileImageTask $event)
+    public function handle(ReportTextImageTask $event)
     {
         if ($event->validated) {
             $user_id = \Auth::id();
@@ -25,6 +25,7 @@ class Create
                 'task_id' => $event->task_id,
                 'status' => $event->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
                 'file' => $event->file,
+                'comment' => $event->comment,
                 'user_id' => $user_id,
             ]);
         }
