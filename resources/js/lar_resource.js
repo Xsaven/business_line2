@@ -5,6 +5,25 @@ const load = () => {
 
     //ljs.routeCollection(require('./route.json'))
 
+    window.setHeight = (className) => {
+        let maxheight = 0
+
+        className.each(function () {
+            const elHeight = $(this).outerWidth()
+
+            if (elHeight > maxheight) maxheight = elHeight
+        })
+
+        className.outerWidth(maxheight)
+    }
+
+    $(window).resize(() => {
+
+        $('.task_info .performance .quiz .step .height').height('auto')
+
+        setHeight($('.task_info .performance .quiz .step .height'));
+    })
+
     let state_watchers = 'state_watchers' in resources ? resources.state_watchers : [];
     let executors = 'executors' in resources ? resources.executors : [];
     let vue_components = 'vue_components' in resources ? resources.vue_components : {};

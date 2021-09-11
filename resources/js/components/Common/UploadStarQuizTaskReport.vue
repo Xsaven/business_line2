@@ -26,16 +26,19 @@
 
           <template v-for="(question,i) in star_quiz">
             <div :class="`step step${i + 1}`" :key="`quiz_${i}`">
-              <div class="question">{{ question.question }}</div>
+                <div class="height">
+                    <div class="question">{{ question.question }}</div>
 
-              <template v-for="(answer,k) in question.answers">
-                <div class="answers" :key="`quiz_answer_${k}`">
-                  <div class="field">
-                    <input :value="answer.id" v-model="quiz_answers[i]" type="radio" :name="`group${i}`" :id="`group1_check${k}_${i}`">
-                    <label :for="`group1_check${k}_${i}`">{{answer.answer}}</label>
-                  </div>
+
+                        <div class="answers">
+                            <div class="field">
+                                <template v-for="(answer,k) in question.answers">
+                                    <input :value="answer.id" v-model="quiz_answers[i]" type="radio" :name="`group${i}`" :id="`group1_check${k}_${i}`" :key="`quiz_answer_${k}_input`">
+                                    <label :for="`group1_check${k}_${i}`" :key="`quiz_answer_${k}_label`">{{answer.answer}}</label>
+                                </template>
+                            </div>
+                        </div>
                 </div>
-              </template>
             </div>
           </template>
 
@@ -78,7 +81,10 @@ export default {
       balls: 0
     }
   },
-  methods: {
+    mounted() {
+
+    },
+    methods: {
     finishQ () {
       jax.user.star_quiz_report(this.task.id,this.quiz_answers)
           .then(({star, balls}) => {
@@ -102,8 +108,9 @@ export default {
 
       if (this.currentStep === (this.star_quiz.length + 1)) return this.finishQ();
 
-      parent.find('.step').hide()
-      parent.find('.step' + this.currentStep).fadeIn(300)
+      parent.find('.step').removeClass('show').hide()
+      parent.find('.step' + this.currentStep).addClass('show').fadeIn(300)
+        window.setHeight($('.task_info .performance .quiz .step .height'))
 
       if (this.currentStep > steps.length) {
         $('.task_info .performance .quiz').hide()
@@ -113,8 +120,9 @@ export default {
     start() {
       let parent = $(this.$refs.p)
 
-      parent.find('.quiz_start').hide()
-      parent.find('.quiz').fadeIn(300)
+        parent.find('.quiz_start').hide()
+        parent.find('.quiz, .step1').fadeIn(300).addClass('show')
+        window.setHeight($('.task_info .performance .quiz .step .height'))
 
       // Секундомер
       //this.timerCycle()

@@ -5712,6 +5712,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-upload-quiz-task-report",
   props: {
@@ -5801,8 +5805,8 @@ __webpack_require__.r(__webpack_exports__);
       this.sec = 20;
       this.currentStep++;
       if (this.currentStep === this.quiz.length + 1) return this.finishQ();
-      parent.find('.step').hide();
-      parent.find('.step' + this.currentStep).fadeIn(300);
+      parent.find('.step').removeClass('show').hide();
+      parent.find('.step' + this.currentStep).addClass('show').fadeIn(300);
 
       if (this.currentStep > steps.length) {
         $('.task_info .performance .quiz').hide();
@@ -5812,10 +5816,11 @@ __webpack_require__.r(__webpack_exports__);
     start: function start() {
       var parent = $(this.$refs.p);
       parent.find('.quiz_start').hide();
-      parent.find('.quiz').fadeIn(300); // Секундомер
+      parent.find('.quiz, .step1').fadeIn(300).addClass('show');
+      window.setHeight($('.task_info .performance .quiz .step .height')); // Секундомер
 
       if (this.timer) clearInterval(this.timer);
-      setInterval(this.timerCycle.bind(this), 1000);
+      this.timer = setInterval(this.timerCycle.bind(this), 1000);
     },
     timerCycle: function timerCycle() {
       if (this.sec === 0) {
@@ -5949,6 +5954,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-upload-star-quiz-task-report",
   props: {
@@ -5967,6 +5975,7 @@ __webpack_require__.r(__webpack_exports__);
       balls: 0
     };
   },
+  mounted: function mounted() {},
   methods: {
     finishQ: function finishQ() {
       var _this = this;
@@ -5992,8 +6001,9 @@ __webpack_require__.r(__webpack_exports__);
       steps.eq(this.currentStep - 1).addClass('success');
       this.currentStep++;
       if (this.currentStep === this.star_quiz.length + 1) return this.finishQ();
-      parent.find('.step').hide();
-      parent.find('.step' + this.currentStep).fadeIn(300);
+      parent.find('.step').removeClass('show').hide();
+      parent.find('.step' + this.currentStep).addClass('show').fadeIn(300);
+      window.setHeight($('.task_info .performance .quiz .step .height'));
 
       if (this.currentStep > steps.length) {
         $('.task_info .performance .quiz').hide();
@@ -6003,7 +6013,8 @@ __webpack_require__.r(__webpack_exports__);
     start: function start() {
       var parent = $(this.$refs.p);
       parent.find('.quiz_start').hide();
-      parent.find('.quiz').fadeIn(300); // Секундомер
+      parent.find('.quiz, .step1').fadeIn(300).addClass('show');
+      window.setHeight($('.task_info .performance .quiz .step .height')); // Секундомер
       //this.timerCycle()
     },
     declOfNum: function declOfNum(n, text_forms) {
@@ -9646,6 +9657,19 @@ var map = __webpack_require__(/*! lodash/map */ "./node_modules/lodash/map.js");
 
 var load = function load() {
   //ljs.routeCollection(require('./route.json'))
+  window.setHeight = function (className) {
+    var maxheight = 0;
+    className.each(function () {
+      var elHeight = $(this).outerWidth();
+      if (elHeight > maxheight) maxheight = elHeight;
+    });
+    className.outerWidth(maxheight);
+  };
+
+  $(window).resize(function () {
+    $('.task_info .performance .quiz .step .height').height('auto');
+    setHeight($('.task_info .performance .quiz .step .height'));
+  });
   var state_watchers = 'state_watchers' in resources ? resources.state_watchers : [];
   var executors = 'executors' in resources ? resources.executors : [];
   var vue_components = 'vue_components' in resources ? resources.vue_components : {};
@@ -63064,21 +63088,19 @@ var render = function() {
           _vm._v(" "),
           _vm._l(_vm.quiz, function(question, i) {
             return [
-              _c(
-                "div",
-                { key: "quiz_" + i, class: "step step" + (i + 1) },
-                [
+              _c("div", { key: "quiz_" + i, class: "step step" + (i + 1) }, [
+                _c("div", { staticClass: "height" }, [
                   _c("div", { staticClass: "question" }, [
                     _vm._v(_vm._s(question.question))
                   ]),
                   _vm._v(" "),
-                  _vm._l(question.answers, function(answer, k) {
-                    return [
-                      _c(
-                        "div",
-                        { key: "quiz_answer_" + k, staticClass: "answers" },
-                        [
-                          _c("div", { staticClass: "field" }, [
+                  _c("div", { staticClass: "answers" }, [
+                    _c(
+                      "div",
+                      { staticClass: "field" },
+                      [
+                        _vm._l(question.answers, function(answer, k) {
+                          return [
                             _c("input", {
                               directives: [
                                 {
@@ -63088,6 +63110,7 @@ var render = function() {
                                   expression: "quiz_answers[i]"
                                 }
                               ],
+                              key: "quiz_answer_" + k + "_input",
                               attrs: {
                                 type: "radio",
                                 name: "group" + i,
@@ -63110,17 +63133,20 @@ var render = function() {
                             _vm._v(" "),
                             _c(
                               "label",
-                              { attrs: { for: "group1_check" + k + "_" + i } },
+                              {
+                                key: "quiz_answer_" + k + "_label",
+                                attrs: { for: "group1_check" + k + "_" + i }
+                              },
                               [_vm._v(_vm._s(answer.answer))]
                             )
-                          ])
-                        ]
-                      )
-                    ]
-                  })
-                ],
-                2
-              )
+                          ]
+                        })
+                      ],
+                      2
+                    )
+                  ])
+                ])
+              ])
             ]
           }),
           _vm._v(" "),
@@ -63282,21 +63308,19 @@ var render = function() {
             _vm._v(" "),
             _vm._l(_vm.star_quiz, function(question, i) {
               return [
-                _c(
-                  "div",
-                  { key: "quiz_" + i, class: "step step" + (i + 1) },
-                  [
+                _c("div", { key: "quiz_" + i, class: "step step" + (i + 1) }, [
+                  _c("div", { staticClass: "height" }, [
                     _c("div", { staticClass: "question" }, [
                       _vm._v(_vm._s(question.question))
                     ]),
                     _vm._v(" "),
-                    _vm._l(question.answers, function(answer, k) {
-                      return [
-                        _c(
-                          "div",
-                          { key: "quiz_answer_" + k, staticClass: "answers" },
-                          [
-                            _c("div", { staticClass: "field" }, [
+                    _c("div", { staticClass: "answers" }, [
+                      _c(
+                        "div",
+                        { staticClass: "field" },
+                        [
+                          _vm._l(question.answers, function(answer, k) {
+                            return [
                               _c("input", {
                                 directives: [
                                   {
@@ -63306,6 +63330,7 @@ var render = function() {
                                     expression: "quiz_answers[i]"
                                   }
                                 ],
+                                key: "quiz_answer_" + k + "_input",
                                 attrs: {
                                   type: "radio",
                                   name: "group" + i,
@@ -63332,18 +63357,19 @@ var render = function() {
                               _c(
                                 "label",
                                 {
+                                  key: "quiz_answer_" + k + "_label",
                                   attrs: { for: "group1_check" + k + "_" + i }
                                 },
                                 [_vm._v(_vm._s(answer.answer))]
                               )
-                            ])
-                          ]
-                        )
-                      ]
-                    })
-                  ],
-                  2
-                )
+                            ]
+                          })
+                        ],
+                        2
+                      )
+                    ])
+                  ])
+                ])
               ]
             }),
             _vm._v(" "),
