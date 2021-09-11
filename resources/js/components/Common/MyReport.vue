@@ -2,8 +2,16 @@
   <div class="reports">
     <div class="my_report">
       <div class="title">Мой отчет</div>
-
-      <div class="tasks_list">
+        <div class="upload_report" v-if="report.status === 'uploading'">
+            <div class="info">
+                <div class="status">
+                    <v-icon icon="ic_time" class="yellow" />
+                    <div>Скоро данные отчета будут загружены</div>
+                </div>
+                <img data-src="/images/bg_performance.svg" alt="" class="bg lozad">
+            </div>
+        </div>
+      <div v-else class="tasks_list">
         <div class="list">
             <v-task-report :report="report" />
         </div>

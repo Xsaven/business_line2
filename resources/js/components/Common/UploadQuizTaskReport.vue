@@ -119,7 +119,7 @@
           nextQ () {
             this.ri_answer[this.currentStep-1] = null;
             if (this.quiz_answers[this.currentStep-1] === undefined) {
-              return "toast:error".exec("Для начала дайте правельный ответ!");
+              return "toast:error".exec("Для продолжения дайте правильный ответ!");
             }
             this.answer_check(this.quiz_answers[this.currentStep-1], this.currentStep-1)
             let parent = $(this.$refs.quiz)

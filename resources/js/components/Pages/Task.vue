@@ -15,7 +15,7 @@
                 <div v-else-if="(String(task.start_at).split('-')[1] === String(task.finish_at).split('-')[1]) && (String(task.start_at).split('-')[2] === String(task.finish_at).split('-')[2])" class="date">{{String(task.finish_at).split('-')[2]}} {{month[String(task.finish_at).split('-')[1]]}}</div>
 
                 <div v-if="between_days" class="before_start">До начала {{between_days}} {{declOfNum(between_days,['день','дня','дней'])}}</div>
-                <div v-else-if="green_button" class="before_start green">Действуй!</div>
+                <div v-else-if="green_button" class="before_start green">Действуйте!</div>
                 <div v-else-if="red_button" class="before_start red">Завершен</div>
               </div>
 

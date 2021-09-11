@@ -44,7 +44,7 @@ class UploadVideoToVimeo implements ShouldQueue
                 if ($report) {
                     $report->update([
                         'file' => $code,
-                        'status' => $report->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADING,
+                        'status' => TaskReport::STATUS_UPLOADING,
                     ]);
                 } else {
                     \Cache::set($event->filename, $code, now()->addDay());

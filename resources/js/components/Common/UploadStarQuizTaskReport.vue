@@ -90,7 +90,7 @@ export default {
     },
     nextQ() {
       if (this.quiz_answers[this.currentStep-1] === undefined) {
-        return "toast:error".exec("Для начала дайте правельный ответ!");
+        return "toast:error".exec("Для продолжения дайте правильный ответ!");
       }
       let parent = $(this.$refs.quiz)
       let steps = $('.task_info .performance .quiz .steps > *');

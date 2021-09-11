@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\Task;
 use App\Models\TaskReport;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -21,7 +22,8 @@ class CheckVimeoVideoJob implements ShouldQueue
      */
     public function __construct(
         public string $filename,
-        public string $uri
+        public string $uri,
+        public bool $done = false,
     ) {
     }
 
@@ -39,9 +41,14 @@ class CheckVimeoVideoJob implements ShouldQueue
         if ($response['body']['transcode']['status'] === 'complete') {
             $report = TaskReport::whereFile($this->filename)->first();
             if ($report) {
-                $report->update([
-                    'status' => TaskReport::STATUS_UPLOADED,
-                ]);
+                if ($this->done) {
+
+                    $report->update([
+                        'status' => $report->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
+                    ]);
+                } else {
+                    static::dispatch($this->filename, $this->uri, true)->delay(now()->addSeconds(30));
+                }
             } else {
                 \Cache::set($this->filename.'.status', 1, now()->addDay());
             }

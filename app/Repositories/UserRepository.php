@@ -74,8 +74,14 @@ class UserRepository extends CoreRepository
     public function search_users_for_fans(string $q = '')
     {
         return $this->model()
-            ->where('name', 'like', "%{$q}%")
-            ->orWhere('lastname', 'like', "%{$q}%")
+            ->where(\DB::raw('CONCAT_WS(" ", name, lastname)'), 'like', "%{$q}%")
+//            ->when($q, function ($query) use ($q) {
+//                foreach (explode(" ", $q) as $item) {
+//                    if ($item) $query->orWhere('name', 'like', "%{$item}%")
+//                        ->orWhere('lastname', 'like', "%{$item}%");
+//                }
+//                return $query;
+//            })
             ->paginate(100);
     }
 }
