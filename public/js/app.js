@@ -6866,6 +6866,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "auth",
@@ -64625,40 +64634,60 @@ var render = function() {
                         _vm._v(_vm._s(_vm.errors.lastname))
                       ])
                     ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "line" }, [
-                    _c("div", { staticClass: "field" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.registration.number,
-                            expression: "registration.number"
-                          }
-                        ],
-                        class: { input: true, error: _vm.errors.number },
-                        attrs: { type: "text", placeholder: "Табельный номер" },
-                        domProps: { value: _vm.registration.number },
-                        on: {
-                          click: _vm.clear_errors,
-                          blur: _vm.clear_errors,
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.registration,
-                              "number",
-                              $event.target.value
-                            )
-                          }
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "line" }, [
+                  _c("div", { staticClass: "field" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.registration.number,
+                          expression: "registration.number"
                         }
-                      }),
+                      ],
+                      class: { input: true, error: _vm.errors.number },
+                      attrs: { type: "text", placeholder: "Табельный номер" },
+                      domProps: { value: _vm.registration.number },
+                      on: {
+                        click: _vm.clear_errors,
+                        blur: _vm.clear_errors,
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.registration,
+                            "number",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm.errors.number
+                      ? _c("div", { staticClass: "exp" }, [
+                          _vm._v(_vm._s(_vm.errors.number))
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "tooltip" }, [
+                      _c("div", { staticClass: "icon" }, [
+                        _c("svg", [
+                          _c("use", {
+                            attrs: {
+                              "xlink:href": "images/sprite.svg#ic_tooltip"
+                            }
+                          })
+                        ])
+                      ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "exp" }, [
-                        _vm._v(_vm._s(_vm.errors.number))
+                        _vm._v(
+                          "\n                                        Табельный номер (ВАЖНО вводить его БЕЗ нулей в начале) вы можете уточнить у своего руководителя или узнать его самостоятельно, если у вас есть доступ в ЦУП: вы можете видеть табельный номер в своем расчетном листе.\n                                    "
+                        )
                       ])
                     ])
                   ])
