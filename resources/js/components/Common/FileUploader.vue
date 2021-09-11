@@ -172,9 +172,17 @@
             },
             progress (e, xhr) {
                 this.xhr = xhr;
-                this.loading = Math.round((e.loaded / e.total) * 100);
-                this.loaded = ljs.help.number_format(e.loaded / 1048576, 2);
-                this.total = ljs.help.number_format(e.total / 1048576, 2);
+                let loading = Math.round((e.loaded / e.total) * 100);
+                if (this.loading === 0 && loading === 100) {
+                    this.loading = 99;
+                    this.loaded = ljs.help.number_format(e.loaded / 1048576, 2);
+                    this.total = ljs.help.number_format(e.total / 1048576, 2);
+                }
+                else if (loading !== 100) {
+                    this.loading = loading;
+                    this.loaded = ljs.help.number_format(e.loaded / 1048576, 2);
+                    this.total = ljs.help.number_format(e.total / 1048576, 2);
+                }
             },
             abort () {
                 if (this.xhr) this.xhr.abort();
