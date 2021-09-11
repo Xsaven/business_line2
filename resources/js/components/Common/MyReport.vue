@@ -11,6 +11,15 @@
                 <img data-src="/images/bg_performance.svg" alt="" class="bg lozad">
             </div>
         </div>
+        <div class="upload_report" v-if="report.status === 'uploaded'">
+            <div class="info">
+                <div class="status">
+                    <v-icon icon="ic_time" class="yellow" />
+                    <div>Ваш отчет на проверке</div>
+                </div>
+                <img data-src="/images/bg_performance.svg" alt="" class="bg lozad">
+            </div>
+        </div>
       <div v-else class="tasks_list">
         <div class="list">
             <v-task-report :report="report" />
