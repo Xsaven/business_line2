@@ -75,6 +75,7 @@ class UserRepository extends CoreRepository
     {
         return $this->model()
             ->where(\DB::raw('CONCAT_WS(" ", name, lastname)'), 'like', "%{$q}%")
+            ->orWhere('login', 'like', "%{$q}%")
 //            ->when($q, function ($query) use ($q) {
 //                foreach (explode(" ", $q) as $item) {
 //                    if ($item) $query->orWhere('name', 'like', "%{$item}%")
