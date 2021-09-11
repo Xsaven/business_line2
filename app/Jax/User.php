@@ -10,7 +10,6 @@ use App\Events\ReportImageVideoTask;
 use App\Events\ReportPhotoTask;
 use App\Events\ReportQuizTask;
 use App\Events\ReportStarQuizTask;
-use App\Events\ReportTaskEvent;
 use App\Events\ReportTextImageTask;
 use App\Events\ReportTextImageVideoTask;
 use App\Events\ReportTextTask;

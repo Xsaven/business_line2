@@ -16,29 +16,20 @@ class AddUserBalance
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * @var int
-     */
-    public int $user_id;
-
-    /**
      * @var User|null
      */
     public ?User $user = null;
-
-    /**
-     * @var int
-     */
-    public int $balance;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(int $user_id, int $balance)
-    {
-        $this->user_id = $user_id;
-        $this->balance = $balance;
+    public function __construct(
+        public int $user_id,
+        public int $balance,
+        public string $reason
+    ) {
         $this->user = User::find($this->user_id);
     }
 }

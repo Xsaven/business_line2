@@ -15,86 +15,88 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        Registered::class => [
-            SendEmailVerificationNotification::class,
-        ],
-        \App\Events\Login::class => [
+
+        /**
+         * Авторизация
+         */
+
+        \App\Events\Login::class => [ // Авторизация
             \App\Listeners\Login\Validation::class,
             \App\Listeners\Login\Attempt::class,
             \App\Listeners\Login\LogoutOtherWindows::class,
             \App\Listeners\Login\Statistic::class,
             \App\Listeners\Login\Respond::class,
         ],
-        \App\Events\Register::class => [
+        \App\Events\Register::class => [ // Регистрация
             \App\Listeners\Register\Validation::class,
             \App\Listeners\Register\Find::class,
             \App\Listeners\Register\Attempt::class,
             \App\Listeners\Register\Respond::class,
         ],
-        \App\Events\AddUserBalance::class => [
+
+        /**
+         * Пользователь
+         */
+
+        \App\Events\AddUserBalance::class => [ // Увеличить или уменьшить баланс пользователя (Глобальный ивент)
             \App\Listeners\AddUserBalance\UpdateBalance::class,
             \App\Listeners\AddUserBalance\MakeLog::class,
             \App\Listeners\AddUserBalance\NotifyUser::class,
             \App\Listeners\Ws\UpdateAuthUser::class,
         ],
-        \App\Events\AdminAddUserBalance::class => [
+        \App\Events\AdminAddUserBalance::class => [ // Увеличить или уменьшить баланс пользователя администратором
             \App\Listeners\AddUserBalance\UpdateBalance::class,
             \App\Listeners\AdminAddUserBalance\MakeLog::class,
             \App\Listeners\AdminAddUserBalance\NotifyUser::class,
             \App\Listeners\Ws\UpdateAuthUser::class,
         ],
-        \App\Events\SubscribeDirectionEvent::class => [
+        \App\Events\SubscribeDirectionEvent::class => [ // Выбрать направление
             \App\Listeners\SubscribeDirection\Attempt::class,
             \App\Listeners\SubscribeDirection\MakeLog::class,
             \App\Listeners\SubscribeDirection\NotifyUser::class,
         ],
-        \App\Events\HomeCommentary::class => [
+        \App\Events\HomeCommentary::class => [ // Комментарий в комнату главной страницы
             \App\Listeners\HomeCommentary\Validation::class,
             \App\Listeners\HomeCommentary\Create::class,
             \App\Listeners\HomeCommentary\NotifyUsers::class,
         ],
-        \App\Events\Commentary::class => [
+        \App\Events\Commentary::class => [ // Комментарий, ответ на комментарий пользователя
             \App\Listeners\Commentary\Validation::class,
             \App\Listeners\Commentary\FindParent::class,
             \App\Listeners\Commentary\Create::class,
             \App\Listeners\Commentary\NotifyUsers::class,
         ],
-        \App\Events\CommentaryLike::class => [
+        \App\Events\CommentaryLike::class => [ // Лайк комментарию
             \App\Listeners\CommentaryLike\Validation::class,
             \App\Listeners\CommentaryLike\Incrementing::class,
             \App\Listeners\CommentaryLike\NotifyUsers::class,
             \App\Listeners\CommentaryLike\UpdateUsers::class,
         ],
-        \App\Events\TaskLike::class => [
+        \App\Events\TaskLike::class => [ // Лайк отчёту
             \App\Listeners\TaskLike\Validation::class,
             \App\Listeners\TaskLike\Incrementing::class,
             \App\Listeners\TaskLike\NotifyUsers::class,
             \App\Listeners\TaskLike\UpdateUsers::class,
         ],
-        \App\Events\TaskSticker::class => [
+        \App\Events\TaskSticker::class => [ // Стикер отчёту
             \App\Listeners\TaskSticker\Validation::class,
             \App\Listeners\TaskSticker\Incrementing::class,
             \App\Listeners\TaskSticker\NotifyUsers::class,
             \App\Listeners\TaskSticker\UpdateUsers::class,
         ],
-        \App\Events\FileUpload::class => [
+        \App\Events\FileUpload::class => [ // Загрузка файлов отчёта
             \App\Listeners\FileUpload\ValidationImage::class,
             \App\Listeners\FileUpload\ValidationVideo::class,
             \App\Listeners\FileUpload\UploadImage::class,
             \App\Listeners\FileUpload\UploadVideo::class,
             \App\Listeners\FileUpload\UploadVideoToVimeo::class,
         ],
-        \App\Events\ReportTaskEvent::class => [
-            \App\Listeners\ReportTaskEvent\Create::class,
-            \App\Listeners\ReportTaskEvent\Validation::class,
-            \App\Listeners\ReportTaskEvent\NotifyUsers::class,
-        ],
-        \App\Events\OrderEvent::class => [
+        \App\Events\OrderEvent::class => [ // Добавление товара в заказы
             \App\Listeners\OrderEvent\Validate::class,
             \App\Listeners\OrderEvent\Create::class,
             \App\Listeners\ReportTask\NotifyUsers::class,
         ],
-        \App\Events\SubscribeUserEvent::class => [
+        \App\Events\SubscribeUserEvent::class => [ // Подписка на пользователя
             \App\Listeners\SubscribeUserEvent\Validate::class,
             \App\Listeners\SubscribeUserEvent\Update::class,
         ],

@@ -40,6 +40,7 @@ class TaskController extends Controller
             $table->col('Тип события', fn (Task $task) => Task::EVENT_TYPES[$task->event_type])->sort('event_type');
             $table->col('Тип отчёта', fn (Task $task) => Task::REPORT_TYPES[$task->report_type])->sort('report_type');
             $table->col('Стоимость', 'cost')->sort()->money('баллов');
+            $table->col('Fans Task', 'fans_task')->sort()->yes_no();
             $table->at();
         });
     }
@@ -87,6 +88,9 @@ class TaskController extends Controller
 
             $form->ckeditor('short_description', 'Описание');
             $form->ckeditor('terms_of_participation', 'Условия участия');
+
+            $form->switcher('fans_task', 'Fans Task')
+                ->info('Специальная форма для болельщиков.');
 
             $form->divider('Дата и время');
             $form->date_time('start_at', 'Начало')->required();

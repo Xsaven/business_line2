@@ -3,9 +3,12 @@
     <div class="title">Загрузите ваш отчёт</div>
 
     <div class="info">
-      <form @submit.prevent.stop="send_report()" action="" class="form">
-        <div class="cols row">
+      <form @submit.prevent.stop="send_report()" class="form">
+
+        <div :class="{'cols row': false}">
+
           <div class="col">
+
             <div class="line">
               <div class="field">
                   <textarea v-model="comment" ref="text" name="comment" placeholder="Комментарий"></textarea>
@@ -55,13 +58,20 @@ export default {
   },
   mounted() {
       this.myref = this.$refs.text;
+      document.addEventListener('click', this.hide.bind(this));
   },
-  watch:{
+    beforeDestroy() {
+        document.removeEventListener('click', this.hide.bind(this));
+    },
+    watch:{
     q(val) {
       if (val) this.users(val);
     }
   },
   methods: {
+      hide () {
+          this.users_local = {};
+      },
     users() {
         if (this.q) jax.user.search_users(this.q)
             .then((data) => {
