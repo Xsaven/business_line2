@@ -23,6 +23,11 @@
         <div>Ты не справился</div>
       </div>
 
+      <div v-if="status === 'no'" class="status">
+        <v-icon icon="ic_bad" class="red" />
+        <div>В этом задании нет отчетов</div>
+      </div>
+
       <img data-src="/images/bg_performance.svg" alt="" class="bg lozad">
     </div>
   </div>

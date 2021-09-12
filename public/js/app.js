@@ -3615,6 +3615,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-get-task-report",
   props: {
@@ -8773,6 +8778,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var moment_moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment/moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment_moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment_moment__WEBPACK_IMPORTED_MODULE_0__);
+//
 //
 //
 //
@@ -60368,6 +60374,19 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
+      _vm.status === "no"
+        ? _c(
+            "div",
+            { staticClass: "status" },
+            [
+              _c("v-icon", { staticClass: "red", attrs: { icon: "ic_bad" } }),
+              _vm._v(" "),
+              _c("div", [_vm._v("В этом задании нет отчетов")])
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _c("img", {
         staticClass: "bg lozad",
         attrs: { "data-src": "/images/bg_performance.svg", alt: "" }
@@ -67732,8 +67751,14 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          Number(_vm.user.direction_id) !== Number(_vm.task.direction_id) ||
-          _vm.task.finished
+          (_vm.task.report_type === "quiz" ||
+            _vm.task.report_type === "star_quiz" ||
+            _vm.task.report_type === "download_file") &&
+          (Number(_vm.user.direction_id) !== Number(_vm.task.direction_id) ||
+            _vm.task.finished)
+            ? _c("v-get-task-report", { attrs: { status: "no" } })
+            : Number(_vm.user.direction_id) !== Number(_vm.task.direction_id) ||
+              _vm.task.finished
             ? _c("v-my-report", {
                 attrs: { task: _vm.task, reports: _vm.reports }
               })
