@@ -156,11 +156,11 @@ class UsersController extends Controller
             }
 
             ModelSaver::on_created(function (array $array, User $user) {
-                Exec::dispatch($user->id, 'update');
+                //Exec::dispatch($user->id, 'update');
             });
 
             ModelSaver::on_update(function (array $array, User $user) {
-                Exec::dispatch($user->id, 'update');
+                //Exec::dispatch($user->id, 'update');
             });
         });
     }
