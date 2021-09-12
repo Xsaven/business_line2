@@ -107,3 +107,7 @@ Road::web()->middleware(['lte-auth'])->prefix(config('lte.route.prefix'))->prefi
     $road->get('/users/export', ['\App\LteAdmin\Controllers\UsersController', 'export'])
         ->name('users_export');
 });
+
+Route::post('/forgot-password', [\App\Http\Controllers\PasswordResetLinkController::class, 'store'])
+    ->middleware(['guest:'.config('fortify.guard')])
+    ->name('password.email');
