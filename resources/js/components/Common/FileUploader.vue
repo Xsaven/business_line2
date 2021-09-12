@@ -112,7 +112,9 @@
         methods: {
             fileRemove (index) {
                 this.file = null;
-                this.$refs.file.value = "";
+                if (this.$refs.file) {
+                    this.$refs.file.value = "";
+                }
                 jax.user.drop_file(this.filename);
                 this.$emit('upload_drop');
                 this.to_step('choose');
@@ -189,7 +191,9 @@
                 if (this.xhr) this.xhr.abort();
                 this.xhr = null;
                 this.file = null;
-                this.$refs.file.value = "";
+                if (this.$refs.file) {
+                    this.$refs.file.value = "";
+                }
                 this.to_step('choose');
                 this.$emit('upload_drop');
             },
