@@ -63056,7 +63056,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "text" }, [
             _c("div", [
-              _vm._v("Вы похожи на " + _vm._s(_vm.star.name) + " – Вот это да!")
+              _vm._v("Вы похожи на " + _vm._s(_vm.star.name) + " – вот это да!")
             ]),
             _vm._v(" "),
             _c("div", [_vm._v(_vm._s(_vm.star.text))])
@@ -64846,7 +64846,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "terms" }, [
-            _c("div", { staticClass: "title" }, [_vm._v("Описания трека")]),
+            _c("div", { staticClass: "title" }, [_vm._v("Описание трека")]),
             _vm._v(" "),
             _c("div", {
               staticClass: "desc",
