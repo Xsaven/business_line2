@@ -32,7 +32,7 @@ class TaskReportObserver
      */
     public function updated(TaskReport $taskReport)
     {
-        //AllUserExec::dispatch("task-report-update-{$taskReport->id}");
+        AllUserExec::dispatch("task-report-update-{$taskReport->id}");
         AllAdminExec::dispatch(['questions:update']);
     }
 
