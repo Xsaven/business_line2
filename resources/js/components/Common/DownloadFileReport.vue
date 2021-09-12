@@ -18,9 +18,13 @@ export default {
   props: ['task'],
   methods: {
       send() {
-          window.open(this.task.report_configs.download,'_blank');
-          jax.user.download_file_report(this.task.id)
-              .then(() => {})
+          if (this.task.report_configs) {
+              window.open(this.task.report_configs.download,'_blank');
+              jax.user.download_file_report(this.task.id)
+                  .then(() => {})
+          } else {
+              "toast:error".exec("Не выходит скачать файл.");
+          }
       }
   }
 }

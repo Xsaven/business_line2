@@ -81,6 +81,10 @@ export default {
           let type = this.task.report_type;
           return type === 'video' || type === 'text_or_image_or_video' || type === 'image_or_video' || type === 'text_or_video'
       },
+      is_text () {
+          let type = this.task.report_type;
+          return type === 'text' || type === 'text_or_image_or_video' || type === 'text_or_video' || type === 'text_or_image'
+      },
     },
     watch:{
     q(val) {

@@ -2,21 +2,20 @@
     <div class="upload_report">
         <div class="title">Скачай файл</div>
         <div class="info">
-            <form class="form" @submit.stop.prevent="send">
+            <div v-if="!downloaded" class="quiz_start">
+                <div>Нажмите, чтобы приступить к выполнению</div>
+                <button type="button" @click="send" class="start_btn">Старт</button>
+            </div>
 
-                <a v-if="!downloaded" :href="task.report_configs.download" @click="downloaded=true" target="_blank" class="download_link" style="color: #fab509;">
-                    <v-icon icon="ic_file" />
-                    <span>Скачать файл</span>
-                </a>
+            <form v-if="downloaded" class="form" @submit.stop.prevent="send">
 
                 <v-file-uploader
-                    v-if="downloaded"
                     :image="true"
                     :video="false"
                     v-model="file"
                 />
 
-                <div v-if="downloaded" class="submit">
+                <div class="submit">
                     <button type="submit" class="submit_btn">Отправить</button>
                 </div>
 
@@ -38,8 +37,14 @@ export default {
         };
     },
     methods: {
+        open () {
+            if (this.task.report_configs) {
+                window.open(this.task.report_configs.download,'_blank');
+                this.downloaded=true;
+            }
+        },
         send() {
-            if (this.file || !!this.comment) {
+            if (this.file) {
 
                 jax.user.download_file_image_report(this.task.id,this.file)
                     .then(() => {
@@ -47,7 +52,7 @@ export default {
 
             } else {
 
-                "toast::error".exec("Сначала выберите файл или напишите комментарий.");
+                "toast::error".exec("Сначала выберите файл.");
             }
         }
     }

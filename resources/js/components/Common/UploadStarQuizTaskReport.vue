@@ -1,69 +1,68 @@
 <template>
-  <section class="task_info">
     <div class="performance" ref="p">
-      <div class="title">Выполнение задания</div>
+        <div class="title">Выполнение задания</div>
 
-      <div class="info">
-        <div class="quiz_start">
-          <div>Нажмите, чтобы приступить к выполнению</div>
-          <button class="start_btn" @click="start">Старт</button>
-        </div>
-
-        <form action="" class="quiz" ref="quiz">
-          <div class="head">
-            <div class="steps">
-              <template v-for="(quiz,i) in star_quiz">
-              <div :class="{'active': !i,}">{{i + 1}}</div>
-              </template>
+        <div class="info">
+            <div class="quiz_start">
+                <div>Нажмите, чтобы приступить к выполнению</div>
+                <button class="start_btn" @click="start">Старт</button>
             </div>
 
-<!--            <div class="time">-->
-<!--              <span class="minutes">00</span>-->
-<!--              <span class="sep">:</span>-->
-<!--              <span class="seconds">00</span>-->
-<!--            </div>-->
-          </div>
+            <form action="" class="quiz" ref="quiz">
+                <div class="head">
+                    <div class="steps">
+                        <template v-for="(quiz,i) in star_quiz">
+                            <div :class="{'active': !i,}">{{i + 1}}</div>
+                        </template>
+                    </div>
 
-          <template v-for="(question,i) in star_quiz">
-            <div :class="`step step${i + 1}`" :key="`quiz_${i}`">
-                <div class="height">
-                    <div class="question">{{ question.question }}</div>
+                    <!--            <div class="time">-->
+                    <!--              <span class="minutes">00</span>-->
+                    <!--              <span class="sep">:</span>-->
+                    <!--              <span class="seconds">00</span>-->
+                    <!--            </div>-->
+                </div>
+
+                <template v-for="(question,i) in star_quiz">
+                    <div :class="`step step${i + 1}`" :key="`quiz_${i}`">
+                        <div class="height">
+                            <div class="question">{{ question.question }}</div>
 
 
-                        <div class="answers">
-                            <div class="field">
-                                <template v-for="(answer,k) in question.answers">
-                                    <input :value="answer.id" v-model="quiz_answers[i]" type="radio" :name="`group${i}`" :id="`group1_check${k}_${i}`" :key="`quiz_answer_${k}_input`">
-                                    <label :for="`group1_check${k}_${i}`" :key="`quiz_answer_${k}_label`">{{answer.answer}}</label>
-                                </template>
+                            <div class="answers">
+                                <div class="field">
+                                    <template v-for="(answer,k) in question.answers">
+                                        <input :value="answer.id" v-model="quiz_answers[i]" type="radio" :name="`group${i}`" :id="`group1_check${k}_${i}`" :key="`quiz_answer_${k}_input`">
+                                        <label :for="`group1_check${k}_${i}`" :key="`quiz_answer_${k}_label`">{{answer.answer}}</label>
+                                    </template>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </template>
+
+                <button v-if="currentStep !== star_quiz.length + 1" type="button" class="next_btn" @click="nextQ">Ответить</button>
+            </form>
+
+            <div class="quiz_result">
+                <div class="you_look_like">
+                    <div class="photo">
+                        <img :src="`/${star.photo}`" alt="" class="lozad">
+                    </div>
+
+                    <div class="text">
+                        <div>Вы похожи на {{star.name}} – Вот это да!</div>
+
+                        <div>{{star.text}}</div>
+                    </div>
                 </div>
+
+                <div class="scores">+{{this.balls}} {{declOfNum(this.balls,['бал','бала','баллов'])}}</div>
+
             </div>
-          </template>
-
-          <button v-if="currentStep !== star_quiz.length + 1" type="button" class="next_btn" @click="nextQ">Ответить</button>
-        </form>
-
-        <div class="quiz_result">
-          <div class="you_look_like">
-            <div class="photo">
-              <img :src="`/${star.photo}`" alt="" class="lozad">
-            </div>
-
-            <div class="text">
-              <div>Вы похожи на {{star.name}} – Вот это да!</div>
-
-              <div>{{star.text}}</div>
-            </div>
-          </div>
-
-            <div class="scores">+{{this.balls}} {{declOfNum(this.balls,['бал','бала','баллов'])}}</div>
-
+            <img data-src="/images/bg_performance.svg" alt="" class="bg lozad">
         </div>
-      </div>
     </div>
-  </section>
 </template>
 
 <script>

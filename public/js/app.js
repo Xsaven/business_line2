@@ -3182,7 +3182,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-download-file-image",
   props: ['task'],
@@ -3193,11 +3192,17 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    open: function open() {
+      if (this.task.report_configs) {
+        window.open(this.task.report_configs.download, '_blank');
+        this.downloaded = true;
+      }
+    },
     send: function send() {
-      if (this.file || !!this.comment) {
+      if (this.file) {
         jax.user.download_file_image_report(this.task.id, this.file).then(function () {});
       } else {
-        "toast::error".exec("Сначала выберите файл или напишите комментарий.");
+        "toast::error".exec("Сначала выберите файл.");
       }
     }
   }
@@ -3235,8 +3240,12 @@ __webpack_require__.r(__webpack_exports__);
   props: ['task'],
   methods: {
     send: function send() {
-      window.open(this.task.report_configs.download, '_blank');
-      jax.user.download_file_report(this.task.id).then(function () {});
+      if (this.task.report_configs) {
+        window.open(this.task.report_configs.download, '_blank');
+        jax.user.download_file_report(this.task.id).then(function () {});
+      } else {
+        "toast:error".exec("Не выходит скачать файл.");
+      }
     }
   }
 });
@@ -5521,6 +5530,10 @@ __webpack_require__.r(__webpack_exports__);
     is_video: function is_video() {
       var type = this.task.report_type;
       return type === 'video' || type === 'text_or_image_or_video' || type === 'image_or_video' || type === 'text_or_video';
+    },
+    is_text: function is_text() {
+      var type = this.task.report_type;
+      return type === 'text' || type === 'text_or_image_or_video' || type === 'text_or_video' || type === 'text_or_image';
     }
   },
   watch: {
@@ -5930,7 +5943,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
 //
 //
 //
@@ -60045,46 +60057,37 @@ var render = function() {
     _c("div", { staticClass: "title" }, [_vm._v("Скачай файл")]),
     _vm._v(" "),
     _c("div", { staticClass: "info" }, [
-      _c(
-        "form",
-        {
-          staticClass: "form",
-          on: {
-            submit: function($event) {
-              $event.stopPropagation()
-              $event.preventDefault()
-              return _vm.send.apply(null, arguments)
-            }
-          }
-        },
-        [
-          !_vm.downloaded
-            ? _c(
-                "a",
-                {
-                  staticClass: "download_link",
-                  staticStyle: { color: "#fab509" },
-                  attrs: {
-                    href: _vm.task.report_configs.download,
-                    target: "_blank"
-                  },
-                  on: {
-                    click: function($event) {
-                      _vm.downloaded = true
-                    }
-                  }
-                },
-                [
-                  _c("v-icon", { attrs: { icon: "ic_file" } }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Скачать файл")])
-                ],
-                1
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.downloaded
-            ? _c("v-file-uploader", {
+      !_vm.downloaded
+        ? _c("div", { staticClass: "quiz_start" }, [
+            _c("div", [_vm._v("Нажмите, чтобы приступить к выполнению")]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "start_btn",
+                attrs: { type: "button" },
+                on: { click: _vm.send }
+              },
+              [_vm._v("Старт")]
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.downloaded
+        ? _c(
+            "form",
+            {
+              staticClass: "form",
+              on: {
+                submit: function($event) {
+                  $event.stopPropagation()
+                  $event.preventDefault()
+                  return _vm.send.apply(null, arguments)
+                }
+              }
+            },
+            [
+              _c("v-file-uploader", {
                 attrs: { image: true, video: false },
                 model: {
                   value: _vm.file,
@@ -60093,21 +60096,13 @@ var render = function() {
                   },
                   expression: "file"
                 }
-              })
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.downloaded
-            ? _c("div", { staticClass: "submit" }, [
-                _c(
-                  "button",
-                  { staticClass: "submit_btn", attrs: { type: "submit" } },
-                  [_vm._v("Отправить")]
-                )
-              ])
-            : _vm._e()
-        ],
-        1
-      ),
+              }),
+              _vm._v(" "),
+              _vm._m(0)
+            ],
+            1
+          )
+        : _vm._e(),
       _vm._v(" "),
       _c("img", {
         staticClass: "bg lozad",
@@ -60116,7 +60111,18 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "submit" }, [
+      _c("button", { staticClass: "submit_btn", attrs: { type: "submit" } }, [
+        _vm._v("Отправить")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -63282,152 +63288,150 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "task_info" }, [
-    _c("div", { ref: "p", staticClass: "performance" }, [
-      _c("div", { staticClass: "title" }, [_vm._v("Выполнение задания")]),
+  return _c("div", { ref: "p", staticClass: "performance" }, [
+    _c("div", { staticClass: "title" }, [_vm._v("Выполнение задания")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "info" }, [
+      _c("div", { staticClass: "quiz_start" }, [
+        _c("div", [_vm._v("Нажмите, чтобы приступить к выполнению")]),
+        _vm._v(" "),
+        _c("button", { staticClass: "start_btn", on: { click: _vm.start } }, [
+          _vm._v("Старт")
+        ])
+      ]),
       _vm._v(" "),
-      _c("div", { staticClass: "info" }, [
-        _c("div", { staticClass: "quiz_start" }, [
-          _c("div", [_vm._v("Нажмите, чтобы приступить к выполнению")]),
+      _c(
+        "form",
+        { ref: "quiz", staticClass: "quiz", attrs: { action: "" } },
+        [
+          _c("div", { staticClass: "head" }, [
+            _c(
+              "div",
+              { staticClass: "steps" },
+              [
+                _vm._l(_vm.star_quiz, function(quiz, i) {
+                  return [
+                    _c("div", { class: { active: !i } }, [
+                      _vm._v(_vm._s(i + 1))
+                    ])
+                  ]
+                })
+              ],
+              2
+            )
+          ]),
           _vm._v(" "),
-          _c("button", { staticClass: "start_btn", on: { click: _vm.start } }, [
-            _vm._v("Старт")
+          _vm._l(_vm.star_quiz, function(question, i) {
+            return [
+              _c("div", { key: "quiz_" + i, class: "step step" + (i + 1) }, [
+                _c("div", { staticClass: "height" }, [
+                  _c("div", { staticClass: "question" }, [
+                    _vm._v(_vm._s(question.question))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "answers" }, [
+                    _c(
+                      "div",
+                      { staticClass: "field" },
+                      [
+                        _vm._l(question.answers, function(answer, k) {
+                          return [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.quiz_answers[i],
+                                  expression: "quiz_answers[i]"
+                                }
+                              ],
+                              key: "quiz_answer_" + k + "_input",
+                              attrs: {
+                                type: "radio",
+                                name: "group" + i,
+                                id: "group1_check" + k + "_" + i
+                              },
+                              domProps: {
+                                value: answer.id,
+                                checked: _vm._q(_vm.quiz_answers[i], answer.id)
+                              },
+                              on: {
+                                change: function($event) {
+                                  return _vm.$set(
+                                    _vm.quiz_answers,
+                                    i,
+                                    answer.id
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                key: "quiz_answer_" + k + "_label",
+                                attrs: { for: "group1_check" + k + "_" + i }
+                              },
+                              [_vm._v(_vm._s(answer.answer))]
+                            )
+                          ]
+                        })
+                      ],
+                      2
+                    )
+                  ])
+                ])
+              ])
+            ]
+          }),
+          _vm._v(" "),
+          _vm.currentStep !== _vm.star_quiz.length + 1
+            ? _c(
+                "button",
+                {
+                  staticClass: "next_btn",
+                  attrs: { type: "button" },
+                  on: { click: _vm.nextQ }
+                },
+                [_vm._v("Ответить")]
+              )
+            : _vm._e()
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "quiz_result" }, [
+        _c("div", { staticClass: "you_look_like" }, [
+          _c("div", { staticClass: "photo" }, [
+            _c("img", {
+              staticClass: "lozad",
+              attrs: { src: "/" + _vm.star.photo, alt: "" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "text" }, [
+            _c("div", [
+              _vm._v("Вы похожи на " + _vm._s(_vm.star.name) + " – Вот это да!")
+            ]),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(_vm.star.text))])
           ])
         ]),
         _vm._v(" "),
-        _c(
-          "form",
-          { ref: "quiz", staticClass: "quiz", attrs: { action: "" } },
-          [
-            _c("div", { staticClass: "head" }, [
-              _c(
-                "div",
-                { staticClass: "steps" },
-                [
-                  _vm._l(_vm.star_quiz, function(quiz, i) {
-                    return [
-                      _c("div", { class: { active: !i } }, [
-                        _vm._v(_vm._s(i + 1))
-                      ])
-                    ]
-                  })
-                ],
-                2
-              )
-            ]),
-            _vm._v(" "),
-            _vm._l(_vm.star_quiz, function(question, i) {
-              return [
-                _c("div", { key: "quiz_" + i, class: "step step" + (i + 1) }, [
-                  _c("div", { staticClass: "height" }, [
-                    _c("div", { staticClass: "question" }, [
-                      _vm._v(_vm._s(question.question))
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "answers" }, [
-                      _c(
-                        "div",
-                        { staticClass: "field" },
-                        [
-                          _vm._l(question.answers, function(answer, k) {
-                            return [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.quiz_answers[i],
-                                    expression: "quiz_answers[i]"
-                                  }
-                                ],
-                                key: "quiz_answer_" + k + "_input",
-                                attrs: {
-                                  type: "radio",
-                                  name: "group" + i,
-                                  id: "group1_check" + k + "_" + i
-                                },
-                                domProps: {
-                                  value: answer.id,
-                                  checked: _vm._q(
-                                    _vm.quiz_answers[i],
-                                    answer.id
-                                  )
-                                },
-                                on: {
-                                  change: function($event) {
-                                    return _vm.$set(
-                                      _vm.quiz_answers,
-                                      i,
-                                      answer.id
-                                    )
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "label",
-                                {
-                                  key: "quiz_answer_" + k + "_label",
-                                  attrs: { for: "group1_check" + k + "_" + i }
-                                },
-                                [_vm._v(_vm._s(answer.answer))]
-                              )
-                            ]
-                          })
-                        ],
-                        2
-                      )
-                    ])
-                  ])
-                ])
-              ]
-            }),
-            _vm._v(" "),
-            _vm.currentStep !== _vm.star_quiz.length + 1
-              ? _c(
-                  "button",
-                  {
-                    staticClass: "next_btn",
-                    attrs: { type: "button" },
-                    on: { click: _vm.nextQ }
-                  },
-                  [_vm._v("Ответить")]
-                )
-              : _vm._e()
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "quiz_result" }, [
-          _c("div", { staticClass: "you_look_like" }, [
-            _c("div", { staticClass: "photo" }, [
-              _c("img", {
-                staticClass: "lozad",
-                attrs: { src: "/" + _vm.star.photo, alt: "" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text" }, [
-              _c("div", [
-                _vm._v(
-                  "Вы похожи на " + _vm._s(_vm.star.name) + " – Вот это да!"
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", [_vm._v(_vm._s(_vm.star.text))])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "scores" }, [
-            _vm._v(
-              "+" +
-                _vm._s(this.balls) +
-                " " +
-                _vm._s(_vm.declOfNum(this.balls, ["бал", "бала", "баллов"]))
-            )
-          ])
+        _c("div", { staticClass: "scores" }, [
+          _vm._v(
+            "+" +
+              _vm._s(this.balls) +
+              " " +
+              _vm._s(_vm.declOfNum(this.balls, ["бал", "бала", "баллов"]))
+          )
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "bg lozad",
+        attrs: { "data-src": "/images/bg_performance.svg", alt: "" }
+      })
     ])
   ])
 }
@@ -68069,7 +68073,14 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          !_vm.task_report && _vm.green_button && _vm.task.fans_task === true
+          !_vm.task_report &&
+          _vm.green_button &&
+          _vm.task.fans_task === true &&
+          !(
+            _vm.task.report_type === "quiz" ||
+            _vm.task.report_type === "star_quiz" ||
+            _vm.task.report_type === "download_file"
+          )
             ? _c("v-upload-fan-task_report", { attrs: { task: _vm.task } })
             : !_vm.task_report &&
               _vm.task.report_type === "image" &&
