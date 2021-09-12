@@ -36,7 +36,9 @@ class UpdateUsers
                 } else {
                     $event->task_report->user->decrement('likes');
                 }
+            }
 
+            if ($event->task_report) {
                 CalculateLikesTableJob::dispatch();
             }
         }
