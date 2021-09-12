@@ -3,17 +3,17 @@
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Имя</th>
-            <th scope="col">Задача</th>
+            <th scope="col">Задание</th>
+            <th scope="col">Пользователь</th>
             <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
             <template v-for="(item, index) in data">
                 <tr :key="index">
-                    <th scope="row">{{item.id}}</th>
-                    <td>{{item.name}}</td>
-                    <td>{{item.text}}</td>
+                    <th scope="row">{{item.task.id}}</th>
+                    <td>{{item.task.name}}</td>
+                    <td>{{item.user.name}}</td>
                     <td>
                         <div class="btn-group btn-group-sm">
                             <a class="btn btn-success" @click="approve(item.id)">

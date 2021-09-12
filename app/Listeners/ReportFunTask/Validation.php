@@ -21,17 +21,17 @@ class Validation
         $event->task = Task::find($event->task_id);
         $event->user = User::find($event->fun_id);
 
-        if ($event->user && $event->task && $event->file && str_starts_with($event->file, 'uploads/files') && $event->comment) {
+        if ($event->user && $event->task && $event->file && str_starts_with($event->file, 'uploads/files')) {
             $event->validated = true;
             $event->is_video = true;
         }
 
-        if ($event->user && $event->task && $event->file && str_ends_with($event->file, '.jpg') && $event->comment) {
+        if ($event->user && $event->task && $event->file && str_ends_with($event->file, '.jpg')) {
             $event->validated = true;
             $event->is_photo = true;
         }
 
-        if (!$event->validated && $event->comment && $event->user && $event->task && !$event->file) {
+        if (!$event->validated && $event->user && $event->task && !$event->file) {
             $event->validated = true;
         }
     }

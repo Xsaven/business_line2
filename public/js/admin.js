@@ -5338,11 +5338,13 @@ var render = function() {
         _vm._l(_vm.data, function(item, index) {
           return [
             _c("tr", { key: index }, [
-              _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(item.id))]),
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(item.task.id))
+              ]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(item.name))]),
+              _c("td", [_vm._v(_vm._s(item.task.name))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(item.text))]),
+              _c("td", [_vm._v(_vm._s(item.user.name))]),
               _vm._v(" "),
               _c("td", [
                 _c("div", { staticClass: "btn-group btn-group-sm" }, [
@@ -5390,9 +5392,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Имя")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Задание")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Задача")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Пользователь")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } })
       ])
