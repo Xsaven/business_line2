@@ -25,7 +25,7 @@ class UpdateUsers
 //                'likes' => $user->commentaryLikes()->count() + $user->taskReportLikes()->count(),
 //            ]);
 
-            if ($event->task_report && $event->task_report->user !== \Auth::id()) {
+            if ($event->task_report && $event->task_report->user->id !== \Auth::id()) {
 
                 $state = (bool) app(AuthUserRepository::class)
                     ->user
