@@ -30,8 +30,7 @@ class CalculateLikesTableJob implements ShouldQueue
 
         foreach (Direction::all() as $direction) {
 
-            $users = User::where('password', '!=', 'none')
-                ->where('direction_id', $direction->id)
+            $users = User::where('direction_id', $direction->id)
                 ->orderByDesc('likes')
                 ->get(['id', 'likes', 'password', 'direction_id']);
 
