@@ -28,14 +28,14 @@ class UploadVideoToVimeo implements ShouldQueue
                 config('services.vimeo.access_tocken'),
             );
 
-            info("http://{$event->ip}/{$event->filename}");
+            info(\Storage::disk('yandexcloud')->url($event->filename));
 
             $video_response = $lib->request(
                 '/me/videos',
                 [
                     'upload' => [
                         'approach' => 'pull',
-                        'link' => "http://{$event->ip}/{$event->filename}",
+                        'link' => \Storage::disk('yandexcloud')->url($event->filename), //"http://{$event->ip}/{$event->filename}",
                     ],
                 ],
                 'POST'
