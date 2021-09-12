@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Events\Ws\AllUserExec;
+use App\Models\Direction;
 use App\Models\User;
 use App\Notifications\UserBallanceTableChangeNotification;
 use App\Notifications\UserLikesTableChangeNotification;
@@ -25,25 +26,28 @@ class CalculateLikesTableJob implements ShouldQueue
      */
     public function handle()
     {
-        $users = User::where('password', '!=', 'none')
-            ->whereNotNull('direction_id')
-            ->orderByDesc('likes')
-            ->get(['id', 'likes', 'password', 'direction_id']);
-
         $changed = false;
 
-        foreach ($users as $key => $user) {
-            $position = $key + 1;
+        foreach (Direction::all() as $direction) {
 
-            $cache_key = "user_likes_position_{$user->id}";
+            $users = User::where('password', '!=', 'none')
+                ->whereNotNull('direction_id')
+                ->orderByDesc('likes')
+                ->get(['id', 'likes', 'password', 'direction_id']);
 
-            if (\Cache::has($cache_key) && \Cache::get($cache_key) !== $position) {
-                $changed = true;
-                $user->notify(
-                    new UserLikesTableChangeNotification($position, $user->direction_id)
-                );
+            foreach ($users as $key => $user) {
+                $position = $key + 1;
+
+                $cache_key = "user_likes_position_{$user->id}";
+
+                if (\Cache::has($cache_key) && \Cache::get($cache_key) !== $position) {
+                    $changed = true;
+                    $user->notify(
+                        new UserLikesTableChangeNotification($position, $user->direction_id)
+                    );
+                }
+                \Cache::set($cache_key, $position);
             }
-            \Cache::set($cache_key, $position);
         }
 
         if ($changed) {
