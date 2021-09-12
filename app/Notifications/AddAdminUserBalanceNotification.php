@@ -19,6 +19,6 @@ class AddAdminUserBalanceNotification extends Notification
         public int $balance
     ) {
         $action = $this->balance > 0 ? 'увеличен' : 'уменьшен';
-        $this->message = "Ваш баланс был {$action} администратором на {$this->balance} баллов.";
+        $this->message = "Баланс был {$action} администратором на {$this->balance} баллов.";
     }
 }
