@@ -35,19 +35,20 @@ class CheckVimeoVideoJob implements ShouldQueue
      */
     public function handle()
     {
+        if ($this->done) {
+            $report = TaskReport::whereFile($this->filename)->first();
+            $report->update([
+                'status' => $report->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
+            ]);
+        }
+
         $lib = new \Vimeo\Vimeo(config('services.vimeo.client_id'), config('services.vimeo.secret'), config('services.vimeo.access_tocken'));
 
         $response = $lib->request($this->uri.'?fields=transcode.status');
         if ($response['body']['transcode']['status'] === 'complete') {
             $report = TaskReport::whereFile($this->filename)->first();
             if ($report) {
-                if ($this->done) {
-                    $report->update([
-                        'status' => $report->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
-                    ]);
-                } else {
-                    static::dispatch($this->filename, $this->uri, true)->delay(now()->addSeconds(30));
-                }
+                static::dispatch($this->filename, $this->uri, true)->delay(now()->addSeconds(30));
             } else {
                 \Cache::set($this->filename.'.status', 1, now()->addDay());
             }
