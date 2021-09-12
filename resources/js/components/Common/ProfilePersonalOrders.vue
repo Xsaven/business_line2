@@ -5,84 +5,37 @@
                 <div class="title">Мои заказы</div>
             </div>
 
-            <div v-if="has" class="row">
-                <div class="order">
+            <div class="row" v-if="orders.length">
+              <template v-for="order in orders" >
+              <div class="order">
                     <div class="head">
-                        <div class="date">18.08.2021</div>
+                        <div class="date">{{order.created_at}}</div>
 
-                        <div class="status decorated">Оформлен</div>
+                        <div v-if="order.status === 'created'" class="status decorated">Создан</div>
+                        <div v-else-if="order.status === 'approved'" class="status decorated">Оформлен</div>
+                        <div v-else-if="order.status === 'transit'" class="status on_my_way">В пути</div>
+                        <div v-else-if="order.status === 'success'" class="status success"> Доставлен</div>
                     </div>
 
                     <div class="product">
                         <div class="thumb">
-                            <img data-src="images/tmp/product_thumb.png" alt="" class="lozad">
+                            <img :src="link(order.product[0].src)" alt="" class="lozad">
                         </div>
 
                         <div>
-                            <div class="name">Кружка 20 лет в отрыв</div>
-                            <div class="color">цвет: черный</div>
-                            <div class="scores">200 баллов</div>
+                            <div class="name">{{order.product[0].name}}</div>
+<!--                            <div class="color">цвет: черный</div>-->
+                            <div class="scores">{{order.product[0].cost}} {{declOfNum(order.product[0].cost,['бал','бала','баллов'])}}</div>
                         </div>
                     </div>
 
                     <div class="contacts">
-                        <div class="phone">+ 7 999 999 99 99</div>
-                        <div class="email">email@mail.ru</div>
-                        <div class="address">г. Москва, Новодмитриевское шосс, д18, к3</div>
+                        <div class="phone">{{order.phone}}</div>
+                        <div class="email">{{order.email}}</div>
+                        <div class="address">{{order.delivery}}</div>
                     </div>
                 </div>
-
-
-                <div class="order">
-                    <div class="head">
-                        <div class="date">18.08.2021</div>
-
-                        <div class="status on_my_way">В пути</div>
-                    </div>
-
-                    <div class="product">
-                        <div class="thumb">
-                            <img data-src="images/tmp/product_thumb2.png" alt="" class="lozad">
-                        </div>
-
-                        <div>
-                            <div class="name">Футболка-поло мужская «20 лет в отрыв!»</div>
-                            <div class="size">размер: S</div>
-                        </div>
-                    </div>
-
-                    <div class="contacts">
-                        <div class="phone">+ 7 999 999 99 99</div>
-                        <div class="email">email@mail.ru</div>
-                        <div class="address">г. Москва, Новодмитриевское шосс, д18, к3</div>
-                    </div>
-                </div>
-
-
-                <div class="order">
-                    <div class="head">
-                        <div class="date">18.08.2021</div>
-
-                        <div class="status success">Доставлен</div>
-                    </div>
-
-                    <div class="product">
-                        <div class="thumb">
-                            <img data-src="images/tmp/product_thumb3.png" alt="" class="lozad">
-                        </div>
-
-                        <div>
-                            <div class="name">Футболка-поло мужская «20 лет в отрыв!»</div>
-                            <div class="size">размер: S</div>
-                        </div>
-                    </div>
-
-                    <div class="contacts">
-                        <div class="phone">+ 7 999 999 99 99</div>
-                        <div class="email">email@mail.ru</div>
-                        <div class="address">г. Москва, Новодмитриевское шосс, д18, к3</div>
-                    </div>
-                </div>
+              </template>
             </div>
             <div v-else class="empty">Здесь еще ничего нет :(</div>
         </div>
@@ -93,7 +46,7 @@
     export default {
         $sync: ['user'],
         name: "v-profile-personal-orders",
-        props: {},
+        props: ['orders'],
         data () {
             return {
                 user: {},
@@ -103,6 +56,18 @@
         mounted () {},
         computed: {},
         watch: {},
-        methods: {}
+        methods: {
+          declOfNum(n, text_forms) {
+            n = Math.abs(n) % 100;
+            var n1 = n % 10;
+            if (n > 10 && n < 20) { return text_forms[2]; }
+            if (n1 > 1 && n1 < 5) { return text_forms[1]; }
+            if (n1 === 1) { return text_forms[0]; }
+            return text_forms[2];
+          },
+          link(url) {
+            return url;
+          }
+        }
     }
 </script>

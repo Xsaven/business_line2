@@ -122,7 +122,7 @@
             return text_forms[2];
           },
           buy_product() {
-            if(!this.form.phone || !this.form.email || !this.form.select_address || !this.products[this.selected].first_setting) {
+            if(!this.form.phone || !this.form.email || !this.form.select_address) {
               this.error = true
             }
             else {
@@ -130,7 +130,6 @@
                   this.form.phone,
                   this.form.email,
                   this.form.select_address,
-                  this.products[this.selected].first_setting,
                   this.products[this.selected].id
               )
                   .then(() => {

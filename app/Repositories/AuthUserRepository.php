@@ -149,4 +149,12 @@ class AuthUserRepository extends CoreRepository
             })->withCount('likes')
             ->get();
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function myOrders()
+    {
+        return $this->user->orders()->get();
+    }
 }

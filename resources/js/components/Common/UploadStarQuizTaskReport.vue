@@ -47,7 +47,7 @@
             <div class="quiz_result">
                 <div class="you_look_like">
                     <div class="photo">
-                        <img :src="`/${star.photo}`" alt="" class="lozad">
+                        <img :src="link(star.photo)" alt="" class="lozad">
                     </div>
 
                     <div class="text">
@@ -84,6 +84,9 @@ export default {
 
     },
     methods: {
+    link(url) {
+      return link(url);
+    },
     finishQ () {
       jax.user.star_quiz_report(this.task.id,this.quiz_answers)
           .then(({star, balls}) => {

@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Task;
 use App\Models\TaskReport;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ use Lar\Developer\CoreRepository;
  * @method User model()
  * @property-read User|null $findBySlug
  * @property-read int $completeTaskCount
+ * @property-read TaskReport $taskReports
  */
 class UserRepository extends CoreRepository
 {
@@ -44,6 +46,21 @@ class UserRepository extends CoreRepository
     {
         return $this->findBySlug->taskReports()
             ->where('status', TaskReport::STATUS_CHECKED)->count();
+    }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Relations\HasMany[]
+     */
+    public function taskReports()
+    {
+        return $this->findBySlug->taskReports()
+            ->where('status', TaskReport::STATUS_CHECKED)
+            ->with('commentary')
+            ->whereHas('task',function ($q) {
+                return $q->where('action_type', '!=', Task::ACTION_TYPE_AUTO);
+            })->withCount('likes')
+            ->get();
     }
 
     /**

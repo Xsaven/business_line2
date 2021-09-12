@@ -35,7 +35,6 @@ class Create
         $order->products()->sync([
            $product->id => [
                'order_id' => $order->id,
-               'value' => $event->value,
            ],
         ]);
 

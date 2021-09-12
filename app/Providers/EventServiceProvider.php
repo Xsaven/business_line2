@@ -86,7 +86,7 @@ class EventServiceProvider extends ServiceProvider
         \App\Events\OrderEvent::class => [ // Добавление товара в заказы
             \App\Listeners\OrderEvent\Validate::class,
             \App\Listeners\OrderEvent\Create::class,
-            \App\Listeners\ReportTask\NotifyUsers::class,
+            \App\Listeners\OrderEvent\NotifyUsers::class,
         ],
         \App\Events\SubscribeUserEvent::class => [ // Подписка на пользователя
             \App\Listeners\SubscribeUserEvent\Validate::class,
