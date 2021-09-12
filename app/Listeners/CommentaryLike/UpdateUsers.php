@@ -18,12 +18,12 @@ class UpdateUsers
     public function handle(CommentaryLike $event)
     {
         if ($event->result()) {
-            $user = app(AuthUserRepository::class)
-                ->user;
-
-            $user->update([
-                'likes' => $user->commentaryLikes()->count() + $user->taskReportLikes()->count(),
-            ]);
+//            $user = app(AuthUserRepository::class)
+//                ->user;
+//
+//            $user->update([
+//                'likes' => $user->commentaryLikes()->count() + $user->taskReportLikes()->count(),
+//            ]);
         }
     }
 }

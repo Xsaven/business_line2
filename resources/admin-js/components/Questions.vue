@@ -59,21 +59,28 @@
                 });
             },
             approve (id, modal_id) {
-                "alert::confirm".exec(`Пометить отчет #${id} как выполненный?`, () => {
-                    if (modal_id) {
-                        "modal:hide".exec(modal_id);
-                    }
-                    jax.questions_control.approve(id)
-                        .then(() => this.update());
-                })
+                let cost = $('#input_add_to_balance').val();
+                if (modal_id) {
+                    "modal:hide".exec(modal_id);
+                }
+                jax.questions_control.approve(id, cost)
+                    .then(() => this.update());
             },
             drop (id, modal_id) {
-                "alert::confirm".exec(`Пометить отчет #${id} как не выполненный?`, () => {
-                    if (modal_id) {
-                        "modal:hide".exec(modal_id);
-                    }
-                    jax.questions_control.drop(id)
-                        .then(() => this.update());
+                "alert::confirm".exec(`Отклонить отчет пользователя?`, () => {
+                    return window.ljs.swal.fire({
+                        title: "Укажите причину отказа",
+                        input: 'text',
+                        inputValue: 'отчет не соответствует условиям задания',
+                        showCancelButton: true,
+                        confirmButtonText: 'Готово'
+                    }).then((state) => {
+                        if (modal_id) {
+                            "modal:hide".exec(modal_id);
+                        }
+                        jax.questions_control.drop(id, state.value)
+                            .then(() => this.update());
+                    });
                 });
             },
             statistic (users, online, online_peck) {

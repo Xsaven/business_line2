@@ -47,6 +47,10 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereUserId($value)
  * @mixin \Eloquent
+ * @property string|null $admin_comment
+ * @property int $cost
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereAdminComment($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TaskReport whereCost($value)
  */
 class TaskReport extends Model
 {
@@ -86,6 +90,8 @@ class TaskReport extends Model
         'status',
         'file',
         'comment',
+        'admin_comment',
+        'cost',
         'user_id',
         'task_id',
         'fun_id',
@@ -99,6 +105,8 @@ class TaskReport extends Model
         'status' => 'string',
         'file' => VideoTrapCast::class,
         'comment' => 'string',
+        'admin_comment' => 'string',
+        'cost' => 'integer',
         'user_id' => 'integer',
         'task_id' => 'integer',
         'fun_id' => 'integer',
@@ -110,6 +118,7 @@ class TaskReport extends Model
      */
     protected $attributes = [
         'status' => 'created',
+        'cost' => '0',
     ];
 
     /**

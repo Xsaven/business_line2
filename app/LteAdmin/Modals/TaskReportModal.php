@@ -35,6 +35,10 @@ class TaskReportModal extends ModalController
 
         $modal->title(Task::REPORT_TYPES[$task->report_type].' #'.$report_id);
 
+        if ($task) {
+            $body->divider($task->name);
+            $body->text($task->terms_of_participation);
+        }
         if ($report->comment) {
             $body->divider('Комментарий');
             $body->text($report->comment);
@@ -47,12 +51,16 @@ class TaskReportModal extends ModalController
             $body->text("<img src='{$report->file}' class='img-fluid' alt='{$report->file}'>");
         }
 
-        $modal->btn('Отмена')->destroy()->danger();
+        $body->divider('Балы');
+        $body->numeric('add_to_balance', '')
+            ->value($task->cost)->icon_dollar_sign();
 
-        $modal->btn('Не выполнено')->primary()->ml2()
+        $modal->left_btn('Закрыть окно')->destroy()->primary();
+
+        $modal->btn('Отклонить')->danger()->ml2()
             ->on_click('questions:drop', [$report_id, request()->modal]);
 
-        $modal->btn('Выполнено')->success()->ml2()
+        $modal->btn('Одобрить')->success()->ml2()
             ->on_click('questions:approve', [$report_id, request()->modal]);
     }
 }

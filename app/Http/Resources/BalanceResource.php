@@ -18,7 +18,8 @@ class BalanceResource extends JsonResource
      */
     public function toArray($request)
     {
-        list($day, $month) = explode(":", $this->created_at->format('d:m'));
+        list($day, $month) = explode(':', $this->created_at->format('d:m'));
+
         return [
             'message' => $this->message,
             'task' => $this->task_id ? TaskResource::make($this->task) : null,

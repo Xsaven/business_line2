@@ -32,7 +32,7 @@ class Profile extends Page
             app(AuthUserRepository::class)->userCompleteTaskReports
         );
         $attrs['balance'] = BalanceResource::collection(
-            app(AuthUserRepository::class)->user->ballances
+            app(AuthUserRepository::class)->user->ballances()->orderByDesc('created_at')->get()
         );
         $attrs['orders'] = OrderResource::collection(
             app(AuthUserRepository::class)->myOrders

@@ -14,13 +14,13 @@
                 </div>
 
                 <div>
-                    <div class="name">{{r.user.full_name}}</div>
+                    <div class="name"><a :href="`/user/${r.user.id}`" style="color: currentColor;">{{r.user.full_name}}</a></div>
                     <div class="text" v-html="r.comment" v-if="r.file"></div>
                 </div>
             </div>
 
             <div class="video" v-if="r.file">
-                <v-player v-if="Number.isInteger(Number(r.file)) && Number(r.file) > 0" :video_id="r.file" />
+                <v-player v-if="String(r.file).indexOf('.jpg') === -1" :video_id="r.file" />
                 <img v-else :src="r.file" alt="" class="lozad">
                 <!--                <svg class="icon"><use xlink:href="/images/sprite.svg#ic_video_play"></use></svg>-->
             </div>

@@ -40,7 +40,7 @@ class TaskReportController extends Controller
             $table->search->select('task_id', 'Задание')
                 ->load(Task::class);
             $table->search->select('user_id', 'Пользователь')
-                ->load(User::class);
+                ->load(User::class, 'id:name:lastname');
             $table->search->at();
 
             $table->id();
@@ -49,6 +49,7 @@ class TaskReportController extends Controller
             $table->col('Задание', 'task.name')->admin_resource_route_show('task')->sort('task_id');
             $table->col('Статус', fn (TaskReport $report) => TaskReport::STATUSES[$report->status])->sort('status');
             $table->col('Коммент', 'comment')->str_limit(50);
+            $table->col('Зачислено', 'cost')->badge_number();
             $table->at();
         });
     }
@@ -62,14 +63,18 @@ class TaskReportController extends Controller
 
         return new Matrix(function (Form $form) use ($status_old) {
             $form->info_id();
+            if ($this->isType('edit')) {
+                $form->info('cost', 'Зачислено');
+            }
             $form->select('task_id', 'Задание')->required()
                 ->load(Task::class);
             $form->select('user_id', 'Пользователь')->required()
-                ->load(User::class);
+                ->load(User::class, 'id:name:lastname');
             $form->select('status', 'Статус')->required()
                 ->options(TaskReport::STATUSES, true);
             $form->input('file', 'Файл');
-            $form->textarea('comment', 'Комментарий');
+            $form->textarea('comment', 'Комментарий')->rows(6);
+            $form->textarea('admin_comment', 'Комментарий отклонения')->rows(3);
             if ($this->isType('edit') && $this->model()->task->fans_task) {
                 $form->select('fun_id', 'Болеет за')->nullable()
                     ->load(User::class);

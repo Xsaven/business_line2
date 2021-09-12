@@ -16,7 +16,7 @@
             <div class="report" v-if="report.status === 'canceled'" style="width: 100% !important; padding-bottom: 5px;">
                 <div class="error">
                     <v-icon icon="ic_error" />
-                    <div>Отчет не прошел модерацию.<br> Причина: не соответствует условиям задания</div>
+                    <div>Отчет не прошел модерацию.<br> Причина: {{report.admin_comment ? report.admin_comment : 'отчет не соответствует условиям задания'}}</div>
                 </div>
             </div>
             <v-task-report :report="report" />

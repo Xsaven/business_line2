@@ -26,6 +26,7 @@ class TaskReportResource extends JsonResource
             'likes' => $this->likes_count,
             'file' => $this->file,
             'comment' => $this->comment,
+            'admin_comment' => $this->admin_comment,
             'month' => Carbon::parse($this->created_at)->format('Y-m-d H:i'),
             'time' => Carbon::parse($this->created_at)->format('H:i'),
             'created_at' => butty_date_time($this->created_at),
