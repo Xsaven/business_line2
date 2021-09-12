@@ -21,7 +21,7 @@ class Validation
         $event->task = Task::find($event->task_id);
         $event->user = User::find($event->fun_id);
 
-        if ($event->user && $event->task && $event->file && str_starts_with($event->file, 'uploads/files')) {
+        if ($event->user && $event->task && $event->file && str_starts_with($event->file, 'video/')) {
             $event->validated = true;
             $event->is_video = true;
         }
