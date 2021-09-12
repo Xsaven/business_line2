@@ -17,11 +17,15 @@
 
 
             <section class="user_data">
-                <div class="name">{{user.name}} {{user.last_name}}</div>
+                <div class="name">{{user.full_name}}</div>
                 <div class="user_name">{{user.login}}</div>
 
                 <div class="info" v-if="user.position">
                     <div>{{user.position}}</div>
+                </div>
+
+                <div class="info" v-if="user.division">
+                    <div>{{user.division}}</div>
                 </div>
 
                 <div class="desc">

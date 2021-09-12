@@ -9000,6 +9000,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   $sync: {
     user: "u"
@@ -67901,7 +67905,7 @@ var render = function() {
       _vm._v(" "),
       _c("section", { staticClass: "user_data" }, [
         _c("div", { staticClass: "name" }, [
-          _vm._v(_vm._s(_vm.user.name) + " " + _vm._s(_vm.user.last_name))
+          _vm._v(_vm._s(_vm.user.full_name))
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "user_name" }, [
@@ -67911,6 +67915,12 @@ var render = function() {
         _vm.user.position
           ? _c("div", { staticClass: "info" }, [
               _c("div", [_vm._v(_vm._s(_vm.user.position))])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.user.division
+          ? _c("div", { staticClass: "info" }, [
+              _c("div", [_vm._v(_vm._s(_vm.user.division))])
             ])
           : _vm._e(),
         _vm._v(" "),
