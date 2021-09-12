@@ -32,7 +32,7 @@ trait UserAttributes
      */
     public function getLikeRatingAttribute()
     {
-        return \Cache::get("user_likes_position_{$this->id}", 0);
+        return \Cache::get("user_likes_position_{$this->direction_id}_{$this->id}", 0);
     }
 
     /**
@@ -40,6 +40,6 @@ trait UserAttributes
      */
     public function getBalanceRatingAttribute()
     {
-        return \Cache::get("user_balance_position_{$this->id}", 0);
+        return \Cache::get("user_balance_position_{$this->direction_id}_{$this->id}", 0);
     }
 }

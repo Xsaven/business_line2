@@ -38,7 +38,7 @@ class CalculateLikesTableJob implements ShouldQueue
             foreach ($users as $key => $user) {
                 $position = $key + 1;
 
-                $cache_key = "user_likes_position_{$user->id}";
+                $cache_key = "user_likes_position_{$direction->id}_{$user->id}";
 
                 if (\Cache::has($cache_key) && \Cache::get($cache_key) !== $position) {
                     $changed = true;
