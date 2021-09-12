@@ -37,9 +37,13 @@ class CheckVimeoVideoJob implements ShouldQueue
     {
         if ($this->done) {
             $report = TaskReport::whereFile($this->filename)->first();
-            $report->update([
-                'status' => $report->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
-            ]);
+            if ($report) {
+                $report->update([
+                    'status' => $report->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
+                ]);
+            } else {
+                \Cache::set($this->filename.'.status', 1, now()->addDay());
+            }
         }
 
         $lib = new \Vimeo\Vimeo(config('services.vimeo.client_id'), config('services.vimeo.secret'), config('services.vimeo.access_tocken'));
@@ -49,8 +53,6 @@ class CheckVimeoVideoJob implements ShouldQueue
             $report = TaskReport::whereFile($this->filename)->first();
             if ($report) {
                 static::dispatch($this->filename, $this->uri, true)->delay(now()->addSeconds(30));
-            } else {
-                \Cache::set($this->filename.'.status', 1, now()->addDay());
             }
         } elseif ($response['body']['transcode']['status'] === 'in_progress') {
             static::dispatch($this->filename, $this->uri)->delay(now()->addSeconds(30));
