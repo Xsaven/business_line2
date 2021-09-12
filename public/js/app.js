@@ -4280,11 +4280,25 @@ __webpack_require__.r(__webpack_exports__);
       var textarea = this.target;
 
       if (textarea) {
+        var setSelectionRange = function setSelectionRange(input, selectionStart, selectionEnd) {
+          if (input.setSelectionRange) {
+            input.focus();
+            input.setSelectionRange(selectionStart, selectionEnd);
+          } else if (input.createTextRange) {
+            var range = input.createTextRange();
+            range.collapse(true);
+            range.moveEnd('character', selectionEnd);
+            range.moveStart('character', selectionStart);
+            range.select();
+          }
+        };
+
         var start = textarea.selectionStart;
         var end = textarea.selectionEnd;
         textarea.value = textarea.value.substring(0, start) + emoji + textarea.value.substring(end);
         this.$emit('input', textarea.value);
-        textarea.focus(); //textarea.selectionEnd = end + 3;
+        textarea.focus();
+        setSelectionRange(textarea, end + 3); //textarea.selectionEnd = end + 3;
       }
     },
     sticker_click: function sticker_click(id) {
