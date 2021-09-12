@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Events\AddUserBalance;
+use App\Events\Ws\AllAdminExec;
 use App\Events\Ws\AllUserExec;
 use App\Models\TaskReport;
 
@@ -20,6 +21,7 @@ class TaskReportObserver
 //
 //            event(new AddUserBalance($taskReport->user_id, $taskReport->task->cost, ""));
 //        }
+        AllAdminExec::dispatch(['questions:update']);
     }
 
     /**
@@ -31,6 +33,7 @@ class TaskReportObserver
     public function updated(TaskReport $taskReport)
     {
         //AllUserExec::dispatch("task-report-update-{$taskReport->id}");
+        AllAdminExec::dispatch(['questions:update']);
     }
 
     /**
@@ -42,6 +45,7 @@ class TaskReportObserver
     public function deleted(TaskReport $taskReport)
     {
         //
+        AllAdminExec::dispatch(['questions:update']);
     }
 
     /**
