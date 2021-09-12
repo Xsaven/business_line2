@@ -26,4 +26,20 @@ trait UserAttributes
     {
         return $this->name.' '.$this->lastname;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLikeRatingAttribute()
+    {
+        return \Cache::get("user_likes_position_{$this->id}");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBalanceRatingAttribute()
+    {
+        return \Cache::get("user_balance_position_{$this->id}");
+    }
 }

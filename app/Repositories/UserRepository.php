@@ -48,7 +48,6 @@ class UserRepository extends CoreRepository
             ->where('status', TaskReport::STATUS_CHECKED)->count();
     }
 
-
     /**
      * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Relations\HasMany[]
      */
@@ -57,7 +56,7 @@ class UserRepository extends CoreRepository
         return $this->findBySlug->taskReports()
             ->where('status', TaskReport::STATUS_CHECKED)
             ->with('commentary')
-            ->whereHas('task',function ($q) {
+            ->whereHas('task', function ($q) {
                 return $q->where('action_type', '!=', Task::ACTION_TYPE_AUTO);
             })->withCount('likes')
             ->get();
@@ -82,7 +81,7 @@ class UserRepository extends CoreRepository
             ->where('name', 'like', "%{$q}%")
             ->orWhere('lastname', 'like', "%{$q}%")
             ->orWhere(\DB::raw('CONCAT_WS(" ", name, lastname)'), 'like', "%{$q}%")
-            ->orWhere('login','like',"%{$q}%")
+            ->orWhere('login', 'like', "%{$q}%")
             ->get() : collect();
     }
 

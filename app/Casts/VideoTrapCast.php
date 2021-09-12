@@ -44,7 +44,6 @@ class VideoTrapCast implements CastsAttributes
         }
 
         if ($value) {
-
             $value = str_replace(\Storage::disk('yandexcloud')->url(''), '', $value);
         }
 

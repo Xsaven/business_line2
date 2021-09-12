@@ -26,7 +26,7 @@ class OrderResource extends JsonResource
             'status' => $this->status,
             'delivery' => $this->delivery->address,
             'product' => $this->products,
-            'created_at' => Carbon::parse($this->created_at)->format('d.m.Y')
+            'created_at' => Carbon::parse($this->created_at)->format('d.m.Y'),
         ];
     }
 }

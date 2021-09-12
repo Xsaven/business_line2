@@ -48,7 +48,7 @@ class QuestionsControl extends LteAdminExecutor
         }
     }
 
-    public function drop(int $id, string $reason = "отчет не соответствует условиям задания")
+    public function drop(int $id, string $reason = 'отчет не соответствует условиям задания')
     {
         $taskReport = TaskReport::find($id);
 

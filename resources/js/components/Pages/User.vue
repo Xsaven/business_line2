@@ -6,7 +6,9 @@
 
                 <div class="stats">
                     <div>Баллы: {{user.balance}}</div>
+                    <div>Рейтинг: {{user.balance_rating}}</div>
                     <div>Лайки: {{user.likes}}</div>
+                    <div>Рейтинг: {{user.like_rating}}</div>
                 </div>
 
                 <button class="subscribe_btn" v-if="user.id!==u.id && u.subscribes_users.indexOf(user.id) === -1" @click="subscribe">

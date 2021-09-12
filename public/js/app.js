@@ -7931,6 +7931,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   $sync: ["user"],
   name: "pages_profile",
@@ -8652,6 +8654,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  $exec: ["load"],
   name: "pages_table",
   props: {
     sort: {
@@ -8949,6 +8952,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
 //
 //
 //
@@ -66055,11 +66060,19 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "user_informer" }, [
               _c("div", { staticClass: "item" }, [
-                _c("div", [_vm._v("Баллы: " + _vm._s(_vm.user.balance))])
+                _c("div", [_vm._v("Баллы: " + _vm._s(_vm.user.balance))]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v("Место в рейтинге: " + _vm._s(_vm.user.balance_rating))
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "item" }, [
-                _c("div", [_vm._v("Лайки: " + _vm._s(_vm.user.likes))])
+                _c("div", [_vm._v("Лайки: " + _vm._s(_vm.user.likes))]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v("Место в рейтинге: " + _vm._s(_vm.user.like_rating))
+                ])
               ]),
               _vm._v(" "),
               _c("img", {
@@ -67889,7 +67902,11 @@ var render = function() {
         _c("div", { staticClass: "stats" }, [
           _c("div", [_vm._v("Баллы: " + _vm._s(_vm.user.balance))]),
           _vm._v(" "),
-          _c("div", [_vm._v("Лайки: " + _vm._s(_vm.user.likes))])
+          _c("div", [_vm._v("Рейтинг: " + _vm._s(_vm.user.balance_rating))]),
+          _vm._v(" "),
+          _c("div", [_vm._v("Лайки: " + _vm._s(_vm.user.likes))]),
+          _vm._v(" "),
+          _c("div", [_vm._v("Рейтинг: " + _vm._s(_vm.user.like_rating))])
         ]),
         _vm._v(" "),
         _vm.user.id !== _vm.u.id &&

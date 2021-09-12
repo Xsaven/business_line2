@@ -59,6 +59,7 @@
 
 <script>
 export default {
+    $exec: ["load"],
     name: "pages_table",
     props: {
         sort: {required: true},

@@ -26,7 +26,6 @@ class UpdateUsers
 //            ]);
 
             if ($event->task_report && $event->task_report->user->id !== \Auth::id()) {
-
                 $state = (bool) app(AuthUserRepository::class)
                     ->user
                     ->taskReportLikes()->where('id', $event->task_report_id)->count();

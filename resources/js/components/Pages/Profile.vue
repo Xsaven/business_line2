@@ -12,10 +12,12 @@
                     <div class="user_informer">
                         <div class="item">
                             <div>Баллы: {{user.balance}}</div>
+                            <div>Место в рейтинге: {{user.balance_rating}}</div>
                         </div>
 
                         <div class="item">
                             <div>Лайки: {{user.likes}}</div>
+                            <div>Место в рейтинге: {{user.like_rating}}</div>
                         </div>
 
                         <img data-src="/images/bg_user_informer.svg" alt="" class="lozad bg">

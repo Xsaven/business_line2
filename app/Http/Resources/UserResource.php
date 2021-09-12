@@ -29,6 +29,8 @@ class UserResource extends JsonResource
             'login' => $this->login,
             'likes' => $this->likes,
             'balance' => $this->balance,
+            'like_rating' => $this->like_rating,
+            'balance_rating' => $this->balance_rating,
             'photo' => $this->photo ? asset($this->photo) : $this->photo,
             'position' => $this->position_id ? $this->position->name : '',
             'division' => $this->division_id ? $this->division->name : '',

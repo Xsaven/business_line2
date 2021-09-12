@@ -109,6 +109,8 @@ use Illuminate\Notifications\Notifiable;
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Ballance[] $ballances
  * @property-read int|null $ballances_count
+ * @property-read mixed $balance_rating
+ * @property-read mixed $like_rating
  */
 class User extends Authenticatable
 {
