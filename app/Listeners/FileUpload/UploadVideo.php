@@ -18,7 +18,10 @@ class UploadVideo
     public function handle(FileUpload $event)
     {
         if ($event->is_video) {
-            $event->filename = LteFileStorage::makeFile($event->file);
+            //$event->filename = LteFileStorage::makeFile($event->file);
+//            \Storage::disk('yandexcloud')->put($event->filename, (string) $img);
+            $event->filename = 'video/' . uniqid() . $event->file->getClientOriginalName() . '.' . $event->file->getClientOriginalExtension();
+            $event->file->storeAs('dir_name', $event->filename, 'yandexcloud');
             $event->uploaded = (bool) $event->filename;
         }
 
