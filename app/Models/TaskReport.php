@@ -68,12 +68,15 @@ class TaskReport extends Model
 
     const STATUS_CANCELED = 'canceled';
 
+    const STATUS_ERROR = 'error';
+
     const STATUSES = [
         'created' => 'Созданный',
         'uploading' => 'Загрузка',
         'uploaded' => 'Загруженный',
         'checked' => 'Одобренный',
         'canceled' => 'Отменённый',
+        'error' => 'Ошибка',
     ];
 
     /**
