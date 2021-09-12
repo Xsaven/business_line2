@@ -81,6 +81,8 @@ class UserRepository extends CoreRepository
         return $q ? $this->model()
             ->where('name', 'like', "%{$q}%")
             ->orWhere('lastname', 'like', "%{$q}%")
+            ->orWhere(\DB::raw('CONCAT_WS(" ", name, lastname)'), 'like', "%{$q}%")
+            ->orWhere('login','like',"%{$q}%")
             ->get() : collect();
     }
 
