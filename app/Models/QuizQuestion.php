@@ -71,6 +71,6 @@ class QuizQuestion extends Model
      */
     public function task() : HasOne
     {
-        return $this->hasOne(Task::class, 'task_id', 'id');
+        return $this->hasOne(Task::class, 'id', 'task_id');
     }
 }
