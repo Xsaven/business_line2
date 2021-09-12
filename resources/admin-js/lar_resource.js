@@ -5,6 +5,11 @@ const load = () => {
 
     //ljs.routeCollection(require('./route.json'))
 
+    if (process.env.NODE_ENV === 'development') {
+        ljs.vue.config.productionTip = false
+        ljs.vue.config.devtools = true
+    }
+
     let state_watchers = 'state_watchers' in resources ? resources.state_watchers : [];
     let executors = 'executors' in resources ? resources.executors : [];
     let vue_components = 'vue_components' in resources ? resources.vue_components : {};

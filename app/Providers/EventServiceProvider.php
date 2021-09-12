@@ -44,12 +44,6 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\AddUserBalance\NotifyUser::class,
             \App\Listeners\Ws\UpdateAuthUser::class,
         ],
-        \App\Events\AdminAddUserBalance::class => [ // Увеличить или уменьшить баланс пользователя администратором
-            \App\Listeners\AddUserBalance\UpdateBalance::class,
-            \App\Listeners\AdminAddUserBalance\MakeLog::class,
-            \App\Listeners\AdminAddUserBalance\NotifyUser::class,
-            \App\Listeners\Ws\UpdateAuthUser::class,
-        ],
         \App\Events\SubscribeDirectionEvent::class => [ // Выбрать направление
             \App\Listeners\SubscribeDirection\Attempt::class,
             \App\Listeners\SubscribeDirection\MakeLog::class,

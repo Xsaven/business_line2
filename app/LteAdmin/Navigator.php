@@ -16,6 +16,7 @@ use App\Models\QuizQuestion;
 use App\Models\Setting;
 use App\Models\Star;
 use App\Models\Task;
+use App\Models\TaskReport;
 use App\Models\Track;
 use App\Models\User;
 use Lar\LteAdmin\Core\NavigatorExtensionProvider;
@@ -65,6 +66,10 @@ class Navigator extends NavigatorExtensionProvider implements ActionWorkExtensio
         $this->item(Task::TITLE)
             ->resource('task', 'TaskController')
             ->icon_tasks();
+
+        $this->item(TaskReport::TITLE)
+            ->resource('task_report', 'TaskReportController')
+            ->icon_black_tie();
 
         $this->item(Faq::TITLE)
             ->resource('faq', 'FaqController')

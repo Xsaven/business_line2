@@ -26,6 +26,7 @@ class ReportTextImageVideoTask
         public string $file,
         public bool $validated = false,
         public ?Task $task = null,
+        public ?TaskReport $taskReport = null,
     ) {
     }
 }

@@ -32,6 +32,7 @@ class TaskResource extends JsonResource
             'finished' => now() > Carbon::parse($this->finish_at),
             'event_type' => $this->event_type,
             'report_type' => $this->report_type,
+            'report_name' => Task::REPORT_TYPES[$this->report_type],
             'report_configs' => $this->report_configs,
             'action_type' => $this->action_type,
             'complete_user' => $this->taskReports()->where('user_id', \Auth::id())->exists(),

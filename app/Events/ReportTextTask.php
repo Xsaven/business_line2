@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Models\Task;
+use App\Models\TaskReport;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -28,6 +29,7 @@ class ReportTextTask
         public int $fun_id = 0,
         public bool $validated = false,
         public ?Task $task = null,
+        public ?TaskReport $taskReport = null,
     ) {
     }
 }

@@ -17,9 +17,9 @@ class NotifyUser
      */
     public function handle(AddUserBalance $event)
     {
-        if ($event->user) {
+        if ($event->user && $event->notification) {
             $event->user->notify(
-                new AddAdminUserBalanceNotification($event->balance)
+                $event->notification
             );
         }
     }

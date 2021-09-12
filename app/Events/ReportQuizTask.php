@@ -28,6 +28,7 @@ class ReportQuizTask
         public int $balls = 0,
         public bool $validated = false,
         public ?Task $task = null,
+        public ?TaskReport $taskReport = null,
     ) {
     }
 }

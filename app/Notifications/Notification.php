@@ -17,37 +17,37 @@ class Notification extends LaravelNotification
      * Toast text.
      * @var string|null
      */
-    protected ?string $text = null;
+    public ?string $text = null;
 
     /**
      * Supported: info, error, success, warning.
      * @var string
      */
-    protected string $type = 'info';
+    public string $type = 'info';
 
     /**
      * Notify message.
      * @var string|null
      */
-    protected ?string $message = null;
+    public ?string $message = null;
 
     /**
      * User id about.
      * @var string|null
      */
-    protected ?string $user_id = null;
+    public ?string $user_id = null;
 
     /**
      * Notify link title.
      * @var string|null
      */
-    protected ?string $link_title = null;
+    public ?string $link_title = null;
 
     /**
      * Notify link.
      * @var string|null
      */
-    protected ?string $link = null;
+    public ?string $link = null;
 
     /**
      * Get the notification's delivery channels.
@@ -83,7 +83,7 @@ class Notification extends LaravelNotification
     public function toArray($notifiable)
     {
         return [
-            'avatar' => user_avatar($this->user_id),
+            'avatar' => $this->user_id, //user_avatar(),
             'message' => $this->message,
             'link_title' => $this->link_title,
             'link' => $this->link,

@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Events\AddUserBalance;
 use App\Events\Ws\AllUserExec;
 use App\Models\TaskReport;
 
@@ -15,7 +16,10 @@ class TaskReportObserver
      */
     public function created(TaskReport $taskReport)
     {
-        //
+//        if ($taskReport->status === TaskReport::STATUS_CHECKED) {
+//
+//            event(new AddUserBalance($taskReport->user_id, $taskReport->task->cost, ""));
+//        }
     }
 
     /**

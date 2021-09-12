@@ -19,7 +19,7 @@ class Create
     public function handle(ReportTextTask $event)
     {
         if ($event->validated) {
-            TaskReport::create([
+            $event->taskReport = TaskReport::create([
                 'status' => $event->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
                 'comment' => $event->comment,
                 'user_id' => \Auth::id(),

@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Models\Task;
+use App\Models\TaskReport;
 use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -26,6 +27,9 @@ class ReportFunTask
      * @param  bool  $validated
      * @param  Task|null  $task
      * @param  User|null  $user
+     * @param  TaskReport|null  $taskReport
+     * @param  bool  $is_video
+     * @param  bool  $is_photo
      */
     public function __construct(
         public int $task_id,
@@ -35,6 +39,7 @@ class ReportFunTask
         public bool $validated = false,
         public ?Task $task = null,
         public ?User $user = null,
+        public ?TaskReport $taskReport = null,
         public bool $is_video = false,
         public bool $is_photo = false,
     ) {

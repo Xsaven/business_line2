@@ -2,11 +2,13 @@
 
 namespace App\Listeners\ReportStarQuizTask;
 
+use App\Events\AddUserBalance;
 use App\Events\ReportStarQuizTask;
 use App\Models\QuizAnswer;
 use App\Models\Star;
 use App\Models\Task;
 use App\Models\TaskReport;
+use App\Notifications\UserSuccessUploadedStarQuizReport;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
@@ -42,7 +44,11 @@ class Create
 
         $event->balls = $balls;
 
-        \Auth::user()->increment('balance', $balls);
+        event(
+            new AddUserBalance(
+                \Auth::id(), $balls, new UserSuccessUploadedStarQuizReport($balls, $event->task)
+            )
+        );
 
         TaskReport::create([
             'status' => $event->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,

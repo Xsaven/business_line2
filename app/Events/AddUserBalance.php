@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Models\User;
+use App\Notifications\Notification;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -28,7 +29,7 @@ class AddUserBalance
     public function __construct(
         public int $user_id,
         public int $balance,
-        public string $reason
+        public ?Notification $notification
     ) {
         $this->user = User::find($this->user_id);
     }

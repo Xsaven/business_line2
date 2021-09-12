@@ -31,6 +31,7 @@ class ReportStarQuizTask
         public ?Task $task = null,
         public ?Star $star = null,
         public int $balls = 0,
+        public ?TaskReport $taskReport = null,
     ) {
     }
 }

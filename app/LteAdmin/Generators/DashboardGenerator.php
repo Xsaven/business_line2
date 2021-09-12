@@ -2,6 +2,7 @@
 
 namespace App\LteAdmin\Generators;
 
+use App\Jobs\AdminStatisticJob;
 use App\LteAdmin\Components\Vue\Commentaries;
 use App\LteAdmin\Components\Vue\Questions;
 use App\LteAdmin\Components\Vue\Timer;
@@ -32,8 +33,12 @@ class DashboardGenerator extends \Lar\LteAdmin\Controllers\Generators\DashboardG
                 'fas fa-users'
             )->warning();
 
-            //$online = \Cache::get('online', 0);
-            $online = \App\Models\User::select('id')->get()->filter(fn ($i) => $i->online())->count();
+            if (!\Cache::has('online')) {
+                AdminStatisticJob::dispatch();
+            }
+
+            $online = \Cache::get('online', 0);
+            //$online = \App\Models\User::select('id')->get()->filter(fn ($i) => $i->online())->count();
 
             $row->col()->info_box(
                 'OnLine ',

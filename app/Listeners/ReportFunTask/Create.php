@@ -29,7 +29,7 @@ class Create
                 $status = $event->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED;
             }
 
-            TaskReport::create([
+            $event->taskReport = TaskReport::create([
                 'task_id' => $event->task_id,
                 'status' => $status,
                 'comment' => $event->comment,

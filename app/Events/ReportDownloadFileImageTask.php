@@ -25,6 +25,7 @@ class ReportDownloadFileImageTask
         public ?string $file = null,
         public bool $validated = false,
         public ?Task $task = null,
+        public ?TaskReport $taskReport = null,
     ) {
     }
 }

@@ -24,6 +24,7 @@ class ReportDownloadFileTask
         public int $task_id,
         public bool $validated = false,
         public ?Task $task = null,
+        public ?TaskReport $taskReport = null,
     ) {
     }
 }

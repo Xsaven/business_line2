@@ -2,9 +2,11 @@
 
 namespace App\Listeners\OrderEvent;
 
+use App\Events\AddUserBalance;
 use App\Events\OrderEvent;
 use App\Models\Order;
 use App\Models\Product;
+use App\Notifications\UserMakeOrderNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -37,8 +39,10 @@ class Create
            ],
         ]);
 
-        $user->update([
-            'balance' => $user->balance - $product->cost,
-        ]);
+        event(
+            new AddUserBalance(
+                $user->id, -$product->cost, new UserMakeOrderNotification($product)
+            )
+        );
     }
 }
