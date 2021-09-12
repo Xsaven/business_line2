@@ -60384,7 +60384,10 @@ var render = function() {
             "div",
             { staticClass: "status" },
             [
-              _c("v-icon", { staticClass: "red", attrs: { icon: "ic_bad" } }),
+              _c("v-icon", {
+                staticClass: "green",
+                attrs: { icon: "ic_success" }
+              }),
               _vm._v(" "),
               _c("div", [_vm._v("В этом задании нет отчетов")])
             ],

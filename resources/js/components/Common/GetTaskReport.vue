@@ -24,7 +24,7 @@
       </div>
 
       <div v-if="status === 'no'" class="status">
-        <v-icon icon="ic_bad" class="red" />
+          <v-icon icon="ic_success" class="green" />
         <div>В этом задании нет отчетов</div>
       </div>
 
