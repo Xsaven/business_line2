@@ -4273,7 +4273,8 @@ __webpack_require__.r(__webpack_exports__);
     show_stickers: {
       "default": true
     },
-    target: {}
+    target: {},
+    input: {}
   },
   data: function data() {
     return {
@@ -4286,31 +4287,30 @@ __webpack_require__.r(__webpack_exports__);
   computed: {},
   watch: {},
   methods: {
+    setSelectionRange: function setSelectionRange(input, selectionStart, selectionEnd) {
+      if (input.setSelectionRange) {
+        input.focus();
+        input.setSelectionRange(selectionStart, selectionEnd);
+      } else if (input.createTextRange) {
+        var range = input.createTextRange();
+        range.collapse(true);
+        range.moveEnd('character', selectionEnd);
+        range.moveStart('character', selectionStart);
+        range.select();
+      }
+    },
     emoji_click: function emoji_click(emoji) {
       this.$emit('emoji', emoji);
       this.toggle();
       var textarea = this.target;
 
       if (textarea) {
-        var setSelectionRange = function setSelectionRange(input, selectionStart, selectionEnd) {
-          if (input.setSelectionRange) {
-            input.focus();
-            input.setSelectionRange(selectionStart, selectionEnd);
-          } else if (input.createTextRange) {
-            var range = input.createTextRange();
-            range.collapse(true);
-            range.moveEnd('character', selectionEnd);
-            range.moveStart('character', selectionStart);
-            range.select();
-          }
-        };
-
         var start = textarea.selectionStart;
         var end = textarea.selectionEnd;
-        textarea.value = textarea.value.substring(0, start) + emoji + textarea.value.substring(end);
+        textarea.value = textarea.value.substring(0, start) + ' ' + emoji + ' ' + textarea.value.substring(end);
         this.$emit('input', textarea.value);
         textarea.focus();
-        setSelectionRange(textarea, end + 3, end + 3); //textarea.selectionEnd = end + 3;
+        this.setSelectionRange(textarea, end + 5, end + 5); //textarea.selectionEnd = end + 3;
       }
     },
     sticker_click: function sticker_click(id) {
@@ -4321,9 +4321,9 @@ __webpack_require__.r(__webpack_exports__);
       if (textarea) {
         var start = textarea.selectionStart;
         var end = textarea.selectionEnd;
-        textarea.value = textarea.value.substring(0, start) + "[".concat(id, "]") + textarea.value.substring(end);
+        textarea.value = textarea.value.substring(0, start) + " [".concat(id, "] ") + textarea.value.substring(end);
         textarea.focus();
-        textarea.selectionEnd = end + 3;
+        this.setSelectionRange(textarea, end + 5, end + 5); //textarea.selectionEnd = end + 3;
       }
     },
     toggle: function toggle() {
@@ -63505,6 +63505,13 @@ var render = function() {
                         show_smiles: true,
                         show_stickers: false,
                         target: _vm.myref
+                      },
+                      model: {
+                        value: _vm.comment,
+                        callback: function($$v) {
+                          _vm.comment = $$v
+                        },
+                        expression: "comment"
                       }
                     })
                   : _vm._e()
@@ -63603,7 +63610,7 @@ var render = function() {
                   ],
                   ref: "text",
                   staticClass: "min_h",
-                  attrs: { name: "comment", placeholder: "Комментарий" },
+                  attrs: { placeholder: "Комментарий" },
                   domProps: { value: _vm.comment },
                   on: {
                     input: function($event) {
@@ -63621,6 +63628,13 @@ var render = function() {
                         show_smiles: true,
                         show_stickers: false,
                         target: _vm.myref
+                      },
+                      model: {
+                        value: _vm.comment,
+                        callback: function($$v) {
+                          _vm.comment = $$v
+                        },
+                        expression: "comment"
                       }
                     })
                   : _vm._e()
@@ -63737,6 +63751,13 @@ var render = function() {
                         show_smiles: true,
                         show_stickers: false,
                         target: _vm.myref
+                      },
+                      model: {
+                        value: _vm.comment,
+                        callback: function($$v) {
+                          _vm.comment = $$v
+                        },
+                        expression: "comment"
                       }
                     })
                   : _vm._e()
@@ -63852,6 +63873,13 @@ var render = function() {
                         show_smiles: true,
                         show_stickers: false,
                         target: _vm.myref
+                      },
+                      model: {
+                        value: _vm.comment,
+                        callback: function($$v) {
+                          _vm.comment = $$v
+                        },
+                        expression: "comment"
                       }
                     })
                   : _vm._e()

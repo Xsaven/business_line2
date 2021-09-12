@@ -39,7 +39,8 @@
         props: {
             show_smiles: {default: false},
             show_stickers: {default: true},
-            target: {}
+            target: {},
+            input: {}
         },
         data () {
             return {
@@ -52,6 +53,19 @@
         computed: {},
         watch: {},
         methods: {
+            setSelectionRange(input, selectionStart, selectionEnd) {
+                if (input.setSelectionRange) {
+                    input.focus();
+                    input.setSelectionRange(selectionStart, selectionEnd);
+                }
+                else if (input.createTextRange) {
+                    let range = input.createTextRange();
+                    range.collapse(true);
+                    range.moveEnd('character', selectionEnd);
+                    range.moveStart('character', selectionStart);
+                    range.select();
+                }
+            },
             emoji_click (emoji) {
                 this.$emit('emoji', emoji);
                 this.toggle();
@@ -59,23 +73,10 @@
                 if (textarea) {
                     let start = textarea.selectionStart;
                     let end = textarea.selectionEnd;
-                    textarea.value = textarea.value.substring(0, start) + emoji + textarea.value.substring(end);
+                    textarea.value = textarea.value.substring(0, start) + ' ' + emoji + ' ' + textarea.value.substring(end);
                     this.$emit('input', textarea.value);
                     textarea.focus();
-                    function setSelectionRange(input, selectionStart, selectionEnd) {
-                        if (input.setSelectionRange) {
-                            input.focus();
-                            input.setSelectionRange(selectionStart, selectionEnd);
-                        }
-                        else if (input.createTextRange) {
-                            let range = input.createTextRange();
-                            range.collapse(true);
-                            range.moveEnd('character', selectionEnd);
-                            range.moveStart('character', selectionStart);
-                            range.select();
-                        }
-                    }
-                    setSelectionRange(textarea, end + 3, end + 3)
+                    this.setSelectionRange(textarea, end + 5, end + 5)
                     //textarea.selectionEnd = end + 3;
                 }
             },
@@ -86,9 +87,10 @@
                 if (textarea) {
                     let start = textarea.selectionStart;
                     let end = textarea.selectionEnd;
-                    textarea.value = textarea.value.substring(0, start) + `[${id}]` + textarea.value.substring(end);
+                    textarea.value = textarea.value.substring(0, start) + ` [${id}] ` + textarea.value.substring(end);
                     textarea.focus();
-                    textarea.selectionEnd = end + 3;
+                    this.setSelectionRange(textarea, end + 5, end + 5)
+                    //textarea.selectionEnd = end + 3;
                 }
             },
             toggle () {
