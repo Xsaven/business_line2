@@ -23,7 +23,7 @@
                     </div>
                 </section>
                 <v-profile-personal-information v-if="select===1" :divisions="divisions" :positions="positions" :reports="reports"/>
-                <v-profile-personal-history v-else-if="select===2" />
+                <v-profile-personal-history v-else-if="select===2" :balance="balance" />
                 <v-profile-personal-orders v-else-if="select===3" :orders="orders"/>
             </div>
         </section>
