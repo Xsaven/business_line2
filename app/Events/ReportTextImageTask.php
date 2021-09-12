@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Models\Task;
+use App\Models\TaskReport;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -21,6 +22,7 @@ class ReportTextImageTask
      * @param  string|null  $file
      * @param  bool  $validated
      * @param  Task|null  $task
+     * @param  TaskReport|null  $taskReport
      */
     public function __construct(
         public int $task_id,

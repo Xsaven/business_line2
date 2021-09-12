@@ -4,6 +4,7 @@ namespace App\Events;
 
 use App\Models\Star;
 use App\Models\Task;
+use App\Models\TaskReport;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;

@@ -21,6 +21,7 @@ class ReportPhotoTask
      * @param  string|null  $file
      * @param  bool  $validated
      * @param  Task|null  $task
+     * @param  TaskReport|null  $taskReport
      */
     public function __construct(
         public int $task_id,
