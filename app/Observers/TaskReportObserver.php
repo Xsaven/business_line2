@@ -47,7 +47,7 @@ class TaskReportObserver
     {
         if ($taskReport->status === TaskReport::STATUS_CHECKED) {
 
-            event(
+            if ($taskReport->cost) event(
                 new AddUserBalance(
                     $taskReport->user_id,
                     $taskReport->cost,
