@@ -68,6 +68,9 @@ class CheckVimeoVideoJob implements ShouldQueue
 //                static::dispatch($this->filename, $this->uri, true)->delay(now()->addSeconds(30));
 //            }
         } elseif ($response['body']['transcode']['status'] === 'in_progress' && static::$list[$this->filename] < 50) {
+
+            info($this->filename);
+
             static::$list[$this->filename] = isset(static::$list[$this->filename]) ? static::$list[$this->filename]+1 : 1;
             static::dispatch($this->filename, $this->uri)->delay(now()->addSeconds(30));
         } else {
