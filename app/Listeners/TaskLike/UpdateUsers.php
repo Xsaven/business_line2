@@ -3,6 +3,7 @@
 namespace App\Listeners\TaskLike;
 
 use App\Events\TaskLike;
+use App\Jobs\CalculateLikesTableJob;
 use App\Repositories\AuthUserRepository;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -35,6 +36,8 @@ class UpdateUsers
                 } else {
                     $event->task_report->user->decrement('likes');
                 }
+
+                CalculateLikesTableJob::dispatch();
             }
         }
     }

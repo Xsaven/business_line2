@@ -3,6 +3,7 @@
 namespace App\Listeners\AddUserBalance;
 
 use App\Events\AddUserBalance;
+use App\Jobs\CalculateBalanceTableJob;
 use App\Notifications\AddAdminUserBalanceNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -22,5 +23,7 @@ class NotifyUser
                 $event->notification
             );
         }
+
+        CalculateBalanceTableJob::dispatch();
     }
 }
