@@ -3385,8 +3385,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.file = null;
       this.$refs.file.value = "";
       jax.user.drop_file(this.filename);
-      this.to_step('choose');
       this.$emit('upload_drop');
+      this.to_step('choose');
     },
     handleUpload: function handleUpload() {
       if (this.$refs.file && this.$refs.file.files[0]) {
@@ -3498,7 +3498,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.error_big = false;
       this.error_format = false;
       this.error_system = false;
-      this.$refs.file.value = "";
+
+      if (this.$refs.file) {
+        this.$refs.file.value = "";
+      }
+
       this.to_step('choose');
     }
   }
