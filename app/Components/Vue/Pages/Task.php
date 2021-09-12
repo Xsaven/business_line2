@@ -46,9 +46,9 @@ class Task extends Page
 
         $attrs['task_report'] = $report ? TaskReportResource::make($report) : null;
 
-        $attrs['reports'] = $report || $auth->user->direction_id != $repo->findById->direction_id ? TaskReportResource::collection(
+        $attrs['reports'] = TaskReportResource::collection(
             $repo->reports_in_task($report)
-        ) : [];
+        );
 
         $attrs['quiz'] = $repo->findById->report_type === 'quiz' ? QuizQuestionResource::collection(
             QuizQuestion::where('task_id', $repo->findById->id)->get()

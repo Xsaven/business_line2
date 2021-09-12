@@ -42,7 +42,7 @@
             </div>
 
 <!--            <v-bottom-action :task="task" />-->
-          <v-my-report v-if="Number(user.direction_id) !== Number(task.direction_id)" :task="task" :reports="reports"/>
+          <v-my-report v-if="Number(user.direction_id) !== Number(task.direction_id) || task.finished" :task="task" :reports="reports"/>
           <v-upload-fan-task_report v-else-if="!task_report && green_button && task.fans_task === true && !(task.report_type === 'quiz' || task.report_type === 'star_quiz' || task.report_type === 'download_file' || task.report_type === 'download_file_photo')" :task="task"/>
           <v-upload-image-task-report v-else-if="!task_report && task.report_type === 'image' && green_button" :task="task"/>
           <v-upload-video-task-report v-else-if="!task_report && task.report_type === 'video' && green_button" :task="task"/>
