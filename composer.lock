@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d5c71946c73cddfe64d62cb7eaf5a6c8",
+    "content-hash": "36049a54ef2412ec8c048db311168881",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -947,68 +947,6 @@
                 "source": "https://github.com/bfg-s/route/tree/1.0.7"
             },
             "time": "2021-09-04T00:59:33+00:00"
-        },
-        {
-            "name": "bfg/scaffold",
-            "version": "1.8.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bfg-s/scaffold.git",
-                "reference": "9f716f548a69061525be7b642c0001487fbed246"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bfg-s/scaffold/zipball/9f716f548a69061525be7b642c0001487fbed246",
-                "reference": "9f716f548a69061525be7b642c0001487fbed246",
-                "shasum": ""
-            },
-            "require": {
-                "bfg/entity": "^1.1.0",
-                "bfg/installer": "*",
-                "bfg/object": "*",
-                "bfg/text": "*",
-                "illuminate/contracts": "^8.0",
-                "php": "^8.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Bfg\\Scaffold\\ServiceProvider"
-                    ],
-                    "aliases": {
-                        "Scaffold": "Bfg\\Scaffold\\Facade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Bfg\\Scaffold\\": "src"
-                },
-                "files": [
-                    "helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "bfg",
-                    "email": "bfg.script@gmail.com"
-                }
-            ],
-            "description": "Scaffolding for recursively creating migration models and relationships between them",
-            "homepage": "https://github.com/bfg/scaffold",
-            "keywords": [
-                "laravel"
-            ],
-            "support": {
-                "issues": "https://github.com/bfg-s/scaffold/issues",
-                "source": "https://github.com/bfg-s/scaffold/tree/1.8.8"
-            },
-            "time": "2021-08-21T13:40:01+00:00"
         },
         {
             "name": "bfg/text",

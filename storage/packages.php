@@ -42,7 +42,6 @@ return [
         "extensions" => [
             "Bfg\Entity\ServiceProvider" => "Bfg\\Entity\\ServiceProvider",
             "Bfg\Object\ServiceProvider" => "Bfg\\Object\\ServiceProvider",
-            "Bfg\Scaffold\ServiceProvider" => "Bfg\\Scaffold\\ServiceProvider",
             "Bfg\Text\ServiceProvider" => "Bfg\\Text\\ServiceProvider",
             "Bfg\IdeHelper\ServiceProvider" => "Bfg\\IdeHelper\\ServiceProvider",
             "Bfg\Route\RouteServiceProvider" => "Bfg\\Route\\RouteServiceProvider",
@@ -66,27 +65,6 @@ return [
         "composer_name" => "bfg/object",
         "composer_version" => "0.0.2",
         "description" => "To work with objects and arrays",
-        "extensions" => [
-
-        ]
-    ],
-    "Bfg\Scaffold\ServiceProvider" => [
-        "index" => 3,
-        "installed" => true,
-        "install_complete" => true,
-        "name" => "bfg/scaffold",
-        "logo" => "",
-        "provider" => "Bfg\\Scaffold\\ServiceProvider",
-        "version" => "",
-        "child" => "",
-        "type" => "bfg-app",
-        "parent" => "Bfg\\Installer\\ServiceProvider",
-        "path" => "vendor/bfg/scaffold/src/ServiceProvider.php",
-        "dir" => "vendor/bfg/scaffold/src",
-        "composer_file" => "vendor/bfg/scaffold/composer.json",
-        "composer_name" => "bfg/scaffold",
-        "composer_version" => "1.8.7",
-        "description" => "Scaffolding for recursively creating migration models and relationships between them",
         "extensions" => [
 
         ]

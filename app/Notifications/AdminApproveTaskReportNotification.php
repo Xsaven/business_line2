@@ -12,10 +12,9 @@ class AdminApproveTaskReportNotification extends Notification
      * @return void
      */
     public function __construct(
-        Task $task
-    )
-    {
-        $this->message = "Администратор подтвердил ваш отчёт и вы заработали {$task->cost} баллов за прохождение задания";
+        public Task $task
+    ) {
+        $this->message = "Администратор подтвердил ваш отчёт и вы заработали {$this->task->cost} баллов за прохождение задания";
         $this->link_title = $task->name;
         $this->link = route('task', ['task' => $task->id]);
     }

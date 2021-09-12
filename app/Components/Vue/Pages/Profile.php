@@ -3,6 +3,7 @@
 namespace App\Components\Vue\Pages;
 
 use App\Components\Vue\Page;
+use App\Http\Resources\BalanceResource;
 use App\Http\Resources\DivisionResource;
 use App\Http\Resources\PositionResource;
 use App\Http\Resources\TaskReportResource;
@@ -28,6 +29,9 @@ class Profile extends Page
         $attrs['divisions'] = DivisionResource::collection(Division::all());
         $attrs['reports'] = TaskReportResource::collection(
             app(AuthUserRepository::class)->userCompleteTaskReports
+        );
+        $attrs['balance'] = BalanceResource::collection(
+            app(AuthUserRepository::class)->user->ballances
         );
 
         parent::__construct($id, $attrs, $params);

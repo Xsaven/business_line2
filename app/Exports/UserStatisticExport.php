@@ -31,7 +31,7 @@ class UserStatisticExport implements FromCollection
                 $user->name,
                 $user->login,
                 $user->seconds ? $user->seconds / 60 : 0,
-                $user->logins ? 'Да' : 'Нет'
+                $user->logins ? 'Да' : 'Нет',
             ];
         }
 

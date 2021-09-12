@@ -2,12 +2,10 @@
 
 namespace App\Notifications;
 
-
 use App\Models\Product;
 
 class UserMakeOrderNotification extends Notification
 {
-
     /**
      * Create a new notification instance.
      *

@@ -11,10 +11,11 @@ class AdminDropTaskReportNotification extends Notification
      *
      * @return void
      */
-    public function __construct(Task $task)
-    {
-        $this->message = "Администратор отклонил ваш отчет за прохождение задания";
-        $this->link_title = $task->name;
-        $this->link = route('task', ['task' => $task->id]);
+    public function __construct(
+        public Task $task
+    ) {
+        $this->message = 'Администратор отклонил ваш отчет за прохождение задания';
+        $this->link_title = $this->task->name;
+        $this->link = route('task', ['task' => $this->task->id]);
     }
 }

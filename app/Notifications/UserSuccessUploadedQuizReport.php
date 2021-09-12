@@ -2,7 +2,6 @@
 
 namespace App\Notifications;
 
-
 use App\Models\Task;
 
 class UserSuccessUploadedQuizReport extends Notification

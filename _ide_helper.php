@@ -16066,129 +16066,6 @@
      
 }
 
-    namespace Bfg\Scaffold { 
-            /**
-     * Class Facade
-     *
-     * @package Bfg\Scaffold
-     */ 
-        class Facade {
-                    /**
-         * 
-         *
-         * @return \Bfg\Scaffold\FileStorage 
-         * @static 
-         */ 
-        public static function storage()
-        {
-                        /** @var \Bfg\Scaffold\Scaffold $instance */
-                        return $instance->storage();
-        }
-                    /**
-         * 
-         *
-         * @param string $file
-         * @return \Bfg\Scaffold\LevyCollections\ModelCollection|\Bfg\Scaffold\LevyModel\LevyModel[]|null 
-         * @throws \Exception
-         * @static 
-         */ 
-        public static function modelsFromJsonFile($file)
-        {
-                        /** @var \Bfg\Scaffold\Scaffold $instance */
-                        return $instance->modelsFromJsonFile($file);
-        }
-                    /**
-         * 
-         *
-         * @param string $file
-         * @return \Bfg\Scaffold\LevyCollections\ModelCollection|array|null 
-         * @throws \Exception
-         * @static 
-         */ 
-        public static function modelsFromYamlFile($file)
-        {
-                        /** @var \Bfg\Scaffold\Scaffold $instance */
-                        return $instance->modelsFromYamlFile($file);
-        }
-                    /**
-         * 
-         *
-         * @param string $json
-         * @return \Bfg\Scaffold\LevyCollections\ModelCollection|\Bfg\Scaffold\LevyModel\LevyModel[]|null 
-         * @throws \Exception
-         * @static 
-         */ 
-        public static function modelsFromJson($json = '[]')
-        {
-                        /** @var \Bfg\Scaffold\Scaffold $instance */
-                        return $instance->modelsFromJson($json);
-        }
-                    /**
-         * 
-         *
-         * @param string $json
-         * @return \Bfg\Scaffold\LevyCollections\ModelCollection|\Bfg\Scaffold\LevyModel\LevyModel[]|null 
-         * @throws \Exception
-         * @static 
-         */ 
-        public static function modelsFromYaml($yaml = '[]')
-        {
-                        /** @var \Bfg\Scaffold\Scaffold $instance */
-                        return $instance->modelsFromYaml($yaml);
-        }
-                    /**
-         * 
-         *
-         * @param array $syntax
-         * @return \Bfg\Scaffold\LevyCollections\ModelCollection|\Bfg\Scaffold\LevyModel\LevyModel[]|null 
-         * @throws \Exception
-         * @static 
-         */ 
-        public static function modelsFromArray($syntax)
-        {
-                        /** @var \Bfg\Scaffold\Scaffold $instance */
-                        return $instance->modelsFromArray($syntax);
-        }
-                    /**
-         * 
-         *
-         * @return \Bfg\Scaffold\LevyCollections\ModelCollection|\Bfg\Scaffold\LevyModel\LevyModel[]|null 
-         * @static 
-         */ 
-        public static function models()
-        {
-                        /** @var \Bfg\Scaffold\Scaffold $instance */
-                        return $instance->models();
-        }
-                    /**
-         * 
-         *
-         * @param string $class
-         * @param \Bfg\Scaffold\LevyModel\LevyModelAbstract $model
-         * @static 
-         */ 
-        public static function makePipe($class, $model)
-        {
-                        /** @var \Bfg\Scaffold\Scaffold $instance */
-                        return $instance->makePipe($class, $model);
-        }
-                    /**
-         * 
-         *
-         * @param \Bfg\Scaffold\LevyModel\LevyModelAbstract $model
-         * @return mixed 
-         * @static 
-         */ 
-        public static function makeFinishPipe($model)
-        {
-                        /** @var \Bfg\Scaffold\Scaffold $instance */
-                        return $instance->makeFinishPipe($model);
-        }
-         
-    }
-     
-}
-
     namespace Facade\Ignition\Facades { 
             /**
      * Class Flare.
@@ -30335,7 +30212,6 @@ namespace  {
             class EntityCarrier extends \Lar\EntityCarrier\Facade {}
             class Installer extends \Bfg\Installer\Facade {}
             class BfgRoute extends \Bfg\Route\Facade {}
-            class Scaffold extends \Bfg\Scaffold\Facade {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
             class Image extends \Intervention\Image\Facades\Image {}
             class Developer extends \Lar\Developer\Facade {}

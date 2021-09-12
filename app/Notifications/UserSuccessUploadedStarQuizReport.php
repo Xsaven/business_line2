@@ -11,10 +11,12 @@ class UserSuccessUploadedStarQuizReport extends Notification
      *
      * @return void
      */
-    public function __construct(int $balls, Task $task)
-    {
-        $this->message = "Вы заработали {$balls} баллов за прохождение звёздной викторины";
-        $this->link_title = $task->name;
-        $this->link = route('task', ['task' => $task->id]);
+    public function __construct(
+        public int $balls,
+        public Task $task
+    ) {
+        $this->message = "Вы заработали {$this->balls} баллов за прохождение звёздной викторины";
+        $this->link_title = $this->task->name;
+        $this->link = route('task', ['task' => $this->task->id]);
     }
 }

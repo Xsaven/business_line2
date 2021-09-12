@@ -14,7 +14,6 @@
         "bfg/files": "^0.0.2",
         "bfg/ide-helper": "^0.0.1",
         "bfg/route": "^1.0",
-        "bfg/scaffold": "^1.8",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "lar/lte-admin": "^3.11",

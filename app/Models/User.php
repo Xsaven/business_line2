@@ -107,6 +107,8 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorSecret($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Ballance[] $ballances
+ * @property-read int|null $ballances_count
  */
 class User extends Authenticatable
 {
@@ -207,6 +209,15 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    /**
+     * The "hasMany" relation for "Balacy".
+     * @return HasMany
+     */
+    public function ballances() : HasMany
+    {
+        return $this->hasMany(Ballance::class, 'user_id', 'id');
+    }
 
     /**
      * The "hasMany" relation for "Zagruzki".

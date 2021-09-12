@@ -33,7 +33,7 @@ class DashboardGenerator extends \Lar\LteAdmin\Controllers\Generators\DashboardG
                 'fas fa-users'
             )->warning();
 
-            if (!\Cache::has('online')) {
+            if (! \Cache::has('online')) {
                 AdminStatisticJob::dispatch();
             }
 

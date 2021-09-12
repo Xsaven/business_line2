@@ -99,7 +99,7 @@ class Home extends LayoutComponent
         $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_479.css'), 'media' => '(max-width: 479px)']);
         $this->head->link(['rel' => 'icon', 'type' => 'image/png', 'href' => asset('favicon.ico')]);
         $this->head->link(['rel' => 'apple-touch-icon', 'href' => asset('favicon.ico')]);
-        if (!\App::isLocal()) {
+        if (! \App::isLocal()) {
             $this->head->text($this->g_script_1());
             $this->body->text($this->g_script_2());
         }

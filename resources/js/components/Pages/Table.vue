@@ -51,8 +51,6 @@
 
                         <a href="javascript:void(0)" @click="nextPage" :class="{next: true, disabled: page === meta.last_page}"></a>
                     </div>
-
-                    <!-- <a href="/" class="catch_up_link">Как догнать лидеров?</a> -->
                 </div>
             </section>
         </div>

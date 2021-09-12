@@ -11,10 +11,11 @@ class UserSuccessUploadedTaskReport extends Notification
      *
      * @return void
      */
-    public function __construct(Task $task)
-    {
+    public function __construct(
+        public Task $task
+    ) {
         $this->message = 'Вы успешно отправили отчёт по заданию';
-        $this->link_title = $task->name;
-        $this->link = route('task', ['task' => $task->id]);
+        $this->link_title = $this->task->name;
+        $this->link = route('task', ['task' => $this->task->id]);
     }
 }

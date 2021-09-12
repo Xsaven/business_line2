@@ -17,9 +17,8 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
 
         /**
-         * Авторизация
+         * Авторизация.
          */
-
         \App\Events\Login::class => [ // Авторизация
             \App\Listeners\Login\Validation::class,
             \App\Listeners\Login\Attempt::class,
@@ -35,9 +34,8 @@ class EventServiceProvider extends ServiceProvider
         ],
 
         /**
-         * Пользователь
+         * Пользователь.
          */
-
         \App\Events\AddUserBalance::class => [ // Увеличить или уменьшить баланс пользователя (Глобальный ивент)
             \App\Listeners\AddUserBalance\UpdateBalance::class,
             \App\Listeners\AddUserBalance\MakeLog::class,

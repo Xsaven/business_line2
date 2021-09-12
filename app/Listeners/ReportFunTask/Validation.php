@@ -31,7 +31,7 @@ class Validation
             $event->is_photo = true;
         }
 
-        if (!$event->validated && $event->user && $event->task && !$event->file) {
+        if (! $event->validated && $event->user && $event->task && ! $event->file) {
             $event->validated = true;
         }
     }

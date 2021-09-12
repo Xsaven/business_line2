@@ -4,40 +4,38 @@ namespace App\LteAdmin\Controllers;
 
 use App\Events\AddUserBalance;
 use App\Models\Task;
+use App\Models\TaskReport;
 use App\Models\User;
 use App\Notifications\AdminApproveTaskReportNotification;
 use Lar\Layout\Tags\DIV;
 use Lar\LteAdmin\Core\ModelSaver;
 use Lar\LteAdmin\Segments\Info;
-use Lar\LteAdmin\Segments\Sheet;
 use Lar\LteAdmin\Segments\Matrix;
+use Lar\LteAdmin\Segments\Sheet;
 use Lar\LteAdmin\Segments\Tagable\Field;
 use Lar\LteAdmin\Segments\Tagable\Form;
-use Lar\LteAdmin\Segments\Tagable\ModelTable;
 use Lar\LteAdmin\Segments\Tagable\ModelInfoTable;
-use App\Models\TaskReport;
+use Lar\LteAdmin\Segments\Tagable\ModelTable;
 
 /**
- * TaskReportController Class
+ * TaskReportController Class.
  * @package App\LteAdmin\Controllers
  * @method TaskReport model()
  */
 class TaskReportController extends Controller
 {
     /**
-     * Static variable Model
+     * Static variable Model.
      * @var string
      */
-    static $model = TaskReport::class;
+    public static $model = TaskReport::class;
 
     /**
      * @return Sheet
      */
     public function index()
     {
-
         return Sheet::create(function (ModelTable $table) {
-
             $table->search->id();
             $table->search->select('task_id', 'Задание')
                 ->load(Task::class);
@@ -73,7 +71,6 @@ class TaskReportController extends Controller
             $form->input('file', 'Файл');
             $form->textarea('comment', 'Комментарий');
             if ($this->isType('edit') && $this->model()->task->fans_task) {
-
                 $form->select('fun_id', 'Болеет за')->nullable()
                     ->load(User::class);
             }
@@ -96,7 +93,6 @@ class TaskReportController extends Controller
      */
     public function show()
     {
-
         return Info::create(function (ModelInfoTable $table) {
             $table->id();
             $table->row('Пользователь', 'user.full_name')->admin_resource_route_show('users');
@@ -107,13 +103,13 @@ class TaskReportController extends Controller
                 $fields = DIV::create();
                 if ($report->file && is_numeric($report->file)) {
                     $fields->text("<iframe src='https://player.vimeo.com/video/{$report->file}' width='100%' height='430' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe>");
-                } else if ($report->file && str_ends_with($report->file, '.jpg')) {
+                } elseif ($report->file && str_ends_with($report->file, '.jpg')) {
                     $fields->text("<img src='{$report->file}' class='img-fluid' alt='{$report->file}'>");
                 }
+
                 return $fields;
             });
             $table->at();
         });
     }
-
 }

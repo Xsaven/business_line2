@@ -15,9 +15,10 @@ class AddAdminUserBalanceNotification extends Notification
      *
      * @param  int  $balance
      */
-    public function __construct(int $balance)
-    {
-        $action = $balance > 0 ? 'увеличен' : 'уменьшен';
-        $this->message = "Ваш баланс был {$action} администратором на {$balance} баллов.";
+    public function __construct(
+        public int $balance
+    ) {
+        $action = $this->balance > 0 ? 'увеличен' : 'уменьшен';
+        $this->message = "Ваш баланс был {$action} администратором на {$this->balance} баллов.";
     }
 }

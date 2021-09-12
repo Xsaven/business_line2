@@ -23,6 +23,7 @@ class ReportStarQuizTask
      * @param  Task|null  $task
      * @param  Star|null  $star
      * @param  int  $balls
+     * @param  TaskReport|null  $taskReport
      */
     public function __construct(
         public int $task_id,

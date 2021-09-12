@@ -16,6 +16,20 @@ class MakeLog
      */
     public function handle(AddUserBalance $event)
     {
-        //
+        if ($event->user && $event->notification) {
+            $event->user->ballances()->create([
+                'task_id' => property_exists($event->notification, 'task') ? $event->notification->task?->id : null,
+                'message' => $event->notification->message,
+                'cost' => $event->balance,
+            ]);
+
+            if ($event->notification->message) {
+                $event->user->logs()->create([
+                    'field' => 'balance',
+                    'type' => 'add_balance',
+                    'message' => $event->notification->message,
+                ]);
+            }
+        }
     }
 }
