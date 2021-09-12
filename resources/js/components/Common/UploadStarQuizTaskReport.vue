@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="text">
-                        <div>Вы похожи на {{star.name}} – Вот это да!</div>
+                        <div>Вы похожи на {{star.name}} – вот это да!</div>
 
                         <div>{{star.text}}</div>
                     </div>
