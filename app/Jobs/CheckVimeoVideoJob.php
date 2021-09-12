@@ -37,16 +37,16 @@ class CheckVimeoVideoJob implements ShouldQueue
      */
     public function handle()
     {
-        if ($this->done) {
-            $report = TaskReport::whereFile($this->filename)->first();
-            if ($report) {
-                $report->update([
-                    'status' => $report->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
-                ]);
-            } else {
-                \Cache::set($this->filename.'.status', 1, now()->addDay());
-            }
-        }
+//        if ($this->done) {
+//            $report = TaskReport::whereFile($this->filename)->first();
+//            if ($report) {
+//                $report->update([
+//                    'status' => $report->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
+//                ]);
+//            } else {
+//                \Cache::set($this->filename.'.status', 1, now()->addDay());
+//            }
+//        }
 
         if (!isset(static::$list[$this->filename])) {
             static::$list[$this->filename] = 0;
@@ -58,8 +58,15 @@ class CheckVimeoVideoJob implements ShouldQueue
         if ($response['body']['transcode']['status'] === 'complete') {
             $report = TaskReport::whereFile($this->filename)->first();
             if ($report) {
-                static::dispatch($this->filename, $this->uri, true)->delay(now()->addSeconds(30));
+                $report->update([
+                    'status' => $report->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
+                ]);
+            } else {
+                \Cache::set($this->filename.'.status', 1, now()->addDay());
             }
+//            if ($report) {
+//                static::dispatch($this->filename, $this->uri, true)->delay(now()->addSeconds(30));
+//            }
         } elseif ($response['body']['transcode']['status'] === 'in_progress' && static::$list[$this->filename] < 50) {
             static::$list[$this->filename] = isset(static::$list[$this->filename]) ? static::$list[$this->filename]+1 : 1;
             static::dispatch($this->filename, $this->uri)->delay(now()->addSeconds(30));
