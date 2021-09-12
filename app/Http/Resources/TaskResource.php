@@ -25,6 +25,7 @@ class TaskResource extends JsonResource
             'name' => $this->name,
             'short_description' => $this->short_description,
             'cost' => $this->cost,
+            'direction_id' => $this->direction_id,
             'terms_of_participation' => $this->terms_of_participation,
             'start_at' => Carbon::parse($this->start_at)->toDateString(),
             'finish_at' => Carbon::parse($this->finish_at)->toDateString(),

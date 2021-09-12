@@ -35,14 +35,15 @@
               </div>
           </div>
 
-            <div :class="{'terms': true, 'min_w': task_report}">
+            <div :class="{'terms': true, 'min_w': task_report || Number(user.direction_id) !== Number(task.direction_id)}">
               <div class="title">Условия участия</div>
 
               <div class="desc" v-html="task.terms_of_participation"></div>
             </div>
 
 <!--            <v-bottom-action :task="task" />-->
-          <v-upload-fan-task_report v-if="!task_report && green_button && task.fans_task === true && !(task.report_type === 'quiz' || task.report_type === 'star_quiz' || task.report_type === 'download_file' || task.report_type === 'download_file_photo')" :task="task"/>
+          <v-my-report v-if="Number(user.direction_id) !== Number(task.direction_id)" :task="task" :reports="reports"/>
+          <v-upload-fan-task_report v-else-if="!task_report && green_button && task.fans_task === true && !(task.report_type === 'quiz' || task.report_type === 'star_quiz' || task.report_type === 'download_file' || task.report_type === 'download_file_photo')" :task="task"/>
           <v-upload-image-task-report v-else-if="!task_report && task.report_type === 'image' && green_button" :task="task"/>
           <v-upload-video-task-report v-else-if="!task_report && task.report_type === 'video' && green_button" :task="task"/>
           <v-upload-text-task-report v-else-if="!task_report && task.report_type === 'text' && green_button" :task="task"/>
@@ -68,6 +69,7 @@
     import moment from "moment/moment";
 
     export default {
+        $sync: ["user"],
         name: "pages_task",
         props: {
           task: {required:true},
@@ -96,6 +98,7 @@
               green_button: false,
               red_button: false,
               local_task: this.task,
+              user: {},
             };
         },
         mounted () {

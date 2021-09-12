@@ -8,6 +8,7 @@ use App\Http\Resources\TaskReportResource;
 use App\Http\Resources\TaskResource;
 use App\Models\QuizQuestion;
 use App\Models\TaskReport;
+use App\Repositories\AuthUserRepository;
 use App\Repositories\TaskRepository;
 use Carbon\Carbon;
 
@@ -30,6 +31,8 @@ class Task extends Page
      */
     public function __construct($id = null, array $attrs = [], ...$params)
     {
+        $auth = app(AuthUserRepository::class);
+
         $repo = app(TaskRepository::class);
 
         $this->abort($repo);
@@ -43,7 +46,7 @@ class Task extends Page
 
         $attrs['task_report'] = $report ? TaskReportResource::make($report) : null;
 
-        $attrs['reports'] = $report ? TaskReportResource::collection(
+        $attrs['reports'] = $report || $auth->user->direction_id != $repo->findById->direction_id ? TaskReportResource::collection(
             $repo->reports_in_task($report)
         ) : [];
 

@@ -61,13 +61,13 @@ class TaskRepository extends CoreRepository
      * @param  TaskReport  $report
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function reports_in_task(TaskReport $report)
+    public function reports_in_task(?TaskReport $report)
     {
         return $this->findById
             ->taskReports()
             ->with('commentary')->withCount('likes')
             ->where('status', TaskReport::STATUS_CHECKED)
-            ->where('id', '!=', $report->id)
+            ->when($report, fn ($q) => $q->where('id', '!=', $report->id))
             ->get();
     }
 

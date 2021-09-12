@@ -27,6 +27,7 @@ class AuthDataResource extends JsonResource
             'id' => $this->id,
             'can' => ! config('osm'),
             'balance' => $this->balance,
+            'direction_id' => $this->direction_id,
             'notification_count' => $repo->notifications_count,
             'new_notifications_count' => $repo->new_notifications_count,
             'subscribe_direction' => (int) (bool) $this->direction_id,

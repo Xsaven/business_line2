@@ -80,20 +80,22 @@ $(() => {
 
 		scrollContainer2.addEventListener('mousedown', (e) => {
 			isDown2 = true
-			scrollContainer2.classList.add('active')
-			startX2 = e.pageX - scrollContainer2.offsetLeft
-			scrollLeft2 = scrollContainer2.scrollLeft
+			if (scrollContainer2) {
+				scrollContainer2.classList.add('active')
+				startX2 = e.pageX - scrollContainer2.offsetLeft
+				scrollLeft2 = scrollContainer2.scrollLeft
+			}
 		})
 
 		scrollContainer2.addEventListener('mouseleave', () => {
 			isDown2 = false;
-			if (scrollContainer.classList)
+			if (scrollContainer)
 				scrollContainer.classList.remove('active')
 		})
 
 		scrollContainer2.addEventListener('mouseup', () => {
 			isDown2 = false;
-			if (scrollContainer2.classList)
+			if (scrollContainer2)
 				scrollContainer2.classList.remove('active')
 		})
 
