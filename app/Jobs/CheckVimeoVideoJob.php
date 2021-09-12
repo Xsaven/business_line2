@@ -54,6 +54,8 @@ class CheckVimeoVideoJob implements ShouldQueue
 
         $lib = new \Vimeo\Vimeo(config('services.vimeo.client_id'), config('services.vimeo.secret'), config('services.vimeo.access_tocken'));
 
+        info($this->uri.'?fields=transcode.status');
+
         $response = $lib->request($this->uri.'?fields=transcode.status');
         if ($response['body']['transcode']['status'] === 'complete') {
             $report = TaskReport::whereFile($this->filename)->first();
