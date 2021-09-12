@@ -51,7 +51,7 @@ class UploadVideoToVimeo implements ShouldQueue
                 } else {
                     \Cache::set($event->filename, $code, now()->addDay());
                 }
-                CheckVimeoVideoJob::dispatch($event->filename, $video_response['body']['uri'])
+                CheckVimeoVideoJob::dispatch($event->filename, $code, $video_response['body']['uri'])
                     ->delay(now()->addSeconds(60));
             }
         }
