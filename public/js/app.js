@@ -4298,7 +4298,7 @@ __webpack_require__.r(__webpack_exports__);
         textarea.value = textarea.value.substring(0, start) + emoji + textarea.value.substring(end);
         this.$emit('input', textarea.value);
         textarea.focus();
-        setSelectionRange(textarea, end + 3); //textarea.selectionEnd = end + 3;
+        setSelectionRange(textarea, end + 3, end + 3); //textarea.selectionEnd = end + 3;
       }
     },
     sticker_click: function sticker_click(id) {

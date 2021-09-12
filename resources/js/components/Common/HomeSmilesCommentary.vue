@@ -75,7 +75,7 @@
                             range.select();
                         }
                     }
-                    setSelectionRange(textarea, end + 3)
+                    setSelectionRange(textarea, end + 3, end + 3)
                     //textarea.selectionEnd = end + 3;
                 }
             },
