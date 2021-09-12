@@ -1,7 +1,7 @@
 <template>
     <div class="line files" ref="files" v-if="video || image">
 
-        <div class="step choose field" style="display: block">
+        <div class="step choose field" style="display: block" v-if="step==='choose'">
             <input type="file" name="file" id="file" ref="file" @change="handleUpload" :accept="accept">
             <label for="file">
                 <v-icon icon="ic_attachment" />
@@ -10,7 +10,7 @@
             </label>
         </div>
 
-        <div class="step file_error" style="display: none;">
+        <div class="step file_error" style="display: block;" v-if="step==='file_error'">
             <v-icon icon="ic_error" />
 
             <div v-if="error_format">Неверный формат файла!</div>
@@ -22,7 +22,7 @@
             </button>
         </div>
 
-        <div class="step loading" style="display: none;" v-if="file">
+        <div class="step loading" style="display: block;" v-if="file && step==='loading'">
             <div class="row">
                 <div class="icon">
                     <svg><use xlink:href="/images/sprite.svg#ic_file2"></use></svg>
@@ -46,7 +46,7 @@
             <button type="button" class="cancel_btn" v-if="xhr" @click="abort">Отмена</button>
         </div>
 
-        <div class="step selected" style="display: none;" v-if="file">
+        <div class="step selected" style="display: block;" v-if="file && step==='selected'">
             <div class="row">
                 <div class="icon">
                     <svg><use xlink:href="/images/sprite.svg#ic_file2"></use></svg>
@@ -90,6 +90,7 @@
                 file: null,
                 filename: this.value,
                 xhr: null,
+                step: 'choose'
             };
         },
         mounted () {},
@@ -208,9 +209,10 @@
                 return file.size <= this.allowed_video_mb*1024*1024;
             },
             to_step (className) {
-                let files = $(this.$refs.files)
-                files.find('.step').hide()
-                ljs.onetime(() => files.find('.'+className).fadeIn(300), 100)
+                //let files = $(this.$refs.files)
+                //files.find('.step').fadeOut(300)
+                //ljs.onetime(() => files.find('.'+className).fadeIn(300), 100)
+                this.step = className;
             },
             close_error () {
                 this.error_big = false;

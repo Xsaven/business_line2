@@ -3360,7 +3360,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       total: 0,
       file: null,
       filename: this.value,
-      xhr: null
+      xhr: null,
+      step: 'choose'
     };
   },
   mounted: function mounted() {},
@@ -3488,11 +3489,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       return file.size <= this.allowed_video_mb * 1024 * 1024;
     },
     to_step: function to_step(className) {
-      var files = $(this.$refs.files);
-      files.find('.step').hide();
-      ljs.onetime(function () {
-        return files.find('.' + className).fadeIn(300);
-      }, 100);
+      //let files = $(this.$refs.files)
+      //files.find('.step').fadeOut(300)
+      //ljs.onetime(() => files.find('.'+className).fadeIn(300), 100)
+      this.step = className;
     },
     close_error: function close_error() {
       this.error_big = false;
@@ -60145,92 +60145,102 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.video || _vm.image
     ? _c("div", { ref: "files", staticClass: "line files" }, [
-        _c(
-          "div",
-          {
-            staticClass: "step choose field",
-            staticStyle: { display: "block" }
-          },
-          [
-            _c("input", {
-              ref: "file",
-              attrs: {
-                type: "file",
-                name: "file",
-                id: "file",
-                accept: _vm.accept
+        _vm.step === "choose"
+          ? _c(
+              "div",
+              {
+                staticClass: "step choose field",
+                staticStyle: { display: "block" }
               },
-              on: { change: _vm.handleUpload }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { attrs: { for: "file" } },
               [
-                _c("v-icon", { attrs: { icon: "ic_attachment" } }),
+                _c("input", {
+                  ref: "file",
+                  attrs: {
+                    type: "file",
+                    name: "file",
+                    id: "file",
+                    accept: _vm.accept
+                  },
+                  on: { change: _vm.handleUpload }
+                }),
                 _vm._v(" "),
-                _c("span", [
-                  _vm._v("Прикрепить "),
-                  _vm.video && _vm.image
-                    ? _c("span", [_vm._v("фото/видео")])
-                    : _vm._e(),
-                  _vm.video && !_vm.image
-                    ? _c("span", [_vm._v("видео")])
-                    : _vm._e(),
-                  _vm.image && !_vm.video
-                    ? _c("span", [_vm._v("фото")])
-                    : _vm._e()
-                ]),
+                _c(
+                  "label",
+                  { attrs: { for: "file" } },
+                  [
+                    _c("v-icon", { attrs: { icon: "ic_attachment" } }),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Прикрепить "),
+                      _vm.video && _vm.image
+                        ? _c("span", [_vm._v("фото/видео")])
+                        : _vm._e(),
+                      _vm.video && !_vm.image
+                        ? _c("span", [_vm._v("видео")])
+                        : _vm._e(),
+                      _vm.image && !_vm.video
+                        ? _c("span", [_vm._v("фото")])
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _vm.rules
+                      ? _c("div", {
+                          staticClass: "rules",
+                          domProps: { innerHTML: _vm._s(_vm.rules) }
+                        })
+                      : _vm._e()
+                  ],
+                  1
+                )
+              ]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.step === "file_error"
+          ? _c(
+              "div",
+              {
+                staticClass: "step file_error",
+                staticStyle: { display: "block" }
+              },
+              [
+                _c("v-icon", { attrs: { icon: "ic_error" } }),
                 _vm._v(" "),
-                _vm.rules
-                  ? _c("div", {
-                      staticClass: "rules",
-                      domProps: { innerHTML: _vm._s(_vm.rules) }
-                    })
-                  : _vm._e()
+                _vm.error_format
+                  ? _c("div", [_vm._v("Неверный формат файла!")])
+                  : _vm.error_system
+                  ? _c("div", [_vm._v("Системная ошибка загрузки файла!")])
+                  : _vm.error_big
+                  ? _c("div", [
+                      _vm._v("Файл слишком большой. "),
+                      _c("a", { attrs: { href: "/faq", target: "_blank" } }, [
+                        _vm._v("Инструкция по сжатию файла")
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close_btn",
+                    attrs: { type: "button" },
+                    on: { click: _vm.close_error }
+                  },
+                  [_c("v-icon", { attrs: { icon: "ic_delete" } })],
+                  1
+                )
               ],
               1
             )
-          ]
-        ),
+          : _vm._e(),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "step file_error", staticStyle: { display: "none" } },
-          [
-            _c("v-icon", { attrs: { icon: "ic_error" } }),
-            _vm._v(" "),
-            _vm.error_format
-              ? _c("div", [_vm._v("Неверный формат файла!")])
-              : _vm.error_system
-              ? _c("div", [_vm._v("Системная ошибка загрузки файла!")])
-              : _vm.error_big
-              ? _c("div", [
-                  _vm._v("Файл слишком большой. "),
-                  _c("a", { attrs: { href: "/faq", target: "_blank" } }, [
-                    _vm._v("Инструкция по сжатию файла")
-                  ])
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "close_btn",
-                attrs: { type: "button" },
-                on: { click: _vm.close_error }
-              },
-              [_c("v-icon", { attrs: { icon: "ic_delete" } })],
-              1
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _vm.file
+        _vm.file && _vm.step === "loading"
           ? _c(
               "div",
-              { staticClass: "step loading", staticStyle: { display: "none" } },
+              {
+                staticClass: "step loading",
+                staticStyle: { display: "block" }
+              },
               [
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "icon" }, [
@@ -60284,12 +60294,12 @@ var render = function() {
             )
           : _vm._e(),
         _vm._v(" "),
-        _vm.file
+        _vm.file && _vm.step === "selected"
           ? _c(
               "div",
               {
                 staticClass: "step selected",
-                staticStyle: { display: "none" }
+                staticStyle: { display: "block" }
               },
               [
                 _c("div", { staticClass: "row" }, [
