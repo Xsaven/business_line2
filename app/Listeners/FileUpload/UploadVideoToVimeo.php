@@ -28,6 +28,8 @@ class UploadVideoToVimeo implements ShouldQueue
                 config('services.vimeo.access_tocken'),
             );
 
+            info("http://{$event->ip}/{$event->filename}");
+
             $video_response = $lib->request(
                 '/me/videos',
                 [
