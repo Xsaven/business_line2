@@ -260,7 +260,6 @@ $(() => {
 	})
 
 
-
 	// Загрузка файла
 	$('.form .files .selected .delete_btn, .form .files .loading .cancel_btn').click(function (e) {
 		e.preventDefault()
@@ -278,6 +277,16 @@ $(() => {
 
 		files.find('.file_error').hide()
 		files.find('.choose').fadeIn(300)
+	})
+
+
+	// Выпадашка с пользователями
+	$(document).click((e) => {
+		if ($(e.target).closest('.fieldset').length === 0) {
+			$('.fieldset').removeClass('show')
+
+			if (is_touch_device()) $('body').css('cursor', 'default')
+		}
 	})
 })
 

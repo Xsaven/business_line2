@@ -4505,6 +4505,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   $sync: ["user", "new_notifications"],
   name: "v-new-commentaries",
@@ -61386,24 +61387,24 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c(
-      "div",
-      { ref: "modal", staticClass: "mini_modal" },
-      [
-        _c("div", { staticClass: "head" }, [
-          _c("div", { staticClass: "title" }, [_vm._v("Новые уведомления")]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "read_btn",
-              attrs: { type: "button" },
-              on: { click: _vm.mark_all_as_read }
-            },
-            [_vm._v("Отметить как прочитанное")]
-          )
-        ]),
+    _c("div", { ref: "modal", staticClass: "mini_modal" }, [
+      _c("div", { staticClass: "head" }, [
+        _c("div", { staticClass: "title" }, [_vm._v("Новые уведомления")]),
         _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "read_btn",
+            attrs: { type: "button" },
+            on: { click: _vm.mark_all_as_read }
+          },
+          [_vm._v("Отметить как прочитанное")]
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "scroll" },
         _vm._l(_vm.new_notifications, function(i, k) {
           return _c("div", { staticClass: "item" }, [
             _c("div", {
@@ -61426,10 +61427,10 @@ var render = function() {
               ])
             ])
           ])
-        })
-      ],
-      2
-    )
+        }),
+        0
+      )
+    ])
   ])
 }
 var staticRenderFns = []
