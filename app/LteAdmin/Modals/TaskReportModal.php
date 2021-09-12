@@ -51,7 +51,7 @@ class TaskReportModal extends ModalController
             $body->text("<img src='{$report->file}' class='img-fluid' alt='{$report->file}'>");
         }
 
-        $body->divider('Балы');
+        $body->divider('Баллы');
         $body->numeric('add_to_balance', '')
             ->value($task->cost)->icon_dollar_sign();
 
