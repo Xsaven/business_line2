@@ -9,7 +9,7 @@
 
           <div class="col">
 
-            <div class="line">
+            <div class="line" v-if="is_text">
               <div class="field">
                   <textarea v-model="comment" ref="text" placeholder="Комментарий"></textarea>
 
@@ -110,7 +110,8 @@ export default {
     send_report() {
       let video = this.is_video ? !!this.file : true;
       let photo = this.is_photo ? !!this.file : true;
-      if (this.task.id && this.comment && this.fun_user_id && video && photo) {
+      let text = this.is_text ? !!this.comment : true;
+      if (this.task.id && this.fun_user_id && video && photo && text) {
 
           jax.user.text_report_for_fans(this.task.id,this.comment,this.fun_user_id,this.file)
               .then(() => {
@@ -118,7 +119,7 @@ export default {
               })
       } else {
 
-          if (!this.comment) {
+          if (!text) {
               "toast:error".exec("Напишите комментарий!");
           } else if (!this.fun_user_id) {
               "toast:error".exec("Выберите пожалуйста за кого вы болеете!");

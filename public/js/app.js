@@ -5561,11 +5561,12 @@ __webpack_require__.r(__webpack_exports__);
     send_report: function send_report() {
       var video = this.is_video ? !!this.file : true;
       var photo = this.is_photo ? !!this.file : true;
+      var text = this.is_text ? !!this.comment : true;
 
-      if (this.task.id && this.comment && this.fun_user_id && video && photo) {
+      if (this.task.id && this.fun_user_id && video && photo && text) {
         jax.user.text_report_for_fans(this.task.id, this.comment, this.fun_user_id, this.file).then(function () {});
       } else {
-        if (!this.comment) {
+        if (!text) {
           "toast:error".exec("Напишите комментарий!");
         } else if (!this.fun_user_id) {
           "toast:error".exec("Выберите пожалуйста за кого вы болеете!");
@@ -60053,63 +60054,67 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "upload_report" }, [
-    _c("div", { staticClass: "title" }, [_vm._v("Скачай файл")]),
-    _vm._v(" "),
-    _c("div", { staticClass: "info" }, [
-      !_vm.downloaded
-        ? _c("div", { staticClass: "quiz_start" }, [
-            _c("div", [_vm._v("Нажмите, чтобы приступить к выполнению")]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "start_btn",
-                attrs: { type: "button" },
-                on: { click: _vm.send }
-              },
-              [_vm._v("Старт")]
-            )
-          ])
-        : _vm._e(),
+  return _c(
+    "div",
+    { class: { performance: !_vm.downloaded, upload_report: _vm.downloaded } },
+    [
+      _c("div", { staticClass: "title" }, [_vm._v("Скачай файл")]),
       _vm._v(" "),
-      _vm.downloaded
-        ? _c(
-            "form",
-            {
-              staticClass: "form",
-              on: {
-                submit: function($event) {
-                  $event.stopPropagation()
-                  $event.preventDefault()
-                  return _vm.send.apply(null, arguments)
-                }
-              }
-            },
-            [
-              _c("v-file-uploader", {
-                attrs: { image: true, video: false },
-                model: {
-                  value: _vm.file,
-                  callback: function($$v) {
-                    _vm.file = $$v
-                  },
-                  expression: "file"
-                }
-              }),
+      _c("div", { staticClass: "info" }, [
+        !_vm.downloaded
+          ? _c("div", { staticClass: "quiz_start" }, [
+              _c("div", [_vm._v("Нажмите, чтобы приступить к выполнению")]),
               _vm._v(" "),
-              _vm._m(0)
-            ],
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _c("img", {
-        staticClass: "bg lozad",
-        attrs: { "data-src": "/images/bg_performance.svg", alt: "" }
-      })
-    ])
-  ])
+              _c(
+                "button",
+                {
+                  staticClass: "start_btn",
+                  attrs: { type: "button" },
+                  on: { click: _vm.open }
+                },
+                [_vm._v("Старт")]
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.downloaded
+          ? _c(
+              "form",
+              {
+                staticClass: "form",
+                on: {
+                  submit: function($event) {
+                    $event.stopPropagation()
+                    $event.preventDefault()
+                    return _vm.send.apply(null, arguments)
+                  }
+                }
+              },
+              [
+                _c("v-file-uploader", {
+                  attrs: { image: true, video: false },
+                  model: {
+                    value: _vm.file,
+                    callback: function($$v) {
+                      _vm.file = $$v
+                    },
+                    expression: "file"
+                  }
+                }),
+                _vm._v(" "),
+                _vm._m(0)
+              ],
+              1
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "bg lozad",
+          attrs: { "data-src": "/images/bg_performance.svg", alt: "" }
+        })
+      ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -62712,53 +62717,55 @@ var render = function() {
         [
           _c("div", { class: { "cols row": _vm.is_photo || _vm.is_video } }, [
             _c("div", { staticClass: "col" }, [
-              _c("div", { staticClass: "line" }, [
-                _c(
-                  "div",
-                  { staticClass: "field" },
-                  [
-                    _c("textarea", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.comment,
-                          expression: "comment"
-                        }
+              _vm.is_text
+                ? _c("div", { staticClass: "line" }, [
+                    _c(
+                      "div",
+                      { staticClass: "field" },
+                      [
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.comment,
+                              expression: "comment"
+                            }
+                          ],
+                          ref: "text",
+                          attrs: { placeholder: "Комментарий" },
+                          domProps: { value: _vm.comment },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.comment = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.myref
+                          ? _c("v-home-smiles-commentary", {
+                              attrs: {
+                                show_smiles: true,
+                                show_stickers: false,
+                                target: _vm.myref
+                              },
+                              model: {
+                                value: _vm.comment,
+                                callback: function($$v) {
+                                  _vm.comment = $$v
+                                },
+                                expression: "comment"
+                              }
+                            })
+                          : _vm._e()
                       ],
-                      ref: "text",
-                      attrs: { placeholder: "Комментарий" },
-                      domProps: { value: _vm.comment },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.comment = $event.target.value
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm.myref
-                      ? _c("v-home-smiles-commentary", {
-                          attrs: {
-                            show_smiles: true,
-                            show_stickers: false,
-                            target: _vm.myref
-                          },
-                          model: {
-                            value: _vm.comment,
-                            callback: function($$v) {
-                              _vm.comment = $$v
-                            },
-                            expression: "comment"
-                          }
-                        })
-                      : _vm._e()
-                  ],
-                  1
-                )
-              ]),
+                      1
+                    )
+                  ])
+                : _vm._e(),
               _vm._v(" "),
               _c("div", { staticClass: "line" }, [
                 _c("div", { staticClass: "field" }, [
@@ -68079,7 +68086,8 @@ var render = function() {
           !(
             _vm.task.report_type === "quiz" ||
             _vm.task.report_type === "star_quiz" ||
-            _vm.task.report_type === "download_file"
+            _vm.task.report_type === "download_file" ||
+            _vm.task.report_type === "download_file_photo"
           )
             ? _c("v-upload-fan-task_report", { attrs: { task: _vm.task } })
             : !_vm.task_report &&

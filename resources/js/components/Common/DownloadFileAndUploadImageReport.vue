@@ -1,10 +1,10 @@
 <template>
-    <div class="upload_report">
+    <div :class="{performance: !downloaded, upload_report: downloaded}">
         <div class="title">Скачай файл</div>
         <div class="info">
             <div v-if="!downloaded" class="quiz_start">
                 <div>Нажмите, чтобы приступить к выполнению</div>
-                <button type="button" @click="send" class="start_btn">Старт</button>
+                <button type="button" @click="open" class="start_btn">Старт</button>
             </div>
 
             <form v-if="downloaded" class="form" @submit.stop.prevent="send">
