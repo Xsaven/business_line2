@@ -45,8 +45,7 @@ return [
             "Bfg\Text\ServiceProvider" => "Bfg\\Text\\ServiceProvider",
             "Bfg\IdeHelper\ServiceProvider" => "Bfg\\IdeHelper\\ServiceProvider",
             "Bfg\Route\RouteServiceProvider" => "Bfg\\Route\\RouteServiceProvider",
-            "Bfg\Files\ServiceProvider" => "Bfg\\Files\\ServiceProvider",
-            "Bfg\Scaffold\ServiceProvider" => "Bfg\\Scaffold\\ServiceProvider"
+            "Bfg\Files\ServiceProvider" => "Bfg\\Files\\ServiceProvider"
         ]
     ],
     "Bfg\Object\ServiceProvider" => [
@@ -150,27 +149,6 @@ return [
         "composer_name" => "bfg/files",
         "composer_version" => "0.0.2",
         "description" => "The package is aimed at controlling files",
-        "extensions" => [
-
-        ]
-    ],
-    "Bfg\Scaffold\ServiceProvider" => [
-        "index" => 7,
-        "installed" => true,
-        "install_complete" => true,
-        "name" => "Bfg\\Scaffold\\ServiceProvider",
-        "logo" => "",
-        "provider" => "Bfg\\Scaffold\\ServiceProvider",
-        "version" => "",
-        "child" => "",
-        "type" => "bfg-app",
-        "parent" => "Bfg\\Installer\\ServiceProvider",
-        "path" => "vendor/bfg/scaffold/src/ServiceProvider.php",
-        "dir" => "vendor/bfg/scaffold/src",
-        "composer_file" => "vendor/bfg/scaffold/composer.json",
-        "composer_name" => "",
-        "composer_version" => "",
-        "description" => "",
         "extensions" => [
 
         ]
