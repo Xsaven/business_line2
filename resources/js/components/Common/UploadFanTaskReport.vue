@@ -5,7 +5,7 @@
     <div class="info">
       <form @submit.prevent.stop="send_report()" class="form">
 
-        <div :class="{'cols row': false}">
+        <div :class="{'cols row': is_photo || is_video}">
 
           <div class="col">
 
@@ -30,6 +30,14 @@
               </div>
             </div>
           </div>
+
+            <div class="col" v-if="is_video || is_photo">
+                <v-file-uploader
+                    :image="is_photo"
+                    :video="is_video"
+                    v-model="file"
+                />
+            </div>
         </div>
 
         <div class="submit">
@@ -51,6 +59,7 @@ export default {
       users_local: {},
       q: '',
       comment: '',
+        file: null,
       myref: null,
       fun_user_id: null,
       fun_full_name: '',
@@ -62,6 +71,16 @@ export default {
   },
     beforeDestroy() {
         document.removeEventListener('click', this.hide.bind(this));
+    },
+    computed: {
+      is_photo () {
+          let type = this.task.report_type;
+          return type === 'image' || type === 'text_or_image_or_video' || type === 'image_or_video' || type === 'text_or_image'
+      },
+      is_video () {
+          let type = this.task.report_type;
+          return type === 'video' || type === 'text_or_image_or_video' || type === 'image_or_video' || type === 'text_or_video'
+      },
     },
     watch:{
     q(val) {
@@ -85,10 +104,24 @@ export default {
       this.q = this.fun_full_name
     },
     send_report() {
-      jax.user.text_report_for_fans(this.task.id,this.comment,this.fun_user_id)
-          .then(() => {
+      let video = this.is_video ? !!this.file : true;
+      let photo = this.is_photo ? !!this.file : true;
+      if (this.task.id && this.comment && this.fun_user_id && video && photo) {
 
-          })
+          jax.user.text_report_for_fans(this.task.id,this.comment,this.fun_user_id,this.file)
+              .then(() => {
+
+              })
+      } else {
+
+          if (!this.comment) {
+              "toast:error".exec("Напишите комментарий!");
+          } else if (!this.fun_user_id) {
+              "toast:error".exec("Выберите пожалуйста за кого вы болеете!");
+          } else if (!video || !photo) {
+              "toast::error".exec("Сначала выберите файл.");
+          }
+      }
     }
   }
 }

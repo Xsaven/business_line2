@@ -6,6 +6,7 @@ use App\Events\FileUpload;
 use App\Events\OrderEvent;
 use App\Events\ReportDownloadFileImageTask;
 use App\Events\ReportDownloadFileTask;
+use App\Events\ReportFunTask;
 use App\Events\ReportImageVideoTask;
 use App\Events\ReportPhotoTask;
 use App\Events\ReportQuizTask;
@@ -238,12 +239,9 @@ class User extends JaxExecutor
         $this->reload();
     }
 
-    public function text_report_for_fans(int $task_id, string $comment, int $fun_id)
+    public function text_report_for_fans(int $task_id, string $comment, int $fun_id, string $file = null)
     {
-        /**
-         * @var ReportTextTask
-         */
-        $event = new ReportTextTask($task_id, $comment, $fun_id);
+        $event = new ReportFunTask($task_id, $fun_id, $comment, $file);
 
         event($event);
 

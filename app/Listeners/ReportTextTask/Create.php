@@ -24,7 +24,6 @@ class Create
                 'comment' => $event->comment,
                 'user_id' => \Auth::id(),
                 'task_id' => $event->task_id,
-                'fun_id' => $event->fun_id ?: null,
             ]);
         }
     }

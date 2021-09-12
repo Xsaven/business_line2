@@ -42,9 +42,9 @@
             </div>
 
 <!--            <v-bottom-action :task="task" />-->
-          <v-upload-image-task-report v-if="!task_report && task.report_type === 'image' && green_button" :task="task"/>
+          <v-upload-fan-task_report v-if="!task_report && green_button && task.fans_task === true" :task="task"/>
+          <v-upload-image-task-report v-else-if="!task_report && task.report_type === 'image' && green_button" :task="task"/>
           <v-upload-video-task-report v-else-if="!task_report && task.report_type === 'video' && green_button" :task="task"/>
-          <v-upload-fan-task_report v-else-if="!task_report && task.report_type === 'text' && green_button && task.fans_task === true" :task="task"/>
           <v-upload-text-task-report v-else-if="!task_report && task.report_type === 'text' && green_button" :task="task"/>
           <v-upload-tiv-report v-else-if="!task_report && task.report_type === 'text_or_image_or_video' && green_button" :task="task"/>
           <v-upload-image-or-video v-else-if="!task_report && task.report_type === 'image_or_video' && green_button" :task="task"/>

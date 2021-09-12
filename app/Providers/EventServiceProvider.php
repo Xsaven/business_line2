@@ -104,6 +104,11 @@ class EventServiceProvider extends ServiceProvider
         /**
          * Отчёты по заданиям
          */
+        \App\Events\ReportFunTask::class => [ // Отчёт с фанатской формы
+            \App\Listeners\ReportFunTask\Validation::class,
+            \App\Listeners\ReportFunTask\Create::class,
+            \App\Listeners\ReportTask\NotifyUsers::class,
+        ],
         \App\Events\ReportTextTask::class => [ // Текстовый отчёт
             \App\Listeners\ReportTextTask\Validation::class,
             \App\Listeners\ReportTextTask\Create::class,

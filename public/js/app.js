@@ -5484,6 +5484,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "v-upload-fan-task_report",
   props: ['task'],
@@ -5492,6 +5500,7 @@ __webpack_require__.r(__webpack_exports__);
       users_local: {},
       q: '',
       comment: '',
+      file: null,
       myref: null,
       fun_user_id: null,
       fun_full_name: ''
@@ -5503,6 +5512,16 @@ __webpack_require__.r(__webpack_exports__);
   },
   beforeDestroy: function beforeDestroy() {
     document.removeEventListener('click', this.hide.bind(this));
+  },
+  computed: {
+    is_photo: function is_photo() {
+      var type = this.task.report_type;
+      return type === 'image' || type === 'text_or_image_or_video' || type === 'image_or_video' || type === 'text_or_image';
+    },
+    is_video: function is_video() {
+      var type = this.task.report_type;
+      return type === 'video' || type === 'text_or_image_or_video' || type === 'image_or_video' || type === 'text_or_video';
+    }
   },
   watch: {
     q: function q(val) {
@@ -5527,7 +5546,20 @@ __webpack_require__.r(__webpack_exports__);
       this.q = this.fun_full_name;
     },
     send_report: function send_report() {
-      jax.user.text_report_for_fans(this.task.id, this.comment, this.fun_user_id).then(function () {});
+      var video = this.is_video ? !!this.file : true;
+      var photo = this.is_photo ? !!this.file : true;
+
+      if (this.task.id && this.comment && this.fun_user_id && video && photo) {
+        jax.user.text_report_for_fans(this.task.id, this.comment, this.fun_user_id, this.file).then(function () {});
+      } else {
+        if (!this.comment) {
+          "toast:error".exec("Напишите комментарий!");
+        } else if (!this.fun_user_id) {
+          "toast:error".exec("Выберите пожалуйста за кого вы болеете!");
+        } else if (!video || !photo) {
+          "toast::error".exec("Сначала выберите файл.");
+        }
+      }
     }
   }
 });
@@ -62672,7 +62704,7 @@ var render = function() {
           }
         },
         [
-          _c("div", { class: { "cols row": false } }, [
+          _c("div", { class: { "cols row": _vm.is_photo || _vm.is_video } }, [
             _c("div", { staticClass: "col" }, [
               _c("div", { staticClass: "line" }, [
                 _c(
@@ -62783,7 +62815,27 @@ var render = function() {
                     : _vm._e()
                 ])
               ])
-            ])
+            ]),
+            _vm._v(" "),
+            _vm.is_video || _vm.is_photo
+              ? _c(
+                  "div",
+                  { staticClass: "col" },
+                  [
+                    _c("v-file-uploader", {
+                      attrs: { image: _vm.is_photo, video: _vm.is_video },
+                      model: {
+                        value: _vm.file,
+                        callback: function($$v) {
+                          _vm.file = $$v
+                        },
+                        expression: "file"
+                      }
+                    })
+                  ],
+                  1
+                )
+              : _vm._e()
           ]),
           _vm._v(" "),
           _vm._m(0)
@@ -68017,19 +68069,16 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          !_vm.task_report &&
-          _vm.task.report_type === "image" &&
-          _vm.green_button
+          !_vm.task_report && _vm.green_button && _vm.task.fans_task === true
+            ? _c("v-upload-fan-task_report", { attrs: { task: _vm.task } })
+            : !_vm.task_report &&
+              _vm.task.report_type === "image" &&
+              _vm.green_button
             ? _c("v-upload-image-task-report", { attrs: { task: _vm.task } })
             : !_vm.task_report &&
               _vm.task.report_type === "video" &&
               _vm.green_button
             ? _c("v-upload-video-task-report", { attrs: { task: _vm.task } })
-            : !_vm.task_report &&
-              _vm.task.report_type === "text" &&
-              _vm.green_button &&
-              _vm.task.fans_task === true
-            ? _c("v-upload-fan-task_report", { attrs: { task: _vm.task } })
             : !_vm.task_report &&
               _vm.task.report_type === "text" &&
               _vm.green_button
