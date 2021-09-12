@@ -54,6 +54,7 @@ class Create
             'status' => $event->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
             'user_id' => \Auth::user()->id,
             'task_id' => $event->task->id,
+            'cost' => $balls
         ]);
     }
 }

@@ -6,6 +6,7 @@ use App\Events\AddUserBalance;
 use App\Events\Ws\AllAdminExec;
 use App\Events\Ws\AllUserExec;
 use App\Models\TaskReport;
+use App\Notifications\DeleteTaskReportNotification;
 
 class TaskReportObserver
 {
@@ -44,7 +45,20 @@ class TaskReportObserver
      */
     public function deleted(TaskReport $taskReport)
     {
-        //
+        if ($taskReport->status === TaskReport::STATUS_CHECKED) {
+
+            event(
+                new AddUserBalance(
+                    $taskReport->user_id,
+                    $taskReport->cost,
+                    new DeleteTaskReportNotification(
+                        $taskReport->task,
+                        $taskReport->cost,
+                    )
+                )
+            );
+        }
+
         AllAdminExec::dispatch(['questions:update']);
     }
 

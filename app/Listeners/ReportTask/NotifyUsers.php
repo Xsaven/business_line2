@@ -30,6 +30,11 @@ class NotifyUsers
                         \Auth::id(), $event->taskReport->task->cost, new UserSuccessCompleteTaskReport($event->task)
                     )
                 );
+                if ($event->taskReport) {
+                    $event->taskReport->update([
+                        'cost' => $event->taskReport->task->cost
+                    ]);
+                }
             } elseif ($event->taskReport) {
                 \Auth::user()
                     ->notify(
