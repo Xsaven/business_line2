@@ -50,6 +50,10 @@ class CheckVimeoVideoJob implements ShouldQueue
 
         $lib = new \Vimeo\Vimeo(config('services.vimeo.client_id'), config('services.vimeo.secret'), config('services.vimeo.access_tocken'));
 
+        if (!isset(static::$list[$this->filename])) {
+            static::$list[$this->filename] = 0;
+        }
+
         $response = $lib->request($this->uri.'?fields=transcode.status');
         if ($response['body']['transcode']['status'] === 'complete') {
             $report = TaskReport::whereFile($this->filename)->first();
@@ -64,7 +68,7 @@ class CheckVimeoVideoJob implements ShouldQueue
                 \Cache::set($this->filename.'.status', 1, now()->addDay());
             }
         } elseif ($response['body']['transcode']['status'] === 'in_progress' && static::$list[$this->filename] < 50) {
-            static::$list[$this->filename] = isset(static::$list[$this->filename]) ? static::$list[$this->filename]+1 : 1;
+            static::$list[$this->filename] = static::$list[$this->filename]+1;
             static::dispatch($this->filename, $this->uri)->delay(now()->addSeconds(30));
         } else {
             if (isset(static::$list[$this->filename])) {
