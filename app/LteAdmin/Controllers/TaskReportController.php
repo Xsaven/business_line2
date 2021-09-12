@@ -36,6 +36,9 @@ class TaskReportController extends Controller
     public function index()
     {
         return Sheet::create(function (ModelTable $table) {
+
+            $table->orderBy('id', 'desc');
+
             $table->search->id();
             $table->search->select('task_id', 'Задание')
                 ->load(Task::class);
