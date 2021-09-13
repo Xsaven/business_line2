@@ -17,5 +17,6 @@ class UserSubscribedOnYou extends Notification
         $this->message = "На вас подписался пользователь";
         $this->link_title = $this->user->full_name;
         $this->link = "/user/" . $this->user->id;
+        $this->user_id = $this->user->id;
     }
 }

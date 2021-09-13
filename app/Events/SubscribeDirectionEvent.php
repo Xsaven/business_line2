@@ -18,16 +18,14 @@ class SubscribeDirectionEvent
     public ?Direction $direction = null;
 
     /**
-     * @param int $user_id
      * @param int $direction_id
      * @param User|null $user
      */
     public function __construct(
-        public int $user_id,
         public int $direction_id,
         public ?User $user = null
     ) {
-        $this->user = User::find($this->user_id);
+        $this->user = \Auth::user();
 
         $this->direction = Direction::whereId($this->direction_id)->first();
     }

@@ -29,6 +29,7 @@ class NotifyUsersForOpenTasksJob implements ShouldQueue
             $today_tasks = $direction->tasks()->whereDate('start_at', '>=', $now)
                 ->whereDate('finish_at', '<=', $now)
                 ->get();
+
             foreach ($today_tasks as $today_task) {
                 if (!\Cache::has("notified_task_" . $today_task->id)) {
                     foreach ($direction->users as $user) {

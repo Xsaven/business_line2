@@ -210,13 +210,11 @@ class User extends JaxExecutor
      */
     public function follow_direction(int $direction_id)
     {
-        $user_id = \Auth::user()->id;
-
         if (! \Auth::user()->direction_id) {
             /**
              * @var SubscribeDirectionEvent $event
              */
-            $event = new SubscribeDirectionEvent($user_id, $direction_id);
+            $event = new SubscribeDirectionEvent($direction_id);
 
             event($event);
         }

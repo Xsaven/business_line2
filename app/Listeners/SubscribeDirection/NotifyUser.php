@@ -19,7 +19,7 @@ class NotifyUser
     {
         if ($event->user && $event->direction) {
             $event->user->notify(
-                new UserSubscribeOnDirectionNotification($event->user, $event->direction)
+                new UserSubscribeOnDirectionNotification($event->direction)
             );
         }
     }
