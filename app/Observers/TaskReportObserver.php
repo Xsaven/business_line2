@@ -5,11 +5,23 @@ namespace App\Observers;
 use App\Events\AddUserBalance;
 use App\Events\Ws\AllAdminExec;
 use App\Events\Ws\AllUserExec;
+use App\Events\Ws\Exec;
 use App\Models\TaskReport;
+use App\Models\User;
 use App\Notifications\DeleteTaskReportNotification;
+use App\Notifications\TaskReportForSubscribersNotification;
 
 class TaskReportObserver
 {
+    protected function notify_subscribers(TaskReport $taskReport)
+    {
+        $taskReport->user->subscribers->map(
+            fn (User $user_s) => $user_s->notify(
+                new TaskReportForSubscribersNotification($taskReport->user, $taskReport->task)
+            )
+        );
+    }
+
     /**
      * Handle the TaskReport "created" event.
      *
@@ -18,10 +30,12 @@ class TaskReportObserver
      */
     public function created(TaskReport $taskReport)
     {
-//        if ($taskReport->status === TaskReport::STATUS_CHECKED) {
-//
-//            event(new AddUserBalance($taskReport->user_id, $taskReport->task->cost, ""));
-//        }
+        if ($taskReport->status === TaskReport::STATUS_CHECKED) {
+            AllUserExec::dispatch("task-report-update-{$taskReport->id}");
+            $this->notify_subscribers($taskReport);
+        } else {
+            Exec::dispatch($taskReport->user_id, "task-report-update-{$taskReport->id}");
+        }
         AllAdminExec::dispatch(['questions:update']);
     }
 
@@ -33,7 +47,12 @@ class TaskReportObserver
      */
     public function updated(TaskReport $taskReport)
     {
-        AllUserExec::dispatch("task-report-update-{$taskReport->id}");
+        if ($taskReport->status === TaskReport::STATUS_CHECKED) {
+            AllUserExec::dispatch("task-report-update-{$taskReport->id}");
+            $this->notify_subscribers($taskReport);
+        } else {
+            Exec::dispatch($taskReport->user_id, "task-report-update-{$taskReport->id}");
+        }
         AllAdminExec::dispatch(['questions:update']);
     }
 

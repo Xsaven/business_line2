@@ -16,6 +16,10 @@ class NotifyUsersForOpenTasksJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    public function __construct()
+    {
+    }
+
     /**
      * Execute the job.
      *
