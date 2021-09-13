@@ -131,7 +131,8 @@ class User extends JaxExecutor
     {
         event(new SubscribeUserEvent($user_id));
 
-        $this->reload();
+        //$this->reload();
+        $this->put('update');
     }
 
     /**
