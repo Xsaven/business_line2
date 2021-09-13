@@ -60,21 +60,18 @@ class CheckVimeoVideoJob implements ShouldQueue
         $response = $lib->request($this->uri.'?fields=transcode.status');
         if ($response['body']['transcode']['status'] === 'complete') {
             $report = TaskReport::whereFile($this->code)->first();
-//            if ($report) {
-//                $report->update([
-//                    'status' => $report->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
-//                ]);
-//            } else {
-//                \Cache::set($this->filename.'.status', 1, now()->addDay());
-//            }
-
-            static::dispatch($this->filename, $this->code, $this->uri, true)->delay(now()->addSeconds(30));
+            if ($report) {
+                static::dispatch($this->filename, $this->code, $this->uri, true)->delay(now()->addSeconds(30));
+            }
         } elseif ($response['body']['transcode']['status'] === 'in_progress' && static::$list[$this->filename] < 50) {
 
             //info($this->filename);
 
-            static::$list[$this->filename] = isset(static::$list[$this->filename]) ? static::$list[$this->filename]+1 : 1;
-            static::dispatch($this->filename, $this->code, $this->uri)->delay(now()->addSeconds(30));
+            $report = TaskReport::whereFile($this->code)->first();
+            if ($report) {
+                static::$list[$this->filename] = isset(static::$list[$this->filename]) ? static::$list[$this->filename]+1 : 1;
+                static::dispatch($this->filename, $this->code, $this->uri)->delay(now()->addSeconds(30));
+            }
         } else {
             if (isset(static::$list[$this->filename])) {
                 $report = TaskReport::whereFile($this->filename)->first();

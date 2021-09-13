@@ -47,7 +47,7 @@ class TaskReportObserver
      */
     public function updated(TaskReport $taskReport)
     {
-        info($taskReport->id . " : " . $taskReport->status);
+//        info($taskReport->id . " : " . $taskReport->status);
 
         if ($taskReport->status === TaskReport::STATUS_CHECKED) {
             AllUserExec::dispatch("task-report-update-{$taskReport->id}");

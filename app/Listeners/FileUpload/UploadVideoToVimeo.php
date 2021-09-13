@@ -9,7 +9,7 @@ use App\Models\TaskReport;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class UploadVideoToVimeo implements ShouldQueue
+class UploadVideoToVimeo //implements ShouldQueue
 {
     /**
      * Handle the event.
