@@ -42,7 +42,9 @@ class CheckVimeoVideoJob implements ShouldQueue
             $report = TaskReport::whereFile($this->code)->first();
             if ($report) {
                 $report->update([
-                    'status' => $report->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
+                    'status' => $report->status === TaskReport::STATUS_CHECKED ?
+                        $report->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED :
+                        TaskReport::STATUS_CHECKED,
                 ]);
             } else {
                 \Cache::set($this->filename.'.status', 1, now()->addDay());
