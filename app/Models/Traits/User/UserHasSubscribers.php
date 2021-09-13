@@ -25,6 +25,6 @@ trait UserHasSubscribers
      */
     public function subscriptions() : BelongsToMany
     {
-        return $this->belongsToMany(self::class, 'user_subscriptions', 'fun_id', 'subscription_id');
+        return $this->belongsToMany(self::class, 'user_subscriptions', 'user_id', 'subscription_id');
     }
 }
