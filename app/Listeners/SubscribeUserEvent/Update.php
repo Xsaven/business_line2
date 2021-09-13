@@ -4,7 +4,9 @@ namespace App\Listeners\SubscribeUserEvent;
 
 use App\Events\SubscribeUserEvent;
 use App\Notifications\UserSubscribedOnYou;
+use App\Notifications\UserUnSubscribedOnYou;
 use App\Notifications\YouSubscribedOnUser;
+use App\Notifications\YouUnSubscribedOnUser;
 use App\Repositories\AuthUserRepository;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -27,13 +29,27 @@ class Update
             $auth->subscriptions()
                 ->toggle($event->user_id);
 
-            $auth->notify(
-                new YouSubscribedOnUser($event->user)
-            );
+            $state = (bool) $auth->subscriptions()
+                ->where('id', $event->user_id)
+                ->count();
 
-            $event->user->notify(
-                new UserSubscribedOnYou($auth)
-            );
+            if ($state) {
+                $auth->notify(
+                    new YouSubscribedOnUser($event->user)
+                );
+
+                $event->user->notify(
+                    new UserSubscribedOnYou($auth)
+                );
+            } else {
+                $auth->notify(
+                    new YouUnSubscribedOnUser($event->user)
+                );
+
+                $event->user->notify(
+                    new UserUnSubscribedOnYou($auth)
+                );
+            }
         }
     }
 }
