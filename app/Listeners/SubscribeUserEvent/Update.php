@@ -19,7 +19,7 @@ class Update
     {
         if ($event->validated) {
             app(AuthUserRepository::class)
-                ->user->subscribers()->toggle($event->user_id);
+                ->user->subscriptions()->toggle($event->user_id);
         }
     }
 }

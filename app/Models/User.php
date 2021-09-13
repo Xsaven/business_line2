@@ -303,15 +303,6 @@ class User extends Authenticatable
     }
 
     /**
-     * The "belongsToMany" relation for "Polzovateli".
-     * @return BelongsToMany
-     */
-    public function subscriptions() : BelongsToMany
-    {
-        return $this->belongsToMany(self::class, 'user_subscriptions', 'fun_id', 'subscription_id');
-    }
-
-    /**
      * The "belongsToMany" relation for "Kommentarii".
      * @return BelongsToMany
      */
