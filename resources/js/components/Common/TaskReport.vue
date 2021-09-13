@@ -123,7 +123,7 @@
                 return isNumber(num)
             },
             sticker (id) {
-                jax.task_report.comment(this.r.id, `[${id}]`).then(({report}) => {
+                if (this.user.can) jax.task_report.comment(this.r.id, `[${id}]`).then(({report}) => {
                     console.log(report);
                     this.r = report;
                     this.to_all();
@@ -138,7 +138,7 @@
                 });
             },
             like () {
-                if (this.user.can) ljs.onetime(() => {
+                if (this.user.can && this.r.user.id !== this.user.id) ljs.onetime(() => {
                     jax.task_report.like(this.r.id).then(({liked_task_report_ids, report}) => {
                         this.r = report;
                         state['user.liked_task_report_ids'] = liked_task_report_ids;
