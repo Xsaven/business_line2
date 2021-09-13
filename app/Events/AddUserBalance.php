@@ -29,7 +29,7 @@ class AddUserBalance
     public function __construct(
         public int $user_id,
         public int $balance,
-        public ?Notification $notification
+        public ?Notification $notification = null
     ) {
         $this->user = User::find($this->user_id);
     }

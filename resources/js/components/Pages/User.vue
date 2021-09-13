@@ -15,6 +15,10 @@
                     <v-icon icon="ic_notifications" />
                     <span>Подписаться</span>
                 </button>
+                <button class="btn unsubscribe_btn" v-else @click="subscribe">
+                    <v-icon icon="ic_notifications2" />
+                    <span>Отписаться</span>
+                </button>
             </section>
 
 

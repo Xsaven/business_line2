@@ -4140,7 +4140,7 @@ header .mob_menu_btn.active .icon + .icon
 }
 
 
-.lk_info .user_info .subscribe_btn
+.lk_info .user_info .btn
 {
     color: #000;
     line-height: 19px;
@@ -4160,7 +4160,7 @@ header .mob_menu_btn.active .icon + .icon
     flex-wrap: wrap;
 }
 
-.lk_info .user_info .subscribe_btn .icon
+.lk_info .user_info .btn .icon
 {
     display: block;
 
@@ -4169,7 +4169,14 @@ header .mob_menu_btn.active .icon + .icon
     margin-right: 12px;
 }
 
-.lk_info .user_info .subscribe_btn:hover
+.lk_info .user_info .btn.unsubscribe_btn .icon
+{
+    width: 21px;
+    height: 21px;
+    margin-right: 10px;
+}
+
+.lk_info .user_info .btn:hover
 {
     background: #fcaf17;
 }
