@@ -116,7 +116,7 @@ class AuthUserRepository extends CoreRepository
      */
     public function subscribesUsers(): array
     {
-        return $this->user->subscribers()->allRelatedIds()->toArray();
+        return $this->user->subscriptions()->allRelatedIds()->toArray();
     }
 
     /**
