@@ -50,10 +50,10 @@ class TaskReportObserver
             if ($taskReport->cost) event(
                 new AddUserBalance(
                     $taskReport->user_id,
-                    $taskReport->cost,
+                    -$taskReport->cost,
                     new DeleteTaskReportNotification(
                         $taskReport->task,
-                        $taskReport->cost,
+                        -$taskReport->cost,
                     )
                 )
             );

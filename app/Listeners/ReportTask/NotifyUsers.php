@@ -7,7 +7,9 @@ use App\Events\ReportPhotoTask;
 use App\Events\ReportStarQuizTask;
 use App\Models\Task;
 use App\Models\TaskReport;
+use App\Models\User;
 use App\Notifications\AdminApproveTaskReportNotification;
+use App\Notifications\TaskReportForSubscribersNotification;
 use App\Notifications\UserSuccessCompleteTaskReport;
 use App\Notifications\UserSuccessUploadedTaskReport;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -41,6 +43,12 @@ class NotifyUsers
                         new UserSuccessUploadedTaskReport($event->task)
                     );
             }
+
+//            \Auth::user()->subscribers->map(
+//                fn (User $user) => $user->notify(
+//                    new TaskReportForSubscribersNotification()
+//                )
+//            );
         }
     }
 }
