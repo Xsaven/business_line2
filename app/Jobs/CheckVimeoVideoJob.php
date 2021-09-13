@@ -46,6 +46,7 @@ class CheckVimeoVideoJob implements ShouldQueue
                         TaskReport::STATUS_CHECKED :
                         ($report->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED),
                 ]);
+                \Storage::disk('yandexcloud')->delete($this->filename);
             } else {
                 \Cache::set($this->filename.'.status', 1, now()->addDay());
             }

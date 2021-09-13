@@ -28,7 +28,7 @@ class UploadVideoToVimeo //implements ShouldQueue
                 config('services.vimeo.access_tocken'),
             );
 
-            info(\Storage::disk('yandexcloud')->url($event->filename));
+//            info(\Storage::disk('yandexcloud')->url($event->filename));
 
             $video_response = $lib->request(
                 '/me/videos',
