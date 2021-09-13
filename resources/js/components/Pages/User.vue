@@ -11,7 +11,7 @@
                     <div>Рейтинг: {{user.like_rating}}</div>
                 </div>
 
-                <button class="subscribe_btn" v-if="user.id!==u.id && u.subscribes_users.indexOf(user.id) === -1" @click="subscribe">
+                <button class="btn subscribe_btn" v-if="user.id!==u.id && u.subscribes_users.indexOf(user.id) === -1" @click="subscribe">
                     <v-icon icon="ic_notifications" />
                     <span>Подписаться</span>
                 </button>
