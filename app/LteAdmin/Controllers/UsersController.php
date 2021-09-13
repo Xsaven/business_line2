@@ -126,11 +126,11 @@ class UsersController extends Controller
                 ->load(Division::class)
                 ->nullable();
 
-            $form->multi_select('subscriptions[]', 'Подписки')
-                ->load($this->isType('edit') ? User::where('id', '!=', $this->model()->id) : User::class);
-
-            $form->multi_select('subscribers[]', 'Подписчики')
-                ->load($this->isType('edit') ? User::where('id', '!=', $this->model()->id) : User::class);
+//            $form->multi_select('subscriptions[]', 'Подписки')
+//                ->load($this->isType('edit') ? User::where('id', '!=', $this->model()->id) : User::class);
+//
+//            $form->multi_select('subscribers[]', 'Подписчики')
+//                ->load($this->isType('edit') ? User::where('id', '!=', $this->model()->id) : User::class);
 
             $form->multi_select('tracks[]', 'Треки')
                 ->load(Task::class);

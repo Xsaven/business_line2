@@ -28,7 +28,7 @@ class QuestionsControl extends LteAdminExecutor
 //            $repository->model()->where('active', 0)->orderByDesc('id')->get()
 //        );
         return TaskReportResource::collection(
-            TaskReport::whereStatus(TaskReport::STATUS_UPLOADED)->get()
+            TaskReport::whereStatus(TaskReport::STATUS_UPLOADED)->orderByDesc('id')->get()
         );
     }
 
