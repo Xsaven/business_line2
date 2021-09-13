@@ -38,7 +38,7 @@ class CalculateBalanceTableJob implements ShouldQueue
 
                 $cache_key = "user_balance_position_{$direction->id}_{$user->id}";
 
-                if (\Cache::has($cache_key) && \Cache::get($cache_key) !== $position) {
+                if (\Cache::has($cache_key) && \Cache::get($cache_key) != $position) {
                     $changed = true;
                     $user->notify(
                         new UserBallanceTableChangeNotification($position, $user->direction_id)
