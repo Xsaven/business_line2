@@ -69,7 +69,7 @@ class TaskRepository extends CoreRepository
             ->with('commentary')->withCount('likes')
             ->where('status', TaskReport::STATUS_CHECKED)
             ->when($report, fn ($q) => $q->where('id', '!=', $report->id))
-            ->paginate(10);
+            ->paginate(1);
     }
 
     /**

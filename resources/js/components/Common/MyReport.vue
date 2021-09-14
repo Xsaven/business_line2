@@ -25,7 +25,7 @@
     </div>
 
 
-    <div class="head">
+    <div class="head" id="user-task-reports">
       <div class="title">Отчеты участников ({{meta.total}})</div>
 <!--        <div class="sort">-->
 <!--            <div class="name">Сортировать:</div>-->
@@ -49,11 +49,10 @@
       <div class="bottom" v-if="meta.last_page > 1" style="margin-top: 10px">
           <div class="pagination">
               <a href="javascript:void(0)" @click="prevPage" :class="{prev: true, disabled: page === 1}"></a>
-              <a
-                  v-for="(p,i) in pages"
-                  href="javascript:void(0)" :key="`page_${i}`" @click="setPage(p)"
-                  :class="{'active': page === p}">{{p}}</a>
-
+              <template v-for="(page_range, page_index) in pageRange">
+                  <div v-if="page_range==='...'" :key="`sep_${page_index}`" class="sep">...</div>
+                  <a v-else href="javascript:void(0)" :key="`page_${page_index}`" @click="setPage(page_range)" :class="{'active': page === page_range}">{{page_range}}</a>
+              </template>
               <a href="javascript:void(0)" @click="nextPage" :class="{next: true, disabled: page === meta.last_page}"></a>
           </div>
       </div>
@@ -84,6 +83,33 @@ export default {
         this.load();
     },
     computed: {
+        pageRange () {
+            let current = this.meta.current_page;
+            let last = this.meta.last_page;
+            let delta = 2;
+            let left = current - delta;
+            let right = current + delta + 1;
+            let range = [];
+            let pages = [];
+            let l;
+            for (let i = 1; i <= last; i++) {
+                if (i === 1 || i === last || (i >= left && i < right)) {
+                    range.push(i);
+                }
+            }
+            range.forEach(function (i) {
+                if (l) {
+                    if (i - l === 2) {
+                        pages.push(l + 1);
+                    } else if (i - l !== 1) {
+                        pages.push('...');
+                    }
+                }
+                pages.push(i);
+                l = i;
+            });
+            return pages;
+        },
         pages () {
             let pages = [];
             if (this.page-2 >= 1 && this.page === this.meta.last_page) { pages.push(this.page-2); }
@@ -117,6 +143,8 @@ export default {
                         this.meta.per_page = meta.per_page;
                         this.meta.last_page = meta.last_page;
                         this.meta.current_page = meta.current_page;
+                        $([document.documentElement, document.body])
+                            .animate({scrollTop: $("#user-task-reports").offset().top}, 500);
                     }
                     this.loading = false;
                 }).catch(() => {
