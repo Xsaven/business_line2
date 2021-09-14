@@ -26,7 +26,7 @@
 
 
     <div class="head">
-      <div class="title">Отчеты участников ({{data.length}})</div>
+      <div class="title">Отчеты участников ({{meta.total}})</div>
 <!--        <div class="sort">-->
 <!--            <div class="name">Сортировать:</div>-->
 
