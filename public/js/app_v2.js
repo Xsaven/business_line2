@@ -67781,7 +67781,12 @@ var render = function() {
             _vm.task.report_type === "download_file") &&
           (Number(_vm.user.direction_id) !== Number(_vm.task.direction_id) ||
             _vm.task.finished)
-            ? _c("v-get-task-report", { attrs: { status: "no" } })
+            ? _c("v-get-task-report", {
+                attrs: {
+                  status: "no",
+                  report: _vm.task.finished ? _vm.task_report : undefined
+                }
+              })
             : Number(_vm.user.direction_id) !== Number(_vm.task.direction_id) ||
               _vm.task.finished
             ? _c("v-my-report", {
