@@ -25,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //$this->app->register(FortifyServiceProvider::class);
 
+        $this->debugDatabaseQueries();
+
         if (! \App::isLocal()) {
             if (config('app.url') == 'https://dl.frudev.ru') {
                 LConfigs::add('ws_host', 'ws.frudev.ru');
@@ -56,5 +58,20 @@ class AppServiceProvider extends ServiceProvider
 
         User::observe(UserObserver::class);
         TaskReport::observe(TaskReportObserver::class);
+    }
+
+    public function debugDatabaseQueries()
+    {
+        if (env('DATABASE_QUERIES_DEBUG', false)) {
+
+            \DB::listen(function (QueryExecuted $query) {
+
+                $fullQuery = vsprintf(str_replace(['%', '?'], ['%%', '%s'], $query->sql), $query->bindings);
+
+                $text = $query->connectionName . ' (' . $query->time . '): ' . $fullQuery;
+
+                \Log::info($text);
+            });
+        }
     }
 }
