@@ -115,6 +115,7 @@
                 if (this.$refs.file) {
                     this.$refs.file.value = "";
                 }
+                this.$emit('input', null);
                 jax.user.drop_file(this.filename);
                 this.$emit('upload_drop');
                 this.to_step('choose');
