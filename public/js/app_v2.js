@@ -67782,10 +67782,7 @@ var render = function() {
           (Number(_vm.user.direction_id) !== Number(_vm.task.direction_id) ||
             _vm.task.finished)
             ? _c("v-get-task-report", {
-                attrs: {
-                  status: "no",
-                  report: _vm.task.finished ? _vm.task_report : undefined
-                }
+                attrs: { status: "no", report: _vm.task_report }
               })
             : Number(_vm.user.direction_id) !== Number(_vm.task.direction_id) ||
               _vm.task.finished
