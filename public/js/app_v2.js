@@ -67779,7 +67779,8 @@ var render = function() {
           (_vm.task.report_type === "quiz" ||
             _vm.task.report_type === "star_quiz" ||
             _vm.task.report_type === "download_file") &&
-          Number(_vm.user.direction_id) !== Number(_vm.task.direction_id)
+          (Number(_vm.user.direction_id) !== Number(_vm.task.direction_id) ||
+            _vm.task.finished)
             ? _c("v-get-task-report", { attrs: { status: "no" } })
             : Number(_vm.user.direction_id) !== Number(_vm.task.direction_id) ||
               _vm.task.finished
