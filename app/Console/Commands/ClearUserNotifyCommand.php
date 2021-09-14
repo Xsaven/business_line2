@@ -45,9 +45,7 @@ class ClearUserNotifyCommand extends Command
 
             if ($ids->count()) {
 
-                DatabaseNotification::whereNotIn('id', $ids)
-                    ->where('notifiable_type', User::class)
-                    ->where('notifiable_id', $user->id)
+                $user->notifications()->whereNotIn('id', $ids)
                     ->delete();
             }
         }
