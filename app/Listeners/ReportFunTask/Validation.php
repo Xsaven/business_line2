@@ -4,6 +4,7 @@ namespace App\Listeners\ReportFunTask;
 
 use App\Events\ReportFunTask;
 use App\Models\Task;
+use App\Models\TaskReport;
 use App\Models\User;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -33,6 +34,11 @@ class Validation
 
         if (! $event->validated && $event->user && $event->task && ! $event->file) {
             $event->validated = true;
+        }
+
+        if (TaskReport::whereUserId(\Auth::id())->whereTaskId($event->task_id)->exists()) {
+
+            $event->validated = false;
         }
     }
 }
