@@ -83,8 +83,12 @@ class TaskReport extends JaxExecutor
 
         $task = Task::find($task_id);
 
+        $auth = app(AuthUserRepository::class);
+
+        $report = $auth->user->taskReports()->where('task_id', $task_id)->first();
+
         return $task ? TaskReportResource::collection(
-            $repo->reports_in_task(null, $task)
+            $repo->reports_in_task($report, $task)
         ) : [];
     }
 }

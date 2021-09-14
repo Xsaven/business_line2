@@ -31,8 +31,6 @@ class Task extends Page
      */
     public function __construct($id = null, array $attrs = [], ...$params)
     {
-        $auth = app(AuthUserRepository::class);
-
         $repo = app(TaskRepository::class);
 
         $this->abort($repo);
