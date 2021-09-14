@@ -39,7 +39,7 @@ class ClearUserNotifyCommand extends Command
      */
     public function handle()
     {
-        foreach (User::where('password', '!=', 'none') as $user) {
+        foreach (User::where('password', '!=', 'none')->get() as $user) {
             /** @var User $user */
             $ids = $user->notifications()->orderByDesc('created_at')->limit(30)->pluck('id');
 
