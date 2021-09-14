@@ -27,16 +27,15 @@ class NotifyUsers
     {
         if ($event->validated) {
             if ($event->taskReport && $event->taskReport->status == TaskReport::STATUS_CHECKED) {
+                $cost = $event->taskReport->cost ?: $event->taskReport->task->cost;
+                $event->taskReport->update([
+                    'cost' => $cost
+                ]);
                 event(
                     new AddUserBalance(
                         \Auth::id(), $event->taskReport->task->cost, new UserSuccessCompleteTaskReport($event->task)
                     )
                 );
-                if ($event->taskReport) {
-                    $event->taskReport->update([
-                        'cost' => $event->taskReport->task->cost
-                    ]);
-                }
             } elseif ($event->taskReport) {
                 \Auth::user()
                     ->notify(

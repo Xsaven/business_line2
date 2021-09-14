@@ -33,13 +33,13 @@ class Create
 
             $event->balls = $balls;
 
-            event(
-                new AddUserBalance(
-                    \Auth::id(), $balls, new UserSuccessUploadedQuizReport($balls, $event->task)
-                )
-            );
+//            event(
+//                new AddUserBalance(
+//                    \Auth::id(), $balls, new UserSuccessUploadedQuizReport($balls, $event->task)
+//                )
+//            );
 
-            TaskReport::create([
+            $event->taskReport = TaskReport::create([
                 'status' => $event->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
                 'user_id' => \Auth::id(),
                 'task_id' => $event->task->id,

@@ -36,26 +36,31 @@ class QuestionsControl extends LteAdminExecutor
     {
         $taskReport = TaskReport::find($id);
 
-        if ($taskReport && $taskReport->update(['status' => TaskReport::STATUS_CHECKED, 'cost' => $cost])) {
-            $taskReport->task->cost = $cost;
-            event(
-                new AddUserBalance(
-                    $taskReport->user_id, $taskReport->task->cost, new AdminApproveTaskReportNotification($taskReport->task)
-                )
-            );
-            AllUserExec::dispatch("task-report-update-{$taskReport->id}");
-            AllAdminExec::dispatch(['questions:update']);
+        if ($taskReport->status !== TaskReport::STATUS_CHECKED) {
+            if ($taskReport && $taskReport->update(['status' => TaskReport::STATUS_CHECKED, 'cost' => $cost])) {
+                $taskReport->task->cost = $cost;
+                event(
+                    new AddUserBalance(
+                        $taskReport->user_id, $taskReport->task->cost, new AdminApproveTaskReportNotification($taskReport->task)
+                    )
+                );
+                AllUserExec::dispatch("task-report-update-{$taskReport->id}");
+                AllAdminExec::dispatch(['questions:update']);
+            }
         }
+        AllAdminExec::dispatch(['questions:update']);
     }
 
     public function drop(int $id, string $reason = 'отчет не соответствует условиям задания')
     {
         $taskReport = TaskReport::find($id);
 
-        if ($taskReport && $taskReport->update(['status' => TaskReport::STATUS_CANCELED, 'admin_comment' => $reason])) {
-            $taskReport->user->notify(new AdminDropTaskReportNotification($taskReport->task));
-            AllUserExec::dispatch("task-report-update-{$taskReport->id}");
-            AllAdminExec::dispatch(['questions:update']);
+        if ($taskReport->status !== TaskReport::STATUS_CANCELED) {
+            if ($taskReport && $taskReport->update(['status' => TaskReport::STATUS_CANCELED, 'admin_comment' => $reason])) {
+                $taskReport->user->notify(new AdminDropTaskReportNotification($taskReport->task));
+                AllUserExec::dispatch("task-report-update-{$taskReport->id}");
+            }
         }
+        AllAdminExec::dispatch(['questions:update']);
     }
 }
