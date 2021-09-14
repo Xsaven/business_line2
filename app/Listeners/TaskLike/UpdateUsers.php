@@ -29,6 +29,7 @@ class UpdateUsers
             if ($event->task_report && $event->task_report->user->id !== \Auth::id()) {
                 $event->task_report->user->likes =
                     $event->task_report->user->taskReports()->withCount('likes')->get()->sum('likes_count');
+                $event->task_report->user->save();
 //                $event->task_report->user->likes = app(AuthUserRepository::class)
 //                    ->user->taskReportLikes()->count();
 //                $state = (bool) app(AuthUserRepository::class)
