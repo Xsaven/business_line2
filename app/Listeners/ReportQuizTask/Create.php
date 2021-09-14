@@ -22,24 +22,29 @@ class Create
      */
     public function handle(ReportQuizTask $event)
     {
-        $balls = 0;
-        foreach (QuizAnswer::whereIn('id', array_values($event->quiz_answers))->get() as $answer) {
-            $balls += $answer->cost;
+        if (!TaskReport::where('user_id', \Auth::id())
+            ->where('task_id', $event->task->id)
+            ->exists()) {
+
+            $balls = 0;
+            foreach (QuizAnswer::whereIn('id', array_values($event->quiz_answers))->get() as $answer) {
+                $balls += $answer->cost;
+            }
+
+            $event->balls = $balls;
+
+            event(
+                new AddUserBalance(
+                    \Auth::id(), $balls, new UserSuccessUploadedQuizReport($balls, $event->task)
+                )
+            );
+
+            TaskReport::create([
+                'status' => $event->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
+                'user_id' => \Auth::id(),
+                'task_id' => $event->task->id,
+                'cost' => $balls
+            ]);
         }
-
-        $event->balls = $balls;
-
-        event(
-            new AddUserBalance(
-                \Auth::id(), $balls, new UserSuccessUploadedQuizReport($balls, $event->task)
-            )
-        );
-
-        TaskReport::create([
-            'status' => $event->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
-            'user_id' => \Auth::id(),
-            'task_id' => $event->task->id,
-            'cost' => $balls
-        ]);
     }
 }

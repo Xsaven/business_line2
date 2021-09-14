@@ -23,38 +23,43 @@ class Create
      */
     public function handle(ReportStarQuizTask $event)
     {
-        $stars = [];
+        if (!TaskReport::where('user_id', \Auth::id())
+            ->where('task_id', $event->task->id)
+            ->exists()) {
 
-        foreach ($event->quiz_answers as $quiz_answer) {
-            $answer = QuizAnswer::find($quiz_answer);
-            $stars[] = $answer->stars->pluck('id')->toArray();
+            $stars = [];
+
+            foreach ($event->quiz_answers as $quiz_answer) {
+                $answer = QuizAnswer::find($quiz_answer);
+                $stars[] = $answer->stars->pluck('id')->toArray();
+            }
+
+            $result = collect($stars)->collapse()
+                ->groupBy(fn($i) => $i)
+                ->map(fn(Collection $collection) => $collection->count())
+                ->sortDesc()->keys()->first();
+
+            $event->star = Star::find($result);
+
+            $balls = 0;
+            foreach (QuizAnswer::whereIn('id', array_values($event->quiz_answers))->get() as $answer) {
+                $balls += $answer->cost;
+            }
+
+            $event->balls = $balls;
+
+            event(
+                new AddUserBalance(
+                    \Auth::id(), $balls, new UserSuccessUploadedStarQuizReport($balls, $event->task)
+                )
+            );
+
+            TaskReport::create([
+                'status' => $event->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
+                'user_id' => \Auth::user()->id,
+                'task_id' => $event->task->id,
+                'cost' => $balls
+            ]);
         }
-
-        $result = collect($stars)->collapse()
-            ->groupBy(fn ($i) => $i)
-            ->map(fn (Collection $collection) => $collection->count())
-            ->sortDesc()->keys()->first();
-
-        $event->star = Star::find($result);
-
-        $balls = 0;
-        foreach (QuizAnswer::whereIn('id', array_values($event->quiz_answers))->get() as $answer) {
-            $balls += $answer->cost;
-        }
-
-        $event->balls = $balls;
-
-        event(
-            new AddUserBalance(
-                \Auth::id(), $balls, new UserSuccessUploadedStarQuizReport($balls, $event->task)
-            )
-        );
-
-        TaskReport::create([
-            'status' => $event->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
-            'user_id' => \Auth::user()->id,
-            'task_id' => $event->task->id,
-            'cost' => $balls
-        ]);
     }
 }
