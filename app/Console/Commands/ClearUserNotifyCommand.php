@@ -40,11 +40,13 @@ class ClearUserNotifyCommand extends Command
     {
         foreach (DatabaseNotification::all() as $notify) {
 
-            DatabaseNotification::where('id', '!=', $notify->id)
-                ->where('notifiable_type', $notify->notifiable_type)
-                ->where('data', $notify->data)
-                ->where('notifiable_id', $notify->notifiable_id)
-                ->delete();
+            $notify->update(['data' => $notify->data]);
+
+//            DatabaseNotification::where('id', '!=', $notify->id)
+//                ->where('notifiable_type', $notify->notifiable_type)
+//                ->where('data', $notify->data)
+//                ->where('notifiable_id', $notify->notifiable_id)
+//                ->delete();
         }
 
         return 0;
