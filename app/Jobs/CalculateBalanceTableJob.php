@@ -44,9 +44,13 @@ class CalculateBalanceTableJob implements ShouldQueue
                         ($position >= 1 && $position <= 5) ||
                         !($position % 10)
                     ) {
-                        $user->notify(
-                            new UserBallanceTableChangeNotification($position, $user->direction_id)
-                        );
+                        if (!\Cache::has("sended_user_balance_position_{$position}_{$user->direction_id}")) {
+
+                            $user->notify(
+                                new UserBallanceTableChangeNotification($position, $user->direction_id)
+                            );
+                            \Cache::set("sended_user_balance_position_{$position}_{$user->direction_id}", 1, now()->addMinute());
+                        }
                     }
                 }
                 \Cache::set($cache_key, $position);
