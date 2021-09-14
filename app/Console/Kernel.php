@@ -26,6 +26,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->command('n_clear')->hourly();
         $schedule->job(AdminStatisticJob::class)->everyFiveMinutes();
         $schedule->job(NotifyUsersForOpenTasksJob::class)->dailyAt('00:01');
     }
