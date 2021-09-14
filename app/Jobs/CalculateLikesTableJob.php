@@ -41,9 +41,14 @@ class CalculateLikesTableJob implements ShouldQueue
 
                 if (\Cache::has($cache_key) && \Cache::get($cache_key) != $position) {
                     $changed = true;
-                    $user->notify(
-                        new UserLikesTableChangeNotification($position, $user->direction_id)
-                    );
+                    if (
+                        ($position >= 1 && $position <= 5) ||
+                        !($position % 10)
+                    ) {
+                        $user->notify(
+                            new UserLikesTableChangeNotification($position, $user->direction_id)
+                        );
+                    }
                 }
                 \Cache::set($cache_key, $position);
             }
