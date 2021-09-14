@@ -52,7 +52,7 @@ class Home extends LayoutComponent
         'js/nice-select.js',
         'js/functions.js',
         'js/scripts.js',
-        'js/app_v5.js',
+        'js/app_v6.js',
         'ljs' => [
             'jq',
             'echo',
