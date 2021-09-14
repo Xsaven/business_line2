@@ -317,6 +317,6 @@ class User extends Authenticatable
      */
     public function taskReportLikes() : BelongsToMany
     {
-        return $this->belongsToMany(TaskReport::class, 'user_task_reports', 'task_report_id', 'fun_id');
+        return $this->belongsToMany(TaskReport::class, 'user_task_reports', 'fun_id', 'task_report_id');
     }
 }

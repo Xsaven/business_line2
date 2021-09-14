@@ -17,6 +17,6 @@ trait TaskReportLikeConfig
      */
     public function likes(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'user_task_reports', 'fun_id', 'task_report_id');
+        return $this->belongsToMany(User::class, 'user_task_reports', 'task_report_id', 'fun_id');
     }
 }
