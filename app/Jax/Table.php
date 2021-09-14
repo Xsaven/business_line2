@@ -30,6 +30,7 @@ class Table extends JaxExecutor
         return UserResource::collection(
             app(UserRepository::class)
                 ->model()
+                ->distinct('id')
                 ->where('direction_id', $direction_id)
                 ->withCount('taskReports')
                 ->orderByDesc($sort)
