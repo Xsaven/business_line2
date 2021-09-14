@@ -26,7 +26,7 @@
 
 
     <div class="head">
-      <div class="title">Отчеты участников ({{r.length}})</div>
+      <div class="title">Отчеты участников ({{data.length}})</div>
 <!--        <div class="sort">-->
 <!--            <div class="name">Сортировать:</div>-->
 
@@ -37,12 +37,24 @@
 <!--        </div>-->
     </div>
 
-    <div class="empty" v-if="!r.length">Здесь скоро появятся отчеты других участников</div>
+    <div class="empty" v-if="!data.length">Здесь скоро появятся отчеты других участников</div>
+
       <div class="tasks_list">
           <div class="list">
-              <template v-for="r_report in r">
-                  <v-task-report :report="r_report" />
+              <template v-for="(r_report, ind) in data">
+                  <v-task-report :report="r_report" :key="`ind_${ind}_${r_report.id}`" />
               </template>
+          </div>
+      </div>
+      <div class="bottom" v-if="meta.last_page > 1" style="margin-top: 10px">
+          <div class="pagination">
+              <a href="javascript:void(0)" @click="prevPage" :class="{prev: true, disabled: page === 1}"></a>
+              <a
+                  v-for="(p,i) in pages"
+                  href="javascript:void(0)" :key="`page_${i}`" @click="setPage(p)"
+                  :class="{'active': page === p}">{{p}}</a>
+
+              <a href="javascript:void(0)" @click="nextPage" :class="{next: true, disabled: page === meta.last_page}"></a>
           </div>
       </div>
   </div>
@@ -56,10 +68,87 @@ export default {
   data() {
     return {
       user: {},
-      r: this.reports,
+        data: this.reports,
+        meta: {
+            to: 0,
+            from: 0,
+            total: 0,
+            per_page: 0,
+            last_page: 0,
+            current_page: 0,
+        },
+        page: 1
     }
-  }
-
+  },
+    mounted() {
+        this.load();
+    },
+    computed: {
+        pages () {
+            let pages = [];
+            if (this.page-2 >= 1 && this.page === this.meta.last_page) { pages.push(this.page-2); }
+            if (this.page-1 >= 1) { pages.push(this.page-1); }
+            pages.push(this.page);
+            if (this.page+1 <= this.meta.last_page) { pages.push(this.page+1); }
+            if (this.page+2 <= this.meta.last_page && this.page === 1) { pages.push(this.page+2); }
+            return pages;
+        }
+    },
+    watch: {
+        page () {
+            this.load();
+        },
+    },
+    methods: {
+        href(get) {
+            return location.pathname + "?sort=" + get
+        },
+        load () {
+            this.loading = true;
+            jax.params({page: this.page})
+                .task_report
+                .pagination(this.task.id, this.sort)
+                .then(({data, meta}) => {
+                    if (data) {
+                        this.data = data;
+                        this.meta.to = meta.to;
+                        this.meta.from = meta.from;
+                        this.meta.total = meta.total;
+                        this.meta.per_page = meta.per_page;
+                        this.meta.last_page = meta.last_page;
+                        this.meta.current_page = meta.current_page;
+                    }
+                    this.loading = false;
+                }).catch(() => {
+                    this.loading = false;
+                });
+        },
+        setPage (page) {
+            if (!this.loading) {
+                this.page = page;
+            }
+        },
+        nextPage () {
+            if (!this.loading && this.page < this.meta.last_page) {
+                this.page++;
+            }
+        },
+        prevPage () {
+            if (!this.loading && this.page > 1) {
+                this.page--;
+            }
+        },
+        lastPage () {
+            if (!this.loading && this.page !== this.meta.last_page) {
+                this.page = this.meta.last_page;
+            }
+        },
+        firstPage () {
+            if (!this.loading && this.page !== 1) {
+                this.page = 1;
+            }
+        },
+    }
 }
 </script>
 

@@ -5,8 +5,10 @@ namespace App\Jax;
 use App\Events\TaskLike;
 use App\Events\TaskSticker;
 use App\Http\Resources\TaskReportResource;
+use App\Models\Task;
 use App\Repositories\AuthUserRepository;
 use App\Repositories\TaskReportRepository;
+use App\Repositories\TaskRepository;
 use Lar\LJS\JaxExecutor;
 
 /**
@@ -69,5 +71,20 @@ class TaskReport extends JaxExecutor
                 TaskReportResource::make(app(TaskReportRepository::class)
                     ->find($event->task_report_id)) : null,
         ];
+    }
+
+    /**
+     * @param  int  $task_id
+     * @return TaskReport|array|\Illuminate\Http\Resources\Json\AnonymousResourceCollection|\Lar\Layout\Respond
+     */
+    public function pagination(int $task_id)
+    {
+        $repo = app(TaskRepository::class);
+
+        $task = Task::find($task_id);
+
+        return $task ? TaskReportResource::collection(
+            $repo->reports_in_task(null, $task)
+        ) : [];
     }
 }

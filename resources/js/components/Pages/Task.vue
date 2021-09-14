@@ -35,7 +35,7 @@
               </div>
           </div>
 
-            <div :class="{'terms': true, 'min_w': task_report || Number(user.direction_id) !== Number(task.direction_id)}">
+            <div :class="{'terms': true, 'min_w': task_report || Number(user.direction_id) !== Number(task.direction_id) || task.finished}">
               <div class="title">Условия участия</div>
 
               <div class="desc" v-html="task.terms_of_participation"></div>

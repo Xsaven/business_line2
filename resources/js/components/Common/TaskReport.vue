@@ -104,6 +104,14 @@
             };
         },
         mounted () {
+            ljs.onetime(() => {
+                const observer = lozad('.lozad', {
+                    rootMargin: '200px 0px',
+                    threshold: 0,
+                    loaded: (el) => el.classList.add('loaded')
+                });
+                observer.observe();
+            },200);
             ljs.toExec(`task-report-update-${this.r.id}`, this.update.bind(this));
             this.scrollDown();
             ljs.onetime(() => this.scrollDown(), 101)
@@ -124,7 +132,6 @@
             },
             sticker (id) {
                 if (this.user.can) jax.task_report.comment(this.r.id, `[${id}]`).then(({report}) => {
-                    console.log(report);
                     this.r = report;
                     this.to_all();
                     ljs.onetime(() => this.scrollDown(), 101)
