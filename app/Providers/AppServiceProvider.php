@@ -8,6 +8,7 @@ use App\Models\TaskReport;
 use App\Models\User;
 use App\Observers\TaskReportObserver;
 use App\Observers\UserObserver;
+use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\ServiceProvider;
 use Lar\Layout\Core\LConfigs;
 use Laravel\Fortify\Fortify;
