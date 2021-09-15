@@ -4,6 +4,8 @@ namespace App\Listeners\TaskSticker;
 
 use App\Events\TaskSticker;
 use App\Events\Ws\AllUserExec;
+use App\Notifications\UserLikeYouReportNotification;
+use App\Notifications\UserStickerYouReportNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -22,6 +24,10 @@ class NotifyUsers
                 //"task-report-update-{$event->task_report_id}" => [],
                 'update' => [],
             ]);
+
+            $event->task_report->user->notify(
+                new UserStickerYouReportNotification(\Auth::user(), $event->task_report->task)
+            );
         }
     }
 }

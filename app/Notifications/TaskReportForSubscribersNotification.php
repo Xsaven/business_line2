@@ -17,7 +17,7 @@ class TaskReportForSubscribersNotification extends Notification
         public User $user,
         public Task $task
     ) {
-        $this->message = "Пользователь {$this->user->full_name}, опубликовал новый отчёт в задании";
+        $this->message = "Пользователь <a href='/user/{$this->user->id}'>{$this->user->full_name}</a>, опубликовал новый отчёт в задании";
         $this->link_title = $this->task->name;
         $this->link = "/task/" . $this->task->id;
         $this->user_id = $this->user->id;

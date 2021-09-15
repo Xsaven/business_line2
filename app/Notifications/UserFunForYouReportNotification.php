@@ -5,7 +5,7 @@ namespace App\Notifications;
 use App\Models\Task;
 use App\Models\User;
 
-class UserLikeYouReportNotification extends Notification
+class UserFunForYouReportNotification extends Notification
 {
     /**
      * Create a new notification instance.
@@ -16,7 +16,7 @@ class UserLikeYouReportNotification extends Notification
         public User $user,
         public Task $task
     ) {
-        $this->message = "<a href='/user/{$user->id}'>{$user->full_name}</a> поставил лайк вашему отчету по заданию";
+        $this->message = "Вас отметил пользователь <a href='/user/{$user->id}'>{$user->full_name}</a> в своем отчете к заданию";
         $this->link_title = $this->task->name;
         $this->link = "/task/{$this->task->id}";
     }

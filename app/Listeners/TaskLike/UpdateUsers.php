@@ -19,28 +19,10 @@ class UpdateUsers
     public function handle(TaskLike $event)
     {
         if ($event->result()) {
-//            $user = app(AuthUserRepository::class)
-//                ->user;
-
-//            $user->update([
-//                'likes' => $user->commentaryLikes()->count() + $user->taskReportLikes()->count(),
-//            ]);
-
             if ($event->task_report && $event->task_report->user->id !== \Auth::id()) {
                 $event->task_report->user->likes =
                     $event->task_report->user->taskReports()->withCount('likes')->get()->sum('likes_count');
                 $event->task_report->user->save();
-//                $event->task_report->user->likes = app(AuthUserRepository::class)
-//                    ->user->taskReportLikes()->count();
-//                $state = (bool) app(AuthUserRepository::class)
-//                    ->user
-//                    ->taskReportLikes()->where('id', $event->task_report_id)->count();
-//
-//                if ($state) {
-//                    $event->task_report->user->increment('likes');
-//                } else {
-//                    $event->task_report->user->decrement('likes');
-//                }
             }
 
             if ($event->task_report) {
