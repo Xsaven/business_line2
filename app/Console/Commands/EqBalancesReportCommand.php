@@ -40,6 +40,8 @@ class EqBalancesReportCommand extends Command
     {
         $balances = \App\Models\Ballance::whereIn('task_id', [11,29,35,42,61,69,39])->whereCost(50)->get();
 
+        $total = 0;
+
         foreach ($balances as $balance) {
             /** @var TaskReport $report */
             $report = $balance->user->taskReports()
@@ -47,8 +49,13 @@ class EqBalancesReportCommand extends Command
                 ->where('cost', '!=', 50)
                 ->first();
 
-            dump($report);
+            if ($report) {
+                dump($report->user_id);
+                $total++;
+            }
         }
+
+        $this->info("Total: " . $total);
 
         return 0;
     }
