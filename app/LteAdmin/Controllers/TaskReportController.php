@@ -45,8 +45,6 @@ class TaskReportController extends Controller
             $table->search->id();
             $table->search->select('task_id', 'Задание')
                 ->load(Task::class);
-            $table->search->select('report_type', 'Тип')
-                ->options(Task::REPORT_TYPES);
             $table->search->select('user_id', 'Пользователь')
                 ->load(User::class, 'id:name:lastname');
             $table->search->numeric('cost', 'Зачислено');

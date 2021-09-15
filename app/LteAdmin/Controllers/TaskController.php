@@ -32,6 +32,8 @@ class TaskController extends Controller
         return Sheet::create(function (ModelTable $table) {
             $table->search->id();
             $table->search->input('name', 'Название');
+            $table->search->select('report_type', 'Тип')
+                ->options(Task::REPORT_TYPES);
             $table->search->at();
 
             $table->id();
