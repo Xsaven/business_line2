@@ -20,7 +20,7 @@
             </div>
 
             <div class="video" v-if="r.file">
-                <v-player v-if="String(r.file).indexOf('.jpg') === -1 && String(r.file).indexOf('.jpeg') === -1 || String(r.file).indexOf('.png') === -1" :video_id="r.file" />
+                <v-player v-if="String(r.file).indexOf('.jpg') === -1 && String(r.file).indexOf('.jpeg') === -1 && String(r.file).indexOf('.png') === -1" :video_id="r.file" />
                 <img v-else :src="r.file" alt="" class="lozad">
                 <!--                <svg class="icon"><use xlink:href="/images/sprite.svg#ic_video_play"></use></svg>-->
             </div>
