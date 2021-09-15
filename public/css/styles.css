@@ -5936,8 +5936,8 @@ header .mob_menu_btn.active .icon + .icon
     margin-bottom: 40px;
 
     justify-content: space-between;
-    align-items: center;
-    align-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
     flex-wrap: wrap;
 }
 
@@ -5950,6 +5950,10 @@ header .mob_menu_btn.active .icon + .icon
 
     display: flex;
 
+    max-width: calc(100% - 76px);
+    margin-bottom: -4px;
+    margin-left: -4px;
+
     justify-content: flex-start;
     align-items: center;
     align-content: center;
@@ -5960,17 +5964,14 @@ header .mob_menu_btn.active .icon + .icon
 {
     width: 21px;
     height: 21px;
+    margin-bottom: 4px;
+    margin-left: 4px;
 
     transition: .2s linear;
     text-align: center;
 
     border: 1px solid transparent;
     border-radius: 3px;
-}
-
-.task_info .performance .quiz .steps > * + *
-{
-    margin-left: 4px;
 }
 
 .task_info .performance .quiz .steps > *.active
@@ -5995,7 +5996,7 @@ header .mob_menu_btn.active .icon + .icon
 {
     color: #fcaf17;
     font-size: 20px;
-    line-height: 22px;
+    line-height: 21px;
 
     white-space: nowrap;
 }

@@ -22,10 +22,13 @@
                 <input v-model="q" type="text" class="input" placeholder="За кого болеешь">
 
                 <div v-if="users_local.length && users_local[0].full_name !== q" class="fieldset" style="display: block">
-                  <div v-for="user in users_local">
-                    <div class="avatar" v-html="user.avatar"></div>
-                    <div @click="save_changes(user.full_name,user.id)" class="name">{{user.full_name}}</div>
-                  </div>
+                    <template v-for="user in users_local">
+                        <a href="javascript:;"  @click="save_changes(user.full_name,user.id)">
+                            <div class="avatar" v-html="user.avatar"></div>
+                            <div class="name">{{user.full_name}}</div>
+                            <v-icon icon="ic_link" @click.stop="open(`/user/${user.id}`)" />
+                        </a>
+                    </template>
                 </div>
               </div>
             </div>
@@ -92,6 +95,10 @@ export default {
     }
   },
   methods: {
+      open (link) {
+          console.log(link);
+          window.open(link,'_blank');
+      },
       hide () {
           this.users_local = {};
       },
