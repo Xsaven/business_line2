@@ -27,7 +27,7 @@ class Validation
             $event->is_video = true;
         }
 
-        if ($event->user && $event->task && $event->file && str_ends_with($event->file, '.jpg')) {
+        if ($event->user && $event->task && $event->file && (str_ends_with($event->file, '.jpg') || str_ends_with($event->file, '.jpeg') || str_ends_with($event->file, '.png'))) {
             $event->validated = true;
             $event->is_photo = true;
         }

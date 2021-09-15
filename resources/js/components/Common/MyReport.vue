@@ -80,7 +80,7 @@ export default {
     }
   },
     mounted() {
-        this.load();
+        this.load(false);
     },
     computed: {
         pageRange () {
@@ -129,7 +129,7 @@ export default {
         href(get) {
             return location.pathname + "?sort=" + get
         },
-        load () {
+        load (scroll = true) {
             this.loading = true;
             jax.params({page: this.page})
                 .task_report
@@ -143,8 +143,8 @@ export default {
                         this.meta.per_page = meta.per_page;
                         this.meta.last_page = meta.last_page;
                         this.meta.current_page = meta.current_page;
-                        $([document.documentElement, document.body])
-                            .animate({scrollTop: $("#user-task-reports").offset().top}, 500);
+                        if (scroll) $([document.documentElement, document.body])
+                            .animate({scrollTop: $("#user-task-reports").offset().top}, 0);
                     }
                     this.loading = false;
                 }).catch(() => {

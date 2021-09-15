@@ -20,7 +20,7 @@ class Validate
     {
         $event->task = Task::find($event->task_id);
 
-        if ($event->task && $event->file && str_ends_with($event->file, '.jpg')) {
+        if ($event->task && $event->file && (str_ends_with($event->file, '.jpg') || str_ends_with($event->file, '.jpeg') || str_ends_with($event->file, '.png'))) {
             $event->validated = true;
         }
 
