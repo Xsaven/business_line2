@@ -16,7 +16,7 @@ class UserFunForYouReportNotification extends Notification
         public User $user,
         public Task $task
     ) {
-        $this->message = "Вас отметил пользователь <a href='/user/{$user->id}'>{$user->full_name}</a> в своем отчете к заданию";
+        $this->message = "<a href='/user/{$user->id}'>{$user->full_name}</a> отметил(а), что болеет за вас в задании";
         $this->link_title = $this->task->name;
         $this->link = "/task/{$this->task->id}";
     }
