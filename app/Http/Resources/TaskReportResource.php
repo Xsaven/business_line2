@@ -22,6 +22,7 @@ class TaskReportResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'fun' => $this->fun_id ? UserResource::make($this->fun) : null,
             'status' => $this->status,
             'likes' => $this->likes_count,
             'file' => $this->file,

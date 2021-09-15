@@ -14,7 +14,10 @@
                 </div>
 
                 <div>
-                    <div class="name"><a :href="`/user/${r.user.id}`" style="color: currentColor;">{{r.user.full_name}}</a></div>
+                    <div class="name">
+                        <a :href="`/user/${r.user.id}`" style="color: currentColor;">{{r.user.full_name}}</a>
+                        <span v-if="r.fun"> болеет за <a :href="`/user/${r.fun.id}`" style="color: currentColor;">{{r.fun.full_name}}</a></span>
+                    </div>
                     <div class="text" v-html="r.comment" v-if="r.file"></div>
                 </div>
             </div>
