@@ -11,6 +11,7 @@ use App\Models\TaskReport;
 use App\Models\User;
 use App\Notifications\DeleteTaskReportNotification;
 use App\Notifications\TaskReportForSubscribersNotification;
+use App\Notifications\UserNotedYouInTaskNotification;
 
 class TaskReportObserver
 {
@@ -21,6 +22,33 @@ class TaskReportObserver
                 new TaskReportForSubscribersNotification($taskReport->user, $taskReport->task)
             )
         );
+
+        if (
+            $taskReport->comment &&
+            $taskReport->task &&
+            str_contains($taskReport->comment, '@')
+        ) {
+            $taskReport->comment = preg_replace_callback("/@([a-zA-Zа-яА-Я0-9_]+)/", function ($m) use ($taskReport) {
+                if (isset($m[1])) {
+                    $m[1] = explode("_", $m[1]);
+                    $name = $m[1][0] ?? null;
+                    $lastname = $m[1][1] ?? null;
+                    $user = User::whereLogin($name)->first();
+                    if (!$user) {
+                        $user = User::whereName($name)->whereLastname($lastname)->first();
+                    }
+                    if ($user) {
+                        $user->notify(
+                            new UserNotedYouInTaskNotification($taskReport->user, $taskReport->task)
+                        );
+                        return "<a href='/user/{$user->id}'>{$user->full_name}</a>";
+                    }
+                }
+                return $m[0];
+            }, $taskReport->comment);
+
+            $taskReport->save();
+        }
     }
 
     /**
@@ -33,7 +61,11 @@ class TaskReportObserver
     {
         if ($taskReport->status === TaskReport::STATUS_CHECKED) {
             AllUserExec::dispatch("task-report-update-{$taskReport->id}");
-            $this->notify_subscribers($taskReport);
+            if (
+                $taskReport->task->action_type !== Task::ACTION_TYPE_AUTO
+            ) {
+                $this->notify_subscribers($taskReport);
+            }
         } else {
             Exec::dispatch($taskReport->user_id, "task-report-update-{$taskReport->id}");
         }

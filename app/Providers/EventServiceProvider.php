@@ -99,11 +99,13 @@ class EventServiceProvider extends ServiceProvider
         \App\Events\ReportFunTask::class => [ // Отчёт с фанатской формы
             \App\Listeners\ReportFunTask\Validation::class,
             \App\Listeners\ReportFunTask\Create::class,
+            \App\Listeners\ReportTask\CommentCheck::class,
             \App\Listeners\ReportTask\NotifyUsers::class,
         ],
         \App\Events\ReportTextTask::class => [ // Текстовый отчёт
             \App\Listeners\ReportTextTask\Validation::class,
             \App\Listeners\ReportTextTask\Create::class,
+            \App\Listeners\ReportTask\CommentCheck::class,
             \App\Listeners\ReportTask\NotifyUsers::class,
         ],
         \App\Events\ReportVideoTask::class => [ // Видео отчёт
@@ -119,6 +121,7 @@ class EventServiceProvider extends ServiceProvider
         \App\Events\ReportTextImageVideoTask::class => [ // Текст, Фото или Видео отчёт
             \App\Listeners\ReportTextImageVideoTask\Validation::class,
             \App\Listeners\ReportTextImageVideoTask\Create::class,
+            \App\Listeners\ReportTask\CommentCheck::class,
             \App\Listeners\ReportTask\NotifyUsers::class,
         ],
         \App\Events\ReportImageVideoTask::class => [ // Фото или Видео отчёт
@@ -129,10 +132,12 @@ class EventServiceProvider extends ServiceProvider
         \App\Events\ReportTextVideoTask::class => [ // Текст и Видео отчёт
             \App\Listeners\ReportTextVideoTask\Validation::class,
             \App\Listeners\ReportTextVideoTask\Create::class,
+            \App\Listeners\ReportTask\CommentCheck::class,
             \App\Listeners\ReportTask\NotifyUsers::class,
         ],
         \App\Events\ReportTextImageTask::class => [ // Текст и Фото отчёт
             \App\Listeners\ReportTextImageTask\Validation::class,
+            \App\Listeners\ReportTask\CommentCheck::class,
             \App\Listeners\ReportTextImageTask\Create::class,
             \App\Listeners\ReportTask\NotifyUsers::class,
         ],

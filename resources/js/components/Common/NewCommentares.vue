@@ -40,6 +40,14 @@
                 if (!!Number(val)) {
                     jax.user.new_notifications().then(({data}) => {
                         this.new_notifications = data;
+                        ljs.onetime(() => {
+                            const observer = lozad('.lozad', {
+                                rootMargin: '200px 0px',
+                                threshold: 0,
+                                loaded: (el) => el.classList.add('loaded')
+                            });
+                            observer.observe();
+                        },200);
                     });
                 }
             }
