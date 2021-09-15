@@ -3,6 +3,7 @@
 namespace App\LteAdmin\Controllers;
 
 use App\Events\AddUserBalance;
+use App\LteAdmin\Modals\AddBalanceModal;
 use App\Models\Task;
 use App\Models\TaskReport;
 use App\Models\User;
@@ -13,6 +14,7 @@ use Lar\LteAdmin\Core\ModelSaver;
 use Lar\LteAdmin\Segments\Info;
 use Lar\LteAdmin\Segments\Matrix;
 use Lar\LteAdmin\Segments\Sheet;
+use Lar\LteAdmin\Segments\Tagable\ButtonGroup;
 use Lar\LteAdmin\Segments\Tagable\Field;
 use Lar\LteAdmin\Segments\Tagable\Form;
 use Lar\LteAdmin\Segments\Tagable\ModelInfoTable;
@@ -58,6 +60,12 @@ class TaskReportController extends Controller
             $table->col('Коммент', 'comment')->str_limit(50);
             $table->col('Зачислено', 'cost')->badge_number();
             $table->at();
+            $table->col(function (TaskReport $report) {
+                return ButtonGroup::create(function (ButtonGroup $group) use ($report) {
+                    $group->primary(['fas fa-money'])->setTitle('Баланс пользователя')
+                        ->on_click(new AddBalanceModal(['user_id' => $report->user_id]));
+                });
+            });
         });
     }
 
