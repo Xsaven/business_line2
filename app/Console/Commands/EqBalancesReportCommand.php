@@ -42,7 +42,11 @@ class EqBalancesReportCommand extends Command
 
         foreach ($balances as $balance) {
             /** @var TaskReport $report */
-            $report = $balance->user->taskReports()->where('task_id', $balance->task_id)->first();
+            $report = $balance->user->taskReports()
+                ->where('task_id', $balance->task_id)
+                ->where('cost', '!=', 50)
+                ->first();
+
             dump($report);
         }
 
