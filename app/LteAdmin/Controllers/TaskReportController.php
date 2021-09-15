@@ -7,6 +7,7 @@ use App\Models\Task;
 use App\Models\TaskReport;
 use App\Models\User;
 use App\Notifications\AdminApproveTaskReportNotification;
+use App\Notifications\AdminDropTaskReportNotification;
 use Lar\Layout\Tags\DIV;
 use Lar\LteAdmin\Core\ModelSaver;
 use Lar\LteAdmin\Segments\Info;
@@ -85,10 +86,17 @@ class TaskReportController extends Controller
             $form->info_at();
             ModelSaver::on_updated(static::$model, function () use ($status_old) {
                 $report = $this->model()->find($this->model()->id);
+                //dd($report->status);
                 if ($report->status === TaskReport::STATUS_CHECKED && $status_old === TaskReport::STATUS_CANCELED) {
                     event(
                         new AddUserBalance(
                             $report->user_id, $report->task->cost, new AdminApproveTaskReportNotification($report->task)
+                        )
+                    );
+                } else if ($report->status === TaskReport::STATUS_CANCELED && $status_old === TaskReport::STATUS_CHECKED) {
+                    event(
+                        new AddUserBalance(
+                            $report->user_id, -$report->task->cost, new AdminDropTaskReportNotification($report->task)
                         )
                     );
                 }

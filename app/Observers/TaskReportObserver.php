@@ -6,6 +6,7 @@ use App\Events\AddUserBalance;
 use App\Events\Ws\AllAdminExec;
 use App\Events\Ws\AllUserExec;
 use App\Events\Ws\Exec;
+use App\Models\Task;
 use App\Models\TaskReport;
 use App\Models\User;
 use App\Notifications\DeleteTaskReportNotification;
@@ -47,11 +48,11 @@ class TaskReportObserver
      */
     public function updated(TaskReport $taskReport)
     {
-//        info($taskReport->id . " : " . $taskReport->status);
-
         if ($taskReport->status === TaskReport::STATUS_CHECKED) {
             AllUserExec::dispatch("task-report-update-{$taskReport->id}");
-            $this->notify_subscribers($taskReport);
+            if ($taskReport->task !== Task::ACTION_TYPE_AUTO) {
+                $this->notify_subscribers($taskReport);
+            }
         } else {
             Exec::dispatch($taskReport->user_id, "task-report-update-{$taskReport->id}");
         }
