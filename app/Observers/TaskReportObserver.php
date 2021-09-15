@@ -50,7 +50,9 @@ class TaskReportObserver
     {
         if ($taskReport->status === TaskReport::STATUS_CHECKED) {
             AllUserExec::dispatch("task-report-update-{$taskReport->id}");
-            if ($taskReport->task !== Task::ACTION_TYPE_AUTO) {
+            if (
+                $taskReport->task->action_type !== Task::ACTION_TYPE_AUTO
+            ) {
                 $this->notify_subscribers($taskReport);
             }
         } else {
