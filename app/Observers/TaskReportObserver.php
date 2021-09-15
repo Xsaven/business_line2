@@ -11,6 +11,7 @@ use App\Models\TaskReport;
 use App\Models\User;
 use App\Notifications\DeleteTaskReportNotification;
 use App\Notifications\TaskReportForSubscribersNotification;
+use App\Notifications\UserFunForYouReportNotification;
 use App\Notifications\UserNotedYouInTaskNotification;
 
 class TaskReportObserver
@@ -22,6 +23,15 @@ class TaskReportObserver
                 new TaskReportForSubscribersNotification($taskReport->user, $taskReport->task)
             )
         );
+
+        if ($taskReport->fun_id) {
+
+            $taskReport->fun->notify(
+                new UserFunForYouReportNotification(
+                    $taskReport->user, $taskReport->task
+                )
+            );
+        }
 
         if (
             $taskReport->comment &&
