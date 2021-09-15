@@ -40,11 +40,13 @@ class NotificationsController extends Controller
             $table->search->input('data', 'Сообщение', '%=%');
             $table->search->at();
 
-            $table->id();
             $table->col('Пользователь', function (Notification $notification) {
                 return User::find($notification->notifiable_id)->full_name;
             });
-            $table->col('Сообщение', 'data.message');
+            $table->col('Сообщение', function (Notification $notification) {
+                $d = $notification->data;
+                return $d['message'].(isset($d['link']) ? " <a href='{$d['message']}' target='_blank'>{$d['link_title']}</a>":"");
+            });
             $table->at();
             $table->col(function (Notification $notification) {
                 return ButtonGroup::create(function (ButtonGroup $group) use ($notification) {
