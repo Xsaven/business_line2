@@ -46,7 +46,7 @@ class TaskReportModal extends ModalController
         if ($report->file && is_numeric($report->file)) {
             $body->divider('Видео');
             $body->text("<iframe src='https://player.vimeo.com/video/{$report->file}' width='100%' height='430' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe>");
-        } elseif ($report->file && str_ends_with($report->file, '.jpg')) {
+        } elseif ($report->file && (str_ends_with($report->file, '.jpg') || str_ends_with($report->file, '.jpeg') || str_ends_with($report->file, '.png'))) {
             $body->divider('Фото');
             $body->text("<img src='{$report->file}' class='img-fluid' alt='{$report->file}'>");
         }
