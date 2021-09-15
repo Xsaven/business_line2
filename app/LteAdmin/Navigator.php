@@ -91,6 +91,10 @@ class Navigator extends NavigatorExtensionProvider implements ActionWorkExtensio
             ->resource('commentary', 'CommentariesController')
             ->icon_comments();
 
+        $this->item('Notifications')
+            ->resource('notifications', 'NotificationsController')
+            ->icon_list();
+
         $this->item(Log::TITLE)
             ->resource('logs', 'LogController')
             ->icon_list();
