@@ -51,8 +51,10 @@ class EqBalancesReportCommand extends Command
 
             if ($report) {
                 //dump($report->user_id);
-                $min = 50-$report->cost;
+                $min = $balance->cost-$report->cost;
                 $new_balance = $balance->user->balance - $min;
+                //$balance->update(['cost' => $report->cost]);
+                //$balance->user->update(['balance' => $new_balance]);
                 $this->comment("User ID - {$report->user_id}; Task ID - {$report->task_id}; Min - {$min}; New Balance - {$new_balance};");
                 $total++;
             }
