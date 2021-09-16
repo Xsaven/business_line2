@@ -34,6 +34,7 @@ class Table extends JaxExecutor
                 ->where('direction_id', $direction_id)
                 ->withCount('taskReports')
                 ->orderByDesc($sort)
+                ->orderBy('name', 'ASC')
                 ->paginate(10)
         );
     }
