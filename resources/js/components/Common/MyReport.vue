@@ -27,14 +27,14 @@
 
     <div class="head" id="user-task-reports">
       <div class="title">Отчеты участников ({{meta.total}})</div>
-<!--        <div class="sort">-->
-<!--            <div class="name">Сортировать:</div>-->
+        <div class="sort">
+            <div class="name">Сортировать:</div>
 
-<!--            <v-select name="">-->
-<!--                <option value="1" selected>По дате публикации</option>-->
-<!--                <option value="2">По лайкам</option>-->
-<!--            </v-select>-->
-<!--        </div>-->
+            <v-select v-model="sort">
+                <option :selected="sort==='date'" value="date">По дате публикации</option>
+                <option :selected="sort==='likes'" value="likes">По лайкам</option>
+            </v-select>
+        </div>
     </div>
 
     <div class="empty" v-if="!data.length">Здесь скоро появятся отчеты других участников</div>
@@ -67,6 +67,7 @@ export default {
   data() {
     return {
       user: {},
+        sort: 'date',
         data: this.reports,
         meta: {
             to: 0,
@@ -118,10 +119,13 @@ export default {
             if (this.page+1 <= this.meta.last_page) { pages.push(this.page+1); }
             if (this.page+2 <= this.meta.last_page && this.page === 1) { pages.push(this.page+2); }
             return pages;
-        }
+        },
     },
     watch: {
         page () {
+            this.load();
+        },
+        sort () {
             this.load();
         },
     },

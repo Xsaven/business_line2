@@ -62,13 +62,15 @@ class TaskRepository extends CoreRepository
      * @param  Task|null  $task
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function reports_in_task(?TaskReport $report = null, ?Task $task = null)
+    public function reports_in_task(?TaskReport $report = null, ?Task $task = null, string $type = "date")
     {
         return ($task ?: $this->findById)
             ->taskReports()
             ->with('commentary')->withCount('likes')
             ->where('status', TaskReport::STATUS_CHECKED)
             ->when($report, fn ($q) => $q->where('id', '!=', $report->id))
+            ->when($type == 'date', fn ($q) => $q->orderByDesc('created_at'))
+            ->when($type == 'likes', fn ($q) => $q->orderByDesc('likes_count'))
             ->paginate(10);
     }
 

@@ -75,9 +75,10 @@ class TaskReport extends JaxExecutor
 
     /**
      * @param  int  $task_id
+     * @param  string  $type
      * @return TaskReport|array|\Illuminate\Http\Resources\Json\AnonymousResourceCollection|\Lar\Layout\Respond
      */
-    public function pagination(int $task_id)
+    public function pagination(int $task_id, string $type = "date")
     {
         $repo = app(TaskRepository::class);
 
@@ -88,7 +89,7 @@ class TaskReport extends JaxExecutor
         $report = $auth->user->taskReports()->where('task_id', $task_id)->first();
 
         return $task ? TaskReportResource::collection(
-            $repo->reports_in_task($report, $task)
+            $repo->reports_in_task($report, $task, $type)
         ) : [];
     }
 }
