@@ -18,7 +18,7 @@ class UserStatisticExport implements FromCollection
     public function collection()
     {
         $result = [
-            ['Пользователь', 'Логин', 'Времени онлайн / Минут', 'Зарегистрирован'],
+            ['Имя', 'Фамилия', 'Таб. номер', 'Почта', 'Времени онлайн / Минут', 'Зарегистрирован'],
         ];
 
         /** @var User[] $users */
@@ -29,7 +29,9 @@ class UserStatisticExport implements FromCollection
         foreach ($users as $user) {
             $result[] = [
                 $user->name,
-                $user->login,
+                $user->lastname,
+                $user->number,
+                $user->email,
                 $user->seconds ? $user->seconds / 60 : 0,
                 $user->logins ? 'Да' : 'Нет',
             ];
