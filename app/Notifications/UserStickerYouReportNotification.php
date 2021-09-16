@@ -21,7 +21,7 @@ class UserStickerYouReportNotification extends Notification
         public User $user,
         public Task $task
     ) {
-        $this->message = "<a href='/user/{$user->id}'>{$user->full_name}</a> поставил стикер к вашему отчету по заданию";
+        $this->message = "<a href='/user/{$user->id}'>{$user->full_name}</a> добавил(а) стикер к вашему отчету по заданию";
         $this->link_title = $this->task->name;
         $this->link = "/task/{$this->task->id}";
     }

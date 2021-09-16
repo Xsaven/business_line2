@@ -16,7 +16,7 @@ class UserLikeYouReportNotification extends Notification
         public User $user,
         public Task $task
     ) {
-        $this->message = "<a href='/user/{$user->id}'>{$user->full_name}</a> поставил лайк вашему отчету по заданию";
+        $this->message = "<a href='/user/{$user->id}'>{$user->full_name}</a> поставил(а) лайк вашему отчету по заданию";
         $this->link_title = $this->task->name;
         $this->link = "/task/{$this->task->id}";
     }

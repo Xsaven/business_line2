@@ -16,7 +16,7 @@ class UserNotedYouInTaskNotification extends Notification
         public User $user,
         public Task $task
     ) {
-        $this->message = "Вас отметил пользователь {$user->full_name} в своем отчете к заданию";
+        $this->message = "<a href='/user/{$user->id}'>{$user->full_name}</a> отметил(а) вас в своем отчете к заданию";
         $this->link_title = $this->task->name;
         $this->link = "/task/{$this->task->id}";
     }
