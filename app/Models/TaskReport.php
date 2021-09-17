@@ -98,6 +98,8 @@ class TaskReport extends Model
         'user_id',
         'task_id',
         'fun_id',
+        'created_at',
+        'updated_at',
     ];
 
     /**
