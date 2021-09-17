@@ -8,7 +8,7 @@
           <div class="field">
             <textarea v-model="comment" ref="text" placeholder="Комментарий" class="min_h"></textarea>
 
-              <v-home-smiles-commentary v-if="myref" :show_smiles="true" :show_stickers="false" v-model="comment" :target="myref" />
+              <v-home-smiles-commentary v-if="myref" :show_smiles="true" :user_select="true" :show_stickers="false" v-model="comment" :target="myref" />
           </div>
         </div>
 

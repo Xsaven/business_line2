@@ -13,9 +13,7 @@
                 <v-icon icon="ic_send" />
             </button>
 
-            <v-home-smiles-commentary />
-
-            <v-home-field-set-commentary />
+            <v-home-smiles-commentary v-if="myref" :show_smiles="true" :user_select="true" :show_stickers="false" v-model="message" :target="myref" />
         </form>
     </div>
 </template>
@@ -32,11 +30,14 @@ export default {
         },
         data () {
             return {
+                myref: null,
                 message: '',
                 user: {}
             };
         },
-        mounted () {},
+        mounted () {
+            this.myref = this.$refs.d;
+        },
         computed: {},
         watch: {},
         methods: {

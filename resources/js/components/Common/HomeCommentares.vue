@@ -21,9 +21,7 @@
                     <v-icon icon="ic_send" />
                 </button>
 
-                <v-home-smiles-commentary />
-
-                <v-home-field-set-commentary />
+                <v-home-smiles-commentary v-if="myref" :show_smiles="true" :user_select="true" :show_stickers="false" v-model="message" :target="myref" />
             </form>
         </div>
     </div>
@@ -44,6 +42,7 @@ export default {
         },
         data () {
             return {
+                myref: null,
                 page: 0,
                 message: '',
                 comments: this.commentaries,
@@ -51,10 +50,8 @@ export default {
             };
         },
         mounted () {
+            this.myref = this.$refs.d;
             $('.messages')[0].scrollTo(0,document.querySelector(".messages").scrollHeight);
-            // state.update_home_notifications = () => this.update_list();
-            // state.add_to_child = (id) => this.add_to_child(id);
-            // state.drop_child = (id) => this.drop(id);
         },
         computed: {
             sorted_comments () {
