@@ -52,7 +52,7 @@ class Home extends LayoutComponent
         'js/nice-select.js',
         'js/functions.js',
         'js/scripts.js',
-        'js/app_v14.js?12345',
+        'js/app_v14.js?123456',
         'ljs' => [
             'jq',
             'echo',
@@ -82,7 +82,7 @@ class Home extends LayoutComponent
     {
         parent::__construct();
 
-        $ts = 12345;
+        $ts = 123456;
 
         $this->head->meta(['http-equiv' => 'Content-Type', 'content' => 'text/html; charset=utf-8']);
         $this->head->meta(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1, maximum-scale=1']);
