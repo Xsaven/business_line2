@@ -13,6 +13,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  */
 class TaskReportResource extends JsonResource
 {
+    static $comments = true;
     /**
      * Transform the resource into an array.
      * @param Request $request
@@ -33,7 +34,7 @@ class TaskReportResource extends JsonResource
             'created_at' => butty_date_time($this->created_at),
             'user' => UserResource::make($this->user),
             'task' => TaskResource::make($this->task),
-            'comments' => CommentaryNoChildResource::collection($this->commentary),
+            'comments' => static::$comments ? CommentaryNoChildResource::collection($this->commentary) : null,
         ];
     }
 }
