@@ -34,7 +34,7 @@ class Home extends LayoutComponent
      * @var array
      */
     protected $head_styles = [
-        'css/app.css?1234',
+        'css/app.css?12345',
         'ljs/css/ljs.css',
         'ljs',
     ];
@@ -52,7 +52,7 @@ class Home extends LayoutComponent
         'js/nice-select.js',
         'js/functions.js',
         'js/scripts.js',
-        'js/app_v14.js?1234',
+        'js/app_v14.js?12345',
         'ljs' => [
             'jq',
             'echo',
@@ -82,6 +82,8 @@ class Home extends LayoutComponent
     {
         parent::__construct();
 
+        $ts = 12345;
+
         $this->head->meta(['http-equiv' => 'Content-Type', 'content' => 'text/html; charset=utf-8']);
         $this->head->meta(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1, maximum-scale=1']);
         $this->head->meta(['name' => 'format-detection', 'content' => 'telephone=no']);
@@ -90,13 +92,13 @@ class Home extends LayoutComponent
         $this->head->link(['rel' => 'preconnect', 'href' => 'https://fonts.gstatic.com', 'crossorigin' => '']);
         $this->head->link(['rel' => 'stylesheet', 'href' => 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap']);
         $this->head->link(['rel' => 'stylesheet', 'href' => 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css']);
-        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/styles.css')]);
-        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_1899.css'), 'media' => 'print, (max-width: 1899px)']);
-        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_1599.css'), 'media' => 'print, (max-width: 1599px)']);
-        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_1439.css'), 'media' => 'print, (max-width: 1439px)']);
-        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_1279.css'), 'media' => 'print, (max-width: 1279px)']);
-        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_767.css'), 'media' => 'print, (max-width: 767px)']);
-        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_479.css'), 'media' => '(max-width: 479px)']);
+        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/styles.css?'.$ts)]);
+        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_1899.css?'.$ts), 'media' => 'print, (max-width: 1899px)']);
+        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_1599.css?'.$ts), 'media' => 'print, (max-width: 1599px)']);
+        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_1439.css?'.$ts), 'media' => 'print, (max-width: 1439px)']);
+        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_1279.css?'.$ts), 'media' => 'print, (max-width: 1279px)']);
+        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_767.css?'.$ts), 'media' => 'print, (max-width: 767px)']);
+        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_479.css?'.$ts), 'media' => '(max-width: 479px)']);
         $this->head->link(['rel' => 'icon', 'type' => 'image/png', 'href' => asset('favicon.ico')]);
         $this->head->link(['rel' => 'apple-touch-icon', 'href' => asset('favicon.ico')]);
         if (! \App::isLocal()) {

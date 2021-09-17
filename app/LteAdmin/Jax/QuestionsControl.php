@@ -36,7 +36,7 @@ class QuestionsControl extends LteAdminExecutor
     {
         $taskReport = TaskReport::find($id);
 
-        if ($taskReport->status !== TaskReport::STATUS_CHECKED) {
+        if ($taskReport && $taskReport->status !== TaskReport::STATUS_CHECKED) {
             if ($taskReport && $taskReport->update(['status' => TaskReport::STATUS_CHECKED, 'cost' => $cost])) {
                 $taskReport->task->cost = $cost;
                 event(
