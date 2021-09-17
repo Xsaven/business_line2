@@ -164,7 +164,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       return this.data.filter(function (item) {
-        return String(item.task.name).indexOf(_this.name) && String(item.task.full_name).indexOf(_this.full_name) && String(item.task.report_name).indexOf(_this.report_name);
+        return String(item.task.name).indexOf(_this.name) !== -1 && String(item.task.full_name).indexOf(_this.full_name) !== -1 && String(item.task.report_name).indexOf(_this.report_name) !== -1;
       });
     }
   },

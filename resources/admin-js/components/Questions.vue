@@ -55,9 +55,9 @@
         computed: {
             list () {
                 return this.data.filter((item) => {
-                    return String(item.task.name).indexOf(this.name) &&
-                        String(item.task.full_name).indexOf(this.full_name) &&
-                        String(item.task.report_name).indexOf(this.report_name);
+                    return String(item.task.name).indexOf(this.name) !== -1 &&
+                        String(item.task.full_name).indexOf(this.full_name) !== -1 &&
+                        String(item.task.report_name).indexOf(this.report_name) !== -1;
                 });
             }
         },
