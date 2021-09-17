@@ -3,9 +3,9 @@
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col"><input type="text" placeholder="Задание" /></th>
-            <th scope="col"><input type="text" placeholder="Пользователь" /></th>
-            <th scope="col"><input type="text" placeholder="Тип" /></th>
+            <th scope="col"><input type="text" v-model="name" placeholder="Задание" /></th>
+            <th scope="col"><input type="text" v-model="full_name" placeholder="Пользователь" /></th>
+            <th scope="col"><input type="text" v-model="report_name" placeholder="Тип" /></th>
             <th scope="col"></th>
         </tr>
         </thead>
