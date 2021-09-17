@@ -32,33 +32,6 @@ class TaskReportObserver
                 )
             );
         }
-
-        if (
-            $taskReport->comment &&
-            $taskReport->task &&
-            str_contains($taskReport->comment, '@')
-        ) {
-            $taskReport->comment = preg_replace_callback("/@([a-zA-Zа-яА-Я0-9_]+)/", function ($m) use ($taskReport) {
-                if (isset($m[1])) {
-                    $m[1] = explode("_", $m[1]);
-                    $name = $m[1][0] ?? null;
-                    $lastname = $m[1][1] ?? null;
-                    $user = User::whereLogin($name)->first();
-                    if (!$user) {
-                        $user = User::whereName($name)->whereLastname($lastname)->first();
-                    }
-                    if ($user) {
-                        $user->notify(
-                            new UserNotedYouInTaskNotification($taskReport->user, $taskReport->task)
-                        );
-                        return "<a href='/user/{$user->id}'>{$user->full_name}</a>";
-                    }
-                }
-                return $m[0];
-            }, $taskReport->comment);
-
-            $taskReport->save();
-        }
     }
 
     /**
@@ -83,6 +56,39 @@ class TaskReportObserver
     }
 
     /**
+     * @param  TaskReport  $taskReport
+     */
+    public function updating(TaskReport $taskReport)
+    {
+        if (
+            $taskReport->status === TaskReport::STATUS_CHECKED &&
+            $taskReport->comment &&
+            $taskReport->task &&
+            str_contains($taskReport->comment, '@')
+        ) {
+            $taskReport->comment = preg_replace_callback("/@([а-яА-Яa-zA-Z0-9_]+)/ui", function ($m) use ($taskReport) {
+                if (isset($m[1])) {
+                    dump($m[1]);
+                    $m[1] = explode("_", $m[1]);
+                    $name = $m[1][0] ?? null;
+                    $lastname = $m[1][1] ?? null;
+                    $user = User::whereLogin($name)->first();
+                    if (!$user) {
+                        $user = User::whereName($name)->whereLastname($lastname)->first();
+                    }
+                    if ($user) {
+                        $user->notify(
+                            new UserNotedYouInTaskNotification($taskReport->user, $taskReport->task)
+                        );
+                        return "<a href='/user/{$user->id}'>{$user->full_name}</a>";
+                    }
+                }
+                return $m[0];
+            }, $taskReport->comment);
+        }
+    }
+
+    /**
      * Handle the TaskReport "updated" event.
      *
      * @param  \App\Models\TaskReport  $taskReport
@@ -90,7 +96,10 @@ class TaskReportObserver
      */
     public function updated(TaskReport $taskReport)
     {
-        if ($taskReport->status === TaskReport::STATUS_CHECKED) {
+        if (
+            $taskReport->status === TaskReport::STATUS_CHECKED &&
+            $taskReport->getRawOriginal('status') !== TaskReport::STATUS_CHECKED
+        ) {
             AllUserExec::dispatch("task-report-update-{$taskReport->id}");
             if (
                 $taskReport->task->action_type !== Task::ACTION_TYPE_AUTO
