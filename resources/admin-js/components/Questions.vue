@@ -3,9 +3,9 @@
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col"><input type="text" v-model="name" placeholder="Задание" /></th>
-            <th scope="col"><input type="text" v-model="full_name" placeholder="Пользователь" /></th>
-            <th scope="col"><input type="text" v-model="report_name" placeholder="Тип" /></th>
+            <th scope="col"><input type="text" v-model="name" placeholder="Задание" style="width: 100%;" /></th>
+            <th scope="col"><input type="text" v-model="full_name" placeholder="Пользователь" style="width: 100%;" /></th>
+            <th scope="col"><input type="text" v-model="report_name" placeholder="Тип" style="width: 100%;" /></th>
             <th scope="col"></th>
         </tr>
         </thead>
@@ -55,9 +55,9 @@
         computed: {
             list () {
                 return this.data.filter((item) => {
-                    return String(item.task.name).indexOf(this.name) !== -1 &&
-                        String(item.task.full_name).indexOf(this.full_name) !== -1 &&
-                        String(item.task.report_name).indexOf(this.report_name) !== -1;
+                    return String(item.task.name).toLocaleLowerCase().indexOf(String(this.name).toLocaleLowerCase()) !== -1 &&
+                        String(item.user.full_name).toLocaleLowerCase().indexOf(String(this.full_name).toLocaleLowerCase()) !== -1 &&
+                        String(item.task.report_name).toLocaleLowerCase().indexOf(String(this.report_name).toLocaleLowerCase()) !== -1;
                 });
             }
         },
