@@ -16,7 +16,7 @@
 
                 <div v-if="between_days && !task.finished" class="before_start">До начала {{between_days}} {{declOfNum(between_days,['день','дня','дней'])}}</div>
                 <div v-else-if="green_button && !task.finished" class="before_start green">Действуйте!</div>
-                <div v-else-if="red_button || task.finished" class="before_start red">Завершен</div>
+                <div v-else-if="red_button || task.finished" class="before_start red">Завершено</div>
               </div>
 
               <div>

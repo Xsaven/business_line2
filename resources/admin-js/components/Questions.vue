@@ -3,14 +3,14 @@
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Задание</th>
-            <th scope="col">Пользователь</th>
-            <th scope="col">Тип</th>
+            <th scope="col"><input type="text" placeholder="Задание" /></th>
+            <th scope="col"><input type="text" placeholder="Пользователь" /></th>
+            <th scope="col"><input type="text" placeholder="Тип" /></th>
             <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
-            <template v-for="(item, index) in data">
+            <template v-for="(item, index) in list">
                 <tr :key="index">
                     <th>{{item.id}}</th>
                     <td>{{item.task.name}}</td>
@@ -36,17 +36,30 @@
 </template>
 
 <script>
+
     export default {
         name: "questions",
         props: {},
         $exec: ['update', 'statistic', 'approve', 'drop'],
         data () {
             return {
-                data: []
+                data: [],
+                name: "",
+                full_name: "",
+                report_name: "",
             };
         },
         mounted () {
             this.update();
+        },
+        computed: {
+            list () {
+                return this.data.filter((item) => {
+                    return String(item.task.name).indexOf(this.name) &&
+                        String(item.task.full_name).indexOf(this.full_name) &&
+                        String(item.task.report_name).indexOf(this.report_name);
+                });
+            }
         },
         unmount () {},
         methods: {
