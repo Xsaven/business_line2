@@ -92,7 +92,8 @@ class TaskReportController extends Controller
                 $form->select('fun_id', 'Болеет за')->nullable()
                     ->load(User::class);
             }
-            $form->info_at();
+            $form->date_time('updated_at', 'Обновлено в');
+            $form->date_time('created_at', 'Создано в');
             ModelSaver::on_updated(static::$model, function () use ($status_old) {
                 $report = $this->model()->find($this->model()->id);
                 //dd($report->status);
