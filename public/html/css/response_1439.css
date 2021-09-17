@@ -30,10 +30,15 @@
     }
 
 
-    header .links,
-    header .icons
+    header .links
     {
         display: none;
+    }
+
+
+    header .col_right
+    {
+        margin-left: 32px;
     }
 
 
@@ -267,7 +272,6 @@
     .task_info .data .video
     {
         width: calc(100% - 368px);
-        height: 389px;
         margin-left: auto;
     }
 

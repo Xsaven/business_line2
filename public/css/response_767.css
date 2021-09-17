@@ -84,9 +84,32 @@
     }
 
 
-    header .twenty_years
+    header .twenty_years,
+    header .icons .cart,
+    header .scores
     {
         display: none;
+    }
+
+
+    header .search
+    {
+        position: static;
+    }
+
+    header .search .mini_modal,
+    header .search .mini_modal.active
+    {
+        top: calc(100% - 18px);
+        right: 24px;
+
+        width: calc(100vw - 48px);
+    }
+
+
+    header .col_right
+    {
+        margin-left: 0;
     }
 
 
