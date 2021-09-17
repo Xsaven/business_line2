@@ -34,7 +34,7 @@ class Home extends LayoutComponent
      * @var array
      */
     protected $head_styles = [
-        'css/app.css',
+        'css/app.css?1234',
         'ljs/css/ljs.css',
         'ljs',
     ];
@@ -52,7 +52,7 @@ class Home extends LayoutComponent
         'js/nice-select.js',
         'js/functions.js',
         'js/scripts.js',
-        'js/app_v14.js',
+        'js/app_v14.js?1234',
         'ljs' => [
             'jq',
             'echo',
