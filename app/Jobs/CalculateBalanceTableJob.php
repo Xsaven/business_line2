@@ -30,7 +30,9 @@ class CalculateBalanceTableJob implements ShouldQueue
         foreach (Direction::all() as $direction) {
 
             $users = User::where('direction_id', $direction->id)
-                ->orderByDesc('balance')->distinct('id')
+                ->orderByDesc('balance')
+                ->orderBy('name', 'ASC')
+                ->orderBy('lastname', 'ASC')
                 ->get(['id', 'balance', 'password', 'direction_id']);
 
             foreach ($users as $key => $user) {
