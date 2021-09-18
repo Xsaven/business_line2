@@ -82,7 +82,7 @@ class Home extends LayoutComponent
     {
         parent::__construct();
 
-        $ts = 123456;
+        $ts = 'v123456';
 
         $this->head->meta(['http-equiv' => 'Content-Type', 'content' => 'text/html; charset=utf-8']);
         $this->head->meta(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1, maximum-scale=1']);
