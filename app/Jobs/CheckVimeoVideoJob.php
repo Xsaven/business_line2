@@ -50,6 +50,7 @@ class CheckVimeoVideoJob implements ShouldQueue
             } else {
                 \Cache::set($this->filename.'.status', 1, now()->addDay());
             }
+            return ;
         }
 
         if (!isset(static::$list[$this->filename])) {
