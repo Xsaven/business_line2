@@ -84,6 +84,8 @@ class Home extends LayoutComponent
 
         $ts = 'v123456';
 
+        $this->head->meta(['http-equiv' => 'CACHE-CONTROL', 'content' => 'NO-CACHE']);
+        $this->head->meta(['http-equiv' => 'EXPIRES', 'content' => '0']);
         $this->head->meta(['http-equiv' => 'Content-Type', 'content' => 'text/html; charset=utf-8']);
         $this->head->meta(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1, maximum-scale=1']);
         $this->head->meta(['name' => 'format-detection', 'content' => 'telephone=no']);
