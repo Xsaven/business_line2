@@ -52,6 +52,8 @@ export default {
                 jax.commentary.answer_commentary(message, this.commentary.id).then(({result, comment}) => {
                     if (result && this.user.active_commentaries) {
                         this.commentary.child.push(comment);
+                    } else {
+                        "toast:info".exec("Ваш комментарий был отправлен на модерацию!");
                     }
                 });
 

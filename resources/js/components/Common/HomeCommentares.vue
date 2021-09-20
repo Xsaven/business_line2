@@ -117,6 +117,8 @@ export default {
                     if (result && this.user.active_commentaries) {
                         this.comments.push(comment);
                         this.scrollToBottom(true);
+                    } else {
+                        "toast:info".exec("Ваш комментарий был отправлен на модерацию!");
                     }
                 });
             },
