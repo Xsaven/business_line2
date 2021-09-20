@@ -15,7 +15,7 @@ class CommentaryOserver
             $commentary->text &&
             str_contains($commentary->text, '@')
         ) {
-            $commentary->text = preg_replace_callback("/@([а-яА-Яa-zA-Z0-9_]+)/ui", function ($m) use ($taskReport) {
+            $commentary->text = preg_replace_callback("/@([а-яА-Яa-zA-Z0-9_]+)/ui", function ($m) {
                 if (isset($m[1])) {
                     $m[1] = explode("_", $m[1]);
                     $name = $m[1][0] ?? null;
