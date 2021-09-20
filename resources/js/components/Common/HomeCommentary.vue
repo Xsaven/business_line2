@@ -9,7 +9,7 @@
                     <a :href="`/user/${comment.user.id}`">{{comment.user.full_name}}</a>
                 </div>
 
-                <div class="text">{{comment.text}}</div>
+                <div class="text" v-html="comment.text"></div>
             </div>
 
             <div class="date">{{comment.created_at}}</div>
@@ -69,6 +69,14 @@
             ljs.toExec(`comment-update-${this.comment.id}`, this.update.bind(this));
             ljs.toExec(`comment-add-${this.comment.id}`, this.add_to_child.bind(this));
             ljs.toExec(`comment-drop-${this.comment.id}`, this.drop.bind(this));
+            ljs.onetime(() => {
+                const observer = lozad('.lozad', {
+                    rootMargin: '200px 0px',
+                    threshold: 0,
+                    loaded: (el) => el.classList.add('loaded')
+                });
+                observer.observe();
+            },200);
         },
         computed: {
             sorted_child () {
@@ -133,3 +141,8 @@
         }
     }
 </script>
+<style>
+.text a {
+    color: #fff;
+}
+</style>
