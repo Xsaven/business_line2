@@ -401,7 +401,9 @@ class User extends JaxExecutor
      */
     public function search_users(string $q)
     {
-        return UserForFansSelect::collection(app(UserRepository::class)->search_users_for_fans($q))->toArray(\request());
+        return UserForFansSelect::collection(
+            app(UserRepository::class)->search_users_for_fans($q))->toArray(\request()
+        );
     }
 
     /**

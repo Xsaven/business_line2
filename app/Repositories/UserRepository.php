@@ -92,6 +92,7 @@ class UserRepository extends CoreRepository
     public function search_users_for_fans(string $q = '')
     {
         return $this->model()
+            ->where('id', '!=', \Auth::id())
             ->where(\DB::raw('CONCAT_WS(" ", name, lastname)'), 'like', "%{$q}%")
             ->orWhere('login', 'like', "%{$q}%")
             ->paginate(100);
