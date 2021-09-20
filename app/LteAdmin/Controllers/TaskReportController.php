@@ -87,7 +87,7 @@ class TaskReportController extends Controller
                 ->options(TaskReport::STATUSES, true);
             $form->input('file', 'Файл');
             $form->textarea('comment', 'Комментарий')->rows(6);
-            $form->textarea('admin_comment', 'Комментарий отклонения')->rows(3);
+            $form->textarea('admin_comment', 'Комментарий администратора')->rows(3);
             if ($this->isType('edit') && $this->model()->task->fans_task) {
                 $form->select('fun_id', 'Болеет за')->nullable()
                     ->load(User::class);
