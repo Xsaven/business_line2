@@ -68,7 +68,6 @@ class TaskReportObserver
         ) {
             $taskReport->comment = preg_replace_callback("/@([а-яА-Яa-zA-Z0-9_]+)/ui", function ($m) use ($taskReport) {
                 if (isset($m[1])) {
-                    dump($m[1]);
                     $m[1] = explode("_", $m[1]);
                     $name = $m[1][0] ?? null;
                     $lastname = $m[1][1] ?? null;
