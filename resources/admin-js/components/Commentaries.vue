@@ -13,7 +13,7 @@
                 <tr :key="index">
                     <th scope="row">{{item.id}}</th>
                     <td>{{item.user.full_name}}</td>
-                    <td>{{item.text}}</td>
+                    <td v-html="item.text"></td>
                     <td>
                         <div class="btn-group btn-group-sm">
 <!--                            <a class="btn btn-warning">-->
