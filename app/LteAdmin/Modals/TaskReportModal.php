@@ -55,6 +55,10 @@ class TaskReportModal extends ModalController
         $body->numeric('add_to_balance', '')
             ->value($task->cost)->icon_dollar_sign();
 
+        $body->divider('Комментарий');
+        $body->textarea('admin_comment', '')
+            ->rows(3);
+
         $modal->left_btn('Закрыть окно')->destroy()->primary();
 
         $modal->btn('Отклонить')->danger()->ml2()

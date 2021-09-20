@@ -35,12 +35,12 @@ class QuestionsControl extends LteAdminExecutor
         );
     }
 
-    public function approve(int $id, int $cost = 0)
+    public function approve(int $id, int $cost = 0, string $reason = "")
     {
         $taskReport = TaskReport::find($id);
 
         if ($taskReport && $taskReport->status !== TaskReport::STATUS_CHECKED) {
-            if ($taskReport && $taskReport->update(['status' => TaskReport::STATUS_CHECKED, 'cost' => $cost])) {
+            if ($taskReport && $taskReport->update(['status' => TaskReport::STATUS_CHECKED, 'cost' => $cost, 'admin_comment' => $reason])) {
                 $taskReport->task->cost = $cost;
                 event(
                     new AddUserBalance(

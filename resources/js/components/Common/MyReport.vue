@@ -19,6 +19,12 @@
                     <div>Отчет не прошел модерацию.<br> Причина: {{report.admin_comment ? report.admin_comment : 'отчет не соответствует условиям задания'}}</div>
                 </div>
             </div>
+            <div class="report" v-if="report.status === 'checked' && !!report.admin_comment" style="width: 100% !important; padding-bottom: 5px;">
+                <div class="error" style="background: green !important;">
+                    <v-icon icon="ic_success" />
+                    <div>Отчет прошел модерацию.<br> Комментарий модератора: {{report.admin_comment}}</div>
+                </div>
+            </div>
             <v-task-report :report="report" />
         </div>
       </div>

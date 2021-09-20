@@ -18,7 +18,8 @@
 
 <!--                        <v-icon icon="ic_video_play" />-->
 
-                      <v-player :video_id="room.video_data"/>
+                      <v-player v-if="room.state !== 'translation'" :video_id="room.video_data"/>
+                      <iframe id="t902oc" onload="fc_load_iframe(this)" width="100%" height="100%" style="border:none" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 
                       <div class="info" v-if="(room.video_title || room.video_info) && room.state === 'video'">

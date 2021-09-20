@@ -73,18 +73,20 @@
             },
             approve (id, modal_id) {
                 let cost = $('#input_add_to_balance').val();
+                let desc = $('#input_admin_comment').val();
                 if (modal_id) {
                     "modal:hide".exec(modal_id);
                 }
-                jax.questions_control.approve(id, cost)
+                jax.questions_control.approve(id, cost, desc)
                     .then(() => this.update());
             },
             drop (id, modal_id) {
                 "alert::confirm".exec(`Отклонить отчет пользователя?`, () => {
+                    let desc = $('#input_admin_comment').val();
                     return window.ljs.swal.fire({
                         title: "Укажите причину отказа",
                         input: 'text',
-                        inputValue: 'отчет не соответствует условиям задания',
+                        inputValue: !!desc ? desc : 'отчет не соответствует условиям задания',
                         showCancelButton: true,
                         confirmButtonText: 'Готово'
                     }).then((state) => {
