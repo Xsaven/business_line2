@@ -9,7 +9,13 @@ use App\Notifications\UserNotedYouInTaskNotification;
 
 class CommentaryOserver
 {
-    public function updating(Commentary $commentary)
+    /**
+     * Handle the Commentary "created" event.
+     *
+     * @param  \App\Models\Commentary  $commentary
+     * @return void
+     */
+    public function created(Commentary $commentary)
     {
         if (
             $commentary->text &&
@@ -30,18 +36,9 @@ class CommentaryOserver
                 }
                 return $m[0];
             }, $commentary->text);
-        }
-    }
 
-    /**
-     * Handle the Commentary "created" event.
-     *
-     * @param  \App\Models\Commentary  $commentary
-     * @return void
-     */
-    public function created(Commentary $commentary)
-    {
-        //
+            $commentary->save();
+        }
     }
 
     /**
