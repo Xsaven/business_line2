@@ -12,9 +12,11 @@ class UserSuccessCompleteTaskReport extends Notification
      * @return void
      */
     public function __construct(
-        public Task $task
+        public Task $task,
+        public ?int $cost = null
     ) {
-        $this->message = "Вы получили {$this->task->cost} баллов за пройденное задание";
+        $this->cost = $this->cost ?: $this->task->cost;
+        $this->message = "Вы получили {$this->cost} баллов за пройденное задание";
         $this->link_title = $this->task->name;
         $this->link = route('task', ['task' => $this->task->id]);
     }

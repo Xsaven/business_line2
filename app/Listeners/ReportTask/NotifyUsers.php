@@ -34,7 +34,7 @@ class NotifyUsers
                 ]);
                 event(
                     new AddUserBalance(
-                        \Auth::id(), $cost, new UserSuccessCompleteTaskReport($event->task)
+                        \Auth::id(), $cost, new UserSuccessCompleteTaskReport($event->task, $cost)
                     )
                 );
             } elseif ($event->taskReport) {
