@@ -1820,6 +1820,43 @@ header .mob_menu_btn.active .icon + .icon
 }
 
 
+.form .input.autocomplete ~ .arrow
+{
+    position: absolute;
+    top: -5px;
+    right: 18px;
+    bottom: 0;
+
+    display: block;
+
+    width: 10px;
+    height: 10px;
+    margin: auto;
+
+    content: '';
+    transform: rotate(-45deg);
+    pointer-events: none;
+
+    border-bottom: 2px solid #000;
+    border-left: 2px solid #000;
+}
+
+.form .input.autocomplete + .fieldset
+{
+    border: 1px solid var(--form_border_color);
+    border-radius: var(--form_border_radius);
+    background: var(--form_bg_color);
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, .24);
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, .25));
+}
+
+.form .input.autocomplete:focus + .fieldset
+{
+    display: block;
+}
+
+
 .form textarea
 {
     color: #000;

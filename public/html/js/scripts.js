@@ -288,6 +288,28 @@ $(() => {
 			if (is_touch_device()) $('body').css('cursor', 'default')
 		}
 	})
+
+
+
+	// Автокомплит
+	$('.form .input.autocomplete').keyup(function () {
+		let value = $(this).val().toLowerCase(),
+			parent = $(this).closest('.field')
+
+		parent.find('.fieldset > *').filter(function () {
+			$(this).toggle($(this).attr('data-name').toLowerCase().indexOf(value) > -1)
+		})
+
+		// parent.find('.fieldset').show()
+	})
+
+	$('.form .input.autocomplete + .fieldset > *').click(function () {
+		let value = $(this).text(),
+			parent = $(this).closest('.field')
+
+		parent.find('.input').val(value)
+		// parent.find('.fieldset').hide()
+	})
 })
 
 

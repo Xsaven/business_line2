@@ -40,21 +40,21 @@
 
                 <div class="line">
                     <div class="field">
-                        <v-select v-model="form.position_id">
-                            <option v-if="!user.position" value="0" data-display="Должность"></option>
-<!--                            <option v-else value="0" :data-display="user.position"></option>-->
-                            <option v-for="position in positions" :selected="user.position_id === position.id" :value="position.id">{{position.name}}</option>
-                        </v-select>
+<!--                        <v-select v-model="form.position_id">-->
+<!--                            <option v-if="!user.position" value="0" data-display="Должность"></option>-->
+<!--                            <option v-for="position in positions" :selected="user.position_id === position.id" :value="position.id">{{position.name}}</option>-->
+<!--                        </v-select>-->
+                        <v-select-autocomplite v-model="form.position_id" handle="user.positions" placeholder="Должность" />
                     </div>
                 </div>
 
                 <div class="line">
                     <div class="field">
-                        <v-select v-model="form.division_id">
-                            <option v-if="!user.division" value="0" data-display="Подразделение"></option>
-<!--                            <option v-else value="0" :data-display="user.division"></option>-->
-                            <option v-for="division in divisions" :selected="user.division_id === division.id" :value="division.id">{{division.name}}</option>
-                        </v-select>
+<!--                        <v-select v-model="form.division_id">-->
+<!--                            <option v-if="!user.division" value="0" data-display="Подразделение"></option>-->
+<!--                            <option v-for="division in divisions" :selected="user.division_id === division.id" :value="division.id">{{division.name}}</option>-->
+<!--                        </v-select>-->
+                        <v-select-autocomplite v-model="form.division_id" handle="user.divisions" placeholder="Подразделение" />
                     </div>
                 </div>
 

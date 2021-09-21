@@ -46,4 +46,5 @@ module.exports = (Vue) => {
     Vue.component('v-search-modal', require('./Common/SearchModal.vue').default);
     Vue.component('v-task-report', require('./Common/TaskReport.vue').default);
     Vue.component('v-file-uploader', require('./Common/FileUploader.vue').default);
+    Vue.component('v-select-autocomplite', require('./Common/SelectAutocomplite.vue').default);
 }

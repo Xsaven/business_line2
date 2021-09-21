@@ -20,11 +20,15 @@ use App\Events\SubscribeDirectionEvent;
 use App\Events\SubscribeUserEvent;
 use App\Events\User\ChangeName;
 use App\Http\Resources\AuthUserResource;
+use App\Http\Resources\DivisionResource;
 use App\Http\Resources\NotificationResource;
+use App\Http\Resources\PositionResource;
 use App\Http\Resources\UserForFansSelect;
 use App\Http\Resources\UserResource;
 use App\Jobs\AdminStatisticJob;
 use App\Jobs\OffLineJob;
+use App\Models\Division;
+use App\Models\Position;
 use App\Models\QuizAnswer;
 use App\Repositories\AuthUserRepository;
 use App\Repositories\TaskReportRepository;
@@ -451,5 +455,33 @@ class User extends JaxExecutor
         $answer = QuizAnswer::find($answer_id);
 
         return ['result' => (bool) $answer?->cost];
+    }
+
+    public function positions(string $q = null, int $id = null): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+    {
+        $f = Position::find($id);
+        return PositionResource::collection(
+            collect()
+                ->when(!$q && $f, fn ($c, $p) => $c->merge([$f]))
+                ->merge(
+                    Position::where('name', 'like', "%{$q}%")
+                        ->limit(100)
+                        ->get()
+                )
+        );
+    }
+
+    public function divisions(string $q = null, int $id = null): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+    {
+        $f = Division::find($id);
+        return DivisionResource::collection(
+            collect()
+                ->when(!$q && $f, fn ($c, $p) => $c->merge([$f]))
+                ->merge(
+                    Division::where('name', 'like', "%{$q}%")
+                        ->limit(100)
+                        ->get()
+                )
+        );
     }
 }
