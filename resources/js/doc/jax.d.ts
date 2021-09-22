@@ -79,11 +79,14 @@ declare interface JaxModelUserInterface {
         upload_file(...params: any[]): Promise<JaxModelUserInterface>;
         drop_file(...params: any[]): Promise<JaxModelUserInterface>;
         answer(...params: any[]): Promise<JaxModelUserInterface>;
+        positions(...params: any[]): Promise<JaxModelUserInterface>;
+        divisions(...params: any[]): Promise<JaxModelUserInterface>;
 }
 declare interface JaxModelTaskReportInterface {
     find(...params: any[]): Promise<JaxModelTaskReportInterface>;
         like(...params: any[]): Promise<JaxModelTaskReportInterface>;
         comment(...params: any[]): Promise<JaxModelTaskReportInterface>;
+        pagination(...params: any[]): Promise<JaxModelTaskReportInterface>;
 }
 declare interface JaxModelTableInterface {
     pagination(...params: any[]): Promise<JaxModelTableInterface>;

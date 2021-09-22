@@ -60,6 +60,7 @@ class Product extends Model
         'cost',
         'settings',
         'setting_id',
+        'buy'
     ];
 
     /**

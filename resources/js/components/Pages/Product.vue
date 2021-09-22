@@ -11,7 +11,8 @@
           <div class="products">
             <div class="row">
               <div class="product" v-for="(product, product_index) in prods">
-                <div v-if="product.cost > 0" :class="{'scores': true,'red': product.cost > user.balance }">{{product.cost}} {{declOfNum(product.cost,['бал','бала','баллов'])}}</div>
+                <div v-if="product.cost > 0 && product.buy" :class="{'scores': true,'red': product.cost > user.balance }">{{product.cost}} {{declOfNum(product.cost,['бал','бала','баллов'])}}</div>
+                <div v-else-if="!product.buy" :class="{'scores': true }">{{product.cost}} {{declOfNum(product.cost,['бал','бала','баллов'])}}</div>
 
                 <div class="thumb">
                   <img :src="product.src" alt="" class="lozad">
@@ -19,9 +20,9 @@
 
                 <v-product-info  :product="product" />
 
-                <div v-if="user.balance < product.cost && product.cost > 0" class="not_available">Для покупки тебе не хватает баллов :(</div>
+                <div v-if="user.balance < product.cost && product.cost > 0 && product.buy" class="not_available">Для покупки тебе не хватает баллов :(</div>
 
-                <button v-else-if="user.balance >= product.cost && product.cost > 0" class="buy_btn modal_btn" data-content="#buy_modal" @click="selected=product_index">Купить</button>
+                <button v-else-if="user.balance >= product.cost && product.cost > 0 && product.buy" class="buy_btn modal_btn" data-content="#buy_modal" @click="selected=product_index">Купить</button>
               </div>
             </div>
           </div>
