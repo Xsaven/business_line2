@@ -7,6 +7,8 @@ use App\Models\ProductSetting;
 use Lar\LteAdmin\Segments\Info;
 use Lar\LteAdmin\Segments\Matrix;
 use Lar\LteAdmin\Segments\Sheet;
+use Lar\LteAdmin\Segments\Tagable\ButtonGroup;
+use Lar\LteAdmin\Segments\Tagable\Card;
 use Lar\LteAdmin\Segments\Tagable\Form;
 use Lar\LteAdmin\Segments\Tagable\Live;
 use Lar\LteAdmin\Segments\Tagable\ModelInfoTable;

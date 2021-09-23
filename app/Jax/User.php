@@ -20,6 +20,7 @@ use App\Events\SubscribeDirectionEvent;
 use App\Events\SubscribeUserEvent;
 use App\Events\User\ChangeName;
 use App\Http\Resources\AuthUserResource;
+use App\Http\Resources\DeliveryResource;
 use App\Http\Resources\DivisionResource;
 use App\Http\Resources\NotificationResource;
 use App\Http\Resources\PositionResource;
@@ -27,6 +28,7 @@ use App\Http\Resources\UserForFansSelect;
 use App\Http\Resources\UserResource;
 use App\Jobs\AdminStatisticJob;
 use App\Jobs\OffLineJob;
+use App\Models\Delivery;
 use App\Models\Division;
 use App\Models\Position;
 use App\Models\QuizAnswer;
@@ -479,6 +481,20 @@ class User extends JaxExecutor
                 ->when(!$q && $f, fn ($c, $p) => $c->merge([$f]))
                 ->merge(
                     Division::where('name', 'like', "%{$q}%")
+                        ->limit(100)
+                        ->get()
+                )
+        );
+    }
+
+    public function deliveries(string $q = null, int $id = null): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+    {
+        $f = Delivery::find($id);
+        return DeliveryResource::collection(
+            collect()
+                ->when(!$q && $f, fn ($c, $p) => $c->merge([$f]))
+                ->merge(
+                    Delivery::where('address', 'like', "%{$q}%")
                         ->limit(100)
                         ->get()
                 )

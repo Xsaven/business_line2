@@ -27,7 +27,7 @@ class Create
         $order = Order::create([
             'phone' => $event->phone,
             'email' => $event->email,
-            'status' => Order::STATUS_CREATED,
+            'status' => Order::STATUS_APPROVED,
             'user_id' => $user->id,
             'delivery_id' => $event->delivery_id,
         ]);

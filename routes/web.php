@@ -106,6 +106,9 @@ Road::web()->middleware(['lte-auth'])->prefix(config('lte.route.prefix'))->prefi
 
     $road->get('/users/export', ['\App\LteAdmin\Controllers\UsersController', 'export'])
         ->name('users_export');
+
+    $road->get('/orders/export', ['\App\LteAdmin\Controllers\OrderController', 'export'])
+        ->name('orders_export');
 });
 
 Route::post('/forgot-password', [\App\Http\Controllers\PasswordResetLinkController::class, 'store'])

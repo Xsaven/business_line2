@@ -19,7 +19,7 @@
 
                     <div class="product">
                         <div class="thumb">
-                            <img :src="link(order.product[0].src)" alt="" class="lozad">
+                            <img :src="link(order.product[0].src)" class="lozad">
                         </div>
 
                         <div>
@@ -53,7 +53,16 @@
                 has: 0
             };
         },
-        mounted () {},
+        mounted () {
+          ljs.onetime(() => {
+            const observer = lozad('.lozad', {
+              rootMargin: '200px 0px',
+              threshold: 0,
+              loaded: (el) => el.classList.add('loaded')
+            });
+            observer.observe();
+          },200);
+        },
         computed: {},
         watch: {},
         methods: {

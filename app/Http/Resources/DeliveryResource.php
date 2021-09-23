@@ -22,6 +22,7 @@ class DeliveryResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'name' => $this->address,
             'address' => $this->address,
         ];
     }
