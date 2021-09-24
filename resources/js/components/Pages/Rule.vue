@@ -261,20 +261,20 @@
                       <li>4 место трек “Sport”: Робот-пылесос Xiaomi Viomi Cleaning V3 Global Black</li>
                       <li>5 место трек “Sport”: Робот-пылесос Xiaomi Viomi Cleaning V3 Global Black</li>
                       <li>6 место трек “Sport”: Робот-пылесос Xiaomi Viomi Cleaning V3 Global Black</li>
-                      <li>7 место трек “Sport”: Планшет Apple iPad 10.2 Wi-Fi 32GB Space Grey</li>
-                      <li>8 место трек “Sport”: Планшет Apple iPad 10.2 Wi-Fi 32GB Space Grey</li>
-                      <li>9 место трек “Sport”: Планшет Apple iPad 10.2 Wi-Fi 32GB Space Grey</li>
-                      <li>10 место трек “Sport”: Планшет Apple iPad 10.2 Wi-Fi 32GB Space Grey</li>
+                      <li>7 место трек “Sport”: Apple iPad (2021) Wi-Fi 64Gb - space grey</li>
+                      <li>8 место трек “Sport”: Apple iPad (2021) Wi-Fi 64Gb - space grey</li>
+                      <li>9 место трек “Sport”: Apple iPad (2021) Wi-Fi 64Gb - space grey</li>
+                      <li>10 место трек “Sport”: Apple iPad (2021) Wi-Fi 64Gb - space grey</li>
                       <li>1 место трек “Fun”: Смартфон Apple iPhone 12 128GB Black</li>
                       <li>2 место трек “Fun”: Смартфон Apple iPhone 12 128GB Black</li>
                       <li>3 место трек “Fun”: Смартфон Apple iPhone 12 128GB Black</li>
                       <li>4 место трек “Fun”: Робот-пылесос Xiaomi Viomi Cleaning V3 Global Black</li>
                       <li>5 место трек “Fun”: Робот-пылесос Xiaomi Viomi Cleaning V3 Global Black</li>
                       <li>6 место трек “Fun”: Робот-пылесос Xiaomi Viomi Cleaning V3 Global Black</li>
-                      <li>7 место трек “Fun”: Планшет Apple iPad 10.2 Wi-Fi 32GB Space Grey</li>
-                      <li>8 место трек “Fun”: Планшет Apple iPad 10.2 Wi-Fi 32GB Space Grey</li>
-                      <li>9 место трек “Fun”: Планшет Apple iPad 10.2 Wi-Fi 32GB Space Grey</li>
-                      <li>10 место трек “Fun”: Планшет Apple iPad 10.2 Wi-Fi 32GB Space Grey</li>
+                      <li>7 место трек “Fun”: Apple iPad (2021) Wi-Fi 64Gb - space grey</li>
+                      <li>8 место трек “Fun”: Apple iPad (2021) Wi-Fi 64Gb - space grey</li>
+                      <li>9 место трек “Fun”: Apple iPad (2021) Wi-Fi 64Gb - space grey</li>
+                      <li>10 место трек “Fun”: Apple iPad (2021) Wi-Fi 64Gb - space grey</li>
                       <li>1 место трек “Болельщики”: Фитнес-браслет Mi Smart Band 6, Толстовка, кружка</li>
                       <li>2 место трек “Болельщики”: Фитнес-браслет Mi Smart Band 6, Толстовка, кружка</li>
                       <li>3 место трек “Болельщики”: Фитнес-браслет Mi Smart Band 6, Толстовка, кружка</li>
