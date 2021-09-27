@@ -33,7 +33,7 @@ class Table extends JaxExecutor
                 ->distinct('id')
                 ->where('direction_id', $direction_id)
                 ->withCount('taskReports')
-                ->orderByDesc($sort)
+                ->orderByDesc($sort == 'balance' ? 'max_balance' : $sort)
                 ->orderBy('name', 'ASC')
                 ->orderBy('lastname', 'ASC')
                 ->paginate(10)
