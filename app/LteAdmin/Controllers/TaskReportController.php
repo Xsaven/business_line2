@@ -3,6 +3,7 @@
 namespace App\LteAdmin\Controllers;
 
 use App\Events\AddUserBalance;
+use App\Exports\TaskReportExport;
 use App\LteAdmin\Modals\AddBalanceModal;
 use App\Models\Task;
 use App\Models\TaskReport;
@@ -15,6 +16,7 @@ use Lar\LteAdmin\Segments\Info;
 use Lar\LteAdmin\Segments\Matrix;
 use Lar\LteAdmin\Segments\Sheet;
 use Lar\LteAdmin\Segments\Tagable\ButtonGroup;
+use Lar\LteAdmin\Segments\Tagable\Card;
 use Lar\LteAdmin\Segments\Tagable\Field;
 use Lar\LteAdmin\Segments\Tagable\Form;
 use Lar\LteAdmin\Segments\Tagable\ModelInfoTable;
@@ -38,7 +40,11 @@ class TaskReportController extends Controller
      */
     public function index()
     {
-        return Sheet::create(function (ModelTable $table) {
+        return Sheet::create(function (ModelTable $table, Card $card) {
+            $card->group(function (ButtonGroup $group) {
+                $group->success(['fas fa-download', 'Скачать выполненные отчёты'])
+                    ->on_click('doc::redirect', route('task_report_export'));
+            });
 
             $table->orderBy('id', 'desc');
 
@@ -103,7 +109,7 @@ class TaskReportController extends Controller
                             $report->user_id, $report->task->cost, new AdminApproveTaskReportNotification($report->task)
                         )
                     );
-                } else if ($report->status === TaskReport::STATUS_CANCELED && $status_old === TaskReport::STATUS_CHECKED) {
+                } elseif ($report->status === TaskReport::STATUS_CANCELED && $status_old === TaskReport::STATUS_CHECKED) {
                     event(
                         new AddUserBalance(
                             $report->user_id, -$report->task->cost, new AdminDropTaskReportNotification($report->task)
@@ -137,5 +143,15 @@ class TaskReportController extends Controller
             });
             $table->at();
         });
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
+     */
+    public function export()
+    {
+        return \Excel::download(new TaskReportExport(), 'Complete task reports, '.(now()->format('d_m_Y_H_i_s')).'.xlsx');
     }
 }

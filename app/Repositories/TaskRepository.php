@@ -63,7 +63,7 @@ class TaskRepository extends CoreRepository
      * @param  string  $type
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function reports_in_task(?TaskReport $report = null, ?Task $task = null, string $type = "date")
+    public function reports_in_task(?TaskReport $report = null, ?Task $task = null, string $type = 'date')
     {
         return ($task ?: $this->findById)
             ->taskReports()

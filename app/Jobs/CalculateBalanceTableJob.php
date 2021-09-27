@@ -28,7 +28,6 @@ class CalculateBalanceTableJob implements ShouldQueue
         $changed = false;
 
         foreach (Direction::all() as $direction) {
-
             $users = User::where('direction_id', $direction->id)
                 ->orderByDesc('balance')
                 ->orderBy('name', 'ASC')
@@ -44,10 +43,9 @@ class CalculateBalanceTableJob implements ShouldQueue
                     $changed = true;
                     if (
                         ($position >= 1 && $position <= 5) ||
-                        !($position % 10)
+                        ! ($position % 10)
                     ) {
-                        if (!\Cache::has("sended_user_balance_position_{$position}_{$user->direction_id}")) {
-
+                        if (! \Cache::has("sended_user_balance_position_{$position}_{$user->direction_id}")) {
                             $user->notify(
                                 new UserBallanceTableChangeNotification($position, $user->direction_id)
                             );

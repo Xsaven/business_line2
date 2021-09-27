@@ -41,7 +41,7 @@ class ProductController extends Controller
             $table->col('Название', 'name')->sort();
             $table->col('Стоимость', 'cost')->sort()->money('баллов');
             $table->col('Свойства', 'settings')->badge_tags();
-            $table->col('Купить','buy')->input_switcher('Да','Нет')->sort();
+            $table->col('Купить', 'buy')->input_switcher('Да', 'Нет')->sort();
             $table->at();
         });
     }

@@ -30,7 +30,7 @@ class NotifyUsers
                 $cost = $event->taskReport->cost ?: $event->taskReport->task->cost;
 //                dd($event->taskReport, $cost);
                 $event->taskReport->update([
-                    'cost' => $cost
+                    'cost' => $cost,
                 ]);
                 event(
                     new AddUserBalance(

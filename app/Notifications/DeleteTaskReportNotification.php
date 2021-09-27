@@ -14,7 +14,7 @@ class DeleteTaskReportNotification extends Notification
     public function __construct(
         public Task $task,
         public int $cost,
-    ){
+    ) {
         $this->message = "Баланс уменьшился на {$cost} из-за удаления вашего отчёта по заданию";
         $this->link_title = $this->task->name;
         $this->link = "/task/{$this->task->id}";

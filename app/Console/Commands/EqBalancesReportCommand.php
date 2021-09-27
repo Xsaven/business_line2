@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\TaskReport;
+use App\Models\User;
 use Illuminate\Console\Command;
 
 class EqBalancesReportCommand extends Command
@@ -38,29 +39,11 @@ class EqBalancesReportCommand extends Command
      */
     public function handle()
     {
-        $balances = \App\Models\Ballance::whereIn('task_id', [11,29,35,42,61,69,39])->whereCost(50)->get();
-
-        $total = 0;
-
-        foreach ($balances as $balance) {
-            /** @var TaskReport $report */
-            $report = $balance->user->taskReports()
-                ->where('task_id', $balance->task_id)
-                ->where('cost', '!=', 50)
-                ->first();
-
-            if ($report) {
-                //dump($report->user_id);
-                $min = $balance->cost-$report->cost;
-                $new_balance = $balance->user->balance - $min;
-//                $balance->update(['cost' => $report->cost]);
-//                $balance->user->update(['balance' => $new_balance]);
-                $this->comment("User ID - {$report->user_id}; Task ID - {$report->task_id}; Min - {$min}; New Balance - {$new_balance};");
-                $total++;
+        foreach (User::where('balance', '!=', '0')->get() as $user) {
+            if ($user->balance > $user->max_balance) {
+                $user->update(['max_balance' => $user->balance]);
             }
         }
-
-        $this->info("Total: " . $total);
 
         return 0;
     }

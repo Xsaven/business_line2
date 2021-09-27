@@ -23,10 +23,9 @@ class Create
      */
     public function handle(ReportStarQuizTask $event)
     {
-        if (!TaskReport::where('user_id', \Auth::id())
+        if (! TaskReport::where('user_id', \Auth::id())
             ->where('task_id', $event->task->id)
             ->exists()) {
-
             $stars = [];
 
             foreach ($event->quiz_answers as $quiz_answer) {
@@ -35,8 +34,8 @@ class Create
             }
 
             $result = collect($stars)->collapse()
-                ->groupBy(fn($i) => $i)
-                ->map(fn(Collection $collection) => $collection->count())
+                ->groupBy(fn ($i) => $i)
+                ->map(fn (Collection $collection) => $collection->count())
                 ->sortDesc()->keys()->first();
 
             $event->star = Star::find($result);
@@ -58,7 +57,7 @@ class Create
                 'status' => $event->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
                 'user_id' => \Auth::user()->id,
                 'task_id' => $event->task->id,
-                'cost' => $balls
+                'cost' => $balls,
             ]);
         }
     }

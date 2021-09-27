@@ -12,6 +12,7 @@ class UserStickerYouReportNotification extends Notification
      *
      * @return void
      */
+
     /**
      * Create a new notification instance.
      *

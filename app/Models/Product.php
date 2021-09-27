@@ -37,6 +37,8 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereSrc($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $buy
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereBuy($value)
  */
 class Product extends Model
 {
@@ -60,7 +62,7 @@ class Product extends Model
         'cost',
         'settings',
         'setting_id',
-        'buy'
+        'buy',
     ];
 
     /**

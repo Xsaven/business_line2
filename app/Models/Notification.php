@@ -1,5 +1,11 @@
-<?phpnamespace App\Models;use Illuminate\Notifications\DatabaseNotification;/**
- * App\Models\Notification
+<?php
+
+namespace App\Models;
+
+use Illuminate\Notifications\DatabaseNotification;
+
+/**
+ * App\Models\Notification.
  *
  * @property string $id
  * @property string $type
@@ -27,4 +33,15 @@
  * @method static \Illuminate\Database\Eloquent\Builder|Notification whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class Notification extends DatabaseNotification {    /**     * Get the entity's notifications.     *     * @return \Illuminate\Database\Eloquent\Relations\MorphMany     */    public function user()    {        return $this->morphMany(DatabaseNotification::class, 'notifiable')->orderBy('created_at', 'desc');    }}
+class Notification extends DatabaseNotification
+{
+    /**
+     * Get the entity's notifications.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function user()
+    {
+        return $this->morphMany(DatabaseNotification::class, 'notifiable')->orderBy('created_at', 'desc');
+    }
+}

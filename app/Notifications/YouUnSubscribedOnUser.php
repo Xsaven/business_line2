@@ -14,9 +14,9 @@ class YouUnSubscribedOnUser extends Notification
     public function __construct(
         public User $user
     ) {
-        $this->message = "Вы успешно отписались от пользователя";
+        $this->message = 'Вы успешно отписались от пользователя';
         $this->link_title = $this->user->full_name;
-        $this->link = "/user/" . $this->user->id;
+        $this->link = '/user/'.$this->user->id;
         $this->user_id = $this->user->id;
     }
 }

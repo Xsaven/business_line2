@@ -3,37 +3,35 @@
 namespace App\LteAdmin\Controllers;
 
 use App\LteAdmin\Modals\AddBalanceModal;
+use App\Models\Notification;
 use App\Models\TaskReport;
 use App\Models\User;
 use Lar\LteAdmin\Segments\Info;
-use Lar\LteAdmin\Segments\Sheet;
 use Lar\LteAdmin\Segments\Matrix;
+use Lar\LteAdmin\Segments\Sheet;
 use Lar\LteAdmin\Segments\Tagable\ButtonGroup;
 use Lar\LteAdmin\Segments\Tagable\Form;
-use Lar\LteAdmin\Segments\Tagable\ModelTable;
 use Lar\LteAdmin\Segments\Tagable\ModelInfoTable;
-use App\Models\Notification;
+use Lar\LteAdmin\Segments\Tagable\ModelTable;
 
 /**
- * NotificationsController Class
+ * NotificationsController Class.
  * @package App\LteAdmin\Controllers
  */
 class NotificationsController extends Controller
 {
     /**
-     * Static variable Model
+     * Static variable Model.
      * @var string
      */
-    static $model = Notification::class;
+    public static $model = Notification::class;
 
     /**
      * @return Sheet
      */
     public function index()
     {
-
         return Sheet::create(function (ModelTable $table) {
-
             $table->model(['notifiable_type' => User::class]);
 
             $table->search->id();
@@ -45,7 +43,8 @@ class NotificationsController extends Controller
             });
             $table->col('Сообщение', function (Notification $notification) {
                 $d = $notification->data;
-                return $d['message'].(isset($d['link']) ? " <a href='{$d['message']}' target='_blank'>{$d['link_title']}</a>":"");
+
+                return $d['message'].(isset($d['link']) ? " <a href='{$d['message']}' target='_blank'>{$d['link_title']}</a>" : '');
             });
             $table->at();
             $table->col(function (Notification $notification) {
@@ -62,7 +61,6 @@ class NotificationsController extends Controller
      */
     public function matrix()
     {
-
         return new Matrix(function (Form $form) {
             $form->info_id();
             $form->autoMake();
@@ -75,11 +73,9 @@ class NotificationsController extends Controller
      */
     public function show()
     {
-
         return Info::create(function (ModelInfoTable $table) {
             $table->id();
             $table->at();
         });
     }
-
 }

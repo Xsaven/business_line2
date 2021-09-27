@@ -59,7 +59,7 @@ class OrderController extends Controller
     {
         return new Matrix(function (Form $form) {
             $form->info_id();
-            $form->select('status','Статус')
+            $form->select('status', 'Статус')
                 ->options(Order::STATUSES);
             $form->info_at();
         });

@@ -23,7 +23,6 @@ class Validation
         $event->validated = $event->task && $event->comment;
 
         if (TaskReport::whereUserId(\Auth::id())->whereTaskId($event->task_id)->exists()) {
-
             $event->validated = false;
         }
     }

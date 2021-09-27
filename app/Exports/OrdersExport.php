@@ -19,7 +19,7 @@ class OrdersExport implements FromCollection
     public function collection()
     {
         $result = [
-            ['Дата оформления', 'Товар', 'Параметры', 'Стоимость', 'Телефон', 'Почта','Адрес','Табельный номер','Статус'],
+            ['Дата оформления', 'Товар', 'Параметры', 'Стоимость', 'Телефон', 'Почта', 'Адрес', 'Табельный номер', 'Статус'],
         ];
 
         /** @var Order[] $users */
@@ -35,7 +35,7 @@ class OrdersExport implements FromCollection
                 $order->email,
                 $order->delivery->address,
                 $order->user->number,
-                Order::STATUSES[$order->status]
+                Order::STATUSES[$order->status],
             ];
         }
 

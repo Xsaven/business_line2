@@ -29,7 +29,6 @@ class CalculateLikesTableJob implements ShouldQueue
         $changed = false;
 
         foreach (Direction::all() as $direction) {
-
             $users = User::where('direction_id', $direction->id)
                 ->orderByDesc('likes')
                 ->orderBy('name', 'ASC')
@@ -45,7 +44,7 @@ class CalculateLikesTableJob implements ShouldQueue
                     $changed = true;
                     if (
                         ($position >= 1 && $position <= 5) ||
-                        !($position % 10)
+                        ! ($position % 10)
                     ) {
                         $user->notify(
                             new UserLikesTableChangeNotification($position, $user->direction_id)

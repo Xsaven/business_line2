@@ -21,7 +21,7 @@
                     <v-icon icon="ic_send" />
                 </button>
 
-                <v-home-smiles-commentary v-if="myref" :show_smiles="true" :user_select="true" :show_stickers="false" v-model="message" :target="myref" />
+                <v-home-smiles-commentary v-if="myref" :show_smiles="true" :user_select="true" :show_stickers="true" v-model="message" :target="myref" />
             </form>
         </div>
     </div>

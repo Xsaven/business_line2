@@ -22,7 +22,6 @@ class Update
     public function handle(SubscribeUserEvent $event)
     {
         if ($event->validated) {
-
             $auth = app(AuthUserRepository::class)
                 ->user;
 

@@ -7,6 +7,7 @@ use App\Events\Ws\AllUserExec;
 use App\Exports\CommentariesExport;
 use App\Models\Commentary;
 use App\Models\CommentaryRoom;
+use App\Models\TaskReport;
 use App\Models\User;
 use Lar\LteAdmin\Core\ModelSaver;
 use Lar\LteAdmin\Segments\Info;
@@ -41,6 +42,9 @@ class CommentariesController extends Controller
             });
 
             $card->defaultTools(fn ($t) => $t !== 'add');
+
+            $table->model(fn ($q) => $q->where('commentaryable_type', '!=', TaskReport::class));
+
             $table->search->id();
             $table->search->select('user_id', 'Пользователь')
                 ->load(User::class);
@@ -52,7 +56,8 @@ class CommentariesController extends Controller
             $table->orderBy('id', 'desc');
 
             $table->id();
-            $table->col('Пользователь', 'user.name')->admin_resource_route('users')
+            $table->col('Пользователь', 'user.name')
+                ->admin_resource_route('users', 'user', 'commentaryable_id')
                 ->sort('user_id');
             $table->col('Текст', 'text')->sort()->str_limit(100);
             $table->active_switcher();

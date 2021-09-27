@@ -441,7 +441,7 @@ class User extends JaxExecutor
     public function drop_file(string $file)
     {
         if (\Cache::has(\Auth::id().'-'.$file)) {
-              return ['result' => \Storage::disk('yandexcloud')->delete($file)];
+            return ['result' => \Storage::disk('yandexcloud')->delete($file)];
 //            if (str_ends_with($file, '.jpg')) {
 //                return ['result' => \Storage::disk('yandexcloud')->delete($file)];
 //            } else {
@@ -462,9 +462,10 @@ class User extends JaxExecutor
     public function positions(string $q = null, int $id = null): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
         $f = Position::find($id);
+
         return PositionResource::collection(
             collect()
-                ->when(!$q && $f, fn ($c, $p) => $c->merge([$f]))
+                ->when(! $q && $f, fn ($c, $p) => $c->merge([$f]))
                 ->merge(
                     Position::where('name', 'like', "%{$q}%")
                         ->limit(100)
@@ -476,9 +477,10 @@ class User extends JaxExecutor
     public function divisions(string $q = null, int $id = null): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
         $f = Division::find($id);
+
         return DivisionResource::collection(
             collect()
-                ->when(!$q && $f, fn ($c, $p) => $c->merge([$f]))
+                ->when(! $q && $f, fn ($c, $p) => $c->merge([$f]))
                 ->merge(
                     Division::where('name', 'like', "%{$q}%")
                         ->limit(100)
@@ -490,9 +492,10 @@ class User extends JaxExecutor
     public function deliveries(string $q = null, int $id = null): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
         $f = Delivery::find($id);
+
         return DeliveryResource::collection(
             collect()
-                ->when(!$q && $f, fn ($c, $p) => $c->merge([$f]))
+                ->when(! $q && $f, fn ($c, $p) => $c->merge([$f]))
                 ->merge(
                     Delivery::where('address', 'like', "%{$q}%")
                         ->limit(100)

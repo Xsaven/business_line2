@@ -67,12 +67,10 @@ class AppServiceProvider extends ServiceProvider
     public function debugDatabaseQueries()
     {
         if (env('DATABASE_QUERIES_DEBUG', false)) {
-
             \DB::listen(function (QueryExecuted $query) {
-
                 $fullQuery = vsprintf(str_replace(['%', '?'], ['%%', '%s'], $query->sql), $query->bindings);
 
-                $text = $query->connectionName . ' (' . $query->time . '): ' . $fullQuery;
+                $text = $query->connectionName.' ('.$query->time.'): '.$fullQuery;
 
                 \Log::info($text);
             });

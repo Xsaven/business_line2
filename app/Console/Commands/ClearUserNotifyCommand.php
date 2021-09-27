@@ -44,7 +44,6 @@ class ClearUserNotifyCommand extends Command
             $ids = $user->notifications()->orderByDesc('created_at')->limit(30)->pluck('id');
 
             if ($ids->count()) {
-
                 $user->notifications()->whereNotIn('id', $ids)
                     ->delete();
             }
