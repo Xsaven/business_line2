@@ -5,7 +5,7 @@
             <div class="user_data">
                 <div class="name">
                     <span>{{user.name}}<br> {{user.lastname}}</span>
-                    <button class="edit_btn" @click="edit_btn">
+                    <button v-if="user.can" class="edit_btn" @click="edit_btn">
                         <v-icon icon="ic_edit" />
                     </button>
                 </div>
@@ -29,7 +29,7 @@
             </div>
 
 
-            <form v-if="edit" @submit.stop.prevent="update" class="form edit_form">
+            <form v-if="edit && user.can" @submit.stop.prevent="update" class="form edit_form">
                 <div class="name">{{user.name}} {{user.last_name}}</div>
 
                 <div class="line">
