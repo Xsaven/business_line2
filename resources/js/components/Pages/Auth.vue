@@ -346,9 +346,11 @@ export default {
             }
 
             jax.guest.login(this.auth.login, this.auth.password)
-                .then(({result}) => {
+                .then(({result, count}) => {
                     this.clear_errors();
-                    if (!result) "toast:error".exec("Пользователь с такими данными не найден!");
+                    if (count < 3) {
+                        if (!result) "toast:error".exec("Пользователь с такими данными не найден!");
+                    }
                     this.auth.password = '';
                     if (result) {
                         localStorage.setItem('logined', Date.now());

@@ -32,7 +32,10 @@ class Guest extends JaxExecutor
 
         event($event);
 
-        return ['result' => $event->result()];
+        $sid = session()->getId();
+        $key = "login_count_{$sid}";
+
+        return ['result' => $event->result(), 'count' => (int)\Cache::get($key, 0)];
     }
 
     /**
@@ -40,6 +43,7 @@ class Guest extends JaxExecutor
      * @param $lastname
      * @param $number
      * @param $email
+     * @param $email_confirmation
      * @param $password
      * @param $password_confirmation
      * @return array
