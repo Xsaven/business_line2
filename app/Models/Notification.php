@@ -32,6 +32,8 @@ use Illuminate\Notifications\DatabaseNotification;
  * @method static \Illuminate\Database\Eloquent\Builder|Notification whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Notification whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|DatabaseNotification[] $user
+ * @property-read int|null $user_count
  */
 class Notification extends DatabaseNotification
 {

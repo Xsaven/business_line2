@@ -35,7 +35,7 @@ class Guest extends JaxExecutor
         $sid = session()->getId();
         $key = "login_count_{$sid}";
 
-        return ['result' => $event->result(), 'count' => (int)\Cache::get($key, 0)];
+        return ['result' => $event->result(), 'count' => (int) \Cache::get($key, 0)];
     }
 
     /**

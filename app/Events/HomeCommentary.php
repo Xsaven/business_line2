@@ -22,6 +22,11 @@ class HomeCommentary
     /**
      * @var bool
      */
+    public bool $obscenities = false;
+
+    /**
+     * @var bool
+     */
     public bool $attempted = false;
 
     /**

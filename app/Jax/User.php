@@ -68,6 +68,11 @@ class User extends JaxExecutor
                 'position_id' => $position_id,
                 'about' => $about,
             ])) {
+            \Auth::user()->logs()->create([
+                'field' => 'profile',
+                'type' => 'update',
+                'message' => 'Обновил данные профиля',
+            ]);
             $this->put('update');
         }
     }
@@ -120,6 +125,11 @@ class User extends JaxExecutor
                     'photo' => \Storage::disk('yandexcloud')->url($file_name),
                 ])) {
                 //$this->put("window.location.reload");
+                \Auth::user()->logs()->create([
+                    'field' => 'photo',
+                    'type' => 'update',
+                    'message' => 'Обновил фото профиля',
+                ]);
             }
 
             return ['result' => true];
@@ -153,19 +163,6 @@ class User extends JaxExecutor
     }
 
     /**
-     * @return bool[]|false[]
-     */
-    public function change_name(string $name)
-    {
-        /** @var ChangeName $event */
-        $event = new ChangeName($name);
-
-        event($event);
-
-        return ['result' => $event->result()];
-    }
-
-    /**
      * @return \Illuminate\Support\Collection
      */
     public function question_likes(UserRepository $repository)
@@ -188,6 +185,12 @@ class User extends JaxExecutor
      */
     public function mark_as_read_notifications(): array
     {
+        \Auth::user()->logs()->create([
+            'field' => 'as_read',
+            'type' => 'notifications',
+            'message' => 'Пометил все свои сообщения как прочитанные',
+        ]);
+
         return [
             'result' => app(AuthUserRepository::class)->mark_as_read_notifications(),
         ];

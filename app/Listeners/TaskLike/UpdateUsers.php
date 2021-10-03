@@ -23,6 +23,12 @@ class UpdateUsers
                 $event->task_report->user->likes =
                     $event->task_report->user->taskReports()->withCount('likes')->get()->sum('likes_count');
                 $event->task_report->user->save();
+
+                \Auth::user()->logs()->create([
+                    'field' => 'like',
+                    'type' => 'like',
+                    'message' => 'Поставил лайк отчёту '.$event->task_report->id,
+                ]);
             }
 
             if ($event->task_report) {

@@ -21,7 +21,9 @@ class Product extends Page
 
     public function __construct($id = null, array $attrs = [], ...$params)
     {
-        $attrs['products'] = ProductResource::collection(\App\Models\Product::all())->toArray(request());
+        $attrs['products'] = ProductResource::collection(
+            \App\Models\Product::all()->filter(fn (\App\Models\Product $product) => $product->total_scrap)
+        )->toArray(request());
 
         $attrs['deliveries'] = DeliveryResource::collection(Delivery::all())->toArray(request());
 

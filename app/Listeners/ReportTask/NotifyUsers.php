@@ -44,11 +44,13 @@ class NotifyUsers
                     );
             }
 
-//            \Auth::user()->subscribers->map(
-//                fn (User $user) => $user->notify(
-//                    new TaskReportForSubscribersNotification()
-//                )
-//            );
+            if ($event->taskReport) {
+                \Auth::user()->logs()->create([
+                    'field' => 'report',
+                    'type' => 'upload',
+                    'message' => 'Загрузил отчёт '.$event->taskReport->id,
+                ]);
+            }
         }
     }
 }

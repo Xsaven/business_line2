@@ -23,6 +23,11 @@ class NotifyUsers
             if (\Auth::user()->active_commentaries) {
                 //AllUserExec::dispatch(['update::add_commentary_child_id' => [$event->commentary->commentaryable_id, $event->commentary->id]]);
                 AllUserExec::dispatch(["comment-add-{$event->commentary->commentaryable_id}" => $event->commentary->id]);
+                \Auth::user()->logs()->create([
+                    'field' => 'like',
+                    'type' => 'like',
+                    'message' => 'Оставил комментарий '.$event->commentary->id,
+                ]);
             } else {
                 AllAdminExec::dispatch(['commentaries:update']);
             }

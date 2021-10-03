@@ -30,6 +30,12 @@ class UploadImage
             $event->filename = $user_id.'.'.uniqid(time().'.', true).'.jpg';
 
             $event->uploaded = \Storage::disk('yandexcloud')->put($event->filename, (string) $img);
+
+            \Auth::user()->logs()->create([
+                'field' => 'video',
+                'type' => 'upload',
+                'message' => 'Загрузил изображение '.$event->filename,
+            ]);
         }
     }
 }

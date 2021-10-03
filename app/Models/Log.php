@@ -36,6 +36,8 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @method static \Illuminate\Database\Eloquent\Builder|Log whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Log whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string|null $ip
+ * @method static \Illuminate\Database\Eloquent\Builder|Log whereIp($value)
  */
 class Log extends Model
 {
@@ -56,6 +58,7 @@ class Log extends Model
     protected $fillable = [
         'field',
         'type',
+        'ip',
         'message',
         'logable_type',
         'logable_id',
@@ -68,6 +71,7 @@ class Log extends Model
     protected $casts = [
         'field' => 'string',
         'type' => 'string',
+        'ip' => 'string',
         'message' => 'string',
         'logable_type' => 'string',
         'logable_id' => 'integer',
@@ -80,6 +84,14 @@ class Log extends Model
     protected $attributes = [
         'type' => 'system',
     ];
+
+    public function __construct(array $attributes = [])
+    {
+        if (! isset($attributes['ip'])) {
+            $attributes['ip'] = request()->ip();
+        }
+        parent::__construct($attributes);
+    }
 
     /**
      * The "morphTo" relation for "Zakazy'".

@@ -21,6 +21,12 @@ class UpdateUsers
             $user = app(AuthUserRepository::class)
                 ->user;
 
+            $user->logs()->create([
+                'field' => 'like',
+                'type' => 'like',
+                'message' => 'Поставил стикер отчёту '.$event->task_report->id,
+            ]);
+
             $user->increment('stickers');
         }
     }

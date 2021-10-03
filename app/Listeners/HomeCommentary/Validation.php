@@ -3,8 +3,7 @@
 namespace App\Listeners\HomeCommentary;
 
 use App\Events\HomeCommentary;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
+use Wkhooy\ObsceneCensorRus;
 
 class Validation
 {
@@ -16,8 +15,12 @@ class Validation
      */
     public function handle(HomeCommentary $event)
     {
-        $event->validated = ! quick_validate(['m' => $event->message], [
-            'm' => 'required|string|min:1|max:1200',
-        ]) && \Auth::check();
+        $event->obscenities = ObsceneCensorRus::isAllowed($event->message);
+
+        $event->validated = $event->obscenities && ! quick_validate([
+                'm' => $event->message,
+            ], [
+                'm' => 'required|string|min:1|max:1200',
+            ]) && \Auth::check();
     }
 }

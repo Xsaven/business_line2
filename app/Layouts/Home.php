@@ -7,6 +7,7 @@ use App\Http\Resources\DirectionResource;
 use App\Http\Resources\NotificationResource;
 use App\Http\Resources\StickerResource;
 use App\Http\Resources\UserResource;
+use App\Providers\AppServiceProvider;
 use App\Repositories\AuthUserRepository;
 use App\Repositories\DirectionRepository;
 use App\Repositories\StickerRepository;
@@ -117,6 +118,7 @@ class Home extends LayoutComponent
      */
     protected function applyStates(Request $request)
     {
+        $support = ! (isset(AppServiceProvider::$cfg['support']) && ! AppServiceProvider::$cfg['support']);
         if (\Auth::check()) {
             $auth_repo = app(AuthUserRepository::class);
             $this->js()->state('user', AuthUserResource::make(\Auth::user())->toArray($request));
@@ -130,6 +132,7 @@ class Home extends LayoutComponent
         } else {
             $this->js()->state('user', false);
         }
+        $this->js()->state('support', (int) $support);
         if (\Auth::check() || $request->routeIs('support')) {
             $this->js()->state('directions', DirectionResource::collection(
                 app(DirectionRepository::class)->all

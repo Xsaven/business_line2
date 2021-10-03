@@ -9,16 +9,6 @@ use Illuminate\Queue\InteractsWithQueue;
 class MakeLog
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
      * Handle the event.
      *
      * @param  SubscribeDirectionEvent  $event
@@ -26,6 +16,12 @@ class MakeLog
      */
     public function handle(SubscribeDirectionEvent $event)
     {
-        //
+        if ($event->user && $event->direction) {
+            $event->user->logs()->create([
+                'field' => 'auth',
+                'type' => 'direction',
+                'message' => "Был подписан на направление {$event->direction->name}",
+            ]);
+        }
     }
 }

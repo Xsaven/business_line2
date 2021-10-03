@@ -58,7 +58,7 @@ return [
         'providers' => [
             'lte' => [
                 'driver' => 'eloquent',
-                'model'  => \Lar\LteAdmin\Models\LteUser::class,
+                'model'  => \App\Models\Admin::class,
             ],
         ],
     ],

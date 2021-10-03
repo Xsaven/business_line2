@@ -145,4 +145,7 @@
 .text a {
     color: #fff;
 }
+.text img {
+    width: 100%;
+}
 </style>

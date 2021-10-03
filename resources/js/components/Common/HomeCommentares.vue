@@ -51,7 +51,9 @@ export default {
         },
         mounted () {
             this.myref = this.$refs.d;
-            $('.messages')[0].scrollTo(0,document.querySelector(".messages").scrollHeight);
+            ljs.onetime(() => {
+                $('.messages')[0].scrollTo(0,document.querySelector(".messages").scrollHeight+99999);
+            }, 205)
         },
         computed: {
             sorted_comments () {
@@ -113,8 +115,11 @@ export default {
                 const message = this.message;
                 this.message = ''
 
-                if (this.user.can) jax.commentary.home_commentary(message).then(({result, comment}) => {
-                    if (result && this.user.active_commentaries) {
+                if (this.user.can) jax.commentary.home_commentary(message).then(({result, comment, obscenities}) => {
+                    if (!obscenities) {
+                        "toast:error".exec("Использование мата запрещено по правилам участия!");
+                        this.message = message;
+                    } else if (result && this.user.active_commentaries) {
                         this.comments.push(comment);
                         this.scrollToBottom(true);
                     } else {

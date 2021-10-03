@@ -22,6 +22,11 @@ class NotifyUsers
         if ($event->result() && $event->commentary) {
             if (\Auth::user()->active_commentaries) {
                 AllUserExec::dispatch(['v-home-commentaries:add_to_child' => [$event->commentary->id]]);
+                \Auth::user()->logs()->create([
+                    'field' => 'like',
+                    'type' => 'like',
+                    'message' => 'Оставил комментарий '.$event->commentary->id,
+                ]);
             } else {
                 AllAdminExec::dispatch(['commentaries:update']);
             }

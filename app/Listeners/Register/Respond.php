@@ -21,6 +21,11 @@ class Respond
             respond()->toast_success('Вы успешно зарегистрировались')
                 ->reload();
             AdminStatisticJob::dispatch();
+            $event->user->logs()->create([
+                'field' => 'auth',
+                'type' => 'login',
+                'message' => 'Был зарегистрирован',
+            ]);
         }
     }
 }

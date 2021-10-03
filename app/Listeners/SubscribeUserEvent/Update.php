@@ -40,6 +40,12 @@ class Update
                 $event->user->notify(
                     new UserSubscribedOnYou($auth)
                 );
+
+                $auth->logs()->create([
+                    'field' => 'user',
+                    'type' => 'subscribe',
+                    'message' => 'Подписался на пользователя '.$event->user->full_name,
+                ]);
             } else {
                 $auth->notify(
                     new YouUnSubscribedOnUser($event->user)
@@ -48,6 +54,12 @@ class Update
                 $event->user->notify(
                     new UserUnSubscribedOnYou($auth)
                 );
+
+                $auth->logs()->create([
+                    'field' => 'user',
+                    'type' => 'subscribe',
+                    'message' => 'Отписался от пользователя '.$event->user->full_name,
+                ]);
             }
         }
     }

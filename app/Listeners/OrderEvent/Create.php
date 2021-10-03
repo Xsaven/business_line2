@@ -43,5 +43,11 @@ class Create
                 $user->id, -$product->cost, new UserMakeOrderNotification($product)
             )
         );
+
+        \Auth::user()->logs()->create([
+            'field' => 'order',
+            'type' => 'new_order',
+            'message' => 'Сделал заказ товара '.$product->name,
+        ]);
     }
 }
