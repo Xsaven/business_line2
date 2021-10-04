@@ -22,10 +22,9 @@ class Create
      */
     public function handle(ReportQuizTask $event)
     {
-        if (!TaskReport::where('user_id', \Auth::id())
+        if (! TaskReport::where('user_id', \Auth::id())
             ->where('task_id', $event->task->id)
             ->exists()) {
-
             $balls = 0;
             foreach (QuizAnswer::whereIn('id', array_values($event->quiz_answers))->get() as $answer) {
                 $balls += $answer->cost;
@@ -43,7 +42,7 @@ class Create
                 'status' => $event->task->action_type === Task::ACTION_TYPE_AUTO ? TaskReport::STATUS_CHECKED : TaskReport::STATUS_UPLOADED,
                 'user_id' => \Auth::id(),
                 'task_id' => $event->task->id,
-                'cost' => $balls
+                'cost' => $balls,
             ]);
         }
     }

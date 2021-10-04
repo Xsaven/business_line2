@@ -22,6 +22,5 @@ class CommentCheck
      */
     public function handle($event)
     {
-
     }
 }

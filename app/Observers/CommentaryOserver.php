@@ -21,19 +21,20 @@ class CommentaryOserver
             $commentary->text &&
             str_contains($commentary->text, '@')
         ) {
-            $commentary->text = preg_replace_callback("/@([а-яА-ЯёЁa-zA-Z0-9_]+)/ui", function ($m) {
+            $commentary->text = preg_replace_callback('/@([а-яА-ЯёЁa-zA-Z0-9_]+)/ui', function ($m) {
                 if (isset($m[1])) {
-                    $m[1] = explode("_", $m[1]);
+                    $m[1] = explode('_', $m[1]);
                     $name = $m[1][0] ?? null;
                     $lastname = $m[1][1] ?? null;
                     $user = User::whereLogin($name)->first();
-                    if (!$user) {
+                    if (! $user) {
                         $user = User::whereName($name)->whereLastname($lastname)->first();
                     }
                     if ($user) {
                         return "<a href='/user/{$user->id}'>{$user->full_name}</a>";
                     }
                 }
+
                 return $m[0];
             }, $commentary->text);
 

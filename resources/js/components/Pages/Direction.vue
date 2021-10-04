@@ -13,8 +13,8 @@
                         <div>
                             <div class="members">Участники: {{users}}</div>
 
-                            <button  v-if="!user.subscribe_direction" class="join_btn modal_btn" data-content="#join_modal">Присоединиться</button>
-                            <button disabled  v-else-if="user.direction_id === direction.id" class="join_btn modal_btn" data-content="#join_modal">Вы уже подписаны на трек</button>
+                            <button  v-if="!user.subscribe_direction && user.can" class="join_btn modal_btn" data-content="#join_modal">Присоединиться</button>
+                            <button disabled  v-else-if="user.direction_id === direction.id && user.can" class="join_btn modal_btn" data-content="#join_modal">Вы уже подписаны на трек</button>
                         </div>
                     </div>
 
@@ -82,7 +82,7 @@
             </div>
         </section>
 
-        <section v-if="!user.subscribe_direction" class="modal" id="join_modal">
+        <section v-if="!user.subscribe_direction && user.can" class="modal" id="join_modal">
             <div class="title">Внимание</div>
 
           <div class="desc">Вы можете выбрать <b>только один трек.</b> Дальнейшее изменение направления будет невозможным.</div>

@@ -78,7 +78,7 @@ class TaskReport extends JaxExecutor
      * @param  string  $type
      * @return TaskReport|array|\Illuminate\Http\Resources\Json\AnonymousResourceCollection|\Lar\Layout\Respond
      */
-    public function pagination(int $task_id, string $type = "date")
+    public function pagination(int $task_id, string $type = 'date')
     {
         $repo = app(TaskRepository::class);
 

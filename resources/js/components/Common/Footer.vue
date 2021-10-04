@@ -5,7 +5,7 @@
 
             <div class="links">
                 <div v-if="no_faq_page && user"><a href="/faq">FAQ</a></div>
-                <div><a href="/support">Техническая поддержка</a></div>
+                <div v-if="Number(support)"><a href="/support">Техническая поддержка</a></div>
             </div>
         </div>
 
@@ -15,12 +15,13 @@
 
 <script>
 export default {
-    $sync: ['user'],
+    $sync: ['user', 'support'],
     name: "v-footer",
     props: {},
     data () {
         return {
-            user: {}
+            user: {},
+            support: 1
         };
     },
     mounted () {},

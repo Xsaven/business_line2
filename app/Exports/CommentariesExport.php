@@ -3,6 +3,8 @@
 namespace App\Exports;
 
 use App\Models\Comment;
+use App\Models\Commentary;
+use App\Models\TaskReport;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
@@ -17,17 +19,23 @@ class CommentariesExport implements FromCollection
     public function collection()
     {
         $result = [
-            ['Пользователь', 'Почта', 'Дата', 'Комментарий'],
+            ['Имя', 'Фамилия', 'Таб. номер', 'Дата', 'Комментарий'],
         ];
 
-        $comments = Comment::whereActive(1)
+        $comments = Commentary::whereActive(1)
             ->with('user')
-            ->orWhereNotNull('deleted_at')
             ->orderByDesc('id')
+            ->where('commentaryable_type', '!=', TaskReport::class)
             ->get();
 
         foreach ($comments as $comment) {
-            $result[] = [$comment->user->name, $comment->user->email, $comment->created_at, $comment->message];
+            $result[] = [
+                $comment->user->name,
+                $comment->user->lastname,
+                $comment->user->number,
+                $comment->created_at,
+                strip_tags($comment->getRawOriginal('text')),
+            ];
         }
 
         return collect($result);

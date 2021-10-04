@@ -13,7 +13,7 @@
                 <v-icon icon="ic_send" />
             </button>
 
-            <v-home-smiles-commentary v-if="myref" :show_smiles="true" :user_select="true" :show_stickers="false" v-model="message" :target="myref" />
+            <v-home-smiles-commentary v-if="myref" :show_smiles="true" :user_select="true" :show_stickers="true" v-model="message" :target="myref" />
         </form>
     </div>
 </template>
@@ -49,8 +49,11 @@ export default {
                 const message = this.message;
                 this.message = ''
 
-                jax.commentary.answer_commentary(message, this.commentary.id).then(({result, comment}) => {
-                    if (result && this.user.active_commentaries) {
+                jax.commentary.answer_commentary(message, this.commentary.id).then(({result, comment, obscenities}) => {
+                    if (!obscenities) {
+                        "toast:error".exec("Использование мата запрещено по правилам участия!");
+                        this.message = message;
+                    } else if (result && this.user.active_commentaries) {
                         this.commentary.child.push(comment);
                     } else {
                         "toast:info".exec("Ваш комментарий был отправлен на модерацию!");

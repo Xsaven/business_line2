@@ -111,6 +111,8 @@ use Illuminate\Notifications\Notifiable;
  * @property-read int|null $ballances_count
  * @property-read mixed $balance_rating
  * @property-read mixed $like_rating
+ * @property int $max_balance
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereMaxBalance($value)
  */
 class User extends Authenticatable
 {
@@ -133,6 +135,7 @@ class User extends Authenticatable
         'lastname',
         'login',
         'balance',
+        'max_balance',
         'about',
         'email',
         'number',
@@ -164,6 +167,7 @@ class User extends Authenticatable
         'lastname' => 'string',
         'login' => 'string',
         'balance' => 'integer',
+        'max_balance' => 'integer',
         'about' => 'string',
         'email' => 'string',
         'number' => 'string',
@@ -192,6 +196,7 @@ class User extends Authenticatable
      */
     protected $attributes = [
         'balance' => 0,
+        'max_balance' => 0,
         'password' => 'none',
         'logins' => 0,
         'seconds' => 0,

@@ -81,6 +81,7 @@ declare interface JaxModelUserInterface {
         answer(...params: any[]): Promise<JaxModelUserInterface>;
         positions(...params: any[]): Promise<JaxModelUserInterface>;
         divisions(...params: any[]): Promise<JaxModelUserInterface>;
+        deliveries(...params: any[]): Promise<JaxModelUserInterface>;
 }
 declare interface JaxModelTaskReportInterface {
     find(...params: any[]): Promise<JaxModelTaskReportInterface>;

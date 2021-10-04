@@ -15,7 +15,7 @@ class CheckVimeoVideoJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    static $list = [];
+    public static $list = [];
 
     /**
      * Create a new job instance.
@@ -50,10 +50,11 @@ class CheckVimeoVideoJob implements ShouldQueue
             } else {
                 \Cache::set($this->filename.'.status', 1, now()->addDay());
             }
-            return ;
+
+            return;
         }
 
-        if (!isset(static::$list[$this->filename])) {
+        if (! isset(static::$list[$this->filename])) {
             static::$list[$this->filename] = 0;
         }
 
@@ -71,7 +72,7 @@ class CheckVimeoVideoJob implements ShouldQueue
 
             $report = TaskReport::whereFile($this->code)->first();
             if ($report) {
-                static::$list[$this->filename] = isset(static::$list[$this->filename]) ? static::$list[$this->filename]+1 : 1;
+                static::$list[$this->filename] = isset(static::$list[$this->filename]) ? static::$list[$this->filename] + 1 : 1;
                 static::dispatch($this->filename, $this->code, $this->uri)->delay(now()->addSeconds(30));
             }
         } else {

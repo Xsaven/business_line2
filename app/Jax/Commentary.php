@@ -46,6 +46,7 @@ class Commentary extends JaxExecutor
 
         return [
             'result' => $event->result(),
+            'obscenities' => $event->obscenities,
             'comment' => $event->commentary ?
                 CommentaryResource::make($event->commentary) : null,
         ];
@@ -64,6 +65,7 @@ class Commentary extends JaxExecutor
 
         return [
             'result' => $event->result(),
+            'obscenities' => $event->obscenities,
             'comment' => $event->commentary ?
                 CommentaryResource::make($event->commentary) : null,
         ];

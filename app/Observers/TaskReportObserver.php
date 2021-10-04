@@ -25,7 +25,6 @@ class TaskReportObserver
         );
 
         if ($taskReport->fun_id) {
-
             $taskReport->fun->notify(
                 new UserFunForYouReportNotification(
                     $taskReport->user, $taskReport->task
@@ -66,22 +65,24 @@ class TaskReportObserver
             $taskReport->task &&
             str_contains($taskReport->comment, '@')
         ) {
-            $taskReport->comment = preg_replace_callback("/@([а-яА-ЯёЁa-zA-Z0-9_]+)/ui", function ($m) use ($taskReport) {
+            $taskReport->comment = preg_replace_callback('/@([а-яА-ЯёЁa-zA-Z0-9_]+)/ui', function ($m) use ($taskReport) {
                 if (isset($m[1])) {
-                    $m[1] = explode("_", $m[1]);
+                    $m[1] = explode('_', $m[1]);
                     $name = $m[1][0] ?? null;
                     $lastname = $m[1][1] ?? null;
                     $user = User::whereLogin($name)->first();
-                    if (!$user) {
+                    if (! $user) {
                         $user = User::whereName($name)->whereLastname($lastname)->first();
                     }
                     if ($user) {
                         $user->notify(
                             new UserNotedYouInTaskNotification($taskReport->user, $taskReport->task)
                         );
+
                         return "<a href='/user/{$user->id}'>{$user->full_name}</a>";
                     }
                 }
+
                 return $m[0];
             }, $taskReport->comment);
         }
@@ -120,8 +121,8 @@ class TaskReportObserver
     public function deleted(TaskReport $taskReport)
     {
         if ($taskReport->status === TaskReport::STATUS_CHECKED) {
-
-            if ($taskReport->cost) event(
+            if ($taskReport->cost) {
+                event(
                 new AddUserBalance(
                     $taskReport->user_id,
                     -$taskReport->cost,
@@ -131,6 +132,7 @@ class TaskReportObserver
                     )
                 )
             );
+            }
         }
 
         AllAdminExec::dispatch(['questions:update']);

@@ -35,13 +35,13 @@ class NotifyUsersForOpenTasksJob implements ShouldQueue
                 ->get();
 
             foreach ($today_tasks as $today_task) {
-                if (!\Cache::has("notified_task_" . $today_task->id)) {
+                if (! \Cache::has('notified_task_'.$today_task->id)) {
                     foreach ($direction->users as $user) {
                         $user->notify(
                             new YouHaveNewTaskNotification($today_task)
                         );
                     }
-                    \Cache::set("notified_task_" . $today_task->id, 1, now()->addHours(26));
+                    \Cache::set('notified_task_'.$today_task->id, 1, now()->addHours(26));
                 }
             }
         }

@@ -22,7 +22,6 @@ class Validate
         $event->validated = (bool) $event->task && count(array_values($event->quiz_answers));
 
         if (TaskReport::whereUserId(\Auth::id())->whereTaskId($event->task_id)->exists()) {
-
             $event->validated = false;
         }
     }

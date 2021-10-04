@@ -35,6 +35,11 @@ class CommentariesControl extends LteAdminExecutor
         if ($comment && $comment->update(['active' => 1])) {
             if ($comment->commentaryRoom instanceof CommentaryRoom && $comment->commentaryRoom->id === 1) {
                 AllUserExec::dispatch(['v-home-commentaries:add_to_child' => [$comment->id]]);
+                admin()->logs()->create([
+                    'field' => 'profile',
+                    'type' => 'update',
+                    'message' => 'Одобрил комментарий '.$comment->id,
+                ]);
             } else {
                 AllUserExec::dispatch(["comment-add-{$comment->commentaryable_id}" => $comment->id]);
             }
@@ -52,6 +57,11 @@ class CommentariesControl extends LteAdminExecutor
         if ($comment && $comment->delete()) {
             if ($comment->commentaryRoom instanceof CommentaryRoom && $comment->commentaryRoom->id === 1) {
                 AllUserExec::dispatch(['v-home-commentaries:add_to_child' => [$comment->id]]);
+                admin()->logs()->create([
+                    'field' => 'profile',
+                    'type' => 'update',
+                    'message' => 'Удалил комментарий '.$comment->id,
+                ]);
             } else {
                 AllUserExec::dispatch(["comment-add-{$comment->commentaryable_id}" => [$comment->commentaryable_id, $comment->id]]);
             }
@@ -73,6 +83,12 @@ class CommentariesControl extends LteAdminExecutor
 
         AllUserExec::dispatch(['doc::reload']);
 
+        admin()->logs()->create([
+            'field' => 'commentaries',
+            'type' => 'control',
+            'message' => (AppServiceProvider::$cfg['free_chat'] ? 'Выключил' : 'Включил').' модерацию комментариев',
+        ]);
+
         $this->reload();
     }
 
@@ -86,6 +102,35 @@ class CommentariesControl extends LteAdminExecutor
 
         AllUserExec::dispatch(['doc::reload']);
 
+        admin()->logs()->create([
+            'field' => 'shop',
+            'type' => 'control',
+            'message' => (AppServiceProvider::$cfg['osm'] ? 'Выключил' : 'Включил').' режим магазина',
+        ]);
+
+        $this->reload();
+    }
+
+    /**
+     * Switch commentary.
+     */
+    public function switch_support()
+    {
+        $val = isset(AppServiceProvider::$cfg['support']) ? (AppServiceProvider::$cfg['support'] ? 0 : 1) : 0;
+
+        Setting::updateOrCreate([
+            'name' => 'support',
+        ], [
+            'value' => $val,
+        ]);
+
+        AllUserExec::dispatch(['doc::reload']);
+
+        admin()->logs()->create([
+            'field' => 'support',
+            'type' => 'control',
+            'message' => ($val ? 'Включил' : 'Выключил').' поддержку',
+        ]);
         $this->reload();
     }
 }

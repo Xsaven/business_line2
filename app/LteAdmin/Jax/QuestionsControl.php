@@ -35,7 +35,7 @@ class QuestionsControl extends LteAdminExecutor
         );
     }
 
-    public function approve(int $id, int $cost = 0, string $reason = "")
+    public function approve(int $id, int $cost = 0, string $reason = '')
     {
         $taskReport = TaskReport::find($id);
 

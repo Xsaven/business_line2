@@ -13,7 +13,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
  */
 class TaskReportResource extends JsonResource
 {
-    static $comments = true;
+    public static $comments = true;
+
     /**
      * Transform the resource into an array.
      * @param Request $request

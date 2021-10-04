@@ -14,8 +14,8 @@ class YouHaveNewTaskNotification extends Notification
     public function __construct(
         public Task $task
     ) {
-        $this->message = "Вам доступно новое задание";
+        $this->message = 'Вам доступно новое задание';
         $this->link_title = $this->task->name;
-        $this->link = "/task/" . $this->task->id;
+        $this->link = '/task/'.$this->task->id;
     }
 }

@@ -5,6 +5,8 @@ namespace App\LteAdmin\Controllers;
 use App\Events\Ws\Exec;
 use App\Exports\CommentariesExport;
 use App\Exports\UserStatisticExport;
+use App\Exports\UserTableBallsExport;
+use App\Exports\UserTableLikesExport;
 use App\LteAdmin\Modals\AddBalanceModal;
 use App\Models\Direction;
 use App\Models\Division;
@@ -186,5 +188,31 @@ class UsersController extends Controller
     public function export()
     {
         return \Excel::download(new UserStatisticExport(), 'All users, '.(now()->format('d_m_Y_H_i_s')).'.xlsx');
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
+     */
+    public function export_table_likes(int $direction_id)
+    {
+        UserTableLikesExport::$direction_id = $direction_id;
+        $direction = Direction::find($direction_id);
+
+        return \Excel::download(new UserTableLikesExport(), "Table by likes for ({$direction->name}), ".(now()->format('d_m_Y_H_i_s')).'.xlsx');
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
+     */
+    public function export_table_balls(int $direction_id)
+    {
+        UserTableBallsExport::$direction_id = $direction_id;
+        $direction = Direction::find($direction_id);
+
+        return \Excel::download(new UserTableBallsExport(), "Table by balls for ({$direction->name}), ".(now()->format('d_m_Y_H_i_s')).'.xlsx');
     }
 }

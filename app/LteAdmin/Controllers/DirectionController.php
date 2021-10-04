@@ -7,6 +7,7 @@ use App\Models\Prize;
 use Lar\LteAdmin\Segments\Info;
 use Lar\LteAdmin\Segments\Matrix;
 use Lar\LteAdmin\Segments\Sheet;
+use Lar\LteAdmin\Segments\Tagable\ButtonGroup;
 use Lar\LteAdmin\Segments\Tagable\Form;
 use Lar\LteAdmin\Segments\Tagable\ModelInfoTable;
 use Lar\LteAdmin\Segments\Tagable\ModelTable;
@@ -37,6 +38,18 @@ class DirectionController extends Controller
             $table->col('Название', 'name')->sort();
             $table->col('Описание', 'description')->sort()->str_limit(50);
             $table->at();
+            $table->col(function (Direction $direction) {
+                return ButtonGroup::create(function (ButtonGroup $group) use ($direction) {
+                    $group->success('fas fa-download')
+                        ->setTitle('Выгрузка турнирной таблицы по лайкам')
+                        ->on_click('doc::redirect', route('table_likes_export', ['direction_id' => $direction->id]));
+
+                    $group->success('fas fa-download')
+                        ->setTitle('Выгрузка турнирной таблицы по баллам')
+                        ->on_click('doc::redirect', route('table_balls_export', ['direction_id' => $direction->id]));
+                });
+            });
+            $table->controlDelete(false);
         });
     }
 

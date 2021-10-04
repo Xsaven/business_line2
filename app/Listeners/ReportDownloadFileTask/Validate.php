@@ -23,7 +23,6 @@ class Validate
         $event->validated = (bool) $event->task;
 
         if (TaskReport::whereUserId(\Auth::id())->whereTaskId($event->task_id)->exists()) {
-
             $event->validated = false;
         }
     }

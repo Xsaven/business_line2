@@ -37,7 +37,7 @@
         },
         computed: {
             to_jax () {
-                return jax[this.handle].params({q: this.q, id: this.value});
+                return jax[this.handle].params({q: this.q, id: this.value ? this.value : null});
             },
             selected () {
                 return !!this.list.filter((i) => i.name === this.q).length;

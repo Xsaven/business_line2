@@ -30,7 +30,7 @@ class NotifyUsers
                 $cost = $event->taskReport->cost ?: $event->taskReport->task->cost;
 //                dd($event->taskReport, $cost);
                 $event->taskReport->update([
-                    'cost' => $cost
+                    'cost' => $cost,
                 ]);
                 event(
                     new AddUserBalance(
@@ -44,11 +44,13 @@ class NotifyUsers
                     );
             }
 
-//            \Auth::user()->subscribers->map(
-//                fn (User $user) => $user->notify(
-//                    new TaskReportForSubscribersNotification()
-//                )
-//            );
+            if ($event->taskReport) {
+                \Auth::user()->logs()->create([
+                    'field' => 'report',
+                    'type' => 'upload',
+                    'message' => 'Загрузил отчёт '.$event->taskReport->id,
+                ]);
+            }
         }
     }
 }

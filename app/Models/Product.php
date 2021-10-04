@@ -37,6 +37,11 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereSrc($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $buy
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereBuy($value)
+ * @property array $scrap
+ * @property-read float|int $total_scrap
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereScrap($value)
  */
 class Product extends Model
 {
@@ -58,9 +63,10 @@ class Product extends Model
         'name',
         'src',
         'cost',
+        'scrap',
         'settings',
         'setting_id',
-        'buy'
+        'buy',
     ];
 
     /**
@@ -71,6 +77,7 @@ class Product extends Model
         'name' => 'string',
         'src' => 'string',
         'cost' => 'integer',
+        'scrap' => 'array',
         'settings' => 'json',
         'setting_id' => 'integer',
     ];
@@ -82,6 +89,23 @@ class Product extends Model
     protected $attributes = [
         'cost' => 1,
     ];
+
+    /**
+     * @param $value
+     * @return array
+     */
+    public function getScrapAttribute($value): array
+    {
+        return $value ? json_decode($value, 1) : [];
+    }
+
+    /**
+     * @return float|int
+     */
+    public function getTotalScrapAttribute(): float|int
+    {
+        return array_sum($this->scrap);
+    }
 
     /**
      * The "belongsToMany" relation for "Zakazy'".

@@ -25,7 +25,6 @@ class PhotoValidate
         }
 
         if (TaskReport::whereUserId(\Auth::id())->whereTaskId($event->task_id)->exists()) {
-
             $event->validated = false;
         }
     }

@@ -27,6 +27,10 @@ class UserObserver
     public function updated(User $user)
     {
         Exec::dispatch($user->id, 'update');
+
+        if ($user->balance > $user->max_balance) {
+            $user->update(['max_balance' => $user->balance]);
+        }
     }
 
     /**

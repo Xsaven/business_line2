@@ -28,6 +28,11 @@
         <div>В этом задании нет отчетов</div>
       </div>
 
+      <div v-if="status === 'no_can'" class="status">
+          <v-icon icon="ic_error" class="red" />
+        <div>Загрузка отчётов отключена</div>
+      </div>
+
       <img data-src="/images/bg_performance.svg" alt="" class="bg lozad">
     </div>
   </div>
