@@ -137,13 +137,14 @@ export default {
       return text_forms[2];
     },
     buy_product() {
-      if (!this.phone || !this.email || !this.select_address) {
+      if (!this.phone || !this.email || !this.select_address || !this.products[this.selected].first_setting) {
         this.error = true
       } else {
         jax.user.create_order(
             this.phone,
             this.email,
             this.select_address,
+            this.products[this.selected].first_setting,
             this.products[this.selected].id
         )
             .then(() => {

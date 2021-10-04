@@ -35,8 +35,20 @@ class Create
         $order->products()->sync([
            $product->id => [
                'order_id' => $order->id,
+               'value' => $product->settings ? $event->value : null,
            ],
         ]);
+
+        $setting_key = array_search($event->value,$product->settings);
+
+        $scrap = $product->scrap;
+
+        $scrap[$setting_key]--;
+
+        $product->update([
+           'scrap' => $scrap
+        ]);
+
 
         event(
             new AddUserBalance(

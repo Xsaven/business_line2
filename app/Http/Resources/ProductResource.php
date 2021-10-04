@@ -28,6 +28,7 @@ class ProductResource extends JsonResource
             'first_setting' => $this->setting[0] ?? null,
             'all_settings' => $this->setting,
             'buy' => $this->buy,
+            'scrap' => $this->scrap,
         ];
     }
 }

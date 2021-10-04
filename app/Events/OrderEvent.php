@@ -16,7 +16,8 @@ class OrderEvent
      * @param string $phone
      * @param string $email
      * @param int $delivery_id
-     * @param string $product_id
+     * @param $value
+     * @param int $product_id
      * @param bool $validated
      * @param Product|null $product
      * @param Delivery|null $delivery
@@ -25,7 +26,8 @@ class OrderEvent
         public string $phone,
         public string $email,
         public int $delivery_id,
-        public string $product_id,
+        public $value,
+        public int $product_id,
         public bool $validated = false,
         public ?Product $product = null,
         public ?Delivery $delivery = null,
