@@ -21,8 +21,6 @@
                       <v-player v-if="room.state !== 'translation'" :video_id="room.video_data"/>
                       <iframe v-else :id="room.translation_data" onload="fc_load_iframe(this)" width="100%" height="100%" style="border:none" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
-
-
                       <div class="info" v-if="(room.video_title || room.video_info) && room.state === 'video'">
                             <div class="name" v-if="room.video_title"><span>{{room.video_title}}</span></div>
                             <div class="type" v-if="room.video_info"><span>{{room.video_info}}</span></div>

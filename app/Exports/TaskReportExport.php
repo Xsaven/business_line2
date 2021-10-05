@@ -19,7 +19,7 @@ class TaskReportExport implements FromCollection
     public function collection()
     {
         $result = [
-            ['Задание', 'Имя', 'Фамилия', 'Таб. номер', 'Комментариев', 'Лайков'],
+            ['Трек', 'Задание', 'Имя', 'Фамилия', 'Таб. номер', 'Комментариев', 'Лайков', 'Дата', 'Профиль', 'Баллов'],
         ];
 
         /** @var TaskReport[] $reports */
@@ -30,12 +30,16 @@ class TaskReportExport implements FromCollection
 
         foreach ($reports as $report) {
             $result[] = [
+                $report->task->direction->name,
                 $report->task->name,
                 $report->user->name,
                 $report->user->lastname,
                 $report->user->number,
                 $report->commentary_count.' ',
                 $report->likes_count.' ',
+                $report->created_at->toDateTimeString(),
+                asset("user/{$report->user_id}"),
+                $report->cost
             ];
         }
 

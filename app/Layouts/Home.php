@@ -46,7 +46,8 @@ class Home extends LayoutComponent
      */
     protected $body_scripts = [
         'https://player.vimeo.com/api/player.js',
-        'https://facecast.net/w/js/iframe.js',
+        //'https://facecast.net/w/js/iframe.js',
+        'https://facecast.net/v/js/iframe.js',
         'js/jquery-3.5.0.min.js',
         'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
         'js/lozad.min.js',
@@ -54,7 +55,7 @@ class Home extends LayoutComponent
         'js/nice-select.js',
         'js/functions.js',
         'js/scripts.js',
-        'js/app_v20.js?123456',
+        'js/app_v21.js?123456',
         'ljs' => [
             'jq',
             'echo',
