@@ -19,12 +19,13 @@ class TaskReportExport implements FromCollection
     public function collection()
     {
         $result = [
-            ['Трек', 'Задание', 'Имя', 'Фамилия', 'Таб. номер', 'Комментариев', 'Лайков', 'Дата', 'Профиль', 'Баллов'],
+            ['Трек', 'Задание', 'Имя', 'Фамилия', 'Таб. номер', 'Комментариев', 'Лайков', 'Дата', 'Профиль', 'Админ', 'Баллов'],
         ];
 
         /** @var TaskReport[] $reports */
         $reports = TaskReport::with('user', 'task')
             ->withCount('commentary', 'likes')
+            ->whereHas('task', fn ($q) => $q->whereHas('direction'))
             ->where('status', TaskReport::STATUS_CHECKED)
             ->get();
 
@@ -39,6 +40,7 @@ class TaskReportExport implements FromCollection
                 $report->likes_count.' ',
                 $report->created_at->toDateTimeString(),
                 asset("user/{$report->user_id}"),
+                asset("lte/task_report/{$report->id}"),
                 $report->cost
             ];
         }
