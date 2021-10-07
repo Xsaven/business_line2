@@ -27,3 +27,13 @@
             ->on_click('jax.commentaries_control.switch_support')->i()->icon('fas fa-phone-square-alt')->_()->text(' Поддержка: Вкл'); !!}
     @endif
 </li>
+
+<li class="nav-item">
+    @if(isset($cfg['stickers']) && !$cfg['stickers'])
+        {!! \Lar\Layout\Tags\A::create(['nav-link'])->setHref('javascript:void(0)')
+                ->on_click('jax.commentaries_control.switch_stickers')->i()->icon('fas fa-compact-disc')->_()->text(' Стикеры в чате: Выкл'); !!}
+    @else
+        {!! \Lar\Layout\Tags\A::create(['nav-link'])->setHref('javascript:void(0)')
+            ->on_click('jax.commentaries_control.switch_stickers')->i()->icon('fas fa-compact-disc')->_()->text(' Стикеры в чате: Вкл'); !!}
+    @endif
+</li>

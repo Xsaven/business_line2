@@ -58,7 +58,7 @@
             <div class="cont row">
                 <div class="copyright">&copy; ГК «Деловые Линии», 2001–2021</div>
 
-                <div class="links">
+                <div class="links" v-if="Number(support)">
                     <div><a href="/">Техническая поддержка</a></div>
                 </div>
             </div>
@@ -75,6 +75,7 @@
 import {isRequired, isNumber, isLengthBetween, isBetween, isEmail, isTrue} from '../rules';
 
 export default {
+    $sync: ['support'],
     name: "pages_new_password",
     props: {
         token: {required: true},
@@ -82,6 +83,7 @@ export default {
     },
     data() {
         return {
+            support: 1,
             recovery: {
                 password: '',
                 password_confirmation: '',

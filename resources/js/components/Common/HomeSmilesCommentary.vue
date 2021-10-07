@@ -158,6 +158,7 @@
                     let start = textarea.selectionStart;
                     let end = textarea.selectionEnd;
                     textarea.value = textarea.value.substring(0, start) + ` [${id}] ` + textarea.value.substring(end);
+                    this.$emit('input', textarea.value);
                     textarea.focus();
                     this.setSelectionRange(textarea, end + 5, end + 5)
                     //textarea.selectionEnd = end + 3;

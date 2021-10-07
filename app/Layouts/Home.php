@@ -55,7 +55,7 @@ class Home extends LayoutComponent
         'js/nice-select.js',
         'js/functions.js',
         'js/scripts.js',
-        'js/app_v21.js?123456',
+        'js/app_v22.js?123456',
         'ljs' => [
             'jq',
             'echo',
@@ -120,6 +120,7 @@ class Home extends LayoutComponent
     protected function applyStates(Request $request)
     {
         $support = ! (isset(AppServiceProvider::$cfg['support']) && ! AppServiceProvider::$cfg['support']);
+        $stickers = ! (isset(AppServiceProvider::$cfg['stickers']) && ! AppServiceProvider::$cfg['stickers']);
         if (\Auth::check()) {
             $auth_repo = app(AuthUserRepository::class);
             $this->js()->state('user', AuthUserResource::make(\Auth::user())->toArray($request));
@@ -134,6 +135,7 @@ class Home extends LayoutComponent
             $this->js()->state('user', false);
         }
         $this->js()->state('support', (int) $support);
+        $this->js()->state('stickers_home', (int) $stickers);
         if (\Auth::check() || $request->routeIs('support')) {
             $this->js()->state('directions', DirectionResource::collection(
                 app(DirectionRepository::class)->all

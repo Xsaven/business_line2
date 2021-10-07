@@ -133,4 +133,27 @@ class CommentariesControl extends LteAdminExecutor
         ]);
         $this->reload();
     }
+
+    /**
+     * Switch stickers.
+     */
+    public function switch_stickers()
+    {
+        $val = isset(AppServiceProvider::$cfg['stickers']) ? (AppServiceProvider::$cfg['stickers'] ? 0 : 1) : 0;
+
+        Setting::updateOrCreate([
+            'name' => 'stickers',
+        ], [
+            'value' => $val,
+        ]);
+
+        AllUserExec::dispatch(['doc::reload']);
+
+        admin()->logs()->create([
+            'field' => 'stickers',
+            'type' => 'control',
+            'message' => ($val ? 'Включил' : 'Выключил').' стикеры в чате',
+        ]);
+        $this->reload();
+    }
 }

@@ -261,7 +261,7 @@
             <div class="cont row">
                 <div class="copyright">&copy; ГК «Деловые Линии», 2001–2021</div>
 
-                <div class="links">
+                <div v-if="Number(support)" class="links">
                     <div><a href="/guest_support">Техническая поддержка</a></div>
                 </div>
             </div>
@@ -278,10 +278,12 @@
 import {isRequired, isNumber, isLengthBetween, isBetween, isEmail, isTrue} from '../rules';
 
 export default {
+    $sync: ['support'],
     name: "auth",
     props: {},
     data() {
         return {
+            support: 1,
             empty_email: true,
             auth: {
                 login: '',

@@ -21,7 +21,7 @@
                     <v-icon icon="ic_send" />
                 </button>
 
-                <v-home-smiles-commentary v-if="myref" :show_smiles="true" :user_select="true" :show_stickers="true" v-model="message" :target="myref" />
+                <v-home-smiles-commentary v-if="myref" :show_smiles="true" :user_select="true" :show_stickers="!!Number(stickers_home)" v-model="message" :target="myref" />
             </form>
         </div>
     </div>
@@ -34,7 +34,7 @@ import sortBy from "lodash/sortBy";
 import uniqBy from "lodash/uniqBy";
 
 export default {
-        $sync: ["user"],
+        $sync: ["user", "stickers_home"],
         $exec: ["update_list", "add_to_child", "drop"],
         name: "v-home-commentaries",
         props: {
@@ -42,6 +42,7 @@ export default {
         },
         data () {
             return {
+                stickers_home: 1,
                 myref: null,
                 page: 0,
                 message: '',
@@ -107,7 +108,7 @@ export default {
                 });
             },
             sendCommentary () {
-
+                console.log(this.message);
                 if (!isRequired(this.message) || !isLengthBetween(this.message, 1, 1200)) {
                     return "toast:error".exec("Минимум 1 символ!");
                 }

@@ -13,7 +13,7 @@
                 <v-icon icon="ic_send" />
             </button>
 
-            <v-home-smiles-commentary v-if="myref" :show_smiles="true" :user_select="true" :show_stickers="true" v-model="message" :target="myref" />
+            <v-home-smiles-commentary v-if="myref" :show_smiles="true" :user_select="true" :show_stickers="!!Number(stickers_home)" v-model="message" :target="myref" />
         </form>
     </div>
 </template>
@@ -22,7 +22,7 @@
 import {isLengthBetween, isRequired} from "../rules";
 
 export default {
-        $sync: ['user'],
+        $sync: ['user', 'stickers_home'],
         name: "v-home-make-commentary",
         props: {
             commentary: {required:true},
@@ -30,6 +30,7 @@ export default {
         },
         data () {
             return {
+                stickers_home: 1,
                 myref: null,
                 message: '',
                 user: {}
@@ -37,6 +38,7 @@ export default {
         },
         mounted () {
             this.myref = this.$refs.d;
+            window.isLengthBetween = isLengthBetween;
         },
         computed: {},
         watch: {},

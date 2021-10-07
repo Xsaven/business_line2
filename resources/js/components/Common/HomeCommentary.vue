@@ -30,7 +30,7 @@
 
             <div class="parent_message">
                 <div class="user_name">{{comment.user.full_name}}</div>
-                <div class="text">{{comment.text}}</div>
+                <div class="text" v-html="comment.text"></div>
             </div>
 
             <v-home-make-commentary :commentary.sync="comment" :after="cancel_reply" />
@@ -146,6 +146,6 @@
     color: #fff;
 }
 .text img {
-    width: 100%;
+    width: 50%;
 }
 </style>

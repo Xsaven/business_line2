@@ -13,7 +13,7 @@
                 <tr :key="index">
                     <th scope="row">{{item.id}}</th>
                     <td>{{item.user.full_name}}</td>
-                    <td v-html="item.text"></td>
+                    <td v-html="item.text" class="sticker_size"></td>
                     <td>
                         <div class="btn-group btn-group-sm">
 <!--                            <a class="btn btn-warning">-->
@@ -68,3 +68,8 @@
         }
     }
 </script>
+<style>
+.sticker_size img {
+    width: 100px;
+}
+</style>
