@@ -29,7 +29,7 @@
                 покупки тебе не хватает баллов :(
               </div>
 
-              <button v-else-if="user.balance >= product.cost && product.cost > 0 && product.buy"
+              <button v-else-if="user.balance >= product.cost && product.cost > 0 && product.buy && product.total_scrap > 0"
                       class="buy_btn modal_btn" data-content="#buy_modal" @click="selected=product_index">Купить
               </button>
             </div>

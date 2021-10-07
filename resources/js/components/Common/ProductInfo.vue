@@ -4,7 +4,7 @@
       {{product.name}}
     </div>
 
-    <div class="color" v-if="product.all_settings.slug === 'color' && product.all_settings && product.buy && product.cost <= user.balance">
+    <div class="color" v-if="product.all_settings.slug === 'color' && product.all_settings && product.buy && product.cost <= user.balance && product.total_scrap > 0 && product.cost > 0">
       <span>цвета:</span>
 
       <div class="vals">
@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <div class="size" v-if="product.all_settings.slug === 'size' && product.all_settings && product.buy && product.cost <= user.balance">
+    <div class="size" v-if="product.all_settings.slug === 'size' && product.all_settings && product.buy && product.cost <= user.balance && product.total_scrap > 0 && product.cost > 0">
       <div class="vals">
         <template v-for="(size,i) in product.settings">
           <input
