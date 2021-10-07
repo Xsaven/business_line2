@@ -29,6 +29,7 @@ class ProductResource extends JsonResource
             'all_settings' => $this->setting,
             'buy' => $this->buy,
             'scrap' => $this->scrap,
+            'total_scrap' => $this->total_scrap,
         ];
     }
 }
