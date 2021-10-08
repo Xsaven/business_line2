@@ -43,6 +43,20 @@ class OrderController extends Controller
             $table->search->select('status', 'Статус')
                 ->options(Order::STATUSES);
             $table->search->at();
+            $table->search->input('user_id','Имя пользователя',function ($builder,$val) {
+               return $this->model()->whereHas('user',function ($q) use ($val) {
+                    return $q->where('name','like',"%{$val}%");
+                });
+            });
+
+            $table->search->input('user_id','Фамилия пользователя',function ($builder,$val) {
+               return $this->model()->whereHas('user',function ($q) use ($val) {
+                    return $q->where('lastname','like',"%{$val}%");
+                });
+            });
+
+
+
 
             $table->id();
             $table->col('Пользователь', 'user.name')->admin_resource_route('users')->sort('user_id');

@@ -13,10 +13,10 @@
           <div class="row">
             <div class="product" v-for="(product, product_index) in prods">
               <div v-if="product.cost > 0 && product.buy" :class="{'scores': true,'red': product.cost > user.balance }">
-                {{ product.cost }} {{ declOfNum(product.cost, ['бал', 'бала', 'баллов']) }}
+                {{ product.cost }} {{ declOfNum(product.cost, ['балл', 'балла', 'баллов']) }}
               </div>
               <div v-else-if="product.cost > 0 && !product.buy" :class="{'scores': true }">{{ product.cost }}
-                {{ declOfNum(product.cost, ['бал', 'бала', 'баллов']) }}
+                {{ declOfNum(product.cost, ['балл', 'балла', 'баллов']) }}
               </div>
 
               <div class="thumb">
@@ -47,7 +47,7 @@
           <v-product-info v-if="prods[selected].id" :product="prods[selected]" salt="modal"/>
         </div>
 
-        <form action="" class="form">
+        <form class="form">
           <div class="title">Оформление заказа</div>
 
           <div class="columns row">
@@ -77,7 +77,7 @@
           </div>
 
           <div class="submit">
-            <button @click.prevent.stop="buy_product()" type="submit" class="submit_btn">Оформить заказ</button>
+            <button @click.prevent.stop="buy_product()" type="button" :disabled="loading" class="submit_btn">Оформить заказ</button>
           </div>
           <br/>
           <label
@@ -108,6 +108,7 @@ export default {
       email: '',
       select_address: '',
       error: false,
+      loading: false
     };
   },
   mounted() {
@@ -137,21 +138,28 @@ export default {
       return text_forms[2];
     },
     buy_product() {
-      if (!this.phone || !this.email || !this.select_address || !this.products[this.selected].first_setting) {
-        this.error = true
-      } else {
-        jax.user.create_order(
-            this.phone,
-            this.email,
-            this.select_address,
-            this.products[this.selected].first_setting,
-            this.products[this.selected].id
-        )
-            .then(() => {
-              Fancybox.close();
-              return "toast::success".exec("Заказ оформлен!");
-            })
-      }
+      ljs.onetime(() => {
+        if (!this.phone || !this.email || !this.select_address || !this.products[this.selected].first_setting) {
+          this.error = true
+        } else if (!this.loading) {
+          this.loading = true;
+          jax.user.create_order(
+              this.phone,
+              this.email,
+              this.select_address,
+              this.products[this.selected].first_setting,
+              this.products[this.selected].id
+          )
+              .then(() => {
+                this.loading = false
+                Fancybox.close();
+                return "toast::success".exec("Заказ оформлен!");
+              })
+              .catch(() => {
+                this.loading = false
+              })
+        }
+      },103)
     },
   }
 }

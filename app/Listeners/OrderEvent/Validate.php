@@ -18,6 +18,8 @@ class Validate
         $event->product = Product::find($event->product_id);
         $event->delivery = Delivery::find($event->delivery_id);
 
+
+
         if ($event->product && $event->delivery) {
             $event->validated = true;
         }

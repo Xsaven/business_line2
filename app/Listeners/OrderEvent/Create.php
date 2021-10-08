@@ -24,13 +24,26 @@ class Create
 
         $product = Product::whereId($event->product_id)->first();
 
-        $order = Order::create([
-            'phone' => $event->phone,
-            'email' => $event->email,
-            'status' => Order::STATUS_APPROVED,
-            'user_id' => $user->id,
-            'delivery_id' => $event->delivery_id,
-        ]);
+        $setting_key = array_search($event->value,$product->settings);
+
+        $scrap = $product->scrap;
+
+        if($scrap[$setting_key] > 0) {
+            $scrap[$setting_key]--;
+        } else {
+            $event->validated = false;
+        }
+
+
+        if($event->validated) {
+            $order = Order::create([
+                'phone' => $event->phone,
+                'email' => $event->email,
+                'status' => Order::STATUS_APPROVED,
+                'user_id' => $user->id,
+                'delivery_id' => $event->delivery_id,
+            ]);
+        }
 
         $order->products()->sync([
            $product->id => [
@@ -39,11 +52,7 @@ class Create
            ],
         ]);
 
-        $setting_key = array_search($event->value,$product->settings);
 
-        $scrap = $product->scrap;
-
-        $scrap[$setting_key]--;
 
         $product->update([
            'scrap' => $scrap
