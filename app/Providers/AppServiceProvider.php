@@ -4,10 +4,12 @@ namespace App\Providers;
 
 use App\Actions\Fortify\ResetUserPassword;
 use App\Models\Commentary;
+use App\Models\Order;
 use App\Models\Setting;
 use App\Models\TaskReport;
 use App\Models\User;
 use App\Observers\CommentaryOserver;
+use App\Observers\OrderOserver;
 use App\Observers\TaskReportObserver;
 use App\Observers\UserObserver;
 use Illuminate\Database\Events\QueryExecuted;
@@ -59,6 +61,7 @@ class AppServiceProvider extends ServiceProvider
 
         \View::share('route', \Route::currentRouteName());
 
+        Order::observe(OrderOserver::class);
         User::observe(UserObserver::class);
         TaskReport::observe(TaskReportObserver::class);
         Commentary::observe(CommentaryOserver::class);

@@ -28,7 +28,6 @@ class NotifyUsers
         if ($event->validated) {
             if ($event->taskReport && $event->taskReport->status == TaskReport::STATUS_CHECKED) {
                 $cost = $event->taskReport->cost ?: $event->taskReport->task->cost;
-//                dd($event->taskReport, $cost);
                 $event->taskReport->update([
                     'cost' => $cost,
                 ]);

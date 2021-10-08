@@ -49,7 +49,7 @@ class ProductSettingController extends Controller
             $form->info_id();
             $form->input('name', 'Название')->required();
             $form->input('slug', 'Подпись')->required()->slugable();
-            $form->select_tags('data', 'Настройки')->required();
+            $form->select_tags('data[]', 'Настройки')->required();
             $form->info_at();
         });
     }
