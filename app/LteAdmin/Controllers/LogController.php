@@ -30,6 +30,8 @@ class LogController extends Controller
         return Sheet::create(function (ModelTable $table, Card $card) {
             $card->defaultTools(fn ($type) => $type !== 'add');
 
+            $table->orderBy('id', 'desc');
+
             $table->search->id();
             $table->search->input('field', 'Поле');
             $table->search->input('type', 'Тип');
@@ -39,8 +41,10 @@ class LogController extends Controller
             $table->search->at();
 
             $table->id();
+            $table->col('Поле', 'field')->sort();
             $table->col('Тип', 'type')->sort();
             $table->col('Сообщение', 'message')->sort();
+            $table->col('IP', 'ip')->sort();
             $table->at();
 
             $table->controlEdit(false);
