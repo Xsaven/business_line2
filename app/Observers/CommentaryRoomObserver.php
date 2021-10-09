@@ -31,7 +31,6 @@ class CommentaryRoomObserver
             ($commentaryRoom->state !== $commentaryRoom->getRawOriginal('state')) ||
             ($commentaryRoom->translation_data !== $commentaryRoom->getRawOriginal('translation_data'))
         ) {
-
             AllUserExec::dispatch(['doc::reload']);
         }
     }

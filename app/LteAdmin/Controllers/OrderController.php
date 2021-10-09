@@ -36,6 +36,7 @@ class OrderController extends Controller
     public function index()
     {
         return Sheet::create(function (ModelTable $table, Card $card) {
+            $table->orderBy('id', 'desc');
             $card->group(function (ButtonGroup $group) {
                 $group->success(['fas fa-download', 'Скачать заказы'])
                     ->on_click('doc::redirect', route('orders_export'));
@@ -47,20 +48,17 @@ class OrderController extends Controller
             $table->search->select('status', 'Статус')
                 ->options(Order::STATUSES);
             $table->search->at();
-            $table->search->input('user_id','Имя пользователя',function ($builder,$val) {
-               return $this->model()->whereHas('user',function ($q) use ($val) {
-                    return $q->where('name','like',"%{$val}%");
+            $table->search->input('user_id', 'Имя пользователя', function ($builder, $val) {
+                return $this->model()->whereHas('user', function ($q) use ($val) {
+                    return $q->where('name', 'like', "%{$val}%");
                 });
             });
 
-            $table->search->input('user_id','Фамилия пользователя',function ($builder,$val) {
-               return $this->model()->whereHas('user',function ($q) use ($val) {
-                    return $q->where('lastname','like',"%{$val}%");
+            $table->search->input('user_id', 'Фамилия пользователя', function ($builder, $val) {
+                return $this->model()->whereHas('user', function ($q) use ($val) {
+                    return $q->where('lastname', 'like', "%{$val}%");
                 });
             });
-
-
-
 
             $table->id();
             $table->col('Пользователь', 'user.name')->admin_resource_route('users')->sort('user_id');
@@ -103,7 +101,6 @@ class OrderController extends Controller
             $table->row('Статус', fn (Order $order) => Order::STATUSES[$order->status])->badge();
             $table->at();
         })->next(function (DIV $div) {
-
             $div->card('Товар')
                 ->foolBody()->model_table($this->model()->products(), function (ModelTable $table) {
                     $table->sort();
@@ -115,6 +112,7 @@ class OrderController extends Controller
                         if ($product->setting->slug == 'color') {
                             return ModelTable::callExtension('color_cube', [$product->pivot->value]);
                         }
+
                         return $product->pivot->value;
                     });
                     $table->at();

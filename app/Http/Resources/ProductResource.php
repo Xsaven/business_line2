@@ -30,6 +30,9 @@ class ProductResource extends JsonResource
             'buy' => $this->buy,
             'scrap' => $this->scrap ?? [],
             'total_scrap' => $this->total_scrap,
+            'daily_limit' => $this->daily_limit,
+            'daily_limit_by' => $this->daily_limit_by,
+            'today' => $this->daily_limit == 0 || $this->daily_limit_by != $this->daily_limit
         ];
     }
 }

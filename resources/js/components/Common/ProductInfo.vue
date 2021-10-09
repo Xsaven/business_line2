@@ -4,7 +4,10 @@
       {{product.name}}
     </div>
 
-    <div class="color" v-if="product.all_settings.slug === 'color' && product.all_settings && product.buy && product.cost <= user.balance && product.total_scrap > 0 && product.cost > 0 && product.settings.length > 1">
+      <div v-if="!product.today" class="not_available"><br>Товар закончился, будет доступен завтра</div>
+      <div v-else-if="Number(product.total_scrap) === 0 && Number(product.cost) === 0" class="not_available"><br>Товар закончился</div>
+
+    <div class="color" v-if="product.today && product.all_settings.slug === 'color' && product.all_settings && product.buy && product.cost <= user.balance && product.total_scrap > 0 && product.cost > 0 && product.settings.length > 1">
       <span>цвета:</span>
 
       <div class="vals">
@@ -22,7 +25,7 @@
       </div>
     </div>
 
-    <div class="size" v-if="product.all_settings.slug === 'size' && product.all_settings && product.buy && product.cost <= user.balance && product.total_scrap > 0 && product.cost > 0 && product.settings.length > 1">
+    <div class="size" v-if="product.today && product.all_settings.slug === 'size' && product.all_settings && product.buy && product.cost <= user.balance && product.total_scrap > 0 && product.cost > 0 && product.settings.length > 1">
       <div class="vals">
         <template v-for="(size,i) in product.settings">
           <input

@@ -2,6 +2,7 @@
 
 namespace App\LteAdmin\Controllers;
 
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductSetting;
 use App\Providers\AppServiceProvider;
@@ -45,6 +46,11 @@ class ProductController extends Controller
             $table->col('Свойства', 'settings')->badge_tags();
             $table->col('Остатки', 'total_scrap')->badge_number();
             $table->col('Купить', 'buy')->input_switcher('Да', 'Нет')->sort();
+            $table->col('Лимит', function (Product $product) {
+                return ModelTable::callE('badge_number', [$product->daily_limit_by])
+                    . '/' .
+                    ModelTable::callE('badge_number', [$product->daily_limit]);
+            })->sort('daily_limit')->info('Дневной лимит использовано/из');
             $table->at();
         });
     }
@@ -79,6 +85,10 @@ class ProductController extends Controller
                     }
                 }
             });
+            $form->divider('Суточный лимит');
+            $form->numeric('daily_limit', 'В день')->required()
+                ->icon_moon();
+            $form->numeric('daily_limit_by', 'Использовано')->required();
             $form->info_at();
         });
     }

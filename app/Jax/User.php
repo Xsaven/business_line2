@@ -396,7 +396,7 @@ class User extends JaxExecutor
      * @param $value
      * @param $product_id
      */
-    public function create_order(string $phone, string $email, int $delivery_id,$value,$product_id)
+    public function create_order(string $phone, string $email, int $delivery_id, $value, $product_id)
     {
         $event = new OrderEvent($phone, $email, $delivery_id, $value, $product_id);
 

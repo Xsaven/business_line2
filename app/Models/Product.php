@@ -42,6 +42,10 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property array $scrap
  * @property-read float|int $total_scrap
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereScrap($value)
+ * @property int $daily_limit
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereDailyLimit($value)
+ * @property int $daily_limit_by
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereDailyLimitBy($value)
  */
 class Product extends Model
 {
@@ -64,6 +68,8 @@ class Product extends Model
         'src',
         'cost',
         'scrap',
+        'daily_limit',
+        'daily_limit_by',
         'settings',
         'setting_id',
         'buy',
@@ -78,6 +84,8 @@ class Product extends Model
         'src' => 'string',
         'cost' => 'integer',
         'scrap' => 'array',
+        'daily_limit' => 'integer',
+        'daily_limit_by' => 'integer',
         'settings' => 'json',
         'setting_id' => 'integer',
     ];
@@ -88,6 +96,8 @@ class Product extends Model
      */
     protected $attributes = [
         'cost' => 1,
+        'daily_limit' => 0,
+        'daily_limit_by' => 0,
     ];
 
     /**

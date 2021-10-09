@@ -40,7 +40,6 @@ class OrderOserver
     public function deleting(Order $order)
     {
         foreach ($order->products as $product) {
-
             event(
                 new AddUserBalance(
                     $order->user_id, $product->cost, new ReturnFundsToUser($product)
@@ -60,11 +59,20 @@ class OrderOserver
                 $product->update(['scrap' => $scrap]);
             }
 
+            if ($order->created_at->format('Y.m.d') == now()->format('Y.m.d')) {
+
+                $new_daily_by = $product->daily_limit_by - 1;
+
+                $product->update([
+                    'daily_limit_by' => $new_daily_by > 0 ? $new_daily_by : 0
+                ]);
+            }
+
             if (admin()) {
                 admin()->logs()->create([
                     'field' => 'id',
                     'type' => 'delete',
-                    'message' => 'Удалил заказ ' . $order->id,
+                    'message' => 'Удалил заказ '.$order->id,
                 ]);
             }
         }

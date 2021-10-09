@@ -41,7 +41,7 @@ class TaskReportExport implements FromCollection
                 $report->created_at->toDateTimeString(),
                 asset("user/{$report->user_id}"),
                 asset("lte/task_report/{$report->id}"),
-                $report->cost
+                $report->cost,
             ];
         }
 

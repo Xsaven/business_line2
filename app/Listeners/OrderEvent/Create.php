@@ -24,18 +24,21 @@ class Create
 
         $product = Product::whereId($event->product_id)->first();
 
-        $setting_key = array_search($event->value,$product->settings);
+        $setting_key = array_search($event->value, $product->settings);
 
         $scrap = $product->scrap;
 
-        if($scrap[$setting_key] > 0) {
+        if ($scrap[$setting_key] > 0) {
             $scrap[$setting_key]--;
         } else {
             $event->validated = false;
         }
 
+        if ($product->daily_limit == $product->daily_limit_by) {
+            $event->validated = false;
+        }
 
-        if($event->validated) {
+        if ($event->validated) {
             $order = Order::create([
                 'phone' => $event->phone,
                 'email' => $event->email,
@@ -52,9 +55,9 @@ class Create
             ]);
 
             $product->update([
-                'scrap' => $scrap
+                'scrap' => $scrap,
+                'daily_limit_by' => $product->daily_limit_by+1
             ]);
-
 
             event(
                 new AddUserBalance(
