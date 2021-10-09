@@ -12,13 +12,12 @@
 
       <div class="vals">
         <template v-for="(color,i) in product.settings">
-            <input type="radio" v-if="Number(product.scrap[i]) !== 0 && !product.settings.includes(color)"
-                   name="product_color"
-                   @change="product.first_setting=color"
+            <input type="radio" v-if="Number(product.scrap[i]) !== 0"
+                   :name="`product_color_${salt}`"
                    :checked="product.first_setting===color"
                    :id="`radio_color_${i}${product.id}${salt}`">
             <label :for="`radio_color_${i}${product.id}${salt}`" :style="`
-                background-color: ${color};`" v-if="Number(product.scrap[i]) !== 0"
+                background-color: ${color};`" v-if="Number(product.scrap[i]) !== 0" @click="product.first_setting=color"
             >
             </label>
         </template>

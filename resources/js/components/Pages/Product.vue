@@ -23,7 +23,7 @@
                 <img :src="product.src" alt="" class="lozad">
               </div>
 
-              <v-product-info :product="product"/>
+              <v-product-info :product="prods[product_index]" :salt="product.id" />
 
               <div v-if="product.today && user.balance < product.cost && product.cost > 0 && product.buy" class="not_available">Для
                 покупки тебе не хватает баллов :(
