@@ -50,23 +50,23 @@ class Create
                     'value' => $product->settings ? $event->value : null,
                 ],
             ]);
+
+            $product->update([
+                'scrap' => $scrap
+            ]);
+
+
+            event(
+                new AddUserBalance(
+                    $user->id, -$product->cost, new UserMakeOrderNotification($product)
+                )
+            );
+
+            \Auth::user()->logs()->create([
+                'field' => 'order',
+                'type' => 'new_order',
+                'message' => 'Сделал заказ товара '.$product->name,
+            ]);
         }
-
-        $product->update([
-           'scrap' => $scrap
-        ]);
-
-
-        event(
-            new AddUserBalance(
-                $user->id, -$product->cost, new UserMakeOrderNotification($product)
-            )
-        );
-
-        \Auth::user()->logs()->create([
-            'field' => 'order',
-            'type' => 'new_order',
-            'message' => 'Сделал заказ товара '.$product->name,
-        ]);
     }
 }
