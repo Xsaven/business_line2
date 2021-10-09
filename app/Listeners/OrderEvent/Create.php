@@ -34,7 +34,10 @@ class Create
             $event->validated = false;
         }
 
-        if ($product->daily_limit == $product->daily_limit_by) {
+        if (
+            $product->daily_limit > 0 &&
+            $product->daily_limit == $product->daily_limit_by
+        ) {
             $event->validated = false;
         }
 
