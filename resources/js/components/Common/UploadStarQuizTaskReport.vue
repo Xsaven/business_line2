@@ -57,7 +57,7 @@
                     </div>
                 </div>
 
-                <div class="scores">+{{this.balls}} {{declOfNum(this.balls,['бал','бала','баллов'])}}</div>
+                <div class="scores">+{{this.balls}} {{declOfNum(this.balls,['балл','балла','баллов'])}}</div>
 
             </div>
             <img data-src="/images/bg_performance.svg" alt="" class="bg lozad">

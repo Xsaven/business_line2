@@ -47,7 +47,7 @@ class Create
             $order->products()->sync([
                 $product->id => [
                     'order_id' => $order->id,
-                    'value' => $product->settings ? $event->value : null,
+                    'value' => $product->settings ? $event->value : $product->settings[0],
                 ],
             ]);
 

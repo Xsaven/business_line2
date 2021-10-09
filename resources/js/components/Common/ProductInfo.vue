@@ -4,26 +4,25 @@
       {{product.name}}
     </div>
 
-    <div class="color" v-if="product.all_settings.slug === 'color' && product.all_settings && product.buy && product.cost <= user.balance && product.total_scrap > 0 && product.cost > 0">
+    <div class="color" v-if="product.all_settings.slug === 'color' && product.all_settings && product.buy && product.cost <= user.balance && product.total_scrap > 0 && product.cost > 0 && product.settings.length > 1">
       <span>цвета:</span>
 
       <div class="vals">
         <template v-for="(color,i) in product.settings">
-            <input type="radio"
+            <input type="radio" v-if="Number(product.scrap[i]) !== 0 && !product.settings.includes(color)"
                    name="product_color"
                    @change="product.first_setting=color"
                    :checked="product.first_setting===color"
-                   :id="`radio_color_${i}${product.id}${salt}`"
-                   :disabled="!product.settings.includes(color)">
+                   :id="`radio_color_${i}${product.id}${salt}`">
             <label :for="`radio_color_${i}${product.id}${salt}`" :style="`
-                background-color: ${color};`"
+                background-color: ${color};`" v-if="Number(product.scrap[i]) !== 0"
             >
             </label>
         </template>
       </div>
     </div>
 
-    <div class="size" v-if="product.all_settings.slug === 'size' && product.all_settings && product.buy && product.cost <= user.balance && product.total_scrap > 0 && product.cost > 0">
+    <div class="size" v-if="product.all_settings.slug === 'size' && product.all_settings && product.buy && product.cost <= user.balance && product.total_scrap > 0 && product.cost > 0 && product.settings.length > 1">
       <div class="vals">
         <template v-for="(size,i) in product.settings">
           <input

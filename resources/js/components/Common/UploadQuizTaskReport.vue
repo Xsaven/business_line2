@@ -54,7 +54,7 @@
 
         <div v-if="!hase">Вы ответили на все вопросы правильно!</div>
         <div v-else>У вас несколько ошибок</div>
-        <div class="scores">+{{this.balls}} {{declOfNum(task.balls,['бал','бала','баллов'])}}</div>
+        <div class="scores">+{{this.balls}} {{declOfNum(task.balls,['балл','балла','баллов'])}}</div>
       </div>
 
       <img data-src="/images/bg_performance.svg" alt="" class="bg lozad">

@@ -5,7 +5,7 @@
         <div class="block_head">
           <div class="title">Магазин подарков</div>
 
-          <div class="scores">Доступно: {{ user.balance }} {{ declOfNum(user.balance, ['бал', 'бала', 'баллов']) }}
+          <div class="scores">Доступно: {{ user.balance }} {{ declOfNum(user.balance, ['балл', 'балла', 'баллов']) }}
           </div>
         </div>
 
@@ -139,7 +139,12 @@ export default {
     },
     buy_product() {
       ljs.onetime(() => {
-        if (!this.phone || !this.email || !this.select_address || !this.products[this.selected].first_setting) {
+        if (
+            !this.phone ||
+            !this.email ||
+            !this.select_address ||
+            (this.products[this.selected].settings.length > 1 && !this.products[this.selected].first_setting)
+        ) {
           this.error = true
         } else if (!this.loading) {
           this.loading = true;

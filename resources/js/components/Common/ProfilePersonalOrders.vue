@@ -25,7 +25,7 @@
                         <div>
                             <div class="name">{{order.product[0].name}}</div>
 <!--                            <div class="color">цвет: черный</div>-->
-                            <div class="scores">{{order.product[0].cost}} {{declOfNum(order.product[0].cost,['бал','бала','баллов'])}}</div>
+                            <div class="scores">{{order.product[0].cost}} {{declOfNum(order.product[0].cost,['балл','балла','баллов'])}}</div>
                         </div>
                     </div>
 
