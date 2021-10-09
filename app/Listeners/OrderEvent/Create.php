@@ -43,16 +43,14 @@ class Create
                 'user_id' => $user->id,
                 'delivery_id' => $event->delivery_id,
             ]);
+
+            $order->products()->sync([
+                $product->id => [
+                    'order_id' => $order->id,
+                    'value' => $product->settings ? $event->value : null,
+                ],
+            ]);
         }
-
-        $order->products()->sync([
-           $product->id => [
-               'order_id' => $order->id,
-               'value' => $product->settings ? $event->value : null,
-           ],
-        ]);
-
-
 
         $product->update([
            'scrap' => $scrap

@@ -47,11 +47,24 @@ class OrderOserver
                 )
             );
 
+            $scrap_key = array_search(
+                $product->pivot->value,
+                $product->settings
+            );
+
+            if (
+                $scrap_key !== false
+            ) {
+                $scrap = $product->scrap ?: [];
+                $scrap[$scrap_key]++;
+                $product->update(['scrap' => $scrap]);
+            }
+
             if (admin()) {
                 admin()->logs()->create([
                     'field' => 'id',
                     'type' => 'delete',
-                    'message' => 'Удалил заказ',
+                    'message' => 'Удалил заказ ' . $order->id,
                 ]);
             }
         }
