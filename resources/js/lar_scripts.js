@@ -20,6 +20,9 @@ module.exports = ($root, $methods) => {
                 //"doc::reload".exec();
             });
         }
+        if (ljs.cfg('name') === 'home') {
+            "v-home-commentaries:update_list".exec();
+        }
     };
 
     const observer = lozad('#dirty_content .lozad', {
