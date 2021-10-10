@@ -33,16 +33,17 @@ class CommentariesControl extends LteAdminExecutor
         $comment = Commentary::find($id);
 
         if ($comment && $comment->update(['active' => 1])) {
-            if ($comment->commentaryRoom instanceof CommentaryRoom && $comment->commentaryRoom->id === 1) {
-                AllUserExec::dispatch(['v-home-commentaries:add_to_child' => [$comment->id]]);
-                admin()->logs()->create([
-                    'field' => 'profile',
-                    'type' => 'update',
-                    'message' => 'Одобрил комментарий '.$comment->id,
-                ]);
-            } else {
-                AllUserExec::dispatch(["comment-add-{$comment->commentaryable_id}" => $comment->id]);
-            }
+//            if ($comment->commentaryRoom instanceof CommentaryRoom && $comment->commentaryRoom->id === 1) {
+//                AllUserExec::dispatch(['v-home-commentaries:add_to_child' => [$comment->id]]);
+//
+//            } else {
+//                AllUserExec::dispatch(["comment-add-{$comment->commentaryable_id}" => $comment->id]);
+//            }
+            admin()->logs()->create([
+                'field' => 'profile',
+                'type' => 'update',
+                'message' => 'Одобрил комментарий '.$comment->id,
+            ]);
             AllAdminExec::dispatch(['commentaries:update']);
         }
     }

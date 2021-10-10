@@ -120,10 +120,11 @@ class CommentariesController extends Controller
 
         if ($model->commentaryRoom instanceof CommentaryRoom && $model->commentaryRoom->id === 1) {
             AllUserExec::dispatch(['v-home-commentaries:drop' => $model->id]);
-        } else {
-            //AllUserExec::dispatch(['update::drop_commentary_child_id' => [$model->commentaryable_id, $model->id]]);
-            AllUserExec::dispatch(["comment-drop-{$model->commentaryable_id}" => $model->id]);
         }
+        //else {
+            //AllUserExec::dispatch(['update::drop_commentary_child_id' => [$model->commentaryable_id, $model->id]]);
+            //AllUserExec::dispatch(["comment-drop-{$model->commentaryable_id}" => $model->id]);
+        //}
         AllAdminExec::dispatch(['commentaries:update']);
 
         return $return;

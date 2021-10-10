@@ -1,7 +1,7 @@
 <template>
     <div class="message_wrap" ref="wrap" :data-commetary-id="comment.id">
 
-        <div v-if="!reply" class="message">
+        <div v-show="!reply" class="message">
             <div class="avatar" v-html="comment.user.avatar"></div>
 
             <div>
@@ -23,7 +23,7 @@
             </button>
         </div>
 
-        <div v-else class="reaply" v-if="iteration < 2 && user.can">
+        <div class="reaply" v-show="iteration < 2 && user.can && reply">
             <button class="cancel_btn" @click="cancel_reply" type="button">
                 <v-icon icon="ic_close" />
             </button>
@@ -36,9 +36,16 @@
             <v-home-make-commentary :commentary.sync="comment" :after="cancel_reply" />
         </div>
 
-        <div class="children" v-if="sorted_child">
-            <template v-for="comment_child in sorted_child">
-                <v-home-commentary :commentary="comment_child" :root="comment" :i="iteration+1" />
+        <div class="children" v-if="sorted_child.length && !reply">
+            <template v-for="(comment_child, comment_child_index) in sorted_child">
+                <v-home-commentary
+                    :commentary="comment_child"
+                    :root.sync="comment"
+                    :i="iteration+1"
+                    :drop_comment="drop"
+                    :key="`home-child-cometary-key-${comment_child.id}`"
+                    :scroll="scroll"
+                />
             </template>
         </div>
     </div>
@@ -56,6 +63,8 @@
             i: {default: 0},
             root: {default: null},
             commentary: {required:true},
+            drop_comment: {required:true},
+            scroll: {required:true},
         },
         data () {
             return {
@@ -68,7 +77,7 @@
         mounted () {
             ljs.toExec(`comment-update-${this.comment.id}`, this.update.bind(this));
             ljs.toExec(`comment-add-${this.comment.id}`, this.add_to_child.bind(this));
-            ljs.toExec(`comment-drop-${this.comment.id}`, this.drop.bind(this));
+            ljs.toExec(`comment-drop-${this.comment.id}`, () => this.drop_comment(this.comment.id));
             ljs.onetime(() => {
                 const observer = lozad('.lozad', {
                     rootMargin: '200px 0px',
@@ -96,7 +105,7 @@
         },
         methods: {
             drop (id) {
-                this.comments = this.comment.child.filter((i) => i.id!==id);
+                this.comment.child = this.comment.child.filter((i) => i.id!==id);
             },
             like () {
                 if (this.user.can) ljs.onetime(() => {
@@ -111,7 +120,10 @@
             },
             add_to_child (id) {
                 jax.commentary.find(id).then(({data}) => {
-                    if (data) this.comment.child.push(data);
+                    if (data) {
+                        this.comment.child.push(data);
+                        this.scroll();
+                    }
                 });
             },
             update () {
@@ -136,12 +148,22 @@
                 let parent = $(this.$refs.wrap)
                 parent.find('> .reaply').hide()
                 parent.find('> .message').fadeIn(200)
-                //setTimeout(() => this.reply = false, 100);
+                ljs.onetime(() => {
+                    const observer = lozad('.lozad', {
+                        rootMargin: '200px 0px',
+                        threshold: 0,
+                        loaded: (el) => el.classList.add('loaded')
+                    });
+                    observer.observe();
+                },98);
             }
         }
     }
 </script>
 <style>
+.chat .messages .reaply {
+    display: block;
+}
 .text a {
     color: #fff;
 }

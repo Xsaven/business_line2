@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Events\Ws\AllUserExec;
 use App\Models\Commentary;
 use App\Models\TaskReport;
 use App\Models\User;
@@ -40,6 +41,15 @@ class CommentaryOserver
 
             $commentary->save();
         }
+
+        if ($commentary->active) {
+
+            if ($commentary->commentaryable_id != 1) {
+                AllUserExec::dispatch(["comment-add-{$commentary->commentaryable_id}" => $commentary->id]);
+            } else {
+                AllUserExec::dispatch(['v-home-commentaries:add_to_child' => [$commentary->id]]);
+            }
+        }
     }
 
     /**
@@ -50,7 +60,18 @@ class CommentaryOserver
      */
     public function updated(Commentary $commentary)
     {
-        //
+        if (!$commentary->active) {
+
+            AllUserExec::dispatch('comment-drop-' . $commentary->id);
+
+        } else if ($commentary->active != (bool) $commentary->getRawOriginal('active')) {
+
+            if ($commentary->commentaryable_id != 1) {
+                AllUserExec::dispatch(["comment-add-{$commentary->commentaryable_id}" => $commentary->id]);
+            } else {
+                AllUserExec::dispatch(['v-home-commentaries:add_to_child' => [$commentary->id]]);
+            }
+        }
     }
 
     /**
@@ -61,7 +82,10 @@ class CommentaryOserver
      */
     public function deleted(Commentary $commentary)
     {
-        //
+        AllUserExec::dispatch('comment-drop-' . $commentary->id);
+        Commentary::whereCommentaryableType($commentary->commentaryable_type)
+            ->whereCommentaryableId($commentary->id)
+            ->delete();
     }
 
     /**

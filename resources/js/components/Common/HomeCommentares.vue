@@ -2,7 +2,7 @@
     <div class="chat">
         <div class="messages" ref="mess_list" @scroll="scroll">
             <template v-for="(commentary, commentary_index) in sorted_comments">
-                <v-home-commentary :commentary="commentary" />
+                <v-home-commentary :commentary="commentary" :drop_comment="drop" :key="`home-cometary-key-${commentary.id}`" :scroll="scrollToBottom" />
             </template>
         </div>
 
@@ -108,7 +108,7 @@ export default {
                 });
             },
             sendCommentary () {
-                console.log(this.message);
+
                 if (!isRequired(this.message) || !isLengthBetween(this.message, 1, 1200)) {
                     return "toast:error".exec("Минимум 1 символ!");
                 }
