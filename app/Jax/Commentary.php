@@ -40,20 +40,16 @@ class Commentary extends JaxExecutor
      */
     public function home_commentary(string $message)
     {
-        try {
-            $event = new HomeCommentary($message);
+        $event = new HomeCommentary($message);
 
-            event($event);
+        event($event);
 
-            return [
-                'result' => $event->result(),
-                'obscenities' => $event->obscenities,
-                'comment' => $event->commentary ?
-                    CommentaryResource::make($event->commentary) : null,
-            ];
-        } catch (\Throwable $throwable) {
-            \Log::error($throwable);
-        }
+        return [
+            'result' => $event->result(),
+            'obscenities' => $event->obscenities,
+            'comment' => $event->commentary ?
+                CommentaryResource::make($event->commentary) : null,
+        ];
     }
 
     /**
