@@ -116,17 +116,21 @@ export default {
                 const message = this.message;
                 this.message = ''
 
-                if (this.user.can) jax.commentary.home_commentary(message).then(({result, comment, obscenities}) => {
-                    if (!obscenities) {
-                        "toast:error".exec("Использование мата запрещено по правилам участия!");
-                        this.message = message;
-                    } else if (result && this.user.active_commentaries) {
-                        this.comments.push(comment);
-                        this.scrollToBottom(true);
-                    } else {
-                        "toast:info".exec("Ваш комментарий был отправлен на модерацию!");
-                    }
-                });
+                // if (this.user.can) {
+                    jax.commentary.home_commentary(message).then(({result, comment, obscenities}) => {
+                        if (!obscenities) {
+                            "toast:error".exec("Использование мата запрещено по правилам участия!");
+                            this.message = message;
+                        } else if (result && this.user.active_commentaries) {
+                            this.comments.push(comment);
+                            this.scrollToBottom(true);
+                        } else {
+                            "toast:info".exec("Ваш комментарий был отправлен на модерацию!");
+                        }
+                    });
+                // } else {
+                //     "toast:error".exec("Использование чата в режиме магазина отключено!");
+                // }
             },
             scrollToBottom (force = false) {
                 let h1 = document.querySelector(".messages").scrollHeight-document.querySelector(".messages").offsetHeight;

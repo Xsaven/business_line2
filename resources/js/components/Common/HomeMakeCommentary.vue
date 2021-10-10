@@ -51,16 +51,21 @@ export default {
                 const message = this.message;
                 this.message = ''
 
-                jax.commentary.answer_commentary(message, this.commentary.id).then(({result, comment, obscenities}) => {
-                    if (!obscenities) {
-                        "toast:error".exec("Использование мата запрещено по правилам участия!");
-                        this.message = message;
-                    } else if (result && this.user.active_commentaries) {
-                        this.commentary.child.push(comment);
-                    } else {
-                        "toast:info".exec("Ваш комментарий был отправлен на модерацию!");
-                    }
-                });
+                // if (this.user.can) {
+
+                    jax.commentary.answer_commentary(message, this.commentary.id).then(({result, comment, obscenities}) => {
+                        if (!obscenities) {
+                            "toast:error".exec("Использование мата запрещено по правилам участия!");
+                            this.message = message;
+                        } else if (result && this.user.active_commentaries) {
+                            this.commentary.child.push(comment);
+                        } else {
+                            "toast:info".exec("Ваш комментарий был отправлен на модерацию!");
+                        }
+                    });
+                // } else {
+                //     "toast:error".exec("Использование чата в режиме магазина отключено!");
+                // }
 
                 // let parent = $('.chat .messages .reaply .cancel_btn').closest('.message_wrap')
                 // parent.find('> .reaply').hide()
