@@ -3,6 +3,8 @@
 namespace App\Observers;
 
 use App\Events\Ws\Exec;
+use App\Jobs\CalculateBalanceTableJob;
+use App\Jobs\CalculateLikesTableJob;
 use App\Models\User;
 
 class UserObserver
@@ -30,6 +32,11 @@ class UserObserver
 
         if ($user->balance > $user->max_balance) {
             $user->update(['max_balance' => $user->balance]);
+        }
+
+        if (!$user->active) {
+            CalculateBalanceTableJob::dispatch();
+            CalculateLikesTableJob::dispatch();
         }
     }
 
