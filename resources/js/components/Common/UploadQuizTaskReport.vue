@@ -166,7 +166,7 @@
                 this.sec--;
             },
           results() {
-            console.log(this.quiz_answers);
+            //console.log(this.quiz_answers);
           }
         }
     }

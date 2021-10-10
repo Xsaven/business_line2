@@ -70,7 +70,7 @@
                 // this.channel_live.listenForWhisper('update_comment');
             },
             execCallback2 (...qwe) {
-                console.log(qwe);
+                //console.log(qwe);
             },
             execCallback ({exec}) {
                 state.ws = true;

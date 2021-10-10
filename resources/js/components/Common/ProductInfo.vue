@@ -5,7 +5,7 @@
     </div>
 
       <div v-if="Number(product.total_scrap) === 0 && product.buy" class="not_available"><br>Товар закончился</div>
-      <div v-else-if="!product.today && product.buy" class="not_available"><br>Товар закончился, будет доступен завтра</div>
+      <div v-else-if="!product.today && product.buy && user.balance >= product.cost" class="not_available"><br>Товар закончился, будет доступен завтра</div>
 
     <div class="color" v-if="product.today && product.all_settings.slug === 'color' && product.all_settings && product.buy && product.cost <= user.balance && product.total_scrap > 0 && product.cost > 0 && product.settings.length > 1">
       <span>цвета:</span>
@@ -51,7 +51,7 @@
         },
         data () {
             return {
-
+                user: {}
             };
         },
         mounted () {},

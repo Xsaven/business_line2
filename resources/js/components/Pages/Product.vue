@@ -25,7 +25,7 @@
 
               <v-product-info :product="prods[product_index]" :salt="product.id" />
 
-              <div v-if="product.today && user.balance < product.cost && product.cost > 0 && product.buy && product.total_scrap > 0" class="not_available">Для
+              <div v-if="user.balance < product.cost && product.cost > 0 && product.buy && product.total_scrap > 0" class="not_available">Для
                 покупки вам не хватает баллов :(
               </div>
 
