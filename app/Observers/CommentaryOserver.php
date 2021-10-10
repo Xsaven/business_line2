@@ -62,7 +62,8 @@ class CommentaryOserver
     {
         if (!$commentary->active) {
 
-            AllUserExec::dispatch('comment-drop-' . $commentary->id);
+            //AllUserExec::dispatch('comment-drop-' . $commentary->id);
+            AllUserExec::dispatch('v-home-commentaries:update_list');
 
         } else if ($commentary->active != (bool) $commentary->getRawOriginal('active')) {
 
@@ -82,7 +83,8 @@ class CommentaryOserver
      */
     public function deleted(Commentary $commentary)
     {
-        AllUserExec::dispatch('comment-drop-' . $commentary->id);
+        //AllUserExec::dispatch('comment-drop-' . $commentary->id);
+        AllUserExec::dispatch('v-home-commentaries:update_list');
         Commentary::whereCommentaryableType($commentary->commentaryable_type)
             ->whereCommentaryableId($commentary->id)
             ->delete();
