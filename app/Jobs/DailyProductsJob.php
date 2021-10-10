@@ -31,8 +31,7 @@ class DailyProductsJob implements ShouldQueue
      */
     public function handle()
     {
-        $products = Product::where('daily_limit', '>', 0)
-            ->where('daily_limit_by', '>', 0)
+        $products = Product::where('daily_limit_by', '>', 0)
             ->get();
 
         foreach ($products as $product) {
