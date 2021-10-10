@@ -62,8 +62,12 @@ class CommentaryOserver
     {
         if (!$commentary->active) {
 
-            AllUserExec::dispatch('comment-drop-' . $commentary->id);
-            AllUserExec::dispatch('v-home-commentaries:update_list');
+            //AllUserExec::dispatch('comment-drop-' . $commentary->id);
+            if ($commentary->commentaryable_id != 1) {
+                AllUserExec::dispatch('comment-update-' . $commentary->commentaryable_id);
+            } else {
+                AllUserExec::dispatch('v-home-commentaries:update_list');
+            }
 
         } else if ($commentary->active != (bool) $commentary->getRawOriginal('active')) {
 
