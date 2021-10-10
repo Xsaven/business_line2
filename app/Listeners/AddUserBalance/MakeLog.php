@@ -30,7 +30,7 @@ class MakeLog
                     'message' => $event->notification->message,
                 ]);
             }
-            admin()->logs()->create([
+            admin()?->logs()?->create([
                 'field' => 'balance',
                 'type' => 'add_balance',
                 'message' => ($event->balance > 0 ? 'Увеличен' : 'Уменьшен').
