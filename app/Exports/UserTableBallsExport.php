@@ -26,6 +26,7 @@ class UserTableBallsExport implements FromCollection
         /** @var User[] $users */
         $users = User::where('direction_id', static::$direction_id)
             ->orderByDesc('max_balance')
+            ->whereActive(1)
             ->orderBy('name', 'ASC')
             ->orderBy('lastname', 'ASC')
             ->get();

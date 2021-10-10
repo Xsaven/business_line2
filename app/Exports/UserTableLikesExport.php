@@ -26,6 +26,7 @@ class UserTableLikesExport implements FromCollection
         /** @var User[] $users */
         $users = User::where('direction_id', static::$direction_id)
             ->orderByDesc('likes')
+            ->whereActive(1)
             ->orderBy('name', 'ASC')
             ->orderBy('lastname', 'ASC')
             ->get();
