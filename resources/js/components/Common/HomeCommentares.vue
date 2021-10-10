@@ -81,7 +81,7 @@ export default {
                 });
             },
             scroll (e) {
-                if (this.comments.length >= 15) {
+                if (this.comments.length >= 100) {
                     let position = document.querySelector(".messages").scrollTop;
                     if (position < 100) {
                         let last = Number(this.sorted_comments[0].id);
