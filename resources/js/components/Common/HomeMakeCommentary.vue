@@ -51,7 +51,7 @@ export default {
                 const message = this.message;
                 this.message = ''
 
-                // if (this.user.can) {
+                if (this.user.can) {
 
                     jax.commentary.answer_commentary(message, this.commentary.id).then(({result, comment, obscenities}) => {
                         if (!obscenities) {
@@ -63,9 +63,9 @@ export default {
                             "toast:info".exec("Ваш комментарий был отправлен на модерацию!");
                         }
                     });
-                // } else {
-                //     "toast:error".exec("Использование чата в режиме магазина отключено!");
-                // }
+                } else {
+                    // "toast:error".exec("Использование чата в режиме магазина отключено!");
+                }
 
                 // let parent = $('.chat .messages .reaply .cancel_btn').closest('.message_wrap')
                 // parent.find('> .reaply').hide()
