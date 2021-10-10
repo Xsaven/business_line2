@@ -102,9 +102,6 @@ export default {
             update_list () {
                 jax.commentary.home_commentary_list().then(({data}) => {
                     this.$set(this, 'comments', reverse(data));
-                    $('.messages').animate({
-                        scrollTop: document.querySelector(".messages").scrollHeight
-                    }, 500);
                 });
             },
             sendCommentary () {
