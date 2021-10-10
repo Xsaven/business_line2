@@ -36,7 +36,7 @@ class CommentaryRepository extends CoreRepository
             ->withCount('likes')
             ->orderByDesc('id')
             ->where('active', 1)
-            ->paginate();
+            ->paginate(100);
     }
 
     /**
