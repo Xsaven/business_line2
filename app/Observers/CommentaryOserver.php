@@ -62,7 +62,7 @@ class CommentaryOserver
     {
         if (!$commentary->active) {
 
-            //AllUserExec::dispatch('comment-drop-' . $commentary->id);
+            AllUserExec::dispatch('comment-drop-' . $commentary->id);
             AllUserExec::dispatch('v-home-commentaries:update_list');
 
         } else if ($commentary->active != (bool) $commentary->getRawOriginal('active')) {
