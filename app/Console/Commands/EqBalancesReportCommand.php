@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Ballance;
+use App\Models\Order;
 use App\Models\TaskReport;
 use App\Models\User;
 use Illuminate\Console\Command;
@@ -39,11 +41,21 @@ class EqBalancesReportCommand extends Command
      */
     public function handle()
     {
-        foreach (User::where('balance', '!=', '0')->get() as $user) {
-            if ($user->balance > $user->max_balance) {
-                $user->update(['max_balance' => $user->balance]);
-            }
+//        foreach (Order::all() as $user) {
+//            if ($user->balance > $user->max_balance) {
+//                $user->update(['max_balance' => $user->balance]);
+//            }
+//        }
+
+        Order::whereNotNull('id')->delete();
+
+        foreach (User::all() as $user) {
+            $user->update([
+                'balance' => $user->balance_rating
+            ]);
         }
+
+        Ballance::where('message', 'like', 'Покупка "%')->delete();
 
         return 0;
     }
