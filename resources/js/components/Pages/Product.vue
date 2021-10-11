@@ -53,7 +53,7 @@
           <div class="columns row">
             <div class="line">
               <div class="field">
-                <input v-model="phone"
+                <input v-model="phone" inputmode="tel"
                        type="tel" ref="phone" class="input" placeholder="Номер телефона">
               </div>
             </div>
