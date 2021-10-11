@@ -142,6 +142,7 @@ export default {
       ljs.onetime(() => {
         if (
             !this.phone ||
+            String(String(this.phone).replace(/[^0-9]/g, '')).length !== 11 ||
             !this.email ||
             !this.select_address ||
             (this.products[this.selected].settings.length > 1 && !this.products[this.selected].first_setting)

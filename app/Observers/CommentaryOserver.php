@@ -88,7 +88,9 @@ class CommentaryOserver
     public function deleted(Commentary $commentary)
     {
         //AllUserExec::dispatch('comment-drop-' . $commentary->id);
-        AllUserExec::dispatch('v-home-commentaries:update_list');
+        if ($commentary->active) {
+            AllUserExec::dispatch('v-home-commentaries:update_list');
+        }
         Commentary::whereCommentaryableType($commentary->commentaryable_type)
             ->whereCommentaryableId($commentary->id)
             ->delete();

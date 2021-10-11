@@ -41,6 +41,10 @@ class Create
             $event->validated = false;
         }
 
+        if ($user->balance < $product->cost) {
+            $event->validated = false;
+        }
+
         if ($event->validated) {
             $order = Order::create([
                 'phone' => $event->phone,
