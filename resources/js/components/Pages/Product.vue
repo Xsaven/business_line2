@@ -148,6 +148,7 @@ export default {
           this.error = true
         } else if (!this.loading) {
           this.loading = true;
+            Fancybox.close();
           jax.user.create_order(
               this.phone,
               this.email,
@@ -157,12 +158,10 @@ export default {
           )
               .then(() => {
                 this.loading = false
-                Fancybox.close();
                 return "toast::success".exec("Заказ оформлен!");
               })
               .catch(() => {
                 this.loading = false;
-                  Fancybox.close();
                   return "toast::success".exec("Заказ оформлен!");
               })
         }
