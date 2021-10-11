@@ -139,7 +139,7 @@ export default {
     },
     buy_product() {
         this.error = false;
-      ljs.onetime(() => {
+
         if (
             !this.phone ||
             String(String(this.phone).replace(/[^0-9]/g, '')).length !== 11 ||
@@ -151,23 +151,24 @@ export default {
         } else if (!this.loading) {
           this.loading = true;
             Fancybox.close();
-          jax.user.create_order(
-              this.phone,
-              this.email,
-              this.select_address,
-              this.products[this.selected].first_setting,
-              this.products[this.selected].id
-          )
-              .then(() => {
-                this.loading = false
-                return "toast::success".exec("Заказ оформлен!");
-              })
-              .catch(() => {
-                this.loading = false;
-                  return "toast::success".exec("Заказ оформлен!");
-              })
+            ljs.onetime(() => {
+              jax.user.create_order(
+                  this.phone,
+                  this.email,
+                  this.select_address,
+                  this.products[this.selected].first_setting,
+                  this.products[this.selected].id
+              )
+                  .then(() => {
+                    this.loading = false
+                    //return "toast::success".exec("Заказ оформлен!");
+                  })
+                  .catch(() => {
+                    this.loading = false;
+                      //return "toast::success".exec("Заказ оформлен!");
+                  })
+            },103);
         }
-      },103)
     },
   }
 }

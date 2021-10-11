@@ -16,6 +16,10 @@ class NotifyUsers
      */
     public function handle(OrderEvent $event)
     {
-        //
+        if ($event->validated) {
+            respond()->toast_success('Заказ оформлен!');
+        } else {
+            respond()->toast_error('Возникли ошибки при оформлении заказа!');
+        }
     }
 }
