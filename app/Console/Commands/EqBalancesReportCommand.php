@@ -53,7 +53,7 @@ class EqBalancesReportCommand extends Command
 
         foreach (User::all() as $user) {
             $user->update([
-                'balance' => $user->balance_rating
+                'balance' => $user->max_balance
             ]);
         }
 
