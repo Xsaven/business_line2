@@ -49,16 +49,16 @@ class EqBalancesReportCommand extends Command
 //            }
 //        }
 
-        Order::whereNotNull('id')->delete();
-
-        foreach (User::all() as $user) {
-            $user->update([
-                'balance' => $user->max_balance
-            ]);
-        }
-
-        Ballance::where('message', 'like', 'Покупка "%')->delete();
-        Notification::where('type', UserMakeOrderNotification::class)->delete();
+//        Order::whereNotNull('id')->delete();
+//
+//        foreach (User::all() as $user) {
+//            $user->update([
+//                'balance' => $user->max_balance
+//            ]);
+//        }
+//
+//        Ballance::where('message', 'like', 'Покупка "%')->delete();
+//        Notification::where('type', UserMakeOrderNotification::class)->delete();
 
         return 0;
     }
