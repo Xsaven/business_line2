@@ -167,7 +167,7 @@ export default {
                     this.loading = false;
                       //return "toast::success".exec("Заказ оформлен!");
                   })
-            },103);
+            },108);
         }
     },
   }
