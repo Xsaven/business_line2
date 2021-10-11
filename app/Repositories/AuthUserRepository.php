@@ -142,12 +142,12 @@ class AuthUserRepository extends CoreRepository
         $user = \Auth::user();
         /** @var TaskReport $result */
         return $this->user->taskReports()
-            ->with('commentary')
+            ->with(['commentary', 'task'])
             ->where('status', TaskReport::STATUS_CHECKED)
             ->whereHas('task', function ($q) {
                 return $q->where('action_type', '!=', Task::ACTION_TYPE_AUTO);
             })->withCount('likes')
-            ->get();
+            ->get()->filter(fn ($i) => $i->task);
     }
 
     /**

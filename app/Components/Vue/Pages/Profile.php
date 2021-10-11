@@ -29,8 +29,8 @@ class Profile extends Page
         $attrs['positions'] = PositionResource::collection(Position::all());
         $attrs['divisions'] = DivisionResource::collection(Division::all());
         $attrs['reports'] = TaskReportResource::collection(
-            app(AuthUserRepository::class)->userCompleteTaskReports->filter(fn ($i) => $i)
-        )->toArray(request());
+            app(AuthUserRepository::class)->userCompleteTaskReports
+        );
         $attrs['balance'] = BalanceResource::collection(
             app(AuthUserRepository::class)->user->ballances()->orderByDesc('created_at')->get()
         );
