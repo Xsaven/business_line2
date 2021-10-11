@@ -161,7 +161,9 @@ export default {
                 return "toast::success".exec("Заказ оформлен!");
               })
               .catch(() => {
-                this.loading = false
+                this.loading = false;
+                  Fancybox.close();
+                  return "toast::success".exec("Заказ оформлен!");
               })
         }
       },103)
