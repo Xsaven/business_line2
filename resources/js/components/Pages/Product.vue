@@ -139,10 +139,10 @@ export default {
     },
     buy_product() {
         this.error = false;
-
+        const phone = this.phone;
         if (
-            !this.phone ||
-            String(String(this.phone).replace(/[^0-9]/g, '')).length !== 11 ||
+            !phone ||
+            String(String(phone).replace(/[^0-9]/g, '')).length !== 11 ||
             !this.email ||
             !this.select_address ||
             (this.products[this.selected].settings.length > 1 && !this.products[this.selected].first_setting)
@@ -153,11 +153,13 @@ export default {
             Fancybox.close();
             ljs.onetime(() => {
               jax.user.create_order(
-                  this.phone,
-                  this.email,
-                  this.select_address,
-                  this.products[this.selected].first_setting,
-                  this.products[this.selected].id
+                  ...[
+                      phone,
+                      this.email,
+                      this.select_address,
+                      this.products[this.selected].first_setting,
+                      this.products[this.selected].id
+                  ]
               )
                   .then(() => {
                     this.loading = false
