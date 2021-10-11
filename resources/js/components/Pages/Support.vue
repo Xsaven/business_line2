@@ -16,7 +16,7 @@
                         </div>
 
                         <div>
-                            <div class="val">18.09–11.10</div>
+                            <div class="val">18.09–15.10</div>
                             <div class="desc">
                                 <div>пн–пт: 09.00–19.00 (мск)</div>
                                 <div>сб, вс: 11.00–17.00 (мск)</div>
