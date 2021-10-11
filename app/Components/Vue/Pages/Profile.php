@@ -30,7 +30,7 @@ class Profile extends Page
         $attrs['divisions'] = DivisionResource::collection(Division::all());
         $attrs['reports'] = TaskReportResource::collection(
             app(AuthUserRepository::class)->userCompleteTaskReports->filter(fn ($i) => $i)
-        );
+        )->toArray(request());
         $attrs['balance'] = BalanceResource::collection(
             app(AuthUserRepository::class)->user->ballances()->orderByDesc('created_at')->get()
         );
