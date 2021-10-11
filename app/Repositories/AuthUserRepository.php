@@ -147,7 +147,7 @@ class AuthUserRepository extends CoreRepository
             ->whereHas('task', function ($q) {
                 return $q->where('action_type', '!=', Task::ACTION_TYPE_AUTO);
             })->withCount('likes')
-            ->get()->filter(fn ($i) => $i->task);
+            ->get();
     }
 
     /**

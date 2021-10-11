@@ -34,7 +34,7 @@ class TaskReportResource extends JsonResource
             'time' => Carbon::parse($this->created_at)->format('H:i'),
             'created_at' => butty_date_time($this->created_at),
             'user' => UserResource::make($this->user),
-            'task' => TaskResource::make($this->task),
+            'task' => $this->task ? TaskResource::make($this->task) : null,
             'comments' => static::$comments ? CommentaryNoChildResource::collection($this->commentary) : null,
         ];
     }
