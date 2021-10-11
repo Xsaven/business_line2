@@ -3,9 +3,11 @@
 namespace App\Console\Commands;
 
 use App\Models\Ballance;
+use App\Models\Notification;
 use App\Models\Order;
 use App\Models\TaskReport;
 use App\Models\User;
+use App\Notifications\UserMakeOrderNotification;
 use Illuminate\Console\Command;
 
 class EqBalancesReportCommand extends Command
@@ -56,6 +58,7 @@ class EqBalancesReportCommand extends Command
         }
 
         Ballance::where('message', 'like', 'Покупка "%')->delete();
+        Notification::where('type', UserMakeOrderNotification::class)->delete();
 
         return 0;
     }
