@@ -138,6 +138,7 @@ export default {
       return text_forms[2];
     },
     buy_product() {
+        this.error = false;
       ljs.onetime(() => {
         if (
             !this.phone ||
