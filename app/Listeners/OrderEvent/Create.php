@@ -45,6 +45,10 @@ class Create
             $event->validated = false;
         }
 
+        if (strlen(preg_replace('/[^0-9]/', '', '+7 (123) 456-7891')) != 11) {
+            $event->validated = false;
+        }
+
         if ($event->validated) {
             $order = Order::create([
                 'phone' => $event->phone,
