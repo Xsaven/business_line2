@@ -94,7 +94,7 @@
 export default {
   name: "pages_product",
   $sync: ['user'],
-  $remember: ['phone', 'email', 'select_address'],
+  $remember: ['email', 'select_address'],
   props: {
     products: {required: true},
     deliveries: {required: true}
@@ -112,13 +112,18 @@ export default {
     };
   },
   mounted() {
+      this.phone = localStorage.getItem('saved_number');
     this.$refs.phone.addEventListener('keyup', this.setPhone.bind(this))
   },
   beforeDestroy() {
     this.$refs.phone.removeEventListener('keyup', this.setPhone.bind(this));
   },
   computed: {},
-  watch: {},
+  watch: {
+      phone (val) {
+          localStorage.setItem('saved_number', val);
+      }
+  },
   methods: {
     setPhone() {
       this.phone = this.$refs.phone.value;
