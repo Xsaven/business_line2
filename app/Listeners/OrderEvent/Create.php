@@ -45,7 +45,9 @@ class Create
             $event->validated = false;
         }
 
-        if (strlen(preg_replace('/[^0-9]/', '', $event->phone)) != 11) {
+        $event->phone = preg_replace('/[^0-9]/', '', $event->phone);
+
+        if (strlen($event->phone) != 11) {
             $event->validated = false;
         }
 

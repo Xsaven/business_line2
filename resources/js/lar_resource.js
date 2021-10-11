@@ -45,10 +45,10 @@ const load = () => {
     }
     ljs.vue.directive('input-mask', {
         bind: function(el) {
-            // new Inputmask({
-            //     mask: $(el).attr('mask'),
-            // }).mask(el);
-            return el;
+            new Inputmask({
+                mask: '+7 (999) 999-99-99',
+            }).mask(el);
+            //return el;
         },
     });
     require('./components/Components')(ljs.vue);

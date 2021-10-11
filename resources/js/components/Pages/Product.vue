@@ -54,7 +54,7 @@
             <div class="line">
               <div class="field">
                 <input v-model="phone"
-                       v-input-mask mask="+7 (999) 999-99-99"
+                       v-input-mask
                        type="tel" ref="phone" class="input" placeholder="Номер телефона">
               </div>
             </div>
