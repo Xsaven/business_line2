@@ -35,7 +35,7 @@ class UserStatisticExport implements FromCollection
         /** @var User[] $users */
         $users = User::orderByDesc('id')
             ->where('logins', '!=', '0')
-            ->withCount('taskReports', fn ($q) => $q->where('status', TaskReport::STATUS_CHECKED))
+            ->withCount(['taskReports' => fn ($q) => $q->where('status', TaskReport::STATUS_CHECKED)])
             ->withCount('subscribers')
             ->withCount('subscriptions')
             ->withCount('commentaryLikes')
