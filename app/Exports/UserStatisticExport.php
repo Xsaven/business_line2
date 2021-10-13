@@ -29,6 +29,7 @@ class UserStatisticExport implements FromCollection
                 'Количество отчетов',
                 'Подписчиков',
                 'Подписан',
+                'Поставил лайков',
             ],
         ];
 
