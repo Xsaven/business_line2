@@ -16,14 +16,56 @@ return [
         "dir" => "vendor/bfg/entity/src",
         "composer_file" => "vendor/bfg/entity/composer.json",
         "composer_name" => "bfg/entity",
-        "composer_version" => "1.1.15",
+        "composer_version" => "1.2.1",
         "description" => "Pattern for generating php entities.",
         "extensions" => [
 
         ]
     ],
-    "Bfg\Installer\ServiceProvider" => [
+    "Bfg\Files\ServiceProvider" => [
         "index" => 1,
+        "installed" => true,
+        "install_complete" => true,
+        "name" => "bfg/files",
+        "logo" => "",
+        "provider" => "Bfg\\Files\\ServiceProvider",
+        "version" => "",
+        "child" => "",
+        "type" => "bfg-app",
+        "parent" => "Bfg\\Installer\\ServiceProvider",
+        "path" => "vendor/bfg/files/src/ServiceProvider.php",
+        "dir" => "vendor/bfg/files/src",
+        "composer_file" => "vendor/bfg/files/composer.json",
+        "composer_name" => "bfg/files",
+        "composer_version" => "0.0.2",
+        "description" => "The package is aimed at controlling files",
+        "extensions" => [
+
+        ]
+    ],
+    "Bfg\IdeHelper\ServiceProvider" => [
+        "index" => 2,
+        "installed" => false,
+        "install_complete" => false,
+        "name" => "bfg/ide-helper",
+        "logo" => "",
+        "provider" => "Bfg\\IdeHelper\\ServiceProvider",
+        "version" => "",
+        "child" => "",
+        "type" => "bfg-app",
+        "parent" => "Bfg\\Installer\\ServiceProvider",
+        "path" => "vendor/bfg/ide-helper/src/ServiceProvider.php",
+        "dir" => "vendor/bfg/ide-helper/src",
+        "composer_file" => "vendor/bfg/ide-helper/composer.json",
+        "composer_name" => "bfg/ide-helper",
+        "composer_version" => "0.0.1",
+        "description" => "IDE Helper with 'barryvdh'",
+        "extensions" => [
+
+        ]
+    ],
+    "Bfg\Installer\ServiceProvider" => [
+        "index" => 3,
         "installed" => true,
         "install_complete" => true,
         "name" => "bfg/installer",
@@ -37,19 +79,18 @@ return [
         "dir" => "vendor/bfg/installer/src",
         "composer_file" => "vendor/bfg/installer/composer.json",
         "composer_name" => "bfg/installer",
-        "composer_version" => "0.1.3",
+        "composer_version" => "0.2.0",
         "description" => "Simplify the installation process for certain packages",
         "extensions" => [
             "Bfg\Entity\ServiceProvider" => "Bfg\\Entity\\ServiceProvider",
-            "Bfg\Object\ServiceProvider" => "Bfg\\Object\\ServiceProvider",
-            "Bfg\Text\ServiceProvider" => "Bfg\\Text\\ServiceProvider",
+            "Bfg\Files\ServiceProvider" => "Bfg\\Files\\ServiceProvider",
             "Bfg\IdeHelper\ServiceProvider" => "Bfg\\IdeHelper\\ServiceProvider",
-            "Bfg\Route\RouteServiceProvider" => "Bfg\\Route\\RouteServiceProvider",
-            "Bfg\Files\ServiceProvider" => "Bfg\\Files\\ServiceProvider"
+            "Bfg\Object\ServiceProvider" => "Bfg\\Object\\ServiceProvider",
+            "Bfg\Text\ServiceProvider" => "Bfg\\Text\\ServiceProvider"
         ]
     ],
     "Bfg\Object\ServiceProvider" => [
-        "index" => 2,
+        "index" => 4,
         "installed" => true,
         "install_complete" => true,
         "name" => "bfg/object",
@@ -70,7 +111,7 @@ return [
         ]
     ],
     "Bfg\Text\ServiceProvider" => [
-        "index" => 4,
+        "index" => 5,
         "installed" => true,
         "install_complete" => true,
         "name" => "bfg/text",
@@ -86,69 +127,6 @@ return [
         "composer_name" => "bfg/text",
         "composer_version" => "0.0.3",
         "description" => "All sorts of chips to work with the text",
-        "extensions" => [
-
-        ]
-    ],
-    "Bfg\IdeHelper\ServiceProvider" => [
-        "index" => 5,
-        "installed" => true,
-        "install_complete" => true,
-        "name" => "bfg/ide-helper",
-        "logo" => "",
-        "provider" => "Bfg\\IdeHelper\\ServiceProvider",
-        "version" => "",
-        "child" => "",
-        "type" => "bfg-app",
-        "parent" => "Bfg\\Installer\\ServiceProvider",
-        "path" => "vendor/bfg/ide-helper/src/ServiceProvider.php",
-        "dir" => "vendor/bfg/ide-helper/src",
-        "composer_file" => "vendor/bfg/ide-helper/composer.json",
-        "composer_name" => "bfg/ide-helper",
-        "composer_version" => "0.0.1",
-        "description" => "IDE Helper with 'barryvdh'",
-        "extensions" => [
-
-        ]
-    ],
-    "Bfg\Route\RouteServiceProvider" => [
-        "index" => 6,
-        "installed" => true,
-        "install_complete" => true,
-        "name" => "bfg/route",
-        "logo" => "",
-        "provider" => "Bfg\\Route\\RouteServiceProvider",
-        "version" => "",
-        "child" => "",
-        "type" => "bfg-app",
-        "parent" => "Bfg\\Installer\\ServiceProvider",
-        "path" => "vendor/bfg/route/src/RouteServiceProvider.php",
-        "dir" => "vendor/bfg/route/src",
-        "composer_file" => "vendor/bfg/route/composer.json",
-        "composer_name" => "bfg/route",
-        "composer_version" => "1.0.6",
-        "description" => "Auto register routes using PHP attributes",
-        "extensions" => [
-
-        ]
-    ],
-    "Bfg\Files\ServiceProvider" => [
-        "index" => 7,
-        "installed" => true,
-        "install_complete" => true,
-        "name" => "bfg/files",
-        "logo" => "",
-        "provider" => "Bfg\\Files\\ServiceProvider",
-        "version" => "",
-        "child" => "",
-        "type" => "bfg-app",
-        "parent" => "Bfg\\Installer\\ServiceProvider",
-        "path" => "vendor/bfg/files/src/ServiceProvider.php",
-        "dir" => "vendor/bfg/files/src",
-        "composer_file" => "vendor/bfg/files/composer.json",
-        "composer_name" => "bfg/files",
-        "composer_version" => "0.0.2",
-        "description" => "The package is aimed at controlling files",
         "extensions" => [
 
         ]

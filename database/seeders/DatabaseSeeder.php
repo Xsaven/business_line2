@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Lar\LteAdmin\Models\LteSeeder;
+use LteAdmin\Models\LteSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,13 +25,10 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingsPlayRuleSeeder::class);
         $this->call(ProductSettingsSeeder::class);
         $this->call(ProductsSeeder::class);
-        $this->call(StarsSeeder::class);
         $this->call(CommentaryRoomsSeeder::class);
         $this->call(TasksSeeder::class);
-        //$this->call(FirstSportTaskSeeder::class);
         $this->call(OspSeeder::class);
         $this->call(UsersListSeeder::class);
         $this->call(StickersSeeder::class);
-        $this->call(NextQuizSeeder::class);
     }
 }

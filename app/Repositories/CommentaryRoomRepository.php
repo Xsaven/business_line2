@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\CommentaryRoom;
-use Lar\Developer\CoreRepository;
+use Bfg\Repository\Repository;
 
 /**
  * Class CommentaryRoomRepository.
@@ -11,7 +11,7 @@ use Lar\Developer\CoreRepository;
  * @method CommentaryRoom model()
  * @property-read CommentaryRoom|\Illuminate\Database\Eloquent\Model|mixed|null $home
  */
-class CommentaryRoomRepository extends CoreRepository
+class CommentaryRoomRepository extends Repository
 {
     /**
      * Model class namespace getter.

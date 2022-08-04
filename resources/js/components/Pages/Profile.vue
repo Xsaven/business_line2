@@ -6,18 +6,12 @@
                     <div class="links">
                         <div><a href="javascript:;" :class="{active: select===1}" @click="select=1">Личная информация</a></div>
                         <div><a href="javascript:;" :class="{active: select===2}" @click="select=2">История начисления рейтинга</a></div>
-                        <div><a href="javascript:;" :class="{active: select===3}" @click="select=3">Мои заказы</a></div>
                     </div>
 
                     <div class="user_informer">
                         <div class="item">
                             <div>Баллы: {{user.balance}}</div>
                             <div>Место в рейтинге: {{user.balance_rating}}</div>
-                        </div>
-
-                        <div class="item">
-                            <div>Лайки: {{user.likes}}</div>
-                            <div>Место в рейтинге: {{user.like_rating}}</div>
                         </div>
 
                         <img data-src="/images/bg_user_informer.svg" alt="" class="lozad bg">

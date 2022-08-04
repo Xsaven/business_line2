@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Lar\LteAdmin\Models\LteUser;
+use LteAdmin\Models\LteUser;
 
 /**
  * App\Models\Admin.
@@ -39,15 +39,11 @@ use Lar\LteAdmin\Models\LteUser;
  * @method static \Illuminate\Database\Eloquent\Builder|Admin whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Admin whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Query\Builder|Admin onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Admin withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Admin withoutTrashed()
  */
 class Admin extends LteUser
 {
-    /**
-     * The "morphMany" relation for "Logi administratorov".
-     * @return MorphMany
-     */
-    public function logs() : MorphMany
-    {
-        return $this->morphMany(Log::class, 'logable', 'logable_type', 'logable_id', 'id');
-    }
+
 }

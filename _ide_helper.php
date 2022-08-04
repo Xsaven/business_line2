@@ -1,9 +1,10 @@
 <?php
 // @formatter:off
+// phpcs:ignoreFile
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 8.60.0.
+ * Generated for Laravel 8.83.23.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -395,6 +396,17 @@
                         return $instance->runningUnitTests();
         }
                     /**
+         * Determine if the application is running with debug mode enabled.
+         *
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasDebugModeEnabled()
+        {
+                        /** @var \Illuminate\Foundation\Application $instance */
+                        return $instance->hasDebugModeEnabled();
+        }
+                    /**
          * Register all of the configured providers.
          *
          * @return void 
@@ -564,6 +576,7 @@
                     /**
          * {@inheritdoc}
          *
+         * @return \Symfony\Component\HttpFoundation\Response 
          * @static 
          */ 
         public static function handle($request, $type = 1, $catch = true)
@@ -699,7 +712,7 @@
          * @param int $code
          * @param string $message
          * @param array $headers
-         * @return void 
+         * @return \Illuminate\Foundation\never 
          * @throws \Symfony\Component\HttpKernel\Exception\HttpException
          * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
          * @static 
@@ -707,7 +720,7 @@
         public static function abort($code, $message = '', $headers = [])
         {
                         /** @var \Illuminate\Foundation\Application $instance */
-                        $instance->abort($code, $message, $headers);
+                        return $instance->abort($code, $message, $headers);
         }
                     /**
          * Register a terminating callback with the application.
@@ -937,6 +950,7 @@
          * `has($id)` returning true does not mean that `get($id)` will not throw an exception.
          * It does however mean that `get($id)` will not throw a `NotFoundExceptionInterface`.
          *
+         * @return bool 
          * @param string $id Identifier of the entry to look for.
          * @return bool 
          * @static 
@@ -1265,6 +1279,7 @@
                     /**
          * Finds an entry of the container by its identifier and returns it.
          *
+         * @return mixed 
          * @param string $id Identifier of the entry to look for.
          * @throws NotFoundExceptionInterface  No entry was found for **this** identifier.
          * @throws ContainerExceptionInterface Error while retrieving the entry.
@@ -2038,6 +2053,18 @@
                         return $instance->viaRemember();
         }
                     /**
+         * Set the number of minutes the remember me cookie should be valid for.
+         *
+         * @param int $minutes
+         * @return \Illuminate\Auth\SessionGuard 
+         * @static 
+         */ 
+        public static function setRememberDuration($minutes)
+        {
+                        /** @var \Illuminate\Auth\SessionGuard $instance */
+                        return $instance->setRememberDuration($minutes);
+        }
+                    /**
          * Get the cookie creator instance used by the guard.
          *
          * @return \Illuminate\Contracts\Cookie\QueueingFactory 
@@ -2245,6 +2272,16 @@
         {
                         return \Illuminate\Auth\SessionGuard::hasMacro($name);
         }
+                    /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {
+                        \Illuminate\Auth\SessionGuard::flushMacros();
+        }
          
     }
             /**
@@ -2299,6 +2336,30 @@
         {
                         /** @var \Illuminate\View\Compilers\BladeCompiler $instance */
                         return $instance->compileString($value);
+        }
+                    /**
+         * Evaluate and render a Blade string to HTML.
+         *
+         * @param string $string
+         * @param array $data
+         * @param bool $deleteCachedView
+         * @return string 
+         * @static 
+         */ 
+        public static function render($string, $data = [], $deleteCachedView = false)
+        {
+                        return \Illuminate\View\Compilers\BladeCompiler::render($string, $data, $deleteCachedView);
+        }
+                    /**
+         * Render a component instance to HTML.
+         *
+         * @param \Illuminate\View\Component $component
+         * @return string 
+         * @static 
+         */ 
+        public static function renderComponent($component)
+        {
+                        return \Illuminate\View\Compilers\BladeCompiler::renderComponent($component);
         }
                     /**
          * Strip the parentheses from the given expression.
@@ -3025,6 +3086,17 @@
                         $instance->assertNotDispatched($command, $callback);
         }
                     /**
+         * Assert that no jobs were dispatched.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function assertNothingDispatched()
+        {
+                        /** @var \Illuminate\Support\Testing\Fakes\BusFake $instance */
+                        $instance->assertNothingDispatched();
+        }
+                    /**
          * Assert if a job was explicitly dispatched synchronously based on a truth-test callback.
          *
          * @param string|\Closure $command
@@ -3138,6 +3210,18 @@
         {
                         /** @var \Illuminate\Support\Testing\Fakes\BusFake $instance */
                         $instance->assertBatched($callback);
+        }
+                    /**
+         * Assert the number of batches that have been dispatched.
+         *
+         * @param int $count
+         * @return void 
+         * @static 
+         */ 
+        public static function assertBatchCount($count)
+        {
+                        /** @var \Illuminate\Support\Testing\Fakes\BusFake $instance */
+                        $instance->assertBatchCount($count);
         }
                     /**
          * Get all of the jobs matching a truth-test callback.
@@ -3408,6 +3492,7 @@
                     /**
          * Obtains multiple cache items by their unique keys.
          *
+         * @return \Illuminate\Cache\iterable 
          * @param \Psr\SimpleCache\iterable $keys A list of keys that can obtained in a single operation.
          * @param mixed $default Default value to return for keys that do not exist.
          * @return \Psr\SimpleCache\iterable A list of key => value pairs. Cache keys that do not exist or are stale will have $default as value.
@@ -3451,6 +3536,7 @@
                     /**
          * Persists data in the cache, uniquely referenced by a key with an optional expiration TTL time.
          *
+         * @return bool 
          * @param string $key The key of the item to store.
          * @param mixed $value The value of the item to store, must be serializable.
          * @param null|int|\DateInterval $ttl Optional. The TTL value of this item. If no value is sent and
@@ -3482,6 +3568,7 @@
                     /**
          * Persists a set of key => value pairs in the cache, with an optional TTL.
          *
+         * @return bool 
          * @param \Psr\SimpleCache\iterable $values A list of key => value pairs for a multiple-set operation.
          * @param null|int|\DateInterval $ttl Optional. The TTL value of this item. If no value is sent and
          *                                       the driver supports TTL then the library may set a default value
@@ -3554,7 +3641,7 @@
          * Get an item from the cache, or execute the given Closure and store the result.
          *
          * @param string $key
-         * @param \DateTimeInterface|\DateInterval|int|null $ttl
+         * @param \Closure|\DateTimeInterface|\DateInterval|int|null $ttl
          * @param \Closure $callback
          * @return mixed 
          * @static 
@@ -3605,6 +3692,7 @@
                     /**
          * Delete an item from the cache by its unique key.
          *
+         * @return bool 
          * @param string $key The unique cache key of the item to delete.
          * @return bool True if the item was successfully removed. False if there was an error.
          * @throws \Psr\SimpleCache\InvalidArgumentException
@@ -3619,6 +3707,7 @@
                     /**
          * Deletes multiple cache items in a single operation.
          *
+         * @return bool 
          * @param \Psr\SimpleCache\iterable $keys A list of string-based keys to be deleted.
          * @return bool True if the items were successfully removed. False if there was an error.
          * @throws \Psr\SimpleCache\InvalidArgumentException
@@ -3634,6 +3723,7 @@
                     /**
          * Wipes clean the entire cache's keys.
          *
+         * @return bool 
          * @return bool True on success and false on failure.
          * @static 
          */ 
@@ -3807,6 +3897,16 @@
         public static function hasMacro($name)
         {
                         return \Illuminate\Cache\Repository::hasMacro($name);
+        }
+                    /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {
+                        \Illuminate\Cache\Repository::flushMacros();
         }
                     /**
          * Dynamically handle calls to the class.
@@ -4284,6 +4384,16 @@
         {
                         return \Illuminate\Cookie\CookieJar::hasMacro($name);
         }
+                    /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {
+                        \Illuminate\Cookie\CookieJar::flushMacros();
+        }
          
     }
             /**
@@ -4407,7 +4517,7 @@
      * @method static \Illuminate\Support\Carbon now($tz = null)
      * @method static \Illuminate\Support\Carbon parse($time = null, $tz = null)
      * @method static \Illuminate\Support\Carbon setHumanDiffOptions($humanDiffOptions)
-     * @method static \Illuminate\Support\Carbon setTestNow($testNow = null)
+     * @method static void setTestNow($testNow = null)
      * @method static \Illuminate\Support\Carbon setUtf8($utf8)
      * @method static \Illuminate\Support\Carbon today($tz = null)
      * @method static \Illuminate\Support\Carbon tomorrow($tz = null)
@@ -4535,6 +4645,22 @@
         {
                         /** @var \Illuminate\Database\DatabaseManager $instance */
                         return $instance->connection($name);
+        }
+                    /**
+         * Register a custom Doctrine type.
+         *
+         * @param string $class
+         * @param string $name
+         * @param string $type
+         * @return void 
+         * @throws \Doctrine\DBAL\DBALException
+         * @throws \RuntimeException
+         * @static 
+         */ 
+        public static function registerDoctrineType($class, $name, $type)
+        {
+                        /** @var \Illuminate\Database\DatabaseManager $instance */
+                        $instance->registerDoctrineType($class, $name, $type);
         }
                     /**
          * Disconnect from the given database and remove from local cache.
@@ -4952,6 +5078,18 @@
         {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\MySqlConnection $instance */
                         $instance->logQuery($query, $bindings, $time);
+        }
+                    /**
+         * Register a hook to be run just before a database query is executed.
+         *
+         * @param \Closure $callback
+         * @return \Illuminate\Database\MySqlConnection 
+         * @static 
+         */ 
+        public static function beforeExecuting($callback)
+        {            //Method inherited from \Illuminate\Database\Connection         
+                        /** @var \Illuminate\Database\MySqlConnection $instance */
+                        return $instance->beforeExecuting($callback);
         }
                     /**
          * Register a database query listener with the connection.
@@ -5773,6 +5911,16 @@
                         return \Illuminate\Events\Dispatcher::hasMacro($name);
         }
                     /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {
+                        \Illuminate\Events\Dispatcher::flushMacros();
+        }
+                    /**
          * Assert if an event has a listener attached to it.
          *
          * @param string $expectedEvent
@@ -6456,6 +6604,16 @@
         {
                         return \Illuminate\Filesystem\Filesystem::hasMacro($name);
         }
+                    /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {
+                        \Illuminate\Filesystem\Filesystem::flushMacros();
+        }
          
     }
             /**
@@ -6475,6 +6633,36 @@
         {
                         /** @var \Illuminate\Auth\Access\Gate $instance */
                         return $instance->has($ability);
+        }
+                    /**
+         * Perform an on-demand authorization check. Throw an authorization exception if the condition or callback is false.
+         *
+         * @param \Illuminate\Auth\Access\Response|\Closure|bool $condition
+         * @param string|null $message
+         * @param string|null $code
+         * @return \Illuminate\Auth\Access\Response 
+         * @throws \Illuminate\Auth\Access\AuthorizationException
+         * @static 
+         */ 
+        public static function allowIf($condition, $message = null, $code = null)
+        {
+                        /** @var \Illuminate\Auth\Access\Gate $instance */
+                        return $instance->allowIf($condition, $message, $code);
+        }
+                    /**
+         * Perform an on-demand authorization check. Throw an authorization exception if the condition or callback is true.
+         *
+         * @param \Illuminate\Auth\Access\Response|\Closure|bool $condition
+         * @param string|null $message
+         * @param string|null $code
+         * @return \Illuminate\Auth\Access\Response 
+         * @throws \Illuminate\Auth\Access\AuthorizationException
+         * @static 
+         */ 
+        public static function denyIf($condition, $message = null, $code = null)
+        {
+                        /** @var \Illuminate\Auth\Access\Gate $instance */
+                        return $instance->denyIf($condition, $message, $code);
         }
                     /**
          * Define a new ability.
@@ -7154,6 +7342,16 @@
                         return \Illuminate\Http\Client\Factory::hasMacro($name);
         }
                     /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {
+                        \Illuminate\Http\Client\Factory::flushMacros();
+        }
+                    /**
          * Dynamically handle calls to the class.
          *
          * @param string $method
@@ -7415,6 +7613,17 @@
                         $instance->setParsedKey($key, $parsed);
         }
                     /**
+         * Flush the cache of parsed keys.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushParsedKeys()
+        {            //Method inherited from \Illuminate\Support\NamespacedItemResolver         
+                        /** @var \Illuminate\Translation\Translator $instance */
+                        $instance->flushParsedKeys();
+        }
+                    /**
          * Register a custom macro.
          *
          * @param string $name
@@ -7450,6 +7659,16 @@
         {
                         return \Illuminate\Translation\Translator::hasMacro($name);
         }
+                    /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {
+                        \Illuminate\Translation\Translator::flushMacros();
+        }
          
     }
             /**
@@ -7462,6 +7681,18 @@
      * @see \Illuminate\Log\Logger
      */ 
         class Log {
+                    /**
+         * Build an on-demand log channel.
+         *
+         * @param array $config
+         * @return \Psr\Log\LoggerInterface 
+         * @static 
+         */ 
+        public static function build($config)
+        {
+                        /** @var \Illuminate\Log\LogManager $instance */
+                        return $instance->build($config);
+        }
                     /**
          * Create a new, on-demand aggregate logger instance.
          *
@@ -7500,20 +7731,9 @@
                         return $instance->driver($driver);
         }
                     /**
-         * 
-         *
-         * @return array 
-         * @static 
-         */ 
-        public static function getChannels()
-        {
-                        /** @var \Illuminate\Log\LogManager $instance */
-                        return $instance->getChannels();
-        }
-                    /**
          * Get the default log driver name.
          *
-         * @return string 
+         * @return string|null 
          * @static 
          */ 
         public static function getDefaultDriver()
@@ -7557,6 +7777,17 @@
         {
                         /** @var \Illuminate\Log\LogManager $instance */
                         return $instance->forgetChannel($driver);
+        }
+                    /**
+         * Get all of the resolved log channels.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getChannels()
+        {
+                        /** @var \Illuminate\Log\LogManager $instance */
+                        return $instance->getChannels();
         }
                     /**
          * System is unusable.
@@ -7692,6 +7923,10 @@
             /**
      * 
      *
+     * @method static void alwaysFrom(string $address, string|null $name = null)
+     * @method static void alwaysReplyTo(string $address, string|null $name = null)
+     * @method static void alwaysReturnPath(string $address)
+     * @method static void alwaysTo(string $address, string|null $name = null)
      * @method static mixed laterOn(string $queue, \DateTimeInterface|\DateInterval|int $delay, \Illuminate\Contracts\Mail\Mailable|string|array $view)
      * @method static mixed queueOn(string $queue, \Illuminate\Contracts\Mail\Mailable|string|array $view)
      * @method static void plain(string $view, array $data, $callback)
@@ -8221,6 +8456,20 @@
                         return $instance->forgetDrivers();
         }
                     /**
+         * Assert if a notification was sent on-demand based on a truth-test callback.
+         *
+         * @param string|\Closure $notification
+         * @param callable|null $callback
+         * @return void 
+         * @throws \Exception
+         * @static 
+         */ 
+        public static function assertSentOnDemand($notification, $callback = null)
+        {
+                        /** @var \Illuminate\Support\Testing\Fakes\NotificationFake $instance */
+                        $instance->assertSentOnDemand($notification, $callback);
+        }
+                    /**
          * Assert if a notification was sent based on a truth-test callback.
          *
          * @param mixed $notifiable
@@ -8234,6 +8483,19 @@
         {
                         /** @var \Illuminate\Support\Testing\Fakes\NotificationFake $instance */
                         $instance->assertSentTo($notifiable, $notification, $callback);
+        }
+                    /**
+         * Assert if a notification was sent on-demand a number of times.
+         *
+         * @param string $notification
+         * @param int $times
+         * @return void 
+         * @static 
+         */ 
+        public static function assertSentOnDemandTimes($notification, $times = 1)
+        {
+                        /** @var \Illuminate\Support\Testing\Fakes\NotificationFake $instance */
+                        $instance->assertSentOnDemandTimes($notification, $times);
         }
                     /**
          * Assert if a notification was sent a number of times.
@@ -8278,9 +8540,23 @@
                     /**
          * Assert the total amount of times a notification was sent.
          *
+         * @param string $notification
+         * @param int $expectedCount
+         * @return void 
+         * @static 
+         */ 
+        public static function assertSentTimes($notification, $expectedCount)
+        {
+                        /** @var \Illuminate\Support\Testing\Fakes\NotificationFake $instance */
+                        $instance->assertSentTimes($notification, $expectedCount);
+        }
+                    /**
+         * Assert the total amount of times a notification was sent.
+         *
          * @param int $expectedCount
          * @param string $notification
          * @return void 
+         * @deprecated Use the assertSentTimes method instead
          * @static 
          */ 
         public static function assertTimesSent($expectedCount, $notification)
@@ -8350,6 +8626,16 @@
         public static function hasMacro($name)
         {
                         return \Illuminate\Support\Testing\Fakes\NotificationFake::hasMacro($name);
+        }
+                    /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {
+                        \Illuminate\Support\Testing\Fakes\NotificationFake::flushMacros();
         }
          
     }
@@ -8708,7 +8994,7 @@
                     /**
          * Push a new job onto the queue.
          *
-         * @param string $job
+         * @param string|object $job
          * @param mixed $data
          * @param string|null $queue
          * @return mixed 
@@ -8737,7 +9023,7 @@
          * Push a new job onto the queue after a delay.
          *
          * @param \DateTimeInterface|\DateInterval|int $delay
-         * @param string $job
+         * @param string|object $job
          * @param mixed $data
          * @param string|null $queue
          * @return mixed 
@@ -8752,7 +9038,7 @@
          * Push a new job onto the queue.
          *
          * @param string $queue
-         * @param string $job
+         * @param string|object $job
          * @param mixed $data
          * @return mixed 
          * @static 
@@ -8767,7 +9053,7 @@
          *
          * @param string $queue
          * @param \DateTimeInterface|\DateInterval|int $delay
-         * @param string $job
+         * @param string|object $job
          * @param mixed $data
          * @return mixed 
          * @static 
@@ -9129,6 +9415,18 @@
                         /** @var \Illuminate\Cache\RateLimiter $instance */
                         return $instance->availableIn($key);
         }
+                    /**
+         * Clean the rate limiter key from unicode characters.
+         *
+         * @param string $key
+         * @return string 
+         * @static 
+         */ 
+        public static function cleanRateLimiterKey($key)
+        {
+                        /** @var \Illuminate\Cache\RateLimiter $instance */
+                        return $instance->cleanRateLimiterKey($key);
+        }
          
     }
             /**
@@ -9381,6 +9679,16 @@
         public static function hasMacro($name)
         {
                         return \Illuminate\Routing\Redirector::hasMacro($name);
+        }
+                    /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {
+                        \Illuminate\Routing\Redirector::flushMacros();
         }
          
     }
@@ -9652,6 +9960,18 @@
                         return $instance->merge($input);
         }
                     /**
+         * Merge new input into the request's input, but only when that key is missing from the request.
+         *
+         * @param array $input
+         * @return \Illuminate\Http\Request 
+         * @static 
+         */ 
+        public static function mergeIfMissing($input)
+        {
+                        /** @var \Illuminate\Http\Request $instance */
+                        return $instance->mergeIfMissing($input);
+        }
+                    /**
          * Replace the input for the current request.
          *
          * @param array $input
@@ -9717,6 +10037,7 @@
                     /**
          * Clones a request and overrides some of its parameters.
          *
+         * @return static 
          * @param array $query The GET parameters
          * @param array $request The POST parameters
          * @param array $attributes The request attributes (parameters parsed from the PATH_INFO, ...)
@@ -10012,7 +10333,7 @@
                     /**
          * Gets the list of trusted proxies.
          *
-         * @return array An array of trusted proxies
+         * @return array 
          * @static 
          */ 
         public static function getTrustedProxies()
@@ -10044,7 +10365,7 @@
                     /**
          * Gets the list of trusted host patterns.
          *
-         * @return array An array of trusted host patterns
+         * @return array 
          * @static 
          */ 
         public static function getTrustedHosts()
@@ -10057,7 +10378,7 @@
          * It builds a normalized query string, where keys/value pairs are alphabetized,
          * have consistent escaping and unneeded delimiters are removed.
          *
-         * @return string A normalized query string for the Request
+         * @return string 
          * @static 
          */ 
         public static function normalizeQueryString($qs)
@@ -10084,7 +10405,7 @@
                     /**
          * Checks whether support for the _method request parameter is enabled.
          *
-         * @return bool True when the _method request parameter is enabled, false otherwise
+         * @return bool 
          * @static 
          */ 
         public static function getHttpMethodParameterOverride()
@@ -10110,7 +10431,8 @@
          * like whether the session is started or not. It is just a way to check if this Request
          * is associated with a Session instance.
          *
-         * @return bool true when the Request contains a Session object, false otherwise
+         * @param bool $skipIfUninitialized When true, ignores factories injected by `setSessionFactory`
+         * @return bool 
          * @static 
          */ 
         public static function hasSession()
@@ -10132,6 +10454,7 @@
          * 
          *
          * @internal 
+         * @param \Symfony\Component\HttpFoundation\callable():  SessionInterface $factory
          * @static 
          */ 
         public static function setSessionFactory($factory)
@@ -10148,7 +10471,7 @@
          * 
          * Use this method carefully; you should use getClientIp() instead.
          *
-         * @return array The client IP addresses
+         * @return array 
          * @see getClientIp()
          * @static 
          */ 
@@ -10170,7 +10493,7 @@
          * ("Client-Ip" for instance), configure it via the $trustedHeaderSet
          * argument of the Request::setTrustedProxies() method instead.
          *
-         * @return string|null The client IP address
+         * @return string|null 
          * @see getClientIps()
          * @see https://wikipedia.org/wiki/X-Forwarded-For
          * @static 
@@ -10264,7 +10587,7 @@
          * 
          * The "X-Forwarded-Port" header must contain the client port.
          *
-         * @return int|string can be a string if fetched from the server bag
+         * @return int|string|null Can be a string if fetched from the server bag
          * @static 
          */ 
         public static function getPort()
@@ -10297,7 +10620,7 @@
                     /**
          * Gets the user info.
          *
-         * @return string A user name and, optionally, scheme-specific information about how to gain authorization to access the server
+         * @return string|null A user name if any and, optionally, scheme-specific information about how to gain authorization to access the server
          * @static 
          */ 
         public static function getUserInfo()
@@ -10335,7 +10658,7 @@
          * If the URL was called with basic authentication, the user
          * and the password are not added to the generated string.
          *
-         * @return string The scheme and HTTP host
+         * @return string 
          * @static 
          */ 
         public static function getSchemeAndHttpHost()
@@ -10346,7 +10669,7 @@
                     /**
          * Generates a normalized URI (URL) for the Request.
          *
-         * @return string A normalized URI (URL) for the Request
+         * @return string 
          * @see getQueryString()
          * @static 
          */ 
@@ -10359,7 +10682,7 @@
          * Generates a normalized URI for the given path.
          *
          * @param string $path A path to use instead of the current one
-         * @return string The normalized URI for the path
+         * @return string 
          * @static 
          */ 
         public static function getUriForPath($path)
@@ -10382,7 +10705,7 @@
          * - "/a/b/c/other" -> "other"
          * - "/a/x/y"       -> "../../x/y"
          *
-         * @return string The relative target path
+         * @return string 
          * @static 
          */ 
         public static function getRelativeUriForPath($path)
@@ -10396,7 +10719,7 @@
          * It builds a normalized query string, where keys/value pairs are alphabetized
          * and have consistent escaping.
          *
-         * @return string|null A normalized query string for the Request
+         * @return string|null 
          * @static 
          */ 
         public static function getQueryString()
@@ -10458,7 +10781,7 @@
          * 
          * The method is always an uppercased string.
          *
-         * @return string The request method
+         * @return string 
          * @see getRealMethod()
          * @static 
          */ 
@@ -10470,7 +10793,7 @@
                     /**
          * Gets the "real" request method.
          *
-         * @return string The request method
+         * @return string 
          * @see getMethod()
          * @static 
          */ 
@@ -10482,7 +10805,7 @@
                     /**
          * Gets the mime type associated with the format.
          *
-         * @return string|null The associated mime type (null if not found)
+         * @return string|null 
          * @static 
          */ 
         public static function getMimeType($format)
@@ -10493,7 +10816,7 @@
                     /**
          * Gets the mime types associated with the format.
          *
-         * @return array The associated mime types
+         * @return array 
          * @static 
          */ 
         public static function getMimeTypes($format)
@@ -10503,7 +10826,7 @@
                     /**
          * Gets the format associated with the mime type.
          *
-         * @return string|null The format (null if not found)
+         * @return string|null 
          * @static 
          */ 
         public static function getFormat($mimeType)
@@ -10532,7 +10855,7 @@
          *  * $default
          *
          * @see getPreferredFormat
-         * @return string|null The request format
+         * @return string|null 
          * @static 
          */ 
         public static function getRequestFormat($default = 'html')
@@ -10553,7 +10876,7 @@
                     /**
          * Gets the format associated with the request.
          *
-         * @return string|null The format (null if no content type is present)
+         * @return string|null 
          * @static 
          */ 
         public static function getContentType()
@@ -10642,7 +10965,7 @@
          * Checks whether the method is cacheable or not.
          *
          * @see https://tools.ietf.org/html/rfc7231#section-4.2.3
-         * @return bool True for GET and HEAD, false otherwise
+         * @return bool 
          * @static 
          */ 
         public static function isMethodCacheable()
@@ -10671,7 +10994,7 @@
          * Returns the request body content.
          *
          * @param bool $asResource If true, a resource will be returned
-         * @return string|resource The request body content or a resource to read the body stream
+         * @return string|resource 
          * @static 
          */ 
         public static function getContent($asResource = false)
@@ -10682,7 +11005,7 @@
                     /**
          * Gets the Etags.
          *
-         * @return array The entity tags
+         * @return array 
          * @static 
          */ 
         public static function getETags()
@@ -10720,7 +11043,7 @@
          * Returns the preferred language.
          *
          * @param string[] $locales An array of ordered available locales
-         * @return string|null The preferred locale
+         * @return string|null 
          * @static 
          */ 
         public static function getPreferredLanguage($locales = null)
@@ -10729,9 +11052,9 @@
                         return $instance->getPreferredLanguage($locales);
         }
                     /**
-         * Gets a list of languages acceptable by the client browser.
+         * Gets a list of languages acceptable by the client browser ordered in the user browser preferences.
          *
-         * @return array Languages ordered in the user browser preferences
+         * @return array 
          * @static 
          */ 
         public static function getLanguages()
@@ -10740,9 +11063,9 @@
                         return $instance->getLanguages();
         }
                     /**
-         * Gets a list of charsets acceptable by the client browser.
+         * Gets a list of charsets acceptable by the client browser in preferable order.
          *
-         * @return array List of charsets in preferable order
+         * @return array 
          * @static 
          */ 
         public static function getCharsets()
@@ -10751,9 +11074,9 @@
                         return $instance->getCharsets();
         }
                     /**
-         * Gets a list of encodings acceptable by the client browser.
+         * Gets a list of encodings acceptable by the client browser in preferable order.
          *
-         * @return array List of encodings in preferable order
+         * @return array 
          * @static 
          */ 
         public static function getEncodings()
@@ -10762,9 +11085,9 @@
                         return $instance->getEncodings();
         }
                     /**
-         * Gets a list of content types acceptable by the client browser.
+         * Gets a list of content types acceptable by the client browser in preferable order.
          *
-         * @return array List of content types in preferable order
+         * @return array 
          * @static 
          */ 
         public static function getAcceptableContentTypes()
@@ -10779,7 +11102,7 @@
          * It is known to work with common JavaScript frameworks:
          *
          * @see https://wikipedia.org/wiki/List_of_Ajax_frameworks#JavaScript
-         * @return bool true if the request is an XMLHttpRequest, false otherwise
+         * @return bool 
          * @static 
          */ 
         public static function isXmlHttpRequest()
@@ -10804,7 +11127,7 @@
          * This can be useful to determine whether or not to trust the
          * contents of a proxy-specific header.
          *
-         * @return bool true if the request came from a trusted proxy, false otherwise
+         * @return bool 
          * @static 
          */ 
         public static function isFromTrustedProxy()
@@ -11198,6 +11521,32 @@
                         return $instance->boolean($key, $default);
         }
                     /**
+         * Retrieve input from the request as a Carbon instance.
+         *
+         * @param string $key
+         * @param string|null $format
+         * @param string|null $tz
+         * @return \Illuminate\Support\Carbon|null 
+         * @static 
+         */ 
+        public static function date($key, $format = null, $tz = null)
+        {
+                        /** @var \Illuminate\Http\Request $instance */
+                        return $instance->date($key, $format, $tz);
+        }
+                    /**
+         * Retrieve input from the request as a collection.
+         *
+         * @param array|string|null $key
+         * @return \Illuminate\Support\Collection 
+         * @static 
+         */ 
+        public static function collect($key = null)
+        {
+                        /** @var \Illuminate\Http\Request $instance */
+                        return $instance->collect($key);
+        }
+                    /**
          * Get a subset containing the provided keys with values from the input data.
          *
          * @param array|mixed $keys
@@ -11311,7 +11660,7 @@
                     /**
          * Dump the request items and end the script.
          *
-         * @param array|mixed $keys
+         * @param mixed $keys
          * @return void 
          * @static 
          */ 
@@ -11323,7 +11672,7 @@
                     /**
          * Dump the items.
          *
-         * @param array $keys
+         * @param mixed $keys
          * @return \Illuminate\Http\Request 
          * @static 
          */ 
@@ -11367,6 +11716,16 @@
         public static function hasMacro($name)
         {
                         return \Illuminate\Http\Request::hasMacro($name);
+        }
+                    /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {
+                        \Illuminate\Http\Request::flushMacros();
         }
                     /**
          * 
@@ -11663,18 +12022,31 @@
         {
                         return \Illuminate\Routing\ResponseFactory::hasMacro($name);
         }
+                    /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {
+                        \Illuminate\Routing\ResponseFactory::flushMacros();
+        }
          
     }
             /**
      * 
      *
      * @method static \Illuminate\Routing\RouteRegistrar as(string $value)
+     * @method static \Illuminate\Routing\RouteRegistrar controller(string $controller)
      * @method static \Illuminate\Routing\RouteRegistrar domain(string $value)
      * @method static \Illuminate\Routing\RouteRegistrar middleware(array|string|null $middleware)
      * @method static \Illuminate\Routing\RouteRegistrar name(string $value)
      * @method static \Illuminate\Routing\RouteRegistrar namespace(string|null $value)
      * @method static \Illuminate\Routing\RouteRegistrar prefix(string $prefix)
+     * @method static \Illuminate\Routing\RouteRegistrar scopeBindings()
      * @method static \Illuminate\Routing\RouteRegistrar where(array $where)
+     * @method static \Illuminate\Routing\RouteRegistrar withoutMiddleware(array|string $middleware)
      * @see \Illuminate\Routing\Router
      */ 
         class Route {
@@ -12525,6 +12897,16 @@
                         return \Illuminate\Routing\Router::hasMacro($name);
         }
                     /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {
+                        \Illuminate\Routing\Router::flushMacros();
+        }
+                    /**
          * Dynamically handle calls to the class.
          *
          * @param string $method
@@ -12541,26 +12923,27 @@
                     /**
          * 
          *
+         * @see \Bfg\Emitter\EmitterServiceProvider::register()
+         * @param string $guard
+         * @static 
+         */ 
+        public static function emitter($guard = 'web')
+        {
+                        return \Illuminate\Routing\Router::emitter($guard);
+        }
+                    /**
+         * 
+         *
          * @param $dir
          * @param \Route|\RouteRegistrarIlluminate $router
          * @return \Route|\RouteRegistrarIlluminate 
+         * @throws \ReflectionException
          * @see \Bfg\Route\Core\RouteMixin::find()
          * @static 
          */ 
         public static function find($dir, $router = null)
         {
                         return \Illuminate\Routing\Router::find($dir, $router);
-        }
-                    /**
-         * 
-         *
-         * @param mixed $gets
-         * @param mixed $props
-         * @static 
-         */ 
-        public static function gets($gets, ...$props)
-        {
-                        return \Illuminate\Routing\Router::gets($gets, ...$props);
         }
          
     }
@@ -12851,8 +13234,6 @@
          * @param string $name
          * @param string $type
          * @return void 
-         * @throws \Doctrine\DBAL\DBALException
-         * @throws \RuntimeException
          * @static 
          */ 
         public static function registerCustomDoctrineType($class, $name, $type)
@@ -13729,6 +14110,18 @@
                         return $instance->extend($driver, $callback);
         }
                     /**
+         * Set the application instance used by the manager.
+         *
+         * @param \Illuminate\Contracts\Foundation\Application $app
+         * @return \Illuminate\Filesystem\FilesystemManager 
+         * @static 
+         */ 
+        public static function setApplication($app)
+        {
+                        /** @var \Illuminate\Filesystem\FilesystemManager $instance */
+                        return $instance->setApplication($app);
+        }
+                    /**
          * Assert that the given file exists.
          *
          * @param string|array $path
@@ -13835,7 +14228,7 @@
          * Write the contents of a file.
          *
          * @param string $path
-         * @param string|resource $contents
+         * @param \Psr\Http\Message\StreamInterface|\Illuminate\Http\File|\Illuminate\Http\UploadedFile|string|resource $contents
          * @param mixed $options
          * @return bool 
          * @static 
@@ -14172,6 +14565,18 @@
                         return $instance->getDriver();
         }
                     /**
+         * Define a custom temporary URL builder callback.
+         *
+         * @param \Closure $callback
+         * @return void 
+         * @static 
+         */ 
+        public static function buildTemporaryUrlsUsing($callback)
+        {
+                        /** @var \Illuminate\Filesystem\FilesystemAdapter $instance */
+                        $instance->buildTemporaryUrlsUsing($callback);
+        }
+                    /**
          * Register a custom macro.
          *
          * @param string $name
@@ -14206,6 +14611,16 @@
         public static function hasMacro($name)
         {
                         return \Illuminate\Filesystem\FilesystemAdapter::hasMacro($name);
+        }
+                    /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {
+                        \Illuminate\Filesystem\FilesystemAdapter::flushMacros();
         }
                     /**
          * Dynamically handle calls to the class.
@@ -14707,6 +15122,16 @@
         {
                         return \Illuminate\Routing\UrlGenerator::hasMacro($name);
         }
+                    /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {
+                        \Illuminate\Routing\UrlGenerator::flushMacros();
+        }
          
     }
             /**
@@ -14946,6 +15371,21 @@
         {
                         /** @var \Illuminate\View\Factory $instance */
                         return $instance->renderWhen($condition, $view, $data, $mergeData);
+        }
+                    /**
+         * Get the rendered content of the view based on the negation of a given condition.
+         *
+         * @param bool $condition
+         * @param string $view
+         * @param \Illuminate\Contracts\Support\Arrayable|array $data
+         * @param array $mergeData
+         * @return string 
+         * @static 
+         */ 
+        public static function renderUnless($condition, $view, $data = [], $mergeData = [])
+        {
+                        /** @var \Illuminate\View\Factory $instance */
+                        return $instance->renderUnless($condition, $view, $data, $mergeData);
         }
                     /**
          * Get the rendered contents of a partial from a loop.
@@ -15307,6 +15747,16 @@
                         return \Illuminate\View\Factory::hasMacro($name);
         }
                     /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {
+                        \Illuminate\View\Factory::flushMacros();
+        }
+                    /**
          * Start a component rendering process.
          *
          * @param \Illuminate\Contracts\View\View|\Illuminate\Contracts\Support\Htmlable|\Closure|string $view
@@ -15342,6 +15792,19 @@
         {
                         /** @var \Illuminate\View\Factory $instance */
                         return $instance->renderComponent();
+        }
+                    /**
+         * Get an item from the component data that exists above the current component.
+         *
+         * @param string $key
+         * @param mixed $default
+         * @return mixed|null 
+         * @static 
+         */ 
+        public static function getConsumableComponentData($key, $default = null)
+        {
+                        /** @var \Illuminate\View\Factory $instance */
+                        return $instance->getConsumableComponentData($key, $default);
         }
                     /**
          * Start the slot rendering process.
@@ -15517,7 +15980,7 @@
                         return \Illuminate\View\Factory::parentPlaceholder($section);
         }
                     /**
-         * Check if the section exists.
+         * Check if section exists.
          *
          * @param string $name
          * @return bool 
@@ -15773,11 +16236,12 @@
          * @param string $fileName
          * @param string|null $writerType
          * @param mixed $withHeadings
+         * @param array $responseHeaders
          * @static 
          */ 
-        public static function downloadExcel($fileName, $writerType = null, $withHeadings = false)
+        public static function downloadExcel($fileName, $writerType = null, $withHeadings = false, $responseHeaders = [])
         {
-                        return \Illuminate\Support\Collection::downloadExcel($fileName, $writerType, $withHeadings);
+                        return \Illuminate\Support\Collection::downloadExcel($fileName, $writerType, $withHeadings, $responseHeaders);
         }
                     /**
          * 
@@ -15792,28 +16256,6 @@
         public static function storeExcel($filePath, $disk = null, $writerType = null, $withHeadings = false)
         {
                         return \Illuminate\Support\Collection::storeExcel($filePath, $disk, $writerType, $withHeadings);
-        }
-                    /**
-         * 
-         *
-         * @param array $rules
-         * @param array $messages
-         * @static 
-         */ 
-        public static function line_validate($rules, $messages = [])
-        {
-                        return \Illuminate\Support\Collection::line_validate($rules, $messages);
-        }
-                    /**
-         * 
-         *
-         * @param array $rules
-         * @param array $messages
-         * @static 
-         */ 
-        public static function validate($rules, $messages = [])
-        {
-                        return \Illuminate\Support\Collection::validate($rules, $messages);
         }
                     /**
          * 
@@ -15837,7 +16279,7 @@
 
         namespace Lar\EntityCarrier { 
             /**
-     * Class Facade
+     * Class Facade.
      *
      * @package Lar
      */ 
@@ -15849,13 +16291,13 @@
 
     namespace Bfg\Installer { 
             /**
-     * Class Facade
+     * Class Facade.
      *
      * @package Bfg\Installer
      */ 
         class Facade {
                     /**
-         * Get all packages
+         * Get all packages.
          *
          * @return array|null 
          * @static 
@@ -15894,7 +16336,7 @@
                         return $instance->buildGeneralData($provider_name, $force);
         }
                     /**
-         * Set package property data
+         * Set package property data.
          *
          * @param string $provider_name
          * @param string $parameter
@@ -15968,7 +16410,7 @@
                         return $instance->getPackageByName($name);
         }
                     /**
-         * Get package or package data
+         * Get package or package data.
          *
          * @param string $provider_name
          * @param string|null $property_name
@@ -15982,7 +16424,7 @@
                         return $instance->getPackage($provider_name, $property_name, $default);
         }
                     /**
-         * Get extensions of package
+         * Get extensions of package.
          *
          * @param string $provider_name
          * @return array 
@@ -15994,7 +16436,7 @@
                         return $instance->getExtensions($provider_name);
         }
                     /**
-         * Update package extensions
+         * Update package extensions.
          *
          * @param string $provider_name
          * @static 
@@ -16005,7 +16447,7 @@
                         return $instance->updatePackageExtensions($provider_name);
         }
                     /**
-         * Update packages extensions
+         * Update packages extensions.
          *
          * @static 
          */ 
@@ -16015,7 +16457,7 @@
                         return $instance->updatePackagesExtensions();
         }
                     /**
-         * Dump all packages data
+         * Dump all packages data.
          *
          * @static 
          */ 
@@ -16025,7 +16467,7 @@
                         return $instance->dump();
         }
                     /**
-         * Get collection of the packages
+         * Get collection of the packages.
          *
          * @return \Illuminate\Support\Collection 
          * @static 
@@ -16042,13 +16484,13 @@
 
     namespace Bfg\Route { 
             /**
-     * Class Facade
+     * Class Facade.
      *
      * @package Bfg\Layout
      */ 
         class Facade {
                     /**
-         * Find routers in controller classes
+         * Find routers in controller classes.
          *
          * @param string $path Path for search attributes, you can use class namespaces, directories and file paths
          * @param \Illuminate\Routing\RouteRegistrar $registrar
@@ -16422,115 +16864,69 @@
      
 }
 
-    namespace Lar\Developer { 
-            /**
-     * Class Facade
-     *
-     * @package Lar
-     */ 
-        class Facade {
-                    /**
-         * 
-         *
-         * @param $ee_model
-         * @return bool|mixed 
-         * @static 
-         */ 
-        public static function _dump_model($ee_model)
-        {
-                        return \Lar\Developer\Developer::_dump_model($ee_model);
-        }
-                    /**
-         * 
-         *
-         * @param $ee_model
-         * @param $model
-         * @static 
-         */ 
-        public static function _dump_add($ee_model, $model)
-        {
-                        return \Lar\Developer\Developer::_dump_add($ee_model, $model);
-        }
-         
-    }
-            /**
-     * Class Facade
-     *
-     * @package Lar
-     */ 
-        class GetFacade {
-                    /**
-         * 
-         *
-         * @param string $name
-         * @throws Exception
-         * @return bool 
-         * @static 
-         */ 
-        public static function create($name = '*')
-        {
-                        /** @var \Lar\Developer\GetInstance $instance */
-                        return $instance->create($name);
-        }
-                    /**
-         * Register a new getter
-         *
-         * @param string $class
-         * @param string|null $name
-         * @return bool 
-         * @throws Exception
-         * @static 
-         */ 
-        public static function register($class, $name = null)
-        {
-                        /** @var \Lar\Developer\GetInstance $instance */
-                        return $instance->register($class, $name);
-        }
-                    /**
-         * 
-         *
-         * @return \Lar\Developer\GetterCollect|\Illuminate\Contracts\Foundation\Application|mixed|null 
-         * @static 
-         */ 
-        public static function items()
-        {
-                        /** @var \Lar\Developer\GetInstance $instance */
-                        return $instance->items();
-        }
-                    /**
-         * 
-         *
-         * @return array 
-         * @static 
-         */ 
-        public static function list()
-        {
-                        /** @var \Lar\Developer\GetInstance $instance */
-                        return $instance->list();
-        }
-                    /**
-         * 
-         *
-         * @return array 
-         * @static 
-         */ 
-        public static function access_list()
-        {
-                        /** @var \Lar\Developer\GetInstance $instance */
-                        return $instance->access_list();
-        }
-         
-    }
-     
-}
-
     namespace Lar\Layout { 
             /**
-     * Class Facade
+     * Class Facade.
      *
      * @package Lar
      */ 
         class Facade {
+                    /**
+         * Registration component.
+         *
+         * @param string $name
+         * @param \Closure|array|string $component
+         * @throws Exception
+         * @static 
+         */ 
+        public static function registerComponent($name, $component)
+        {
+                        return \Lar\Layout\Layout::registerComponent($name, $component);
+        }
+                    /**
+         * Check has component or not.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasComponent($name)
+        {
+                        return \Lar\Layout\Layout::hasComponent($name);
+        }
+                    /**
+         * Inject collection from file.
+         *
+         * @param $file
+         * @throws Exception
+         * @static 
+         */ 
+        public static function injectFile($file)
+        {
+                        return \Lar\Layout\Layout::injectFile($file);
+        }
+                    /**
+         * Inject collection in to component collection.
+         *
+         * @param array $collection
+         * @static 
+         */ 
+        public static function injectCollection($collection = [])
+        {
+                        return \Lar\Layout\Layout::injectCollection($collection);
+        }
+                    /**
+         * Component getter.
+         *
+         * @param string $name
+         * @return mixed 
+         * @throws Exception
+         * @static 
+         */ 
+        public static function getComponent($name)
+        {
+                        return \Lar\Layout\Layout::getComponent($name);
+        }
                     /**
          * 
          *
@@ -16543,63 +16939,7 @@
                         return $instance->current();
         }
                     /**
-         * Registration component
-         *
-         * @param string $name
-         * @param \Closure|array|string $component
-         * @throws \Exception
-         * @static 
-         */ 
-        public static function registerComponent($name, $component)
-        {
-                        return \Lar\Layout\Layout::registerComponent($name, $component);
-        }
-                    /**
-         * Check has component or not
-         *
-         * @param string $name
-         * @return bool 
-         * @static 
-         */ 
-        public static function hasComponent($name)
-        {
-                        return \Lar\Layout\Layout::hasComponent($name);
-        }
-                    /**
-         * Inject collection from file
-         *
-         * @param $file
-         * @throws \Exception
-         * @static 
-         */ 
-        public static function injectFile($file)
-        {
-                        return \Lar\Layout\Layout::injectFile($file);
-        }
-                    /**
-         * Inject collection in to component collection
-         *
-         * @param array $collection
-         * @static 
-         */ 
-        public static function injectCollection($collection = [])
-        {
-                        return \Lar\Layout\Layout::injectCollection($collection);
-        }
-                    /**
-         * Component getter
-         *
-         * @param string $name
-         * @return mixed 
-         * @throws \Exception
-         * @static 
-         */ 
-        public static function getComponent($name)
-        {
-                        return \Lar\Layout\Layout::getComponent($name);
-        }
-                    /**
-         * Get request lang
+         * Get request lang.
          *
          * @return array|string|null 
          * @static 
@@ -16611,18 +16951,27 @@
         }
          
     }
+            /**
+     * Class Respond.
+     *
+     * @package Lar\Layout
+     * @mixin RespondDoc
+     */ 
+        class Respond {
+         
+    }
      
 }
 
     namespace Lar\LJS { 
             /**
-     * Class Facade
+     * Class Facade.
      *
      * @package Lar
      */ 
         class Facade {
                     /**
-         * Insert row
+         * Insert row.
          *
          * @param $data
          * @return \Lar\LJS\LJS 
@@ -16634,7 +16983,7 @@
                         return $instance->row($data);
         }
                     /**
-         * Create event
+         * Create event.
          *
          * @param $event
          * @param $selector
@@ -16648,7 +16997,74 @@
                         return $instance->on($event, $selector, $data);
         }
                     /**
-         * Declare default state
+         * Get the evaluated contents of the object.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function render()
+        {
+                        /** @var \Lar\LJS\LJS $instance */
+                        return $instance->render();
+        }
+                    /**
+         * Render variables.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function renderVariables()
+        {
+                        /** @var \Lar\LJS\LJS $instance */
+                        return $instance->renderVariables();
+        }
+                    /**
+         * 
+         *
+         * @param $variable
+         * @return false|string 
+         * @static 
+         */ 
+        public static function paramEntity($variable)
+        {
+                        /** @var \Lar\LJS\LJS $instance */
+                        return $instance->paramEntity($variable);
+        }
+                    /**
+         * Render lines.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function renderLines()
+        {
+                        /** @var \Lar\LJS\LJS $instance */
+                        return $instance->renderLines();
+        }
+                    /**
+         * Render Events.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function renderEvents()
+        {
+                        /** @var \Lar\LJS\LJS $instance */
+                        return $instance->renderEvents();
+        }
+                    /**
+         * Clear global instance.
+         *
+         * @return \Lar\LJS\LJS 
+         * @static 
+         */ 
+        public static function clear()
+        {
+                        /** @var \Lar\LJS\LJS $instance */
+                        return $instance->clear();
+        }
+                    /**
+         * Declare default state.
          *
          * @param string $name
          * @param $value
@@ -16661,7 +17077,20 @@
                         return $instance->state($name, $value);
         }
                     /**
-         * Add variable in to list
+         * Add line JS core.
+         *
+         * @param string $data
+         * @param null $key
+         * @return \Lar\LJS\LJS 
+         * @static 
+         */ 
+        public static function line($data = '', $key = null)
+        {
+                        /** @var \Lar\LJS\LJS $instance */
+                        return $instance->line($data, $key);
+        }
+                    /**
+         * Add variable in to list.
          *
          * @param $static
          * @param $name
@@ -16675,7 +17104,7 @@
                         return $instance->var($name, $value);
         }
                     /**
-         * Set group
+         * Set group.
          *
          * @param string $static
          * @return \Lar\LJS\LJS 
@@ -16685,19 +17114,6 @@
         {
                         /** @var \Lar\LJS\LJS $instance */
                         return $instance->group($static);
-        }
-                    /**
-         * Add line JS core
-         *
-         * @param string $data
-         * @param null $key
-         * @return \Lar\LJS\LJS 
-         * @static 
-         */ 
-        public static function line($data = '', $key = null)
-        {
-                        /** @var \Lar\LJS\LJS $instance */
-                        return $instance->line($data, $key);
         }
                     /**
          * 
@@ -16712,7 +17128,7 @@
                         return $instance->removeLine($key);
         }
                     /**
-         * Create exec
+         * Create exec.
          *
          * @param array|string $data
          * @param null $params
@@ -16736,7 +17152,7 @@
                         return $instance->respond();
         }
                     /**
-         * Created declare
+         * Created declare.
          *
          * @param $tag
          * @param $name
@@ -16748,73 +17164,6 @@
         {
                         /** @var \Lar\LJS\LJS $instance */
                         return $instance->declare($tag, $name, $data);
-        }
-                    /**
-         * Render variables
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function renderVariables()
-        {
-                        /** @var \Lar\LJS\LJS $instance */
-                        return $instance->renderVariables();
-        }
-                    /**
-         * 
-         *
-         * @param $variable
-         * @return false|string 
-         * @static 
-         */ 
-        public static function paramEntity($variable)
-        {
-                        /** @var \Lar\LJS\LJS $instance */
-                        return $instance->paramEntity($variable);
-        }
-                    /**
-         * Render Events
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function renderEvents()
-        {
-                        /** @var \Lar\LJS\LJS $instance */
-                        return $instance->renderEvents();
-        }
-                    /**
-         * Render lines
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function renderLines()
-        {
-                        /** @var \Lar\LJS\LJS $instance */
-                        return $instance->renderLines();
-        }
-                    /**
-         * Get the evaluated contents of the object.
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function render()
-        {
-                        /** @var \Lar\LJS\LJS $instance */
-                        return $instance->render();
-        }
-                    /**
-         * Clear global instance
-         *
-         * @return \Lar\LJS\LJS 
-         * @static 
-         */ 
-        public static function clear()
-        {
-                        /** @var \Lar\LJS\LJS $instance */
-                        return $instance->clear();
         }
                     /**
          * 
@@ -16834,22 +17183,21 @@
      
 }
 
-    namespace Lar\LteAdmin\Facades { 
+    namespace LteAdmin\Facades { 
             /**
-     * Class Facade
+     * 
      *
-     * @package Lar
      */ 
         class LteAdminFacade {
                     /**
          * 
          *
-         * @return \Lar\LteAdmin\Models\LteUser|\App\Models\User|\App\Models\Admin 
+         * @return \LteAdmin\Models\LteUser|\App\Models\User|\App\Models\Admin 
          * @static 
          */ 
         public static function user()
         {
-                        /** @var \Lar\LteAdmin\LteAdmin $instance */
+                        /** @var \LteAdmin\LteAdmin $instance */
                         return $instance->user();
         }
                     /**
@@ -16860,7 +17208,7 @@
          */ 
         public static function guest()
         {
-                        /** @var \Lar\LteAdmin\LteAdmin $instance */
+                        /** @var \LteAdmin\LteAdmin $instance */
                         return $instance->guest();
         }
                     /**
@@ -16871,8 +17219,22 @@
          */ 
         public static function version()
         {
-                        /** @var \Lar\LteAdmin\LteAdmin $instance */
+                        /** @var \LteAdmin\LteAdmin $instance */
                         return $instance->version();
+        }
+                    /**
+         * 
+         *
+         * @param string $component
+         * @param array $params
+         * @param bool $prepend
+         * @return \LteAdmin\LteAdmin 
+         * @static 
+         */ 
+        public static function toWrapper($component, $params = [], $prepend = false)
+        {
+                        /** @var \LteAdmin\LteAdmin $instance */
+                        return $instance->toWrapper($component, $params, $prepend);
         }
                     /**
          * 
@@ -16880,12 +17242,12 @@
          * @param string $segment
          * @param string $component
          * @param array $params
-         * @return \Lar\LteAdmin\LteAdmin 
+         * @return \LteAdmin\LteAdmin 
          * @static 
          */ 
         public static function toSegment($segment, $component, $params = [])
         {
-                        /** @var \Lar\LteAdmin\LteAdmin $instance */
+                        /** @var \LteAdmin\LteAdmin $instance */
                         return $instance->toSegment($segment, $component, $params);
         }
                     /**
@@ -16894,26 +17256,12 @@
          * @param string $component
          * @param array $params
          * @param bool $prepend
-         * @return \Lar\LteAdmin\LteAdmin 
-         * @static 
-         */ 
-        public static function toWrapper($component, $params = [], $prepend = false)
-        {
-                        /** @var \Lar\LteAdmin\LteAdmin $instance */
-                        return $instance->toWrapper($component, $params, $prepend);
-        }
-                    /**
-         * 
-         *
-         * @param string $component
-         * @param array $params
-         * @param bool $prepend
-         * @return \Lar\LteAdmin\LteAdmin 
+         * @return \LteAdmin\LteAdmin 
          * @static 
          */ 
         public static function toContent($component, $params = [], $prepend = false)
         {
-                        /** @var \Lar\LteAdmin\LteAdmin $instance */
+                        /** @var \LteAdmin\LteAdmin $instance */
                         return $instance->toContent($component, $params, $prepend);
         }
                     /**
@@ -16925,54 +17273,54 @@
          */ 
         public static function getSegments($segment)
         {
-                        /** @var \Lar\LteAdmin\LteAdmin $instance */
+                        /** @var \LteAdmin\LteAdmin $instance */
                         return $instance->getSegments($segment);
         }
                     /**
          * 
          *
-         * @param \Lar\LteAdmin\ExtendProvider $provider
-         * @throws \Exception
+         * @param \LteAdmin\ExtendProvider $provider
+         * @throws Exception
          * @static 
          */ 
         public static function registerExtension($provider)
         {
-                        /** @var \Lar\LteAdmin\LteAdmin $instance */
+                        /** @var \LteAdmin\LteAdmin $instance */
                         return $instance->registerExtension($provider);
         }
                     /**
          * 
          *
          * @param string $name
-         * @return bool|\Lar\LteAdmin\ExtendProvider 
+         * @return bool|\LteAdmin\ExtendProvider 
          * @static 
          */ 
         public static function extension($name)
         {
-                        /** @var \Lar\LteAdmin\LteAdmin $instance */
+                        /** @var \LteAdmin\LteAdmin $instance */
                         return $instance->extension($name);
         }
                     /**
          * 
          *
-         * @return \Lar\LteAdmin\ExtendProvider[] 
+         * @return \LteAdmin\ExtendProvider[] 
          * @static 
          */ 
         public static function extensions()
         {
-                        /** @var \Lar\LteAdmin\LteAdmin $instance */
+                        /** @var \LteAdmin\LteAdmin $instance */
                         return $instance->extensions();
         }
                     /**
          * 
          *
          * @param string $name
-         * @return \Lar\LteAdmin\ExtendProvider|null 
+         * @return \LteAdmin\ExtendProvider|null 
          * @static 
          */ 
         public static function getExtension($name)
         {
-                        /** @var \Lar\LteAdmin\LteAdmin $instance */
+                        /** @var \LteAdmin\LteAdmin $instance */
                         return $instance->getExtension($name);
         }
                     /**
@@ -16983,38 +17331,37 @@
          */ 
         public static function extensionProviders()
         {
-                        /** @var \Lar\LteAdmin\LteAdmin $instance */
+                        /** @var \LteAdmin\LteAdmin $instance */
                         return $instance->extensionProviders();
         }
          
     }
             /**
-     * Class Facade
+     * 
      *
-     * @package Lar
      */ 
         class NavigateFacade {
                     /**
          * 
          *
          * @param \Closure|array $calls
-         * @return \Lar\LteAdmin\Navigate 
+         * @return \LteAdmin\Navigate 
          * @static 
          */ 
         public static function do(...$calls)
         {
-                        return \Lar\LteAdmin\Navigate::do(...$calls);
+                        return \LteAdmin\Navigate::do(...$calls);
         }
                     /**
          * 
          *
          * @param string $title
-         * @return \Lar\LteAdmin\Navigate 
+         * @return \LteAdmin\Navigate 
          * @static 
          */ 
         public static function menu_header($title)
         {
-                        /** @var \Lar\LteAdmin\Navigate $instance */
+                        /** @var \LteAdmin\Navigate $instance */
                         return $instance->menu_header($title);
         }
                     /**
@@ -17023,12 +17370,12 @@
          * @param string $view
          * @param array $params
          * @param bool $prepend
-         * @return \Lar\LteAdmin\Navigate 
+         * @return \LteAdmin\Navigate 
          * @static 
          */ 
         public static function nav_bar_view($view, $params = [], $prepend = false)
         {
-                        /** @var \Lar\LteAdmin\Navigate $instance */
+                        /** @var \LteAdmin\Navigate $instance */
                         return $instance->nav_bar_view($view, $params, $prepend);
         }
                     /**
@@ -17036,12 +17383,12 @@
          *
          * @param string $view
          * @param array $params
-         * @return \Lar\LteAdmin\Navigate 
+         * @return \LteAdmin\Navigate 
          * @static 
          */ 
         public static function left_nav_bar_view($view, $params = [])
         {
-                        /** @var \Lar\LteAdmin\Navigate $instance */
+                        /** @var \LteAdmin\Navigate $instance */
                         return $instance->left_nav_bar_view($view, $params);
         }
                     /**
@@ -17050,12 +17397,12 @@
          * @param string|null $title
          * @param string|null|\Closure|array $route
          * @param \Closure|array|null $cb
-         * @return \Lar\LteAdmin\Core\NavGroup 
+         * @return \LteAdmin\Core\NavGroup 
          * @static 
          */ 
         public static function group($title = null, $route = null, $cb = null)
         {
-                        /** @var \Lar\LteAdmin\Navigate $instance */
+                        /** @var \LteAdmin\Navigate $instance */
                         return $instance->group($title, $route, $cb);
         }
                     /**
@@ -17064,12 +17411,12 @@
          * @param string|null $title
          * @param string|null $route
          * @param string|\Closure|array|null $action
-         * @return \Lar\LteAdmin\Core\NavItem 
+         * @return \LteAdmin\Core\NavItem 
          * @static 
          */ 
         public static function item($title = null, $route = null, $action = null)
         {
-                        /** @var \Lar\LteAdmin\Navigate $instance */
+                        /** @var \LteAdmin\Navigate $instance */
                         return $instance->item($title, $route, $action);
         }
                     /**
@@ -17080,7 +17427,7 @@
          */ 
         public static function get()
         {
-                        /** @var \Lar\LteAdmin\Navigate $instance */
+                        /** @var \LteAdmin\Navigate $instance */
                         return $instance->get();
         }
                     /**
@@ -17091,7 +17438,7 @@
          */ 
         public static function getMaked()
         {
-                        /** @var \Lar\LteAdmin\Navigate $instance */
+                        /** @var \LteAdmin\Navigate $instance */
                         return $instance->getMaked();
         }
                     /**
@@ -17100,107 +17447,128 @@
          * @param string $channel
          * @param callable|string $callback
          * @param array $options
-         * @return \Lar\LteAdmin\Navigate 
+         * @return \LteAdmin\Navigate 
          * @static 
          */ 
         public static function channel($channel, $callback, $options = [])
         {
-                        /** @var \Lar\LteAdmin\Navigate $instance */
+                        /** @var \LteAdmin\Navigate $instance */
                         return $instance->channel($channel, $callback, $options);
         }
                     /**
          * 
          *
-         * @return \Lar\LteAdmin\Navigate 
+         * @return \LteAdmin\Navigate 
          * @static 
          */ 
         public static function instance()
         {
-                        /** @var \Lar\LteAdmin\Navigate $instance */
+                        /** @var \LteAdmin\Navigate $instance */
                         return $instance->instance();
         }
                     /**
-         * Make auto default tools
+         * Make auto default tools.
          *
-         * @return \Lar\LteAdmin\Navigate 
+         * @return \LteAdmin\Navigate 
          * @static 
          */ 
         public static function makeDefaults()
         {
-                        /** @var \Lar\LteAdmin\Navigate $instance */
+                        /** @var \LteAdmin\Navigate $instance */
                         return $instance->makeDefaults();
         }
                     /**
-         * Make default administration group
+         * Make default administration group.
          *
          * @param \Closure|array $call
-         * @return \Lar\LteAdmin\Core\NavGroup 
+         * @return \LteAdmin\Core\NavGroup 
          * @static 
          */ 
         public static function lteAdministrationGroup($call)
         {
-                        /** @var \Lar\LteAdmin\Navigate $instance */
+                        /** @var \LteAdmin\Navigate $instance */
                         return $instance->lteAdministrationGroup($call);
         }
                     /**
-         * Make administrator list tool
+         * Make administrator list tool.
          *
          * @param string|null $action
-         * @return \Lar\LteAdmin\Core\NavItem 
+         * @return \LteAdmin\Core\NavItem 
          * @static 
          */ 
         public static function lteAdministrators($action = null)
         {
-                        /** @var \Lar\LteAdmin\Navigate $instance */
+                        /** @var \LteAdmin\Navigate $instance */
                         return $instance->lteAdministrators($action);
         }
                     /**
-         * Make default access group
-         *
-         * @param \Closure|array $call
-         * @return \Lar\LteAdmin\Core\NavGroup 
-         * @static 
-         */ 
-        public static function lteAccessGroup($call)
-        {
-                        /** @var \Lar\LteAdmin\Navigate $instance */
-                        return $instance->lteAccessGroup($call);
-        }
-                    /**
-         * Make roles list tool
+         * Make roles list tool.
          *
          * @param string|null $action
-         * @return \Lar\LteAdmin\Core\NavItem 
+         * @return \LteAdmin\Core\NavItem 
          * @static 
          */ 
         public static function lteRoles($action = null)
         {
-                        /** @var \Lar\LteAdmin\Navigate $instance */
+                        /** @var \LteAdmin\Navigate $instance */
                         return $instance->lteRoles($action);
         }
                     /**
-         * Make permissions list tool
+         * Make permissions list tool.
          *
          * @param string|null $action
-         * @return \Lar\LteAdmin\Core\NavItem 
+         * @return \LteAdmin\Core\NavItem 
          * @static 
          */ 
         public static function ltePermission($action = null)
         {
-                        /** @var \Lar\LteAdmin\Navigate $instance */
+                        /** @var \LteAdmin\Navigate $instance */
                         return $instance->ltePermission($action);
         }
                     /**
-         * Make functions/gates list tool
+         * Make menu list tool.
          *
          * @param string|null $action
-         * @return \Lar\LteAdmin\Core\NavItem 
+         * @return \LteAdmin\Core\NavItem 
          * @static 
          */ 
-        public static function lteFunctions($action = null)
+        public static function lteMenu($action = null)
         {
-                        /** @var \Lar\LteAdmin\Navigate $instance */
-                        return $instance->lteFunctions($action);
+                        /** @var \LteAdmin\Navigate $instance */
+                        return $instance->lteMenu($action);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function makeMenu()
+        {
+                        /** @var \LteAdmin\Navigate $instance */
+                        return $instance->makeMenu();
+        }
+                    /**
+         * 
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function makeExtensions()
+        {
+                        /** @var \LteAdmin\Navigate $instance */
+                        $instance->makeExtensions();
+        }
+                    /**
+         * Make default access group.
+         *
+         * @param \Closure|array $call
+         * @return \LteAdmin\Core\NavGroup 
+         * @static 
+         */ 
+        public static function lteAccessGroup($call)
+        {
+                        /** @var \LteAdmin\Navigate $instance */
+                        return $instance->lteAccessGroup($call);
         }
          
     }
@@ -17209,7 +17577,7 @@
 
     namespace Lar\Roads { 
             /**
-     * Class Facade
+     * Class Facade.
      *
      * @package Lar
      */ 
@@ -17228,7 +17596,7 @@
                         return $instance->layout($layout, $asx);
         }
                     /**
-         * Set equal name and prefix
+         * Set equal name and prefix.
          *
          * @param string $name
          * @param bool $last
@@ -17241,7 +17609,7 @@
                         return $instance->asx($name, $last);
         }
                     /**
-         * Enable language routes
+         * Enable language routes.
          *
          * @param bool $switcher
          * @return \Lar\Roads\Roads 
@@ -17253,7 +17621,7 @@
                         return $instance->lang($switcher);
         }
                     /**
-         * Add getters to routes
+         * Add getters to routes.
          *
          * @param $gets
          * @param array $props
@@ -17266,7 +17634,7 @@
                         return $instance->gets($gets, ...$props);
         }
                     /**
-         * Set name of routes
+         * Set name of routes.
          *
          * @param string $name
          * @param bool $last
@@ -17279,7 +17647,7 @@
                         return $instance->as($name, $last);
         }
                     /**
-         * Set domain of routes
+         * Set domain of routes.
          *
          * @param string $domain
          * @return \Lar\Roads\Roads 
@@ -17291,7 +17659,7 @@
                         return $instance->domain($domain);
         }
                     /**
-         * Set route middleware
+         * Set route middleware.
          *
          * @param $middleware
          * @return \Lar\Roads\Roads 
@@ -17303,7 +17671,7 @@
                         return $instance->middleware($middleware);
         }
                     /**
-         * Set name of routes (as alias)
+         * Set name of routes (as alias).
          *
          * @param string $name
          * @return \Lar\Roads\Roads 
@@ -17315,7 +17683,7 @@
                         return $instance->name($name);
         }
                     /**
-         * Set namespace of routes
+         * Set namespace of routes.
          *
          * @param string $namespace
          * @return \Lar\Roads\Roads 
@@ -17327,7 +17695,7 @@
                         return $instance->namespace($namespace);
         }
                     /**
-         * Set route prefix
+         * Set route prefix.
          *
          * @param string $prefix
          * @return \Lar\Roads\Roads 
@@ -17339,7 +17707,7 @@
                         return $instance->prefix($prefix);
         }
                     /**
-         * Set route prefix
+         * Set route prefix.
          *
          * @param $where
          * @param array $props
@@ -17352,7 +17720,7 @@
                         return $instance->where($where);
         }
                     /**
-         * Set web middleware
+         * Set web middleware.
          *
          * @return \Lar\Roads\Roads 
          * @static 
@@ -17363,7 +17731,7 @@
                         return $instance->web();
         }
                     /**
-         * Set auth middleware
+         * Set auth middleware.
          *
          * @param array $guards
          * @return \Lar\Roads\Roads 
@@ -17375,7 +17743,7 @@
                         return $instance->auth(...$guards);
         }
                     /**
-         * Set auth middleware
+         * Set auth middleware.
          *
          * @param null $guard
          * @param null $field
@@ -17388,7 +17756,7 @@
                         return $instance->auth_basic($guard, $field);
         }
                     /**
-         * Set bindings middleware
+         * Set bindings middleware.
          *
          * @return \Lar\Roads\Roads 
          * @static 
@@ -17399,7 +17767,7 @@
                         return $instance->bindings();
         }
                     /**
-         * Set cache.headers middleware
+         * Set cache.headers middleware.
          *
          * @param array $options
          * @return \Lar\Roads\Roads 
@@ -17411,7 +17779,7 @@
                         return $instance->cache_headers($options);
         }
                     /**
-         * Set can middleware
+         * Set can middleware.
          *
          * @param $ability
          * @param array $models
@@ -17424,7 +17792,7 @@
                         return $instance->can($ability, ...$models);
         }
                     /**
-         * Set guest middleware
+         * Set guest middleware.
          *
          * @return \Lar\Roads\Roads 
          * @static 
@@ -17435,7 +17803,7 @@
                         return $instance->guest();
         }
                     /**
-         * Set password.confirm middleware
+         * Set password.confirm middleware.
          *
          * @param null $redirectToRoute
          * @return \Lar\Roads\Roads 
@@ -17447,7 +17815,7 @@
                         return $instance->password_confirm($redirectToRoute);
         }
                     /**
-         * Set guest middleware
+         * Set guest middleware.
          *
          * @return \Lar\Roads\Roads 
          * @static 
@@ -17458,7 +17826,7 @@
                         return $instance->signed();
         }
                     /**
-         * Set throttle middleware
+         * Set throttle middleware.
          *
          * @param null $maxAttempts
          * @param null $decayMinutes
@@ -17472,7 +17840,7 @@
                         return $instance->throttle($maxAttempts, $decayMinutes, $prefix);
         }
                     /**
-         * Set verified middleware
+         * Set verified middleware.
          *
          * @param null $redirectToRoute
          * @return \Lar\Roads\Roads 
@@ -17484,7 +17852,7 @@
                         return $instance->verified($redirectToRoute);
         }
                     /**
-         * Set cors middleware
+         * Set cors middleware.
          *
          * @return \Lar\Roads\Roads 
          * @static 
@@ -17495,7 +17863,7 @@
                         return $instance->cors();
         }
                     /**
-         * Set api middleware
+         * Set api middleware.
          *
          * @return \Lar\Roads\Roads 
          * @static 
@@ -17506,7 +17874,7 @@
                         return $instance->api();
         }
                     /**
-         * Set web.encrypt_cookies middleware
+         * Set web.encrypt_cookies middleware.
          *
          * @return \Lar\Roads\Roads 
          * @static 
@@ -17517,7 +17885,7 @@
                         return $instance->encrypt_cookies();
         }
                     /**
-         * Set web.queued_cookies middleware
+         * Set web.queued_cookies middleware.
          *
          * @return \Lar\Roads\Roads 
          * @static 
@@ -17528,7 +17896,7 @@
                         return $instance->queued_cookies();
         }
                     /**
-         * Set web.start_session middleware
+         * Set web.start_session middleware.
          *
          * @return \Lar\Roads\Roads 
          * @static 
@@ -17539,7 +17907,7 @@
                         return $instance->start_session();
         }
                     /**
-         * Set web.share_errors middleware
+         * Set web.share_errors middleware.
          *
          * @return \Lar\Roads\Roads 
          * @static 
@@ -17550,7 +17918,7 @@
                         return $instance->share_errors();
         }
                     /**
-         * Set web.verify_csrf middleware
+         * Set web.verify_csrf middleware.
          *
          * @return \Lar\Roads\Roads 
          * @static 
@@ -17561,7 +17929,7 @@
                         return $instance->verify_csrf();
         }
                     /**
-         * Set web.substitute_bindings middleware
+         * Set web.substitute_bindings middleware.
          *
          * @return \Lar\Roads\Roads 
          * @static 
@@ -17844,7 +18212,7 @@
                         return $instance->vue();
         }
                     /**
-         * Tag initialize
+         * Tag initialize.
          *
          * @param $element
          * @return \Tag 
@@ -17903,13 +18271,13 @@
                         return $instance->setElement($element);
         }
                     /**
-         * Whether a offset exists
+         * Whether a offset exists.
          * 
          * The return value will be casted to boolean if non-boolean was returned.
          *
          * @link https://php.net/manual/en/arrayaccess.offsetexists.php
          * @param mixed $offset An offset to check for.
-         * @return boolean true on success or false on failure.
+         * @return bool true on success or false on failure.
          * @since 5.0.0
          * @static 
          */ 
@@ -17919,7 +18287,7 @@
                         return $instance->offsetExists($offset);
         }
                     /**
-         * Offset to retrieve
+         * Offset to retrieve.
          *
          * @link https://php.net/manual/en/arrayaccess.offsetget.php
          * @param mixed $offset The offset to retrieve.
@@ -17933,7 +18301,7 @@
                         return $instance->offsetGet($offset);
         }
                     /**
-         * Offset to set
+         * Offset to set.
          *
          * @link https://php.net/manual/en/arrayaccess.offsetset.php
          * @param mixed $offset The offset to assign the value to.
@@ -17948,7 +18316,7 @@
                         $instance->offsetSet($offset, $value);
         }
                     /**
-         * Offset to unset
+         * Offset to unset.
          *
          * @link https://php.net/manual/en/arrayaccess.offsetunset.php
          * @param mixed $offset The offset to unset.
@@ -17983,7 +18351,7 @@
                         return \Lar\Tagable\Tag::getMacros();
         }
                     /**
-         * Cache dom collection
+         * Cache dom collection.
          *
          * @static 
          */ 
@@ -17992,7 +18360,7 @@
                         return \Lar\Tagable\Tag::cacheCollect();
         }
                     /**
-         * Restore tag collection
+         * Restore tag collection.
          *
          * @static 
          */ 
@@ -18001,7 +18369,7 @@
                         return \Lar\Tagable\Tag::restoreCollectFromCache();
         }
                     /**
-         * Reset collection
+         * Reset collection.
          *
          * @static 
          */ 
@@ -18010,7 +18378,7 @@
                         return \Lar\Tagable\Tag::resetCollect();
         }
                     /**
-         * Selector
+         * Selector.
          *
          * @param string $selector
          * @return \Illuminate\Support\Collection|\Lar\Tagable\Core\FindCollection 
@@ -18022,7 +18390,7 @@
                         return \Lar\Tagable\Tag::selector($selector);
         }
                     /**
-         * Add tag width name
+         * Add tag width name.
          *
          * @param string $name
          * @param \Tag $tag
@@ -18033,7 +18401,7 @@
                         return \Lar\Tagable\Tag::addName($name, $tag);
         }
                     /**
-         * Static alias from method when
+         * Static alias from method when.
          *
          * @return \Tag|static 
          * @static 
@@ -18043,7 +18411,7 @@
                         return \Lar\Tagable\Tag::cover();
         }
                     /**
-         * Registration component
+         * Registration component.
          *
          * @param string $name
          * @param \Closure|array|string $component
@@ -18076,7 +18444,7 @@
                         return \Lar\Tagable\Tag::hasComponent($name);
         }
                     /**
-         * Inject collection from file
+         * Inject collection from file.
          *
          * @param $file
          * @throws \Exception
@@ -18087,7 +18455,7 @@
                         return \Lar\Tagable\Tag::injectFile($file);
         }
                     /**
-         * Inject collection in to component collection
+         * Inject collection in to component collection.
          *
          * @param array $collection
          * @param bool $complex
@@ -18098,7 +18466,7 @@
                         return \Lar\Tagable\Tag::injectCollection($collection, $complex);
         }
                     /**
-         * Component getter
+         * Component getter.
          *
          * @param string $name
          * @return mixed 
@@ -18110,7 +18478,7 @@
                         return \Lar\Tagable\Tag::getComponent($name);
         }
                     /**
-         * Static create
+         * Static create.
          *
          * @param array $data
          * @return static 
@@ -18144,7 +18512,7 @@
                         return $instance->isClosingTag();
         }
                     /**
-         * Is debug mode
+         * Is debug mode.
          *
          * @return bool 
          * @static 
@@ -18155,7 +18523,7 @@
                         return $instance->isDebug();
         }
                     /**
-         * Is rendered element
+         * Is rendered element.
          *
          * @return bool 
          * @static 
@@ -18166,7 +18534,7 @@
                         return $instance->isRendered();
         }
                     /**
-         * Check change status
+         * Check change status.
          *
          * @return bool 
          * @static 
@@ -18177,7 +18545,7 @@
                         return $instance->isChanged();
         }
                     /**
-         * Check is bottom mode
+         * Check is bottom mode.
          *
          * @return bool 
          * @static 
@@ -18188,7 +18556,7 @@
                         return $instance->isBottom();
         }
                     /**
-         * Is tag initialization
+         * Is tag initialization.
          *
          * @return bool 
          * @static 
@@ -18199,7 +18567,7 @@
                         return $instance->isElement();
         }
                     /**
-         * Has JS
+         * Has JS.
          *
          * @return bool 
          * @static 
@@ -18234,7 +18602,7 @@
                         return $instance->hasAttribute($attribute);
         }
                     /**
-         * Has parent check
+         * Has parent check.
          *
          * @return bool 
          * @static 
@@ -18245,7 +18613,7 @@
                         return $instance->hasParent();
         }
                     /**
-         * If attribute equal to value
+         * If attribute equal to value.
          *
          * @param $attr
          * @param $value
@@ -18258,7 +18626,7 @@
                         return $instance->ifAttribute($attr, $value);
         }
                     /**
-         * Compare tag with cache
+         * Compare tag with cache.
          *
          * @return bool|array 
          * @throws \Exception
@@ -18270,7 +18638,7 @@
                         return $instance->compareWithCache();
         }
                     /**
-         * Compare hashes
+         * Compare hashes.
          *
          * @param array|\Tag $comparable_hashes
          * @return array 
@@ -18283,7 +18651,7 @@
                         return $instance->compareHashes($comparable_hashes);
         }
                     /**
-         * Get component name
+         * Get component name.
          *
          * @return null|string 
          * @static 
@@ -18294,7 +18662,7 @@
                         return $instance->componentName();
         }
                     /**
-         * JS init list
+         * JS init list.
          *
          * @return array 
          * @static 
@@ -18305,7 +18673,7 @@
                         return $instance->getJS();
         }
                     /**
-         * JS Core
+         * JS Core.
          *
          * @return \Lar\LJS\LJS 
          * @static 
@@ -18316,7 +18684,7 @@
                         return $instance->js();
         }
                     /**
-         * Storage accessor
+         * Storage accessor.
          *
          * @return \Illuminate\Support\Collection 
          * @static 
@@ -18327,7 +18695,7 @@
                         return $instance->storage();
         }
                     /**
-         * Create and get JSQuery selector
+         * Create and get JSQuery selector.
          *
          * @return string 
          * @throws \Exception
@@ -18339,7 +18707,7 @@
                         return $instance->haveAndGetSelector();
         }
                     /**
-         * Create Or Get ID and return JSQuery selector
+         * Create Or Get ID and return JSQuery selector.
          *
          * @return string 
          * @throws \Exception
@@ -18351,7 +18719,7 @@
                         return $instance->haveAndGetSelectorID();
         }
                     /**
-         * Selector getter
+         * Selector getter.
          *
          * @return string 
          * @throws \Exception
@@ -18363,7 +18731,7 @@
                         return $instance->getSelector();
         }
                     /**
-         * Component name getter
+         * Component name getter.
          *
          * @return string 
          * @static 
@@ -18374,7 +18742,7 @@
                         return $instance->getObjName();
         }
                     /**
-         * Element getter
+         * Element getter.
          *
          * @return string 
          * @static 
@@ -18385,7 +18753,7 @@
                         return $instance->getElement();
         }
                     /**
-         * Parent getter
+         * Parent getter.
          *
          * @return \Tag 
          * @static 
@@ -18396,7 +18764,7 @@
                         return $instance->getParent();
         }
                     /**
-         * Get root parent
+         * Get root parent.
          *
          * @return \Tag 
          * @static 
@@ -18407,7 +18775,7 @@
                         return $instance->getRoot();
         }
                     /**
-         * Get child element count
+         * Get child element count.
          *
          * @return int 
          * @static 
@@ -18418,7 +18786,7 @@
                         return $instance->getChildElementCount();
         }
                     /**
-         * Get render data
+         * Get render data.
          *
          * @return string 
          * @static 
@@ -18429,7 +18797,7 @@
                         return $instance->getRendered();
         }
                     /**
-         * Get attribute value
+         * Get attribute value.
          *
          * @param string $attribute
          * @return string|array|bool 
@@ -18441,7 +18809,7 @@
                         return $instance->getAttribute($attribute);
         }
                     /**
-         * Parent link
+         * Parent link.
          *
          * @static 
          */ 
@@ -18451,7 +18819,7 @@
                         return $instance->_();
         }
                     /**
-         * Auto create normal id
+         * Auto create normal id.
          *
          * @return string 
          * @throws \Exception
@@ -18463,7 +18831,7 @@
                         return $instance->n_id();
         }
                     /**
-         * Generate and get super name
+         * Generate and get super name.
          *
          * @return string 
          * @static 
@@ -18474,7 +18842,7 @@
                         return $instance->super_name();
         }
                     /**
-         * Get external link to the object
+         * Get external link to the object.
          *
          * @param array $params
          * @return array 
@@ -18487,7 +18855,7 @@
                         return $instance->getExternalLink($params);
         }
                     /**
-         * Handler root name getter
+         * Handler root name getter.
          *
          * @return string 
          * @static 
@@ -18498,7 +18866,7 @@
                         return $instance->handler_name();
         }
                     /**
-         * Handler name getter
+         * Handler name getter.
          *
          * @return string 
          * @static 
@@ -18509,7 +18877,7 @@
                         return $instance->getHandlerName();
         }
                     /**
-         * Get unique identifier
+         * Get unique identifier.
          *
          * @return string 
          * @static 
@@ -18520,7 +18888,7 @@
                         return $instance->getUnique();
         }
                     /**
-         * Get tag hashes
+         * Get tag hashes.
          *
          * @return array 
          * @static 
@@ -18531,7 +18899,7 @@
                         return $instance->getHashes();
         }
                     /**
-         * Render content getter
+         * Render content getter.
          *
          * @return string 
          * @static 
@@ -18542,7 +18910,7 @@
                         return $instance->getRenderContent();
         }
                     /**
-         * Root wrapper
+         * Root wrapper.
          *
          * @param \Closure|array $call
          * @return \Tag 
@@ -18587,7 +18955,7 @@
                         return $instance->last();
         }
                     /**
-         * Find tags in content
+         * Find tags in content.
          *
          * @param string $selector
          * @return $this|\Lar\Tagable\Core\FindCollection 
@@ -18600,7 +18968,7 @@
                         return $instance->find($selector);
         }
                     /**
-         * Add group attribute
+         * Add group attribute.
          *
          * @param string $group
          * @param array $data
@@ -18624,7 +18992,7 @@
                         return $instance->openMode();
         }
                     /**
-         * JS Core setter
+         * JS Core setter.
          *
          * @return \Lar\LJS\LJS 
          * @deprecated dont use!
@@ -18636,7 +19004,7 @@
                         return $instance->setJs();
         }
                     /**
-         * Hide component
+         * Hide component.
          *
          * @param bool $eq
          * @return \Lar\Tagable\Tag 
@@ -18648,7 +19016,7 @@
                         return $instance->hide($eq);
         }
                     /**
-         * Set unique default tag attribute ID
+         * Set unique default tag attribute ID.
          *
          * @return \Lar\Tagable\Tag 
          * @throws \Exception
@@ -18660,7 +19028,7 @@
                         return $instance->setUID();
         }
                     /**
-         * Name setter
+         * Name setter.
          *
          * @param string $name
          * @return \Lar\Tagable\Tag 
@@ -18672,7 +19040,7 @@
                         return $instance->name($name);
         }
                     /**
-         * Debug mode setter
+         * Debug mode setter.
          *
          * @return \Tag 
          * @static 
@@ -18683,7 +19051,7 @@
                         return $instance->setDebug();
         }
                     /**
-         * Parent setter
+         * Parent setter.
          *
          * @param \Tag $tag
          * @return \Tag 
@@ -18695,7 +19063,7 @@
                         return $instance->setParent($tag);
         }
                     /**
-         * Set the values of the attribute "data-*"
+         * Set the values of the attribute "data-*".
          *
          * @param array $datas
          * @return \Tag 
@@ -18719,7 +19087,7 @@
                         return $instance->setRules($rules);
         }
                     /**
-         * Attribute setter
+         * Attribute setter.
          *
          * @param $name
          * @param null $value
@@ -18732,7 +19100,7 @@
                         return $instance->attr($name, $value);
         }
                     /**
-         * Content setter
+         * Content setter.
          *
          * @param $value
          * @param array $values
@@ -18745,7 +19113,7 @@
                         return $instance->text($value, ...$values);
         }
                     /**
-         * Add class in to tag
+         * Add class in to tag.
          *
          * @param string|array $class
          * @return \Lar\Tagable\Tag 
@@ -18757,7 +19125,7 @@
                         return $instance->addClass(...$class);
         }
                     /**
-         * Add class in to tag if $eq == true
+         * Add class in to tag if $eq == true.
          *
          * @param $eq
          * @param string|array $class
@@ -18785,7 +19153,7 @@
                         return $instance->appEndIf($eq, ...$data);
         }
                     /**
-         * Content append setter
+         * Content append setter.
          *
          * @param array $data
          * @return \Tag 
@@ -18813,7 +19181,7 @@
                         return $instance->prepEndIf($eq, ...$data);
         }
                     /**
-         * Content prepend setter
+         * Content prepend setter.
          *
          * @param array $data
          * @return \Tag 
@@ -18838,7 +19206,7 @@
                         return $instance->content(...$value);
         }
                     /**
-         * Set anchor
+         * Set anchor.
          *
          * @param string $name
          * @param array $data
@@ -18851,7 +19219,7 @@
                         return $instance->anchor($name);
         }
                     /**
-         * Set External Link
+         * Set External Link.
          *
          * @param string $class
          * @param array $params
@@ -18865,7 +19233,7 @@
                         return $instance->setExternalLink($class, $params, $position);
         }
                     /**
-         * LJS Worker
+         * LJS Worker.
          *
          * @param string $event
          * @return \Lar\Tagable\Respond 
@@ -18877,7 +19245,7 @@
                         return $instance->lj($event);
         }
                     /**
-         * Set Handler name
+         * Set Handler name.
          *
          * @param string $handler_name
          * @return \Lar\Tagable\Tag 
@@ -18889,7 +19257,7 @@
                         return $instance->setHandlerName($handler_name);
         }
                     /**
-         * Add ljs executor
+         * Add ljs executor.
          *
          * @param $exec
          * @param null $params
@@ -18904,7 +19272,7 @@
                         return $instance->ljs($exec, $params, $event);
         }
                     /**
-         * Add new child
+         * Add new child.
          *
          * @param string $element
          * @param array $arguments
@@ -18918,7 +19286,7 @@
                         return $instance->add($element, $arguments);
         }
                     /**
-         * Paste this component into parent N times. Return parent
+         * Paste this component into parent N times. Return parent.
          *
          * @param int $time
          * @return \Lar\Tagable\Tag 
@@ -18930,7 +19298,7 @@
                         return $instance->repeat($time);
         }
                     /**
-         * When element
+         * When element.
          *
          * @param mixed $arguments
          * @return static 
@@ -18944,7 +19312,7 @@
                         return $instance->_when(...$arguments);
         }
                     /**
-         * Make when if $eq == true
+         * Make when if $eq == true.
          *
          * @param $eq
          * @param mixed $data
@@ -18957,7 +19325,7 @@
                         return $instance->_whenIf($eq, ...$data);
         }
                     /**
-         * Create unique attribute from tag
+         * Create unique attribute from tag.
          *
          * @return \Lar\Tagable\Tag 
          * @static 
@@ -18968,7 +19336,7 @@
                         return $instance->createUniqueAttribute();
         }
                     /**
-         * Create unique inner identifier from tag
+         * Create unique inner identifier from tag.
          *
          * @param string $prefix
          * @return \Lar\Tagable\Tag 
@@ -18980,7 +19348,7 @@
                         return $instance->createUnique($prefix);
         }
                     /**
-         * Set when render closure
+         * Set when render closure.
          *
          * @param \Closure|array $call
          * @return \Lar\Tagable\Tag 
@@ -18992,7 +19360,7 @@
                         return $instance->whenRender($call);
         }
                     /**
-         * Add name in app end
+         * Add name in app end.
          *
          * @param string $name_append
          * @return \Lar\Tagable\Tag 
@@ -19004,7 +19372,7 @@
                         return $instance->nameAppEnd($name_append);
         }
                     /**
-         * Add name prepend
+         * Add name prepend.
          *
          * @param string $name_prepend
          * @return \Lar\Tagable\Tag 
@@ -19016,7 +19384,7 @@
                         return $instance->namePrepEnd($name_prepend);
         }
                     /**
-         * Disable bottom content mode
+         * Disable bottom content mode.
          *
          * @return \Lar\Tagable\Tag 
          * @static 
@@ -19027,7 +19395,7 @@
                         return $instance->offBottom();
         }
                     /**
-         * Type to bottom mode
+         * Type to bottom mode.
          *
          * @param array $data
          * @return \Lar\Tagable\Tag 
@@ -19039,7 +19407,7 @@
                         return $instance->toBottom(...$data);
         }
                     /**
-         * Insert lang key
+         * Insert lang key.
          *
          * @param $key
          * @param array $params
@@ -19052,7 +19420,7 @@
                         return $instance->l($key, $params, $provider);
         }
                     /**
-         * Add method or methods to execute list
+         * Add method or methods to execute list.
          *
          * @param $data
          * @return \Lar\Tagable\Tag 
@@ -19064,7 +19432,7 @@
                         return $instance->toExecute(...$data);
         }
                     /**
-         * Add method or methods to constructor list
+         * Add method or methods to constructor list.
          *
          * @param $data
          * @return \Lar\Tagable\Tag 
@@ -19076,7 +19444,7 @@
                         return $instance->toConstruct(...$data);
         }
                     /**
-         * Add method or methods to global execute list
+         * Add method or methods to global execute list.
          *
          * @param $data
          * @return \Lar\Tagable\Tag 
@@ -19088,7 +19456,7 @@
                         return $instance->toGlobalExecute($data);
         }
                     /**
-         * Quick infusion tag width data
+         * Quick infusion tag width data.
          *
          * @param array $data
          * @return \Lar\Tagable\Tag 
@@ -19100,7 +19468,7 @@
                         return $instance->quickInfusion($data);
         }
                     /**
-         * Create name prefix
+         * Create name prefix.
          *
          * @param null $prefix
          * @static 
@@ -19111,7 +19479,7 @@
                         return $instance->prefixName($prefix);
         }
                     /**
-         * Initial tag script
+         * Initial tag script.
          *
          * @param $script
          * @param null $params
@@ -19124,7 +19492,7 @@
                         return $instance->initialScript($script, $params);
         }
                     /**
-         * Insert blade in tag
+         * Insert blade in tag.
          *
          * @param $path
          * @param array $data
@@ -19138,7 +19506,7 @@
                         return $instance->view($path, $data, $mergeData);
         }
                     /**
-         * Child element count setter
+         * Child element count setter.
          *
          * @param int $child_element_count
          * @return \Tag 
@@ -19150,7 +19518,7 @@
                         return $instance->setChildElementCount($child_element_count);
         }
                     /**
-         * Wrap data
+         * Wrap data.
          *
          * @param string $tag
          * @param array $contents
@@ -19164,7 +19532,7 @@
                         return $instance->wrapTo($tag, $contents, $attributes);
         }
                     /**
-         * Say to do that
+         * Say to do that.
          *
          * @param $object
          * @param string|null $method
@@ -19178,7 +19546,7 @@
                         return $instance->do($object, $method, $params);
         }
                     /**
-         * Apply parent methods in the component
+         * Apply parent methods in the component.
          *
          * @param string|array $methods
          * @return \Lar\Tagable\Tag 
@@ -19190,7 +19558,7 @@
                         return $instance->next(...$methods);
         }
                     /**
-         * Apply parent methods in the component if $eq equal a true
+         * Apply parent methods in the component if $eq equal a true.
          *
          * @param $eq
          * @param string|array $methods
@@ -19242,7 +19610,7 @@
                         return $instance->haveLink($link);
         }
                     /**
-         * Generate external link on component
+         * Generate external link on component.
          *
          * @param array $params
          * @param bool $rewrite
@@ -19256,7 +19624,7 @@
                         return $instance->generateExternalLink($params, $rewrite);
         }
                     /**
-         * Ignore this component if variable $eq equal a boolean true
+         * Ignore this component if variable $eq equal a boolean true.
          *
          * @param bool $eq
          * @return \Lar\Tagable\Tag 
@@ -19268,7 +19636,7 @@
                         return $instance->ignore($eq);
         }
                     /**
-         * Ignore content of this component if variable $eq equal a boolean true
+         * Ignore content of this component if variable $eq equal a boolean true.
          *
          * @param bool $eq
          * @return \Lar\Tagable\Tag 
@@ -19280,7 +19648,7 @@
                         return $instance->ignoreContent($eq);
         }
                     /**
-         * Ignore tag wrapper of this component if variable $eq equal a boolean true
+         * Ignore tag wrapper of this component if variable $eq equal a boolean true.
          *
          * @param bool $eq
          * @return \Lar\Tagable\Tag 
@@ -19303,7 +19671,7 @@
                         return $instance->unRender();
         }
                     /**
-         * Remove hash by name
+         * Remove hash by name.
          *
          * @param string $hash_name
          * @return \Lar\Tagable\Tag 
@@ -19315,7 +19683,7 @@
                         return $instance->unHash($hash_name);
         }
                     /**
-         * Remove attribute
+         * Remove attribute.
          *
          * @param string|array $name
          * @return \Lar\Tagable\Tag 
@@ -19327,7 +19695,7 @@
                         return $instance->removeAttribute($name);
         }
                     /**
-         * Reset all attributes
+         * Reset all attributes.
          *
          * @return \Lar\Tagable\Tag 
          * @static 
@@ -19338,7 +19706,7 @@
                         return $instance->resetAttributes();
         }
                     /**
-         * Clean component
+         * Clean component.
          *
          * @throws \Exception
          * @static 
@@ -19349,7 +19717,7 @@
                         return $instance->clear();
         }
                     /**
-         * Dump this tag
+         * Dump this tag.
          *
          * @return \Lar\Tagable\Tag 
          * @static 
@@ -19371,7 +19739,7 @@
                         return $instance->only_content();
         }
                     /**
-         * Event after render
+         * Event after render.
          *
          * @param \Closure|array $call
          * @return \Lar\Tagable\Tag 
@@ -19383,7 +19751,7 @@
                         return $instance->rendered($call);
         }
                     /**
-         * Events after render
+         * Events after render.
          *
          * @param array $call
          * @return \Lar\Tagable\Tag 
@@ -19395,7 +19763,7 @@
                         return $instance->merge_rendered($call);
         }
                     /**
-         * Insert extended data
+         * Insert extended data.
          *
          * @param mixed $component
          * @static 
@@ -26504,9 +26872,9 @@
          * @param string|null $fileName
          * @param string $writerType
          * @param array $headers
+         * @return \Symfony\Component\HttpFoundation\BinaryFileResponse 
          * @throws \PhpOffice\PhpSpreadsheet\Exception
          * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
-         * @return \Symfony\Component\HttpFoundation\BinaryFileResponse 
          * @static 
          */ 
         public static function download($export, $fileName, $writerType = null, $headers = [])
@@ -26522,9 +26890,9 @@
          * @param string|null $disk
          * @param string $writerType
          * @param mixed $diskOptions
+         * @return bool 
          * @throws \PhpOffice\PhpSpreadsheet\Exception
          * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
-         * @return bool 
          * @static 
          */ 
         public static function store($export, $filePath, $diskName = null, $writerType = null, $diskOptions = [])
@@ -26802,26 +27170,27 @@
                     /**
          * 
          *
+         * @see \Bfg\Emitter\EmitterServiceProvider::register()
+         * @param string $guard
+         * @static 
+         */ 
+        public static function emitter($guard = 'web')
+        {
+                        return \Illuminate\Routing\Router::emitter($guard);
+        }
+                    /**
+         * 
+         *
          * @param $dir
          * @param \Route|\RouteRegistrarIlluminate $router
          * @return \Route|\RouteRegistrarIlluminate 
+         * @throws \ReflectionException
          * @see \Bfg\Route\Core\RouteMixin::find()
          * @static 
          */ 
         public static function find($dir, $router = null)
         {
                         return \Illuminate\Routing\Router::find($dir, $router);
-        }
-                    /**
-         * 
-         *
-         * @param mixed $gets
-         * @param mixed $props
-         * @static 
-         */ 
-        public static function gets($gets, ...$props)
-        {
-                        return \Illuminate\Routing\Router::gets($gets, ...$props);
         }
          
     }
@@ -26833,13 +27202,52 @@
                     /**
          * 
          *
-         * @see \Lar\LteAdmin\Core\RoutesAdaptor::create_by_menu()
+         * @see \LteAdmin\Core\RoutesAdaptor::create_by_menu()
          * @static 
          */ 
         public static function get_controller()
         {
                         return \Illuminate\Routing\PendingResourceRegistration::get_controller();
         }
+         
+    }
+     
+}
+
+    namespace Lar\Tagable\Core { 
+            /**
+     * 
+     *
+     */ 
+        class AttributeCollectionArea {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class ContentCollectionArea {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class TagCollection {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class FindCollection {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class EventsCollection {
          
     }
      
@@ -27959,6 +28367,37 @@ namespace  {
             }
              
                 /**
+             * Add a "belongs to" relationship where clause to the query.
+             *
+             * @param \Illuminate\Database\Eloquent\Model $related
+             * @param string $relationship
+             * @param string $boolean
+             * @return \Illuminate\Database\Eloquent\Builder|static 
+             * @throws \RuntimeException
+             * @static 
+             */ 
+            public static function whereBelongsTo($related, $relationshipName = null, $boolean = 'and')
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->whereBelongsTo($related, $relationshipName, $boolean);
+            }
+             
+                /**
+             * Add an "BelongsTo" relationship with an "or where" clause to the query.
+             *
+             * @param \Illuminate\Database\Eloquent\Model $related
+             * @param string $relationship
+             * @return \Illuminate\Database\Eloquent\Builder|static 
+             * @throws \RuntimeException
+             * @static 
+             */ 
+            public static function orWhereBelongsTo($related, $relationshipName = null)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->orWhereBelongsTo($related, $relationshipName);
+            }
+             
+                /**
              * Add subselect queries to include an aggregate value for a relationship.
              *
              * @param mixed $relations
@@ -28069,18 +28508,6 @@ namespace  {
             }
              
                 /**
-             * Explains the query.
-             *
-             * @return \Illuminate\Support\Collection 
-             * @static 
-             */ 
-            public static function explain()
-            {
-                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->explain();
-            }
-             
-                /**
              * Chunk the results of the query.
              *
              * @param int $count
@@ -28172,7 +28599,7 @@ namespace  {
                 /**
              * Query lazily, by chunking the results of a query by comparing IDs.
              *
-             * @param int $count
+             * @param int $chunkSize
              * @param string|null $column
              * @param string|null $alias
              * @return \Illuminate\Support\LazyCollection 
@@ -28183,6 +28610,22 @@ namespace  {
             {
                                 /** @var \Illuminate\Database\Eloquent\Builder $instance */
                                 return $instance->lazyById($chunkSize, $column, $alias);
+            }
+             
+                /**
+             * Query lazily, by chunking the results of a query by comparing IDs in descending order.
+             *
+             * @param int $chunkSize
+             * @param string|null $column
+             * @param string|null $alias
+             * @return \Illuminate\Support\LazyCollection 
+             * @throws \InvalidArgumentException
+             * @static 
+             */ 
+            public static function lazyByIdDesc($chunkSize = 1000, $column = null, $alias = null)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->lazyByIdDesc($chunkSize, $column, $alias);
             }
              
                 /**
@@ -28934,7 +29377,7 @@ namespace  {
                 /**
              * Add a "where date" statement to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Database\Query\Expression|string $column
              * @param string $operator
              * @param \DateTimeInterface|string|null $value
              * @param string $boolean
@@ -29334,6 +29777,35 @@ namespace  {
             }
              
                 /**
+             * Add a "where fulltext" clause to the query.
+             *
+             * @param string|string[] $columns
+             * @param string $value
+             * @param string $boolean
+             * @return \Illuminate\Database\Query\Builder 
+             * @static 
+             */ 
+            public static function whereFullText($columns, $value, $options = [], $boolean = 'and')
+            {
+                                /** @var \Illuminate\Database\Query\Builder $instance */
+                                return $instance->whereFullText($columns, $value, $options, $boolean);
+            }
+             
+                /**
+             * Add a "or where fulltext" clause to the query.
+             *
+             * @param string|string[] $columns
+             * @param string $value
+             * @return \Illuminate\Database\Query\Builder 
+             * @static 
+             */ 
+            public static function orWhereFullText($columns, $value, $options = [])
+            {
+                                /** @var \Illuminate\Database\Query\Builder $instance */
+                                return $instance->orWhereFullText($columns, $value, $options);
+            }
+             
+                /**
              * Add a "group by" clause to the query.
              *
              * @param array|string $groups
@@ -29439,7 +29911,7 @@ namespace  {
                 /**
              * Add an "order by" clause to the query.
              *
-             * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Query\Expression|string $column
+             * @param \Closure|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder|\Illuminate\Database\Query\Expression|string $column
              * @param string $direction
              * @return \Illuminate\Database\Query\Builder 
              * @throws \InvalidArgumentException
@@ -29454,7 +29926,7 @@ namespace  {
                 /**
              * Add a descending "order by" clause to the query.
              *
-             * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Query\Expression|string $column
+             * @param \Closure|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder|\Illuminate\Database\Query\Expression|string $column
              * @return \Illuminate\Database\Query\Builder 
              * @static 
              */ 
@@ -29940,6 +30412,19 @@ namespace  {
             }
              
                 /**
+             * Update records in a PostgreSQL database using the update from syntax.
+             *
+             * @param array $values
+             * @return int 
+             * @static 
+             */ 
+            public static function updateFrom($values)
+            {
+                                /** @var \Illuminate\Database\Query\Builder $instance */
+                                return $instance->updateFrom($values);
+            }
+             
+                /**
              * Insert or update a record matching the attributes, and fill it with values.
              *
              * @param array $attributes
@@ -30030,6 +30515,19 @@ namespace  {
             {
                                 /** @var \Illuminate\Database\Query\Builder $instance */
                                 return $instance->addBinding($value, $type);
+            }
+             
+                /**
+             * Cast the given binding value.
+             *
+             * @param mixed $value
+             * @return mixed 
+             * @static 
+             */ 
+            public static function castBinding($value)
+            {
+                                /** @var \Illuminate\Database\Query\Builder $instance */
+                                return $instance->castBinding($value);
             }
              
                 /**
@@ -30135,13 +30633,25 @@ namespace  {
                 /**
              * Die and dump the current SQL and bindings.
              *
-             * @return void 
+             * @return \Illuminate\Database\Query\never 
              * @static 
              */ 
             public static function dd()
             {
                                 /** @var \Illuminate\Database\Query\Builder $instance */
-                                $instance->dd();
+                                return $instance->dd();
+            }
+             
+                /**
+             * Explains the query.
+             *
+             * @return \Illuminate\Support\Collection 
+             * @static 
+             */ 
+            public static function explain()
+            {
+                                /** @var \Illuminate\Database\Query\Builder $instance */
+                                return $instance->explain();
             }
              
                 /**
@@ -30169,6 +30679,17 @@ namespace  {
             public static function mixin($mixin, $replace = true)
             {
                                 \Illuminate\Database\Query\Builder::mixin($mixin, $replace);
+            }
+             
+                /**
+             * Flush the existing macros.
+             *
+             * @return void 
+             * @static 
+             */ 
+            public static function flushMacros()
+            {
+                                \Illuminate\Database\Query\Builder::flushMacros();
             }
              
                 /**
@@ -30214,12 +30735,10 @@ namespace  {
             class BfgRoute extends \Bfg\Route\Facade {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
             class Image extends \Intervention\Image\Facades\Image {}
-            class Developer extends \Lar\Developer\Facade {}
-            class Get extends \Lar\Developer\GetFacade {}
             class Layout extends \Lar\Layout\Facade {}
             class LJS extends \Lar\LJS\Facade {}
-            class LteAdmin extends \Lar\LteAdmin\Facades\LteAdminFacade {}
-            class Navigate extends \Lar\LteAdmin\Facades\NavigateFacade {}
+            class LteAdmin extends \LteAdmin\Facades\LteAdminFacade {}
+            class Navigate extends \LteAdmin\Facades\NavigateFacade {}
             class Road extends \Lar\Roads\Facade {}
             class Tag extends \Lar\Tagable\Facade {}
             class WS extends \Lar\WS\WSFacade {}

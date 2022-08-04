@@ -1,5 +1,9 @@
 <?php
 
+use App\Admin\Controllers\CommentariesController;
+use App\Admin\Controllers\OrderController;
+use App\Admin\Controllers\TaskReportController;
+use App\Admin\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use Lar\Roads\Roads;
 
@@ -31,17 +35,11 @@ use Lar\Roads\Roads;
     ->component('/guest_support', \App\Components\Vue\Pages\GuestSupport::class)
     ->name('guest_support');
 
-\Road::layout('home')
-    ->web()
-    ->auth()
-    ->component('/home', \App\Components\Vue\Pages\Home::class)
-    ->name('home');
-
-\Road::layout('home')
-    ->web()
-    ->auth()
-    ->component('/direction/{direction:slug}', \App\Components\Vue\Pages\Direction::class)
-    ->name('direction');
+//\Road::layout('home')
+//    ->web()
+//    ->auth()
+//    ->component('/home', \App\Components\Vue\Pages\Home::class)
+//    ->name('home');
 
 \Road::layout('home')
     ->web()
@@ -52,7 +50,7 @@ use Lar\Roads\Roads;
 \Road::layout('home')
     ->web()
     ->auth()
-    ->component('/table/{direction:id}', \App\Components\Vue\Pages\Table::class)
+    ->component('/table', \App\Components\Vue\Pages\Table::class)
     ->name('table');
 
 \Road::layout('home')
@@ -101,25 +99,32 @@ use Lar\Roads\Roads;
     ->name('logout');
 
 Road::web()->middleware(['lte-auth'])->prefix(config('lte.route.prefix'))->prefix('download')->group(function (Roads $road) {
-    $road->get('/commentaries/export', ['\App\LteAdmin\Controllers\CommentariesController', 'export'])
+    $road->get('/commentaries/export', [CommentariesController::class, 'export'])
         ->name('commentaries_export');
 
-    $road->get('/users/export', ['\App\LteAdmin\Controllers\UsersController', 'export'])
+    $road->get('/users/export', [UsersController::class, 'export'])
         ->name('users_export');
 
-    $road->get('/orders/export', ['\App\LteAdmin\Controllers\OrderController', 'export'])
+    $road->get('/orders/export', [OrderController::class, 'export'])
         ->name('orders_export');
 
-    $road->get('/task_reports/export', ['\App\LteAdmin\Controllers\TaskReportController', 'export'])
+    $road->get('/task_reports/export', [TaskReportController::class, 'export'])
         ->name('task_report_export');
 
-    $road->get('/table_likes/{direction_id}/export', ['\App\LteAdmin\Controllers\UsersController', 'export_table_likes'])
+    $road->get('/table_likes/{direction_id}/export', [UsersController::class, 'export_table_likes'])
         ->name('table_likes_export');
 
-    $road->get('/table_balls/{direction_id}/export', ['\App\LteAdmin\Controllers\UsersController', 'export_table_balls'])
+    $road->get('/table_balls/{direction_id}/export', [UsersController::class, 'export_table_balls'])
         ->name('table_balls_export');
 });
 
 Route::post('/forgot-password', [\App\Http\Controllers\PasswordResetLinkController::class, 'store'])
     ->middleware(['guest:'.config('fortify.guard')])
     ->name('password.email');
+
+
+\Road::layout('home')
+    ->web()
+    ->auth()
+    ->component('/{direction:slug}', \App\Components\Vue\Pages\Direction::class)
+    ->name('home');

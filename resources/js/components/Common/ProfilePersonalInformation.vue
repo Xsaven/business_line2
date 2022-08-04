@@ -22,10 +22,6 @@
 
                     <div>{{user.about}}</div>
                 </div>
-
-              <div class="direction" v-if="user.follow_direction">
-                Направление участия: <a :href="`/direction/${user.follow_direction.slug}`">{{user.follow_direction.name}}</a>
-              </div>
             </div>
 
 

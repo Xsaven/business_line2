@@ -3,8 +3,8 @@
 namespace App\Repositories;
 
 use App\Models\Commentary;
+use Bfg\Repository\Repository;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Lar\Developer\CoreRepository;
 
 /**
  * Class CommentaryRepository.
@@ -12,7 +12,7 @@ use Lar\Developer\CoreRepository;
  * @method Commentary model()
  * @property-read LengthAwarePaginator|Commentary[] $home_commentaries
  */
-class CommentaryRepository extends CoreRepository
+class CommentaryRepository extends Repository
 {
     /**
      * Model class namespace getter.

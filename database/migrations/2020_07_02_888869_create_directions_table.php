@@ -20,9 +20,6 @@ class CreateDirectionsTable extends Migration
             $table->string('type', 191)->default('video');
             $table->string('video', 191)->nullable();
             $table->string('banner', 191)->nullable();
-            $table->string('arbitrator_name', 191)->nullable();
-            $table->string('arbitrator_photo', 191)->nullable();
-            $table->string('arbitrator_position', 191)->nullable();
             $table->text('description')->nullable();
             $table->string('description_inside', 191)->nullable();
             $table->text('terms_of_participation');

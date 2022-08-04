@@ -74,6 +74,7 @@ class OrderOserver
                     'type' => 'delete',
                     'message' => 'Удалил заказ '.$order->id,
                 ]);
+                lte_log_warning('Удалил заказ '.$order->id);
             }
         }
     }

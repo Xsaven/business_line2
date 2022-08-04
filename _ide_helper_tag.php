@@ -963,50 +963,60 @@ namespace Lar\Layout {
      * @method \App\Components\Vue\Pages\Search _pages_search($id = null, array $attrs = [], ...$params) Add Component pages_search to parent
      * @method \App\Components\Vue\Pages\Table pages_table($id = null, array $attrs = [], ...$params) Add Component pages_table
      * @method \App\Components\Vue\Pages\Table _pages_table($id = null, array $attrs = [], ...$params) Add Component pages_table to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\Row row(...$params) Add Component row
-     * @method \Lar\LteAdmin\Segments\Tagable\Row _row(...$params) Add Component row to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\Col col($num = null, ...$params) Add Component col
-     * @method \Lar\LteAdmin\Segments\Tagable\Col _col($num = null, ...$params) Add Component col to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\Lang lang(array $lang_list = null, ...$params) Add Component lang
-     * @method \Lar\LteAdmin\Segments\Tagable\Lang _lang(array $lang_list = null, ...$params) Add Component lang to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\Card card($title = null, ...$params) Add Component card
-     * @method \Lar\LteAdmin\Segments\Tagable\Card _card($title = null, ...$params) Add Component card to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\Form form($model = null, ...$params) Add Component form
-     * @method \Lar\LteAdmin\Segments\Tagable\Form _form($model = null, ...$params) Add Component form to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\FormFooter form_footer($nav_redirect = true, ...$params) Add Component form_footer
-     * @method \Lar\LteAdmin\Segments\Tagable\FormFooter _form_footer($nav_redirect = true, ...$params) Add Component form_footer to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\Field field(...$params) Add Component field
-     * @method \Lar\LteAdmin\Segments\Tagable\Field _field(...$params) Add Component field to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\ModelTable model_table($model = null, ...$params) Add Component model_table
-     * @method \Lar\LteAdmin\Segments\Tagable\ModelTable _model_table($model = null, ...$params) Add Component model_table to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\ModelInfoTable model_info_table($model = null, ...$params) Add Component model_info_table
-     * @method \Lar\LteAdmin\Segments\Tagable\ModelInfoTable _model_info_table($model = null, ...$params) Add Component model_info_table to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\Table table($rows, ...$params) Add Component table
-     * @method \Lar\LteAdmin\Segments\Tagable\Table _table($rows, ...$params) Add Component table to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\ButtonGroup button_group(...$params) Add Component button_group
-     * @method \Lar\LteAdmin\Segments\Tagable\ButtonGroup _button_group(...$params) Add Component button_group to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\Alert alert(string $title = null, $body = "", string $icon = null, ...$params) Add Component alert
-     * @method \Lar\LteAdmin\Segments\Tagable\Alert _alert(string $title = null, $body = "", string $icon = null, ...$params) Add Component alert to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\SmallBox small_box(string $title = null, $body = "", string $icon = "fas fa-info-circle", ...$params) Add Component small_box
-     * @method \Lar\LteAdmin\Segments\Tagable\SmallBox _small_box(string $title = null, $body = "", string $icon = "fas fa-info-circle", ...$params) Add Component small_box to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\InfoBox info_box(string $title = null, $body = "", string $icon = "fas fa-info-circle", ...$params) Add Component info_box
-     * @method \Lar\LteAdmin\Segments\Tagable\InfoBox _info_box(string $title = null, $body = "", string $icon = "fas fa-info-circle", ...$params) Add Component info_box to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\Tabs tabs(...$params) Add Component tabs
-     * @method \Lar\LteAdmin\Segments\Tagable\Tabs _tabs(...$params) Add Component tabs to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\Nested nested($model = null, $instructions = [], ...$params) Add Component nested
-     * @method \Lar\LteAdmin\Segments\Tagable\Nested _nested($model = null, $instructions = [], ...$params) Add Component nested to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\Divider divider($left_title = null, $center_title = null, $right_title = null, ...$params) Add Component divider
-     * @method \Lar\LteAdmin\Segments\Tagable\Divider _divider($left_title = null, $center_title = null, $right_title = null, ...$params) Add Component divider to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\Live live($condition, ...$params) Add Component live
-     * @method \Lar\LteAdmin\Segments\Tagable\Live _live($condition, ...$params) Add Component live to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\ModelLive model_live(string $path, $need_value, ...$params) Add Component model_live
-     * @method \Lar\LteAdmin\Segments\Tagable\ModelLive _model_live(string $path, $need_value, ...$params) Add Component model_live to parent
-     * @method \Lar\LteAdmin\Segments\Tagable\ModelRelation model_relation($relation, $instructions, callable $content = null, ...$params) Add Component model_relation
-     * @method \Lar\LteAdmin\Segments\Tagable\ModelRelation _model_relation($relation, $instructions, callable $content = null, ...$params) Add Component model_relation to parent
+     * @method \LteAdmin\Components\GridRowComponent row(...$delegates) Add Component row
+     * @method \LteAdmin\Components\GridRowComponent _row(...$delegates) Add Component row to parent
+     * @method \LteAdmin\Components\GridColumnComponent column(...$delegates) Add Component column
+     * @method \LteAdmin\Components\GridColumnComponent _column(...$delegates) Add Component column to parent
+     * @method \LteAdmin\Components\CardComponent card(...$delegates) Add Component card
+     * @method \LteAdmin\Components\CardComponent _card(...$delegates) Add Component card to parent
+     * @method \LteAdmin\Components\CardBodyComponent card_body(...$delegates) Add Component card_body
+     * @method \LteAdmin\Components\CardBodyComponent _card_body(...$delegates) Add Component card_body to parent
+     * @method \LteAdmin\Components\SearchFormComponent search_form(...$delegates) Add Component search_form
+     * @method \LteAdmin\Components\SearchFormComponent _search_form(...$delegates) Add Component search_form to parent
+     * @method \LteAdmin\Components\ModelTableComponent model_table(...$delegates) Add Component model_table
+     * @method \LteAdmin\Components\ModelTableComponent _model_table(...$delegates) Add Component model_table to parent
+     * @method \LteAdmin\Components\NestedComponent nested(...$delegates) Add Component nested
+     * @method \LteAdmin\Components\NestedComponent _nested(...$delegates) Add Component nested to parent
+     * @method \LteAdmin\Components\FormComponent form(...$delegates) Add Component form
+     * @method \LteAdmin\Components\FormComponent _form(...$delegates) Add Component form to parent
+     * @method \LteAdmin\Components\ModelInfoTableComponent model_info_table(...$delegates) Add Component model_info_table
+     * @method \LteAdmin\Components\ModelInfoTableComponent _model_info_table(...$delegates) Add Component model_info_table to parent
+     * @method \LteAdmin\Components\ButtonsComponent buttons(...$delegates) Add Component buttons
+     * @method \LteAdmin\Components\ButtonsComponent _buttons(...$delegates) Add Component buttons to parent
+     * @method \LteAdmin\Components\ChartJsComponent chart_js(...$delegates) Add Component chart_js
+     * @method \LteAdmin\Components\ChartJsComponent _chart_js(...$delegates) Add Component chart_js to parent
+     * @method \LteAdmin\Components\TimelineComponent timeline(...$delegates) Add Component timeline
+     * @method \LteAdmin\Components\TimelineComponent _timeline(...$delegates) Add Component timeline to parent
+     * @method \LteAdmin\Components\StatisticPeriodComponent statistic_period(...$delegates) Add Component statistic_period
+     * @method \LteAdmin\Components\StatisticPeriodComponent _statistic_period(...$delegates) Add Component statistic_period to parent
+     * @method \LteAdmin\Components\LiveComponent live(...$delegates) Add Component live
+     * @method \LteAdmin\Components\LiveComponent _live(...$delegates) Add Component live to parent
+     * @method \LteAdmin\Components\WatchComponent watch($condition, ...$delegates) Add Component watch
+     * @method \LteAdmin\Components\WatchComponent _watch($condition, ...$delegates) Add Component watch to parent
+     * @method \LteAdmin\Components\FieldComponent field(...$delegates) Add Component field
+     * @method \LteAdmin\Components\FieldComponent _field(...$delegates) Add Component field to parent
+     * @method \LteAdmin\Components\ModelRelationComponent model_relation($relationName, ...$delegates) Add Component model_relation
+     * @method \LteAdmin\Components\ModelRelationComponent _model_relation($relationName, ...$delegates) Add Component model_relation to parent
+     * @method \LteAdmin\Components\ModalComponent modal(...$delegates) Add Component modal
+     * @method \LteAdmin\Components\ModalComponent _modal(...$delegates) Add Component modal to parent
+     * @method \LteAdmin\Components\LangComponent lang(array $lang_list = null) Add Component lang
+     * @method \LteAdmin\Components\LangComponent _lang(array $lang_list = null) Add Component lang to parent
+     * @method \LteAdmin\Components\TableComponent table(...$delegates) Add Component table
+     * @method \LteAdmin\Components\TableComponent _table(...$delegates) Add Component table to parent
+     * @method \LteAdmin\Components\AlertComponent alert(...$delegates) Add Component alert
+     * @method \LteAdmin\Components\AlertComponent _alert(...$delegates) Add Component alert to parent
+     * @method \LteAdmin\Components\SmallBoxComponent small_box(string $title = null, $body = "", string $icon = "fas fa-info-circle", ...$params) Add Component small_box
+     * @method \LteAdmin\Components\SmallBoxComponent _small_box(string $title = null, $body = "", string $icon = "fas fa-info-circle", ...$params) Add Component small_box to parent
+     * @method \LteAdmin\Components\InfoBoxComponent info_box(string $title = null, $body = "", string $icon = "fas fa-info-circle", ...$params) Add Component info_box
+     * @method \LteAdmin\Components\InfoBoxComponent _info_box(string $title = null, $body = "", string $icon = "fas fa-info-circle", ...$params) Add Component info_box to parent
+     * @method \LteAdmin\Components\TabsComponent tabs(...$params) Add Component tabs
+     * @method \LteAdmin\Components\TabsComponent _tabs(...$params) Add Component tabs to parent
+     * @method \LteAdmin\Components\DividerComponent divider($right_title = null, $center_title = null, $left_title = null, ...$params) Add Component divider
+     * @method \LteAdmin\Components\DividerComponent _divider($right_title = null, $center_title = null, $left_title = null, ...$params) Add Component divider to parent
      * @method self|static|\Lar\Layout\Abstracts\Component vue()
      * @method self|static|\Lar\Layout\Abstracts\Component _vue() Apply to parent. 
-     * @method self|static|\Lar\Layout\Abstracts\Component initTag($element) Tag initialize
-     * @method self|static|\Lar\Layout\Abstracts\Component _initTag($element) Apply to parent. Tag initialize
+     * @method self|static|\Lar\Layout\Abstracts\Component initTag($element)
+     * @method self|static|\Lar\Layout\Abstracts\Component _initTag($element) Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component unregister()
      * @method self|static|\Lar\Layout\Abstracts\Component _unregister() Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component newContentCollection($collect = null)
@@ -1031,250 +1041,250 @@ namespace Lar\Layout {
      * @method self|static|\Lar\Layout\Abstracts\Component|\Lar\Tagable\Core\ContentCollectionArea _bottomContent() Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component|array getMacros()
      * @method self|static|\Lar\Layout\Abstracts\Component|array _getMacros() Apply to parent. 
-     * @method self|static|\Lar\Layout\Abstracts\Component cacheCollect() Cache dom collection
-     * @method self|static|\Lar\Layout\Abstracts\Component _cacheCollect() Apply to parent. Cache dom collection
-     * @method self|static|\Lar\Layout\Abstracts\Component restoreCollectFromCache() Restore tag collection
-     * @method self|static|\Lar\Layout\Abstracts\Component _restoreCollectFromCache() Apply to parent. Restore tag collection
-     * @method self|static|\Lar\Layout\Abstracts\Component resetCollect() Reset collection
-     * @method self|static|\Lar\Layout\Abstracts\Component _resetCollect() Apply to parent. Reset collection
-     * @method self|static|\Lar\Layout\Abstracts\Component|\Illuminate\Support\Collection|\Lar\Tagable\Core\FindCollection selector(string $selector) Selector
-     * @method self|static|\Lar\Layout\Abstracts\Component|\Illuminate\Support\Collection|\Lar\Tagable\Core\FindCollection _selector(string $selector) Apply to parent. Selector
-     * @method self|static|\Lar\Layout\Abstracts\Component addName(string $name, \Lar\Tagable\Tag $tag) Add tag width name
-     * @method self|static|\Lar\Layout\Abstracts\Component _addName(string $name, \Lar\Tagable\Tag $tag) Apply to parent. Add tag width name
-     * @method self|static|\Lar\Layout\Abstracts\Component|array getCaller($offset = 0) Get Caller
-     * @method self|static|\Lar\Layout\Abstracts\Component|array _getCaller($offset = 0) Apply to parent. Get Caller
-     * @method self|static|\Lar\Layout\Abstracts\Component|Tag|static cover() Static alias from method when
-     * @method self|static|\Lar\Layout\Abstracts\Component|Tag|static _cover() Apply to parent. Static alias from method when
-     * @method self|static|\Lar\Layout\Abstracts\Component registerComponent(string $name, $component) Registration component
-     * @method self|static|\Lar\Layout\Abstracts\Component _registerComponent(string $name, $component) Apply to parent. Registration component
+     * @method self|static|\Lar\Layout\Abstracts\Component cacheCollect()
+     * @method self|static|\Lar\Layout\Abstracts\Component _cacheCollect() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component restoreCollectFromCache()
+     * @method self|static|\Lar\Layout\Abstracts\Component _restoreCollectFromCache() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component resetCollect()
+     * @method self|static|\Lar\Layout\Abstracts\Component _resetCollect() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|\Illuminate\Support\Collection|\Lar\Tagable\Core\FindCollection selector(string $selector)
+     * @method self|static|\Lar\Layout\Abstracts\Component|\Illuminate\Support\Collection|\Lar\Tagable\Core\FindCollection _selector(string $selector) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component addName(string $name, \Lar\Tagable\Tag $tag)
+     * @method self|static|\Lar\Layout\Abstracts\Component _addName(string $name, \Lar\Tagable\Tag $tag) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|array getCaller($offset = 0)
+     * @method self|static|\Lar\Layout\Abstracts\Component|array _getCaller($offset = 0) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|Tag|static cover()
+     * @method self|static|\Lar\Layout\Abstracts\Component|Tag|static _cover() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component registerComponent(string $name, $component)
+     * @method self|static|\Lar\Layout\Abstracts\Component _registerComponent(string $name, $component) Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component|\Illuminate\Support\Collection getComponents()
      * @method self|static|\Lar\Layout\Abstracts\Component|\Illuminate\Support\Collection _getComponents() Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component|bool hasComponent(string $name)
      * @method self|static|\Lar\Layout\Abstracts\Component|bool _hasComponent(string $name) Apply to parent. 
-     * @method self|static|\Lar\Layout\Abstracts\Component injectFile($file) Inject collection from file
-     * @method self|static|\Lar\Layout\Abstracts\Component _injectFile($file) Apply to parent. Inject collection from file
-     * @method self|static|\Lar\Layout\Abstracts\Component injectCollection($collection = [], $complex = false) Inject collection in to component collection
-     * @method self|static|\Lar\Layout\Abstracts\Component _injectCollection($collection = [], $complex = false) Apply to parent. Inject collection in to component collection
-     * @method self|static|\Lar\Layout\Abstracts\Component|mixed getComponent(string $name) Component getter
-     * @method self|static|\Lar\Layout\Abstracts\Component|mixed _getComponent(string $name) Apply to parent. Component getter
-     * @method self|static|\Lar\Layout\Abstracts\Component create(...$data) Static create
-     * @method self|static|\Lar\Layout\Abstracts\Component _create(...$data) Apply to parent. Static create
+     * @method self|static|\Lar\Layout\Abstracts\Component injectFile($file)
+     * @method self|static|\Lar\Layout\Abstracts\Component _injectFile($file) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component injectCollection($collection = [], $complex = false)
+     * @method self|static|\Lar\Layout\Abstracts\Component _injectCollection($collection = [], $complex = false) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|mixed getComponent(string $name)
+     * @method self|static|\Lar\Layout\Abstracts\Component|mixed _getComponent(string $name) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component create(...$data)
+     * @method self|static|\Lar\Layout\Abstracts\Component _create(...$data) Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component|bool isTsElement(string $element)
      * @method self|static|\Lar\Layout\Abstracts\Component|bool _isTsElement(string $element) Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component|bool isClosingTag()
      * @method self|static|\Lar\Layout\Abstracts\Component|bool _isClosingTag() Apply to parent. 
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool isDebug() Is debug mode
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool _isDebug() Apply to parent. Is debug mode
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool isRendered() Is rendered element
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool _isRendered() Apply to parent. Is rendered element
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool isChanged() Check change status
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool _isChanged() Apply to parent. Check change status
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool isBottom() Check is bottom mode
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool _isBottom() Apply to parent. Check is bottom mode
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool isElement() Is tag initialization
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool _isElement() Apply to parent. Is tag initialization
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool hasJs() Has JS
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool _hasJs() Apply to parent. Has JS
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool isDebug()
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool _isDebug() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool isRendered()
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool _isRendered() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool isChanged()
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool _isChanged() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool isBottom()
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool _isBottom() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool isElement()
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool _isElement() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool hasJs()
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool _hasJs() Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component|bool hasClass(string $class)
      * @method self|static|\Lar\Layout\Abstracts\Component|bool _hasClass(string $class) Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component|mixed hasAttribute(string $attribute)
      * @method self|static|\Lar\Layout\Abstracts\Component|mixed _hasAttribute(string $attribute) Apply to parent. 
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool hasParent() Has parent check
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool _hasParent() Apply to parent. Has parent check
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool ifAttribute($attr, $value) If attribute equal to value
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool _ifAttribute($attr, $value) Apply to parent. If attribute equal to value
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool|array compareWithCache() Compare tag with cache
-     * @method self|static|\Lar\Layout\Abstracts\Component|bool|array _compareWithCache() Apply to parent. Compare tag with cache
-     * @method self|static|\Lar\Layout\Abstracts\Component|array compareHashes($comparable_hashes = []) Compare hashes
-     * @method self|static|\Lar\Layout\Abstracts\Component|array _compareHashes($comparable_hashes = []) Apply to parent. Compare hashes
-     * @method self|static|\Lar\Layout\Abstracts\Component|null|string componentName() Get component name
-     * @method self|static|\Lar\Layout\Abstracts\Component|null|string _componentName() Apply to parent. Get component name
-     * @method self|static|\Lar\Layout\Abstracts\Component|array getJS() JS init list
-     * @method self|static|\Lar\Layout\Abstracts\Component|array _getJS() Apply to parent. JS init list
-     * @method self|static|\Lar\Layout\Abstracts\Component|\Lar\LJS\LJS js() JS Core
-     * @method self|static|\Lar\Layout\Abstracts\Component|\Lar\LJS\LJS _js() Apply to parent. JS Core
-     * @method self|static|\Lar\Layout\Abstracts\Component|\Illuminate\Support\Collection storage() Storage accessor
-     * @method self|static|\Lar\Layout\Abstracts\Component|\Illuminate\Support\Collection _storage() Apply to parent. Storage accessor
-     * @method self|static|\Lar\Layout\Abstracts\Component|string haveAndGetSelector() Create and get JSQuery selector
-     * @method self|static|\Lar\Layout\Abstracts\Component|string _haveAndGetSelector() Apply to parent. Create and get JSQuery selector
-     * @method self|static|\Lar\Layout\Abstracts\Component|string haveAndGetSelectorID() Create Or Get ID and return JSQuery selector
-     * @method self|static|\Lar\Layout\Abstracts\Component|string _haveAndGetSelectorID() Apply to parent. Create Or Get ID and return JSQuery selector
-     * @method self|static|\Lar\Layout\Abstracts\Component|string getSelector() Selector getter
-     * @method self|static|\Lar\Layout\Abstracts\Component|string _getSelector() Apply to parent. Selector getter
-     * @method self|static|\Lar\Layout\Abstracts\Component|string getObjName() Component name getter
-     * @method self|static|\Lar\Layout\Abstracts\Component|string _getObjName() Apply to parent. Component name getter
-     * @method self|static|\Lar\Layout\Abstracts\Component|string getElement() Element getter
-     * @method self|static|\Lar\Layout\Abstracts\Component|string _getElement() Apply to parent. Element getter
-     * @method self|static|\Lar\Layout\Abstracts\Component getParent() Parent getter
-     * @method self|static|\Lar\Layout\Abstracts\Component _getParent() Apply to parent. Parent getter
-     * @method self|static|\Lar\Layout\Abstracts\Component getRoot() Get root parent
-     * @method self|static|\Lar\Layout\Abstracts\Component _getRoot() Apply to parent. Get root parent
-     * @method self|static|\Lar\Layout\Abstracts\Component|int getChildElementCount() Get child element count
-     * @method self|static|\Lar\Layout\Abstracts\Component|int _getChildElementCount() Apply to parent. Get child element count
-     * @method self|static|\Lar\Layout\Abstracts\Component|string getRendered() Get render data
-     * @method self|static|\Lar\Layout\Abstracts\Component|string _getRendered() Apply to parent. Get render data
-     * @method self|static|\Lar\Layout\Abstracts\Component|string|array|bool getAttribute(string $attribute) Get attribute value
-     * @method self|static|\Lar\Layout\Abstracts\Component|string|array|bool _getAttribute(string $attribute) Apply to parent. Get attribute value
-     * @method self|static|\Lar\Layout\Abstracts\Component () Parent link
-     * @method self|static|\Lar\Layout\Abstracts\Component _() Apply to parent. Parent link
-     * @method self|static|\Lar\Layout\Abstracts\Component|string n_id() Auto create normal id
-     * @method self|static|\Lar\Layout\Abstracts\Component|string _n_id() Apply to parent. Auto create normal id
-     * @method self|static|\Lar\Layout\Abstracts\Component|string super_name() Generate and get super name
-     * @method self|static|\Lar\Layout\Abstracts\Component|string _super_name() Apply to parent. Generate and get super name
-     * @method self|static|\Lar\Layout\Abstracts\Component|array getExternalLink(array $params = []) Get external link to the object
-     * @method self|static|\Lar\Layout\Abstracts\Component|array _getExternalLink(array $params = []) Apply to parent. Get external link to the object
-     * @method self|static|\Lar\Layout\Abstracts\Component|string handler_name() Handler root name getter
-     * @method self|static|\Lar\Layout\Abstracts\Component|string _handler_name() Apply to parent. Handler root name getter
-     * @method self|static|\Lar\Layout\Abstracts\Component|string getHandlerName() Handler name getter
-     * @method self|static|\Lar\Layout\Abstracts\Component|string _getHandlerName() Apply to parent. Handler name getter
-     * @method self|static|\Lar\Layout\Abstracts\Component|string getUnique() Get unique identifier
-     * @method self|static|\Lar\Layout\Abstracts\Component|string _getUnique() Apply to parent. Get unique identifier
-     * @method self|static|\Lar\Layout\Abstracts\Component|array getHashes() Get tag hashes
-     * @method self|static|\Lar\Layout\Abstracts\Component|array _getHashes() Apply to parent. Get tag hashes
-     * @method self|static|\Lar\Layout\Abstracts\Component|string getRenderContent() Render content getter
-     * @method self|static|\Lar\Layout\Abstracts\Component|string _getRenderContent() Apply to parent. Render content getter
-     * @method self|static|\Lar\Layout\Abstracts\Component root($call) Root wrapper
-     * @method self|static|\Lar\Layout\Abstracts\Component _root($call) Apply to parent. Root wrapper
-     * @method self|static|\Lar\Layout\Abstracts\Component|string getNeedlePattern(string $attributes, string $content) Inner render helper
-     * @method self|static|\Lar\Layout\Abstracts\Component|string _getNeedlePattern(string $attributes, string $content) Apply to parent. Inner render helper
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool hasParent()
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool _hasParent() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool ifAttribute($attr, $value)
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool _ifAttribute($attr, $value) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool|array compareWithCache()
+     * @method self|static|\Lar\Layout\Abstracts\Component|bool|array _compareWithCache() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|array compareHashes($comparable_hashes = [])
+     * @method self|static|\Lar\Layout\Abstracts\Component|array _compareHashes($comparable_hashes = []) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|null|string componentName()
+     * @method self|static|\Lar\Layout\Abstracts\Component|null|string _componentName() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|array getJS()
+     * @method self|static|\Lar\Layout\Abstracts\Component|array _getJS() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|\Lar\LJS\LJS js()
+     * @method self|static|\Lar\Layout\Abstracts\Component|\Lar\LJS\LJS _js() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|\Illuminate\Support\Collection storage()
+     * @method self|static|\Lar\Layout\Abstracts\Component|\Illuminate\Support\Collection _storage() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|string haveAndGetSelector()
+     * @method self|static|\Lar\Layout\Abstracts\Component|string _haveAndGetSelector() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|string haveAndGetSelectorID()
+     * @method self|static|\Lar\Layout\Abstracts\Component|string _haveAndGetSelectorID() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|string getSelector()
+     * @method self|static|\Lar\Layout\Abstracts\Component|string _getSelector() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|string getObjName()
+     * @method self|static|\Lar\Layout\Abstracts\Component|string _getObjName() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|string getElement()
+     * @method self|static|\Lar\Layout\Abstracts\Component|string _getElement() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component getParent()
+     * @method self|static|\Lar\Layout\Abstracts\Component _getParent() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component getRoot()
+     * @method self|static|\Lar\Layout\Abstracts\Component _getRoot() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|int getChildElementCount()
+     * @method self|static|\Lar\Layout\Abstracts\Component|int _getChildElementCount() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|string getRendered()
+     * @method self|static|\Lar\Layout\Abstracts\Component|string _getRendered() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|string|array|bool getAttribute(string $attribute)
+     * @method self|static|\Lar\Layout\Abstracts\Component|string|array|bool _getAttribute(string $attribute) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component ()
+     * @method self|static|\Lar\Layout\Abstracts\Component _() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|string n_id()
+     * @method self|static|\Lar\Layout\Abstracts\Component|string _n_id() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|string super_name()
+     * @method self|static|\Lar\Layout\Abstracts\Component|string _super_name() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|array getExternalLink(array $params = [])
+     * @method self|static|\Lar\Layout\Abstracts\Component|array _getExternalLink(array $params = []) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|string handler_name()
+     * @method self|static|\Lar\Layout\Abstracts\Component|string _handler_name() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|string getHandlerName()
+     * @method self|static|\Lar\Layout\Abstracts\Component|string _getHandlerName() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|string getUnique()
+     * @method self|static|\Lar\Layout\Abstracts\Component|string _getUnique() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|array getHashes()
+     * @method self|static|\Lar\Layout\Abstracts\Component|array _getHashes() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|string getRenderContent()
+     * @method self|static|\Lar\Layout\Abstracts\Component|string _getRenderContent() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component root($call)
+     * @method self|static|\Lar\Layout\Abstracts\Component _root($call) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|string getNeedlePattern(string $attributes, string $content)
+     * @method self|static|\Lar\Layout\Abstracts\Component|string _getNeedlePattern(string $attributes, string $content) Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component|string element_closer()
      * @method self|static|\Lar\Layout\Abstracts\Component|string _element_closer() Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component|int contentCount()
      * @method self|static|\Lar\Layout\Abstracts\Component|int _contentCount() Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component|mixed last()
      * @method self|static|\Lar\Layout\Abstracts\Component|mixed _last() Apply to parent. 
-     * @method self|static|\Lar\Layout\Abstracts\Component find(string $selector) Find tags in content
-     * @method self|static|\Lar\Layout\Abstracts\Component _find(string $selector) Apply to parent. Find tags in content
-     * @method self|static|\Lar\Layout\Abstracts\Component attrGroup(string $group, array $data) Add group attribute
-     * @method self|static|\Lar\Layout\Abstracts\Component _attrGroup(string $group, array $data) Apply to parent. Add group attribute
+     * @method self|static|\Lar\Layout\Abstracts\Component find(string $selector)
+     * @method self|static|\Lar\Layout\Abstracts\Component _find(string $selector) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component attrGroup(string $group, array $data)
+     * @method self|static|\Lar\Layout\Abstracts\Component _attrGroup(string $group, array $data) Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component openMode()
      * @method self|static|\Lar\Layout\Abstracts\Component _openMode() Apply to parent. 
-     * @method self|static|\Lar\Layout\Abstracts\Component|\Lar\LJS\LJS setJs() JS Core setter
-     * @method self|static|\Lar\Layout\Abstracts\Component|\Lar\LJS\LJS _setJs() Apply to parent. JS Core setter
-     * @method self|static|\Lar\Layout\Abstracts\Component hide($eq = true) Hide component
-     * @method self|static|\Lar\Layout\Abstracts\Component _hide($eq = true) Apply to parent. Hide component
-     * @method self|static|\Lar\Layout\Abstracts\Component setUID() Set unique default tag attribute ID
-     * @method self|static|\Lar\Layout\Abstracts\Component _setUID() Apply to parent. Set unique default tag attribute ID
-     * @method self|static|\Lar\Layout\Abstracts\Component name(string $name) Name setter
-     * @method self|static|\Lar\Layout\Abstracts\Component _name(string $name) Apply to parent. Name setter
-     * @method self|static|\Lar\Layout\Abstracts\Component setDebug() Debug mode setter
-     * @method self|static|\Lar\Layout\Abstracts\Component _setDebug() Apply to parent. Debug mode setter
-     * @method self|static|\Lar\Layout\Abstracts\Component setParent(\Lar\Tagable\Tag $tag) Parent setter
-     * @method self|static|\Lar\Layout\Abstracts\Component _setParent(\Lar\Tagable\Tag $tag) Apply to parent. Parent setter
-     * @method self|static|\Lar\Layout\Abstracts\Component setDatas(array $datas) Set the values of the attribute "data-*"
-     * @method self|static|\Lar\Layout\Abstracts\Component _setDatas(array $datas) Apply to parent. Set the values of the attribute "data-*"
+     * @method self|static|\Lar\Layout\Abstracts\Component|\Lar\LJS\LJS setJs()
+     * @method self|static|\Lar\Layout\Abstracts\Component|\Lar\LJS\LJS _setJs() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component hide($eq = true)
+     * @method self|static|\Lar\Layout\Abstracts\Component _hide($eq = true) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component setUID()
+     * @method self|static|\Lar\Layout\Abstracts\Component _setUID() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component name(string $name)
+     * @method self|static|\Lar\Layout\Abstracts\Component _name(string $name) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component setDebug()
+     * @method self|static|\Lar\Layout\Abstracts\Component _setDebug() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component setParent(\Lar\Tagable\Tag $tag)
+     * @method self|static|\Lar\Layout\Abstracts\Component _setParent(\Lar\Tagable\Tag $tag) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component setDatas(array $datas)
+     * @method self|static|\Lar\Layout\Abstracts\Component _setDatas(array $datas) Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component setRules(array $rules)
      * @method self|static|\Lar\Layout\Abstracts\Component _setRules(array $rules) Apply to parent. 
-     * @method self|static|\Lar\Layout\Abstracts\Component attr($name, $value = null) Attribute setter
-     * @method self|static|\Lar\Layout\Abstracts\Component _attr($name, $value = null) Apply to parent. Attribute setter
-     * @method self|static|\Lar\Layout\Abstracts\Component|mixed text($value, ...$values) Content setter
-     * @method self|static|\Lar\Layout\Abstracts\Component|mixed _text($value, ...$values) Apply to parent. Content setter
-     * @method self|static|\Lar\Layout\Abstracts\Component addClass(...$class) Add class in to tag
-     * @method self|static|\Lar\Layout\Abstracts\Component _addClass(...$class) Apply to parent. Add class in to tag
-     * @method self|static|\Lar\Layout\Abstracts\Component addClassIf($eq, ...$class) Add class in to tag if $eq == true
-     * @method self|static|\Lar\Layout\Abstracts\Component _addClassIf($eq, ...$class) Apply to parent. Add class in to tag if $eq == true
+     * @method self|static|\Lar\Layout\Abstracts\Component attr($name, $value = null)
+     * @method self|static|\Lar\Layout\Abstracts\Component _attr($name, $value = null) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|mixed text($value, ...$values)
+     * @method self|static|\Lar\Layout\Abstracts\Component|mixed _text($value, ...$values) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component addClass(...$class)
+     * @method self|static|\Lar\Layout\Abstracts\Component _addClass(...$class) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component addClassIf($eq, ...$class)
+     * @method self|static|\Lar\Layout\Abstracts\Component _addClassIf($eq, ...$class) Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component appEndIf($eq, ...$data)
      * @method self|static|\Lar\Layout\Abstracts\Component _appEndIf($eq, ...$data) Apply to parent. 
-     * @method self|static|\Lar\Layout\Abstracts\Component appEnd(...$data) Content append setter
-     * @method self|static|\Lar\Layout\Abstracts\Component _appEnd(...$data) Apply to parent. Content append setter
+     * @method self|static|\Lar\Layout\Abstracts\Component appEnd(...$data)
+     * @method self|static|\Lar\Layout\Abstracts\Component _appEnd(...$data) Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component prepEndIf($eq, ...$data)
      * @method self|static|\Lar\Layout\Abstracts\Component _prepEndIf($eq, ...$data) Apply to parent. 
-     * @method self|static|\Lar\Layout\Abstracts\Component prepEnd(...$data) Content prepend setter
-     * @method self|static|\Lar\Layout\Abstracts\Component _prepEnd(...$data) Apply to parent. Content prepend setter
+     * @method self|static|\Lar\Layout\Abstracts\Component prepEnd(...$data)
+     * @method self|static|\Lar\Layout\Abstracts\Component _prepEnd(...$data) Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component content(...$value)
      * @method self|static|\Lar\Layout\Abstracts\Component _content(...$value) Apply to parent. 
-     * @method self|static|\Lar\Layout\Abstracts\Component anchor(string $name = "") Set anchor
-     * @method self|static|\Lar\Layout\Abstracts\Component _anchor(string $name = "") Apply to parent. Set anchor
-     * @method self|static|\Lar\Layout\Abstracts\Component setExternalLink(string $class, array $params = [], string $position = null) Set External Link
-     * @method self|static|\Lar\Layout\Abstracts\Component _setExternalLink(string $class, array $params = [], string $position = null) Apply to parent. Set External Link
-     * @method self|static|\Lar\Layout\Abstracts\Component|\Lar\Layout\Respond|Respond lj($event = "begin") LJS Worker
-     * @method self|static|\Lar\Layout\Abstracts\Component|\Lar\Layout\Respond|Respond _lj($event = "begin") Apply to parent. LJS Worker
-     * @method self|static|\Lar\Layout\Abstracts\Component setHandlerName(string $handler_name) Set Handler name
-     * @method self|static|\Lar\Layout\Abstracts\Component _setHandlerName(string $handler_name) Apply to parent. Set Handler name
-     * @method self|static|\Lar\Layout\Abstracts\Component|\Lar\Layout\Respond|Respond| ljs($exec = null, $params = null, $event = "click") Add ljs executor
-     * @method self|static|\Lar\Layout\Abstracts\Component|\Lar\Layout\Respond|Respond| _ljs($exec = null, $params = null, $event = "click") Apply to parent. Add ljs executor
-     * @method self|static|\Lar\Layout\Abstracts\Component add(string $element, array $arguments = []) Add new child
-     * @method self|static|\Lar\Layout\Abstracts\Component _add(string $element, array $arguments = []) Apply to parent. Add new child
+     * @method self|static|\Lar\Layout\Abstracts\Component anchor(string $name = "")
+     * @method self|static|\Lar\Layout\Abstracts\Component _anchor(string $name = "") Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component setExternalLink(string $class, array $params = [], string $position = null)
+     * @method self|static|\Lar\Layout\Abstracts\Component _setExternalLink(string $class, array $params = [], string $position = null) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|\Lar\Layout\Respond|Respond lj($event = "begin")
+     * @method self|static|\Lar\Layout\Abstracts\Component|\Lar\Layout\Respond|Respond _lj($event = "begin") Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component setHandlerName(string $handler_name)
+     * @method self|static|\Lar\Layout\Abstracts\Component _setHandlerName(string $handler_name) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component|\Lar\Layout\Respond|Respond| ljs($exec = null, $params = null, $event = "click")
+     * @method self|static|\Lar\Layout\Abstracts\Component|\Lar\Layout\Respond|Respond| _ljs($exec = null, $params = null, $event = "click") Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component add(string $element, array $arguments = [])
+     * @method self|static|\Lar\Layout\Abstracts\Component _add(string $element, array $arguments = []) Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component repeat(int $time)
      * @method self|static|\Lar\Layout\Abstracts\Component _repeat(int $time) Apply to parent. 
-     * @method self|static|\Lar\Layout\Abstracts\Component when(...$arguments) When element
-     * @method self|static|\Lar\Layout\Abstracts\Component _when(...$arguments) Apply to parent. When element
-     * @method self|static|\Lar\Layout\Abstracts\Component whenIf($eq, ...$data) Make when if $eq == true
-     * @method self|static|\Lar\Layout\Abstracts\Component _whenIf($eq, ...$data) Apply to parent. Make when if $eq == true
-     * @method self|static|\Lar\Layout\Abstracts\Component createUniqueAttribute() Create unique attribute from tag
-     * @method self|static|\Lar\Layout\Abstracts\Component _createUniqueAttribute() Apply to parent. Create unique attribute from tag
-     * @method self|static|\Lar\Layout\Abstracts\Component createUnique(string $prefix = "tag") Create unique inner identifier from tag
-     * @method self|static|\Lar\Layout\Abstracts\Component _createUnique(string $prefix = "tag") Apply to parent. Create unique inner identifier from tag
-     * @method self|static|\Lar\Layout\Abstracts\Component whenRender($call) Set when render closure
-     * @method self|static|\Lar\Layout\Abstracts\Component _whenRender($call) Apply to parent. Set when render closure
-     * @method self|static|\Lar\Layout\Abstracts\Component nameAppEnd(string $name_append) Add name in app end
-     * @method self|static|\Lar\Layout\Abstracts\Component _nameAppEnd(string $name_append) Apply to parent. Add name in app end
-     * @method self|static|\Lar\Layout\Abstracts\Component namePrepEnd(string $name_prepend) Add name prepend
-     * @method self|static|\Lar\Layout\Abstracts\Component _namePrepEnd(string $name_prepend) Apply to parent. Add name prepend
-     * @method self|static|\Lar\Layout\Abstracts\Component offBottom() Disable bottom content mode
-     * @method self|static|\Lar\Layout\Abstracts\Component _offBottom() Apply to parent. Disable bottom content mode
-     * @method self|static|\Lar\Layout\Abstracts\Component toBottom(...$data) Type to bottom mode
-     * @method self|static|\Lar\Layout\Abstracts\Component _toBottom(...$data) Apply to parent. Type to bottom mode
-     * @method self|static|\Lar\Layout\Abstracts\Component l($key, array $params = [], $provider = "text") Insert lang key
-     * @method self|static|\Lar\Layout\Abstracts\Component _l($key, array $params = [], $provider = "text") Apply to parent. Insert lang key
-     * @method self|static|\Lar\Layout\Abstracts\Component toExecute(...$data) Add method or methods to execute list
-     * @method self|static|\Lar\Layout\Abstracts\Component _toExecute(...$data) Apply to parent. Add method or methods to execute list
-     * @method self|static|\Lar\Layout\Abstracts\Component toConstruct(...$data) Add method or methods to constructor list
-     * @method self|static|\Lar\Layout\Abstracts\Component _toConstruct(...$data) Apply to parent. Add method or methods to constructor list
-     * @method self|static|\Lar\Layout\Abstracts\Component toGlobalExecute($data) Add method or methods to global execute list
-     * @method self|static|\Lar\Layout\Abstracts\Component _toGlobalExecute($data) Apply to parent. Add method or methods to global execute list
-     * @method self|static|\Lar\Layout\Abstracts\Component quickInfusion(array $data) Quick infusion tag width data
-     * @method self|static|\Lar\Layout\Abstracts\Component _quickInfusion(array $data) Apply to parent. Quick infusion tag width data
-     * @method self|static|\Lar\Layout\Abstracts\Component prefixName($prefix = null) Create name prefix
-     * @method self|static|\Lar\Layout\Abstracts\Component _prefixName($prefix = null) Apply to parent. Create name prefix
-     * @method self|static|\Lar\Layout\Abstracts\Component initialScript($script, $params = null) Initial tag script
-     * @method self|static|\Lar\Layout\Abstracts\Component _initialScript($script, $params = null) Apply to parent. Initial tag script
-     * @method self|static|\Lar\Layout\Abstracts\Component view($path, $data = [], $mergeData = []) Insert blade in tag
-     * @method self|static|\Lar\Layout\Abstracts\Component _view($path, $data = [], $mergeData = []) Apply to parent. Insert blade in tag
-     * @method self|static|\Lar\Layout\Abstracts\Component setChildElementCount(int $child_element_count) Child element count setter
-     * @method self|static|\Lar\Layout\Abstracts\Component _setChildElementCount(int $child_element_count) Apply to parent. Child element count setter
-     * @method self|static|\Lar\Layout\Abstracts\Component wrapTo(string $tag, array $contents = [], array $attributes = []) Wrap data
-     * @method self|static|\Lar\Layout\Abstracts\Component _wrapTo(string $tag, array $contents = [], array $attributes = []) Apply to parent. Wrap data
-     * @method self|static|\Lar\Layout\Abstracts\Component do($object, string $method = null, array $params = []) Say to do that
-     * @method self|static|\Lar\Layout\Abstracts\Component _do($object, string $method = null, array $params = []) Apply to parent. Say to do that
-     * @method self|static|\Lar\Layout\Abstracts\Component next(...$methods) Apply parent methods in the component
-     * @method self|static|\Lar\Layout\Abstracts\Component _next(...$methods) Apply to parent. Apply parent methods in the component
-     * @method self|static|\Lar\Layout\Abstracts\Component nextIf($eq, ...$methods) Apply parent methods in the component if $eq equal a true
-     * @method self|static|\Lar\Layout\Abstracts\Component _nextIf($eq, ...$methods) Apply to parent. Apply parent methods in the component if $eq equal a true
+     * @method self|static|\Lar\Layout\Abstracts\Component when(...$arguments)
+     * @method self|static|\Lar\Layout\Abstracts\Component _when(...$arguments) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component whenIf($eq, ...$data)
+     * @method self|static|\Lar\Layout\Abstracts\Component _whenIf($eq, ...$data) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component createUniqueAttribute()
+     * @method self|static|\Lar\Layout\Abstracts\Component _createUniqueAttribute() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component createUnique(string $prefix = "tag")
+     * @method self|static|\Lar\Layout\Abstracts\Component _createUnique(string $prefix = "tag") Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component whenRender($call)
+     * @method self|static|\Lar\Layout\Abstracts\Component _whenRender($call) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component nameAppEnd(string $name_append)
+     * @method self|static|\Lar\Layout\Abstracts\Component _nameAppEnd(string $name_append) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component namePrepEnd(string $name_prepend)
+     * @method self|static|\Lar\Layout\Abstracts\Component _namePrepEnd(string $name_prepend) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component offBottom()
+     * @method self|static|\Lar\Layout\Abstracts\Component _offBottom() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component toBottom(...$data)
+     * @method self|static|\Lar\Layout\Abstracts\Component _toBottom(...$data) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component l($key, array $params = [], $provider = "text")
+     * @method self|static|\Lar\Layout\Abstracts\Component _l($key, array $params = [], $provider = "text") Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component toExecute(...$data)
+     * @method self|static|\Lar\Layout\Abstracts\Component _toExecute(...$data) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component toConstruct(...$data)
+     * @method self|static|\Lar\Layout\Abstracts\Component _toConstruct(...$data) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component toGlobalExecute($data)
+     * @method self|static|\Lar\Layout\Abstracts\Component _toGlobalExecute($data) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component quickInfusion(array $data)
+     * @method self|static|\Lar\Layout\Abstracts\Component _quickInfusion(array $data) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component prefixName($prefix = null)
+     * @method self|static|\Lar\Layout\Abstracts\Component _prefixName($prefix = null) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component initialScript($script, $params = null)
+     * @method self|static|\Lar\Layout\Abstracts\Component _initialScript($script, $params = null) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component view($path, $data = [], $mergeData = [])
+     * @method self|static|\Lar\Layout\Abstracts\Component _view($path, $data = [], $mergeData = []) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component setChildElementCount(int $child_element_count)
+     * @method self|static|\Lar\Layout\Abstracts\Component _setChildElementCount(int $child_element_count) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component wrapTo(string $tag, array $contents = [], array $attributes = [])
+     * @method self|static|\Lar\Layout\Abstracts\Component _wrapTo(string $tag, array $contents = [], array $attributes = []) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component do($object, string $method = null, array $params = [])
+     * @method self|static|\Lar\Layout\Abstracts\Component _do($object, string $method = null, array $params = []) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component next(...$methods)
+     * @method self|static|\Lar\Layout\Abstracts\Component _next(...$methods) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component nextIf($eq, ...$methods)
+     * @method self|static|\Lar\Layout\Abstracts\Component _nextIf($eq, ...$methods) Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component callIf($eq, string $method, ...$params)
      * @method self|static|\Lar\Layout\Abstracts\Component _callIf($eq, string $method, ...$params) Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component call(string $method, ...$params)
      * @method self|static|\Lar\Layout\Abstracts\Component _call(string $method, ...$params) Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component haveLink($link)
      * @method self|static|\Lar\Layout\Abstracts\Component _haveLink($link) Apply to parent. 
-     * @method self|static|\Lar\Layout\Abstracts\Component generateExternalLink(array $params = [], $rewrite = true) Generate external link on component
-     * @method self|static|\Lar\Layout\Abstracts\Component _generateExternalLink(array $params = [], $rewrite = true) Apply to parent. Generate external link on component
-     * @method self|static|\Lar\Layout\Abstracts\Component ignore($eq = 1) Ignore this component if variable $eq equal a boolean true
-     * @method self|static|\Lar\Layout\Abstracts\Component _ignore($eq = 1) Apply to parent. Ignore this component if variable $eq equal a boolean true
-     * @method self|static|\Lar\Layout\Abstracts\Component ignoreContent($eq = 1) Ignore content of this component if variable $eq equal a boolean true
-     * @method self|static|\Lar\Layout\Abstracts\Component _ignoreContent($eq = 1) Apply to parent. Ignore content of this component if variable $eq equal a boolean true
-     * @method self|static|\Lar\Layout\Abstracts\Component ignoreWrapper($eq = 1) Ignore tag wrapper of this component if variable $eq equal a boolean true
-     * @method self|static|\Lar\Layout\Abstracts\Component _ignoreWrapper($eq = 1) Apply to parent. Ignore tag wrapper of this component if variable $eq equal a boolean true
+     * @method self|static|\Lar\Layout\Abstracts\Component generateExternalLink(array $params = [], $rewrite = true)
+     * @method self|static|\Lar\Layout\Abstracts\Component _generateExternalLink(array $params = [], $rewrite = true) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component ignore($eq = 1)
+     * @method self|static|\Lar\Layout\Abstracts\Component _ignore($eq = 1) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component ignoreContent($eq = 1)
+     * @method self|static|\Lar\Layout\Abstracts\Component _ignoreContent($eq = 1) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component ignoreWrapper($eq = 1)
+     * @method self|static|\Lar\Layout\Abstracts\Component _ignoreWrapper($eq = 1) Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component unRender()
      * @method self|static|\Lar\Layout\Abstracts\Component _unRender() Apply to parent. 
-     * @method self|static|\Lar\Layout\Abstracts\Component unHash($hash_name = "RENDERED") Remove hash by name
-     * @method self|static|\Lar\Layout\Abstracts\Component _unHash($hash_name = "RENDERED") Apply to parent. Remove hash by name
-     * @method self|static|\Lar\Layout\Abstracts\Component removeAttribute($name) Remove attribute
-     * @method self|static|\Lar\Layout\Abstracts\Component _removeAttribute($name) Apply to parent. Remove attribute
-     * @method self|static|\Lar\Layout\Abstracts\Component resetAttributes() Reset all attributes
-     * @method self|static|\Lar\Layout\Abstracts\Component _resetAttributes() Apply to parent. Reset all attributes
-     * @method self|static|\Lar\Layout\Abstracts\Component clear() Clean component
-     * @method self|static|\Lar\Layout\Abstracts\Component _clear() Apply to parent. Clean component
-     * @method self|static|\Lar\Layout\Abstracts\Component dump() Dump this tag
-     * @method self|static|\Lar\Layout\Abstracts\Component _dump() Apply to parent. Dump this tag
+     * @method self|static|\Lar\Layout\Abstracts\Component unHash($hash_name = "RENDERED")
+     * @method self|static|\Lar\Layout\Abstracts\Component _unHash($hash_name = "RENDERED") Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component removeAttribute($name)
+     * @method self|static|\Lar\Layout\Abstracts\Component _removeAttribute($name) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component resetAttributes()
+     * @method self|static|\Lar\Layout\Abstracts\Component _resetAttributes() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component clear()
+     * @method self|static|\Lar\Layout\Abstracts\Component _clear() Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component dump()
+     * @method self|static|\Lar\Layout\Abstracts\Component _dump() Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component only_content()
      * @method self|static|\Lar\Layout\Abstracts\Component _only_content() Apply to parent. 
-     * @method self|static|\Lar\Layout\Abstracts\Component rendered($call) Event after render
-     * @method self|static|\Lar\Layout\Abstracts\Component _rendered($call) Apply to parent. Event after render
-     * @method self|static|\Lar\Layout\Abstracts\Component merge_rendered(array $call) Events after render
-     * @method self|static|\Lar\Layout\Abstracts\Component _merge_rendered(array $call) Apply to parent. Events after render
-     * @method self|static|\Lar\Layout\Abstracts\Component slot($component) Insert extended data
-     * @method self|static|\Lar\Layout\Abstracts\Component _slot($component) Apply to parent. Insert extended data
+     * @method self|static|\Lar\Layout\Abstracts\Component rendered($call)
+     * @method self|static|\Lar\Layout\Abstracts\Component _rendered($call) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component merge_rendered(array $call)
+     * @method self|static|\Lar\Layout\Abstracts\Component _merge_rendered(array $call) Apply to parent. 
+     * @method self|static|\Lar\Layout\Abstracts\Component slot($component)
+     * @method self|static|\Lar\Layout\Abstracts\Component _slot($component) Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component|string render()
      * @method self|static|\Lar\Layout\Abstracts\Component|string _render() Apply to parent. 
      * @method self|static|\Lar\Layout\Abstracts\Component appEndToRendered($data)

@@ -35,29 +35,12 @@
 
                 <div class="row_wrap">
                     <div class="row" v-if="directions">
-                        <a :href="`/direction/${directions[0].slug}`" class="item">
-                            <div class="name">{{directions[0].name}}</div>
+                        <a :href="`/${directions[0].slug}`" class="item">
+                            <div class="name">Главная</div>
 
                             <div class="desc">{{directions[0].description}}</div>
 
                             <img data-src="/images/bg_directions_item1.svg" alt="" class="bg lozad">
-                        </a>
-
-                        <a :href="`/direction/${directions[1].slug}`" class="item">
-                            <div class="name">{{directions[1].name}}</div>
-
-                            <div class="desc">{{directions[1].description}}</div>
-
-                            <img data-src="/images/bg_directions_item2.svg" alt="" class="bg2 lozad">
-                            <img data-src="/images/bg_directions_item3.svg" alt="" class="bg3 lozad">
-                        </a>
-
-                        <a :href="`/direction/${directions[2].slug}`" class="item">
-                            <div class="name">{{directions[2].name}}</div>
-
-                            <div class="desc">{{directions[2].description}}</div>
-
-                            <img data-src="/images/bg_directions_item4.svg" alt="" class="bg4 lozad">
                         </a>
                     </div>
                 </div>

@@ -3,9 +3,9 @@
 namespace App\Repositories;
 
 use App\Models\Direction;
+use Bfg\Repository\Repository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use Lar\Developer\CoreRepository;
 
 /**
  * Class DirectionRepository.
@@ -15,7 +15,7 @@ use Lar\Developer\CoreRepository;
  * @property-read Direction|\Illuminate\Database\Eloquent\Builder|Model|object|null $findBySlug
  * @property-read Direction|\Illuminate\Database\Eloquent\Builder|Model|object|null $findById
  */
-class DirectionRepository extends CoreRepository
+class DirectionRepository extends Repository
 {
     /**
      * Model class namespace getter.
@@ -50,10 +50,8 @@ class DirectionRepository extends CoreRepository
      * @param Request $request
      * @return Direction|\Illuminate\Database\Eloquent\Builder|Model|object|null
      */
-    public function findById(Request $request)
+    public function findById()
     {
-        $slug = $request->direction;
-
-        return Direction::whereId($slug)->first();
+        return Direction::first();
     }
 }

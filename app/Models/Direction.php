@@ -17,9 +17,6 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property string $type
  * @property string|null $video
  * @property string|null $banner
- * @property string|null $arbitrator_name
- * @property string|null $arbitrator_photo
- * @property string|null $arbitrator_position
  * @property string|null $description
  * @property string|null $description_inside
  * @property string $terms_of_participation
@@ -55,6 +52,9 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Direction whereVideo($value)
  * @mixin \Eloquent
+ * @property string|null $arbitrator_name
+ * @property string|null $arbitrator_photo
+ * @property string|null $arbitrator_position
  */
 class Direction extends Model
 {
@@ -85,9 +85,6 @@ class Direction extends Model
         'type',
         'video',
         'banner',
-        'arbitrator_name',
-        'arbitrator_photo',
-        'arbitrator_position',
         'description',
         'description_inside',
         'terms_of_participation',
@@ -105,9 +102,6 @@ class Direction extends Model
         'type' => 'string',
         'video' => 'string',
         'banner' => 'string',
-        'arbitrator_name' => 'string',
-        'arbitrator_photo' => 'string',
-        'arbitrator_position' => 'string',
         'description' => 'string',
         'description_inside' => 'string',
         'terms_of_participation' => 'string',

@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Setting;
-use Lar\Developer\CoreRepository;
+use Bfg\Repository\Repository;
 
 /**
  * Class SettingRepository.
@@ -11,7 +11,7 @@ use Lar\Developer\CoreRepository;
  * @method Setting model()
  * @property-read Setting[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection $all
  */
-class SettingRepository extends CoreRepository
+class SettingRepository extends Repository
 {
     /**
      * Model class namespace getter.

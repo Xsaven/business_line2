@@ -1,22 +1,33 @@
 <?php
 
+use LteAdmin\Controllers\AuthController;
+use LteAdmin\Controllers\DashboardController;
+use LteAdmin\Controllers\UploadController;
+use LteAdmin\Controllers\UserController;
+use LteAdmin\Models\LteUser;
+
 return [
 
-    /*
-     * Admin application namespace
+    /**
+     * The dark mode by default for administrator
      */
-    'app_namespace' => 'App\\LteAdmin',
+    'dark_mode' => true,
 
-    /*
-     * Package work dirs
+    /**
+     * Admin application namespace.
+     */
+    'app_namespace' => 'App\\Admin',
+
+    /**
+     * Package work dirs.
      */
     'paths' => [
-        'app' => app_path('LteAdmin'),
+        'app' => app_path('Admin'),
         'view' => 'admin',
     ],
 
-    /*
-     * Global rout configurations
+    /**
+     * Global rout configurations.
      */
     'route' => [
         'domain' => '',
@@ -25,24 +36,24 @@ return [
         'layout' => 'lte_layout',
     ],
 
-    /*
-     * Default actions
+    /**
+     * Default actions.
      */
     'action' => [
         'auth' => [
-            'login_form_action' => '\Lar\LteAdmin\Controllers\AuthController@login',
-            'login_post_action' => '\Lar\LteAdmin\Controllers\AuthController@login_post',
+            'login_form_action' => [AuthController::class, 'login'],
+            'login_post_action' => [AuthController::class, 'login_post'],
         ],
         'profile' => [
-            'index' => '\Lar\LteAdmin\Controllers\UserController@index',
-            'update' => '\Lar\LteAdmin\Controllers\UserController@update',
-            'logout' => '\Lar\LteAdmin\Controllers\UserController@logout',
+            'index' => [UserController::class, 'index'],
+            'update' => [UserController::class, 'update'],
+            'logout' => [UserController::class, 'logout'],
         ],
-        'dashboard' => '\Lar\LteAdmin\Controllers\DashboardController@index',
-        'uploader' => '\Lar\LteAdmin\Controllers\UploadController@index',
+        'dashboard' => [DashboardController::class, 'index'],
+        'uploader' => [UploadController::class, 'index'],
     ],
 
-    /*
+    /**
      * Authentication settings for all lar admin pages. Include an authentication
      * guard and a user provider setting of authentication driver.
      */
@@ -50,7 +61,7 @@ return [
 
         'guards' => [
             'lte' => [
-                'driver'   => 'session',
+                'driver' => 'session',
                 'provider' => 'lte',
             ],
         ],
@@ -58,13 +69,13 @@ return [
         'providers' => [
             'lte' => [
                 'driver' => 'eloquent',
-                'model'  => \App\Models\Admin::class,
+                'model' => LteUser::class,
             ],
         ],
     ],
 
-    /*
-     * Admin lte upload setting
+    /**
+     * Admin lte upload setting.
      *
      * File system configuration for form upload files and images, including
      * disk and upload path.
@@ -73,17 +84,17 @@ return [
 
         'disk' => 'lte',
 
-        /*
+        /**
          * Image and file upload path under the disk above.
          */
         'directory' => [
             'image' => 'images',
-            'file'  => 'files',
+            'file' => 'files',
         ],
     ],
 
-    /*
-     * Admin lte use disks
+    /**
+     * Admin lte use disks.
      */
     'disks' => [
         'lte' => [
@@ -91,6 +102,16 @@ return [
             'root' => public_path('uploads'),
             'visibility' => 'public',
             'url' => env('APP_URL').'/uploads',
+        ],
+    ],
+
+    'connections' => [
+        'lte-sqlite' => [
+            'driver' => 'sqlite',
+            'url' => null,
+            'database' => database_path('lte-database.sqlite'),
+            'prefix' => '',
+            'foreign_key_constraints' => true,
         ],
     ],
 

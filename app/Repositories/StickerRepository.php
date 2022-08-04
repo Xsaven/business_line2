@@ -3,8 +3,8 @@
 namespace App\Repositories;
 
 use App\Models\Sticker;
+use Bfg\Repository\Repository;
 use Illuminate\Database\Eloquent\Collection;
-use Lar\Developer\CoreRepository;
 
 /**
  * Class StickerRepository.
@@ -12,7 +12,7 @@ use Lar\Developer\CoreRepository;
  * @method Sticker model()
  * @property-read Sticker|Sticker[]|Collection $active
  */
-class StickerRepository extends CoreRepository
+class StickerRepository extends Repository
 {
     /**
      * Model class namespace getter.

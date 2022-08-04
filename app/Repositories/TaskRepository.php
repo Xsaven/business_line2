@@ -4,8 +4,8 @@ namespace App\Repositories;
 
 use App\Models\Task;
 use App\Models\TaskReport;
+use Bfg\Repository\Repository;
 use Illuminate\Http\Request;
-use Lar\Developer\CoreRepository;
 
 /**
  * Class TaskRepository.
@@ -13,7 +13,7 @@ use Lar\Developer\CoreRepository;
  * @property-read Task|Task[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|mixed|null $findById
  * @property-read TaskReport|null $user_task_report
  */
-class TaskRepository extends CoreRepository
+class TaskRepository extends Repository
 {
     /**
      * Model class namespace getter.

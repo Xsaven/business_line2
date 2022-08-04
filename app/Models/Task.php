@@ -131,8 +131,8 @@ class Task extends Model
         'image_or_video' => 'Фото или Видео отчёт',
         'text_or_video' => 'Текст и Видео отчёт',
         'text_or_image' => 'Текст и Фото отчёт',
-        'quiz' => 'Викторина',
-        'star_quiz' => 'Звёздная викторина',
+//        'quiz' => 'Викторина',
+//        'star_quiz' => 'Звёздная викторина',
         'download_file' => 'Скачать файл',
         'download_file_photo' => 'Скачать файл и прикрепить фото',
     ];

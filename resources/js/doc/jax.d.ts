@@ -6,8 +6,7 @@ declare interface JaxModelInterface {
     task_report: JaxModelTaskReportInterface;
     user: JaxModelUserInterface;
     lte_admin: JaxModelLteAdminInterface;
-    lte_root_preferences: JaxModelLteRootPreferencesInterface;
-    lte_scaffolding: JaxModelLteScaffoldingInterface|Promise<JaxModelLteScaffoldingInterface>|Function;
+    lte_admin_executor: JaxModelLteAdminExecutorInterface;
     add_balance: JaxModelAddBalanceInterface;
     commentaries_control: JaxModelCommentariesControlInterface;
     questions_control: JaxModelQuestionsControlInterface;
@@ -35,28 +34,31 @@ declare interface JaxModelCommentariesControlInterface {
         drop(...params: any[]): Promise<JaxModelCommentariesControlInterface>;
         switch_moderation(...params: any[]): Promise<JaxModelCommentariesControlInterface>;
         switch_commentary(...params: any[]): Promise<JaxModelCommentariesControlInterface>;
+        switch_support(...params: any[]): Promise<JaxModelCommentariesControlInterface>;
+        switch_stickers(...params: any[]): Promise<JaxModelCommentariesControlInterface>;
 }
 declare interface JaxModelAddBalanceInterface {
     balance(...params: any[]): Promise<JaxModelAddBalanceInterface>;
 }
-declare interface JaxModelLteScaffoldingInterface {
-}
-declare interface JaxModelLteRootPreferencesInterface {
-    update_functions(...params: any[]): Promise<JaxModelLteRootPreferencesInterface>;
-        drop_function(...params: any[]): Promise<JaxModelLteRootPreferencesInterface>;
+declare interface JaxModelLteAdminExecutorInterface {
+    refererEmit(...params: any[]): Promise<JaxModelLteAdminExecutorInterface>;
 }
 declare interface JaxModelLteAdminInterface {
     nestable_save(...params: any[]): Promise<JaxModelLteAdminInterface>;
         custom_save(...params: any[]): Promise<JaxModelLteAdminInterface>;
         mass_delete(...params: any[]): Promise<JaxModelLteAdminInterface>;
+        load_lives(...params: any[]): Promise<JaxModelLteAdminInterface>;
         load_modal(...params: any[]): Promise<JaxModelLteAdminInterface>;
+        export_excel(...params: any[]): Promise<JaxModelLteAdminInterface>;
+        export_csv(...params: any[]): Promise<JaxModelLteAdminInterface>;
+        call_callback(...params: any[]): Promise<JaxModelLteAdminInterface>;
+        toggle_dark(...params: any[]): Promise<JaxModelLteAdminInterface>;
 }
 declare interface JaxModelUserInterface {
     update_user_data(...params: any[]): Promise<JaxModelUserInterface>;
         upload_avatar(...params: any[]): Promise<JaxModelUserInterface>;
         subscribe(...params: any[]): Promise<JaxModelUserInterface>;
         update(...params: any[]): Promise<JaxModelUserInterface>;
-        change_name(...params: any[]): Promise<JaxModelUserInterface>;
         question_likes(...params: any[]): Promise<JaxModelUserInterface>;
         new_notifications(...params: any[]): Promise<JaxModelUserInterface>;
         mark_as_read_notifications(...params: any[]): Promise<JaxModelUserInterface>;

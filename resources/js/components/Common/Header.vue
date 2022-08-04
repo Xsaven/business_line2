@@ -6,36 +6,26 @@
                     <img src="/images/logo.svg" alt="">
                 </a>
 
-                <div class="twenty_years">
-                    <img src="/images/twenty_years_mini.svg" alt="">
-                </div>
+                <div class="title">
+                    <img src="/images/header-title.svg" alt="">
+                  </div>
 
                 <div class="links" v-if="directions && user">
-                    <div><a :href="`/direction/${directions[0].slug}`">{{directions[0].name}}</a></div>
-                    <div><a :href="`/direction/${directions[1].slug}`">{{directions[1].name}}</a></div>
-                    <div><a :href="`/direction/${directions[2].slug}`">{{directions[2].name}}</a></div>
-                    <div class="margin"><a href="/rules">Правила</a></div>
+                    <div><a :href="`/${directions[0].slug}`" :class="{active: ljs.cfg('name') === 'home'}">Главная</a></div>
+                    <div><a href="/table" :class="{active: ljs.cfg('name') === 'table'}">Рейтинг</a></div>
+                    <div><a href="/rules" :class="{active: ljs.cfg('name') === 'rules'}">Правила</a></div>
+                    <div><a href="/faq" :class="{active: ljs.cfg('name') === 'faq'}">FAQ</a></div>
                 </div>
 
                 <div class="icons" v-if="user">
                     <v-search-modal />
-
-                    <div class="cart"><a href="/products">
-                        <v-icon icon="ic_cart" />
-                    </a></div>
                 </div>
 
-                <div class="col_right" v-if="user">
-                    <div class="scores">{{user.balance}} б</div>
-
-                    <v-new-commentaries />
-
-                    <div class="account">
-                        <a :href="`/profile`" class="user">
-                            <div class="avatar" v-html="user.avatar"></div>
-                            <div class="name">{{user.full_name}}</div>
-                        </a>
-                    </div>
+                <div class="account" v-if="user">
+                    <a :href="`/profile`" class="user">
+                        <div class="avatar" v-html="user.avatar"></div>
+                        <div class="name">{{user.full_name}}</div>
+                    </a>
                 </div>
 
                 <button class="mob_menu_btn" v-if="user">
@@ -59,9 +49,7 @@
             </div>
 
             <div class="links" v-if="directions && user">
-                <div><a :href="`/direction/${directions[0].slug}`">{{directions[0].name}}</a></div>
-                <div><a :href="`/direction/${directions[1].slug}`">{{directions[1].name}}</a></div>
-                <div><a :href="`/direction/${directions[2].slug}`">{{directions[2].name}}</a></div>
+                <div><a :href="`/${directions[0].slug}`">Главная</a></div>
                 <div><a href="/rules">Правила</a></div>
                 <div><a href="/products">Магазин</a></div>
             </div>

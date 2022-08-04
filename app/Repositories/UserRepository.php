@@ -5,8 +5,8 @@ namespace App\Repositories;
 use App\Models\Task;
 use App\Models\TaskReport;
 use App\Models\User;
+use Bfg\Repository\Repository;
 use Illuminate\Http\Request;
-use Lar\Developer\CoreRepository;
 
 /**
  * Class UserRepository.
@@ -16,7 +16,7 @@ use Lar\Developer\CoreRepository;
  * @property-read int $completeTaskCount
  * @property-read TaskReport $taskReports
  */
-class UserRepository extends CoreRepository
+class UserRepository extends Repository
 {
     /**
      * Model class namespace getter.

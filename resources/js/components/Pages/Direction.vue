@@ -7,15 +7,9 @@
                         <div>
                             <div class="title">{{direction.name}}</div>
 
-                            <div class="desc" v-html="direction.description_inside"></div>
+                            <div class="desc text_block" v-html="direction.description_inside"></div>
                         </div>
-
-                        <div>
-                            <div class="members">Участники: {{users}}</div>
-
-                            <button  v-if="!user.subscribe_direction && user.can" class="join_btn modal_btn" data-content="#join_modal">Присоединиться</button>
-                            <button disabled  v-else-if="user.direction_id === direction.id && user.can" class="join_btn modal_btn" data-content="#join_modal">Вы уже подписаны на трек</button>
-                        </div>
+                        <div></div>
                     </div>
 
 
@@ -24,61 +18,21 @@
                         <v-player v-if="direction.type === 'video'" :video_id="direction.video" />
                         <img v-if="direction.type === 'banner'" :src="direction.banner">
 
-                        <div class="rating">
-                            <div class="stars">
-                                <img src="/images/ic_star.svg" alt="">
-                                <img src="/images/ic_star.svg" alt="">
-                                <img src="/images/ic_star.svg" alt="">
-                            </div>
-
-                            <a :href="`/table/${direction.id}`">Рейтинг участников</a>
-                        </div>
-                    </div>
-
-                    <div class="author" v-if="direction.arbitrator_name">
-                        <div class="avatar">
-                            <img :src="link(direction.arbitrator_photo)" alt="" class="lozad">
-                            <img data-src="/images/bg_direction_author.svg" alt="" class="bg lozad">
-                        </div>
-
-                        <div>
-                            <div class="name">{{direction.arbitrator_name}}</div>
-                            <div class="post">{{direction.arbitrator_position}}</div>
-                        </div>
                     </div>
                 </div>
 
 
                 <div class="terms">
-                    <div class="title">Описание трека</div>
+                    <div class="title">Условия участия</div>
 
                     <div class="desc" v-html="direction.terms_of_participation"></div>
 
-                    <a href="/rules" class="link" target="_blank">Правила</a>
+                    <a href="/rules" class="link" target="_blank">Смотреть правила</a>
                 </div>
 
 
-                <div class="prizes">
-                    <div class="title">Призы</div>
+                <v-direction-fun-callendar v-if="direction.slug === 'home'" :tasks="tasks" />
 
-                    <div class="row_wrap">
-                        <div class="row">
-                            <div class="item" v-for="prize in direction.prizes">
-                                <div class="thumb">
-                                    <img :src="link(prize.src)" alt="" class="lozad">
-                                </div>
-
-                                <div class="name">{{prize.name}}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <v-direction-fun-callendar v-if="direction.slug === 'fun'" :tasks="tasks" />
-                <v-direction-sport-callendar v-else-if="direction.slug === 'sport'" :tasks="tasks" />
-                <v-direction-funs-callendar v-else-if="direction.slug === 'fans'" :tasks="tasks" />
-
-                <v-direction-challenge-item v-if="direction.slug === 'sport'" :tasks="challenge_items" />
             </div>
         </section>
 

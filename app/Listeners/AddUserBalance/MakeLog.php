@@ -32,12 +32,8 @@ class MakeLog
             }
             if (admin()->exists) {
 
-                admin()?->logs()?->create([
-                    'field' => 'balance',
-                    'type' => 'add_balance',
-                    'message' => ($event->balance > 0 ? 'Увеличен' : 'Уменьшен').
-                        " баланс пользователю {$event->user->full_name} на {$event->balance} баллов",
-                ]);
+                lte_log_success(($event->balance > 0 ? 'Увеличен' : 'Уменьшен').
+                    " баланс пользователю {$event->user->full_name} на {$event->balance} баллов");
             }
         }
     }

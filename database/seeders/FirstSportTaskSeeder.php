@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Direction;
 use App\Models\Task;
 use Illuminate\Database\Seeder;
-use Lar\LteAdmin\Core\ModelSaver;
+use LteAdmin\Core\ModelSaver;
 
 class FirstSportTaskSeeder extends Seeder
 {

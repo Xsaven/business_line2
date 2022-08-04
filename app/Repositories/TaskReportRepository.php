@@ -2,16 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Layouts\Auth;
 use App\Models\TaskReport;
-use Illuminate\Http\Request;
-use Lar\Developer\CoreRepository;
+use Bfg\Repository\Repository;
 
 /**
  * Class TaskReportRepository.
  * @package App\Repositories
  */
-class TaskReportRepository extends CoreRepository
+class TaskReportRepository extends Repository
 {
     /**
      * Model class namespace getter.

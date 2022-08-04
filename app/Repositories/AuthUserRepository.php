@@ -5,10 +5,10 @@ namespace App\Repositories;
 use App\Models\Task;
 use App\Models\TaskReport;
 use App\Models\User;
+use Bfg\Repository\Repository;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
-use Lar\Developer\CoreRepository;
 
 /**
  * Class AuthUserRepository.
@@ -25,7 +25,7 @@ use Lar\Developer\CoreRepository;
  * @property-read TaskReport[] $userTaskReports
  * @property-read TaskReport[] $userCompleteTaskReports
  */
-class AuthUserRepository extends CoreRepository
+class AuthUserRepository extends Repository
 {
     /**
      * Model class namespace getter.

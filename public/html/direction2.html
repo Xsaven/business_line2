@@ -1,861 +1,866 @@
 <!DOCTYPE html>
 <html lang="ru">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-		<!-- Адаптирование страницы для мобильных устройств -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-		<!-- Запрет распознования номера телефона -->
-		<meta name="format-detection" content="telephone=no">
-		<meta name="SKYPE_TOOLBAR" content ="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
-
-		<!-- Заголовок страницы -->
-		<title>Заголовок страницы</title>
-
-		<!-- Данное значение часто используют(использовали) поисковые системы -->
-		<meta name="description" content="">
-		<meta name="keywords" content="">
-
-		<!-- Подключение шрифтов с гугла -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-
-		<!-- Подключение файлов стилей -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
-		<link rel="stylesheet" href="css/styles.css">
-
-		<link rel="stylesheet" href="css/response_1899.css" media="print, (max-width: 1899px)">
-		<link rel="stylesheet" href="css/response_1599.css" media="print, (max-width: 1599px)">
-		<link rel="stylesheet" href="css/response_1439.css" media="print, (max-width: 1439px)">
-		<link rel="stylesheet" href="css/response_1279.css" media="print, (max-width: 1279px)">
-		<link rel="stylesheet" href="css/response_767.css" media="print, (max-width: 767px)">
-		<link rel="stylesheet" href="css/response_479.css" media="(max-width: 479px)">
-	</head>
-
-	<body>
-		<div class="wrap">
-			<div class="main auth_wrap">
-				<header>
-					<div class="cont row">
-						<a href="/" class="logo mob_mini">
-							<img src="images/logo.svg" alt="">
-						</a>
-
-						<div class="twenty_years">
-							<img src="images/twenty_years_mini.svg" alt="">
-						</div>
-
-						<div class="links">
-							<div><a href="/">Fun</a></div>
-							<div><a class="active">Sport</a></div>
-							<div><a href="/">Болельщики</a></div>
-							<div class="margin"><a href="/">Правила</a></div>
-						</div>
-
-						<div class="icons">
-							<div class="search modal_cont">
-								<button class="btn mini_modal_btn" data-modal-id="#search_modal">
-									<svg class="icon"><use xlink:href="images/sprite.svg#ic_search"></use></svg>
-								</button>
-
-								<div class="mini_modal" id="search_modal">
-									<form action="" class="form">
-										<input type="text" name="" value="" class="input" placeholder="Поиск по сайту">
-
-										<button type="submit" class="submit_btn">
-											<svg class="icon"><use xlink:href="images/sprite.svg#ic_search"></use></svg>
-										</button>
-									</form>
-								</div>
-							</div>
-
-							<div class="cart"><a href="/">
-								<svg class="icon"><use xlink:href="images/sprite.svg#ic_cart"></use></svg>
-							</a></div>
-						</div>
-
-						<div class="col_right">
-							<div class="scores">0 б</div>
-
-							<div class="notifications modal_cont">
-								<button class="btn new mini_modal_btn" data-modal-id="#notifications_modal">
-									<svg class="icon"><use xlink:href="images/sprite.svg#ic_notifications"></use></svg>
-								</button>
-
-								<div class="mini_modal" id="notifications_modal">
-									<div class="head">
-										<div class="title">Новые уведомления</div>
-
-										<button class="read_btn">Отметить как прочитанное</button>
-									</div>
-
-									<div class="scroll">
-										<div class="item">
-											<div class="avatar">
-												<span>ЕИ</span>
-												<img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
-											</div>
-
-											<div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
-										</div>
-
-										<div class="item">
-											<div class="avatar">
-												<span>ЕИ</span>
-												<img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
-											</div>
-
-											<div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="account">
-								<a href="/" class="user">
-									<div class="avatar">
-										<span>ЕИ</span>
-										<!-- <img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad"> -->
-									</div>
-
-									<div class="name">Евгений</div>
-								</a>
-							</div>
-						</div>
-
-						<button class="mob_menu_btn">
-							<svg class="icon"><use xlink:href="images/sprite.svg#ic_menu"></use></svg>
-							<svg class="icon"><use xlink:href="images/sprite.svg#ic_delete"></use></svg>
-						</button>
-					</div>
-				</header>
-
-
-				<section id="mob_menu">
-					<div class="twenty_years">
-						<img src="images/twenty_years_mini.svg" alt="">
-					</div>
-
-					<div class="account">
-						<a href="/" class="user">
-							<div class="avatar">
-								<span>ЕН</span>
-								<img data-src="images/tmp/user_avatar3.jpg" alt="" class="lozad">
-							</div>
-							<div class="name">Евгений</div>
-						</a>
-
-						<div class="scores">0 б</div>
-					</div>
-
-					<div class="links">
-						<div><a href="/">Fun</a></div>
-						<div><a href="/">Sport</a></div>
-						<div><a href="/">Болельщики</a></div>
-						<div><a href="/">Правила</a></div>
-						<div><a href="/">Магазин</a></div>
-					</div>
-				</section>
-
-
-				<section class="direction_info">
-					<div class="cont row">
-						<div class="data">
-							<div class="info">
-								<div>
-									<div class="title">Sport</div>
-
-									<div class="desc text_block">Являясь всего лишь частью общей картины, ключевые особенности структуры проекта преданы социально-демократической анафеме.</div>
-								</div>
-
-								<div>
-									<div class="members">Участники: 152</div>
-
-									<button class="join_btn modal_btn" data-content="#join_modal">Присоединиться</button>
-								</div>
-							</div>
-
-
-							<div class="video">
-								<a href="/" class="link">
-									<svg class="icon"><use xlink:href="images/sprite.svg#ic_video_play"></use></svg>
-								</a>
-
-								<div class="rating">
-									<div class="stars">
-										<img src="images/ic_star.svg" alt="">
-										<img src="images/ic_star.svg" alt="">
-										<img src="images/ic_star.svg" alt="">
-									</div>
-
-									<a href="/">Рейтинг участников</a>
-								</div>
-							</div>
-
-							<div class="author">
-								<div class="avatar">
-									<span>ВИ</span>
-									<img data-src="images/tmp/user_avatar4.jpg" alt="" class="lozad">
-									<img data-src="images/bg_direction_author.svg" alt="" class="bg lozad">
-								</div>
-
-								<div>
-									<div class="name">Василий Ибрагимов</div>
-									<div class="post">Руководитель направления</div>
-								</div>
-							</div>
-						</div>
-
-
-						<div class="terms">
-							<div class="title">Условия участия</div>
-
-							<div class="desc text_block">
-								<p>С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт рамки и место обучения кадров способствует подготовке и реализации направлений прогрессивного развития.</p>
-
-								<p>Повседневная практика показывает, что постоянное информационно-пропагандистское обеспечение нашей деятельности играет важную роль в формировании системы обучения кадров, соответствует насущным потребностям.</p>
-							</div>
-
-							<a href="/" class="link">Условия участия</a>
-						</div>
-
-
-						<div class="prizes">
-							<div class="title">Призы</div>
-
-							<div class="row_wrap">
-								<div class="row">
-									<div class="item">
-										<div class="thumb">
-											<img data-src="images/tmp/prizes_thumb.png" alt="" class="lozad">
-										</div>
-
-										<div class="name">Смартфон Apple iPhone 12<br> 128GB Black</div>
-									</div>
-
-									<div class="item">
-										<div class="thumb">
-											<img data-src="images/tmp/prizes_thumb2.png" alt="" class="lozad">
-										</div>
-
-										<div class="name">Планшет Apple iPad 10.2<br> Wi-Fi 32GB Space Grey</div>
-									</div>
-
-									<div class="item">
-										<div class="thumb">
-											<img data-src="images/tmp/prizes_thumb3.png" alt="" class="lozad">
-										</div>
-
-										<div class="name">Робот-пылесос Xiaomi Viomi<br> Cleaning V3 Global Black</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-
-						<div class="schedule">
-							<div class="title">Расписание активностей</div>
-
-							<div class="head">
-								<div class="exp">
-									<div><div class="color color1"></div>Мгновенные</div>
-									<div><div class="color color2"></div>Быстрые</div>
-									<div><div class="color color3"></div>Многодневные</div>
-								</div>
-
-								<div class="challenge">
-									<div class="title">Челлендж на месяц</div>
-									<div class="duration">13.09 – 8.10</div>
-									<div class="name">Стульчик-челлендж</div>
-								</div>
-							</div>
-
-
-							<div class="week_wrap">
-								<div class="week">
-									<div class="days">
-										<div class="day">
-											<div class="number">13</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day">
-											<div class="number">14</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day">
-											<div class="number">15</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day">
-											<div class="number">16</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day">
-											<div class="number">17</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day weekend">
-											<div class="number">18</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day weekend">
-											<div class="number">19</div>
-											<div class="month">Сентября</div>
-										</div>
-									</div>
-
-									<div class="events">
-										<a href="/" class="item color4">
-											<div class="time"><span>9:00-18:00</span></div>
-											<div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<a href="/" class="item color4">
-											<div class="time"><span>С 7:30 до 12:00</span></div>
-											<div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<a href="/" class="item color4">
-											<div class="time"><span>С 7:30 до 12:00</span></div>
-											<div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<a href="/" class="item width2 color4 break_right" data-group="1">
-											<div class="time"><span>Начало: 9:00</span></div>
-											<div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>
-										</a>
-
-										<div class="item weekend"></div>
-										<div class="item weekend"></div>
-										<div class="item"></div>
-
-										<a href="/" class="item width3 color4">
-											<div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>
-											<div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<a href="/" class="item color4">
-											<div class="time"><span>С 7:30 до 12:00</span></div>
-											<div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<div class="item weekend"></div>
-										<div class="item weekend"></div>
-										<div class="item"></div>
-										<div class="item"></div>
-										<div class="item"></div>
-
-										<a href="/" class="item color4">
-											<div class="time"><span>9:00-18:00</span></div>
-											<div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<div class="item"></div>
-										<div class="item weekend"></div>
-										<div class="item weekend"></div>
-									</div>
-								</div>
-							</div>
-
-
-							<div class="week_wrap">
-								<div class="week">
-									<div class="days">
-										<div class="day">
-											<div class="number">13</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day">
-											<div class="number">14</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day">
-											<div class="number">15</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day">
-											<div class="number">16</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day">
-											<div class="number">17</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day weekend">
-											<div class="number">18</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day weekend">
-											<div class="number">19</div>
-											<div class="month">Сентября</div>
-										</div>
-									</div>
-
-									<div class="events">
-										<a href="/" class="item color4 break_left" data-group="1">
-											<div class="time"><span></span><span>Финал: 18:00</span></div>
-											<div class="name"></div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<a href="/" class="item color4">
-											<div class="time"><span>С 7:30 до 12:00</span></div>
-											<div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<a href="/" class="item color4">
-											<div class="time"><span>9:00-18:00</span></div>
-											<div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<a href="/" class="item color4">
-											<div class="time"><span>С 7:30 до 12:00</span></div>
-											<div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<a href="/" class="item color3 break_right" data-group="2">
-											<div class="time"><span>Начало: 9:00</span></div>
-											<div class="name">Сложи пять олимпийских колец из подручных...</div>
-										</a>
-
-										<div class="item weekend"></div>
-										<div class="item weekend"></div>
-
-										<a href="/" class="item color2">
-											<div class="time"><span>С 7:30 до 12:00</span></div>
-											<div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<div class="item"></div>
-
-										<a href="/" class="item width3 color3">
-											<div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>
-											<div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<div class="item weekend"></div>
-										<div class="item weekend"></div>
-
-										<a href="/" class="item width3 color3">
-											<div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>
-											<div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<div class="item"></div>
-
-										<a href="/" class="item color1">
-											<div class="time"><span>9:00-18:00</span></div>
-											<div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<div class="item weekend"></div>
-										<div class="item weekend"></div>
-									</div>
-								</div>
-							</div>
-
-
-							<div class="week_wrap">
-								<div class="week">
-									<div class="days">
-										<div class="day">
-											<div class="number">13</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day">
-											<div class="number">14</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day">
-											<div class="number">15</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day">
-											<div class="number">16</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day">
-											<div class="number">17</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day weekend">
-											<div class="number">18</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day weekend">
-											<div class="number">19</div>
-											<div class="month">Сентября</div>
-										</div>
-									</div>
-
-									<div class="events">
-										<a href="/" class="item width2 color3 break_left" data-group="2">
-											<div class="time"><span></span><span>Финал: 18:00</span></div>
-											<div class="name"></div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<a href="/" class="item color2">
-											<div class="time"><span>С 7:30 до 12:00</span></div>
-											<div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<a href="/" class="item width2 color3 break_right" data-group="3">
-											<div class="time"><span>Начало: 9:00</span></div>
-											<div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>
-										</a>
-
-										<div class="item weekend"></div>
-										<div class="item weekend"></div>
-
-										<a href="/" class="item color2">
-											<div class="time"><span>С 7:30 до 12:00</span></div>
-											<div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<a href="/" class="item width3 color3">
-											<div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>
-											<div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<a href="/" class="item color2">
-											<div class="time"><span>С 7:30 до 12:00</span></div>
-											<div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<div class="item weekend"></div>
-										<div class="item weekend"></div>
-
-										<div class="item"></div>
-
-										<a href="/" class="item color1">
-											<div class="time"><span>9:00-18:00</span></div>
-											<div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<div class="item"></div>
-
-										<a href="/" class="item color1">
-											<div class="time"><span>9:00-18:00</span></div>
-											<div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<div class="item"></div>
-										<div class="item weekend"></div>
-										<div class="item weekend"></div>
-									</div>
-								</div>
-							</div>
-
-
-							<div class="week_wrap">
-								<div class="week">
-									<div class="days">
-										<div class="day">
-											<div class="number">13</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day">
-											<div class="number">14</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day">
-											<div class="number">15</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day">
-											<div class="number">16</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day">
-											<div class="number">17</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day weekend">
-											<div class="number">18</div>
-											<div class="month">Сентября</div>
-										</div>
-
-										<div class="day weekend">
-											<div class="number">19</div>
-											<div class="month">Сентября</div>
-										</div>
-									</div>
-
-									<div class="events">
-										<a href="/" class="item width2 color3 break_left" data-group="3">
-											<div class="time"><span></span><span>Финал: 18:00</span></div>
-											<div class="name"></div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<a href="/" class="item color2">
-											<div class="time"><span>С 7:30 до 12:00</span></div>
-											<div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<a href="/" class="item color1">
-											<div class="time"><span>9:00-18:00</span></div>
-											<div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<a href="/" class="item color2">
-											<div class="time"><span>С 7:30 до 12:00</span></div>
-											<div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<div class="item weekend"></div>
-										<div class="item weekend"></div>
-
-										<a href="/" class="item color2">
-											<div class="time"><span>С 7:30 до 12:00</span></div>
-											<div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<a href="/" class="item width3 color3">
-											<div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>
-											<div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из шнурков на полу / 5 шин / яблок)</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<a href="/" class="item color2">
-											<div class="time"><span>С 7:30 до 12:00</span></div>
-											<div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<div class="item weekend"></div>
-										<div class="item weekend"></div>
-
-										<div class="item"></div>
-
-										<a href="/" class="item color1">
-											<div class="time"><span>9:00-18:00</span></div>
-											<div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<div class="item"></div>
-
-										<a href="/" class="item color1">
-											<div class="time"><span>9:00-18:00</span></div>
-											<div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
-
-											<button class="favorite_btn">
-												<svg class="icon"><use xlink:href="images/sprite.svg#ic_flag"></use></svg>
-											</button>
-										</a>
-
-										<div class="item"></div>
-										<div class="item weekend"></div>
-										<div class="item weekend"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-			</div>
-
-
-			<footer class="big_margin">
-				<div class="cont row">
-					<div class="copyright">&copy; ГК «Деловые Линии», 2001–2021</div>
-
-					<div class="links">
-						<div><a href="/">FAQ</a></div>
-						<div><a href="/">Техническая поддержка</a></div>
-					</div>
-				</div>
-
-				<img data-src="images/bg_footer2.svg" alt="" class="lozad bg bg2">
-			</footer>
-
-
-			<div class="overlay"></div>
-
-			<div class="bg">
-				<img data-src="images/bg_1920.jpg" alt="" class="bg_1920 lozad">
-				<img data-src="images/bg_1600.jpg" alt="" class="bg_1600 lozad">
-				<img data-src="images/bg_1440.jpg" alt="" class="bg_1440 lozad">
-				<img data-src="images/bg_1280.jpg" alt="" class="bg_1280 lozad">
-				<img data-src="images/bg_768.jpg" alt="" class="bg_768 lozad">
-				<img data-src="images/bg_480.jpg" alt="" class="bg_480 lozad">
-				<img data-src="images/bg_360.jpg" alt="" class="bg_360 lozad">
-			</div>
-		</div>
-
-
-		<div class="supports_error">
-			Ваш браузер устарел рекомендуем обновить его до последней версии<br> или использовать другой более современный.
-		</div>
-
-
-		<section class="modal" id="join_modal">
-			<div class="title">Внимание</div>
-
-			<div class="desc">Вы можете выбрать только один трек. Дальнейшее изменение направления будет невозможным.</div>
-
-			<form action="" class="form">
-				<div class="field">
-					<input type="checkbox" name="agree" id="agree_check1" checked>
-					<label for="agree_check1">Я ознакомлен с правилами и принимаю условия</label>
-				</div>
-
-				<div class="field">
-					<input type="checkbox" name="agree" id="agree_check2" class="error">
-					<label for="agree_check2">Я ознакомлен с информацией о том, что выбрать трек для участия можно только один раз</label>
-				</div>
-
-				<div class="submit">
-					<button class="submit_btn">Присоединиться</button>
-				</div>
-			</form>
-		</section>
-
-
-		<!-- Подключение javascript файлов -->
-		<script src="js/jquery-3.5.0.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
-		<script src="js/lozad.min.js"></script>
-		<script src="js/inputmask.min.js"></script>
-		<script src="js/nice-select.js"></script>
-		<script src="js/functions.js"></script>
-		<script src="js/scripts.js"></script>
-	</body>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <!-- Адаптирование страницы для мобильных устройств -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Запрет распознования номера телефона -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+
+  <!-- Заголовок страницы -->
+  <title>Заголовок страницы</title>
+
+  <!-- Данное значение часто используют(использовали) поисковые системы -->
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Подключение шрифтов с гугла -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Подключение файлов стилей -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <link rel="stylesheet" href="css/response_1899.css" media="print, (max-width: 1899px)">
+  <link rel="stylesheet" href="css/response_1599.css" media="print, (max-width: 1599px)">
+  <link rel="stylesheet" href="css/response_1439.css" media="print, (max-width: 1439px)">
+  <link rel="stylesheet" href="css/response_1279.css" media="print, (max-width: 1279px)">
+  <link rel="stylesheet" href="css/response_767.css" media="print, (max-width: 767px)">
+  <link rel="stylesheet" href="css/response_479.css" media="(max-width: 479px)">
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="main auth_wrap">
+      <header>
+        <div class="cont row">
+          <a href="/" class="logo mob_mini">
+            <img src="images/logo.svg" alt="">
+          </a>
+
+          <div class="title">
+            <img src="images/header-title.svg" alt="">
+          </div>
+
+          <div class="links">
+            <div><a href="/">Главная</a></div>
+            <div><a href="/" class="active">Рейтинг</a></div>
+            <div><a href="/">Правила</a></div>
+            <div><a href="/">FAQ</a></div>
+          </div>
+
+          <div class="icons">
+            <div class="search modal_cont">
+              <button class="btn mini_modal_btn" data-modal-id="#search_modal">
+                <svg class="icon">
+                  <use xlink:href="images/sprite.svg#ic_search"></use>
+                </svg>
+              </button>
+
+
+            </div>
+
+
+          </div>
+
+          <div class="account">
+            <a href="/" class="user">
+              <div class="avatar">
+                <span>ЕИ</span>
+                <!-- <img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad"> -->
+              </div>
+
+              <div class="name">Евгений</div>
+            </a>
+          </div>
+        </div>
+
+        <button class="mob_menu_btn">
+          <svg class="icon">
+            <use xlink:href="images/sprite.svg#ic_menu"></use>
+          </svg>
+          <svg class="icon">
+            <use xlink:href="images/sprite.svg#ic_delete"></use>
+          </svg>
+        </button>
+    </div>
+    <div class="bg">
+      <img data-src="images/bg_1920.jpg" alt="" class="bg_1920 lozad">
+      <img data-src="images/bg_1600.jpg" alt="" class="bg_1600 lozad">
+      <img data-src="images/bg_1440.jpg" alt="" class="bg_1440 lozad">
+      <img data-src="images/bg_1280.jpg" alt="" class="bg_1280 lozad">
+      <img data-src="images/bg_768.jpg" alt="" class="bg_768 lozad">
+      <img data-src="images/bg_480.jpg" alt="" class="bg_480 lozad">
+      <img data-src="images/bg_360.jpg" alt="" class="bg_360 lozad">
+    </div>
+    </header>
+
+
+    <section id="mob_menu">
+      <div class="twenty_years">
+        <img src="images/twenty_years_mini.svg" alt="">
+      </div>
+
+      <div class="account">
+        <a href="/" class="user">
+          <div class="avatar">
+            <span>ЕН</span>
+            <img data-src="images/tmp/user_avatar3.jpg" alt="" class="lozad">
+          </div>
+          <div class="name">Евгений</div>
+        </a>
+
+        <div class="scores">0 б</div>
+      </div>
+
+      <div class="links">
+        <div><a href="/">Fun</a></div>
+        <div><a href="/">Sport</a></div>
+        <div><a href="/">Болельщики</a></div>
+        <div><a href="/">Правила</a></div>
+        <div><a href="/">Магазин</a></div>
+      </div>
+    </section>
+
+
+    <section class="direction_info">
+      <div class="cont row">
+        <div class="data">
+          <div class="info">
+            <div>
+              <div class="title">Sport</div>
+
+              <div class="desc text_block">Являясь всего лишь частью общей картины, ключевые особенности структуры
+                проекта преданы социально-демократической анафеме.</div>
+            </div>
+
+            <div>
+              <!-- <div class="members">Участники: 152</div> -->
+            </div>
+          </div>
+
+
+          <div class="video">
+            <a href="/" class="link">
+              <svg class="icon">
+                <use xlink:href="images/sprite.svg#ic_video_play"></use>
+              </svg>
+            </a>
+
+
+          </div>
+
+
+        </div>
+
+
+        <div class="terms">
+          <div class="title">Условия участия</div>
+
+          <div class="desc text_block">
+            <p>С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности представляет
+              собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт рамки и
+              место обучения кадров способствует подготовке и реализации направлений прогрессивного развития.</p>
+
+            <p>Повседневная практика показывает, что постоянное информационно-пропагандистское обеспечение нашей
+              деятельности играет важную роль в формировании системы обучения кадров, соответствует насущным
+              потребностям.</p>
+          </div>
+
+          <a href="/" class="link">Условия участия</a>
+        </div>
+
+
+        <div class="prizes">
+          <div class="title">Призы</div>
+
+          <div class="row_wrap">
+            <div class="row">
+              <div class="item">
+                <div class="thumb">
+                  <img data-src="images/tmp/prizes_thumb.png" alt="" class="lozad">
+                </div>
+
+                <div class="name">Смартфон Apple iPhone 12<br> 128GB Black</div>
+              </div>
+
+              <div class="item">
+                <div class="thumb">
+                  <img data-src="images/tmp/prizes_thumb2.png" alt="" class="lozad">
+                </div>
+
+                <div class="name">Планшет Apple iPad 10.2<br> Wi-Fi 32GB Space Grey</div>
+              </div>
+
+              <div class="item">
+                <div class="thumb">
+                  <img data-src="images/tmp/prizes_thumb3.png" alt="" class="lozad">
+                </div>
+
+                <div class="name">Робот-пылесос Xiaomi Viomi<br> Cleaning V3 Global Black</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="schedule">
+          <div class="title">Расписание активностей</div>
+
+
+
+          <div class="week_wrap">
+            <div class="week">
+              <div class="days">
+                <div class="day">
+                  <div class="number">13</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day">
+                  <div class="number">14</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day">
+                  <div class="number">15</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day">
+                  <div class="number">16</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day">
+                  <div class="number">17</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day weekend">
+                  <div class="number">18</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day weekend">
+                  <div class="number">19</div>
+                  <div class="month">Сентября</div>
+                </div>
+              </div>
+
+              <div class="events">
+                <a href="/" class="item color4">
+                  <div class="time"><span>9:00-18:00</span></div>
+                  <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <a href="/" class="item color4">
+                  <div class="time"><span>С 7:30 до 12:00</span></div>
+                  <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <a href="/" class="item color4">
+                  <div class="time"><span>С 7:30 до 12:00</span></div>
+                  <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <a href="/" class="item width2 color4 break_right" data-group="1">
+                  <div class="time"><span>Начало: 9:00</span></div>
+                  <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из
+                    шнурков на полу / 5 шин / яблок)</div>
+                </a>
+
+                <div class="item weekend"></div>
+                <div class="item weekend"></div>
+                <div class="item"></div>
+
+                <a href="/" class="item width3 color4">
+                  <div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>
+                  <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из
+                    шнурков на полу / 5 шин / яблок)</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <a href="/" class="item color4">
+                  <div class="time"><span>С 7:30 до 12:00</span></div>
+                  <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <div class="item weekend"></div>
+                <div class="item weekend"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+
+                <a href="/" class="item color4">
+                  <div class="time"><span>9:00-18:00</span></div>
+                  <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <div class="item"></div>
+                <div class="item weekend"></div>
+                <div class="item weekend"></div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="week_wrap">
+            <div class="week">
+              <div class="days">
+                <div class="day">
+                  <div class="number">13</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day">
+                  <div class="number">14</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day">
+                  <div class="number">15</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day">
+                  <div class="number">16</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day">
+                  <div class="number">17</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day weekend">
+                  <div class="number">18</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day weekend">
+                  <div class="number">19</div>
+                  <div class="month">Сентября</div>
+                </div>
+              </div>
+
+              <div class="events">
+                <a href="/" class="item color4 break_left" data-group="1">
+                  <div class="time"><span></span><span>Финал: 18:00</span></div>
+                  <div class="name"></div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <a href="/" class="item color4">
+                  <div class="time"><span>С 7:30 до 12:00</span></div>
+                  <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <a href="/" class="item color4">
+                  <div class="time"><span>9:00-18:00</span></div>
+                  <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <a href="/" class="item color4">
+                  <div class="time"><span>С 7:30 до 12:00</span></div>
+                  <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <a href="/" class="item color3 break_right" data-group="2">
+                  <div class="time"><span>Начало: 9:00</span></div>
+                  <div class="name">Сложи пять олимпийских колец из подручных...</div>
+                </a>
+
+                <div class="item weekend"></div>
+                <div class="item weekend"></div>
+
+                <a href="/" class="item color2">
+                  <div class="time"><span>С 7:30 до 12:00</span></div>
+                  <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <div class="item"></div>
+
+                <a href="/" class="item width3 color3">
+                  <div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>
+                  <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из
+                    шнурков на полу / 5 шин / яблок)</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <div class="item weekend"></div>
+                <div class="item weekend"></div>
+
+                <a href="/" class="item width3 color3">
+                  <div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>
+                  <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из
+                    шнурков на полу / 5 шин / яблок)</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <div class="item"></div>
+
+                <a href="/" class="item color1">
+                  <div class="time"><span>9:00-18:00</span></div>
+                  <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <div class="item weekend"></div>
+                <div class="item weekend"></div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="week_wrap">
+            <div class="week">
+              <div class="days">
+                <div class="day">
+                  <div class="number">13</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day">
+                  <div class="number">14</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day">
+                  <div class="number">15</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day">
+                  <div class="number">16</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day">
+                  <div class="number">17</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day weekend">
+                  <div class="number">18</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day weekend">
+                  <div class="number">19</div>
+                  <div class="month">Сентября</div>
+                </div>
+              </div>
+
+              <div class="events">
+                <a href="/" class="item width2 color3 break_left" data-group="2">
+                  <div class="time"><span></span><span>Финал: 18:00</span></div>
+                  <div class="name"></div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <a href="/" class="item color2">
+                  <div class="time"><span>С 7:30 до 12:00</span></div>
+                  <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <a href="/" class="item width2 color3 break_right" data-group="3">
+                  <div class="time"><span>Начало: 9:00</span></div>
+                  <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из
+                    шнурков на полу / 5 шин / яблок)</div>
+                </a>
+
+                <div class="item weekend"></div>
+                <div class="item weekend"></div>
+
+                <a href="/" class="item color2">
+                  <div class="time"><span>С 7:30 до 12:00</span></div>
+                  <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <a href="/" class="item width3 color3">
+                  <div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>
+                  <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из
+                    шнурков на полу / 5 шин / яблок)</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <a href="/" class="item color2">
+                  <div class="time"><span>С 7:30 до 12:00</span></div>
+                  <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <div class="item weekend"></div>
+                <div class="item weekend"></div>
+
+                <div class="item"></div>
+
+                <a href="/" class="item color1">
+                  <div class="time"><span>9:00-18:00</span></div>
+                  <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <div class="item"></div>
+
+                <a href="/" class="item color1">
+                  <div class="time"><span>9:00-18:00</span></div>
+                  <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <div class="item"></div>
+                <div class="item weekend"></div>
+                <div class="item weekend"></div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="week_wrap">
+            <div class="week">
+              <div class="days">
+                <div class="day">
+                  <div class="number">13</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day">
+                  <div class="number">14</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day">
+                  <div class="number">15</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day">
+                  <div class="number">16</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day">
+                  <div class="number">17</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day weekend">
+                  <div class="number">18</div>
+                  <div class="month">Сентября</div>
+                </div>
+
+                <div class="day weekend">
+                  <div class="number">19</div>
+                  <div class="month">Сентября</div>
+                </div>
+              </div>
+
+              <div class="events">
+                <a href="/" class="item width2 color3 break_left" data-group="3">
+                  <div class="time"><span></span><span>Финал: 18:00</span></div>
+                  <div class="name"></div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <a href="/" class="item color2">
+                  <div class="time"><span>С 7:30 до 12:00</span></div>
+                  <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <a href="/" class="item color1">
+                  <div class="time"><span>9:00-18:00</span></div>
+                  <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <a href="/" class="item color2">
+                  <div class="time"><span>С 7:30 до 12:00</span></div>
+                  <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <div class="item weekend"></div>
+                <div class="item weekend"></div>
+
+                <a href="/" class="item color2">
+                  <div class="time"><span>С 7:30 до 12:00</span></div>
+                  <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <a href="/" class="item width3 color3">
+                  <div class="time"><span>Начало: 9:00</span><span>Финал: 18:00</span></div>
+                  <div class="name">Сложи пять олимпийских колец из подручных средств и пришли креативное фото (из
+                    шнурков на полу / 5 шин / яблок)</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <a href="/" class="item color2">
+                  <div class="time"><span>С 7:30 до 12:00</span></div>
+                  <div class="name">Попади в мусорную корзину / урну мячиком, сделанным ...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <div class="item weekend"></div>
+                <div class="item weekend"></div>
+
+                <div class="item"></div>
+
+                <a href="/" class="item color1">
+                  <div class="time"><span>9:00-18:00</span></div>
+                  <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <div class="item"></div>
+
+                <a href="/" class="item color1">
+                  <div class="time"><span>9:00-18:00</span></div>
+                  <div class="name">10 000 шагов челлендж. Пришли селфи с шагомеро...</div>
+
+                  <button class="favorite_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_flag"></use>
+                    </svg>
+                  </button>
+                </a>
+
+                <div class="item"></div>
+                <div class="item weekend"></div>
+                <div class="item weekend"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <footer class="big_margin">
+    <div class="cont row">
+      <div class="copyright">&copy; ГК «Деловые Линии», 2001–2021</div>
+
+      <div class="links">
+        <div><a href="/">FAQ</a></div>
+        <div><a href="/">Техническая поддержка</a></div>
+      </div>
+    </div>
+
+    <img data-src="images/footer-decor.png" alt="" class="lozad bg bg2">
+  </footer>
+
+
+  <div class="overlay"></div>
+
+
+  </div>
+
+
+  <div class="supports_error">
+    Ваш браузер устарел рекомендуем обновить его до последней версии<br> или использовать другой более современный.
+  </div>
+
+
+  <section class="modal" id="join_modal">
+    <div class="title">Внимание</div>
+
+    <div class="desc">Вы можете выбрать только один трек. Дальнейшее изменение направления будет невозможным.</div>
+
+    <form action="" class="form">
+      <div class="field">
+        <input type="checkbox" name="agree" id="agree_check1" checked>
+        <label for="agree_check1">Я ознакомлен с правилами и принимаю условия</label>
+      </div>
+
+      <div class="field">
+        <input type="checkbox" name="agree" id="agree_check2" class="error">
+        <label for="agree_check2">Я ознакомлен с информацией о том, что выбрать трек для участия можно только один
+          раз</label>
+      </div>
+
+      <div class="submit">
+        <button class="submit_btn">Присоединиться</button>
+      </div>
+    </form>
+  </section>
+
+
+  <!-- Подключение javascript файлов -->
+  <script src="js/jquery-3.5.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+  <script src="js/lozad.min.js"></script>
+  <script src="js/inputmask.min.js"></script>
+  <script src="js/nice-select.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+
 </html>
