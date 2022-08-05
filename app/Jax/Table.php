@@ -25,7 +25,7 @@ class Table extends JaxExecutor
      * @param  string  $sort
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function pagination(int $direction_id, string $sort = 'balance'): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+    public function pagination(int $direction_id, string $sort = 'man'): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
         return UserResource::collection(
             app(UserRepository::class)
@@ -34,7 +34,8 @@ class Table extends JaxExecutor
                 ->where('direction_id', $direction_id)
                 ->whereActive(1)
                 ->withCount('taskReports')
-                ->orderByDesc($sort == 'balance' ? 'max_balance' : $sort)
+                ->when($sort === 'woman', fn ($q) => $q->where('sex', 1))
+                ->unless($sort === 'woman', fn ($q) => $q->where('sex', 0))
                 ->orderBy('name', 'ASC')
                 ->orderBy('lastname', 'ASC')
                 ->paginate(10)

@@ -27,9 +27,9 @@ class Table extends Page
      */
     public function __construct($id = null, array $attrs = [], ...$params)
     {
-        $sort = request('sort', 'balance');
+        $sort = request('sort', 'man');
 
-        $attrs['sort'] = $sort !== 'balance' && $sort !== 'likes' ? 'balance' : $sort;
+        $attrs['sort'] = $sort !== 'man' && $sort !== 'woman' ? 'man' : $sort;
 
         $attrs['users'] = [];
 

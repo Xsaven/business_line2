@@ -114,7 +114,7 @@ class DirectionController extends Controller
                     $tab->input_name('Название')->required(),
                     $tab->textarea_description('Описание кнопки'),
                     $tab->ckeditor_description_inside('Описание'),
-                    //$tab->multi_select('prizes[]', 'Призы')->load(Prize::class),
+                    $tab->multi_select('prizes[]', 'Призы')->load(Prize::class),
                     $tab->ckeditor_short_description('Краткое описание'),
                     $tab->ckeditor_terms_of_participation('Условия участия'),
                 ),

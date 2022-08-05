@@ -2,16 +2,14 @@
     <section class="standings">
         <div class="cont row">
             <div class="block_head">
-                <div class="title">Турнирная таблица направления {{direction.name}}</div>
+                <div class="title">Турнирная таблица</div>
             </div>
 
             <section class="aside">
                 <div class="links">
-                    <div><a :href="`${href('balance')}`" :class="{active: sort === 'balance'}">За
-                        баллы</a></div>
+                    <div><a :href="`${href('man')}`" :class="{active: sort === 'man'}">Мужчины</a></div>
 
-                    <div><a :href="`${href('likes')}`" :class="{active: sort === 'likes'}">За
-                        лайки</a></div>
+                    <div><a :href="`${href('woman')}`" :class="{active: sort === 'woman'}">Женщины</a></div>
                 </div>
             </section>
 
@@ -23,8 +21,8 @@
                         <tr>
                             <th></th>
                             <th></th>
-                            <th>{{sort==='balance' ? 'Баллы' : 'Лайки'}}</th>
-                            <th class="aligncenter">Задания</th>
+<!--                            <th></th>-->
+                            <th>Баллы</th>
                         </tr>
                         </thead>
 
@@ -33,8 +31,8 @@
                                 <tr>
                                     <td class="number">{{ui+1+(page > 1 ? (page-1)*10 : 0)}}</td>
                                     <td class="name"><a :href="`/user/${user.id}`">{{user.full_name}}</a></td>
-                                    <td class="scores">{{user[sort === 'balance' ? 'max_balance' : sort]}}</td>
-                                    <td class="tasks">{{user.reports_count}}</td>
+                                    <td class="scores">{{user.max_balance}}</td>
+<!--                                    <td class="tasks">{{user.reports_count}}</td>-->
                                 </tr>
                             </template>
                         </tbody>

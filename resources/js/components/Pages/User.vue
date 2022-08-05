@@ -4,21 +4,21 @@
             <section class="user_info">
                 <div class="avatar" v-html="avatar"></div>
 
-                <div class="stats">
-                    <div>Баллы: {{user.balance}}</div>
-                    <div>Рейтинг: {{user.balance_rating}}</div>
-                    <div>Лайки: {{user.likes}}</div>
-                    <div>Рейтинг: {{user.like_rating}}</div>
-                </div>
+<!--                <div class="stats">-->
+<!--                    <div>Баллы: {{user.balance}}</div>-->
+<!--                    <div>Рейтинг: {{user.balance_rating}}</div>-->
+<!--                    <div>Лайки: {{user.likes}}</div>-->
+<!--                    <div>Рейтинг: {{user.like_rating}}</div>-->
+<!--                </div>-->
 
-                <button class="btn subscribe_btn" v-if="user.id!==u.id && u.subscribes_users.indexOf(user.id) === -1 && u.can" @click="subscribe">
-                    <v-icon icon="ic_notifications" />
-                    <span>Подписаться</span>
-                </button>
-                <button class="btn unsubscribe_btn" v-else-if="u.can" @click="subscribe">
-                    <v-icon icon="ic_notifications2" />
-                    <span>Отписаться</span>
-                </button>
+<!--                <button class="btn subscribe_btn" v-if="user.id!==u.id && u.subscribes_users && u.subscribes_users.indexOf(user.id) === -1 && u.can" @click="subscribe">-->
+<!--                    <v-icon icon="ic_notifications" />-->
+<!--                    <span>Подписаться</span>-->
+<!--                </button>-->
+<!--                <button class="btn unsubscribe_btn" v-else-if="u.can" @click="subscribe">-->
+<!--                    <v-icon icon="ic_notifications2" />-->
+<!--                    <span>Отписаться</span>-->
+<!--                </button>-->
             </section>
 
 
@@ -39,13 +39,9 @@
 
                     <div>{{user.about}}</div>
                 </div>
-
-                <div class="direction" v-if="user.follow_direction">
-                    Направление участия: <a :href="`/direction/${user.follow_direction.slug}`">{{user.follow_direction.name}}</a>
-                </div>
             </section>
 
-            <section class="tasks_list">
+            <section class="tasks_list" v-if="self">
                 <div class="title">Выполненные задания ({{complete_tasks_count}})</div>
 
 
@@ -78,6 +74,9 @@
         computed: {
             avatar () {
                 return this.user.avatar + "<img data-src=\"/images/bg_user_avatar.svg\" alt=\"\" class=\"lozad bg\">";
+            },
+            self () {
+                return state.user.id === this.user.id
             }
         },
         watch: {},

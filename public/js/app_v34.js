@@ -6695,6 +6695,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "pages_direction",
   $sync: ['user'],
@@ -8123,8 +8138,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   $exec: ["load"],
   name: "pages_table",
@@ -8513,10 +8526,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   $sync: {
     user: "u"
@@ -8542,6 +8551,9 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     avatar: function avatar() {
       return this.user.avatar + "<img data-src=\"/images/bg_user_avatar.svg\" alt=\"\" class=\"lozad bg\">";
+    },
+    self: function self() {
+      return state.user.id === this.user.id;
     }
   },
   watch: {},
@@ -59166,10 +59178,6 @@ var render = function() {
           : _vm._e(),
         _vm._v(" "),
         _vm.user
-          ? _c("div", { staticClass: "icons" }, [_c("v-search-modal")], 1)
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.user
           ? _c("div", { staticClass: "account" }, [
               _c("a", { staticClass: "user", attrs: { href: "/profile" } }, [
                 _c("div", {
@@ -63954,6 +63962,32 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
+          _c("div", { staticClass: "prizes" }, [
+            _c("div", { staticClass: "title" }, [_vm._v("Призы")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row_wrap" }, [
+              _c(
+                "div",
+                { staticClass: "row" },
+                _vm._l(_vm.direction.prizes, function(prize) {
+                  return _c("div", { staticClass: "item" }, [
+                    _c("div", { staticClass: "thumb" }, [
+                      _c("img", {
+                        staticClass: "lozad",
+                        attrs: { src: _vm.link(prize.src), alt: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "name" }, [
+                      _vm._v(_vm._s(prize.name))
+                    ])
+                  ])
+                }),
+                0
+              )
+            ])
+          ]),
+          _vm._v(" "),
           _vm.direction.slug === "home"
             ? _c("v-direction-fun-callendar", { attrs: { tasks: _vm.tasks } })
             : _vm._e()
@@ -66416,11 +66450,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "standings" }, [
     _c("div", { staticClass: "cont row" }, [
-      _c("div", { staticClass: "block_head" }, [
-        _c("div", { staticClass: "title" }, [
-          _vm._v("Турнирная таблица направления " + _vm._s(_vm.direction.name))
-        ])
-      ]),
+      _vm._m(0),
       _vm._v(" "),
       _c("section", { staticClass: "aside" }, [
         _c("div", { staticClass: "links" }, [
@@ -66428,10 +66458,10 @@ var render = function() {
             _c(
               "a",
               {
-                class: { active: _vm.sort === "balance" },
-                attrs: { href: "" + _vm.href("balance") }
+                class: { active: _vm.sort === "man" },
+                attrs: { href: "" + _vm.href("man") }
               },
-              [_vm._v("За\n                    баллы")]
+              [_vm._v("Мужчины")]
             )
           ]),
           _vm._v(" "),
@@ -66439,10 +66469,10 @@ var render = function() {
             _c(
               "a",
               {
-                class: { active: _vm.sort === "likes" },
-                attrs: { href: "" + _vm.href("likes") }
+                class: { active: _vm.sort === "woman" },
+                attrs: { href: "" + _vm.href("woman") }
               },
-              [_vm._v("За\n                    лайки")]
+              [_vm._v("Женщины")]
             )
           ])
         ])
@@ -66451,19 +66481,7 @@ var render = function() {
       _c("section", { staticClass: "data" }, [
         _c("div", { staticClass: "table_wrap" }, [
           _c("table", [
-            _c("thead", [
-              _c("tr", [
-                _c("th"),
-                _vm._v(" "),
-                _c("th"),
-                _vm._v(" "),
-                _c("th", [
-                  _vm._v(_vm._s(_vm.sort === "balance" ? "Баллы" : "Лайки"))
-                ]),
-                _vm._v(" "),
-                _c("th", { staticClass: "aligncenter" }, [_vm._v("Задания")])
-              ])
-            ]),
+            _vm._m(1),
             _vm._v(" "),
             _c(
               "tbody",
@@ -66486,17 +66504,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("td", { staticClass: "scores" }, [
-                        _vm._v(
-                          _vm._s(
-                            user[
-                              _vm.sort === "balance" ? "max_balance" : _vm.sort
-                            ]
-                          )
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "tasks" }, [
-                        _vm._v(_vm._s(user.reports_count))
+                        _vm._v(_vm._s(user.max_balance))
                       ])
                     ])
                   ]
@@ -66561,7 +66569,30 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "block_head" }, [
+      _c("div", { staticClass: "title" }, [_vm._v("Турнирная таблица")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th"),
+        _vm._v(" "),
+        _c("th"),
+        _vm._v(" "),
+        _c("th", [_vm._v("Баллы")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -66870,49 +66901,7 @@ var render = function() {
         _c("div", {
           staticClass: "avatar",
           domProps: { innerHTML: _vm._s(_vm.avatar) }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "stats" }, [
-          _c("div", [_vm._v("Баллы: " + _vm._s(_vm.user.balance))]),
-          _vm._v(" "),
-          _c("div", [_vm._v("Рейтинг: " + _vm._s(_vm.user.balance_rating))]),
-          _vm._v(" "),
-          _c("div", [_vm._v("Лайки: " + _vm._s(_vm.user.likes))]),
-          _vm._v(" "),
-          _c("div", [_vm._v("Рейтинг: " + _vm._s(_vm.user.like_rating))])
-        ]),
-        _vm._v(" "),
-        _vm.user.id !== _vm.u.id &&
-        _vm.u.subscribes_users.indexOf(_vm.user.id) === -1 &&
-        _vm.u.can
-          ? _c(
-              "button",
-              {
-                staticClass: "btn subscribe_btn",
-                on: { click: _vm.subscribe }
-              },
-              [
-                _c("v-icon", { attrs: { icon: "ic_notifications" } }),
-                _vm._v(" "),
-                _c("span", [_vm._v("Подписаться")])
-              ],
-              1
-            )
-          : _vm.u.can
-          ? _c(
-              "button",
-              {
-                staticClass: "btn unsubscribe_btn",
-                on: { click: _vm.subscribe }
-              },
-              [
-                _c("v-icon", { attrs: { icon: "ic_notifications2" } }),
-                _vm._v(" "),
-                _c("span", [_vm._v("Отписаться")])
-              ],
-              1
-            )
-          : _vm._e()
+        })
       ]),
       _vm._v(" "),
       _c("section", { staticClass: "user_data" }, [
@@ -66940,44 +66929,31 @@ var render = function() {
           _c("div", { staticClass: "title" }, [_vm._v("О себе:")]),
           _vm._v(" "),
           _c("div", [_vm._v(_vm._s(_vm.user.about))])
-        ]),
-        _vm._v(" "),
-        _vm.user.follow_direction
-          ? _c("div", { staticClass: "direction" }, [
-              _vm._v("\n                Направление участия: "),
-              _c(
-                "a",
-                {
-                  attrs: {
-                    href: "/direction/" + _vm.user.follow_direction.slug
-                  }
-                },
-                [_vm._v(_vm._s(_vm.user.follow_direction.name))]
-              )
-            ])
-          : _vm._e()
+        ])
       ]),
       _vm._v(" "),
-      _c("section", { staticClass: "tasks_list" }, [
-        _c("div", { staticClass: "title" }, [
-          _vm._v(
-            "Выполненные задания (" + _vm._s(_vm.complete_tasks_count) + ")"
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "list" },
-          [
-            _vm._l(_vm.task_reports, function(report) {
-              return Number(_vm.complete_tasks_count)
-                ? [_c("v-task-report", { attrs: { report: report } })]
-                : _vm._e()
-            })
-          ],
-          2
-        )
-      ]),
+      _vm.self
+        ? _c("section", { staticClass: "tasks_list" }, [
+            _c("div", { staticClass: "title" }, [
+              _vm._v(
+                "Выполненные задания (" + _vm._s(_vm.complete_tasks_count) + ")"
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "list" },
+              [
+                _vm._l(_vm.task_reports, function(report) {
+                  return Number(_vm.complete_tasks_count)
+                    ? [_c("v-task-report", { attrs: { report: report } })]
+                    : _vm._e()
+                })
+              ],
+              2
+            )
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "clear" })
     ])

@@ -17,9 +17,9 @@
                     <div><a href="/faq" :class="{active: ljs.cfg('name') === 'faq'}">FAQ</a></div>
                 </div>
 
-                <div class="icons" v-if="user">
-                    <v-search-modal />
-                </div>
+<!--                <div class="icons" v-if="user">-->
+<!--                    <v-search-modal />-->
+<!--                </div>-->
 
                 <div class="account" v-if="user">
                     <a :href="`/profile`" class="user">

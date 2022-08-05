@@ -9,6 +9,7 @@ use App\Admin\Controllers\DivisionController;
 use App\Admin\Controllers\FaqController;
 use App\Admin\Controllers\LogController;
 use App\Admin\Controllers\PositionController;
+use App\Admin\Controllers\PrizeController;
 use App\Admin\Controllers\SettingsController;
 use App\Admin\Controllers\TaskController;
 use App\Admin\Controllers\TaskReportController;
@@ -19,6 +20,7 @@ use App\Models\Division;
 use App\Models\Faq;
 use App\Models\Log;
 use App\Models\Position;
+use App\Models\Prize;
 use App\Models\Setting;
 use App\Models\Task;
 use App\Models\TaskReport;
@@ -71,9 +73,9 @@ class Navigator extends NavigatorExtensionProvider implements ActionWorkExtensio
             ->resource('faq', FaqController::class)
             ->icon_question_circle();
 
-//        $this->item(Prize::TITLE)
-//            ->resource('prize', PrizeController::class)
-//            ->icon_gift();
+        $this->item(Prize::TITLE)
+            ->resource('prize', PrizeController::class)
+            ->icon_gift();
 
 //        $this->item(Order::TITLE)
 //            ->resource('orders', OrderController::class)
