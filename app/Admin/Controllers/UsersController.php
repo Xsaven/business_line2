@@ -11,8 +11,8 @@ use App\Admin\Delegates\ModelTable;
 use App\Admin\Delegates\SearchForm;
 use App\Admin\Delegates\Tab;
 use App\Exports\UserStatisticExport;
-use App\Exports\UserTableBallsExport;
-use App\Exports\UserTableLikesExport;
+use App\Exports\UserTableWomanExport;
+use App\Exports\UserTableManExport;
 use App\Models\Direction;
 use App\Models\Division;
 use App\Models\Position;
@@ -259,12 +259,12 @@ class UsersController extends Controller
      * @throws \PhpOffice\PhpSpreadsheet\Exception
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
      */
-    public function export_table_likes(int $direction_id)
+    public function export_table_man(int $direction_id)
     {
-        UserTableLikesExport::$direction_id = $direction_id;
+        UserTableManExport::$direction_id = $direction_id;
         $direction = Direction::find($direction_id);
 
-        return \Excel::download(new UserTableLikesExport(), "Table by likes for ({$direction->name}), ".(now()->format('d_m_Y_H_i_s')).'.xlsx');
+        return \Excel::download(new UserTableManExport(), "Man table ({$direction->name}), ".(now()->format('d_m_Y_H_i_s')).'.xlsx');
     }
 
     /**
@@ -272,11 +272,11 @@ class UsersController extends Controller
      * @throws \PhpOffice\PhpSpreadsheet\Exception
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
      */
-    public function export_table_balls(int $direction_id)
+    public function export_table_woman(int $direction_id)
     {
-        UserTableBallsExport::$direction_id = $direction_id;
+        UserTableWomanExport::$direction_id = $direction_id;
         $direction = Direction::find($direction_id);
 
-        return \Excel::download(new UserTableBallsExport(), "Table by balls for ({$direction->name}), ".(now()->format('d_m_Y_H_i_s')).'.xlsx');
+        return \Excel::download(new UserTableWomanExport(), "Woman table ({$direction->name}), ".(now()->format('d_m_Y_H_i_s')).'.xlsx');
     }
 }

@@ -111,11 +111,11 @@ Road::web()->middleware(['lte-auth'])->prefix(config('lte.route.prefix'))->prefi
     $road->get('/task_reports/export', [TaskReportController::class, 'export'])
         ->name('task_report_export');
 
-    $road->get('/table_likes/{direction_id}/export', [UsersController::class, 'export_table_likes'])
-        ->name('table_likes_export');
+    $road->get('/table_man/{direction_id}/export', [UsersController::class, 'export_table_man'])
+        ->name('table_man_export');
 
-    $road->get('/table_balls/{direction_id}/export', [UsersController::class, 'export_table_balls'])
-        ->name('table_balls_export');
+    $road->get('/table_woman/{direction_id}/export', [UsersController::class, 'export_table_woman'])
+        ->name('table_woman_export');
 });
 
 Route::post('/forgot-password', [\App\Http\Controllers\PasswordResetLinkController::class, 'store'])

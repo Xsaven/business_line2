@@ -10,7 +10,7 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 /**
  * Class StatisticExport.
  */
-class UserTableBallsExport implements FromCollection
+class UserTableManExport implements FromCollection
 {
     public static $direction_id;
 
@@ -20,13 +20,14 @@ class UserTableBallsExport implements FromCollection
     public function collection()
     {
         $result = [
-            ['Место', 'Имя', 'Фамилия', 'Таб. номер', 'Баланс'],
+            ['Место', 'Имя', 'Фамилия', 'Таб. номер', 'Баллов'],
         ];
 
         /** @var User[] $users */
         $users = User::where('direction_id', static::$direction_id)
-            ->orderByDesc('max_balance')
+            ->orderByDesc('likes')
             ->whereActive(1)
+            ->where('sex', 0)
             ->orderBy('name', 'ASC')
             ->orderBy('lastname', 'ASC')
             ->get();
