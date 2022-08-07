@@ -70,6 +70,8 @@ class AppServiceProvider extends ServiceProvider
         CommentaryRoom::observe(CommentaryRoomObserver::class);
 
         \URL::forceScheme('https');
+
+        $this->app['request']->server->set('HTTPS', true);
     }
 
     public function debugDatabaseQueries()
