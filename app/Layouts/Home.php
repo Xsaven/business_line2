@@ -47,7 +47,7 @@ class Home extends LayoutComponent
     protected $body_scripts = [
         'https://player.vimeo.com/api/player.js',
         //'https://facecast.net/w/js/iframe.js',
-        //`'https://facecast.net/v/js/iframe.js',
+        'https://facecast.net/v/js/iframe.js',
         'js/jquery-3.5.0.min.js',
         'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
         'js/lozad.min.js',
@@ -97,15 +97,15 @@ class Home extends LayoutComponent
         $this->head->link(['rel' => 'preconnect', 'href' => 'https://fonts.gstatic.com', 'crossorigin' => '']);
         $this->head->link(['rel' => 'stylesheet', 'href' => 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap']);
         $this->head->link(['rel' => 'stylesheet', 'href' => 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css']);
-        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/styles.css?'.$ts)]);
-        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_1899.css?'.$ts), 'media' => 'print, (max-width: 1899px)']);
-        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_1599.css?'.$ts), 'media' => 'print, (max-width: 1599px)']);
-        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_1439.css?'.$ts), 'media' => 'print, (max-width: 1439px)']);
-        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_1279.css?'.$ts), 'media' => 'print, (max-width: 1279px)']);
-        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_767.css?'.$ts), 'media' => 'print, (max-width: 767px)']);
-        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_479.css?'.$ts), 'media' => '(max-width: 479px)']);
-        $this->head->link(['rel' => 'icon', 'type' => 'image/png', 'href' => asset('favicon.ico')]);
-        $this->head->link(['rel' => 'apple-touch-icon', 'href' => asset('favicon.ico')]);
+        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/styles.css?'.$ts, true)]);
+        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_1899.css?'.$ts, true), 'media' => 'print, (max-width: 1899px)']);
+        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_1599.css?'.$ts, true), 'media' => 'print, (max-width: 1599px)']);
+        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_1439.css?'.$ts, true), 'media' => 'print, (max-width: 1439px)']);
+        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_1279.css?'.$ts, true), 'media' => 'print, (max-width: 1279px)']);
+        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_767.css?'.$ts, true), 'media' => 'print, (max-width: 767px)']);
+        $this->head->link(['rel' => 'stylesheet', 'href' => asset('css/response_479.css?'.$ts, true), 'media' => '(max-width: 479px)']);
+        $this->head->link(['rel' => 'icon', 'type' => 'image/png', 'href' => asset('favicon.ico', true)]);
+        $this->head->link(['rel' => 'apple-touch-icon', 'href' => asset('favicon.ico', true)]);
         if (! \App::isLocal()) {
             $this->head->text($this->g_script_1());
             $this->body->text($this->g_script_2());
