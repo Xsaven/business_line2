@@ -41,6 +41,8 @@ class AppServiceProvider extends ServiceProvider
                 LConfigs::add('ws_host', 'ws.dellin.ru');
             }
         }
+
+        \URL::forceScheme('https');
     }
 
     /**
