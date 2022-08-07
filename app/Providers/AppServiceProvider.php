@@ -41,8 +41,6 @@ class AppServiceProvider extends ServiceProvider
                 LConfigs::add('ws_host', 'ws.dellin.ru');
             }
         }
-
-        \URL::forceScheme('https');
     }
 
     /**
@@ -70,6 +68,8 @@ class AppServiceProvider extends ServiceProvider
         TaskReport::observe(TaskReportObserver::class);
         Commentary::observe(CommentaryOserver::class);
         CommentaryRoom::observe(CommentaryRoomObserver::class);
+
+        \URL::forceScheme('https');
     }
 
     public function debugDatabaseQueries()
