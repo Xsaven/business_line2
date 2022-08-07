@@ -34,13 +34,11 @@ class AppServiceProvider extends ServiceProvider
 
         $this->debugDatabaseQueries();
 
-        if (! \App::isLocal()) {
-            if (config('app.url') == 'https://dl.frudev.ru') {
-                LConfigs::add('ws_host', 'ws.frudev.ru');
-            } else {
-                LConfigs::add('ws_host', 'ws.dellin.ru');
-            }
-        }
+        LConfigs::add('ws_host', 'ws.dellin.ru');
+
+        \URL::forceScheme('https');
+
+        $this->app['request']->server->set('HTTPS', true);
     }
 
     /**
@@ -68,10 +66,6 @@ class AppServiceProvider extends ServiceProvider
         TaskReport::observe(TaskReportObserver::class);
         Commentary::observe(CommentaryOserver::class);
         CommentaryRoom::observe(CommentaryRoomObserver::class);
-
-        \URL::forceScheme('https');
-
-        $this->app['request']->server->set('HTTPS', true);
     }
 
     public function debugDatabaseQueries()
