@@ -87,11 +87,11 @@ use Lar\Roads\Roads;
     ->component('/user/{user:id}', \App\Components\Vue\Pages\User::class)
     ->name('user');
 
-\Road::layout('home')
-    ->web()
-    ->auth()
-    ->component('/search', \App\Components\Vue\Pages\Search::class)
-    ->name('search');
+//\Road::layout('home')
+//    ->web()
+//    ->auth()
+//    ->component('/search', \App\Components\Vue\Pages\Search::class)
+//    ->name('search');
 
 \Road::web()
     ->auth()
@@ -122,9 +122,13 @@ Route::post('/forgot-password', [\App\Http\Controllers\PasswordResetLinkControll
     ->middleware(['guest:'.config('fortify.guard')])
     ->name('password.email');
 
+if (Cache::get('home-lock')) {
 
-\Road::layout('home')
-    ->web()
-    ->auth()
-    ->component('/{direction:slug}', \App\Components\Vue\Pages\Direction::class)
-    ->name('home');
+} else {
+    \Road::layout('home')
+        ->web()
+        ->auth()
+        ->component('/{direction:slug}', \App\Components\Vue\Pages\Direction::class)
+        ->name('home');
+}
+

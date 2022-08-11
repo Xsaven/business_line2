@@ -2416,6 +2416,27 @@ header .mob_menu_btn.active .icon + .icon {
   list-style-type: none;
 }
 
+.text_block ul.accent {
+  color: rgba(252, 175, 23, 1);
+}
+
+.text_block ul.dotted li:before {
+  content: "•";
+  width: auto;
+  height: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+}
+.text_block ul.accent {
+  color: rgba(252, 175, 23, 1);
+}
+
+.text_block a.accent {
+  color: rgba(252, 175, 23, 1);
+  text-decoration: underline;
+}
+
 .text_block ul li:before {
   position: absolute;
   top: 10px;
@@ -2547,7 +2568,7 @@ header .mob_menu_btn.active .icon + .icon {
 
   width: 624px;
   max-width: calc(50% - 50px);
-  margin-top: 41px;
+  /* margin-top: 41px; */
   margin-right: 100px;
 
   text-align: center;
@@ -2581,7 +2602,7 @@ header .mob_menu_btn.active .icon + .icon {
   border-radius: 8px;
   background: #1c1c1c;
 
-  align-self: flex-start;
+  align-self: center;
 }
 
 .auth .data .title {
@@ -5853,7 +5874,7 @@ header .mob_menu_btn.active .icon + .icon {
 }
 
 .direction_info .data .info {
-  width: 262px;
+  width: 350px;
   max-width: 100%;
 }
 
@@ -5897,7 +5918,7 @@ header .mob_menu_btn.active .icon + .icon {
 }
 
 .direction_info .data .video {
-  width: calc(100% - 575px);
+  width: calc(100% - 400px);
   margin-left: auto;
 }
 
@@ -6382,6 +6403,12 @@ header .mob_menu_btn.active .icon + .icon {
 
 .direction_info .schedule .events .item.width3 {
   width: calc((77.28% / 5) * 3 - 2px);
+}
+.direction_info .schedule .events .item.widthfull {
+  width: 100%;
+}
+.direction_info .schedule .events .item.width5 {
+  width: calc((69% / 5) * 5 - 2px);
 }
 
 .direction_info .schedule .events .item.weekend {

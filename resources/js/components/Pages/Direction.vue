@@ -30,22 +30,6 @@
                     <a href="/rules" class="link" target="_blank">Смотреть правила</a>
                 </div>
 
-                <div class="prizes">
-                    <div class="title">Призы</div>
-
-                    <div class="row_wrap">
-                        <div class="row">
-                            <div class="item" v-for="prize in direction.prizes">
-                                <div class="thumb">
-                                    <img :src="link(prize.src)" alt="" class="lozad">
-                                </div>
-
-                                <div class="name">{{prize.name}}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <v-direction-fun-callendar v-if="direction.slug === 'home'" :tasks="tasks" />
 
             </div>

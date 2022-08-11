@@ -20,7 +20,7 @@
 <!--                        <img src="/images/twenty_years.svg" alt="" class="twenty_years">-->
                         <img src="/images/auth_img2.png" alt="" class="img">
 
-                        <div class="slogan">Присоединяйся к нам и выигрывай крутые призы!</div>
+<!--                        <div class="slogan">Присоединяйся к нам и выигрывай крутые призы!</div>-->
                     </div>
 
                     <div class="data">
@@ -447,10 +447,13 @@ export default {
             }
 
             if (!this.registration.email) jax.guest.registration_data(this.registration.name, this.registration.lastname, this.registration.number)
-                .then(({email, has, registered}) => {
+                .then(({email, has, registered, sex}) => {
                     if (registered) {
                         this.errors.lastname = "Пользователь уже зарегистрирован";
                         return ;
+                    }
+                    if (sex !== null) {
+                        this.registration.sex = String(sex);
                     }
                     if(email) {
                         this.empty_email = false;

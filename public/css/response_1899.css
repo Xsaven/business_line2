@@ -184,11 +184,11 @@
   }
 
   .direction_info .data .info {
-    width: 241px;
+    width: 350px;
   }
 
   .direction_info .data .video {
-    width: calc(100% - 526px);
+    width: calc(100% - 400px);
     margin-right: 20px;
     margin-left: auto;
   }

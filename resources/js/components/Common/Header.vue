@@ -21,6 +21,8 @@
 <!--                    <v-search-modal />-->
 <!--                </div>-->
 
+                <div class="scores">{{user.balance}} б</div>
+
                 <div class="account" v-if="user">
                     <a :href="`/profile`" class="user">
                         <div class="avatar" v-html="user.avatar"></div>

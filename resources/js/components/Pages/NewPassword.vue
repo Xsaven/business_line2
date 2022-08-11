@@ -20,7 +20,7 @@
 <!--                        <img src="/images/twenty_years.svg" alt="" class="twenty_years">-->
                         <img src="/images/auth_img2.png" alt="" class="img">
 
-                        <div class="slogan">Присоединяйся к нам и выигрывай крутые призы!</div>
+<!--                        <div class="slogan">Присоединяйся к нам и выигрывай крутые призы!</div>-->
                     </div>
 
                     <div class="data">

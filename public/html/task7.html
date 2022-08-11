@@ -1,481 +1,509 @@
 <!DOCTYPE html>
 <html lang="ru">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-		<!-- Адаптирование страницы для мобильных устройств -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-		<!-- Запрет распознования номера телефона -->
-		<meta name="format-detection" content="telephone=no">
-		<meta name="SKYPE_TOOLBAR" content ="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
-
-		<!-- Заголовок страницы -->
-		<title>Заголовок страницы</title>
-
-		<!-- Данное значение часто используют(использовали) поисковые системы -->
-		<meta name="description" content="">
-		<meta name="keywords" content="">
-
-		<!-- Подключение шрифтов с гугла -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-
-		<!-- Подключение файлов стилей -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
-		<link rel="stylesheet" href="css/styles.css">
-
-		<link rel="stylesheet" href="css/response_1899.css" media="print, (max-width: 1899px)">
-		<link rel="stylesheet" href="css/response_1599.css" media="print, (max-width: 1599px)">
-		<link rel="stylesheet" href="css/response_1439.css" media="print, (max-width: 1439px)">
-		<link rel="stylesheet" href="css/response_1279.css" media="print, (max-width: 1279px)">
-		<link rel="stylesheet" href="css/response_767.css" media="print, (max-width: 767px)">
-		<link rel="stylesheet" href="css/response_479.css" media="(max-width: 479px)">
-	</head>
-
-	<body>
-		<div class="wrap">
-			<div class="main auth_wrap">
-				<header>
-					<div class="cont row">
-						<a href="/" class="logo mob_mini">
-							<img src="images/logo.svg" alt="">
-						</a>
-
-						<div class="twenty_years">
-							<img src="images/twenty_years_mini.svg" alt="">
-						</div>
-
-						<div class="links">
-							<div><a href="/">Fun</a></div>
-							<div><a href="/">Sport</a></div>
-							<div><a href="/">Болельщики</a></div>
-							<div class="margin"><a href="/">Правила</a></div>
-						</div>
-
-						<div class="icons">
-							<div class="search modal_cont">
-								<button class="btn mini_modal_btn" data-modal-id="#search_modal">
-									<svg class="icon"><use xlink:href="images/sprite.svg#ic_search"></use></svg>
-								</button>
-
-								<div class="mini_modal" id="search_modal">
-									<form action="" class="form">
-										<input type="text" name="" value="" class="input" placeholder="Поиск по сайту">
-
-										<button type="submit" class="submit_btn">
-											<svg class="icon"><use xlink:href="images/sprite.svg#ic_search"></use></svg>
-										</button>
-									</form>
-								</div>
-							</div>
-
-							<div class="cart"><a href="/">
-								<svg class="icon"><use xlink:href="images/sprite.svg#ic_cart"></use></svg>
-							</a></div>
-						</div>
-
-						<div class="col_right">
-							<div class="scores">0 б</div>
-
-							<div class="notifications modal_cont">
-								<button class="btn new mini_modal_btn" data-modal-id="#notifications_modal">
-									<svg class="icon"><use xlink:href="images/sprite.svg#ic_notifications"></use></svg>
-								</button>
-
-								<div class="mini_modal" id="notifications_modal">
-									<div class="head">
-										<div class="title">Новые уведомления</div>
-
-										<button class="read_btn">Отметить как прочитанное</button>
-									</div>
-
-									<div class="scroll">
-										<div class="item">
-											<div class="avatar">
-												<span>ЕИ</span>
-												<img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
-											</div>
-
-											<div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
-										</div>
-
-										<div class="item">
-											<div class="avatar">
-												<span>ЕИ</span>
-												<img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
-											</div>
-
-											<div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
-										</div>
-
-										<div class="item">
-											<div class="avatar">
-												<span>ЕИ</span>
-												<img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
-											</div>
-
-											<div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
-										</div>
-
-										<div class="item">
-											<div class="avatar">
-												<span>ЕИ</span>
-												<img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
-											</div>
-
-											<div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
-										</div>
-
-										<div class="item">
-											<div class="avatar">
-												<span>ЕИ</span>
-												<img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
-											</div>
-
-											<div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
-										</div>
-
-										<div class="item">
-											<div class="avatar">
-												<span>ЕИ</span>
-												<img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
-											</div>
-
-											<div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
-										</div>
-
-										<div class="item">
-											<div class="avatar">
-												<span>ЕИ</span>
-												<img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
-											</div>
-
-											<div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
-										</div>
-
-										<div class="item">
-											<div class="avatar">
-												<span>ЕИ</span>
-												<img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
-											</div>
-
-											<div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
-										</div>
-
-										<div class="item">
-											<div class="avatar">
-												<span>ЕИ</span>
-												<img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
-											</div>
-
-											<div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
-										</div>
-
-										<div class="item">
-											<div class="avatar">
-												<span>ЕИ</span>
-												<img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
-											</div>
-
-											<div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="account">
-								<a href="/" class="user">
-									<div class="avatar">
-										<span>ЕИ</span>
-										<!-- <img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad"> -->
-									</div>
-
-									<div class="name">Евгений</div>
-								</a>
-							</div>
-						</div>
-
-						<button class="mob_menu_btn">
-							<svg class="icon"><use xlink:href="images/sprite.svg#ic_menu"></use></svg>
-							<svg class="icon"><use xlink:href="images/sprite.svg#ic_delete"></use></svg>
-						</button>
-					</div>
-				</header>
-
-
-				<section id="mob_menu">
-					<div class="twenty_years">
-						<img src="images/twenty_years_mini.svg" alt="">
-					</div>
-
-					<div class="account">
-						<a href="/" class="user">
-							<div class="avatar">
-								<span>ЕН</span>
-								<img data-src="images/tmp/user_avatar3.jpg" alt="" class="lozad">
-							</div>
-							<div class="name">Евгений</div>
-						</a>
-
-						<div class="scores">0 б</div>
-					</div>
-
-					<div class="links">
-						<div><a href="/">Fun</a></div>
-						<div><a href="/">Sport</a></div>
-						<div><a href="/">Болельщики</a></div>
-						<div><a href="/">Правила</a></div>
-						<div><a href="/">Магазин</a></div>
-					</div>
-				</section>
-
-
-				<section class="task_info">
-					<div class="cont row">
-						<div class="data">
-							<div class="info">
-								<div>
-									<div class="title">В отличной форме</div>
-									<div class="desc">Сделай фото в спортивном образе</div>
-								</div>
-
-								<div>
-									<div class="date">21-22 августа</div>
-									<div class="before_start red">Завершён</div>
-								</div>
-
-								<div>
-									<div class="scores">185 баллов</div>
-									<div class="members">Участники: 152</div>
-								</div>
-							</div>
-
-
-							<div class="video">
-
-							</div>
-						</div>
-
-
-						<div class="terms min_w">
-							<div class="title">Условия участия</div>
-
-							<div class="desc">
-								<p>С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт рамки и место обучения кадров способствует подготовке и реализации направлений прогрессивного развития.</p>
-
-								<p>Повседневная практика показывает, что постоянное информационно-пропагандистское обеспечение нашей деятельности играет важную роль в формировании системы обучения кадров, соответствует насущным потребностям.</p>
-							</div>
-						</div>
-
-
-						<div class="reports">
-							<div class="my_report">
-								<div class="title">Мой отчет</div>
-
-								<div class="tasks_list">
-									<div class="list">
-										<div class="task_wrap">
-											<div class="task">
-												<div class="head">
-													<div class="title">
-														<a href="/">Отжаться 10 раз за 10 секунд</a>
-													</div>
-
-													<div class="date">20 августа 18:15</div>
-												</div>
-
-												<div class="author">
-													<div class="avatar">
-														<span>ЕИ</span>
-														<img data-src="images/tmp/user_avatar3.jpg" alt="" class="lozad">
-													</div>
-
-													<div>
-														<div class="name">Евгений Иванов</div>
-														<div class="text">Круто! Спасибо за участие 😀</div>
-													</div>
-												</div>
-
-												<div class="video">
-													<img data-src="images/tmp/video_thumb.jpg" alt="" class="lozad">
-													<svg class="icon"><use xlink:href="images/sprite.svg#ic_video_play"></use></svg>
-												</div>
-
-												<div class="bottom">
-													<button class="like_btn active">
-														<span>18</span>
-														<svg class="icon"><use xlink:href="images/sprite.svg#ic_like"></use></svg>
-														<svg class="icon"><use xlink:href="images/sprite.svg#ic_like_a"></use></svg>
-													</button>
-												</div>
-											</div>
-
-
-											<div class="dialog">
-												<div class="messages">
-													<div class="message">
-														<div class="user">
-															<div class="avatar">
-																<span>АВ</span>
-																<img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
-															</div>
-
-															<div>
-																<div class="name">
-																	<a href="/">Алена Васильева</a>
-																</div>
-																<div class="date">21 августа 18:47</div>
-															</div>
-														</div>
-
-														<div class="text">
-															<img src="images/tmp/dialog_img.jpg" alt="">
-														</div>
-													</div>
-
-													<div class="message">
-														<div class="user">
-															<div class="avatar">
-																<span>АН</span>
-															</div>
-
-															<div>
-																<div class="name">
-																	<a href="/">Алексей Николае...</a>
-																</div>
-																<div class="date">21 августа 18:47</div>
-															</div>
-														</div>
-
-														<div class="text">
-															😀
-														</div>
-													</div>
-												</div>
-
-												<div class="add_message">
-													<div class="smiles modal_cont">
-														<button type="button" class="btn mini_modal_btn" data-modal-id="#smiles_modal">
-															<svg class="icon"><use xlink:href="images/sprite.svg#ic_smile"></use></svg>
-														</button>
-
-														<div class="mini_modal" id="smiles_modal">
-															<button type="button" class="close_btn">
-																<svg class="icon"><use xlink:href="images/sprite.svg#ic_close"></use></svg>
-															</button>
-
-															<div class="section">
-																<div class="title">Эмоджи</div>
-
-																<div class="row">
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																	<div><img src="images/tmp/smile_img.png" alt=""></div>
-																</div>
-															</div>
-
-															<div class="section stickers">
-																<div class="title">Стикеры</div>
-
-																<div class="row">
-																	<div><img src="images/tmp/sticker_img.png" alt=""></div>
-																	<div><img src="images/tmp/sticker_img.png" alt=""></div>
-																	<div><img src="images/tmp/sticker_img.png" alt=""></div>
-																	<div><img src="images/tmp/sticker_img.png" alt=""></div>
-																	<div><img src="images/tmp/sticker_img.png" alt=""></div>
-																	<div><img src="images/tmp/sticker_img.png" alt=""></div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-
-							<div class="head">
-								<div class="title">Отчеты участников (0)</div>
-							</div>
-
-							<div class="empty">Здесь скоро появятся отчёты других участников</div>
-						</div>
-					</div>
-				</section>
-			</div>
-
-
-			<footer class="big_margin">
-				<div class="cont row">
-					<div class="copyright">&copy; ГК «Деловые Линии», 2001–2021</div>
-
-					<div class="links">
-						<div><a href="/">FAQ</a></div>
-						<div><a href="/">Техническая поддержка</a></div>
-					</div>
-				</div>
-
-				<img data-src="images/bg_footer2.svg" alt="" class="lozad bg bg2">
-			</footer>
-
-
-			<div class="overlay"></div>
-
-			<div class="bg">
-				<img data-src="images/bg_1920.jpg" alt="" class="bg_1920 lozad">
-				<img data-src="images/bg_1600.jpg" alt="" class="bg_1600 lozad">
-				<img data-src="images/bg_1440.jpg" alt="" class="bg_1440 lozad">
-				<img data-src="images/bg_1280.jpg" alt="" class="bg_1280 lozad">
-				<img data-src="images/bg_768.jpg" alt="" class="bg_768 lozad">
-				<img data-src="images/bg_480.jpg" alt="" class="bg_480 lozad">
-				<img data-src="images/bg_360.jpg" alt="" class="bg_360 lozad">
-			</div>
-		</div>
-
-
-		<div class="supports_error">
-			Ваш браузер устарел рекомендуем обновить его до последней версии<br> или использовать другой более современный.
-		</div>
-
-
-		<!-- Подключение javascript файлов -->
-		<script src="js/jquery-3.5.0.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
-		<script src="js/lozad.min.js"></script>
-		<script src="js/inputmask.min.js"></script>
-		<script src="js/nice-select.js"></script>
-		<script src="js/functions.js"></script>
-		<script src="js/scripts.js"></script>
-	</body>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <!-- Адаптирование страницы для мобильных устройств -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Запрет распознования номера телефона -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+
+  <!-- Заголовок страницы -->
+  <title>Заголовок страницы</title>
+
+  <!-- Данное значение часто используют(использовали) поисковые системы -->
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Подключение шрифтов с гугла -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Подключение файлов стилей -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <link rel="stylesheet" href="css/response_1899.css" media="print, (max-width: 1899px)">
+  <link rel="stylesheet" href="css/response_1599.css" media="print, (max-width: 1599px)">
+  <link rel="stylesheet" href="css/response_1439.css" media="print, (max-width: 1439px)">
+  <link rel="stylesheet" href="css/response_1279.css" media="print, (max-width: 1279px)">
+  <link rel="stylesheet" href="css/response_767.css" media="print, (max-width: 767px)">
+  <link rel="stylesheet" href="css/response_479.css" media="(max-width: 479px)">
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="main auth_wrap">
+      <header>
+        <div class="cont row">
+          <a href="/" class="logo mob_mini">
+            <img src="images/logo.svg" alt="">
+          </a>
+
+          <div class="twenty_years">
+            <img src="images/twenty_years_mini.svg" alt="">
+          </div>
+
+          <div class="links">
+            <div><a href="/">Fun</a></div>
+            <div><a href="/">Sport</a></div>
+            <div><a href="/">Болельщики</a></div>
+            <div class="margin"><a href="/">Правила</a></div>
+          </div>
+
+          <div class="icons">
+            <div class="search modal_cont">
+              <button class="btn mini_modal_btn" data-modal-id="#search_modal">
+                <svg class="icon">
+                  <use xlink:href="images/sprite.svg#ic_search"></use>
+                </svg>
+              </button>
+
+              <div class="mini_modal" id="search_modal">
+                <form action="" class="form">
+                  <input type="text" name="" value="" class="input" placeholder="Поиск по сайту">
+
+                  <button type="submit" class="submit_btn">
+                    <svg class="icon">
+                      <use xlink:href="images/sprite.svg#ic_search"></use>
+                    </svg>
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="cart"><a href="/">
+                <svg class="icon">
+                  <use xlink:href="images/sprite.svg#ic_cart"></use>
+                </svg>
+              </a></div>
+          </div>
+
+          <div class="col_right">
+            <div class="scores">0 б</div>
+
+            <div class="notifications modal_cont">
+              <button class="btn new mini_modal_btn" data-modal-id="#notifications_modal">
+                <svg class="icon">
+                  <use xlink:href="images/sprite.svg#ic_notifications"></use>
+                </svg>
+              </button>
+
+              <div class="mini_modal" id="notifications_modal">
+                <div class="head">
+                  <div class="title">Новые уведомления</div>
+
+                  <button class="read_btn">Отметить как прочитанное</button>
+                </div>
+
+                <div class="scroll">
+                  <div class="item">
+                    <div class="avatar">
+                      <span>ЕИ</span>
+                      <img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
+                    </div>
+
+                    <div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
+                  </div>
+
+                  <div class="item">
+                    <div class="avatar">
+                      <span>ЕИ</span>
+                      <img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
+                    </div>
+
+                    <div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
+                  </div>
+
+                  <div class="item">
+                    <div class="avatar">
+                      <span>ЕИ</span>
+                      <img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
+                    </div>
+
+                    <div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
+                  </div>
+
+                  <div class="item">
+                    <div class="avatar">
+                      <span>ЕИ</span>
+                      <img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
+                    </div>
+
+                    <div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
+                  </div>
+
+                  <div class="item">
+                    <div class="avatar">
+                      <span>ЕИ</span>
+                      <img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
+                    </div>
+
+                    <div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
+                  </div>
+
+                  <div class="item">
+                    <div class="avatar">
+                      <span>ЕИ</span>
+                      <img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
+                    </div>
+
+                    <div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
+                  </div>
+
+                  <div class="item">
+                    <div class="avatar">
+                      <span>ЕИ</span>
+                      <img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
+                    </div>
+
+                    <div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
+                  </div>
+
+                  <div class="item">
+                    <div class="avatar">
+                      <span>ЕИ</span>
+                      <img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
+                    </div>
+
+                    <div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
+                  </div>
+
+                  <div class="item">
+                    <div class="avatar">
+                      <span>ЕИ</span>
+                      <img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
+                    </div>
+
+                    <div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
+                  </div>
+
+                  <div class="item">
+                    <div class="avatar">
+                      <span>ЕИ</span>
+                      <img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
+                    </div>
+
+                    <div>Алена Васильева опубликовала <a href="/">новый отчет</a>. <span class="time">1 ч</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="account">
+              <a href="/" class="user">
+                <div class="avatar">
+                  <span>ЕИ</span>
+                  <!-- <img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad"> -->
+                </div>
+
+                <div class="name">Евгений</div>
+              </a>
+            </div>
+          </div>
+
+          <button class="mob_menu_btn">
+            <svg class="icon">
+              <use xlink:href="images/sprite.svg#ic_menu"></use>
+            </svg>
+            <svg class="icon">
+              <use xlink:href="images/sprite.svg#ic_delete"></use>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+
+      <section id="mob_menu">
+        <div class="twenty_years">
+          <img src="images/twenty_years_mini.svg" alt="">
+        </div>
+
+        <div class="account">
+          <a href="/" class="user">
+            <div class="avatar">
+              <span>ЕН</span>
+              <img data-src="images/tmp/user_avatar3.jpg" alt="" class="lozad">
+            </div>
+            <div class="name">Евгений</div>
+          </a>
+
+          <div class="scores">0 б</div>
+        </div>
+
+        <div class="links">
+          <div><a href="/">Fun</a></div>
+          <div><a href="/">Sport</a></div>
+          <div><a href="/">Болельщики</a></div>
+          <div><a href="/">Правила</a></div>
+          <div><a href="/">Магазин</a></div>
+        </div>
+      </section>
+
+
+      <section class="task_info">
+        <div class="cont row">
+          <div class="data">
+            <div class="info">
+              <div>
+                <div class="title">В отличной форме</div>
+                <div class="desc">Сделай фото в спортивном образе</div>
+              </div>
+
+              <div>
+                <div class="date">21-22 августа</div>
+                <div class="before_start red">Завершён</div>
+              </div>
+
+              <div>
+                <div class="scores">185 баллов</div>
+                <div class="members">Участники: 152</div>
+              </div>
+            </div>
+
+
+            <div class="video">
+
+            </div>
+          </div>
+
+
+          <div class="terms min_w">
+            <div class="title">Условия участия</div>
+
+            <div class="desc">
+              <p>С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности представляет
+                собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт рамки и
+                место обучения кадров способствует подготовке и реализации направлений прогрессивного развития.</p>
+
+              <p>Повседневная практика показывает, что постоянное информационно-пропагандистское обеспечение нашей
+                деятельности играет важную роль в формировании системы обучения кадров, соответствует насущным
+                потребностям.</p>
+            </div>
+          </div>
+
+
+          <div class="reports">
+            <div class="my_report">
+              <div class="title">Мой отчет</div>
+
+              <div class="tasks_list">
+                <div class="list">
+                  <div class="task_wrap">
+                    <div class="task">
+                      <div class="head">
+                        <div class="title">
+                          <a href="/">Отжаться 10 раз за 10 секунд</a>
+                        </div>
+
+                        <div class="date">20 августа 18:15</div>
+                      </div>
+
+                      <div class="author">
+                        <div class="avatar">
+                          <span>ЕИ</span>
+                          <img data-src="images/tmp/user_avatar3.jpg" alt="" class="lozad">
+                        </div>
+
+                        <div>
+                          <div class="name">Евгений Иванов</div>
+                          <div class="text">Круто! Спасибо за участие 😀</div>
+                        </div>
+                      </div>
+
+                      <div class="video">
+                        <img data-src="images/tmp/video_thumb.jpg" alt="" class="lozad">
+                        <svg class="icon">
+                          <use xlink:href="images/sprite.svg#ic_video_play"></use>
+                        </svg>
+                      </div>
+
+                      <div class="bottom">
+                        <button class="like_btn active">
+                          <span>18</span>
+                          <svg class="icon">
+                            <use xlink:href="images/sprite.svg#ic_like"></use>
+                          </svg>
+                          <svg class="icon">
+                            <use xlink:href="images/sprite.svg#ic_like_a"></use>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+
+
+                    <div class="dialog">
+                      <div class="messages">
+                        <div class="message">
+                          <div class="user">
+                            <div class="avatar">
+                              <span>АВ</span>
+                              <img data-src="images/tmp/user_avatar.jpg" alt="" class="lozad">
+                            </div>
+
+                            <div>
+                              <div class="name">
+                                <a href="/">Алена Васильева</a>
+                              </div>
+                              <div class="date">21 августа 18:47</div>
+                            </div>
+                          </div>
+
+                          <div class="text">
+                            <img src="images/tmp/dialog_img.jpg" alt="">
+                          </div>
+                        </div>
+
+                        <div class="message">
+                          <div class="user">
+                            <div class="avatar">
+                              <span>АН</span>
+                            </div>
+
+                            <div>
+                              <div class="name">
+                                <a href="/">Алексей Николае...</a>
+                              </div>
+                              <div class="date">21 августа 18:47</div>
+                            </div>
+                          </div>
+
+                          <div class="text">
+                            😀
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="add_message">
+                        <div class="smiles modal_cont">
+                          <button type="button" class="btn mini_modal_btn" data-modal-id="#smiles_modal">
+                            <svg class="icon">
+                              <use xlink:href="images/sprite.svg#ic_smile"></use>
+                            </svg>
+                          </button>
+
+                          <div class="mini_modal" id="smiles_modal">
+                            <button type="button" class="close_btn">
+                              <svg class="icon">
+                                <use xlink:href="images/sprite.svg#ic_close"></use>
+                              </svg>
+                            </button>
+
+                            <div class="section">
+                              <div class="title">Эмоджи</div>
+
+                              <div class="row">
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                                <div><img src="images/tmp/smile_img.png" alt=""></div>
+                              </div>
+                            </div>
+
+                            <div class="section stickers">
+                              <div class="title">Стикеры</div>
+
+                              <div class="row">
+                                <div><img src="images/tmp/sticker_img.png" alt=""></div>
+                                <div><img src="images/tmp/sticker_img.png" alt=""></div>
+                                <div><img src="images/tmp/sticker_img.png" alt=""></div>
+                                <div><img src="images/tmp/sticker_img.png" alt=""></div>
+                                <div><img src="images/tmp/sticker_img.png" alt=""></div>
+                                <div><img src="images/tmp/sticker_img.png" alt=""></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="empty">Здесь скоро появятся отчёты других участников</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+    <footer class="big_margin">
+      <div class="cont row">
+        <div class="copyright">&copy; ГК «Деловые Линии», 2001–2021</div>
+
+        <div class="links">
+          <div><a href="/">FAQ</a></div>
+          <div><a href="/">Техническая поддержка</a></div>
+        </div>
+      </div>
+
+      <img data-src="images/bg_footer2.svg" alt="" class="lozad bg bg2">
+    </footer>
+
+
+    <div class="overlay"></div>
+
+    <div class="bg">
+      <img data-src="images/bg_1920.jpg" alt="" class="bg_1920 lozad">
+      <img data-src="images/bg_1600.jpg" alt="" class="bg_1600 lozad">
+      <img data-src="images/bg_1440.jpg" alt="" class="bg_1440 lozad">
+      <img data-src="images/bg_1280.jpg" alt="" class="bg_1280 lozad">
+      <img data-src="images/bg_768.jpg" alt="" class="bg_768 lozad">
+      <img data-src="images/bg_480.jpg" alt="" class="bg_480 lozad">
+      <img data-src="images/bg_360.jpg" alt="" class="bg_360 lozad">
+    </div>
+  </div>
+
+
+  <div class="supports_error">
+    Ваш браузер устарел рекомендуем обновить его до последней версии<br> или использовать другой более современный.
+  </div>
+
+
+  <!-- Подключение javascript файлов -->
+  <script src="js/jquery-3.5.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+  <script src="js/lozad.min.js"></script>
+  <script src="js/inputmask.min.js"></script>
+  <script src="js/nice-select.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+
 </html>

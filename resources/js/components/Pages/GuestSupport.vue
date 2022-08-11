@@ -75,7 +75,7 @@
                 <div class="copyright">&copy; ГК «Деловые Линии», 2001–2021</div>
             </div>
 
-            <img data-src="images/bg_footer2.svg" alt="" class="lozad bg bg2">
+            <img data-src="images/footer-decor.png" alt="" class="lozad bg bg2">
         </footer>
 
 

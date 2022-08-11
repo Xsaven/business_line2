@@ -73,9 +73,9 @@ class Navigator extends NavigatorExtensionProvider implements ActionWorkExtensio
             ->resource('faq', FaqController::class)
             ->icon_question_circle();
 
-        $this->item(Prize::TITLE)
-            ->resource('prize', PrizeController::class)
-            ->icon_gift();
+//        $this->item(Prize::TITLE)
+//            ->resource('prize', PrizeController::class)
+//            ->icon_gift();
 
 //        $this->item(Order::TITLE)
 //            ->resource('orders', OrderController::class)
