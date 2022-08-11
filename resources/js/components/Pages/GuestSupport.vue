@@ -72,7 +72,7 @@
 
         <footer class="big_margin">
             <div class="cont row">
-                <div class="copyright">&copy; ГК «Деловые Линии», 2001–2021</div>
+                <div class="copyright">&copy; ГК «Деловые Линии», 2001–2022</div>
             </div>
 
             <img data-src="images/footer-decor.png" alt="" class="lozad bg bg2">

@@ -56,7 +56,7 @@
 
         <footer>
             <div class="cont row">
-                <div class="copyright">&copy; ГК «Деловые Линии», 2001–2021</div>
+                <div class="copyright">&copy; ГК «Деловые Линии», 2001–2022</div>
 
                 <div class="links" v-if="Number(support)">
                     <div><a href="/">Техническая поддержка</a></div>
