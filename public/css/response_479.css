@@ -1,831 +1,686 @@
-@media (max-width: 479px)
-{
-    /*-------------------
+@media (max-width: 479px) {
+  /*-------------------
         Global styles
     -------------------*/
-    .wrap > .bg img.bg_480
-    {
-        display: none;
-    }
+  .wrap > .bg img.bg_480 {
+    display: none;
+  }
 
-    .wrap > .bg img.bg_360
-    {
-        display: block;
-    }
+  .wrap > .bg img.bg_360 {
+    display: block;
+  }
 
+  .cont {
+    padding: 0 24px;
+  }
 
-    .cont
-    {
-        padding: 0 24px;
-    }
-
-
-
-    /*------------
+  /*------------
         Header
     ------------*/
-    header
-    {
-        margin-bottom: 32px;
-    }
+  header {
+    margin-bottom: 32px;
+  }
 
+  header .notifications .mini_modal {
+    right: -72px;
 
-    header .notifications .mini_modal
-    {
-        right: -72px;
+    width: 312px;
+  }
 
-        width: 312px;
-    }
+  header .notifications .mini_modal:before {
+    right: 74px;
+  }
 
-    header .notifications .mini_modal:before
-    {
-        right: 74px;
-    }
+  header .mob_menu_btn {
+    margin-left: 44px;
+  }
 
-
-    header .mob_menu_btn
-    {
-        margin-left: 44px;
-    }
-
-
-
-    /*---------------
+  /*---------------
         Mob. menu
     ---------------*/
-    #mob_menu
-    {
-        width: 100%;
-        padding: 28px 45px;
-    }
+  #mob_menu {
+    width: 100%;
+    padding: 28px 45px;
+  }
 
+  #mob_menu .twenty_years {
+    display: block;
+  }
 
-    #mob_menu .twenty_years
-    {
-        display: block;
-    }
+  #mob_menu .account {
+    margin-right: 50px;
+  }
 
+  #mob_menu .account .user .avatar {
+    line-height: 85px;
 
-    #mob_menu .account
-    {
-        margin-right: 50px;
-    }
+    width: 85px;
+    height: 85px;
+  }
 
-    #mob_menu .account .user .avatar
-    {
-        line-height: 85px;
-
-        width: 85px;
-        height: 85px;
-    }
-
-
-
-    /*------------------
+  /*------------------
         Form elements
     ------------------*/
-    .form .files .loading .cancel_btn
-    {
-        font-size: 14px;
-        line-height: 20px;
-    }
+  .form .files .loading .cancel_btn {
+    font-size: 14px;
+    line-height: 20px;
+  }
 
-    .form .files .loading .name
-    {
-        font-size: 14px;
-        line-height: 20px;
+  .form .files .loading .name {
+    font-size: 14px;
+    line-height: 20px;
 
-        width: calc(100% - 76px);
-    }
+    width: calc(100% - 76px);
+  }
 
-    .form .files .loading .size
-    {
-        font-size: 13px;
-        line-height: 21px;
-    }
+  .form .files .loading .size {
+    font-size: 13px;
+    line-height: 21px;
+  }
 
+  .form .files .selected .delete_btn {
+    font-size: 14px;
+    line-height: 20px;
+  }
 
+  .form .files .selected .name {
+    font-size: 14px;
+    line-height: 20px;
 
-    .form .files .selected .delete_btn
-    {
-        font-size: 14px;
-        line-height: 20px;
-    }
+    width: calc(100% - 76px);
+  }
 
-    .form .files .selected .name
-    {
-        font-size: 14px;
-        line-height: 20px;
+  .form .files .selected .size {
+    font-size: 13px;
+    line-height: 21px;
+  }
 
-        width: calc(100% - 76px);
-    }
-
-    .form .files .selected .size
-    {
-        font-size: 13px;
-        line-height: 21px;
-    }
-
-
-
-    /*----------
+  /*----------
         Auth
     ----------*/
-    .auth
-    {
-        padding-top: 40px;
-    }
+  .auth {
+    padding-top: 40px;
+  }
 
+  .auth .info {
+    font-size: 12px;
+    line-height: 18px;
+  }
 
-    .auth .info
-    {
-        font-size: 12px;
-        line-height: 18px;
-    }
+  .auth .info .twenty_years {
+    top: -31px;
+    left: -9px;
 
-    .auth .info .twenty_years
-    {
-        top: -31px;
-        left: -9px;
+    height: 56px;
+  }
 
-        height: 56px;
-    }
+  .auth .data {
+    width: calc(100% + 48px);
+    max-width: calc(100% + 48px);
+    margin-right: -24px;
+    margin-left: -24px;
+    padding: 40px;
+  }
 
-
-    .auth .data
-    {
-        width: calc(100% + 48px);
-        max-width: calc(100% + 48px);
-        margin-right: -24px;
-        margin-left: -24px;
-        padding: 40px;
-    }
-
-
-
-    /*-------------------------
+  /*-------------------------
         Participation rules
     -------------------------*/
-    .participation_rules
-    {
-        margin-bottom: 14px;
-    }
+  .participation_rules {
+    margin-bottom: 14px;
+  }
 
-
-
-    /*---------
+  /*---------
         FAQ
     ---------*/
-    .faq
-    {
-        margin-bottom: 9px;
-    }
+  .faq {
+    margin-bottom: 9px;
+  }
 
-
-
-    /*-------------------
+  /*-------------------
         Search result
     -------------------*/
-    .search_result
-    {
-        margin-bottom: 9px;
-    }
+  .search_result {
+    margin-bottom: 9px;
+  }
 
-
-
-    /*-------------
+  /*-------------
         Support
     -------------*/
-    .support
-    {
-        margin-bottom: -17px;
-    }
+  .support {
+    margin-bottom: -17px;
+  }
 
+  .support .block_head {
+    text-align: left;
+  }
 
-    .support .block_head
-    {
-        text-align: left;
-    }
+  .support .data {
+    padding: 38px 32px 52px;
+  }
 
+  .support .data .time .val {
+    width: 100px;
+  }
 
-    .support .data
-    {
-        padding: 38px 32px 52px;
-    }
+  .support .data .time .desc {
+    width: calc(100% - 106px);
+    margin-right: -4px;
+  }
 
+  .support .data .bg {
+    right: -17px;
+    bottom: 18px;
+  }
 
-    .support .data .time .val
-    {
-        width: 100px;
-    }
+  .support .text {
+    padding: 0 16px;
+  }
 
-    .support .data .time .desc
-    {
-        width: calc(100% - 106px);
-        margin-right: -4px;
-    }
-
-
-    .support .data .bg
-    {
-        right: -17px;
-        bottom: 18px;
-    }
-
-
-    .support .text
-    {
-        padding: 0 16px;
-    }
-
-
-
-    /*----------
+  /*----------
         Shop
     ----------*/
-    .shop
-    {
-        margin-bottom: 6px;
-    }
+  .shop {
+    margin-bottom: 6px;
+  }
 
-
-
-    /*--------------
+  /*--------------
         Products
     --------------*/
-    .products .row
-    {
-        padding: 0;
-    }
+  .products .row {
+    padding: 0;
+  }
 
+  .products .product {
+    padding: 42px 32px 58px;
+  }
 
-    .products .product
-    {
-        padding: 42px 32px 58px;
-    }
-
-
-
-    /*-------------
+  /*-------------
         LK info
     -------------*/
-    .lk_info
-    {
-        margin-bottom: 11px;
-    }
+  .lk_info {
+    margin-bottom: 11px;
+  }
 
-
-
-    /*-------------------------
+  /*-------------------------
         LK info - User info
     -------------------------*/
-    .lk_info .user_info
-    {
-        padding-left: 111px;
-    }
+  .lk_info .user_info {
+    padding-left: 111px;
+  }
 
-
-
-    /*------------
+  /*------------
         Dialog
     ------------*/
-    .dialog .messages .message .user .avatar + *
-    {
-        display: flex;
+  .dialog .messages .message .user .avatar + * {
+    display: flex;
 
-        justify-content: space-between;
-        align-items: center;
-        align-content: center;
-        flex-wrap: wrap;
-    }
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+  }
 
+  .dialog .messages .message .user .date {
+    margin-top: 0;
+  }
 
-    .dialog .messages .message .user .date
-    {
-        margin-top: 0;
-    }
-
-
-
-    /*------------------------
+  /*------------------------
         LK info - LK aside
     ------------------------*/
-    .lk_info .lk_aside
-    {
-        margin-bottom: 35px;
-    }
+  .lk_info .lk_aside {
+    margin-bottom: 35px;
+  }
 
+  .lk_info .user_informer {
+    padding: 20px;
+  }
 
-
-    .lk_info .user_informer
-    {
-        padding: 20px;
-    }
-
-
-
-    /*------------
+  /*------------
         Orders
     ------------*/
-    .orders .order
-    {
-        padding: 0 24px 40px;
-    }
+  .orders .order {
+    padding: 0 24px 40px;
+  }
 
-    .orders .order .head
-    {
-        font-size: 12px;
+  .orders .order .head {
+    font-size: 12px;
 
-        margin-right: -24px;
-        margin-left: -24px;
-        padding: 8px 24px;
-    }
+    margin-right: -24px;
+    margin-left: -24px;
+    padding: 8px 24px;
+  }
 
+  .orders .order .product {
+    font-size: 12px;
+    line-height: 20px;
+  }
 
-    .orders .order .product
-    {
-        font-size: 12px;
-        line-height: 20px;
-    }
+  .orders .order .product .thumb {
+    width: 104px;
+    height: 132px;
+  }
 
-    .orders .order .product .thumb
-    {
-        width: 104px;
-        height: 132px;
-    }
+  .orders .order .product .thumb + * {
+    width: calc(100% - 128px);
+  }
 
-    .orders .order .product .thumb + *
-    {
-        width: calc(100% - 128px);
-    }
+  .orders .order .contacts {
+    font-size: 12px;
 
+    display: flex;
 
-    .orders .order .contacts
-    {
-        font-size: 12px;
+    margin-top: 8px;
 
-        display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+  }
 
-        margin-top: 8px;
+  .orders .order .contacts .email {
+    margin-left: 32px;
+  }
 
-        justify-content: flex-start;
-        align-items: center;
-        align-content: center;
-        flex-wrap: wrap;
-    }
+  .orders .order .contacts .address {
+    width: 100%;
+    margin-top: 1px;
+  }
 
-    .orders .order .contacts .email
-    {
-        margin-left: 32px;
-    }
-
-    .orders .order .contacts .address
-    {
-        width: 100%;
-        margin-top: 1px;
-    }
-
-
-
-    /*-----------------------
+  /*-----------------------
         LK info - History
     -----------------------*/
-    .lk_info .history .item
-    {
-        padding-right: 8px;
-    }
+  .lk_info .history .item {
+    padding-right: 8px;
+  }
 
+  .lk_info .history .item .date {
+    width: 69px;
+    min-width: 69px;
+    padding-right: 0;
+    padding-left: 0;
+  }
 
-    .lk_info .history .item .date
-    {
-        width: 69px;
-        min-width: 69px;
-        padding-right: 0;
-        padding-left: 0;
-    }
+  .lk_info .history .item .name {
+    margin-left: 12px;
+  }
 
-    .lk_info .history .item .name
-    {
-        margin-left: 12px;
-    }
+  .lk_info .history .item .name a {
+    display: -webkit-box;
+    overflow: hidden;
 
-    .lk_info .history .item .name a
-    {
-        display: -webkit-box;
-        overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
 
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-    }
+  .lk_info .history .item .scores {
+    margin-left: 12px;
+  }
 
-    .lk_info .history .item .scores
-    {
-        margin-left: 12px;
-    }
-
-
-
-    /*------------------------
+  /*------------------------
         LK info - Personal
     ------------------------*/
-    .lk_info .personal .user_data > .name
-    {
-        display: inline-block;
+  .lk_info .personal .user_data > .name {
+    display: inline-block;
 
-        margin-top: 8px;
+    margin-top: 8px;
 
-        vertical-align: top;
-    }
+    vertical-align: top;
+  }
 
-    .lk_info .personal .user_data > .name br
-    {
-        display: block;
-    }
+  .lk_info .personal .user_data > .name br {
+    display: block;
+  }
 
+  .lk_info .personal .user_data .info {
+    max-width: 100%;
+  }
 
-    .lk_info .personal .user_data .info
-    {
-        max-width: 100%;
-    }
+  .lk_info .personal .edit_form {
+    width: calc(100% - 116px);
+  }
 
+  .lk_info .personal .edit_form .input,
+  .lk_info .personal .edit_form textarea {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
 
+  .lk_info .personal .edit_form .nice-select .current {
+    padding-left: 12px;
+  }
 
-    .lk_info .personal .edit_form
-    {
-        width: calc(100% - 116px);
-    }
+  .lk_info .personal .edit_form .submit_btn {
+    min-width: 104px;
+  }
 
-    .lk_info .personal .edit_form .input,
-    .lk_info .personal .edit_form textarea
-    {
-        padding-right: 12px;
-        padding-left: 12px;
-    }
+  .lk_info .personal .edit_form .cancel_btn {
+    min-width: 80px;
+  }
 
-    .lk_info .personal .edit_form .nice-select .current
-    {
-        padding-left: 12px;
-    }
-
-    .lk_info .personal .edit_form .submit_btn
-    {
-        min-width: 104px;
-    }
-
-    .lk_info .personal .edit_form .cancel_btn
-    {
-        min-width: 80px;
-    }
-
-
-
-    /*---------------
+  /*---------------
         Standings
     ---------------*/
-    .standings
-    {
-        margin-bottom: 0;
-    }
+  .standings {
+    margin-bottom: 0;
+  }
 
+  .standings .aside {
+    margin-bottom: 38px;
+  }
 
-    .standings .aside
-    {
-        margin-bottom: 38px;
-    }
+  .standings .data .table_wrap {
+    padding: 20px;
+  }
 
+  .standings .data table td.number {
+    padding-left: 0;
+  }
 
-    .standings .data .table_wrap
-    {
-        padding: 20px;
-    }
-
-
-    .standings .data table td.number
-    {
-        padding-left: 0;
-    }
-
-
-
-    /*---------------
+  /*---------------
         Task info
     ---------------*/
-    .task_info
-    {
-        margin-bottom: 2px;
-    }
+  .task_info {
+    margin-bottom: 2px;
+  }
 
+  .task_info .data .info {
+    margin-bottom: 30px;
+  }
 
-    .task_info .data .info
-    {
-        margin-bottom: 30px;
-    }
+  .task_info .terms,
+  .task_info .terms.min_w,
+  .task_info .performance,
+  .task_info .upload_report,
+  .task_info .reports {
+    margin-top: 40px;
+  }
 
+  .task_info .performance .info {
+    padding: 22px 20px;
+  }
 
+  .task_info .upload_report .info {
+    padding: 22px 20px;
+  }
 
-    .task_info .terms,
-    .task_info .terms.min_w,
-    .task_info .performance,
-    .task_info .upload_report,
-    .task_info .reports
-    {
-        margin-top: 40px;
-    }
+  .task_info .upload_report .form {
+    padding-bottom: 66px;
+  }
 
+  .task_info .performance .quiz .steps {
+    width: 100%;
 
-    .task_info .performance .info
-    {
-        padding: 22px 20px;
-    }
+    justify-content: space-between;
+  }
 
+  .task_info .performance .quiz .time {
+    font-size: 16px;
+    line-height: 20px;
 
-    .task_info .upload_report .info
-    {
-        padding: 22px 20px;
-    }
+    margin-top: 12px;
+    margin-left: auto;
+  }
 
-    .task_info .upload_report .form
-    {
-        padding-bottom: 66px;
-    }
+  .task_info .performance .quiz .question {
+    font-size: 17px;
+    line-height: 25px;
 
+    margin-bottom: 28px;
+  }
 
-    .task_info .performance .quiz .steps
-    {
-        width: 100%;
+  .task_info .performance .quiz_result {
+    font-size: 16px;
+    line-height: 22px;
+  }
 
-        justify-content: space-between;
-    }
+  .task_info .performance .you_look_like {
+    padding-top: 20px;
+  }
 
-    .task_info .performance .quiz .time
-    {
-        font-size: 16px;
-        line-height: 20px;
+  .task_info .performance .you_look_like .photo {
+    width: 132px;
+    height: 132px;
+    margin: 0 auto 20px;
+  }
 
-        margin-top: 12px;
-        margin-left: auto;
-    }
+  .task_info .performance .you_look_like .text {
+    font-size: 14px;
+    line-height: 22px;
+  }
 
-    .task_info .performance .quiz .question
-    {
-        font-size: 17px;
-        line-height: 25px;
+  .task_info .performance .you_look_like .share {
+    margin-top: 32px;
+  }
 
-        margin-bottom: 28px;
-    }
+  .task_info .performance .bg,
+  .task_info .upload_report .bg {
+    right: -16px;
+  }
 
-    .task_info .performance .quiz_result
-    {
-        font-size: 16px;
-        line-height: 22px;
-    }
+  .task_info .report {
+    padding-bottom: 52px;
+  }
 
+  .task_info .report .task .author .avatar + * {
+    width: calc(100% - 57px);
+  }
 
-    .task_info .performance .you_look_like
-    {
-        padding-top: 20px;
-    }
+  .task_info .report .task .date {
+    font-size: 12px;
+    line-height: 14px;
 
-    .task_info .performance .you_look_like .photo
-    {
-        width: 132px;
-        height: 132px;
-        margin: 0 auto 20px;
-    }
+    width: 100%;
+    margin-top: 8px;
+    padding-left: 57px;
+  }
 
-    .task_info .performance .you_look_like .text
-    {
-        font-size: 14px;
-        line-height: 22px;
-    }
-
-    .task_info .performance .you_look_like .share
-    {
-        margin-top: 32px;
-    }
-
-
-    .task_info .performance .bg,
-    .task_info .upload_report .bg
-    {
-        right: -16px;
-    }
-
-
-    .task_info .report
-    {
-        padding-bottom: 52px;
-    }
-
-    .task_info .report .task .author .avatar + *
-    {
-        width: calc(100% - 57px);
-    }
-
-    .task_info .report .task .date
-    {
-        font-size: 12px;
-        line-height: 14px;
-
-        width: 100%;
-        margin-top: 8px;
-        padding-left: 57px;
-    }
-
-
-
-    /*--------------------
+  /*--------------------
         Direction info
     --------------------*/
-    .direction_info
-    {
-        margin-bottom: 3px;
-    }
+  .direction_info {
+    margin-bottom: 3px;
+  }
 
+  .direction_info .data .info > * {
+    width: 100%;
+  }
 
+  .direction_info .data .info > * + * {
+    width: auto;
+    margin-top: 16px;
+    margin-left: 0;
+  }
 
-    .direction_info .data .info > *
-    {
-        width: 100%;
-    }
+  .direction_info .data .members {
+    line-height: 20px;
 
-    .direction_info .data .info > * + *
-    {
-        width: auto;
-        margin-top: 16px;
-        margin-left: 0;
-    }
+    text-align: left;
+  }
 
+  .direction_info .data .author {
+    padding: 18px 18px 22px;
+  }
 
-    .direction_info .data .members
-    {
-        line-height: 20px;
+  .direction_info .data .author .avatar {
+    width: 80px;
+    height: 80px;
+  }
 
-        text-align: left;
-    }
+  .direction_info .data .author .avatar .bg {
+    right: -7px;
+    bottom: -7px;
 
+    height: 26px;
+  }
 
-    .direction_info .data .author
-    {
-        padding: 18px 18px 22px;
-    }
+  .direction_info .data .author .avatar + div {
+    width: calc(100% - 99px);
+  }
 
-    .direction_info .data .author .avatar
-    {
-        width: 80px;
-        height: 80px;
-    }
+  .direction_info .prizes .row_wrap {
+    overflow: auto;
 
-    .direction_info .data .author .avatar .bg
-    {
-        right: -7px;
-        bottom: -7px;
+    width: calc(100% + 48px);
+    margin: 0 -24px;
 
-        height: 26px;
-    }
+    scrollbar-color: transparent transparent;
+    scrollbar-width: thin;
+  }
 
+  .direction_info .prizes .row_wrap::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 
-    .direction_info .data .author .avatar + div
-    {
-        width: calc(100% - 99px);
-    }
+    background-color: transparent;
+  }
 
+  .direction_info .prizes .row_wrap::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
 
+  .direction_info .prizes .row {
+    width: 452px;
+    margin-bottom: 0;
+    padding: 0 24px;
+  }
 
-    .direction_info .prizes .row_wrap
-    {
-        overflow: auto;
+  .direction_info .prizes .row > * {
+    margin-bottom: 0;
+  }
 
-        width: calc(100% + 48px);
-        margin: 0 -24px;
+  .direction_info .schedule .head .exp {
+    width: calc(100% + 28px);
+    margin-top: 28px;
+    margin-left: -28px;
+  }
 
-        scrollbar-color: transparent transparent;
-        scrollbar-width: thin;
-    }
+  .direction_info .schedule .head .exp > * {
+    max-width: calc(100% - 28px);
+    margin-left: 28px;
+  }
 
-    .direction_info .prizes .row_wrap::-webkit-scrollbar
-    {
-        width: 0;
-        height: 0;
+  .direction_info .schedule .head .exp .color {
+    width: 12px;
+    height: 12px;
+    margin-right: 4px;
+  }
 
-        background-color: transparent;
-    }
+  .direction_info .challenge .head .title {
+    width: 100%;
+  }
 
-    .direction_info .prizes .row_wrap::-webkit-scrollbar-thumb
-    {
-        background-color: transparent;
-    }
+  .direction_info .challenge .head .back_btn {
+    width: 100%;
+    margin-top: 16px;
+  }
 
-    .direction_info .prizes .row
-    {
-        width: 452px;
-        margin-bottom: 0;
-        padding: 0 24px;
-    }
+  .direction_info .challenge .days {
+    margin-left: 0;
+  }
 
-    .direction_info .prizes .row > *
-    {
-        margin-bottom: 0;
-    }
+  .direction_info .challenge .days .col {
+    width: 100%;
+    margin-left: 0;
+  }
 
-
-
-    .direction_info .schedule .head .exp
-    {
-        width: calc(100% + 28px);
-        margin-top: 28px;
-        margin-left: -28px;
-    }
-
-    .direction_info .schedule .head .exp > *
-    {
-        max-width: calc(100% - 28px);
-        margin-left: 28px;
-    }
-
-    .direction_info .schedule .head .exp .color
-    {
-        width: 12px;
-        height: 12px;
-        margin-right: 4px;
-    }
-
-
-
-    .direction_info .challenge .head .title
-    {
-        width: 100%;
-    }
-
-    .direction_info .challenge .head .back_btn
-    {
-        width: 100%;
-        margin-top: 16px;
-    }
-
-
-    .direction_info .challenge .days
-    {
-        margin-left: 0;
-    }
-
-    .direction_info .challenge .days .col
-    {
-        width: 100%;
-        margin-left: 0;
-    }
-
-
-
-    /*----------
+  /*----------
         Chat
     ----------*/
-    .chat .messages
-    {
-        padding: 24px 0;
-    }
+  .chat .messages {
+    padding: 24px 0;
+  }
 
-
-
-    /*------------
+  /*------------
         Footer
     ------------*/
-    footer
-    {
-        padding: 39px 0 128px;
-    }
+  footer {
+    padding: 39px 0 128px;
+  }
 
-    footer.big_margin
-    {
-        padding: 81px 0;
-    }
+  footer.big_margin {
+    padding: 81px 0;
+  }
 
-
-
-    /*-----------
+  /*-----------
         PopUp
     -----------*/
-    .modal
-    {
-        padding: 55px 24px 72px;
-    }
+  .modal {
+    padding: 55px 24px 72px;
+  }
 
+  #buy_modal {
+    padding: 56px 28px;
+  }
 
+  #buy_modal .product .name {
+    font-size: 14px;
+    line-height: 20px;
+  }
 
-    #buy_modal
-    {
-        padding: 56px 28px;
-    }
+  #buy_modal .form .input,
+  #buy_modal .form .nice-select .current {
+    font-size: 12px;
+  }
 
-    #buy_modal .product .name
-    {
-        font-size: 14px;
-        line-height: 20px;
-    }
+  .banner-content__inner {
+    padding: 58px 30px 90px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
 
-    #buy_modal .form .input,
-    #buy_modal .form .nice-select .current
-    {
-        font-size: 12px;
-    }
+  .banner-content__inner:after {
+    top: -20px;
+    width: 40px;
+    height: 40px;
+  }
+  .banner-content__inner:before {
+    bottom: -27px;
+    right: 27px;
+    width: 62px;
+    height: 62px;
+  }
+
+  .banner-content__title {
+    font-size: 24px;
+    line-height: 27px;
+    margin-bottom: 10px;
+  }
+  .banner-content__subtitle {
+    font-size: 15px;
+    line-height: 18px;
+    margin-bottom: 10px;
+  }
+  .banner-content__subtitle2 {
+    font-size: 13px;
+    line-height: 17px;
+    margin-bottom: 10px;
+  }
+  .banner-content__desc {
+    font-size: 10px;
+    line-height: 12px;
+    margin-top: 10px;
+  }
+
+  .banner-content__title2 {
+    font-size: 15px;
+    line-height: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .banner-content__title2 span {
+    font-size: 20px;
+  }
+
+  .banner-content__left,
+  .banner-content__right {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .banner-content__left {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }

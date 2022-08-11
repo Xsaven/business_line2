@@ -11,15 +11,15 @@
 
                     <div class="time">
                         <div>
-                            <div class="val">10.09 – 17.09</div>
+                            <div class="val">17.08 – 24.08</div>
                             <div class="desc">круглосуточно</div>
                         </div>
 
                         <div>
-                            <div class="val">18.09–15.10</div>
+                            <div class="val">25.08 – 04.09</div>
                             <div class="desc">
-                                <div>пн–пт: 09.00–19.00 (мск)</div>
-                                <div>сб, вс: 11.00–17.00 (мск)</div>
+                                <div>пн–пт: 9:00 – 19:00 (мск)</div>
+                                <div>сб, вс: 11:00 – 17:00 (мск)</div>
                             </div>
                         </div>
                     </div>

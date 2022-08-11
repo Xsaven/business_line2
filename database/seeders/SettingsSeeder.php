@@ -29,20 +29,14 @@ class SettingsSeeder extends Seeder
     {
         return [
             [
-                'name' => 'osm',
+                'name' => 'banner',
                 'value' => false,
-                'info' => 'Only shop mode',
-                'field' => 'switcher',
-            ],
-            [
-                'name' => 'free_chat',
-                'value' => false,
-                'info' => 'Chat messages without moderation',
+                'info' => 'Banner home mode',
                 'field' => 'switcher',
             ],
             [
                 'name' => 'support_email',
-                'value' => 'email@mail.ru',
+                'value' => 'Game@dellin.ru',
                 'info' => 'Support email',
             ],
             [

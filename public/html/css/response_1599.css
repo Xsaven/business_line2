@@ -376,4 +376,93 @@
   /*-----------
         PopUp
     -----------*/
+
+  .banner-content br {
+    display: none;
+  }
+
+  .banner-content__inner {
+    background: #1c1c1c;
+    border-radius: 3px;
+    padding: 70px 70px 80px;
+    position: relative;
+  }
+
+  .banner-content__inner:after {
+    content: "";
+    position: absolute;
+    top: -56px;
+    left: 0;
+    background-image: url(../images/decor-div.png);
+    width: 97px;
+    height: 97px;
+    background-size: cover;
+  }
+  .banner-content__inner:before {
+    content: "";
+    position: absolute;
+    bottom: -27px;
+    right: 27px;
+    background-image: url(../images/decor-div.png);
+    width: 97px;
+    height: 97px;
+    background-size: cover;
+  }
+
+  .banner-content__row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .banner-content__title {
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 41px;
+    color: #f9b400;
+    margin-bottom: 10px;
+  }
+  .banner-content__subtitle {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  .banner-content__subtitle2 {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    margin-bottom: 10px;
+  }
+  .banner-content__desc {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 10px;
+  }
+
+  .banner-content__title2 {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 35px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .banner-content__title2 span {
+    color: #f9b400;
+    font-size: 34px;
+  }
+
+  .banner-content__left,
+  .banner-content__right {
+    max-width: 630px;
+    width: 100%;
+  }
+
+  .banner-content__left {
+    margin-right: 64px;
+  }
 }

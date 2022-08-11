@@ -7767,3 +7767,87 @@ footer .links a:hover {
 #join_modal .form .field {
   margin-bottom: 14px;
 }
+
+.banner-content {
+  padding-bottom: 40px;
+  margin-top: 60px;
+}
+.banner-content__inner {
+  background: #1c1c1c;
+  border-radius: 3px;
+  padding: 93px 93px 116px;
+  position: relative;
+}
+
+.banner-content__inner:after {
+  content: "";
+  position: absolute;
+  top: -56px;
+  left: 0;
+  background-image: url(../images/decor-div.png);
+  width: 106px;
+  height: 112px;
+}
+.banner-content__inner:before {
+  content: "";
+  position: absolute;
+  bottom: -27px;
+  right: 27px;
+  background-image: url(../images/decor-div.png);
+  width: 106px;
+  height: 112px;
+}
+
+.banner-content__row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.banner-content__title {
+  font-weight: 900;
+  font-size: 55px;
+  line-height: 64px;
+  color: #f9b400;
+  margin-bottom: 15px;
+}
+.banner-content__subtitle {
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 41px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+.banner-content__subtitle2 {
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 35px;
+  margin-bottom: 15px;
+}
+.banner-content__desc {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 18px;
+}
+
+.banner-content__title2 {
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 41px;
+  color: #ffffff;
+}
+
+.banner-content__title2 span {
+  color: #f9b400;
+}
+
+.banner-content__left,
+.banner-content__right {
+  max-width: 630px;
+  width: 100%;
+}
+
+.banner-content__left {
+  margin-right: 80px;
+}

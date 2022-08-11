@@ -283,4 +283,87 @@
   /*-----------
         PopUp
     -----------*/
+
+  .banner-content__inner {
+    background: #1c1c1c;
+    border-radius: 3px;
+    padding: 93px 93px 116px;
+    position: relative;
+  }
+
+  .banner-content__inner:after {
+    content: "";
+    position: absolute;
+    top: -56px;
+    left: 0;
+    background-image: url(../images/decor-div.png);
+    width: 97px;
+    height: 97px;
+    background-size: cover;
+  }
+  .banner-content__inner:before {
+    content: "";
+    position: absolute;
+    bottom: -27px;
+    right: 27px;
+    background-image: url(../images/decor-div.png);
+    width: 97px;
+    height: 97px;
+    background-size: cover;
+  }
+
+  .banner-content__row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .banner-content__title {
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 56px;
+    color: #f9b400;
+    margin-bottom: 13px;
+  }
+  .banner-content__subtitle {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 35px;
+    margin-bottom: 13px;
+    color: #ffffff;
+  }
+  .banner-content__subtitle2 {
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 30px;
+    margin-bottom: 13px;
+  }
+  .banner-content__desc {
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 18px;
+  }
+
+  .banner-content__title2 {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 35px;
+    color: #ffffff;
+  }
+
+  .banner-content__title2 span {
+    color: #f9b400;
+    font-size: 40px;
+  }
+
+  .banner-content__left,
+  .banner-content__right {
+    max-width: 630px;
+    width: 100%;
+  }
+
+  .banner-content__left {
+    margin-right: 75px;
+  }
 }

@@ -9,6 +9,7 @@ use App\Http\Resources\TaskResource;
 use App\Models\Prize;
 use App\Models\Task;
 use App\Models\User;
+use App\Providers\AppServiceProvider;
 use App\Repositories\DirectionRepository;
 use Carbon\Carbon;
 
@@ -31,6 +32,8 @@ class Direction extends Page
         if (! $repo->findBySlug) {
             abort(404);
         }
+
+        $attrs['banner'] = (bool) AppServiceProvider::$cfg['banner'];
 
         $attrs['direction'] = DirectionResource::make($repo->findBySlug)->toArray(request());
         $attrs['dates'] = diff_day_chunk($repo->findBySlug->start_at, $repo->findBySlug->end_at);

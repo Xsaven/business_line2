@@ -122,13 +122,9 @@ Route::post('/forgot-password', [\App\Http\Controllers\PasswordResetLinkControll
     ->middleware(['guest:'.config('fortify.guard')])
     ->name('password.email');
 
-if (Cache::get('home-lock')) {
-
-} else {
-    \Road::layout('home')
-        ->web()
-        ->auth()
-        ->component('/{direction:slug}', \App\Components\Vue\Pages\Direction::class)
-        ->name('home');
-}
+\Road::layout('home')
+    ->web()
+    ->auth()
+    ->component('/{direction:slug}', \App\Components\Vue\Pages\Direction::class)
+    ->name('home');
 

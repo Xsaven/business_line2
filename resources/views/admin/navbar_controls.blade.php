@@ -28,6 +28,16 @@
     @endif
 </li>
 
+<li class="nav-item">
+    @if(isset($cfg['banner']) && !$cfg['banner'])
+        {!! \Lar\Layout\Tags\A::create(['nav-link'])->setHref('javascript:void(0)')
+                ->on_click('jax.home_control.switch_banner')->i()->icon('far fa-image')->_()->text(' Баннер на главной: Выкл'); !!}
+    @else
+        {!! \Lar\Layout\Tags\A::create(['nav-link'])->setHref('javascript:void(0)')
+            ->on_click('jax.home_control.switch_banner')->i()->icon('fas fa-image')->_()->text(' Баннер на главной: Вкл'); !!}
+    @endif
+</li>
+
 {{--<li class="nav-item">--}}
 {{--    @if(isset($cfg['stickers']) && !$cfg['stickers'])--}}
 {{--        {!! \Lar\Layout\Tags\A::create(['nav-link'])->setHref('javascript:void(0)')--}}
