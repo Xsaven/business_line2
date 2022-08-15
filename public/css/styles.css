@@ -1193,6 +1193,15 @@ header .mob_menu_btn.active .icon + .icon {
   display: block;
 }
 
+.header-flex {
+  display: flex;
+  align-items: flex-end;
+}
+
+.header-flex .title {
+  display: flex;
+}
+
 /*---------------
     Mob. menu
 ---------------*/
@@ -4966,8 +4975,9 @@ header .mob_menu_btn.active .icon + .icon {
   display: block;
   overflow: hidden;
 
-  width: 789px;
-  margin-left: 40px;
+  width: 762px;
+height: 428px;
+  margin-left: 80px;
 
   background: #eaeaea;
 }

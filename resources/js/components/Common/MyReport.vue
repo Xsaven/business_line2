@@ -31,37 +31,37 @@
     </div>
 
 
-    <div class="head" id="user-task-reports">
-      <div class="title">Отчеты участников ({{meta.total}})</div>
-        <div class="sort">
-            <div class="name">Сортировать:</div>
+<!--    <div class="head" id="user-task-reports">-->
+<!--      <div class="title">Отчеты участников ({{meta.total}})</div>-->
+<!--        <div class="sort">-->
+<!--            <div class="name">Сортировать:</div>-->
 
-            <v-select v-model="sort">
-                <option :selected="sort==='date'" value="date">По дате публикации</option>
-                <option :selected="sort==='likes'" value="likes">По лайкам</option>
-            </v-select>
-        </div>
-    </div>
+<!--            <v-select v-model="sort">-->
+<!--                <option :selected="sort==='date'" value="date">По дате публикации</option>-->
+<!--                <option :selected="sort==='likes'" value="likes">По лайкам</option>-->
+<!--            </v-select>-->
+<!--        </div>-->
+<!--    </div>-->
 
-    <div class="empty" v-if="!data.length">Здесь скоро появятся отчеты других участников</div>
+<!--    <div class="empty" v-if="!data.length">Здесь скоро появятся отчеты других участников</div>-->
 
-      <div class="tasks_list">
-          <div class="list">
-              <template v-for="(r_report, ind) in data">
-                  <v-task-report :report="r_report" :key="`ind_${ind}_${r_report.id}`" />
-              </template>
-          </div>
-      </div>
-      <div class="bottom" v-if="meta.last_page > 1" style="margin-top: 10px">
-          <div class="pagination">
-              <a href="javascript:void(0)" @click="prevPage" :class="{prev: true, disabled: page === 1}"></a>
-              <template v-for="(page_range, page_index) in pageRange">
-                  <div v-if="page_range==='...'" :key="`sep_${page_index}`" class="sep">...</div>
-                  <a v-else href="javascript:void(0)" :key="`page_${page_index}`" @click="setPage(page_range)" :class="{'active': page === page_range}">{{page_range}}</a>
-              </template>
-              <a href="javascript:void(0)" @click="nextPage" :class="{next: true, disabled: page === meta.last_page}"></a>
-          </div>
-      </div>
+<!--      <div class="tasks_list">-->
+<!--          <div class="list">-->
+<!--              <template v-for="(r_report, ind) in data">-->
+<!--                  <v-task-report :report="r_report" :key="`ind_${ind}_${r_report.id}`" />-->
+<!--              </template>-->
+<!--          </div>-->
+<!--      </div>-->
+<!--      <div class="bottom" v-if="meta.last_page > 1" style="margin-top: 10px">-->
+<!--          <div class="pagination">-->
+<!--              <a href="javascript:void(0)" @click="prevPage" :class="{prev: true, disabled: page === 1}"></a>-->
+<!--              <template v-for="(page_range, page_index) in pageRange">-->
+<!--                  <div v-if="page_range==='...'" :key="`sep_${page_index}`" class="sep">...</div>-->
+<!--                  <a v-else href="javascript:void(0)" :key="`page_${page_index}`" @click="setPage(page_range)" :class="{'active': page === page_range}">{{page_range}}</a>-->
+<!--              </template>-->
+<!--              <a href="javascript:void(0)" @click="nextPage" :class="{next: true, disabled: page === meta.last_page}"></a>-->
+<!--          </div>-->
+<!--      </div>-->
   </div>
 </template>
 

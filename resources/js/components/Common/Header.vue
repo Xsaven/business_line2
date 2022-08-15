@@ -1,6 +1,6 @@
 <template>
     <span>
-        <header>
+        <header :class="{'no_margin header-flex': user}">
             <div class="cont row">
                 <a class="logo mob_mini" href="/home">
                     <img src="/images/logo.svg" alt="">

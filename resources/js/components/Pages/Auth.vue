@@ -184,36 +184,22 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="columns row">
-                                <div class="line">
-                                    <div class="field">
-                                        <input v-model="registration.number" type="text"
-                                               :class="{input: true, error: errors.number}"
-                                               placeholder="Табельный номер" @click="clear_errors" @blur="clear_errors">
-                                        <div class="exp" v-if="errors.number">{{ errors.number }}</div>
-                                        <div class="tooltip">
-                                            <div class="icon">
-                                                <svg><use xlink:href="images/sprite.svg#ic_tooltip"></use></svg>
-                                            </div>
-
-                                            <div class="exp">
-                                                Табельный номер (ВАЖНО вводить его БЕЗ нулей в начале) вы можете уточнить у своего руководителя или узнать его самостоятельно, если у вас есть доступ в ЦУП: вы можете видеть табельный номер в своем расчетном листе.
-                                            </div>
-                                        </div>
+                            <div class="field">
+                                <input v-model="registration.number" type="text"
+                                       :class="{input: true, error: errors.number}"
+                                       placeholder="Табельный номер" @click="clear_errors" @blur="clear_errors">
+                                <div class="exp" v-if="errors.number">{{ errors.number }}</div>
+                                <div class="tooltip">
+                                    <div class="icon">
+                                        <svg><use xlink:href="/images/sprite.svg#ic_tooltip"></use></svg>
                                     </div>
-                                </div>
-                                <div class="line">
-                                    <div class="field" @click="clear_errors">
-                                        <v-select v-model="registration.sex" class="input" placeholder="Пол">
-                                            <option data-display="Пол"></option>
-                                            <option :selected="registration.sex === '0'" value="0">Мужской</option>
-                                            <option :selected="registration.sex === '1'" value="1">Женский</option>
-                                        </v-select>
-                                        <div class="exp" v-if="errors.sex" style="display: block">{{ errors.sex }}</div>
+
+                                    <div class="exp">
+                                        Табельный номер (ВАЖНО вводить его БЕЗ нулей в начале) вы можете уточнить у своего руководителя или узнать его самостоятельно, если у вас есть доступ в ЦУП: вы можете видеть табельный номер в своем расчетном листе.
                                     </div>
                                 </div>
                             </div>
-
+                            <p></p>
                             <div class="line agree">
                                 <div class="field">
                                     <input v-model="registration.agree" type="checkbox" id="agree_check">
@@ -308,7 +294,6 @@ export default {
                 email_confirmation: '',
                 password: '',
                 password_confirmation: '',
-                sex: null,
                 agree: true,
             },
             recovery: {
@@ -321,7 +306,6 @@ export default {
                 email: null,
                 login: null,
                 password: null,
-                sex: null,
             }
         };
     },
@@ -377,8 +361,6 @@ export default {
         registration_submit() {
             this.clear_errors();
             if (
-                !isRequired(this.registration.password) ||
-                !isLengthBetween(this.registration.password, 6, 191) ||
                 !this.validPassword(this.registration.password)
             ) {
                 this.errors.password = "Пароль должен содержать 6 и более символов, прописные латинские буквы, строчные латинские буквы, цифры";
@@ -391,7 +373,6 @@ export default {
 
             this.registration.email = String(this.registration.email).toLowerCase();
             this.registration.email_confirmation = String(this.registration.email_confirmation).toLowerCase();
-            this.registration.sex = Number(this.registration.sex);
 
             jax.guest.registration(...Object.values(this.registration))
                 .then(({result}) => {
@@ -441,19 +422,11 @@ export default {
                 return;
             }
 
-            if (this.registration.sex !== '0' && this.registration.sex !== '1') {
-                this.errors.sex = "Укажите, пожалуйста, ваш пол";
-                return;
-            }
-
             if (!this.registration.email) jax.guest.registration_data(this.registration.name, this.registration.lastname, this.registration.number)
-                .then(({email, has, registered, sex}) => {
+                .then(({email, has, registered}) => {
                     if (registered) {
                         this.errors.lastname = "Пользователь уже зарегистрирован";
                         return ;
-                    }
-                    if (sex !== null) {
-                        this.registration.sex = String(sex);
                     }
                     if(email) {
                         this.empty_email = false;

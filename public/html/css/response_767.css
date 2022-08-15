@@ -1380,4 +1380,7 @@
     margin-right: 0;
     margin-bottom: 20px;
   }
+  .header-flex .title {
+    display: none;
+  }
 }

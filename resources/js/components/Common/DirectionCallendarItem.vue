@@ -39,6 +39,8 @@ export default {
                 color4: !this.item.started,
                 width2: this.width === 2,
                 width3: this.width === 3,
+                width5: this.width === 5,
+                widthfull: this.width === 7,
                 break_left: this.left,
                 break_right: this.right,
             }

@@ -51,7 +51,7 @@ class TaskController extends Controller
                 $modelTable->col('Тип события', fn (Task $task) => Task::EVENT_TYPES[$task->event_type])->sort('event_type'),
                 $modelTable->col('Тип отчёта', fn (Task $task) => Task::REPORT_TYPES[$task->report_type])->sort('report_type'),
                 $modelTable->col('Стоимость', 'cost')->sort()->money('баллов'),
-                $modelTable->col('Fans Task', 'fans_task')->sort()->yes_no(),
+//                $modelTable->col('Fans Task', 'fans_task')->sort()->yes_no(),
             ),
         );
     }
@@ -108,8 +108,8 @@ class TaskController extends Controller
                     $tab->ckeditor('short_description', 'Описание'),
                     $tab->ckeditor('terms_of_participation', 'Условия участия'),
 
-                    $tab->switcher('fans_task', 'Fans Task')
-                        ->info('Специальная форма для болельщиков.'),
+//                    $tab->switcher('fans_task', 'Fans Task')
+//                        ->info('Специальная форма для болельщиков.'),
 
                     $tab->divider('Дата и время'),
                     $tab->date_time('start_at', 'Начало')->required(),
