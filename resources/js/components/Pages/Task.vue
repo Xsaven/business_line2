@@ -41,6 +41,16 @@
               <div class="desc" v-html="task.terms_of_participation"></div>
             </div>
 
+            <div v-if="task.finished && ! task_report" class="upload_report">
+                <div class="info">
+                    <div class="status">
+                        <v-icon icon="ic_bad" class="red" />
+                        <div>Время участия в задании истекло</div>
+                        <img data-src="/images/bg_performance.svg" alt="" class="bg lozad loaded" src="/images/bg_performance.svg" data-loaded="true">
+                    </div>
+                </div>
+            </div>
+
 <!--            <v-bottom-action :task="task" />-->
 <!--          <v-get-task-report v-if="!user.can" status="no_can"/>-->
           <v-get-task-report v-if="(task.report_type === 'quiz' || task.report_type === 'star_quiz' || task.report_type === 'download_file') && (Number(user.direction_id) !== Number(task.direction_id) || task.finished)" status="no"/>
@@ -61,6 +71,9 @@
           <v-get-task-report v-else-if="(task.report_type === 'quiz' || task.report_type === 'star_quiz' || task.report_type === 'download_file') && task_report.status === 'checked'" status="done"/>
           <v-my-report v-else-if="task_report && (task_report.status === 'uploading' || task_report.status === 'uploaded' || task_report.status === 'checked' || task_report.status === 'canceled') && task.report_type !== 'quiz'" :report="task_report" :task="task" :reports="reports"/>
           <v-upload-report-soon v-else-if="between_days" />
+
+
+
         </div>
       </section>
     </v-layout>
