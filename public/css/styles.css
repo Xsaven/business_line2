@@ -2711,6 +2711,10 @@ header .mob_menu_btn.active .icon + .icon {
   z-index: 2;
 }
 
+.register_form .line .form input[type="checkbox"] + label {
+  margin-top: 20px;
+}
+
 /*-------------------------
     Participation rules
 -------------------------*/
@@ -4980,6 +4984,11 @@ height: 428px;
   margin-left: 80px;
 
   background: #eaeaea;
+}
+
+.task_info .data .video > * {
+  height: 100%;
+  width: 100%;
 }
 
 .task_info .data .video img {
