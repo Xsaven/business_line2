@@ -33,6 +33,6 @@ return [
     'vimeo' => [
         'client_id' => '252033',
         'secret' => 'BgF2rjhj0GMSjFveg5o5Zso2JKPV/Eh5k+n5GaSB8GyhW1lxRJoW2Cg/zms/Df4Ulbx5gGRkQ4I7ZZlOOYuwxM1uEMOCSy0/rcwUErHn27VUThtv9JwIHEh4UJGgmJ7P',
-        'access_tocken' => '91de4ec1fd874ded715ab9db850d3c0b2212d88e',
+        'access_tocken' => 'a9a0d070774527b1bc6d83461730e6d0',
     ],
 ];

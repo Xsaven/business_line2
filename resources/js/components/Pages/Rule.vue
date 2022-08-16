@@ -3,7 +3,7 @@
       <section class="participation_rules">
         <div class="cont">
           <div class="block_head">
-            <div class="title">Правила онлайн-марафона «20 лет. В отрыв!»</div>
+            <div class="title">Правила онлайн-марафона «Деловые и спортивные»</div>
           </div>
 
             <div class="text_block">
