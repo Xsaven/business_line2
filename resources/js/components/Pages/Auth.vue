@@ -1,7 +1,7 @@
 <template>
     <div class="wrap">
         <div class="main auth_wrap">
-            <header class="no_margin">
+            <header class="no_margin header-flex">
                 <button class="close"></button>
 
                 <div class="mob_scroll">
