@@ -9,6 +9,7 @@ declare interface JaxModelInterface {
     lte_admin_executor: JaxModelLteAdminExecutorInterface;
     add_balance: JaxModelAddBalanceInterface;
     commentaries_control: JaxModelCommentariesControlInterface;
+    home_control: JaxModelHomeControlInterface;
     questions_control: JaxModelQuestionsControlInterface;
     user_control: JaxModelUserControlInterface;
     params (...withs: any[]): JaxModelInterface
@@ -27,6 +28,9 @@ declare interface JaxModelQuestionsControlInterface {
     list_for_approve(...params: any[]): Promise<JaxModelQuestionsControlInterface>;
         approve(...params: any[]): Promise<JaxModelQuestionsControlInterface>;
         drop(...params: any[]): Promise<JaxModelQuestionsControlInterface>;
+}
+declare interface JaxModelHomeControlInterface {
+    switch_banner(...params: any[]): Promise<JaxModelHomeControlInterface>;
 }
 declare interface JaxModelCommentariesControlInterface {
     list_for_approve(...params: any[]): Promise<JaxModelCommentariesControlInterface>;

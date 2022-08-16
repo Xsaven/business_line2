@@ -64,7 +64,7 @@
         unmount () {},
         methods: {
             eye (id) {
-                ljs.exec({"modal:put":["App\\LteAdmin\\Modals\\TaskReportModal@index",{"report_id":id},{"backdrop":"static","focus":true,"keyboard":false,"size":'big'}]});
+                ljs.exec({"modal:put":["taskReport",{"report_id":id},{"backdrop":"static","focus":true,"keyboard":false,"size":'big'}]});
             },
             update () {
                 jax.questions_control.list_for_approve().then(({data}) => {

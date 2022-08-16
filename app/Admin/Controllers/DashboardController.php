@@ -4,8 +4,14 @@ namespace App\Admin\Controllers;
 
 use App\Admin\Components\Vue\Commentaries;
 use App\Admin\Components\Vue\Questions;
+use App\Admin\Delegates\Buttons;
+use App\Admin\Delegates\Form;
+use App\Admin\Delegates\Modal;
+use App\Admin\Delegates\ModalBody;
 use App\Jobs\AdminStatisticJob;
 use App\Models\Online;
+use App\Models\Task;
+use App\Models\TaskReport;
 use App\Models\User;
 use Lar\Layout\Tags\SPAN;
 use LteAdmin\Components\GridColumnComponent;
@@ -34,7 +40,7 @@ class DashboardController extends AdminDashboardController
         CardBody $cardBody,
         StatisticPeriod $statisticPeriod,
         ChartJs $chartJs,
-        SearchForm $searchForm
+        SearchForm $searchForm,
     ) {
         if (! \Cache::has('online')) {
             AdminStatisticJob::dispatch();
@@ -44,7 +50,7 @@ class DashboardController extends AdminDashboardController
 
         $onlinePeck = Online::orderByDesc('peck')->first();
 
-        return $page->card(
+        return $page->modal([$this, 'taskReportModal'])->card(
             $card->title('Статистика'),
             $card->card_body(
                 $cardBody->row(
@@ -99,5 +105,52 @@ class DashboardController extends AdminDashboardController
                 ->full_body(['table-responsive'])
                 ->appEnd($data)
         );
+    }
+
+    /**
+     * @param  Modal  $modal
+     * @param  Form  $form
+     * @param  Buttons  $buttons
+     * @param  ModalBody  $modalBody
+     * @return array
+     */
+    public function taskReportModal(
+        Modal $modal, Form $form, Buttons $buttons, ModalBody $modalBody,
+    ): array {
+
+        if ($this->isModelInput('report_id')) {
+            $modal_id = $this->request('_modal_id');
+            $report_id = $this->request('report_id');
+            $report = TaskReport::find($report_id);
+            $task = $report->task;
+
+            return [
+                $modal->name('taskReport')->temporary()->sizeBig(),
+                $modal->title(Task::REPORT_TYPES[$task->report_type].' #'.$report_id),
+                $modal->modal_body(
+                    $modalBody->if($task)->divider($task->name),
+                    $modalBody->if($task)->text($task->terms_of_participation),
+                    $modalBody->if($report->comment)->divider('Комментарий'),
+                    $modalBody->if($report->comment)->text($report->comment),
+                    $modalBody->if($report->file && is_numeric($report->file))->divider('Видео'),
+                    $modalBody->if($report->file && is_numeric($report->file))->text("<iframe src='https://player.vimeo.com/video/{$report->file}' width='100%' height='430' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe>"),
+                    $modalBody->if($report->file && (str_ends_with($report->file, '.jpg') || str_ends_with($report->file, '.jpeg') || str_ends_with($report->file, '.png')))->divider('Фото'),
+                    $modalBody->if($report->file && (str_ends_with($report->file, '.jpg') || str_ends_with($report->file, '.jpeg') || str_ends_with($report->file, '.png')))->text("<img src='{$report->file}' class='img-fluid' alt='{$report->file}'>"),
+                    $modalBody->form(
+                        $form->divider('Баллы'),
+                        $form->numeric('add_to_balance', '')->value($task->cost)->icon_dollar_sign(),
+                        $form->divider('Комментарий'),
+                        $form->textarea('admin_comment', '')->rows(3),
+                    )
+                ),
+                $modal->buttons(
+                    $buttons->primary()->title('Закрыть окно')->modalDestroy(),
+                    $buttons->danger()->title('Отклонить')->on_click('questions:drop', [$report_id, $modal_id]),
+                    $buttons->success()->title('Одобрить')->on_click('questions:approve', [$report_id, $modal_id])
+                )
+            ];
+        }
+
+        return [];
     }
 }
