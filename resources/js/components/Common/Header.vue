@@ -52,8 +52,9 @@
 
             <div class="links" v-if="directions && user">
                 <div><a :href="`/${directions[0].slug}`">Главная</a></div>
+                <div><a href="/table">Рейтинг</a></div>
                 <div><a href="/rules">Правила</a></div>
-                <div><a href="/products">Магазин</a></div>
+                <div><a href="/faq">FAQ</a></div>
             </div>
         </section>
     </span>

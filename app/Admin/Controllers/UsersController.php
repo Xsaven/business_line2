@@ -153,6 +153,10 @@ class UsersController extends Controller
                         ->load(Division::class)
                         ->nullable(),
 
+                    $tab->select('direction_id', 'Направление')
+                        ->load(Direction::class)
+                        ->required(),
+
                     $tab->multi_select('tracks[]', 'Треки')
                         ->load(Task::class),
 
