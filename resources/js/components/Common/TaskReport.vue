@@ -30,7 +30,7 @@
             <div class="desc" v-else-if="r.comment" v-html="r.comment"></div>
 
             <div class="bottom">
-                <button :class="{like_btn: true, active: user.liked_task_report_ids.indexOf(r.id) !== -1}" type="button" @click="like">
+                <button :class="{like_btn: true, active: Array(user.liked_task_report_ids).indexOf(r.id) !== -1}" type="button" @click="like">
                     <span>{{r.likes}}</span>
                     <v-icon icon="ic_like" />
                     <v-icon icon="ic_like_a" />
