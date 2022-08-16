@@ -11,6 +11,9 @@
                         </a>
                     </div>
                 </div>
+                <div class="title">
+                    <img src="/images/header-title.svg" alt="">
+                </div>
             </header>
 
 
