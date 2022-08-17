@@ -37,9 +37,9 @@
             </div>
         </header>
         <section id="mob_menu">
-            <div class="twenty_years">
-                <img src="/images/twenty_years_mini.svg" alt="">
-            </div>
+<!--            <div class="twenty_years">-->
+<!--                <img src="/images/twenty_years_mini.svg" alt="">-->
+<!--            </div>-->
 
             <div class="account" v-if="user">
                 <a :href="`/profile`" class="user">

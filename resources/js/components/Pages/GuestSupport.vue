@@ -11,9 +11,9 @@
 
 
             <section id="mob_menu">
-                <div class="twenty_years">
-                    <img src="images/twenty_years_mini.svg" alt="">
-                </div>
+<!--                <div class="twenty_years">-->
+<!--                    <img src="images/twenty_years_mini.svg" alt="">-->
+<!--                </div>-->
             </section>
 
 
