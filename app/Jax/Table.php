@@ -36,6 +36,7 @@ class Table extends JaxExecutor
                 ->withCount('taskReports')
                 ->when($sort === 'woman', fn ($q) => $q->where('sex', 1))
                 ->unless($sort === 'woman', fn ($q) => $q->where('sex', 0))
+                ->orderBy('max_balance', 'DESC')
                 ->orderBy('name', 'ASC')
                 ->orderBy('lastname', 'ASC')
                 ->paginate(10)
