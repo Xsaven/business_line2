@@ -29,7 +29,7 @@ class CalculateBalanceTableJob implements ShouldQueue
 
         foreach (Direction::all() as $direction) {
             $users = User::where('direction_id', $direction->id)
-                ->orderByDesc('max_balance')
+                ->orderByDesc('balance')
                 ->whereActive(1)
                 ->where('sex', 0)
                 ->orderBy('name', 'ASC')
@@ -39,7 +39,7 @@ class CalculateBalanceTableJob implements ShouldQueue
             $changed = $this->setPlace($users, $direction);
 
             $users = User::where('direction_id', $direction->id)
-                ->orderByDesc('max_balance')
+                ->orderByDesc('balance')
                 ->whereActive(1)
                 ->where('sex', 1)
                 ->orderBy('name', 'ASC')
