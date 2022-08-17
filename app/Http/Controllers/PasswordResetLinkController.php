@@ -27,7 +27,7 @@ class PasswordResetLinkController extends PasswordResetLinkControllerFortify
     {
         $request->validate([Fortify::email() => 'required|email']);
 
-        $user = User::whereEmail($request->email)->where('password', '!=', 'none')->first();
+        $user = User::whereEmail($request->email)->first();
 
         Validator::make(['user' => $user], [
             'user' => 'required',
