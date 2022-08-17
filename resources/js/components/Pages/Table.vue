@@ -31,7 +31,7 @@
                                 <tr>
                                     <td class="number">{{ui+1+(page > 1 ? (page-1)*10 : 0)}}</td>
                                     <td class="name"><a :href="`/user/${user.id}`">{{user.full_name}}</a></td>
-                                    <td class="scores">{{user.max_balance}}</td>
+                                    <td class="scores">{{user.balance}}</td>
 <!--                                    <td class="tasks">{{user.reports_count}}</td>-->
                                 </tr>
                             </template>
