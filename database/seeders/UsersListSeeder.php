@@ -41,6 +41,11 @@ class UsersListSeeder extends Seeder
         }
     }
 
+    public static function getText()
+    {
+        return (new static)->text();
+    }
+
     protected function text()
     {
         return <<<'TEXT'
