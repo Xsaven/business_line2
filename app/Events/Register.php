@@ -61,16 +61,11 @@ class Register
     public bool $attempted = false;
 
     /**
-     * @var int|null
-     */
-    public ?int $sex;
-
-    /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($name, $lastname, $number, $email, $password, $password_confirmation, $sex)
+    public function __construct($name, $lastname, $number, $email, $password, $password_confirmation)
     {
         $this->name = $name;
         $this->lastname = $lastname;
@@ -78,7 +73,6 @@ class Register
         $this->email = $email;
         $this->password = $password;
         $this->password_confirmation = $password_confirmation;
-        $this->sex = $sex;
     }
 
     /**

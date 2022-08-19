@@ -46,8 +46,7 @@ class Guest extends JaxExecutor
      * @param $email_confirmation
      * @param $password
      * @param $password_confirmation
-     * @param $confirm
-     * @param $sex
+     * @param  int  $sex
      * @return array
      */
     public function registration($name, $lastname, $number, $email, $email_confirmation, $password, $password_confirmation, int $sex): array
