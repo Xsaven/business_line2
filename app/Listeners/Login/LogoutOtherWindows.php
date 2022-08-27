@@ -19,7 +19,9 @@ class LogoutOtherWindows
     public function handle(Login $event)
     {
         if ($event->validated && \Auth::id()) {
-            Exec::dispatch(\Auth::id(), 'v-layout:logout');
+            if (false) {
+                Exec::dispatch(\Auth::id(), 'v-layout:logout');
+            }
         }
     }
 }

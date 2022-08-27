@@ -49,7 +49,9 @@ class TaskReportObserver
                 $this->notify_subscribers($taskReport);
             }
         } else {
-            Exec::dispatch($taskReport->user_id, "task-report-update-{$taskReport->id}");
+            if (fasle) {
+                Exec::dispatch($taskReport->user_id, "task-report-update-{$taskReport->id}");
+            }
         }
         AllAdminExec::dispatch(['questions:update']);
     }
@@ -107,7 +109,9 @@ class TaskReportObserver
                 $this->notify_subscribers($taskReport);
             }
         } else {
-            Exec::dispatch($taskReport->user_id, "task-report-update-{$taskReport->id}");
+            if (false) {
+                Exec::dispatch($taskReport->user_id, "task-report-update-{$taskReport->id}");
+            }
         }
         AllAdminExec::dispatch(['questions:update']);
     }

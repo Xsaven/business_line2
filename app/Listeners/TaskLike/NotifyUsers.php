@@ -20,10 +20,12 @@ class NotifyUsers
     public function handle(TaskLike $event)
     {
         if ($event->result() && $event->task_report) {
-            Exec::dispatch(\Auth::id(), [
-                //"task-report-update-{$event->task_report_id}" => [],
-                'update' => [],
-            ]);
+            if (false) {
+                Exec::dispatch(\Auth::id(), [
+                    //"task-report-update-{$event->task_report_id}" => [],
+                    'update' => [],
+                ]);
+            }
 
             $event->task_report->user->notify(
                 new UserLikeYouReportNotification(\Auth::user(), $event->task_report->task)

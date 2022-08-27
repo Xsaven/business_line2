@@ -19,7 +19,9 @@ class UpdateAuthUser
     public function handle(AddUserBalance $event)
     {
         if ($event->user) {
-            Exec::dispatch($event->user->id, 'update');
+            if (false) {
+                Exec::dispatch($event->user->id, 'update');
+            }
         }
     }
 }

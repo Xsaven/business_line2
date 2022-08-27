@@ -25,7 +25,9 @@ class NotifyUsers
                 "task-report-update-{$event->task_report_id}" => [],
             ]);
 
-            Exec::updateUser(\Auth::id());
+            if (false) {
+                Exec::updateUser(\Auth::id());
+            }
 
             $event->task_report->user->notify(
                 new UserStickerYouReportNotification(\Auth::user(), $event->task_report->task)
