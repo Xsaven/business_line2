@@ -28,8 +28,6 @@ class UploadVideoToVimeo implements ShouldQueue
                 config('services.vimeo.access_tocken'),
             );
 
-//            info(\Storage::disk('yandexcloud')->url($event->filename));
-
             $video_response = $lib->request(
                 '/me/videos',
                 [
@@ -40,6 +38,7 @@ class UploadVideoToVimeo implements ShouldQueue
                 ],
                 'POST'
             );
+
             if (isset($video_response['body']['uri'])) {
                 $code = explode('/', $video_response['body']['uri'])[2];
                 $report = TaskReport::whereFile($event->filename)->first();
